@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Databases
+*.db
+*.db-journal
+openbrain/openbrain.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local Config
+.seikoclaw.yaml
+task.md
+project_vision.md
+implementation_plan.md
