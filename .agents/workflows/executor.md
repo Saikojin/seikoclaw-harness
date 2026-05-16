@@ -28,16 +28,20 @@ To rapidly implement a technical task and automatically verify it without distra
    - Example Python `run_command`: `pytest test_file.py`
    - Example Node `run_command`: `npm test -- -t "component_name"`
 
-3. **Correction & Retry**
+3. **Correction & Retry (The Micro-Loop)**
    If the command fails:
    - Read the error log from the command output.
    - Formulate a fix, apply it.
    - Rerun the verification.
-   - **Self-correct up to a maximum of 3 times**. Do not ask the user for directions during these 3 attempts.
+   - **Self-correct up to a maximum of 3 times**. 
+   - **Context Check**: Use `python seikoclaw.py loop` logic to ensure we aren't exceeding the token budget during retries.
 
 4. **Conclusion & Capture**
    - If passes: 
      - Update `task.md` to `[x]`, commit changes.
+     - **Update Kanban**: `python seikoclaw.py kanban --task [ID] --status "Done"`
      - **Auto-Capture**: `python auto_capture.py` to save the session state and new skills to Openbrain.
      - Notify the user of victory.
-   - If fails 3 times: Stop and generate an "Error Report" outlining the final failure trace, alerting the user for manual review.
+   - If fails 3 times: 
+     - **Update Kanban**: `python seikoclaw.py kanban --task [ID] --status "Blocked"`
+     - Stop and generate an "Error Report" outlining the final failure trace, alerting the user for manual review.

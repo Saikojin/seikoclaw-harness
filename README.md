@@ -16,19 +16,39 @@ Most AI agents operate in a vacuum. SeikoClaw gives them:
 .
 ├── .agents/
 │   ├── skills/             # Modular capability definitions
-│   │   ├── architect/      # Task decomposition
-│   │   ├── executor/       # Implementation & Verification
-│   │   ├── interviewer/    # Discovery & Vision building
-│   │   ├── learnings/      # Memory & Skill capture
-│   │   ├── grill_with_docs/ # Technical debt analysis
-│   │   ├── modernize/      # Structural migrations
-│   │   └── status/         # Context monitoring
-│   └── workflows/          # Procedural guides (Architect, Executor, Interviewer, etc.)
+│   └── workflows/          # Procedural guides (Architect, Executor, etc.)
 ├── .master_wiki/           # The "Source of Truth" for project knowledge
 ├── openbrain/              # The Context Persistence Engine
 ├── scripts/                # Utility scripts (setup, status)
-├── templates/              # Standardized document templates (project_vision.md)
+├── templates/              # Standardized document templates
+├── seikoclaw.py            # Management CLI (Kanban, Looping, Reflection)
 └── .seikoclaw.yaml         # Global configuration
+```
+
+---
+
+## Core Capabilities
+
+### 1. Autonomous Looping
+SeikoClaw can run in an autonomous "Thinking" loop to complete complex goals. It monitors an iteration budget and context window size.
+```bash
+python seikoclaw.py loop --goal "Implement the user authentication logic" --turns 5
+```
+
+### 2. Kanban Task Management
+Manage project progress using a database-backed Kanban system that persists across AI sessions.
+```bash
+# List all tasks
+python seikoclaw.py kanban
+
+# Update a task status
+python seikoclaw.py kanban --task "AUTH-001" --status "Done"
+```
+
+### 3. Skill Evolution
+The agent automatically synthesizes new skills or evolves existing ones based on successful task trajectories.
+```bash
+python seikoclaw.py reflect --task task.md
 ```
 
 ---
