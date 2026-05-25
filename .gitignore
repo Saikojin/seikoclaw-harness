@@ -11,6 +11,7 @@ ENV/
 *.db
 *.db-journal
 openbrain/openbrain.db
+openbrain/chroma_db/
 
 # OS
 .DS_Store

@@ -9,7 +9,10 @@ from datetime import datetime
 # Add local paths
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from openbrain.engine import OpenbrainEngine
+import token_estimator
+from openbrain.vault import Vault
+from openbrain.usage_monitor import UsageMonitor
+from openbrain.memory_engine import MemoryEngine
 
 SKILL_SYNTHESIS_PROMPT = """
 Analyze task trajectory (actions taken, successes, failures).
@@ -41,6 +44,15 @@ TRAJECTORY:
 {trajectory}
 """
 
+# Fix for Windows terminal UTF-8 encoding issues
+if sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except AttributeError:
+        # Fallback for older python
+        import codecs
+        sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+
 class IterationBudget:
     def __init__(self, max_turns=5, max_tokens=100000, context_limit=1000000):
         self.max_turns = max_turns
@@ -68,7 +80,27 @@ class IterationBudget:
 class SeikoClaw:
     def __init__(self):
         db_path = "openbrain/openbrain.db"
-        self.engine = OpenbrainEngine(db_path)
+        chroma_path = "openbrain/chroma_db"
+        
+        self.vault = Vault(db_path)
+        self.usage = UsageMonitor(db_path)
+        self.memory = MemoryEngine(db_path, chroma_path)
+        
+        # Default limits
+        self.limits = {
+            "anthropic": {"tokens": 100000, "requests": 500},
+            "google": {"tokens": 200000, "requests": 1000}
+        }
+
+    def unlock_vault(self):
+        print("[SeikoClaw] Initializing Vault...")
+        password = os.getenv("SEIKOCLAW_MASTER_PASS")
+        if not password:
+            print("[WARNING] SEIKOCLAW_MASTER_PASS env var not set. Some features will be locked.")
+            return False
+        
+        self.vault.unlock(password)
+        return True
 
     def _git_run(self, cmd):
         result = subprocess.run(f"git {cmd}", shell=True, capture_output=True, text=True)
@@ -173,10 +205,37 @@ class SeikoClaw:
         return True
 
     def run_task(self, name, command, cwd=None):
-        """Executes a single command."""
+        """Executes a single command with usage oversight."""
+        provider = "google" # Default for most tools here
+        
+        # 1. Check limits before starting
+        limit_reached, msg = self.usage.check_limits(
+            provider, 
+            self.limits[provider]["tokens"], 
+            self.limits[provider]["requests"]
+        )
+        
+        if limit_reached:
+            print(f"[PAUSED] {name}: {msg}")
+            return f"SKIP: {msg}"
+
         print(f"[Executing] {name}: {command} (in {cwd or '.'})")
+        
+        # 2. Execute
         try:
             result = subprocess.run(command, shell=True, capture_output=True, text=True, cwd=cwd)
+            
+            # 3. Estimate actual token usage of the output
+            output_text = result.stdout + result.stderr
+            actual_tokens = token_estimator.estimate_tokens(output_text)
+            
+            # 4. Track usage
+            self.usage.track_usage(provider, tokens=actual_tokens, requests=1) 
+            
+            # 5. Safety Warning: If output is very large, alert for manual summarization
+            if actual_tokens > 10000:
+                print(f"[CRITICAL] {name} output is {actual_tokens} tokens! Consider summarizing before next task.")
+
             if result.returncode == 0:
                 return f"SUCCESS: {name}"
             else:
@@ -184,41 +243,83 @@ class SeikoClaw:
         except Exception as e:
             return f"ERROR: {name}\nException: {str(e)}"
 
-    def manage_kanban(self, action, task_id=None, status=None, project="default"):
-        if action == "list":
-            board = self.engine.get_kanban(project)
-            print(f"--- Kanban Board: {project} ---")
-            if not board:
-                print("No tasks found.")
-            for tid, info in board.items():
-                print(f"[{info['status']}] {tid} (Updated: {info['updated_at']})")
-        elif action == "update" and task_id and status:
-            self.engine.update_kanban(project, task_id, status)
-            print(f"[SUCCESS] Updated {task_id} to {status}")
-
-    def loop_until_goal(self, goal, max_turns=5):
-        budget = IterationBudget(max_turns=max_turns)
-        print(f"[SeikoClaw] Starting autonomous loop for goal: {goal}")
+    def execute_tablebuddy_tests(self):
+        """Orchestrates Tablebuddy Phase 11 testing."""
+        print("[SeikoClaw] Starting Tablebuddy Backend...")
+        # Start server in background
+        server = subprocess.Popen([sys.executable, "server.py"], cwd="d:/DevWorkspace/Tablebuddy")
+        import time
+        time.sleep(3) # Wait for startup
         
-        while not budget.is_exhausted():
-            print(f"\n--- Turn {budget.current_turns + 1} ---")
-            
-            # Simple context estimation (proxy)
-            current_context_tokens = 0 # In harness, we might need a separate estimator tool
-            
-            budget.consume(tokens=0, context_tokens=current_context_tokens)
-            print(f"[STATUS] {budget}")
-            
-            if "complete" in goal.lower():
-                print("[SUCCESS] Goal detected as complete.")
-                break
-                
-            print("[ACTION] Implementing next step...")
-            
-        if budget.is_exhausted():
-            print("[PAUSED] Iteration budget exhausted.")
+        try:
+            tasks = [
+                {"name": "Auth & Roles", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/auth_and_roles.feature"},
+                {"name": "Asset Management", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/asset_management.feature"},
+                {"name": "WebSocket Sync", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/websocket_sync.feature"},
+                {"name": "Network Validation", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/network_validation.feature"}
+            ]
+            self.execute_parallel(tasks, cwd="d:/DevWorkspace/Tablebuddy/karate_e2e_tests")
+        finally:
+            print("[SeikoClaw] Shutting down Tablebuddy Backend...")
+            server.terminate()
+
+    def execute_parallel(self, tasks, cwd=None):
+        """Runs multiple tasks in parallel using a thread pool."""
+        print(f"[SeikoClaw] Launching {len(tasks)} tasks in parallel...")
+        
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            fut_to_task = {executor.submit(self.run_task, t['name'], t['command'], cwd): t for t in tasks}
+            for future in concurrent.futures.as_completed(fut_to_task):
+                res = future.result()
+                print(f"[Completed] {res}")
+
+    def sync_global(self):
+        """Syncs local .agents and third-party skills to global locations."""
+        import shutil
+        user_home = os.path.expanduser("~")
+        global_root = os.path.join(user_home, ".gemini", "antigravity")
+        
+        mapping = {
+            ".agents/workflows": os.path.join(global_root, "global_workflows"),
+            ".agents/skills": os.path.join(global_root, "global_skills"),
+            ".agents/modular_skills": os.path.join(global_root, "skills")
+        }
+        
+        print("[SeikoClaw] Starting Global Sync...")
+        # 1. Sync custom assets
+        for local_dir, global_dir in mapping.items():
+            if not os.path.exists(local_dir):
+                continue
+            os.makedirs(global_dir, exist_ok=True)
+            for item in os.listdir(local_dir):
+                s = os.path.join(local_dir, item)
+                d = os.path.join(global_dir, item)
+                if os.path.isdir(s):
+                    if os.path.exists(d):
+                        shutil.rmtree(d)
+                    shutil.copytree(s, d)
+                    print(f"[COPIED-DIR] {item} -> {global_dir}")
+                elif os.path.isfile(s):
+                    shutil.copy2(s, d)
+                    print(f"[COPIED-FILE] {item} -> {global_dir}")
+        
+        # 2. Sync Third-Party Agent Skills (Preserving directory structure)
+        tp_skills_root = "third-party/agent-skills/skills"
+        global_skills_dest = os.path.join(global_root, "skills", "third-party")
+        if os.path.exists(tp_skills_root):
+            print("[SeikoClaw] Syncing Third-Party Skills (Modular)...")
+            os.makedirs(global_skills_dest, exist_ok=True)
+            for skill_name in os.listdir(tp_skills_root):
+                skill_dir = os.path.join(tp_skills_root, skill_name)
+                if os.path.isdir(skill_dir):
+                    dest_dir = os.path.join(global_skills_dest, skill_name)
+                    if os.path.exists(dest_dir):
+                        shutil.rmtree(dest_dir)
+                    shutil.copytree(skill_dir, dest_dir)
+                    print(f"[SYNCED-DIR] {skill_name} -> {global_skills_dest}")
 
     def reflect_on_task(self, task_file: str):
+        """Analyzes a task file and synthesizes or evolves a skill."""
         if not os.path.exists(task_file):
             return "Error: Task file not found."
 
@@ -228,13 +329,154 @@ class SeikoClaw:
         if "[x]" not in content:
             return "No completed tasks found to reflect upon."
 
-        print(f"[SeikoClaw] Reflecting on completed tasks...")
-        # Note: This requires an LLM backend which is typically provided by the assistant
-        print("[INFO] Skill synthesis requires LLM intervention. See workflows.")
+        print(f"[SeikoClaw] Reflecting on completed tasks in {os.path.basename(task_file)}...")
+        
+        # 1. Synthesis via LocalMind
+        try:
+            from localmind.engine import LocalMindEngine
+            model_dir = "d:/DevWorkspace/BookIngestion/models"
+            llm = LocalMindEngine(backend="auto", model_dir=model_dir)
+            
+            import re
+            skill_name_candidate = None
+            match = re.search(r"Skill:\s*(.*)", content)
+            if match:
+                skill_name_candidate = match.group(1).strip()
+            
+            previous_skill_text = "None"
+            if skill_name_candidate:
+                prev = self.memory.get_skill(skill_name_candidate)
+                if prev:
+                    previous_skill_text = str(prev)
+            
+            prompt = SKILL_SYNTHESIS_PROMPT.format(trajectory=content, previous_skill=previous_skill_text)
+            skill_text = llm.generate(prompt, max_tokens=1024)
+            
+            if skill_text and "[Mock Response]" not in skill_text:
+                # 2. Extract Skill Name and metadata
+                name_match = re.search(r"name:\s*(.*)", skill_text)
+                skill_name = name_match.group(1).strip() if name_match else "New Skill"
+                
+                desc_match = re.search(r"description:\s*(.*)", skill_text) # if we added it to YAML
+                desc = desc_match.group(1).strip() if desc_match else "Auto-learned skill"
+                
+                # 3. Save to Openbrain (Both Memory and Dedicated Table)
+                self.memory.save_memory(
+                    text=skill_text,
+                    tier="Longterm",
+                    source="SeikoClaw-Reflection",
+                    tags=f"skill,auto-learned,{skill_name}"
+                )
+                self.memory.save_skill(name=skill_name, description=desc, example=skill_text)
+                
+                print(f"[SUCCESS] { 'Evolved' if previous_skill_text != 'None' else 'Synthesized' } skill: {skill_name}")
+                return skill_name
+        except Exception as e:
+            print(f"[ERROR] Skill reflection failed: {e}")
+            return None
+
+    def sync_wiki(self, message="Auto-sync from SeikoClaw"):
+        """Syncs the current project state into the Master Wiki."""
+        print("[SeikoClaw] Syncing state to Master Wiki...")
+        wiki_dir = "d:/DevWorkspace/.master_wiki"
+        if not os.path.exists(wiki_dir):
+            print(f"[ERROR] Master Wiki not found at {wiki_dir}")
+            return
+            
+        # 1. Read task.md for progress
+        progress = "No recent task info found."
+        task_paths = ["task.md", "artifact/task.md"]
+        for p in task_paths:
+            if os.path.exists(p):
+                with open(p, "r", encoding="utf-8") as f:
+                    progress = f.read()
+                break
+                
+        # 2. Prepare payload for llmwiki-cli
+        page_data = {
+            "title": "Latest Task Sync",
+            "tags": ["auto-sync", "seikoclaw"],
+            "content": f"## Recent Progress\n\n```markdown\n{progress[:2000]}\n```"
+        }
+        json_input = json.dumps(page_data)
+        
+        # 3. Write to wiki using CLI
+        print("[SeikoClaw] Writing to wiki via llmwiki-cli...")
+        try:
+            proc = subprocess.Popen(["wiki", "write", "wiki/synthesis/latest_sync.md"], 
+                                   cwd=wiki_dir, stdin=subprocess.PIPE, 
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
+            out, err = proc.communicate(input=json_input)
+            if proc.returncode != 0:
+                print(f"[WARNING] Wiki write failed: {err}")
+                
+            # 4. Auto-commit with descriptive message for rollback
+            subprocess.run(["git", "add", "."], cwd=wiki_dir, shell=True)
+            subprocess.run(["git", "commit", "-m", f"Auto-sync: {message}"], cwd=wiki_dir, shell=True)
+            print("[SUCCESS] Master Wiki updated and committed.")
+        except Exception as e:
+            print(f"[ERROR] Failed to sync wiki: {e}")
+
+    def manage_kanban(self, action, task_id=None, status=None, project="default"):
+        """CLI helper for Kanban operations."""
+        if action == "list":
+            board = self.memory.get_kanban(project)
+            print(f"--- Kanban Board: {project} ---")
+            if not board:
+                print("No tasks found.")
+            for tid, info in board.items():
+                print(f"[{info['status']}] {tid} (Updated: {info['updated_at']})")
+        elif action == "update" and task_id and status:
+            self.memory.update_kanban(project, task_id, status)
+            print(f"[SUCCESS] Updated {task_id} to {status}")
+
+    def loop_until_goal(self, goal, max_turns=5):
+        """Autonomous loop that continues until a goal is met or budget is exhausted."""
+        budget = IterationBudget(max_turns=max_turns)
+        print(f"[SeikoClaw] Starting autonomous loop for goal: {goal}")
+        
+        while not budget.is_exhausted():
+            print(f"\n--- Turn {budget.current_turns + 1} ---")
+            
+            # 1. Estimate current context
+            # We estimate by summing up Shortterm memories + recent task info
+            memories = self.memory.retrieve_similar(goal, n_results=20)
+            context_text = "\n".join([m['content'] for m in memories])
+            current_context_tokens = token_estimator.estimate_tokens(context_text)
+            
+            budget.consume(tokens=0, context_tokens=current_context_tokens)
+            print(f"[STATUS] {budget}")
+            
+            # 2. Check for early break / handoff
+            if current_context_tokens >= (budget.context_limit * 0.9):
+                print(f"[CRITICAL] Context limit reached ({current_context_tokens} tokens).")
+                print("[ACTION] Performing auto-handoff...")
+                handoff_path = "handoff.md"
+                with open(handoff_path, "w", encoding="utf-8") as f:
+                    f.write(f"# Handoff: {goal}\n\nLoop paused due to context pressure.\n")
+                    f.write(f"Tokens: {current_context_tokens}\n")
+                    f.write(f"Last Action: Loop Turn {budget.current_turns}\n")
+                print(f"[ALERT] Handoff created at {handoff_path}. Please start a new session.")
+                break
+
+            # 3. Check goal (mock check)
+            if "complete" in goal.lower():
+                print("[SUCCESS] Goal detected as complete.")
+                break
+                
+            # 4. Memory Compression (Maintenance)
+            if self.memory.context_engine.compress_shortterm(threshold=5):
+                print("[MAINTENANCE] Compressed recent short-term memories into Midterm.")
+
+            # 5. Simulate a task implementation step
+            print("[ACTION] Implementing next step...")
+            
+        if budget.is_exhausted() and current_context_tokens < (budget.context_limit * 0.9):
+            print("[PAUSED] Iteration budget exhausted.")
 
 def main():
     parser = argparse.ArgumentParser(description="SeikoClaw Harness CLI")
-    parser.add_argument("action", choices=["execute", "kanban", "loop", "reflect"])
+    parser.add_argument("action", choices=["plan", "execute", "usage", "doctor", "sync-global", "memory", "reflect", "wiki-sync", "kanban", "loop"])
     parser.add_argument("--task", type=str)
     parser.add_argument("--status", type=str)
     parser.add_argument("--goal", type=str)
@@ -242,11 +484,16 @@ def main():
     parser.add_argument("--command", type=str, help="Command to run when executing a task")
     parser.add_argument("--verify", type=str, help="Verification command to run after executing a task")
     parser.add_argument("--sandbox", action="store_true", help="Enable git-backed sandboxing for execution")
+    parser.add_argument("--query", type=str, help="Search query for memory")
     
     args = parser.parse_args()
     claw = SeikoClaw()
 
-    if args.action == "kanban":
+    if args.action == "sync-global":
+        claw.sync_global()
+    elif args.action == "wiki-sync":
+        claw.sync_wiki()
+    elif args.action == "kanban":
         if args.task and args.status:
             claw.manage_kanban("update", task_id=args.task, status=args.status)
         else:
@@ -256,56 +503,118 @@ def main():
             claw.loop_until_goal(args.goal, max_turns=args.turns)
         else:
             print("Error: --goal is required.")
+    elif args.action == "memory":
+        if args.query:
+            print(f"--- Searching memories for: '{args.query}' ---")
+            results = claw.memory.retrieve_similar(args.query)
+            if not results:
+                print("No matches found.")
+            for r in results:
+                print(f"[{r['metadata']['tier']}] {r['metadata']['source']}:")
+                print(f"{r['content'][:500]}...") # Show snippet
+                print("-" * 20)
+        else:
+            print("Error: --query is required for memory search.")
+    elif args.action == "reflect":
+        if args.task:
+            claw.reflect_on_task(args.task)
+        else:
+            print("Error: --task is required for reflection.")
+    elif args.action == "usage":
+        print("--- Today's Usage ---")
+        for p in ["anthropic", "google"]:
+            u = claw.usage.get_todays_usage(p)
+            print(f"{p.upper()}: {u['tokens']} tokens, {u['requests']} requests")
+    elif args.action == "doctor":
+        print("[Doctor] Checking Openbrain...")
+        db_path = "openbrain/openbrain.db"
+        if os.path.exists(db_path):
+            print("[OK] database found.")
+        else:
+            print("[FAIL] database missing.")
     elif args.action == "execute":
-        if not args.task:
-            print("Error: --task is required.")
-            sys.exit(1)
-        if not args.command:
-            print("Error: --command is required.")
-            sys.exit(1)
-
-        print(f"Executing task: {args.task}")
-        
-        original_branch = None
-        stashed = False
-        sandbox_active = False
-
-        if args.sandbox:
-            sandbox_active, original_branch, stashed = claw.start_sandbox(args.task)
-            if not sandbox_active:
-                print("[ERROR] Failed to initialize sandbox. Aborting task execution.")
+        if args.command:
+            if not args.task:
+                print("Error: --task is required when --command is provided.")
                 sys.exit(1)
+            print(f"Executing task: {args.task}")
+            
+            original_branch = None
+            stashed = False
+            sandbox_active = False
 
-        # Run command
-        print(f"[EXECUTE] Running command: {args.command}")
-        exec_res = subprocess.run(args.command, shell=True, capture_output=True, text=True)
-        print(exec_res.stdout)
-        if exec_res.returncode != 0:
-            print(f"[EXECUTE ERROR] Command failed with return code {exec_res.returncode}")
-            print(exec_res.stderr)
-            if sandbox_active:
-                claw.discard_sandbox(args.task, original_branch, stashed)
-            sys.exit(1)
+            if args.sandbox:
+                sandbox_active, original_branch, stashed = claw.start_sandbox(args.task)
+                if not sandbox_active:
+                    print("[ERROR] Failed to initialize sandbox. Aborting task execution.")
+                    sys.exit(1)
 
-        # Run verification if provided
-        if args.verify:
-            print(f"[VERIFY] Running verification: {args.verify}")
-            verify_res = subprocess.run(args.verify, shell=True, capture_output=True, text=True)
-            print(verify_res.stdout)
-            if verify_res.returncode != 0:
-                print(f"[VERIFY FAILURE] Verification failed with return code {verify_res.returncode}")
-                print(verify_res.stderr)
+            # Check limits before executing
+            provider = "google"
+            limit_reached, msg = claw.usage.check_limits(
+                provider, 
+                claw.limits[provider]["tokens"], 
+                claw.limits[provider]["requests"]
+            )
+            if limit_reached:
+                print(f"[PAUSED] {args.task}: {msg}")
                 if sandbox_active:
                     claw.discard_sandbox(args.task, original_branch, stashed)
                 sys.exit(1)
-            else:
-                print("[VERIFY SUCCESS] Verification passed.")
 
-        # If we got here, everything succeeded
-        if sandbox_active:
-            claw.commit_and_merge_sandbox(args.task, original_branch, stashed)
+            # Run command
+            print(f"[EXECUTE] Running command: {args.command}")
+            exec_res = subprocess.run(args.command, shell=True, capture_output=True, text=True)
+            print(exec_res.stdout)
             
-        print("[SUCCESS] Task execution completed successfully.")
+            # Track command token usage
+            output_text = exec_res.stdout + exec_res.stderr
+            actual_tokens = token_estimator.estimate_tokens(output_text)
+            claw.usage.track_usage(provider, tokens=actual_tokens, requests=1)
+            
+            if actual_tokens > 10000:
+                print(f"[CRITICAL] Command output is {actual_tokens} tokens! Consider summarizing before next task.")
+
+            if exec_res.returncode != 0:
+                print(f"[EXECUTE ERROR] Command failed with return code {exec_res.returncode}")
+                print(exec_res.stderr)
+                if sandbox_active:
+                    claw.discard_sandbox(args.task, original_branch, stashed)
+                sys.exit(1)
+
+            # Run verification if provided
+            if args.verify:
+                print(f"[VERIFY] Running verification: {args.verify}")
+                verify_res = subprocess.run(args.verify, shell=True, capture_output=True, text=True)
+                print(verify_res.stdout)
+                
+                # Track verify token usage
+                verify_tokens = token_estimator.estimate_tokens(verify_res.stdout + verify_res.stderr)
+                claw.usage.track_usage(provider, tokens=verify_tokens, requests=1)
+                
+                if verify_res.returncode != 0:
+                    print(f"[VERIFY FAILURE] Verification failed with return code {verify_res.returncode}")
+                    print(verify_res.stderr)
+                    if sandbox_active:
+                        claw.discard_sandbox(args.task, original_branch, stashed)
+                    sys.exit(1)
+                else:
+                    print("[VERIFY SUCCESS] Verification passed.")
+
+            # If we got here, everything succeeded
+            if sandbox_active:
+                claw.commit_and_merge_sandbox(args.task, original_branch, stashed)
+                
+            print("[SUCCESS] Task execution completed successfully.")
+        elif args.task == "tablebuddy":
+            claw.execute_tablebuddy_tests()
+        else:
+            # Generic parallel test execution
+            tasks = [
+                {"name": "Test Suite A", "command": "pytest --version"},
+                {"name": "Check Imports", "command": "python -c 'import openbrain'"}
+            ]
+            claw.execute_parallel(tasks)
 
 if __name__ == "__main__":
     main()
