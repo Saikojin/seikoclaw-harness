@@ -70,6 +70,108 @@ class SeikoClaw:
         db_path = "openbrain/openbrain.db"
         self.engine = OpenbrainEngine(db_path)
 
+    def _git_run(self, cmd):
+        result = subprocess.run(f"git {cmd}", shell=True, capture_output=True, text=True)
+        return result.returncode, result.stdout.strip(), result.stderr.strip()
+
+    def _is_git_repo(self):
+        rc, _, _ = self._git_run("rev-parse --is-inside-work-tree")
+        return rc == 0
+
+    def _get_current_branch(self):
+        rc, out, _ = self._git_run("rev-parse --abbrev-ref HEAD")
+        if rc == 0:
+            return out
+        return None
+
+    def _is_git_dirty(self):
+        rc, out, _ = self._git_run("status --porcelain")
+        return rc == 0 and bool(out)
+
+    def start_sandbox(self, task_id):
+        if not self._is_git_repo():
+            print("[SANDBOX WARNING] Not a Git repository. Running without sandbox.")
+            return False, None, False
+
+        original_branch = self._get_current_branch()
+        if not original_branch:
+            print("[SANDBOX ERROR] Could not determine current Git branch.")
+            return False, None, False
+
+        dirty = self._is_git_dirty()
+        stashed = False
+        if dirty:
+            print(f"[SANDBOX] Working tree is dirty. Stashing changes...")
+            rc, _, err = self._git_run("stash push -m \"seikoclaw-pre-sandbox-stash\"")
+            if rc != 0:
+                print(f"[SANDBOX ERROR] Failed to stash changes: {err}")
+                return False, None, False
+            stashed = True
+
+        sandbox_branch = f"seikoclaw-sandbox-{task_id}"
+        print(f"[SANDBOX] Creating and checking out sandbox branch: {sandbox_branch}")
+        
+        rc, _, err = self._git_run(f"checkout -b {sandbox_branch}")
+        if rc != 0:
+            print(f"[SANDBOX ERROR] Failed to create sandbox branch: {err}")
+            if stashed:
+                print("[SANDBOX] Restoring stashed changes...")
+                self._git_run("stash pop")
+            return False, None, False
+
+        return True, original_branch, stashed
+
+    def commit_and_merge_sandbox(self, task_id, original_branch, stashed):
+        sandbox_branch = f"seikoclaw-sandbox-{task_id}"
+        print(f"[SANDBOX] Committing changes on {sandbox_branch}...")
+        self._git_run("add -A")
+        rc, _, err = self._git_run(f"commit -m \"seikoclaw: completed task {task_id}\"")
+        if rc != 0:
+            print(f"[SANDBOX WARNING] Failed to commit changes (possibly no changes made): {err}")
+
+        print(f"[SANDBOX] Returning to original branch: {original_branch}")
+        rc, _, err = self._git_run(f"checkout {original_branch}")
+        if rc != 0:
+            print(f"[SANDBOX ERROR] Failed to return to original branch: {err}")
+            return False
+
+        print(f"[SANDBOX] Merging sandbox branch {sandbox_branch}...")
+        rc, _, err = self._git_run(f"merge --no-ff -m \"Merge branch '{sandbox_branch}'\" {sandbox_branch}")
+        if rc != 0:
+            print(f"[SANDBOX ERROR] Merge failed: {err}")
+            return False
+
+        print(f"[SANDBOX] Deleting sandbox branch {sandbox_branch}...")
+        self._git_run(f"branch -d {sandbox_branch}")
+
+        if stashed:
+            print("[SANDBOX] Restoring stashed changes...")
+            self._git_run("stash pop")
+
+        return True
+
+    def discard_sandbox(self, task_id, original_branch, stashed):
+        sandbox_branch = f"seikoclaw-sandbox-{task_id}"
+        print(f"[SANDBOX] Discarding sandbox changes on {sandbox_branch}...")
+        
+        self._git_run("reset --hard")
+        self._git_run("clean -fd")
+
+        print(f"[SANDBOX] Returning to original branch: {original_branch}")
+        rc, _, err = self._git_run(f"checkout {original_branch}")
+        if rc != 0:
+            print(f"[SANDBOX ERROR] Failed to return to original branch: {err}")
+            return False
+
+        print(f"[SANDBOX] Deleting sandbox branch {sandbox_branch}...")
+        self._git_run(f"branch -D {sandbox_branch}")
+
+        if stashed:
+            print("[SANDBOX] Restoring stashed changes...")
+            self._git_run("stash pop")
+
+        return True
+
     def run_task(self, name, command, cwd=None):
         """Executes a single command."""
         print(f"[Executing] {name}: {command} (in {cwd or '.'})")
@@ -137,6 +239,9 @@ def main():
     parser.add_argument("--status", type=str)
     parser.add_argument("--goal", type=str)
     parser.add_argument("--turns", type=int, default=5)
+    parser.add_argument("--command", type=str, help="Command to run when executing a task")
+    parser.add_argument("--verify", type=str, help="Verification command to run after executing a task")
+    parser.add_argument("--sandbox", action="store_true", help="Enable git-backed sandboxing for execution")
     
     args = parser.parse_args()
     claw = SeikoClaw()
@@ -152,8 +257,55 @@ def main():
         else:
             print("Error: --goal is required.")
     elif args.action == "execute":
-        print("Executing task...")
-        # logic for task execution
+        if not args.task:
+            print("Error: --task is required.")
+            sys.exit(1)
+        if not args.command:
+            print("Error: --command is required.")
+            sys.exit(1)
+
+        print(f"Executing task: {args.task}")
+        
+        original_branch = None
+        stashed = False
+        sandbox_active = False
+
+        if args.sandbox:
+            sandbox_active, original_branch, stashed = claw.start_sandbox(args.task)
+            if not sandbox_active:
+                print("[ERROR] Failed to initialize sandbox. Aborting task execution.")
+                sys.exit(1)
+
+        # Run command
+        print(f"[EXECUTE] Running command: {args.command}")
+        exec_res = subprocess.run(args.command, shell=True, capture_output=True, text=True)
+        print(exec_res.stdout)
+        if exec_res.returncode != 0:
+            print(f"[EXECUTE ERROR] Command failed with return code {exec_res.returncode}")
+            print(exec_res.stderr)
+            if sandbox_active:
+                claw.discard_sandbox(args.task, original_branch, stashed)
+            sys.exit(1)
+
+        # Run verification if provided
+        if args.verify:
+            print(f"[VERIFY] Running verification: {args.verify}")
+            verify_res = subprocess.run(args.verify, shell=True, capture_output=True, text=True)
+            print(verify_res.stdout)
+            if verify_res.returncode != 0:
+                print(f"[VERIFY FAILURE] Verification failed with return code {verify_res.returncode}")
+                print(verify_res.stderr)
+                if sandbox_active:
+                    claw.discard_sandbox(args.task, original_branch, stashed)
+                sys.exit(1)
+            else:
+                print("[VERIFY SUCCESS] Verification passed.")
+
+        # If we got here, everything succeeded
+        if sandbox_active:
+            claw.commit_and_merge_sandbox(args.task, original_branch, stashed)
+            
+        print("[SUCCESS] Task execution completed successfully.")
 
 if __name__ == "__main__":
     main()
