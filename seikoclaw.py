@@ -79,9 +79,18 @@ class IterationBudget:
 
 class SeikoClaw:
     def __init__(self):
-        db_path = "openbrain/openbrain.db"
-        chroma_path = "openbrain/chroma_db"
-        
+        cwd_openbrain = os.path.join(os.getcwd(), "openbrain")
+        if os.path.isdir(cwd_openbrain):
+            db_path = os.path.join(cwd_openbrain, "openbrain.db")
+            chroma_path = os.path.join(cwd_openbrain, "chroma_db")
+        else:
+            global_dir = os.path.join(os.path.expanduser("~"), ".gemini", "antigravity", "openbrain")
+            os.makedirs(global_dir, exist_ok=True)
+            db_path = os.path.join(global_dir, "openbrain.db")
+            chroma_path = os.path.join(global_dir, "chroma_db")
+            
+        self.sqlite_path = db_path
+        self.chroma_path = chroma_path
         self.vault = Vault(db_path)
         self.usage = UsageMonitor(db_path)
         self.memory = MemoryEngine(db_path, chroma_path)
@@ -527,7 +536,8 @@ def main():
             print(f"{p.upper()}: {u['tokens']} tokens, {u['requests']} requests")
     elif args.action == "doctor":
         print("[Doctor] Checking Openbrain...")
-        db_path = "openbrain/openbrain.db"
+        db_path = claw.sqlite_path
+        print(f"Database path: {db_path}")
         if os.path.exists(db_path):
             print("[OK] database found.")
         else:
