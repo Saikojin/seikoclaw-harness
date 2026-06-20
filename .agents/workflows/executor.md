@@ -40,7 +40,8 @@ To rapidly implement a technical task and automatically verify it without distra
    - If passes: 
      - Update `task.md` to `[x]`, commit changes.
      - **Update Kanban**: `python seikoclaw.py kanban --task [ID] --status "Done"`
-     - **Auto-Capture**: `python auto_capture.py` to save the session state and new skills to Openbrain.
+     - **Auto-Capture & Visual Recap**: Run `python auto_capture.py` to save session state/new skills to Openbrain and automatically generate a visual recap (`python seikoclaw.py recap`).
+     - Display the local bridge URL for the visual recap to the user for final review.
      - Notify the user of victory.
    - If fails 3 times: 
      - **Update Kanban**: `python seikoclaw.py kanban --task [ID] --status "Blocked"`

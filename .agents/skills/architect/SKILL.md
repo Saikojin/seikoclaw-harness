@@ -12,7 +12,15 @@ To decompose a high-level goal into independent, verifiable sub-tasks, establish
 1. **Discovery**: Use `list_dir`, `grep_search`, and `view_file` to understand the project state.
 2. **Consult Knowledge**: Check Knowledge Items (KIs) in `.master_wiki` or the Openbrain memory.
 3. **Decomposition**: Break the goal into discrete execution blocks (1-2 edits + 1 verification run).
-4. **Plan Generation**: Write the task list to `task.md`.
+4. **Plan Generation (Evidence Contracts)**: Write the task list to `task.md` using the **Evidence Contract** pattern.
+   Instead of just generating a checklist, define exact "Evidence Requirements" for each task. The Executor must append test outputs, screenshots, or benchmark metrics next to the task to prove completion before marking it done.
+   Use the standard format:
+   ```markdown
+   - `[ ]` Objective 1
+     - `[ ]` Task A (Target specific file)
+       - Evidence Required: [e.g., successful pytest log snippet, screenshot of UI change]
+     - `[ ]` Test A (Target specific test command)
+   ```
 
 ## Checklists
 - [ ] Requirements are fully understood.
