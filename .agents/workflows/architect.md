@@ -27,15 +27,12 @@ To decompose a high-level goal into independent, verifiable sub-tasks, establish
    - Rule: If the planned response (report + task list + code previews) is likely to exceed ~32,000 tokens, pause and ask the user to proceed with the first half.
    - Action: `python d:\DevWorkspace\SeikoClaw\token_estimator.py "[draft content snippet]"`
 
-4. **Generate `task.md`**
-   If we are working in Planning Mode, write the blocks to `<appDataDir>\brain\<conversation-id>/task.md`.
-   Use the standard format:
-   ```markdown
-   - `[ ]` Objective 1
-     - `[ ]` Task A (Target specific file)
-     - `[ ]` Test A (Target specific test command)
-   ```
+4. **Generate and Serve Visual Plan**
+   - If we are working in Planning Mode, write the blocks to `<appDataDir>\brain\<conversation-id>/task.md`.
+   - Run the visual plan subcommand: `python seikoclaw.py plan --task task.md`
+   - This parses `task.md` and generates a structured visual plan in `.agents/plans/plan/plan.mdx`, then starts the local bridge server using `npx @agent-native/core`.
+   - Review the served bridge URL to verify syntax and wireframe layouts.
 
 5. **Yield or Pass to Executor**
-   Once the task blueprint is set, alert the user the Architect phase is done, or immediately transition to the `executor.md` workflow for the first uncompleted task. 
-   *Note: If the transition itself will push the response over the token limit, stop after generating task.md.*
+   Once the visual plan is served and approved by the user, transition to the `executor.md` workflow for the first uncompleted task. 
+   *Note: If the transition itself will push the response over the token limit, stop after generating task.md and serving the plan.*

@@ -483,9 +483,199 @@ class SeikoClaw:
         if budget.is_exhausted() and current_context_tokens < (budget.context_limit * 0.9):
             print("[PAUSED] Iteration budget exhausted.")
 
+    def generate_visual_plan(self, task_file="task.md"):
+        """Generates a visual plan from a task file or master vision and serves the local bridge."""
+        import re
+        import json
+        print(f"[SeikoClaw] Generating Visual Plan from {task_file}...")
+        
+        # 1. Resolve content
+        content = ""
+        if os.path.exists(task_file):
+            with open(task_file, "r", encoding="utf-8") as f:
+                content = f.read()
+        else:
+            # Fallback to project_vision.md
+            vision_path = "project_vision.md"
+            if os.path.exists(vision_path):
+                with open(vision_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+            else:
+                content = "No task file found."
+
+        # 2. Setup directory
+        plan_dir = os.path.join(".agents", "plans", "plan")
+        os.makedirs(plan_dir, exist_ok=True)
+        
+        # 3. Write plan.mdx
+        mdx_content = f"""---
+title: "SeikoClaw Visual Plan"
+brief: "Visual plan generated for task planning"
+localOnly: true
+---
+
+# SeikoClaw Task Plan
+
+## Task Description
+{content}
+
+<Checklist id="seikoclaw-checklist" items={[
+"""
+        # Convert checklist lines
+        item_id = 1
+        for line in content.splitlines():
+            # Match task checklist item
+            m = re.match(r"^\s*-\s*\[\s*\]\s*(.*)", line)
+            if m:
+                label = m.group(1).replace('"', '\\"').strip()
+                mdx_content += f'  {{ id: "task-{item_id}", label: "{label}" }},\n'
+                item_id += 1
+        
+        mdx_content += """]} />
+"""
+        
+        plan_mdx_path = os.path.join(plan_dir, "plan.mdx")
+        with open(plan_mdx_path, "w", encoding="utf-8") as f:
+            f.write(mdx_content)
+        
+        # 4. Serve the bridge
+        npm_global_bin = "D:/DevWorkspace/.npm-global/agent-native.cmd"
+        cmd_prefix = npm_global_bin if os.path.exists(npm_global_bin) else "npx @agent-native/core"
+
+        print("[SeikoClaw] Checking visual plan syntax...")
+        subprocess.run(f"{cmd_prefix} plan local check --dir .agents/plans/plan", shell=True)
+        
+        print("[SeikoClaw] Serving visual plan on local bridge...")
+        # Start server in background so CLI execution doesn't block permanently
+        subprocess.Popen(f"{cmd_prefix} plan local serve --dir .agents/plans/plan --kind plan --open", shell=True)
+        
+        # Read the URL
+        url_file = os.path.join(plan_dir, ".plan-url")
+        import time
+        time.sleep(2)
+        if os.path.exists(url_file):
+            with open(url_file, "r", encoding="utf-8") as f:
+                url = f.read().strip()
+            print(f"[SUCCESS] Visual Plan served successfully!\nLocal Bridge URL: {url}")
+        else:
+            print("[INFO] Bridge starting. Open the local bridge URL from console logs.")
+
+    def generate_visual_recap(self, task_id="current-task"):
+        """Generates a visual recap from git diff and serves the local bridge."""
+        import json
+        print(f"[SeikoClaw] Generating Visual Recap for task: {task_id}...")
+        
+        # 1. Gather diff files
+        rc, diff_stat, _ = self._git_run("diff --name-status HEAD")
+        if rc != 0 or not diff_stat:
+            # Try last commit if working tree is clean
+            rc, diff_stat, _ = self._git_run("diff-tree --no-commit-id --name-status -r HEAD")
+            is_last_commit = True
+        else:
+            is_last_commit = False
+
+        if not diff_stat:
+            print("[SeikoClaw] No git changes detected. Skipping recap.")
+            return None
+
+        recap_dir = os.path.join(".agents", "plans", "recap")
+        os.makedirs(recap_dir, exist_ok=True)
+        
+        file_items = []
+        diff_blocks = ""
+        diff_id = 1
+        
+        for line in diff_stat.splitlines():
+            parts = line.split()
+            if len(parts) >= 2:
+                status, filepath = parts[0], parts[1]
+                change_type = "modified"
+                if "A" in status:
+                    change_type = "added"
+                elif "D" in status:
+                    change_type = "removed"
+                
+                # Normalize filepath for forward slashes
+                filepath_normalized = filepath.replace("\\", "/")
+                file_items.append({"path": filepath_normalized, "change": change_type})
+                
+                # Fetch before/after content for Diff blocks
+                before_content = ""
+                after_content = ""
+                
+                # If file exists, read it
+                if os.path.exists(filepath):
+                    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                        after_content = f.read()
+                        
+                # Git show previous content
+                git_ref = "HEAD" if not is_last_commit else "HEAD~1"
+                rc_show, show_out, _ = self._git_run(f"show {git_ref}:{filepath}")
+                if rc_show == 0:
+                    before_content = show_out
+                
+                # Format code/diff blocks (escaping for MDX syntax)
+                before_escaped = before_content.replace("`", "\\`").replace("$", "\\$")
+                after_escaped = after_content.replace("`", "\\`").replace("$", "\\$")
+                
+                diff_blocks += f"""
+<Diff 
+  id="diff-{diff_id}" 
+  filename="{filepath_normalized}" 
+  language="{filepath_normalized.split('.')[-1] if '.' in filepath_normalized else 'text'}" 
+  before={{{json.dumps(before_escaped)}}}
+  after={{{json.dumps(after_escaped)}}}
+  summary="Code changes in {filepath_normalized}" 
+/>
+"""
+                diff_id += 1
+
+        file_tree_json = json.dumps(file_items)
+        
+        mdx_content = f"""---
+title: "SeikoClaw Task Recap"
+brief: "Visual recap generated on completion of {task_id}"
+localOnly: true
+kind: recap
+---
+
+# SeikoClaw Task Recap
+
+## Changed Files
+<FileTree items={file_tree_json} />
+
+## Code Walkthrough
+{diff_blocks}
+"""
+        
+        recap_mdx_path = os.path.join(recap_dir, "plan.mdx")
+        with open(recap_mdx_path, "w", encoding="utf-8") as f:
+            f.write(mdx_content)
+            
+        npm_global_bin = "D:/DevWorkspace/.npm-global/agent-native.cmd"
+        cmd_prefix = npm_global_bin if os.path.exists(npm_global_bin) else "npx @agent-native/core"
+
+        print("[SeikoClaw] Checking visual recap syntax...")
+        subprocess.run(f"{cmd_prefix} plan local check --dir .agents/plans/recap", shell=True)
+        
+        print("[SeikoClaw] Serving visual recap on local bridge...")
+        subprocess.Popen(f"{cmd_prefix} plan local serve --dir .agents/plans/recap --kind recap --open", shell=True)
+        
+        url_file = os.path.join(recap_dir, ".plan-url")
+        import time
+        time.sleep(2)
+        if os.path.exists(url_file):
+            with open(url_file, "r", encoding="utf-8") as f:
+                url = f.read().strip()
+            print(f"[SUCCESS] Visual Recap served successfully!\nLocal Bridge URL: {url}")
+            return url
+        else:
+            print("[INFO] Bridge starting. Open the local bridge URL from console logs.")
+            return None
+
 def main():
     parser = argparse.ArgumentParser(description="SeikoClaw Harness CLI")
-    parser.add_argument("action", choices=["plan", "execute", "usage", "doctor", "sync-global", "memory", "reflect", "wiki-sync", "kanban", "loop"])
+    parser.add_argument("action", choices=["plan", "execute", "usage", "doctor", "sync-global", "memory", "reflect", "wiki-sync", "kanban", "loop", "recap"])
     parser.add_argument("--task", type=str)
     parser.add_argument("--status", type=str)
     parser.add_argument("--goal", type=str)
@@ -498,7 +688,13 @@ def main():
     args = parser.parse_args()
     claw = SeikoClaw()
 
-    if args.action == "sync-global":
+    if args.action == "plan":
+        task_file = args.task or "task.md"
+        claw.generate_visual_plan(task_file)
+    elif args.action == "recap":
+        task_id = args.task or "current-task"
+        claw.generate_visual_recap(task_id)
+    elif args.action == "sync-global":
         claw.sync_global()
     elif args.action == "wiki-sync":
         claw.sync_wiki()
@@ -603,11 +799,11 @@ def main():
                 claw.usage.track_usage(provider, tokens=verify_tokens, requests=1)
                 
                 if verify_res.returncode != 0:
-                    print(f"[VERIFY FAILURE] Verification failed with return code {verify_res.returncode}")
-                    print(verify_res.stderr)
-                    if sandbox_active:
-                        claw.discard_sandbox(args.task, original_branch, stashed)
-                    sys.exit(1)
+                     print(f"[VERIFY FAILURE] Verification failed with return code {verify_res.returncode}")
+                     print(verify_res.stderr)
+                     if sandbox_active:
+                         claw.discard_sandbox(args.task, original_branch, stashed)
+                     sys.exit(1)
                 else:
                     print("[VERIFY SUCCESS] Verification passed.")
 

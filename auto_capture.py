@@ -76,6 +76,17 @@ class AutoCapture:
         self.memory.save_memory(skill_text, tier="Midterm", source="auto-capture", tags="skill")
         print("[AutoCapture] Captured new skills.")
 
+        # 6. Trigger Visual Recap
+        try:
+            from seikoclaw import SeikoClaw
+            claw = SeikoClaw()
+            recap_url = claw.generate_visual_recap(project_name)
+            if recap_url:
+                self.memory.save_memory(f"Visual Recap URL: {recap_url}", tier="Shortterm", source="auto-capture", tags="recap,visual")
+                print(f"[AutoCapture] Saved Visual Recap URL to Openbrain: {recap_url}")
+        except Exception as e:
+            print(f"[AutoCapture Warning] Visual recap generation failed: {e}")
+
 def main():
     ac = AutoCapture()
     ac.capture_session()
