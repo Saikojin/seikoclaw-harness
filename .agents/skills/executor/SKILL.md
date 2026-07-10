@@ -1,41 +1,40 @@
 ---
 name: executor
-description: Implements technical tasks and automatically verifies them. Use when you have a well-defined task or a checklist item from a task.md file.
+description: Implements technical tasks and automatically verifies them. Use when you have a well-defined task or a checklist item from a task.md file. Use when you need to write code, run tests, and fix errors autonomously.
 ---
 
 # Executor Skill
 
 ## Goal
-To implement code changes accurately and verify them using tests, ensuring the project state remains healthy.
+To rapidly implement a technical task and automatically verify it without distracting the user with intermediate failures.
 
-## Workflow
-1. **Focus**: Pick the first uncompleted task from `task.md`.
-2. **Implementation**: Edit the target files to achieve the task objective.
-3. **Automated Verification & Reviewer Subagent Loop**: 
-   - Run the automated test command (e.g., `pytest`, `npm test`, `python script.py`).
-   - If the automated tests pass, invoke the **Reviewer Subagent (QA Lead persona)** to perform independent verification before closing the task.
-   
-   **QA Lead Testing Rubric:**
-   The Reviewer Subagent must actively evaluate the implementation against this comprehensive rubric (adapt to the specific task domain, using login/auth as a thorough model):
-   *   **Functional Testing:** Valid/invalid inputs, empty fields, state management, workflow completion.
-   *   **Security Testing:** Injection attacks, brute force protection, data at rest/transit (HTTPS/hashing), dynamic sessions (token rotation).
-   *   **UI/UX Testing:** Logical mechanics (tab ordering), usability features, helpful error states, responsive layouts, native browser integrations (autofill).
-   *   **Edge Cases:** Extreme input limits, atypical character encoding (Unicode), concurrency conflicts, network degradation (offline/reconnect), state paradoxes (back button).
-   *   **API Level:** Strict semantic response codes, token lifecycles, infrastructure defenses (rate limiting), performance baselines.
-   *   **Accessibility:** Screen reader compatibility, complete keyboard navigation, contrast ratios, comprehensive ARIA labels.
+## Quick Start
+1. **Recall**: Search Openbrain for similar past tasks: `python seikoclaw.py memory search "task description"`.
+2. **Implement**: Write code adjustments using `replace_file_content`. Consult `skills/third-party/incremental-implementation/SKILL.md`.
+3. **Verify**: Run the associated test command. Self-correct up to 3 times on failure.
+4. **Capture**: Run `python seikoclaw.py wiki-sync` on success.
 
-4. **Correction & Quality Streak Limit**: 
-   If the automated test fails OR the Reviewer Subagent identifies gaps:
-   - Formulate a fix based on the error log or subagent feedback, apply it, and restart the loop.
-   - **Quality Streak Limit:** The Executor must pass the entire suite of tests (both automated and subagent review) consecutively without regression.
-   - Self-correct up to a maximum of 3 times *per failure type*, but the overall task is only marked `[x]` when the Quality Streak clears and the Reviewer Subagent approves.
+## Workflows
 
-5. **Update**: Mark the task as completed in `task.md` with the required evidence.
+### Implementation & Test Loop
+- Use `skills/third-party/test-driven-development/SKILL.md` for verification requirements.
+- Always write or update a test harness for the change.
+- **Auto-Correction**: If a test fails, read the log, fix, and retry (Max 3 attempts).
 
 ## Checklists
-- [ ] Code follows existing project patterns.
-- [ ] No unnecessary changes are made.
-- [ ] Tests pass before moving to the next task.
+- [ ] Task is singular and well-defined.
+- [ ] Openbrain was queried for success patterns.
+- [ ] Test command is specified (e.g., `pytest`, `npm test`).
+- [ ] **Mobile**: Appium is running with `--relaxed-security` (if ADB shell needed).
+- [ ] Session state is captured to the Master Wiki on completion.
 
-## Handoff
-Once all tasks in `task.md` are complete, notify the user.
+## Anti-Patterns
+- **The Infinite Loop**: Retrying a fix more than 3 times without alerting the user.
+- **Silent Failures**: Moving to the next task if the verification command failed.
+- **Context Amnesia**: Forgetting to update `task.md` or the Master Wiki after a success.
+
+## Verification Command Examples
+- **Python**: `pytest test_file.py`
+- **Node**: `npm test -- -t "component_name"`
+- **Android**: `mvn test -Dtest=ClassName#MethodName`
+- **Generic**: `python run_tests.py`
