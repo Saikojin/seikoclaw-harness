@@ -36,3 +36,10 @@ When adding coverage, invoke the **QA Engineer**:
 - Write Karate/Python scripts using the "Wait State Mastery" pattern.
 - Perform a "Surgical Testability" fix if locators are brittle.
 - Run the suite and verify a 100% pass rate.
+
+## Integration with Matt Pocock Skills
+
+- **Pre-ship verification**: The QA Strategist can leverage `/code-review`'s **Spec axis** as a pre-ship check — ensuring the implementation matches the originating issue/PRD before marking a ticket as done.
+- **Stress-test sessions**: The Seikojin stress-test workflow can invoke `/grilling` to challenge design decisions, with the QA Strategist providing its risk-based perspective as grilling input.
+- **TDD seam alignment**: When the QA Engineer identifies new seams for testability, coordinate with `/tdd` to ensure test placement follows the pre-agreed seam discipline.
+

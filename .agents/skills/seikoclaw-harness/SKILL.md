@@ -17,10 +17,10 @@ Index of available SeikoClaw and Matt Pocock skills:
 - [diagnosing-bugs](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/diagnosing-bugs/SKILL.md) — Disciplined diagnosis loop for hard bugs and regressions: reproduce → minimize → hypothesize → instrument → fix → test.
 - [codebase-design](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/codebase-design/SKILL.md) — Shared discipline and vocabulary for designing deep modules with simple interfaces.
 - [domain-modeling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/domain-modeling/SKILL.md) — Actively build and sharpen project domain models, updating CONTEXT.md and ADRs.
-- [tdd](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/tdd/SKILL.md) — Test-driven development with a red-green-refactor loop.
+- [tdd](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/tdd/SKILL.md) — Test-driven development: red→green loop at pre-agreed seams, with anti-pattern guards and vertical-slice discipline.
 - [to-tickets](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/to-tickets/SKILL.md) — Break plans or specs into tracer-bullet tickets with blocking edges.
 - [to-spec](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/to-spec/SKILL.md) — Synthesize discussion context into a detailed technical specification.
-- [code-review](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/code-review/SKILL.md) — Two-axis code review (Standards + Spec) of diffs.
+- [code-review](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/code-review/SKILL.md) — Two-axis parallel review (Standards + Spec) with Fowler smell baseline. Driven by `/implement`; also standalone for branch/PR review.
 - [research](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/research/SKILL.md) — Delegate primary-source investigation to a background research subagent.
 - [resolving-merge-conflicts](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/resolving-merge-conflicts/SKILL.md) — Hunk-by-hunk resolution of in-progress git merge/rebase conflicts.
 - [improve-codebase-architecture](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/improve-codebase-architecture/SKILL.md) — Scan codebase for deepening opportunities and produce architectural improvements.
@@ -28,7 +28,7 @@ Index of available SeikoClaw and Matt Pocock skills:
 ## Productivity & Meta
 - [grill-with-docs](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill_with_docs/SKILL.md) — Relentless interview loop that builds project domain model and updates CONTEXT.md and ADRs.
 - [grill-me](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill-me/SKILL.md) — Relentless Q&A interview to resolve decision trees for non-code/stateless efforts.
-- [grilling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grilling/SKILL.md) — Reusable Q&A interview primitive.
+- [grilling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grilling/SKILL.md) — Relentless Q&A primitive: facts are looked up, decisions are asked; confirmation gate before acting.
 - [handoff](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/handoff/SKILL.md) — Compact conversation context into a handoff document for cross-session continuity.
 - [teach](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/teach/SKILL.md) — Stateful multi-session learning workspace for teaching user concepts and skills.
 - [writing-great-skills](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-great-skills/SKILL.md) — Principles and guidelines for authoring predictable, high-quality agent skills.
