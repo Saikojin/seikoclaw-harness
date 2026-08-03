@@ -1,0 +1,31 @@
+# Global agent command guard — dangerous command denylist.
+# One POSIX-ERE / PowerShell regex per line. Blank lines and # comments are ignored.
+# Cross-platform compatibility for Bash and PowerShell environments.
+
+# 1. Recursive removal targeted at system root, home directory, or Users directory
+(^|[;&|\s])rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?/(["']?|\*)?(\s+|;|$|&)
+(^|[;&|\s])rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?(~|\$HOME|\$\{HOME\})(["']?|/.*|\*)?(\s+|;|$|&)
+(^|[;&|\s])rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?/Users(/[^/\s"']+)?/?(["']?|\*)?(\s+|;|$|&)
+Remove-Item
+--no-preserve-root
+
+# 2. Raw disk writing / formatting / destructive disk operations
+(^|[;&|\s])dd\s+[^;&|]*of=["']?/dev/
+(^|[;&|\s])mkfs(\.[A-Za-z0-9]+)?\s+
+(^|[;&|\s])Format-Volume\s+
+(^|[;&|\s])Clear-Disk\s+
+
+# 3. Superuser destructive / system shutdown execution
+(^|[;&|\s])sudo\s+rm\s+-[rRf]+
+(^|[;&|\s])sudo\s+dd\s+
+(^|[;&|\s])Stop-Computer\s+
+(^|[;&|\s])Restart-Computer\s+
+
+# 4. Dangerous remote code execution / pipe to shell
+(^|[;&|\s])(curl|wget)\s+[^;&|]+\|\s*(sh|bash|zsh|python|perl|pwsh|powershell)
+(^|[;&|\s])Invoke-Expression\s+.*(Invoke-WebRequest|iwr|curl)
+
+# 5. Dangerous Git operations
+(^|[;&|\s])git\s+push\s+.*--force
+(^|[;&|\s])git\s+push\s+.*-f(\s+|;|$)
+(^|[;&|\s])gh\s+repo\s+delete

@@ -12,15 +12,17 @@ To decompose a high-level goal into independent, verifiable sub-tasks, establish
 
 ## Steps
 
-0. **Context Recall**
-   Before planning, query Openbrain to identify similar past tasks, implementation patterns, or relevant engineering skills.
-   - Action: `python seikoclaw.py memory --query "[concise task description]"`
+0. **Context Recall & Instant Gut-Check**
+   Before planning, check if this is a new feature or build request.
+   - If proposing a new build/feature, trigger `/before-building` to surface 1–3 consequential choices first.
+   - Query Openbrain to identify similar past tasks, implementation patterns, or relevant engineering skills:
+     `python seikoclaw.py memory --query "[concise task description]"`
 
 1. **Project & Source Discovery**
    Perform deep discovery of the active codebase. Use `view_file`, `list_dir`, `grep_search`, and review the recalled memories to understand the existing project structure and capabilities.
 
 2. **Decompose the Goal**
-   Break the project directive down into discrete execution blocks. A good block should take no more than 1-2 code edits and a single verification run.
+   Break the project directive down into discrete execution blocks using the 5-part goal contract from `seikoclaw-goal-prompter` (Objective, Read First, Constraints, Validate, Document, Stop Condition). A good block should take no more than 1-2 code edits and a single verification run.
 
 3. **Token Budget Assessment**
    Estimate the "output weight" of the plan. 
