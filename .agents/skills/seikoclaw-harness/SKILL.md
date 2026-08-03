@@ -10,6 +10,7 @@ Index of available SeikoClaw and Matt Pocock skills:
 
 ## Core Engineering & Workflow
 - [ask-matt](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/ask-matt/SKILL.md) — Ask which skill or flow fits your situation; complete router over engineering and productivity skills.
+- [before-building](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/before-building/SKILL.md) — Instant gut-check: surface 1–3 consequential choices hidden in an idea before writing code.
 - [wayfinder](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/wayfinder/SKILL.md) — Plan large, foggy efforts across multiple sessions using a shared decision map on your issue tracker.
 - [prototype](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/prototype/SKILL.md) — Build a throwaway prototype (Logic TUI or UI multi-variant search params) to answer a design question.
 - [implement](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/implement/SKILL.md) — Build work described by a spec or set of tickets, driving /tdd and /code-review.
@@ -24,6 +25,9 @@ Index of available SeikoClaw and Matt Pocock skills:
 - [research](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/research/SKILL.md) — Delegate primary-source investigation to a background research subagent.
 - [resolving-merge-conflicts](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/resolving-merge-conflicts/SKILL.md) — Hunk-by-hunk resolution of in-progress git merge/rebase conflicts.
 - [improve-codebase-architecture](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/improve-codebase-architecture/SKILL.md) — Scan codebase for deepening opportunities and produce architectural improvements.
+- [agent-guardrails](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/agent-guardrails/SKILL.md) — Command denylist and safety guard hooks for pre-execution interception.
+- [agent-self-scheduling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/agent-self-scheduling/SKILL.md) — Schedule recurring agent tasks or heartbeats with PowerShell and Bash wrappers.
+- [youtube-transcript](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/youtube-transcript/SKILL.md) — Extract YouTube video transcripts for ingestion and research notes.
 
 ## Productivity & Meta
 - [grill-with-docs](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill_with_docs/SKILL.md) — Relentless interview loop that builds project domain model and updates CONTEXT.md and ADRs.
@@ -31,4 +35,5 @@ Index of available SeikoClaw and Matt Pocock skills:
 - [grilling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grilling/SKILL.md) — Relentless Q&A primitive: facts are looked up, decisions are asked; confirmation gate before acting.
 - [handoff](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/handoff/SKILL.md) — Compact conversation context into a handoff document for cross-session continuity.
 - [teach](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/teach/SKILL.md) — Stateful multi-session learning workspace for teaching user concepts and skills.
-- [writing-great-skills](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-great-skills/SKILL.md) — Principles and guidelines for authoring predictable, high-quality agent skills.
+- [writing-great-skills](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-great-skills/SKILL.md) — Principles, progressive disclosure model, and guidelines for authoring predictable agent skills.
+- [distribute-skills](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/distribute-skills/SKILL.md) — Synchronize skills between local workspace and global/plugin directories.
