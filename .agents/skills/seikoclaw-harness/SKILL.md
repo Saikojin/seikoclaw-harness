@@ -29,6 +29,16 @@ Index of available SeikoClaw and Matt Pocock skills:
 - [agent-self-scheduling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/agent-self-scheduling/SKILL.md) — Schedule recurring agent tasks or heartbeats with PowerShell and Bash wrappers.
 - [youtube-transcript](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/youtube-transcript/SKILL.md) — Extract YouTube video transcripts for ingestion and research notes.
 
+## Game Development & Prototyping (Non-Coder Loop)
+- [game-design-critic](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-design-critic/SKILL.md) — Lead Game Designer persona for Socratic grilling on core feel, 10s/30s/5m loops, and player psychology.
+- [gdd-generator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/gdd-generator/SKILL.md) — Synthesize vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` specifications.
+- [scope-surgeon](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/scope-surgeon/SKILL.md) — Ruthlessly cut game scope down to 30–90 second micro-slices in `VERTICAL_SLICE_SPEC.md` format.
+- [game-prototype-builder](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-prototype-builder/SKILL.md) — Build zero-install single-file HTML5 Canvas games (`prototype.html`) with Web Audio API synth sounds, live tuning sliders, and telemetry HUDs.
+- [game-systems-modeler](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-systems-modeler/SKILL.md) — Interactive Chart.js dashboards (`balance_simulator.html`) and canonical balance JSON storage (`docs/design/balance.json`).
+- [playtest-feedback-loop](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/playtest-feedback-loop.md) — Translate qualitative feedback ("floaty", "bullet sponge") to parameter diffs and maintain `PLAYTEST_RUNBOOK.md`.
+- [genre-competitor-analysis](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/genre-competitor-analysis/SKILL.md) — Autonomous research subagent executing 5-point competitive matrix research (`COMPETITIVE_LANDSCAPE.md`).
+- [mood-board-curator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/mood-board-curator/SKILL.md) — Curate visual/audio reference galleries (`mood_board.html`) and extract `style_markers.json` for ArtistAgent RAG prompt injection.
+
 ## Productivity & Meta
 - [grill-with-docs](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill_with_docs/SKILL.md) — Relentless interview loop that builds project domain model and updates CONTEXT.md and ADRs.
 - [grill-me](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill-me/SKILL.md) — Relentless Q&A interview to resolve decision trees for non-code/stateless efforts.
