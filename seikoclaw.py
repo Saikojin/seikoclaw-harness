@@ -13,6 +13,7 @@ import token_estimator
 from openbrain.vault import Vault
 from openbrain.usage_monitor import UsageMonitor
 from openbrain.memory_engine import MemoryEngine
+from openbrain.skill_gating import SkillGater
 
 SKILL_SYNTHESIS_PROMPT = """
 Analyze task trajectory (actions taken, successes, failures).
@@ -94,6 +95,7 @@ class SeikoClaw:
         self.vault = Vault(db_path)
         self.usage = UsageMonitor(db_path)
         self.memory = MemoryEngine(db_path, chroma_path)
+        self.gater = SkillGater()
         
         # Default limits
         self.limits = {
@@ -112,8 +114,10 @@ class SeikoClaw:
         return True
 
     def _git_run(self, cmd):
-        result = subprocess.run(f"git {cmd}", shell=True, capture_output=True, text=True)
-        return result.returncode, result.stdout.strip(), result.stderr.strip()
+        result = subprocess.run(f"git {cmd}", shell=True, capture_output=True, text=True, encoding="utf-8", errors="replace")
+        stdout = (result.stdout or "").strip()
+        stderr = (result.stderr or "").strip()
+        return result.returncode, stdout, stderr
 
     def _is_git_repo(self):
         rc, _, _ = self._git_run("rev-parse --is-inside-work-tree")
@@ -362,27 +366,60 @@ class SeikoClaw:
             skill_text = llm.generate(prompt, max_tokens=1024)
             
             if skill_text and "[Mock Response]" not in skill_text:
-                # 2. Extract Skill Name and metadata
+                # 2. Extract Skill Name
                 name_match = re.search(r"name:\s*(.*)", skill_text)
                 skill_name = name_match.group(1).strip() if name_match else "New Skill"
                 
-                desc_match = re.search(r"description:\s*(.*)", skill_text) # if we added it to YAML
-                desc = desc_match.group(1).strip() if desc_match else "Auto-learned skill"
-                
-                # 3. Save to Openbrain (Both Memory and Dedicated Table)
-                self.memory.save_memory(
-                    text=skill_text,
-                    tier="Longterm",
-                    source="SeikoClaw-Reflection",
-                    tags=f"skill,auto-learned,{skill_name}"
+                # 3. Gating check before saving (Validation & Regression)
+                passed, gate_msg = self.gater.gate_and_save(
+                    skill_text=skill_text,
+                    skill_name=skill_name,
+                    memory_engine=self.memory,
+                    target_dir=".agents/skills",
+                    previous_skill_text=previous_skill_text if previous_skill_text != "None" else None
                 )
-                self.memory.save_skill(name=skill_name, description=desc, example=skill_text)
                 
-                print(f"[SUCCESS] { 'Evolved' if previous_skill_text != 'None' else 'Synthesized' } skill: {skill_name}")
-                return skill_name
+                if passed:
+                    print(f"[SUCCESS] { 'Evolved' if previous_skill_text != 'None' else 'Synthesized' } and gated skill: {skill_name}")
+                    self.sync_wiki(f"Auto-evolved skill: {skill_name}")
+                    return skill_name
+                else:
+                    print(f"[GATING FAILED] {gate_msg}")
+                    return None
         except Exception as e:
             print(f"[ERROR] Skill reflection failed: {e}")
             return None
+
+    def gate_skill(self, skill_target: str):
+        """Runs validation and regression tests against a skill file or registered skill."""
+        print(f"[SeikoClaw] Gating skill: {skill_target}...")
+        skill_text = ""
+        if os.path.exists(skill_target):
+            with open(skill_target, "r", encoding="utf-8") as f:
+                skill_text = f.read()
+        else:
+            # Check Openbrain
+            skill_record = self.memory.get_skill(skill_target)
+            if skill_record and skill_record.get("example"):
+                skill_text = skill_record["example"]
+            else:
+                # Check .agents/skills/<skill_target>/SKILL.md
+                candidate_path = os.path.join(".agents", "skills", skill_target, "SKILL.md")
+                if os.path.exists(candidate_path):
+                    with open(candidate_path, "r", encoding="utf-8") as f:
+                        skill_text = f.read()
+
+        if not skill_text:
+            print(f"[ERROR] Could not resolve skill content for: {skill_target}")
+            return False
+
+        passed, reason = self.gater.evaluate_regression(skill_text)
+        if passed:
+            print(f"[GATE PASS] Skill '{skill_target}' passed all validation and regression checks.")
+            return True
+        else:
+            print(f"[GATE FAIL] Skill '{skill_target}' failed gating:\n  Reason: {reason}")
+            return False
 
     def sync_wiki(self, message="Auto-sync from SeikoClaw"):
         """Syncs the current project state into the Master Wiki."""
@@ -483,6 +520,14 @@ class SeikoClaw:
         if budget.is_exhausted() and current_context_tokens < (budget.context_limit * 0.9):
             print("[PAUSED] Iteration budget exhausted.")
 
+        # Post-Task Reflection Hook: Trigger auto-reflection if task.md exists
+        for p in ["task.md", "artifact/task.md"]:
+            if os.path.exists(p):
+                print("[AUTO-HOOK] Triggering Post-Task Reflection Hook...")
+                self.reflect_on_task(p)
+                self.sync_wiki(f"Auto-sync after loop for goal: {goal}")
+                break
+
     def generate_visual_plan(self, task_file="task.md"):
         """Generates a visual plan from a task file or master vision and serves the local bridge."""
         import re
@@ -508,19 +553,18 @@ class SeikoClaw:
         os.makedirs(plan_dir, exist_ok=True)
         
         # 3. Write plan.mdx
-        mdx_content = f"""---
-title: "SeikoClaw Visual Plan"
-brief: "Visual plan generated for task planning"
-localOnly: true
----
-
-# SeikoClaw Task Plan
-
-## Task Description
-{content}
-
-<Checklist id="seikoclaw-checklist" items={[
-"""
+        header_text = (
+            "---\n"
+            'title: "SeikoClaw Visual Plan"\n'
+            'brief: "Visual plan generated for task planning"\n'
+            "localOnly: true\n"
+            "---\n\n"
+            "# SeikoClaw Task Plan\n\n"
+            "## Task Description\n"
+            f"{content}\n\n"
+            "<Checklist id=\"seikoclaw-checklist\" items={[\n"
+        )
+        mdx_content = header_text
         # Convert checklist lines
         item_id = 1
         for line in content.splitlines():
@@ -531,8 +575,7 @@ localOnly: true
                 mdx_content += f'  {{ id: "task-{item_id}", label: "{label}" }},\n'
                 item_id += 1
         
-        mdx_content += """]} />
-"""
+        mdx_content += "]}\n/>\n"
         
         plan_mdx_path = os.path.join(plan_dir, "plan.mdx")
         with open(plan_mdx_path, "w", encoding="utf-8") as f:
@@ -675,8 +718,9 @@ kind: recap
 
 def main():
     parser = argparse.ArgumentParser(description="SeikoClaw Harness CLI")
-    parser.add_argument("action", choices=["plan", "execute", "usage", "doctor", "sync-global", "memory", "reflect", "wiki-sync", "kanban", "loop", "recap"])
+    parser.add_argument("action", choices=["plan", "execute", "usage", "doctor", "sync-global", "memory", "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill"])
     parser.add_argument("--task", type=str)
+    parser.add_argument("--skill", type=str, help="Skill name or file to test/gate")
     parser.add_argument("--status", type=str)
     parser.add_argument("--goal", type=str)
     parser.add_argument("--turns", type=int, default=5)
@@ -725,6 +769,12 @@ def main():
             claw.reflect_on_task(args.task)
         else:
             print("Error: --task is required for reflection.")
+    elif args.action == "gate-skill":
+        skill_target = args.skill or args.task
+        if skill_target:
+            claw.gate_skill(skill_target)
+        else:
+            print("Error: --skill (or --task) is required for gate-skill.")
     elif args.action == "usage":
         print("--- Today's Usage ---")
         for p in ["anthropic", "google"]:
@@ -812,6 +862,16 @@ def main():
                 claw.commit_and_merge_sandbox(args.task, original_branch, stashed)
                 
             print("[SUCCESS] Task execution completed successfully.")
+
+            # Check if task.md has been fully completed
+            for p in ["task.md", "artifact/task.md"]:
+                if os.path.exists(p):
+                    with open(p, "r", encoding="utf-8") as f:
+                        task_content = f.read()
+                    if "- [ ]" not in task_content and "- [x]" in task_content:
+                        print("[AUTO-HOOK] All tasks completed! Triggering auto-capture and reflection...")
+                        subprocess.run(f'"{sys.executable}" auto_capture.py', shell=True)
+                    break
         elif args.task == "tablebuddy":
             claw.execute_tablebuddy_tests()
         else:

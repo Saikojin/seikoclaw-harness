@@ -134,6 +134,28 @@ class MemoryEngine:
             })
         return memories
 
+    def save_mistake(self, task_id: str, error_trace: str, context: str = "", hypothesis: str = "", tier: str = "Midterm"):
+        """Persists a structured record of a failure, mistake, or gotcha into Openbrain."""
+        formatted_text = (
+            f"[MISTAKE RECORD] Task: {task_id}\n"
+            f"Context: {context or 'Task execution'}\n"
+            f"Error Trace:\n{error_trace.strip()}\n"
+        )
+        if hypothesis:
+            formatted_text += f"Hypothesis / Resolution:\n{hypothesis.strip()}\n"
+
+        return self.save_memory(
+            text=formatted_text,
+            tier=tier,
+            source="ExecutionMistakeTracker",
+            tags=f"mistake,failure,gotcha,{task_id}"
+        )
+
+    def get_mistakes(self, query: str = "mistake failure gotcha", n_results: int = 5):
+        """Retrieves past mistake records matching a query."""
+        results = self.retrieve_similar(query, n_results=n_results)
+        return [r for r in results if "mistake" in r.get("metadata", {}).get("tags", "")]
+
     def save_asset(self, prompt, style_markers, bias_weight, seed, output_path):
         """Records a generated asset and its parameters."""
         asset_id = str(uuid.uuid4())
