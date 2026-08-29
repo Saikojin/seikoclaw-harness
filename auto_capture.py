@@ -71,10 +71,34 @@ class AutoCapture:
         mem_id = self.memory.save_memory(summary, tier="Shortterm", source="auto-capture")
         print(f"[AutoCapture] Saved session summary: {mem_id}")
         
-        # 5. Extract skills (Mocking for now)
-        skill_text = "Skill Learned: Implemented dynamic database path resolution for global agent operations."
-        self.memory.save_memory(skill_text, tier="Midterm", source="auto-capture", tags="skill")
-        print("[AutoCapture] Captured new skills.")
+        # 5. Mistake Capture & Automated Reflection
+        try:
+            from seikoclaw import SeikoClaw
+            claw = SeikoClaw()
+
+            # A. Check for blockers / mistakes
+            if "[BLOCKED]" in progress or "Error" in progress or "FAILURE" in progress:
+                print("[AutoCapture] Detected task blockers/errors. Persisting mistake record...")
+                self.memory.save_mistake(
+                    task_id=f"{project_name}-task-blocker",
+                    error_trace=progress[:1500],
+                    context=f"Session capture in {project_name}",
+                    hypothesis="Review blockers in task.md before re-attempting."
+                )
+
+            # B. Automated Post-Task Reflection Hook
+            if task_md_path and "[x]" in progress and "- [ ]" not in progress:
+                print("[AutoCapture] All tasks marked complete. Triggering automated skill reflection...")
+                evolved_skill = claw.reflect_on_task(task_md_path)
+                if evolved_skill:
+                    print(f"[AutoCapture] Successfully evolved/gated skill: {evolved_skill}")
+                claw.sync_wiki(f"Auto-sync on task completion for {project_name}")
+            else:
+                # Midterm skill note
+                skill_text = f"Task state in {project_name}: {progress.count('[x]')} completed steps."
+                self.memory.save_memory(skill_text, tier="Midterm", source="auto-capture", tags="skill,progress")
+        except Exception as e:
+            print(f"[AutoCapture Warning] Reflection hook encountered an issue: {e}")
 
         # 6. Trigger Visual Recap
         try:

@@ -24,14 +24,17 @@ When breaking down a task, ensure every item has:
 
 ## Checklists
 - [ ] High-level requirements are fully understood.
-- [ ] Task list is written to `task.md`.
+- [ ] Known mistakes & gotchas checked in Openbrain (`python seikoclaw.py memory --query "[topic] mistakes"`).
+- [ ] Mandatory task list is generated and saved to `task.md` with `- [ ]` checkboxes.
 - [ ] No single task touches more than 5 files.
-- [ ] Every task has a corresponding test command.
+- [ ] Every task has a corresponding automated test/verification command.
+- [ ] Post-completion hook (`python auto_capture.py`) wired for automated reflection.
 
 ## Anti-Patterns
 - **The "Big Bang" Task**: Creating a single task for a complex feature without sub-steps.
+- **Proceeding Without `task.md`**: Beginning execution without an explicit, verifiable task checklist.
 - **Vague Verification**: Using "Check if it works" instead of a specific command like `pytest`.
-- **Ignoring KIs**: Implementing a pattern that contradicts an existing Knowledge Item.
+- **Ignoring Past Mistakes**: Repeating pitfalls already documented in Openbrain or `.master_wiki/`.
 
 ## Handoff
-Once the task blueprint is set, notify the user or transition to `executor` for the first uncompleted task.
+Once the task blueprint is set in `task.md`, notify the user or transition to `executor` for implementation. When all items are marked `[x]`, `auto_capture.py` automatically triggers the reflection and skill gating loop.
