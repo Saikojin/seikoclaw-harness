@@ -31,6 +31,7 @@ Index of available SeikoClaw and Matt Pocock skills:
 
 ## Game Development & Prototyping (Non-Coder Loop)
 - [game-design-critic](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-design-critic/SKILL.md) — Lead Game Designer persona for Socratic grilling on core feel, 10s/30s/5m loops, and player psychology.
+- [game-developer](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-developer/SKILL.md) — Lead Tooling Architect: breaks down design reviews and Wayfinder roadmaps into linear creation pipelines with custom workbenches, asset scripts, and validators.
 - [gdd-generator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/gdd-generator/SKILL.md) — Synthesize vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` specifications.
 - [scope-surgeon](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/scope-surgeon/SKILL.md) — Ruthlessly cut game scope down to 30–90 second micro-slices in `VERTICAL_SLICE_SPEC.md` format.
 - [game-prototype-builder](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-prototype-builder/SKILL.md) — Build zero-install single-file HTML5 Canvas games (`prototype.html`) with Web Audio API synth sounds, live tuning sliders, and telemetry HUDs.
