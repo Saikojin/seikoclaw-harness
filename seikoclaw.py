@@ -14,6 +14,9 @@ from openbrain.vault import Vault
 from openbrain.usage_monitor import UsageMonitor
 from openbrain.memory_engine import MemoryEngine
 from openbrain.skill_gating import SkillGater
+from openbrain.task_graph import TaskGraph
+from openbrain.gates import GateEngine
+from openbrain.watchdog import HealthPatrol
 
 SKILL_SYNTHESIS_PROMPT = """
 Analyze task trajectory (actions taken, successes, failures).
@@ -96,6 +99,9 @@ class SeikoClaw:
         self.usage = UsageMonitor(db_path)
         self.memory = MemoryEngine(db_path, chroma_path)
         self.gater = SkillGater()
+        self.graph = TaskGraph(db_path)
+        self.gates = GateEngine(self.graph)
+        self.watchdog = HealthPatrol()
         
         # Default limits
         self.limits = {
@@ -528,6 +534,52 @@ class SeikoClaw:
                 self.sync_wiki(f"Auto-sync after loop for goal: {goal}")
                 break
 
+    def show_ready_frontier(self, claim=False, worker_id="executor-1", as_json=False):
+        """Displays or atomically claims the ready frontier from the Task DAG."""
+        if claim:
+            claimed = self.graph.claim_next_ready(worker_id=worker_id)
+            if claimed:
+                if as_json:
+                    print(json.dumps(claimed, indent=2))
+                else:
+                    gate_info = f" [GATE: {claimed['gate_type'].upper()}]" if claimed.get('gate_type') else ""
+                    print(f"[CLAIMED] Worker '{worker_id}' successfully claimed: {claimed['id']} - {claimed['title']}{gate_info}")
+            else:
+                if as_json:
+                    print(json.dumps({"status": "empty", "message": "No ready tasks available on frontier."}))
+                else:
+                    print("[INFO] No ready tasks available on the frontier.")
+            return claimed
+
+        frontier = self.graph.get_ready_frontier()
+        if as_json:
+            print(json.dumps(frontier, indent=2))
+        else:
+            print("=== 🚀 SeikoClaw Ready Frontier (Claimable Work) ===")
+            if not frontier:
+                print("No tasks currently ready. All tasks are closed or waiting on blockers/gates.")
+            for t in frontier:
+                gate = f" [GATE: {t['gate_type'].upper()}]" if t.get('gate_type') else ""
+                wisp = " [WISP]" if t.get('is_ephemeral') else ""
+                print(f"- {t['id']}: {t['title']} (P{t['priority']}){gate}{wisp}")
+        return frontier
+
+    def show_health_status(self):
+        """Displays health patrol diagnostics and watchdog recommendations."""
+        status = self.watchdog.get_health_status()
+        print("=== 🛡️ SeikoClaw Health Patrol Status ===")
+        print(f"Status: {status['status']}")
+        print(f"Is Spinning: {status['is_spinning']}")
+        if status.get('spin_reason'):
+            print(f"Alert: {status['spin_reason']}")
+        print(f"Context Utilization: {status['context_utilization']*100:.1f}%")
+        print(f"Total Tracked Actions: {status['total_actions']}")
+        if status['recommendations']:
+            print("Recommendations:")
+            for rec in status['recommendations']:
+                print(f"  * {rec}")
+        return status
+
     def generate_visual_plan(self, task_file="task.md"):
         """Generates a visual plan from a task file or master vision and serves the local bridge."""
         import re
@@ -718,21 +770,132 @@ kind: recap
 
 def main():
     parser = argparse.ArgumentParser(description="SeikoClaw Harness CLI")
-    parser.add_argument("action", choices=["plan", "execute", "usage", "doctor", "sync-global", "memory", "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill"])
-    parser.add_argument("--task", type=str)
+    parser.add_argument("action", choices=[
+        "plan", "execute", "usage", "doctor", "sync-global", "memory", 
+        "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill",
+        "ready", "claim", "task", "dep", "wisp", "gate", "health", "sync-tasks"
+    ])
+    parser.add_argument("--task", type=str, help="Task ID or target")
     parser.add_argument("--skill", type=str, help="Skill name or file to test/gate")
-    parser.add_argument("--status", type=str)
-    parser.add_argument("--goal", type=str)
-    parser.add_argument("--turns", type=int, default=5)
+    parser.add_argument("--status", type=str, help="Task status (open, in_progress, in_qa, closed, deferred)")
+    parser.add_argument("--goal", type=str, help="Goal description for autonomous loop")
+    parser.add_argument("--turns", type=int, default=5, help="Max loop turns")
     parser.add_argument("--command", type=str, help="Command to run when executing a task")
     parser.add_argument("--verify", type=str, help="Verification command to run after executing a task")
     parser.add_argument("--sandbox", action="store_true", help="Enable git-backed sandboxing for execution")
     parser.add_argument("--query", type=str, help="Search query for memory")
     
+    # Hybrid DAG & Fleet CLI flags
+    parser.add_argument("--claim", action="store_true", help="Claim ready task atomically from frontier")
+    parser.add_argument("--worker", type=str, default="executor-1", help="Worker ID for task claims and QA signatures")
+    parser.add_argument("--json", action="store_true", help="Output machine-readable JSON")
+    parser.add_argument("--title", type=str, help="Task or wisp title")
+    parser.add_argument("--desc", type=str, default="", help="Task or wisp description")
+    parser.add_argument("--priority", type=int, default=2, help="Priority (0=critical, 1=high, 2=normal, 3=low)")
+    parser.add_argument("--parent", type=str, help="Parent task ID")
+    parser.add_argument("--gate-type", type=str, help="Gate type (qa, human, test, timer, merge-slot)")
+    parser.add_argument("--from-id", type=str, help="Source/blocker task ID")
+    parser.add_argument("--to-id", type=str, help="Target/blocked task ID")
+    parser.add_argument("--edge-type", type=str, default="blocks", help="Dependency edge type (blocks, parent-child, waits-for, relates-to)")
+    parser.add_argument("--certify-qa", action="store_true", help="Certify task QA gate as passed (Seikojin-QA)")
+    parser.add_argument("--pass-rate", type=float, default=1.0, help="Test pass rate for Seikojin QA certification (1.0 = 100%)")
+    parser.add_argument("--approve", action="store_true", help="Approve human or verification gate")
+    parser.add_argument("--purge", action="store_true", help="Purge completed ephemeral wisps")
+    parser.add_argument("--notes", type=str, default="", help="Gate certification notes")
+    
     args = parser.parse_args()
     claw = SeikoClaw()
 
-    if args.action == "plan":
+    if args.action == "ready":
+        claw.show_ready_frontier(claim=args.claim, worker_id=args.worker, as_json=args.json)
+    elif args.action == "claim":
+        if not args.task:
+            print("Error: --task <task_id> is required for claim.")
+            sys.exit(1)
+        ok = claw.graph.claim_task(args.task, args.worker)
+        if ok:
+            print(f"[SUCCESS] Worker '{args.worker}' claimed task {args.task}.")
+        else:
+            print(f"[FAILED] Could not claim task {args.task}. Ensure task exists and is open.")
+    elif args.action == "task":
+        if args.title:
+            tid = claw.graph.create_task(
+                title=args.title,
+                description=args.desc,
+                priority=args.priority,
+                parent_id=args.parent,
+                gate_type=args.gate_type,
+                task_id=args.task
+            )
+            print(f"[SUCCESS] Created task: {tid} - {args.title}")
+            claw.graph.sync_to_file("task.md")
+        elif args.task and args.status:
+            claw.graph.update_status(args.task, args.status)
+            print(f"[SUCCESS] Updated {args.task} status to '{args.status}'")
+            claw.graph.sync_to_file("task.md")
+        elif args.task:
+            t = claw.graph.get_task(args.task)
+            print(json.dumps(t, indent=2) if t else f"Task {args.task} not found.")
+        else:
+            tasks = claw.graph.list_tasks()
+            for t in tasks:
+                print(f"[{t['status']}] {t['id']}: {t['title']} (P{t['priority']})")
+    elif args.action == "dep":
+        if not args.from_id or not args.to_id:
+            print("Error: --from-id and --to-id are required.")
+            sys.exit(1)
+        try:
+            claw.graph.add_dependency(args.from_id, args.to_id, edge_type=args.edge_type)
+            print(f"[SUCCESS] Added dependency: {args.from_id} --({args.edge_type})--> {args.to_id}")
+            claw.graph.sync_to_file("task.md")
+        except ValueError as e:
+            print(f"[ERROR] {e}")
+            sys.exit(1)
+    elif args.action == "wisp":
+        if args.purge:
+            n = claw.graph.purge_wisps()
+            print(f"[SUCCESS] Purged {n} closed wisps.")
+        elif args.title:
+            wid = claw.graph.create_wisp(args.title, description=args.desc, parent_id=args.parent)
+            print(f"[SUCCESS] Created wisp: {wid} - {args.title}")
+            claw.graph.sync_to_file("task.md")
+        else:
+            wisps = [t for t in claw.graph.list_tasks() if t.get("is_ephemeral")]
+            print("=== 👻 Ephemeral Wisps ===")
+            for w in wisps:
+                print(f"[{w['status']}] {w['id']}: {w['title']}")
+    elif args.action == "gate":
+        if not args.task:
+            print("Error: --task <task_id> is required for gate commands.")
+            sys.exit(1)
+        if args.certify_qa:
+            ok, msg = claw.gates.certify_qa_gate(
+                args.task,
+                engineer_signature=args.worker,
+                pass_rate=args.pass_rate,
+                notes=args.notes
+            )
+            print(f"[{'PASS' if ok else 'REJECT'}] {msg}")
+            if ok:
+                claw.graph.sync_to_file("task.md")
+        elif args.approve:
+            ok = claw.gates.approve_human_gate(args.task, approver=args.worker, notes=args.notes)
+            if ok:
+                print(f"[SUCCESS] Gate approved for task {args.task}.")
+                claw.graph.sync_to_file("task.md")
+        elif args.gate_type:
+            claw.gates.attach_gate(args.task, args.gate_type)
+            print(f"[SUCCESS] Attached gate '{args.gate_type}' to task {args.task}.")
+            claw.graph.sync_to_file("task.md")
+        else:
+            sat, reason = claw.gates.evaluate_gate(args.task)
+            print(f"[GATE EVALUATION] {args.task}: {'SATISFIED' if sat else 'BLOCKED'} - {reason}")
+    elif args.action == "health":
+        claw.show_health_status()
+    elif args.action == "sync-tasks":
+        claw.graph.sync_to_file("task.md")
+        print("[SUCCESS] Synchronized task graph to task.md.")
+    elif args.action == "plan":
         task_file = args.task or "task.md"
         claw.generate_visual_plan(task_file)
     elif args.action == "recap":
