@@ -68,6 +68,26 @@ Two model-invoked references that run *beneath* the other skills — each the si
 - **`/domain-modeling`** — sharpen the project's *domain* language: challenge a fuzzy term, resolve an overloaded word ("account" doing three jobs), record a hard-to-reverse decision as an ADR. It's the active discipline `/grill-with-docs` drives to keep `CONTEXT.md` a clean glossary.
 - **`/codebase-design`** — the deep-module vocabulary (module, interface, depth, seam, adapter, leverage, locality) for designing a module's *shape*: a lot of behaviour behind a small interface at a clean seam. `/tdd` and `/improve-codebase-architecture` both speak it.
 
+## Game Development & Game Forge Flow
+
+The end-to-end loop for building video games from pitch to playable build:
+
+- **`/game-forge`** — **Master autonomous framework**. Manages the entire 4-stage game creation pipeline with human-in-the-loop gates:
+  1. *Stage 1: Design & GDD* (`/game-design-critic` + `/genre-competitor-analysis` + `/gdd-generator` $\rightarrow$ Gate 1)
+  2. *Stage 2: Micro-Slice & Prototyping* (`/scope-surgeon` + `/game-prototype-builder` + `/game-systems-modeler` $\rightarrow$ Gate 2)
+  3. *Stage 3: Feel Tuning, Assets & Tooling* (`/playtest-feedback-loop` + `/mood-board-curator` + `/asset-generator` + `/game-developer` $\rightarrow$ Gate 3)
+  4. *Stage 4: Engine Build & QA* (`/seikoclaw-architect` + `/seikoclaw-executor` + `/tdd` + `/seikojin-qa`)
+- **Modular Game Skills (Standalone)**:
+  - **`/game-design-critic`** — Socratic game design review for 10s/30s/5m core loops and player psychology.
+  - **`/game-developer`** — Lead tooling architect: specifies authoring workbenches, asset scripts, and data validators.
+  - **`/scope-surgeon`** — Ruthlessly cuts game design scope to a minimal 30–90 second playable micro-slice.
+  - **`/game-prototype-builder`** — Builds single-file zero-install HTML5 Canvas playable prototypes with Web Audio synths.
+  - **`/game-systems-modeler`** — Interactive Chart.js balance simulators (`balance_simulator.html`) and `balance.json`.
+  - **`/playtest-feedback-loop`** — Translates qualitative playtest feel notes into precise parameter diffs.
+  - **`/genre-competitor-analysis`** — Autonomous background competitor analysis and market gap matrix.
+  - **`/mood-board-curator`** — Interactive reference galleries and `style_markers.json`.
+  - **`/asset-generator`** — On-demand sprite, texture, and character layer generation via Gemini.
+
 ## Crossing sessions
 
 - **`/handoff`** — when a thread is full or you need to branch off (e.g. into a `/prototype` session), this compacts the conversation into a markdown file. You don't continue in place — you **open a new session and reference that file** to carry the context across. It's the bridge between context windows, in either direction. Use it when you want a **fresh session** but need the **current conversation preserved**.

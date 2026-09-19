@@ -35,6 +35,7 @@ Index of available SeikoClaw and Matt Pocock skills:
 - [youtube-transcript](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/youtube-transcript/SKILL.md) — Extract YouTube video transcripts for ingestion and research notes.
 
 ## Game Development & Prototyping (Non-Coder Loop)
+- [game-forge](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-forge/SKILL.md) — Master autonomous game creation framework: coordinates design critique, GDD synthesis, micro-slice slicing, zero-install HTML5 prototyping, balance modeling, assets, tooling workbenches, and execution without manual skill hopping.
 - [game-design-critic](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-design-critic/SKILL.md) — Lead Game Designer persona for Socratic grilling on core feel, 10s/30s/5m loops, and player psychology.
 - [game-developer](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-developer/SKILL.md) — Lead Tooling Architect: breaks down design reviews and Wayfinder roadmaps into linear creation pipelines with custom workbenches, asset scripts, and validators.
 - [gdd-generator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/gdd-generator/SKILL.md) — Synthesize vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` specifications.
@@ -44,6 +45,7 @@ Index of available SeikoClaw and Matt Pocock skills:
 - [playtest-feedback-loop](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/playtest-feedback-loop/SKILL.md) — Translate qualitative feedback ("floaty", "bullet sponge") to parameter diffs and maintain `PLAYTEST_RUNBOOK.md`.
 - [genre-competitor-analysis](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/genre-competitor-analysis/SKILL.md) — Autonomous research subagent executing 5-point competitive matrix research (`COMPETITIVE_LANDSCAPE.md`).
 - [mood-board-curator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/mood-board-curator/SKILL.md) — Curate visual/audio reference galleries (`mood_board.html`) and extract `style_markers.json` for ArtistAgent RAG prompt injection.
+- [asset-generator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/asset-generator/SKILL.md) — On-demand 2D game asset creation (seamless ground textures, character layers/paperdolls, isometric sprites, backdrops) via Gemini image generation.
 
 ## Productivity & Meta
 - [grill-with-docs](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill_with_docs/SKILL.md) — Relentless interview loop that builds project domain model and updates CONTEXT.md and ADRs.
