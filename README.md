@@ -51,6 +51,13 @@ The agent automatically synthesizes new skills or evolves existing ones based on
 python seikoclaw.py reflect --task task.md
 ```
 
+### 4. Game Forge (Autonomous Game Creation)
+SeikoClaw includes **Game Forge** (`/game-forge`), an autonomous framework that coordinates the full lifecycle of game development from pitch to playable build with human-in-the-loop checkpoints:
+- **Design & GDD**: `/game-design-critic`, `/genre-competitor-analysis`, `/gdd-generator`
+- **Micro-Slice & Prototyping**: `/scope-surgeon`, `/game-prototype-builder`, `/game-systems-modeler`
+- **Assets & Workbenches**: `/playtest-feedback-loop`, `/mood-board-curator`, `/asset-generator`, `/game-developer`
+- **Autonomous Build & QA**: `/seikoclaw-architect`, `/seikoclaw-executor`, `/tdd`, `/seikojin-qa`
+
 ---
 
 ## Getting Started
