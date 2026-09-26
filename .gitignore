@@ -10,6 +10,7 @@ ENV/
 # Databases
 *.db
 *.db-journal
+chroma_db/
 openbrain/openbrain.db
 openbrain/chroma_db/
 

@@ -10,10 +10,27 @@ class Vault:
     def __init__(self, db_path="openbrain.db"):
         self.db_path = db_path
         self._key = None
+        self._salt = None
+        self._ensure_table()
+
+    def _ensure_table(self):
+        """Creates the secrets_vault table if it does not exist."""
+        conn = sqlite3.connect(self.db_path)
+        cur = conn.cursor()
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS secrets_vault (
+                secret_key TEXT PRIMARY KEY,
+                encrypted_value TEXT NOT NULL,
+                salt TEXT NOT NULL,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        conn.commit()
+        conn.close()
 
     def unlock(self, master_password: str):
         """Derives the encryption key from the master password and a salt from the DB."""
-        # If no salt exists, this is a 'first time' setup
+        self._ensure_table()
         conn = sqlite3.connect(self.db_path)
         cur = conn.cursor()
         cur.execute("SELECT salt FROM secrets_vault LIMIT 1")

@@ -66,5 +66,27 @@ class TestGates(unittest.TestCase):
         self.assertEqual(task["gate_status"], "passed")
         self.assertEqual(task["gate_metadata"]["approved_by"], "lead-architect")
 
+    def test_frontier_gate_filtering_for_automated_workers(self):
+        # Task with pending human gate
+        t_human = self.graph.create_task("Sensitive Migration", gate_type="human")
+        t_open = self.graph.create_task("Normal Feature")
+
+        # Full frontier inspection includes both
+        frontier_all = self.graph.get_ready_frontier(filter_gates=False)
+        frontier_ids_all = [t["id"] for t in frontier_all]
+        self.assertIn(t_human, frontier_ids_all)
+        self.assertIn(t_open, frontier_ids_all)
+
+        # Filtered frontier for general workers excludes pending human gate
+        frontier_filtered = self.graph.get_ready_frontier(filter_gates=True)
+        frontier_ids_filtered = [t["id"] for t in frontier_filtered]
+        self.assertNotIn(t_human, frontier_ids_filtered)
+        self.assertIn(t_open, frontier_ids_filtered)
+
+        # Automated worker claiming next ready claims t_open, not t_human
+        claimed = self.graph.claim_next_ready(worker_id="executor-bot", filter_gates=True)
+        self.assertIsNotNone(claimed)
+        self.assertEqual(claimed["id"], t_open)
+
 if __name__ == "__main__":
     unittest.main()

@@ -58,6 +58,186 @@ SeikoClaw includes **Game Forge** (`/game-forge`), an autonomous framework that 
 - **Assets & Workbenches**: `/playtest-feedback-loop`, `/mood-board-curator`, `/asset-generator`, `/game-developer`
 - **Autonomous Build & QA**: `/seikoclaw-architect`, `/seikoclaw-executor`, `/tdd`, `/seikojin-qa`
 
+### 5. Cross-Project Memory & Conversation Synchronization
+OpenBrain automatically indexes developer interactions, tool executions, and mistake records across all project workspaces into tiered SQLite metadata and ChromaDB vector embeddings.
+```bash
+# Preview unindexed conversation turns (dry run)
+python seikoclaw.py sync-history --dry-run --limit 5
+
+# Synchronize all new conversation turns across projects
+python seikoclaw.py sync-history
+
+# Filter synchronization for a specific project
+python seikoclaw.py sync-history --project SeikoClaw-Harness
+
+# View sync watermarks and statistics
+python seikoclaw.py sync-history --stats
+
+# Semantic query across past memories
+python seikoclaw.py memory --query "authentication decisions"
+```
+
+---
+
+## Automatic Startup & Background Synchronization
+
+To ensure your AI assistants always start with up-to-date memories from past sessions and across different projects, you can configure automatic synchronization on startup. Below are setup methods for **Antigravity** and **non-Antigravity** development environments.
+
+### 🌐 Method 1: Google Antigravity (AGY) Lifecycle Hooks
+
+Antigravity natively executes lifecycle hooks configured in JSON:
+
+#### A. Global Setup (All Projects on Machine)
+Create or edit `~/.gemini/config/hooks.json` (`C:\Users\<username>\.gemini\config\hooks.json` on Windows):
+```json
+{
+  "openbrain-history-sync": {
+    "enabled": true,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python d:/DevWorkspace/SeikoClaw-Harness/.agents/hooks/sync-history.py",
+        "timeout": 20
+      }
+    ]
+  }
+}
+```
+
+#### B. Workspace-Specific Setup
+Add `.agents/hooks.json` to your project repository:
+```json
+{
+  "openbrain-history-sync": {
+    "enabled": true,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python .agents/hooks/sync-history.py",
+        "timeout": 20
+      }
+    ]
+  }
+}
+```
+
+---
+
+### 🤖 Method 2: Claude Code (Anthropic CLI)
+
+If you use **Claude Code**, configure automatic memory synchronization in your project's `CLAUDE.md`:
+
+#### A. `CLAUDE.md` Project Guidelines
+Add the following instruction to the top of your `CLAUDE.md`:
+```markdown
+# Session Startup Routine
+On session initialization or when starting a new major task:
+1. Run `python seikoclaw.py sync-history --limit 5` to ingest recent cross-project memories.
+2. Query OpenBrain for relevant context: `python seikoclaw.py memory --query "<current-topic>"`.
+```
+
+#### B. Shell Wrapper / Alias
+Add an alias to your shell profile (`~/.bashrc`, `~/.zshrc`, or PowerShell `$PROFILE`):
+```bash
+# Claude Code with automatic OpenBrain memory synchronization
+alias claude-sync="python /path/to/seikoclaw-harness/seikoclaw.py sync-history && claude"
+```
+
+---
+
+### 💻 Method 3: Cursor / Windsurf / VS Code
+
+If you use Cursor, Windsurf, or VS Code, trigger memory sync automatically whenever you open a project folder:
+
+#### A. `.vscode/tasks.json` (Auto-Run on Folder Open)
+Create `.vscode/tasks.json` in your repository:
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "OpenBrain Memory Sync",
+      "type": "shell",
+      "command": "python seikoclaw.py sync-history --limit 10",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    }
+  ]
+}
+```
+
+#### B. Cursor Rules (`.cursorrules`)
+Add this directive to your `.cursorrules`:
+```markdown
+Before executing complex multi-file edits, query OpenBrain memory:
+Run `python seikoclaw.py memory --query "<current feature or error>"`
+To sync latest context: `python seikoclaw.py sync-history`
+```
+
+---
+
+### 🦙 Method 4: Aider & Other CLI Agents
+
+For **Aider**, **Ollama CLI**, or other terminal agents, create a lightweight launcher script:
+
+#### Bash / Zsh (`~/bin/run-agent.sh`):
+```bash
+#!/usr/bin/env bash
+# 1. Sync memory from recent transcripts
+python /path/to/seikoclaw.py sync-history --limit 5
+# 2. Launch Aider
+aider "$@"
+```
+
+#### PowerShell (`profile.ps1`):
+```powershell
+function Invoke-AiderWithMemory {
+    python d:\DevWorkspace\SeikoClaw-Harness\seikoclaw.py sync-history --limit 5
+    aider $args
+}
+Set-Alias aider-sync Invoke-AiderWithMemory
+```
+
+---
+
+### ⏰ Method 5: OS Background Heartbeat (Scheduled Task / Cron)
+
+If you prefer background synchronization on a timer or at OS login without agent-specific configuration:
+
+#### Windows (Task Scheduler via PowerShell):
+```powershell
+$Action = New-ScheduledTaskAction -Execute "python.exe" `
+    -Argument "d:\DevWorkspace\SeikoClaw-Harness\seikoclaw.py sync-history" `
+    -WorkingDirectory "d:\DevWorkspace\SeikoClaw-Harness"
+
+$Trigger = New-ScheduledTaskTrigger -AtLogOn
+Register-ScheduledTask -TaskName "OpenBrain-History-Sync" -Action $Action -Trigger $Trigger
+```
+
+#### Linux / macOS (Crontab):
+```bash
+# Run OpenBrain history sync every 30 minutes
+*/30 * * * * cd /path/to/seikoclaw-harness && python seikoclaw.py sync-history >/dev/null 2>&1
+```
+
+---
+
+### 🪝 Method 6: Git Hook (Branch Switch / Post-Checkout)
+
+Keep memory synchronized whenever you switch branches or pull changes:
+
+Create `.git/hooks/post-checkout`:
+```bash
+#!/usr/bin/env bash
+python seikoclaw.py sync-history --limit 5 >/dev/null 2>&1 &
+```
+Make executable: `chmod +x .git/hooks/post-checkout`.
+
 ---
 
 ## Getting Started
@@ -124,3 +304,4 @@ description: Decomposes high-level goals into granular, verifiable tasks.
 
 ## License
 MIT
+
