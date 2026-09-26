@@ -11,10 +11,7 @@ workspace_dir = os.path.dirname(harness_dir)
 if os.path.join(workspace_dir, "LocalMind", "src") not in sys.path:
     sys.path.append(os.path.join(workspace_dir, "LocalMind", "src"))
 
-try:
-    from localmind.engine import LocalMindEngine
-except ImportError:
-    LocalMindEngine = None
+from .llm_provider import get_llm_provider
 
 logger = logging.getLogger(__name__)
 
@@ -34,13 +31,8 @@ INPUT MEMORIES:
 class ContextEngine:
     def __init__(self, memory_engine):
         self.memory = memory_engine
-        self.llm = None
-        if LocalMindEngine:
-            # Context engine uses a dedicated low-resource worker if possible
-            model_dir = "d:/DevWorkspace/BookIngestion/models"
-            self.llm = LocalMindEngine(backend="auto", model_dir=model_dir)
-        else:
-            logger.warning("LocalMind not found. ContextEngine will operate in pass-through mode.")
+        self.llm = get_llm_provider()
+        logger.info(f"ContextEngine initialized with LLM provider: {self.llm.name}")
 
     def compress_shortterm(self, tag: str = None, threshold: int = 10) -> bool:
         """
@@ -50,7 +42,7 @@ class ContextEngine:
             return False
 
         # 1. Fetch short-term memories
-        conn = self.memory._get_conn() # Assuming we add this helper or use internal sqlite_path
+        conn = self._get_conn()
         cur = conn.cursor()
         
         query = "SELECT id, content FROM memories WHERE tier = 'Shortterm'"
@@ -72,7 +64,7 @@ class ContextEngine:
         combined_text = "\n---\n".join([r[1] for r in rows])
         ids_to_delete = [r[0] for r in rows]
 
-        # 3. Summarize via LLM
+        # 3. Summarize via LLM Provider
         prompt = CAVEMAN_PROMPT.format(memories=combined_text)
         summary = self.llm.generate(prompt, max_tokens=1024, temperature=0.3)
 
@@ -89,8 +81,12 @@ class ContextEngine:
             cur.executemany("DELETE FROM memories WHERE id = ?", [(mid,) for mid in ids_to_delete])
             conn.commit()
             
-            # Also cleanup from Chroma
-            self.memory.collection.delete(ids=ids_to_delete)
+            # Also cleanup from Chroma if available
+            if getattr(self.memory, "collection", None):
+                try:
+                    self.memory.collection.delete(ids=ids_to_delete)
+                except Exception:
+                    pass
             
             logger.info(f"Successfully compressed {len(rows)} memories into 1 midterm entry.")
             conn.close()

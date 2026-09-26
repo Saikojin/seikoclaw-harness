@@ -76,6 +76,9 @@ class AutoCapture:
             from seikoclaw import SeikoClaw
             claw = SeikoClaw()
 
+            # Record capture action to watchdog
+            claw.watchdog.record_action("auto_capture", project_name, summary[:100], success=True)
+
             # A. Check for blockers / mistakes
             if "[BLOCKED]" in progress or "Error" in progress or "FAILURE" in progress:
                 print("[AutoCapture] Detected task blockers/errors. Persisting mistake record...")
@@ -85,6 +88,7 @@ class AutoCapture:
                     context=f"Session capture in {project_name}",
                     hypothesis="Review blockers in task.md before re-attempting."
                 )
+                claw.watchdog.record_action("task_error", project_name, progress[:100], success=False)
 
             # B. Automated Post-Task Reflection Hook
             if task_md_path and "[x]" in progress and "- [ ]" not in progress:

@@ -256,19 +256,22 @@ class TaskGraph:
             rows = conn.execute(query, params).fetchall()
             return [dict(r) for r in rows]
 
-    def get_ready_frontier(self, include_ephemeral: bool = True) -> List[Dict[str, Any]]:
+    def get_ready_frontier(self, include_ephemeral: bool = True, filter_gates: bool = False) -> List[Dict[str, Any]]:
         """
         Computes the claimable frontier:
         Tasks with status = 'open' whose prerequisite blockers (edges with 'blocks' or 'waits-for')
         are all closed, and whose parent epics are not blocked.
+        If filter_gates is True, tasks with pending gates are excluded from automated worker claiming.
         """
         with self._get_conn() as conn:
             ephemeral_filter = "" if include_ephemeral else "AND t.is_ephemeral = 0"
+            gate_filter = "AND (t.gate_type IS NULL OR t.gate_status IN ('passed', 'bypassed'))" if filter_gates else ""
             query = f"""
             SELECT t.*
             FROM task_nodes t
             WHERE t.status = 'open'
             {ephemeral_filter}
+            {gate_filter}
             AND NOT EXISTS (
                 -- Has an unclosed blocker
                 SELECT 1 FROM task_edges e
@@ -290,11 +293,20 @@ class TaskGraph:
                 results.append(t_dict)
             return results
 
-    def claim_task(self, task_id: str, worker_id: str) -> bool:
+    def claim_task(self, task_id: str, worker_id: str, allow_gated: bool = False) -> bool:
         """
         Atomically claims a task for a worker.
         """
         with self._get_conn() as conn:
+            # If not allow_gated, verify gate is not pending unless worker is the certifier
+            task = conn.execute("SELECT gate_type, gate_status FROM task_nodes WHERE id = ?", (task_id,)).fetchone()
+            if not task:
+                return False
+            if not allow_gated and task["gate_type"] and task["gate_status"] == "pending":
+                # Only allow if worker matches gate type (e.g., QA engineer claiming QA gate)
+                if not (task["gate_type"] in worker_id.lower() or "qa" in worker_id.lower() and task["gate_type"] == "qa"):
+                    return False
+
             cursor = conn.execute(
                 """
                 UPDATE task_nodes
@@ -309,13 +321,14 @@ class TaskGraph:
             conn.commit()
             return cursor.rowcount > 0
 
-    def claim_next_ready(self, worker_id: str, include_ephemeral: bool = True) -> Optional[Dict[str, Any]]:
+    def claim_next_ready(self, worker_id: str, include_ephemeral: bool = True, filter_gates: bool = True) -> Optional[Dict[str, Any]]:
         """
         Atomically claims the highest-priority ready task from the frontier.
+        By default, filter_gates=True ensures unpassed gates are not claimed by general workers.
         """
-        frontier = self.get_ready_frontier(include_ephemeral=include_ephemeral)
+        frontier = self.get_ready_frontier(include_ephemeral=include_ephemeral, filter_gates=filter_gates)
         for candidate in frontier:
-            if self.claim_task(candidate["id"], worker_id):
+            if self.claim_task(candidate["id"], worker_id, allow_gated=not filter_gates):
                 return self.get_task(candidate["id"])
         return None
 

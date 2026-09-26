@@ -4,6 +4,7 @@ import argparse
 import subprocess
 import concurrent.futures
 import json
+import shutil
 from datetime import datetime
 
 # Add local paths
@@ -17,6 +18,8 @@ from openbrain.skill_gating import SkillGater
 from openbrain.task_graph import TaskGraph
 from openbrain.gates import GateEngine
 from openbrain.watchdog import HealthPatrol
+from openbrain.llm_provider import get_llm_provider
+from openbrain.history_sync import ConversationHistorySyncer
 
 SKILL_SYNTHESIS_PROMPT = """
 Analyze task trajectory (actions taken, successes, failures).
@@ -101,13 +104,27 @@ class SeikoClaw:
         self.gater = SkillGater()
         self.graph = TaskGraph(db_path)
         self.gates = GateEngine(self.graph)
-        self.watchdog = HealthPatrol()
+        self.watchdog = HealthPatrol(db_path=db_path)
+        self.history_syncer = ConversationHistorySyncer(memory_engine=self.memory, watchdog=self.watchdog)
         
         # Default limits
         self.limits = {
             "anthropic": {"tokens": 100000, "requests": 500},
             "google": {"tokens": 200000, "requests": 1000}
         }
+
+    def sync_conversation_history(self, project=None, since=None, limit=None, dry_run=False, force=False, use_llm=False, brain_dir=None):
+        """Scans conversation history transcripts across projects and syncs new events into Openbrain memory."""
+        if brain_dir:
+            self.history_syncer.brain_dir = brain_dir
+        return self.history_syncer.sync(
+            project_filter=project,
+            since_time=since,
+            limit=limit,
+            dry_run=dry_run,
+            force=force,
+            use_llm=use_llm
+        )
 
     def unlock_vault(self):
         print("[SeikoClaw] Initializing Vault...")
@@ -224,7 +241,7 @@ class SeikoClaw:
         return True
 
     def run_task(self, name, command, cwd=None):
-        """Executes a single command with usage oversight."""
+        """Executes a single command with usage oversight and watchdog telemetry."""
         provider = "google" # Default for most tools here
         
         # 1. Check limits before starting
@@ -236,6 +253,7 @@ class SeikoClaw:
         
         if limit_reached:
             print(f"[PAUSED] {name}: {msg}")
+            self.watchdog.record_action(action_type="task_paused", target=name, result_snippet=msg, success=False)
             return f"SKIP: {msg}"
 
         print(f"[Executing] {name}: {command} (in {cwd or '.'})")
@@ -248,8 +266,14 @@ class SeikoClaw:
             output_text = result.stdout + result.stderr
             actual_tokens = token_estimator.estimate_tokens(output_text)
             
-            # 4. Track usage
-            self.usage.track_usage(provider, tokens=actual_tokens, requests=1) 
+            # 4. Track usage and watchdog telemetry
+            self.usage.track_usage(provider, tokens=actual_tokens, requests=1)
+            self.watchdog.record_action(
+                action_type="command",
+                target=f"{name}: {command}",
+                result_snippet=output_text[:200],
+                success=(result.returncode == 0)
+            )
             
             # 5. Safety Warning: If output is very large, alert for manual summarization
             if actual_tokens > 10000:
@@ -260,13 +284,18 @@ class SeikoClaw:
             else:
                 return f"FAILURE: {name}\nError: {result.stderr}"
         except Exception as e:
+            self.watchdog.record_action(action_type="command_error", target=f"{name}: {command}", result_snippet=str(e)[:200], success=False)
             return f"ERROR: {name}\nException: {str(e)}"
 
     def execute_tablebuddy_tests(self):
         """Orchestrates Tablebuddy Phase 11 testing."""
-        print("[SeikoClaw] Starting Tablebuddy Backend...")
-        # Start server in background
-        server = subprocess.Popen([sys.executable, "server.py"], cwd="d:/DevWorkspace/Tablebuddy")
+        tablebuddy_dir = os.getenv("TABLEBUDDY_DIR") or "d:/DevWorkspace/Tablebuddy"
+        if not os.path.exists(tablebuddy_dir):
+            print(f"[INFO] Tablebuddy not found at {tablebuddy_dir}. Set TABLEBUDDY_DIR to execute e2e test suite.")
+            return
+
+        print(f"[SeikoClaw] Starting Tablebuddy Backend at {tablebuddy_dir}...")
+        server = subprocess.Popen([sys.executable, "server.py"], cwd=tablebuddy_dir)
         import time
         time.sleep(3) # Wait for startup
         
@@ -277,7 +306,7 @@ class SeikoClaw:
                 {"name": "WebSocket Sync", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/websocket_sync.feature"},
                 {"name": "Network Validation", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/network_validation.feature"}
             ]
-            self.execute_parallel(tasks, cwd="d:/DevWorkspace/Tablebuddy/karate_e2e_tests")
+            self.execute_parallel(tasks, cwd=os.path.join(tablebuddy_dir, "karate_e2e_tests"))
         finally:
             print("[SeikoClaw] Shutting down Tablebuddy Backend...")
             server.terminate()
@@ -338,7 +367,7 @@ class SeikoClaw:
                     print(f"[SYNCED-DIR] {skill_name} -> {global_skills_dest}")
 
     def reflect_on_task(self, task_file: str):
-        """Analyzes a task file and synthesizes or evolves a skill."""
+        """Analyzes a task file and synthesizes or evolves a skill using pluggable LLM provider."""
         if not os.path.exists(task_file):
             return "Error: Task file not found."
 
@@ -350,11 +379,10 @@ class SeikoClaw:
 
         print(f"[SeikoClaw] Reflecting on completed tasks in {os.path.basename(task_file)}...")
         
-        # 1. Synthesis via LocalMind
+        # 1. Synthesis via Pluggable LLM Provider
         try:
-            from localmind.engine import LocalMindEngine
-            model_dir = "d:/DevWorkspace/BookIngestion/models"
-            llm = LocalMindEngine(backend="auto", model_dir=model_dir)
+            llm = get_llm_provider()
+            print(f"[SeikoClaw] Using LLM Provider for reflection: {llm.name}")
             
             import re
             skill_name_candidate = None
@@ -372,9 +400,13 @@ class SeikoClaw:
             skill_text = llm.generate(prompt, max_tokens=1024)
             
             if skill_text and "[Mock Response]" not in skill_text:
-                # 2. Extract Skill Name
+                # 2. Extract and Sanitize Skill Name
                 name_match = re.search(r"name:\s*(.*)", skill_text)
-                skill_name = name_match.group(1).strip() if name_match else "New Skill"
+                raw_name = name_match.group(1).strip() if name_match else "new-skill"
+                skill_name = re.sub(r"[^\w\-]", "-", raw_name.lower()).strip("-") or "new-skill"
+                
+                # Ensure skill_text has the sanitized name
+                skill_text = re.sub(r"name:\s*.*", f"name: {skill_name}", skill_text, count=1)
                 
                 # 3. Gating check before saving (Validation & Regression)
                 passed, gate_msg = self.gater.gate_and_save(
@@ -430,9 +462,15 @@ class SeikoClaw:
     def sync_wiki(self, message="Auto-sync from SeikoClaw"):
         """Syncs the current project state into the Master Wiki."""
         print("[SeikoClaw] Syncing state to Master Wiki...")
-        wiki_dir = "d:/DevWorkspace/.master_wiki"
+        wiki_dir = os.getenv("SEIKOCLAW_WIKI_DIR") or "d:/DevWorkspace/.master_wiki"
         if not os.path.exists(wiki_dir):
-            print(f"[ERROR] Master Wiki not found at {wiki_dir}")
+            for candidate in ["../.master_wiki", "./.master_wiki", os.path.join(os.path.expanduser("~"), ".master_wiki")]:
+                if os.path.exists(candidate):
+                    wiki_dir = candidate
+                    break
+
+        if not os.path.exists(wiki_dir):
+            print(f"[INFO] Master Wiki not found at {wiki_dir}. Skipping wiki sync.")
             return
             
         # 1. Read task.md for progress
@@ -452,22 +490,20 @@ class SeikoClaw:
         }
         json_input = json.dumps(page_data)
         
-        # 3. Write to wiki using CLI
-        print("[SeikoClaw] Writing to wiki via llmwiki-cli...")
+        # 3. Write directly to wiki directory
+        print("[SeikoClaw] Writing progress to master wiki...")
         try:
-            proc = subprocess.Popen(["wiki", "write", "wiki/synthesis/latest_sync.md"], 
-                                   cwd=wiki_dir, stdin=subprocess.PIPE, 
-                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
-            out, err = proc.communicate(input=json_input)
-            if proc.returncode != 0:
-                print(f"[WARNING] Wiki write failed: {err}")
-                
-            # 4. Auto-commit with descriptive message for rollback
-            subprocess.run(["git", "add", "."], cwd=wiki_dir, shell=True)
-            subprocess.run(["git", "commit", "-m", f"Auto-sync: {message}"], cwd=wiki_dir, shell=True)
-            print("[SUCCESS] Master Wiki updated and committed.")
+            target_page = os.path.join(wiki_dir, "wiki", "synthesis", "latest_sync.md")
+            os.makedirs(os.path.dirname(target_page), exist_ok=True)
+            with open(target_page, "w", encoding="utf-8") as f:
+                f.write(f"# Latest Task Sync\n\nTags: auto-sync, seikoclaw\n\n## Recent Progress\n\n```markdown\n{progress[:2000]}\n```\n")
+
+            # 4. Auto-commit if wiki_dir is a git repo
+            subprocess.run(["git", "add", "."], cwd=wiki_dir, shell=True, capture_output=True, timeout=10)
+            subprocess.run(["git", "commit", "-m", f"Auto-sync: {message}"], cwd=wiki_dir, shell=True, capture_output=True, timeout=10)
+            print("[SUCCESS] Master Wiki updated.")
         except Exception as e:
-            print(f"[ERROR] Failed to sync wiki: {e}")
+            print(f"[WARNING] Master Wiki sync encountered an issue: {e}")
 
     def manage_kanban(self, action, task_id=None, status=None, project="default"):
         """CLI helper for Kanban operations."""
@@ -482,16 +518,19 @@ class SeikoClaw:
             self.memory.update_kanban(project, task_id, status)
             print(f"[SUCCESS] Updated {task_id} to {status}")
 
-    def loop_until_goal(self, goal, max_turns=5):
-        """Autonomous loop that continues until a goal is met or budget is exhausted."""
+    def loop_until_goal(self, goal, max_turns=5, mode="simulate", worker_id="loop-worker"):
+        """
+        Autonomous loop for SeikoClaw.
+        - 'simulate': Context estimation & handoff benchmark loop.
+        - 'dag': Live DAG task pump that claims and executes ready frontier tasks.
+        """
         budget = IterationBudget(max_turns=max_turns)
-        print(f"[SeikoClaw] Starting autonomous loop for goal: {goal}")
+        print(f"[SeikoClaw] Starting autonomous loop (mode={mode}) for goal: {goal}")
         
         while not budget.is_exhausted():
             print(f"\n--- Turn {budget.current_turns + 1} ---")
             
             # 1. Estimate current context
-            # We estimate by summing up Shortterm memories + recent task info
             memories = self.memory.retrieve_similar(goal, n_results=20)
             context_text = "\n".join([m['content'] for m in memories])
             current_context_tokens = token_estimator.estimate_tokens(context_text)
@@ -499,7 +538,20 @@ class SeikoClaw:
             budget.consume(tokens=0, context_tokens=current_context_tokens)
             print(f"[STATUS] {budget}")
             
-            # 2. Check for early break / handoff
+            # 2. Watchdog Health & Circuit-Breaker Check
+            health = self.watchdog.get_health_status(current_tokens=current_context_tokens)
+            if health.get("is_spinning"):
+                spin_msg = health.get("spin_reason")
+                print(f"[CIRCUIT BREAKER] {spin_msg}")
+                self.memory.save_mistake(
+                    task_id=f"loop-stall-turn-{budget.current_turns}",
+                    error_trace=spin_msg,
+                    context=f"Autonomous loop for goal: {goal}",
+                    hypothesis="Execution halted by watchdog circuit breaker. Resolve repetitive failures."
+                )
+                break
+
+            # 3. Check for context ceiling / auto-handoff
             if current_context_tokens >= (budget.context_limit * 0.9):
                 print(f"[CRITICAL] Context limit reached ({current_context_tokens} tokens).")
                 print("[ACTION] Performing auto-handoff...")
@@ -511,17 +563,45 @@ class SeikoClaw:
                 print(f"[ALERT] Handoff created at {handoff_path}. Please start a new session.")
                 break
 
-            # 3. Check goal (mock check)
-            if "complete" in goal.lower():
-                print("[SUCCESS] Goal detected as complete.")
-                break
-                
-            # 4. Memory Compression (Maintenance)
-            if self.memory.context_engine.compress_shortterm(threshold=5):
-                print("[MAINTENANCE] Compressed recent short-term memories into Midterm.")
+            # 4. Mode Execution
+            if mode == "dag":
+                # Active DAG task pump
+                claimed = self.graph.claim_next_ready(worker_id=worker_id, filter_gates=True)
+                if not claimed:
+                    # Check if tasks are blocked
+                    remaining = self.graph.list_tasks(status="open")
+                    if remaining:
+                        print(f"[INFO] DAG pump complete: {len(remaining)} open tasks remain, but all are blocked by dependencies or pending gates.")
+                    else:
+                        print("[SUCCESS] All open DAG tasks completed!")
+                    break
 
-            # 5. Simulate a task implementation step
-            print("[ACTION] Implementing next step...")
+                task_id = claimed["id"]
+                task_title = claimed["title"]
+                meta = claimed.get("gate_metadata", {})
+                cmd = meta.get("command") or f"echo 'Executing DAG task {task_id}: {task_title}'"
+                
+                print(f"[DAG ACTION] Claimed: {task_id} - {task_title}")
+                res = self.run_task(task_title, cmd)
+                if "SUCCESS" in res:
+                    # Update status to closed
+                    self.graph.close_task(task_id)
+                    print(f"[DAG SUCCESS] Task {task_id} marked as closed.")
+                else:
+                    self.graph.update_status(task_id, "open")
+                    print(f"[DAG RETRY] Task {task_id} command failed; returned to open pool.")
+            else:
+                # Simulation Mode
+                if "complete" in goal.lower():
+                    print("[SUCCESS] Goal detected as complete.")
+                    break
+                
+                # Memory Compression (Maintenance)
+                if self.memory.context_engine.compress_shortterm(threshold=5):
+                    print("[MAINTENANCE] Compressed recent short-term memories into Midterm.")
+
+                print("[ACTION] Implementing simulated next step...")
+                self.watchdog.record_action("simulated_step", goal, f"Turn {budget.current_turns}", success=True)
             
         if budget.is_exhausted() and current_context_tokens < (budget.context_limit * 0.9):
             print("[PAUSED] Iteration budget exhausted.")
@@ -537,7 +617,7 @@ class SeikoClaw:
     def show_ready_frontier(self, claim=False, worker_id="executor-1", as_json=False):
         """Displays or atomically claims the ready frontier from the Task DAG."""
         if claim:
-            claimed = self.graph.claim_next_ready(worker_id=worker_id)
+            claimed = self.graph.claim_next_ready(worker_id=worker_id, filter_gates=True)
             if claimed:
                 if as_json:
                     print(json.dumps(claimed, indent=2))
@@ -551,18 +631,26 @@ class SeikoClaw:
                     print("[INFO] No ready tasks available on the frontier.")
             return claimed
 
-        frontier = self.graph.get_ready_frontier()
+        # Inspection view shows both claimable and pending-gated tasks
+        all_frontier = self.graph.get_ready_frontier(filter_gates=False)
+        claimable = [t for t in all_frontier if not t.get("gate_type") or t.get("gate_status") in ("passed", "bypassed")]
+        gated = [t for t in all_frontier if t.get("gate_type") and t.get("gate_status") == "pending"]
+
         if as_json:
-            print(json.dumps(frontier, indent=2))
+            print(json.dumps({"claimable": claimable, "pending_gates": gated}, indent=2))
         else:
             print("=== 🚀 SeikoClaw Ready Frontier (Claimable Work) ===")
-            if not frontier:
-                print("No tasks currently ready. All tasks are closed or waiting on blockers/gates.")
-            for t in frontier:
-                gate = f" [GATE: {t['gate_type'].upper()}]" if t.get('gate_type') else ""
+            if not claimable:
+                print("No unblocked claimable tasks. All tasks are closed or waiting on blockers/gates.")
+            for t in claimable:
                 wisp = " [WISP]" if t.get('is_ephemeral') else ""
-                print(f"- {t['id']}: {t['title']} (P{t['priority']}){gate}{wisp}")
-        return frontier
+                print(f"- {t['id']}: {t['title']} (P{t['priority']}){wisp}")
+
+            if gated:
+                print("\n=== 🚧 Tasks Awaiting Gate Certification ===")
+                for t in gated:
+                    print(f"- {t['id']}: {t['title']} (P{t['priority']}) [GATE: {t['gate_type'].upper()} - PENDING]")
+        return all_frontier
 
     def show_health_status(self):
         """Displays health patrol diagnostics and watchdog recommendations."""
@@ -634,15 +722,19 @@ class SeikoClaw:
             f.write(mdx_content)
         
         # 4. Serve the bridge
-        npm_global_bin = "D:/DevWorkspace/.npm-global/agent-native.cmd"
-        cmd_prefix = npm_global_bin if os.path.exists(npm_global_bin) else "npx @agent-native/core"
+        agent_native_env = os.getenv("AGENT_NATIVE_CMD")
+        if agent_native_env and os.path.exists(agent_native_env):
+            cmd_prefix = agent_native_env
+        else:
+            cmd_prefix = shutil.which("agent-native") or "npx -y @agent-native/core"
 
         print("[SeikoClaw] Checking visual plan syntax...")
-        subprocess.run(f"{cmd_prefix} plan local check --dir .agents/plans/plan", shell=True)
-        
-        print("[SeikoClaw] Serving visual plan on local bridge...")
-        # Start server in background so CLI execution doesn't block permanently
-        subprocess.Popen(f"{cmd_prefix} plan local serve --dir .agents/plans/plan --kind plan --open", shell=True)
+        try:
+            subprocess.run(f"{cmd_prefix} plan local check --dir .agents/plans/plan", shell=True, timeout=15)
+            print("[SeikoClaw] Serving visual plan on local bridge...")
+            subprocess.Popen(f"{cmd_prefix} plan local serve --dir .agents/plans/plan --kind plan --open", shell=True)
+        except Exception as e:
+            print(f"[INFO] Visual plan bridge invocation skipped: {e}")
         
         # Read the URL
         url_file = os.path.join(plan_dir, ".plan-url")
@@ -747,14 +839,19 @@ kind: recap
         with open(recap_mdx_path, "w", encoding="utf-8") as f:
             f.write(mdx_content)
             
-        npm_global_bin = "D:/DevWorkspace/.npm-global/agent-native.cmd"
-        cmd_prefix = npm_global_bin if os.path.exists(npm_global_bin) else "npx @agent-native/core"
+        agent_native_env = os.getenv("AGENT_NATIVE_CMD")
+        if agent_native_env and os.path.exists(agent_native_env):
+            cmd_prefix = agent_native_env
+        else:
+            cmd_prefix = shutil.which("agent-native") or "npx -y @agent-native/core"
 
         print("[SeikoClaw] Checking visual recap syntax...")
-        subprocess.run(f"{cmd_prefix} plan local check --dir .agents/plans/recap", shell=True)
-        
-        print("[SeikoClaw] Serving visual recap on local bridge...")
-        subprocess.Popen(f"{cmd_prefix} plan local serve --dir .agents/plans/recap --kind recap --open", shell=True)
+        try:
+            subprocess.run(f"{cmd_prefix} plan local check --dir .agents/plans/recap", shell=True, timeout=15)
+            print("[SeikoClaw] Serving visual recap on local bridge...")
+            subprocess.Popen(f"{cmd_prefix} plan local serve --dir .agents/plans/recap --kind recap --open", shell=True)
+        except Exception as e:
+            print(f"[INFO] Visual recap bridge invocation skipped: {e}")
         
         url_file = os.path.join(recap_dir, ".plan-url")
         import time
@@ -773,17 +870,33 @@ def main():
     parser.add_argument("action", choices=[
         "plan", "execute", "usage", "doctor", "sync-global", "memory", 
         "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill",
-        "ready", "claim", "task", "dep", "wisp", "gate", "health", "sync-tasks"
+        "ready", "claim", "task", "dep", "wisp", "gate", "health", "sync-tasks", "vault",
+        "sync-history", "history-sync"
     ])
     parser.add_argument("--task", type=str, help="Task ID or target")
     parser.add_argument("--skill", type=str, help="Skill name or file to test/gate")
     parser.add_argument("--status", type=str, help="Task status (open, in_progress, in_qa, closed, deferred)")
     parser.add_argument("--goal", type=str, help="Goal description for autonomous loop")
     parser.add_argument("--turns", type=int, default=5, help="Max loop turns")
+    parser.add_argument("--dag", action="store_true", help="Run autonomous loop in DAG task pump mode")
+    parser.add_argument("--simulate", action="store_true", help="Run autonomous loop in token simulation mode")
     parser.add_argument("--command", type=str, help="Command to run when executing a task")
     parser.add_argument("--verify", type=str, help="Verification command to run after executing a task")
     parser.add_argument("--sandbox", action="store_true", help="Enable git-backed sandboxing for execution")
-    parser.add_argument("--query", type=str, help="Search query for memory")
+    parser.add_argument("--query", type=str, help="Search query for memory or secret key")
+    parser.add_argument("--set-secret", type=str, help="Set secret in vault (KEY=VALUE)")
+    parser.add_argument("--get-secret", type=str, help="Get secret from vault by KEY")
+    
+    # Conversation History Sync flags
+    parser.add_argument("--since", type=str, help="Sync history events newer than ISO timestamp or SQLite datetime")
+    parser.add_argument("--brain-dir", type=str, help="Custom brain conversation transcripts directory")
+    parser.add_argument("--project", type=str, help="Filter history sync by project name")
+    parser.add_argument("--limit", type=int, help="Limit number of conversations to sync")
+    parser.add_argument("--dry-run", action="store_true", help="Preview history sync memories without writing")
+    parser.add_argument("--force", action="store_true", help="Force sync ignoring previous watermarks")
+    parser.add_argument("--use-llm", action="store_true", help="Use active LLM provider for memory synthesis")
+    parser.add_argument("--sync-history", action="store_true", help="Trigger conversation history sync (when using memory action)")
+    parser.add_argument("--stats", action="store_true", help="Show history sync statistics and watermark states")
     
     # Hybrid DAG & Fleet CLI flags
     parser.add_argument("--claim", action="store_true", help="Claim ready task atomically from frontier")
@@ -910,13 +1023,78 @@ def main():
             claw.manage_kanban("update", task_id=args.task, status=args.status)
         else:
             claw.manage_kanban("list")
-    elif args.action == "loop":
-        if args.goal:
-            claw.loop_until_goal(args.goal, max_turns=args.turns)
+    elif args.action == "vault":
+        key = args.get_secret or args.query or args.task
+        secret_entry = args.set_secret
+        if secret_entry:
+            pw = os.getenv("SEIKOCLAW_MASTER_PASS")
+            if not pw:
+                print("[ERROR] SEIKOCLAW_MASTER_PASS environment variable is required to write to Vault.")
+                sys.exit(1)
+            claw.vault.unlock(pw)
+            if "=" in secret_entry:
+                k, v = secret_entry.split("=", 1)
+            elif args.desc:
+                k, v = secret_entry, args.desc
+            else:
+                print("[ERROR] Provide secret as KEY=VALUE or use --desc VALUE.")
+                sys.exit(1)
+            claw.vault.set_secret(k.strip(), v.strip())
+            print(f"[VAULT SUCCESS] Stored encrypted secret '{k.strip()}' in Vault.")
+        elif key:
+            pw = os.getenv("SEIKOCLAW_MASTER_PASS")
+            if not pw:
+                print("[ERROR] SEIKOCLAW_MASTER_PASS environment variable is required to unlock Vault.")
+                sys.exit(1)
+            claw.vault.unlock(pw)
+            val = claw.vault.get_secret(key)
+            if val is not None:
+                print(f"[VAULT] {key} = {val}")
+            else:
+                print(f"[VAULT] Secret '{key}' not found in vault.")
         else:
-            print("Error: --goal is required.")
+            print("Usage: seikoclaw vault --set-secret KEY=VALUE or seikoclaw vault --get-secret KEY")
+    elif args.action == "loop":
+        goal = args.goal or "Run pending ready DAG tasks"
+        mode = "dag" if args.dag else ("simulate" if args.simulate else "simulate")
+        claw.loop_until_goal(goal, max_turns=args.turns, mode=mode, worker_id=args.worker)
+    elif args.action in ("sync-history", "history-sync"):
+        if args.stats:
+            states = claw.memory.list_history_sync_states()
+            print("=== 📜 SeikoClaw Conversation History Sync States ===")
+            if not states:
+                print("No conversations have been synced yet.")
+            for s in states:
+                print(f"[{s['project_name']}] Conv {s['conversation_id'][:8]} | Last Step: {s['last_synced_step']} | Last Time: {s['last_synced_time']} | Memories: {s['memories_count']}")
+        else:
+            claw.sync_conversation_history(
+                project=args.project,
+                since=args.since,
+                limit=args.limit,
+                dry_run=args.dry_run,
+                force=args.force,
+                use_llm=args.use_llm,
+                brain_dir=args.brain_dir
+            )
     elif args.action == "memory":
-        if args.query:
+        if args.sync_history:
+            claw.sync_conversation_history(
+                project=args.project,
+                since=args.since,
+                limit=args.limit,
+                dry_run=args.dry_run,
+                force=args.force,
+                use_llm=args.use_llm,
+                brain_dir=args.brain_dir
+            )
+        elif args.stats:
+            states = claw.memory.list_history_sync_states()
+            print("=== 📜 SeikoClaw Conversation History Sync States ===")
+            if not states:
+                print("No conversations have been synced yet.")
+            for s in states:
+                print(f"[{s['project_name']}] Conv {s['conversation_id'][:8]} | Last Step: {s['last_synced_step']} | Last Time: {s['last_synced_time']} | Memories: {s['memories_count']}")
+        elif args.query:
             print(f"--- Searching memories for: '{args.query}' ---")
             results = claw.memory.retrieve_similar(args.query)
             if not results:
@@ -926,7 +1104,7 @@ def main():
                 print(f"{r['content'][:500]}...") # Show snippet
                 print("-" * 20)
         else:
-            print("Error: --query is required for memory search.")
+            print("Usage: seikoclaw memory --query <search> or seikoclaw memory --sync-history")
     elif args.action == "reflect":
         if args.task:
             claw.reflect_on_task(args.task)
@@ -944,13 +1122,26 @@ def main():
             u = claw.usage.get_todays_usage(p)
             print(f"{p.upper()}: {u['tokens']} tokens, {u['requests']} requests")
     elif args.action == "doctor":
-        print("[Doctor] Checking Openbrain...")
+        print("=== 🩺 SeikoClaw System Diagnostics ===")
         db_path = claw.sqlite_path
-        print(f"Database path: {db_path}")
-        if os.path.exists(db_path):
-            print("[OK] database found.")
-        else:
-            print("[FAIL] database missing.")
+        print(f"SQLite Database: {db_path} [{'OK' if os.path.exists(db_path) else 'FAIL'}]")
+        chroma_ok = claw.memory.collection is not None
+        print(f"ChromaDB Vector Store: {claw.chroma_path} [{'OK' if chroma_ok else 'FALLBACK (SQLite)'}]")
+        
+        llm = get_llm_provider()
+        print(f"Background LLM Provider: {llm.name} [OK]")
+        
+        wiki_dir = os.getenv("SEIKOCLAW_WIKI_DIR") or "d:/DevWorkspace/.master_wiki"
+        has_wiki = os.path.isdir(wiki_dir) or any(os.path.isdir(p) for p in ["../.master_wiki", "./.master_wiki"])
+        print(f"Master Wiki: {wiki_dir} [{'OK' if has_wiki else 'OPTIONAL (Unconfigured)'}]")
+        
+        total_tasks = len(claw.graph.list_tasks())
+        ready_frontier = len(claw.graph.get_ready_frontier())
+        print(f"Task Graph Nodes: {total_tasks} total ({ready_frontier} on ready frontier)")
+        
+        health = claw.watchdog.get_health_status()
+        print(f"Health Patrol: {health['status']} ({health['total_actions']} tracked actions)")
+        print("[SUCCESS] Diagnostics complete.")
     elif args.action == "execute":
         if args.command:
             if not args.task:
@@ -977,6 +1168,7 @@ def main():
             )
             if limit_reached:
                 print(f"[PAUSED] {args.task}: {msg}")
+                claw.watchdog.record_action("cli_execute", args.task, msg, success=False)
                 if sandbox_active:
                     claw.discard_sandbox(args.task, original_branch, stashed)
                 sys.exit(1)
@@ -986,10 +1178,16 @@ def main():
             exec_res = subprocess.run(args.command, shell=True, capture_output=True, text=True)
             print(exec_res.stdout)
             
-            # Track command token usage
+            # Track command token usage & watchdog
             output_text = exec_res.stdout + exec_res.stderr
             actual_tokens = token_estimator.estimate_tokens(output_text)
             claw.usage.track_usage(provider, tokens=actual_tokens, requests=1)
+            claw.watchdog.record_action(
+                action_type="cli_execute",
+                target=f"{args.task}: {args.command}",
+                result_snippet=output_text[:200],
+                success=(exec_res.returncode == 0)
+            )
             
             if actual_tokens > 10000:
                 print(f"[CRITICAL] Command output is {actual_tokens} tokens! Consider summarizing before next task.")
@@ -1010,6 +1208,12 @@ def main():
                 # Track verify token usage
                 verify_tokens = token_estimator.estimate_tokens(verify_res.stdout + verify_res.stderr)
                 claw.usage.track_usage(provider, tokens=verify_tokens, requests=1)
+                claw.watchdog.record_action(
+                    action_type="cli_verify",
+                    target=f"{args.task}: {args.verify}",
+                    result_snippet=(verify_res.stdout + verify_res.stderr)[:200],
+                    success=(verify_res.returncode == 0)
+                )
                 
                 if verify_res.returncode != 0:
                      print(f"[VERIFY FAILURE] Verification failed with return code {verify_res.returncode}")

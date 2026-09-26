@@ -1,0 +1,12 @@
+{
+  "openbrain-history-sync": {
+    "enabled": true,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python .agents/hooks/sync-history.py",
+        "timeout": 20
+      }
+    ]
+  }
+}
