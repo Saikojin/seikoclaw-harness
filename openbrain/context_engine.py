@@ -37,8 +37,12 @@ class ContextEngine:
     def compress_shortterm(self, tag: str = None, threshold: int = 10) -> bool:
         """
         Scans short-term memories and consolidates them if the threshold is met.
+        Guarantees zero data loss:
+        - Refuses compression if only heuristic fallback is active.
+        - Preserves source memories by marking tier='Archived' instead of deleting them.
         """
-        if not self.llm:
+        if not self.llm or getattr(self.llm, "is_heuristic", False) or not getattr(self.llm, "is_neural", False):
+            logger.info("Memory compression skipped: requires active neural LLM backend.")
             return False
 
         # 1. Fetch short-term memories
@@ -62,33 +66,39 @@ class ContextEngine:
         
         # 2. Prepare for summarization
         combined_text = "\n---\n".join([r[1] for r in rows])
-        ids_to_delete = [r[0] for r in rows]
+        source_ids = [r[0] for r in rows]
 
-        # 3. Summarize via LLM Provider
+        # 3. Summarize via Pluggable Neural LLM Provider
         prompt = CAVEMAN_PROMPT.format(memories=combined_text)
         summary = self.llm.generate(prompt, max_tokens=1024, temperature=0.3)
 
-        if summary and "[Mock Response]" not in summary:
+        if summary and "[Mock Response]" not in summary and summary.strip():
             # 4. Save new Midterm memory
-            self.memory.save_memory(
-                text=summary, 
+            midterm_id = self.memory.save_memory(
+                text=summary.strip(), 
                 tier="Midterm", 
                 source="ContextEngine", 
                 tags=f"compressed,{tag if tag else ''}"
             )
 
-            # 5. Cleanup old memories
-            cur.executemany("DELETE FROM memories WHERE id = ?", [(mid,) for mid in ids_to_delete])
+            # 5. Soft-archive old memories with linkage to midterm memory
+            cur.executemany("""
+                UPDATE memories 
+                SET tier = 'Archived', 
+                    compressed_into = ?, 
+                    archived_at = CURRENT_TIMESTAMP 
+                WHERE id = ?
+            """, [(midterm_id, mid) for mid in source_ids])
             conn.commit()
             
-            # Also cleanup from Chroma if available
+            # Remove from Chroma vector index to keep vector search dense & focused on midterm summary
             if getattr(self.memory, "collection", None):
                 try:
-                    self.memory.collection.delete(ids=ids_to_delete)
+                    self.memory.collection.delete(ids=source_ids)
                 except Exception:
                     pass
             
-            logger.info(f"Successfully compressed {len(rows)} memories into 1 midterm entry.")
+            logger.info(f"Successfully compressed {len(rows)} memories into 1 midterm entry ({midterm_id}); source memories archived.")
             conn.close()
             return True
         

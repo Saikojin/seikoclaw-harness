@@ -1,6 +1,7 @@
 ---
 name: adr
-description: Turn the current conversation context into an Architecture Decision Record (ADR) and save it to docs/adr/. Use when a significant architectural decision has been reached and needs to be recorded.
+description: Turn decisions into Architecture Decision Records in docs/adr/.
+author: Matt Pocock / David Andrej
 ---
 
 # ADR Skill

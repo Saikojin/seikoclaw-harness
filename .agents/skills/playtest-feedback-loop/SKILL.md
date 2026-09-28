@@ -1,6 +1,7 @@
 ---
 name: playtest-feedback-loop
-description: Captures qualitative designer playtest feedback and telemetry, mapping subjective terms ("floaty", "bullet sponge") into parameter changes and cumulative iteration logs.
+description: Captures qualitative designer playtest feedback into parameter tuning.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Playtest Feedback Loop

@@ -1,7 +1,7 @@
 ---
 name: before-building
-description: Fire the moment the user proposes a build or new feature. Instantly surface the 1-3 consequential choices hidden in their idea before writing code or planning deeply. Trigger when user says "/before-building", "I want to build", "let's build", "new feature", or proposes a non-trivial project addition.
-disable-model-invocation: false
+description: Surfaces consequential choices before writing code or planning deeply.
+author: Matt Pocock
 ---
 
 # Before Building (Instant Gut-Check)

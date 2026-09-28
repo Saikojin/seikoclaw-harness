@@ -29,8 +29,8 @@ def find_harness_root():
 def main():
     root = find_harness_root()
     if not root:
-        # Fallback default
-        root = r"d:\DevWorkspace\SeikoClaw-Harness"
+        # Fallback to repo root containing this hook script
+        root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
     if root not in sys.path:
         sys.path.insert(0, root)

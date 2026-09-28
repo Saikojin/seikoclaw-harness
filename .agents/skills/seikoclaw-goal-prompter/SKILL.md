@@ -1,7 +1,7 @@
 ---
 name: seikoclaw-goal-prompter
-description: Hardens executor prompts and drafting goal instructions using the 5-part contract (Objective, Read First, Constraints, Validate, Stop Condition, Documentation). Use when preparing long-running tasks, framing `/goal` prompts, or hardening task boundaries.
-disable-model-invocation: false
+description: Hardens executor prompts using the 5-part contract.
+author: Saikojin (SeikoClaw)
 ---
 
 # SeikoClaw Goal Prompter & Contract Enforcer

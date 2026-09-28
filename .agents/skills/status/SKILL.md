@@ -1,6 +1,7 @@
 ---
 name: status
-description: Displays the current context health and token budget. Use when you are concerned about hitting token limits, or want to check the 'weight' of the current session before a large task.
+description: Displays current context health, iteration budget, and token utilization.
+author: Saikojin (SeikoClaw)
 ---
 
 # Status Skill

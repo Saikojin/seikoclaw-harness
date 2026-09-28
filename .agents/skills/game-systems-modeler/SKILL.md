@@ -1,6 +1,7 @@
 ---
 name: game-systems-modeler
-description: Generates interactive balance simulators (balance_simulator.html) and maintains canonical balance parameters (balance.json) for combat, progression, economy, and probability tuning.
+description: Generates interactive balance simulators and balance parameters.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Game Systems Modeler

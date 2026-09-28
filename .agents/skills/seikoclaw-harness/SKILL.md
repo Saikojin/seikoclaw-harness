@@ -1,64 +1,66 @@
 ---
 name: seikoclaw-harness
-description: Router and index for all SeikoClaw skills. Use when you want to know which skill to invoke.
-disable-model-invocation: false
+description: Router and index for all SeikoClaw skills, workflows, and sidecar tools.
+author: Saikojin (SeikoClaw)
 ---
 
 # SeikoClaw Harness Router
 
-Index of available SeikoClaw and Matt Pocock skills:
+Index of canonical developer, game-dev, and autonomous harness skills available in `.agents/skills/`:
 
-## Core Engineering & Workflow
-- [ask-matt](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/ask-matt/SKILL.md) — Ask which skill or flow fits your situation; complete router over engineering and productivity skills.
-- [before-building](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/before-building/SKILL.md) — Instant gut-check: surface 1–3 consequential choices hidden in an idea before writing code.
-- [wayfinder](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/wayfinder/SKILL.md) — Plan large, foggy efforts across multiple sessions using a shared decision map on your issue tracker.
-- [prototype](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/prototype/SKILL.md) — Build a throwaway prototype (Logic TUI or UI multi-variant search params) to answer a design question.
-- [implement](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/implement/SKILL.md) — Build work described by a spec or set of tickets, driving /tdd and /code-review.
-- [implement-spec](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/implement-spec/SKILL.md) — Implement a specification using task graph frontiers, context pointers, and concurrent background implementers.
-- [pr](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/pr/SKILL.md) — Standardized fast-to-review PR body template with diagrams, before/after evidence pairs, and one-way/two-way door merge risk analysis.
-- [retro](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/retro/SKILL.md) — Conduct session retrospectives targeting navigation pointers, deterministic automated checks/linters, and coding standards.
-- [triage](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/triage/SKILL.md) — Move raw issues and external requests through triage roles into agent-ready tickets.
-- [diagnosing-bugs](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/diagnosing-bugs/SKILL.md) — Disciplined diagnosis loop for hard bugs and regressions: reproduce → minimize → hypothesize → instrument → fix → test.
-- [codebase-design](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/codebase-design/SKILL.md) — Shared discipline and vocabulary for designing deep modules with simple interfaces.
-- [setup-ts-deep-modules](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/setup-ts-deep-modules/SKILL.md) — Enforce deep module boundaries in TypeScript with dependency-cruiser.
-- [domain-modeling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/domain-modeling/SKILL.md) — Actively build and sharpen project domain models, updating CONTEXT.md and ADRs.
-- [tdd](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/tdd/SKILL.md) — Test-driven development: red→green loop at pre-agreed seams, with anti-pattern guards and vertical-slice discipline.
-- [to-tickets](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/to-tickets/SKILL.md) — Break plans or specs into tracer-bullet tickets with blocking edges.
-- [to-spec](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/to-spec/SKILL.md) — Synthesize discussion context into a detailed technical specification.
-- [wizard](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/wizard/SKILL.md) — Generate interactive CLI wizards (PowerShell & Bash) to guide manual setups, credentials, and cutovers.
-- [code-review](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/code-review/SKILL.md) — Two-axis parallel review (Standards + Spec) with Fowler smell baseline. Driven by `/implement`; also standalone for branch/PR review.
-- [research](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/research/SKILL.md) — Delegate primary-source investigation to a background research subagent.
-- [resolving-merge-conflicts](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/resolving-merge-conflicts/SKILL.md) — Hunk-by-hunk resolution of in-progress git merge/rebase conflicts.
-- [improve-codebase-architecture](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/improve-codebase-architecture/SKILL.md) — Scan codebase for deepening opportunities and produce architectural improvements.
-- [agent-guardrails](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/agent-guardrails/SKILL.md) — Command denylist and safety guard hooks for pre-execution interception.
-- [agent-self-scheduling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/agent-self-scheduling/SKILL.md) — Schedule recurring agent tasks or heartbeats with PowerShell and Bash wrappers.
-- [youtube-transcript](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/youtube-transcript/SKILL.md) — Extract YouTube video transcripts for ingestion and research notes.
+## 1. Core Engineering & Spec Pipeline (Matt Pocock / David Andrej)
+- [before-building](../before-building/SKILL.md) — Instant gut-check: surface 1–3 consequential choices hidden in an idea before coding.
+- [to-spec](../to-spec/SKILL.md) — Synthesize discussion context into a detailed technical specification *(aliases: `to-prd`)*.
+- [to-tickets](../to-tickets/SKILL.md) — Break plans or specs into tracer-bullet tickets with dependency edges *(aliases: `to-issues`)*.
+- [wayfinder](../wayfinder/SKILL.md) — Plan large, foggy efforts across multiple sessions using a shared decision map.
+- [prototype](../prototype/SKILL.md) — Build a throwaway prototype to answer a design or technical question.
+- [grill-me](../grill-me/SKILL.md) — Relentless interview loop resolving decision trees and updating `CONTEXT.md` / ADRs inline *(aliases: `grilling`, `grill_with_docs`, `loop-me`, `wait-what`)*.
+- [implement](../implement/SKILL.md) — Build work from specs, ticket lists, or DAG frontiers with automated verification *(aliases: `implement-spec`, `executor`)*.
+- [tdd](../tdd/SKILL.md) — Test-driven development: red→green→refactor loop at pre-agreed seams.
+- [code-review](../code-review/SKILL.md) — Two-axis parallel review (Standards + Spec) with Fowler smell baseline.
+- [pr](../pr/SKILL.md) — Standardized fast-to-review PR body template with evidence pairs and risk analysis.
+- [diagnosing-bugs](../diagnosing-bugs/SKILL.md) — Disciplined diagnosis loop for hard bugs and regressions.
+- [resolving-merge-conflicts](../resolving-merge-conflicts/SKILL.md) — Hunk-by-hunk resolution of in-progress git merge/rebase conflicts.
+- [triage](../triage/SKILL.md) — Move raw issues and external requests through triage roles into agent-ready tickets.
+- [codebase-design](../codebase-design/SKILL.md) — Domain modeling, context mapping, and deepening opportunities following design-it-twice principles *(aliases: `domain-modeling`, `improve-codebase-architecture`, `setup-ts-deep-modules`)*.
+- [adr](../adr/SKILL.md) — Turn architectural decisions into Architecture Decision Records in `docs/adr/`.
+- [handoff](../handoff/SKILL.md) — Compact conversation context into a structured handoff document for cross-session continuity.
+- [wizard](../wizard/SKILL.md) — Generate interactive CLI wizards (PowerShell & Bash) to guide manual setups and credentials.
+- [research](../research/SKILL.md) — Delegate primary-source investigation to a background research subagent.
+- [agent-authoring](../agent-authoring/SKILL.md) — Comprehensive framework for writing and editing agent skills, workflows, and rules *(aliases: `writing-for-agents`, `writing-great-skills`, `writing-beats`, `writing-fragments`, `writing-shape`, `teach`, `ask-matt`, `setup-matt-pocock-skills`, `to-questionnaire`)*.
 
-## Game Development & Prototyping (Non-Coder Loop)
-- [game-forge](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-forge/SKILL.md) — Master autonomous game creation framework: coordinates design critique, GDD synthesis, micro-slice slicing, zero-install HTML5 prototyping, balance modeling, assets, tooling workbenches, and execution without manual skill hopping.
-- [game-design-critic](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-design-critic/SKILL.md) — Lead Game Designer persona for Socratic grilling on core feel, 10s/30s/5m loops, and player psychology.
-- [game-developer](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-developer/SKILL.md) — Lead Tooling Architect: breaks down design reviews and Wayfinder roadmaps into linear creation pipelines with custom workbenches, asset scripts, and validators.
-- [gdd-generator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/gdd-generator/SKILL.md) — Synthesize vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` specifications.
-- [scope-surgeon](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/scope-surgeon/SKILL.md) — Ruthlessly cut game scope down to 30–90 second micro-slices in `VERTICAL_SLICE_SPEC.md` format.
-- [game-prototype-builder](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-prototype-builder/SKILL.md) — Build zero-install single-file HTML5 Canvas games (`prototype.html`) with Web Audio API synth sounds, live tuning sliders, and telemetry HUDs.
-- [game-systems-modeler](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-systems-modeler/SKILL.md) — Interactive Chart.js dashboards (`balance_simulator.html`) and canonical balance JSON storage (`docs/design/balance.json`).
-- [playtest-feedback-loop](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/playtest-feedback-loop/SKILL.md) — Translate qualitative feedback ("floaty", "bullet sponge") to parameter diffs and maintain `PLAYTEST_RUNBOOK.md`.
-- [genre-competitor-analysis](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/genre-competitor-analysis/SKILL.md) — Autonomous research subagent executing 5-point competitive matrix research (`COMPETITIVE_LANDSCAPE.md`).
-- [mood-board-curator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/mood-board-curator/SKILL.md) — Curate visual/audio reference galleries (`mood_board.html`) and extract `style_markers.json` for ArtistAgent RAG prompt injection.
-- [asset-generator](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/asset-generator/SKILL.md) — On-demand 2D game asset creation (seamless ground textures, character layers/paperdolls, isometric sprites, backdrops) via Gemini image generation.
+## 2. Game Forge Suite (Saikojin)
+- [game-forge](../game-forge/SKILL.md) — Master autonomous game creation framework coordinating design, GDDs, prototyping, assets, balance, and execution.
+- [game-design-critic](../game-design-critic/SKILL.md) — Socratic game design critic persona for stress-testing game mechanics and core feel.
+- [scope-surgeon](../scope-surgeon/SKILL.md) — Ruthlessly cuts game design scope to a testable 30–90 second vertical micro-slice.
+- [gdd-generator](../gdd-generator/SKILL.md) — Synthesizes vision plans and reviews into living `docs/design/GDD.md` specifications.
+- [game-systems-modeler](../game-systems-modeler/SKILL.md) — Interactive Chart.js simulators (`balance_simulator.html`) and canonical balance JSON.
+- [game-prototype-builder](../game-prototype-builder/SKILL.md) — Builds zero-install single-file HTML5 Canvas games (`prototype.html`) with Web Audio API procedural sound and live tuning.
+- [mood-board-curator](../mood-board-curator/SKILL.md) — Curates visual/audio reference galleries (`mood_board.html`) and extracts `style_markers.json`.
+- [asset-generator](../asset-generator/SKILL.md) — On-demand 2D game asset creation (textures, sprites, layers, backdrops) via Gemini image generation.
+- [game-developer](../game-developer/SKILL.md) — Specifies custom developer tools and linear creation pipelines.
+- [genre-competitor-analysis](../genre-competitor-analysis/SKILL.md) — Autonomous subagent executing 5-point competitor matrix research (`COMPETITIVE_LANDSCAPE.md`).
+- [playtest-feedback-loop](../playtest-feedback-loop/SKILL.md) — Translates qualitative feedback ("floaty", "bullet sponge") to parameter diffs.
 
-## Productivity & Meta
-- [grill-with-docs](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill_with_docs/SKILL.md) — Relentless interview loop that builds project domain model and updates CONTEXT.md and ADRs.
-- [grill-me](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grill-me/SKILL.md) — Relentless Q&A interview to resolve decision trees for non-code/stateless efforts.
-- [grilling](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/grilling/SKILL.md) — Relentless Q&A primitive: facts are looked up, decisions are asked; confirmation gate before acting.
-- [loop-me](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/loop-me/SKILL.md) — Grilling discipline for recurring patterns, building structured `workflows/*.md` specs.
-- [wait-what](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/wait-what/SKILL.md) — Circuit-breaker to halt confusion and force an immediate ASD-STE100 Simplified Technical English re-pitch.
-- [to-questionnaire](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/to-questionnaire/SKILL.md) — Turn unresolved decisions into targeted questionnaires for async stakeholder input.
-- [handoff](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/handoff/SKILL.md) — Compact conversation context into a handoff document for cross-session continuity.
-- [teach](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/teach/SKILL.md) — Stateful multi-session learning workspace for teaching user concepts and skills.
-- [writing-for-agents](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-for-agents/SKILL.md) — Style guide and mechanics for writing predictable, high-signal agent skills.
-- [writing-great-skills](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-great-skills/SKILL.md) — Progressive disclosure and structural patterns for agent skills.
-- [writing-beats](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-beats/SKILL.md) — Structure long-form content and articles into narrative beats.
-- [writing-fragments](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-fragments/SKILL.md) — Capture and organize atomic writing fragments and thoughts.
-- [writing-shape](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/writing-shape/SKILL.md) — Shape arguments and drafts into full essays or articles.
-- [distribute-skills](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/distribute-skills/SKILL.md) — Synchronize skills between local workspace and global/plugin directories.
+## 3. Autonomous Infrastructure & Sidecar (Saikojin)
+- [seikojin-qa](../seikojin-qa/SKILL.md) — Seikojin QA Agent Cabinet with Risk-Based Testing (Brain) and Clean Slate automation (Hands).
+- [seikoclaw-red-team](../seikoclaw-red-team/SKILL.md) — Audits implementation plans for load-bearing assumptions and risks.
+- [seikoclaw-operating-map](../seikoclaw-operating-map/SKILL.md) — Maintains project map of parallel agent sessions and ownership lanes.
+- [seikoclaw-shipper](../seikoclaw-shipper/SKILL.md) — Generates pull request descriptions, release notes, and stakeholder updates.
+- [seikoclaw-skill-extractor](../seikoclaw-skill-extractor/SKILL.md) — Actively generates reusable skills from completed sessions.
+- [seikoclaw-test-memory](../seikoclaw-test-memory/SKILL.md) — Records successful testing procedures and DOM selectors into runbooks.
+- [seikoclaw-frontend-taste](../seikoclaw-frontend-taste/SKILL.md) — Enforces design systems, typography, and consistent layout.
+- [seikoclaw-goal-prompter](../seikoclaw-goal-prompter/SKILL.md) — Hardens executor prompts using the 5-part contract.
+- [seikoclaw-ingestor](../seikoclaw-ingestor/SKILL.md) — Processes unstructured files (PDFs, transcripts, CSVs) into grounded context.
+- [seikoclaw-browser-qa-workflow](../seikoclaw-browser-qa-workflow/SKILL.md) — Visual and E2E testing framework for screenshots and layout checks.
+- [agent-guardrails](../agent-guardrails/SKILL.md) — Denylist of catastrophic shell commands enforced via cross-platform guard hooks.
+- [agent-self-scheduling](../agent-self-scheduling/SKILL.md) — Schedule AI agent tasks on intervals, crons, or background heartbeats.
+- [distribute-skills](../distribute-skills/SKILL.md) — Sync and distribute skills between local workspace and global/plugin locations.
+- [architect](../architect/SKILL.md) — Decomposes high-level goals into granular, verifiable tasks.
+- [coverage-loop](../coverage-loop/SKILL.md) — Iteratively writes tests and runs coverage tools until target threshold is met.
+- [sweep-loop](../sweep-loop/SKILL.md) — Sweeps entire codebase to apply architectural patterns and learnings.
+- [status](../status/SKILL.md) — Displays current context health, iteration budget, and token utilization.
+- [learnings](../learnings/SKILL.md) — Captures session-specific technical insights, mistakes, and patterns into OpenBrain *(aliases: `retro`)*.
+- [modernize](../modernize/SKILL.md) — Performs structural migrations and modern design pattern updates.
+- [interviewer](../interviewer/SKILL.md) — Synthesizes user ideas into a structured Master Vision Plan.
+- [youtube-transcript](../youtube-transcript/SKILL.md) — Fetches and processes YouTube transcripts for documentation and ingestion.

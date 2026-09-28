@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-red-team
-description: Audits an implementation plan for load-bearing assumptions, missing evidence, and risks before handoff.
+description: Audits implementation plans for load-bearing assumptions and risks.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Red Team (Assumption Checker)

@@ -1,6 +1,7 @@
 ---
 name: architect
-description: Decomposes high-level goals into granular, verifiable tasks. Use when starting a new feature, when a task feels too complex to implement in one go, or when you need a clear roadmap for execution.
+description: Decomposes high-level goals into granular, verifiable tasks.
+author: Saikojin (SeikoClaw)
 ---
 
 # Architect Skill & Hybrid DAG Planner

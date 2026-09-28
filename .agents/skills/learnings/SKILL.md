@@ -1,6 +1,10 @@
 ---
 name: learnings
-description: Captures session-specific technical insights, updates the knowledge base, and syncs to Openbrain.
+description: Captures session-specific technical insights, mistakes, and patterns
+  into memory.
+author: Saikojin (SeikoClaw)
+aliases:
+- retro
 ---
 
 # Learnings Skill

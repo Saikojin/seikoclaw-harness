@@ -1,6 +1,8 @@
 ---
 name: mood-board-curator
-description: Curates visual, audio, and mood references into interactive galleries (mood_board.html) and extracts structured style markers (style_markers.json) for ArtistAgent RAG art generation.
+description: Curates visual/audio references into interactive galleries and style
+  markers.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Mood Board Curator (Reference & Mood Board Skill)

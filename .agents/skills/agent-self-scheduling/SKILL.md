@@ -1,7 +1,7 @@
 ---
 name: agent-self-scheduling
-description: Schedule AI agent tasks on intervals, crons, or background heartbeats using cross-platform Bash and PowerShell wrappers. Trigger when set up recurring agent runs, loops, or heartbeats.
-disable-model-invocation: false
+description: Schedule AI agent tasks on intervals, crons, or background heartbeats.
+author: Saikojin (SeikoClaw)
 ---
 
 # Agent Self-Scheduling & Recurring Heartbeats

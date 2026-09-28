@@ -1,7 +1,8 @@
 ---
 name: agent-guardrails
-description: Denylist of catastrophic shell commands enforced across AI agents via cross-platform Bash and PowerShell guard hooks. Trigger when adding or tuning blocked command patterns, wiring hooks into agents, or evaluating command security.
-disable-model-invocation: false
+description: Denylist of catastrophic shell commands enforced via cross-platform guard
+  hooks.
+author: Saikojin (SeikoClaw)
 ---
 
 # Agent Guardrails & Command Denylist

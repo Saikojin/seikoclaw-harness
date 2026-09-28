@@ -1,7 +1,7 @@
 ---
 name: distribute-skills
-description: Sync and distribute agent skills between the local workspace (.agents/skills) and global/plugin locations. Trigger when asked to publish, sync, or distribute skills across environments.
-disable-model-invocation: false
+description: Sync and distribute agent skills between workspace and global locations.
+author: Saikojin (SeikoClaw)
 ---
 
 # Skill Distribution & Sync Workflow

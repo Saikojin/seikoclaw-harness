@@ -1,6 +1,7 @@
 ---
 name: interviewer
-description: Synthesizes spontaneous user ideas into a structured Master Vision Plan through panel-based expert interviews. Use when starting a new project or pivoting a vision.
+description: Synthesizes user ideas into a structured Master Vision Plan.
+author: Saikojin (SeikoClaw)
 ---
 
 # Interviewer Skill

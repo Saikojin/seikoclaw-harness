@@ -1,7 +1,7 @@
 ---
 name: research
-description: Investigate a question against high-trust primary sources and capture findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or deep research conducted.
-disable-model-invocation: false
+description: Investigate questions against high-trust primary sources.
+author: Matt Pocock
 ---
 
 # Research & Deep Investigation Skill

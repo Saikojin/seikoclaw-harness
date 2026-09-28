@@ -1,6 +1,7 @@
 ---
 name: gdd-generator
-description: Synthesizes design discussions, critic reviews, and vision plans into a living, modular Game Design Document (GDD.md) for non-coding game designers.
+description: Synthesizes design discussions into a living Game Design Document.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # GDD Generator (Game Design Document Skill)

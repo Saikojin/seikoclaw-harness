@@ -1,6 +1,7 @@
 ---
 name: game-developer
-description: 'Deconstructs game designs and Wayfinder roadmaps into linear creation pipelines by identifying and specifying custom developer tools, authoring workbenches, asset scripts, and content validators. Trigger with /game-developer, "plan game tooling", "setup game pipeline", or after /game-design-critic and /wayfinder when preparing to build a game. Differentiator: specifies the concrete authoring tools, pipelines, and workbenches required to build a game linearly.'
+description: Specifies custom developer tools and linear creation pipelines.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Game Developer & Tooling Architect

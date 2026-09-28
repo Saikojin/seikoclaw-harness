@@ -1,7 +1,7 @@
 ---
 name: youtube-transcript
-description: Fetch and process YouTube video transcripts for research, documentation, and summary ingestion. Trigger when given a YouTube URL or video ID and asked to extract or ingest transcript notes.
-disable-model-invocation: false
+description: Fetches and processes YouTube transcripts for documentation and ingestion.
+author: Saikojin (SeikoClaw)
 ---
 
 # YouTube Transcript Ingestion Skill

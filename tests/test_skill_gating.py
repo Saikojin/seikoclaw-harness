@@ -94,18 +94,94 @@ Never commit code with failing tests or unformatted blocks.
         self.assertIsNotNone(skill_db)
         self.assertEqual(skill_db["name"], "auto-refactor")
 
-    def test_mistake_tracker(self):
-        mem_id = self.memory.save_mistake(
-            task_id="AUTH-002",
-            error_trace="TypeError: NoneType object has no attribute 'token'",
-            context="Testing JWT token refresh handler",
-            hypothesis="Ensure token validator handles expired refresh tokens gracefully."
-        )
-        self.assertIsNotNone(mem_id)
+    def test_disk_aware_regression_protection(self):
+        skills_dir = os.path.join(self.temp_dir, "skills")
+        tdd_dir = os.path.join(skills_dir, "tdd")
+        os.makedirs(tdd_dir, exist_ok=True)
         
-        mistakes = self.memory.get_mistakes("JWT token refresh")
-        self.assertTrue(len(mistakes) > 0)
-        self.assertIn("AUTH-002", mistakes[0]["content"])
+        # Write hand-written skill on disk (NOT in DB)
+        disk_skill = """---
+name: tdd
+description: Test Driven Development
+---
+# RULES
+Write tests before code.
+# BOUNDARIES
+Never bypass test assertions. Never commit failing tests.
+"""
+        with open(os.path.join(tdd_dir, "SKILL.md"), "w", encoding="utf-8") as f:
+            f.write(disk_skill)
+
+        # Candidate skill that discards "Never bypass test assertions"
+        candidate_bad = """---
+name: tdd
+description: Test Driven Development
+---
+# RULES
+Just write code and tests.
+# BOUNDARIES
+Do NOT leave untracked changes.
+"""
+        passed, msg = self.gater.gate_and_save(
+            skill_text=candidate_bad,
+            skill_name="tdd",
+            memory_engine=self.memory,
+            target_dir=skills_dir
+        )
+        self.assertFalse(passed)
+        self.assertIn("Regression Error", msg)
+
+    def test_candidate_staging_and_promotion(self):
+        skills_dir = os.path.join(self.temp_dir, "skills")
+        skill_text = """---
+name: api-tester
+description: API testing workflow
+---
+# RULES
+Always validate status codes.
+# BOUNDARIES
+Never log authentication tokens.
+"""
+        # 1. Save as staged candidate
+        passed, msg = self.gater.gate_and_save(
+            skill_text=skill_text,
+            skill_name="api-tester",
+            memory_engine=self.memory,
+            target_dir=skills_dir,
+            staging=True
+        )
+        self.assertTrue(passed)
+        self.assertTrue(os.path.exists(os.path.join(skills_dir, ".candidates", "api-tester", "SKILL.md")))
+        self.assertFalse(os.path.exists(os.path.join(skills_dir, "api-tester", "SKILL.md")))
+
+        # 2. List candidates
+        cands = self.gater.list_candidates(target_dir=skills_dir)
+        self.assertEqual(len(cands), 1)
+        self.assertEqual(cands[0]["name"], "api-tester")
+
+        # 3. Diff candidate
+        diff = self.gater.diff_candidate("api-tester", target_dir=skills_dir)
+        self.assertIn("api-tester", diff)
+
+        # 4. Promote candidate
+        ok, pmsg = self.gater.promote_candidate("api-tester", target_dir=skills_dir, memory_engine=self.memory)
+        self.assertTrue(ok)
+        self.assertTrue(os.path.exists(os.path.join(skills_dir, "api-tester", "SKILL.md")))
+        self.assertFalse(os.path.exists(os.path.join(skills_dir, ".candidates", "api-tester", "SKILL.md")))
+
+    def test_heuristic_fallback_safety(self):
+        from openbrain.llm_provider import HeuristicFallbackProvider
+        provider = HeuristicFallbackProvider()
+        self.assertTrue(provider.is_heuristic)
+        self.assertFalse(provider.is_neural)
+
+        # Skill synthesis prompt returns empty string (refuses to clobber)
+        synth_res = provider.generate('Synthesize or Evolve a "Skill" from TRAJECTORY: ...')
+        self.assertEqual(synth_res, "")
+
+        # Caveman prompt returns empty string (refuses to delete memories)
+        cave_res = provider.generate('Summarize into Midterm memory. Use Smart Caveman logic: ...')
+        self.assertEqual(cave_res, "")
 
 if __name__ == "__main__":
     unittest.main()

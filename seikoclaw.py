@@ -7,6 +7,12 @@ import json
 import shutil
 from datetime import datetime
 
+import re
+try:
+    import yaml
+except ImportError:
+    yaml = None
+
 # Add local paths
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,6 +26,32 @@ from openbrain.gates import GateEngine
 from openbrain.watchdog import HealthPatrol
 from openbrain.llm_provider import get_llm_provider
 from openbrain.history_sync import ConversationHistorySyncer
+
+def validate_command_safety(command: str) -> tuple:
+    """Validates a command against dangerous regex patterns in .agents/hooks/dangerous-patterns.txt."""
+    if not command:
+        return True, ""
+        
+    patterns_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".agents", "hooks", "dangerous-patterns.txt")
+    if not os.path.exists(patterns_file):
+        patterns_file = os.path.join(".agents", "hooks", "dangerous-patterns.txt")
+        
+    patterns = []
+    if os.path.exists(patterns_file):
+        with open(patterns_file, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    patterns.append(line)
+    
+    for pattern in patterns:
+        try:
+            if re.search(pattern, command):
+                return False, f"Prohibited dangerous pattern: {pattern}"
+        except re.error:
+            continue
+            
+    return True, ""
 
 SKILL_SYNTHESIS_PROMPT = """
 Analyze task trajectory (actions taken, successes, failures).
@@ -85,32 +117,69 @@ class IterationBudget:
                 f"Context: {self.estimated_context}/{self.context_limit}")
 
 class SeikoClaw:
-    def __init__(self):
-        cwd_openbrain = os.path.join(os.getcwd(), "openbrain")
-        if os.path.isdir(cwd_openbrain):
-            db_path = os.path.join(cwd_openbrain, "openbrain.db")
-            chroma_path = os.path.join(cwd_openbrain, "chroma_db")
+    def __init__(self, config_path=None, brain_dir=None, wiki_dir=None, db_path=None):
+        # 1. Configuration Resolution Hierarchy (CLI -> ENV -> YAML -> Local Discovery)
+        self.config = {}
+        target_config = config_path or os.getenv("SEIKOCLAW_CONFIG") or os.path.join(os.getcwd(), ".seikoclaw.yaml")
+        if not os.path.exists(target_config):
+            parent_config = os.path.join(os.path.dirname(os.getcwd()), ".seikoclaw.yaml")
+            if os.path.exists(parent_config):
+                target_config = parent_config
+        
+        if os.path.exists(target_config) and yaml is not None:
+            try:
+                with open(target_config, "r", encoding="utf-8") as f:
+                    self.config = yaml.safe_load(f) or {}
+            except Exception:
+                self.config = {}
+
+        # 2. Database & Chroma Path Resolution
+        resolved_db = db_path or os.getenv("OPENBRAIN_DB_PATH") or self.config.get("db_path")
+        if not resolved_db:
+            cwd_openbrain = os.path.join(os.getcwd(), "openbrain")
+            if os.path.isdir(cwd_openbrain):
+                resolved_db = os.path.join(cwd_openbrain, "openbrain.db")
+                chroma_path = os.path.join(cwd_openbrain, "chroma_db")
+            else:
+                global_dir = os.path.join(os.path.expanduser("~"), ".gemini", "antigravity", "openbrain")
+                os.makedirs(global_dir, exist_ok=True)
+                resolved_db = os.path.join(global_dir, "openbrain.db")
+                chroma_path = os.path.join(global_dir, "chroma_db")
         else:
-            global_dir = os.path.join(os.path.expanduser("~"), ".gemini", "antigravity", "openbrain")
-            os.makedirs(global_dir, exist_ok=True)
-            db_path = os.path.join(global_dir, "openbrain.db")
-            chroma_path = os.path.join(global_dir, "chroma_db")
-            
-        self.sqlite_path = db_path
+            chroma_path = os.path.join(os.path.dirname(resolved_db), "chroma_db")
+
+        # 3. Brain Directory Resolution
+        resolved_brain = brain_dir or os.getenv("SEIKOCLAW_BRAIN_DIR") or self.config.get("brain_dir")
+        
+        # 4. Wiki Directory Resolution
+        resolved_wiki = wiki_dir or os.getenv("SEIKOCLAW_WIKI_DIR") or self.config.get("wiki_dir")
+        if not resolved_wiki:
+            for candidate in ["../.master_wiki", "./.master_wiki", os.path.join(os.path.expanduser("~"), ".master_wiki")]:
+                if os.path.isdir(candidate):
+                    resolved_wiki = candidate
+                    break
+        self.wiki_dir = resolved_wiki
+
+        self.sqlite_path = resolved_db
         self.chroma_path = chroma_path
-        self.vault = Vault(db_path)
-        self.usage = UsageMonitor(db_path)
-        self.memory = MemoryEngine(db_path, chroma_path)
+        self.vault = Vault(resolved_db)
+        self.usage = UsageMonitor(resolved_db)
+        self.memory = MemoryEngine(resolved_db, chroma_path)
         self.gater = SkillGater()
-        self.graph = TaskGraph(db_path)
+        self.graph = TaskGraph(resolved_db)
         self.gates = GateEngine(self.graph)
-        self.watchdog = HealthPatrol(db_path=db_path)
-        self.history_syncer = ConversationHistorySyncer(memory_engine=self.memory, watchdog=self.watchdog)
+        self.watchdog = HealthPatrol(db_path=resolved_db)
+        self.history_syncer = ConversationHistorySyncer(
+            memory_engine=self.memory, 
+            watchdog=self.watchdog,
+            brain_dir=resolved_brain
+        )
         
         # Default limits
         self.limits = {
             "anthropic": {"tokens": 100000, "requests": 500},
-            "google": {"tokens": 200000, "requests": 1000}
+            "google": {"tokens": 200000, "requests": 1000},
+            "local": {"tokens": 10000000, "requests": 100000}
         }
 
     def sync_conversation_history(self, project=None, since=None, limit=None, dry_run=False, force=False, use_llm=False, brain_dir=None):
@@ -189,6 +258,18 @@ class SeikoClaw:
 
         return True, original_branch, stashed
 
+    def commit_sandbox(self, task_id):
+        sandbox_branch = f"seikoclaw-sandbox-{task_id}"
+        print(f"[SANDBOX] Committing changes on sandbox branch: {sandbox_branch}...")
+        self._git_run("add -A")
+        rc, _, err = self._git_run(f"commit -m \"seikoclaw: completed task {task_id}\"")
+        if rc != 0:
+            print(f"[SANDBOX WARNING] Failed to commit changes (possibly no changes made): {err}")
+
+        print(f"[SANDBOX] Sandbox branch '{sandbox_branch}' left checked out for review.")
+        print(f"[SANDBOX] Review changes, or merge to main via: git checkout <main-branch> && git merge {sandbox_branch}")
+        return True
+
     def commit_and_merge_sandbox(self, task_id, original_branch, stashed):
         sandbox_branch = f"seikoclaw-sandbox-{task_id}"
         print(f"[SANDBOX] Committing changes on {sandbox_branch}...")
@@ -241,10 +322,23 @@ class SeikoClaw:
         return True
 
     def run_task(self, name, command, cwd=None):
-        """Executes a single command with usage oversight and watchdog telemetry."""
-        provider = "google" # Default for most tools here
+        """Executes a single command with safety guard, usage oversight, and watchdog telemetry."""
+        # 1. Check safety guard before execution
+        is_safe, block_reason = validate_command_safety(command)
+        if not is_safe:
+            err_msg = f"BLOCKED by safety guard: {block_reason}"
+            print(f"[BLOCKED] {name}: {err_msg}")
+            self.watchdog.record_action(
+                action_type="command_blocked",
+                target=f"{name}: {command}",
+                result_snippet=err_msg,
+                success=False
+            )
+            return f"FAILURE: {name}\nError: {err_msg}"
+
+        provider = "local" # Local shell command execution
         
-        # 1. Check limits before starting
+        # 2. Check limits before starting
         limit_reached, msg = self.usage.check_limits(
             provider, 
             self.limits[provider]["tokens"], 
@@ -258,15 +352,15 @@ class SeikoClaw:
 
         print(f"[Executing] {name}: {command} (in {cwd or '.'})")
         
-        # 2. Execute
+        # 3. Execute
         try:
             result = subprocess.run(command, shell=True, capture_output=True, text=True, cwd=cwd)
             
-            # 3. Estimate actual token usage of the output
+            # 4. Estimate actual token usage of the output
             output_text = result.stdout + result.stderr
             actual_tokens = token_estimator.estimate_tokens(output_text)
             
-            # 4. Track usage and watchdog telemetry
+            # 5. Track usage and watchdog telemetry
             self.usage.track_usage(provider, tokens=actual_tokens, requests=1)
             self.watchdog.record_action(
                 action_type="command",
@@ -275,7 +369,6 @@ class SeikoClaw:
                 success=(result.returncode == 0)
             )
             
-            # 5. Safety Warning: If output is very large, alert for manual summarization
             if actual_tokens > 10000:
                 print(f"[CRITICAL] {name} output is {actual_tokens} tokens! Consider summarizing before next task.")
 
@@ -286,30 +379,6 @@ class SeikoClaw:
         except Exception as e:
             self.watchdog.record_action(action_type="command_error", target=f"{name}: {command}", result_snippet=str(e)[:200], success=False)
             return f"ERROR: {name}\nException: {str(e)}"
-
-    def execute_tablebuddy_tests(self):
-        """Orchestrates Tablebuddy Phase 11 testing."""
-        tablebuddy_dir = os.getenv("TABLEBUDDY_DIR") or "d:/DevWorkspace/Tablebuddy"
-        if not os.path.exists(tablebuddy_dir):
-            print(f"[INFO] Tablebuddy not found at {tablebuddy_dir}. Set TABLEBUDDY_DIR to execute e2e test suite.")
-            return
-
-        print(f"[SeikoClaw] Starting Tablebuddy Backend at {tablebuddy_dir}...")
-        server = subprocess.Popen([sys.executable, "server.py"], cwd=tablebuddy_dir)
-        import time
-        time.sleep(3) # Wait for startup
-        
-        try:
-            tasks = [
-                {"name": "Auth & Roles", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/auth_and_roles.feature"},
-                {"name": "Asset Management", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/asset_management.feature"},
-                {"name": "WebSocket Sync", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/websocket_sync.feature"},
-                {"name": "Network Validation", "command": "java -cp \"../karate.jar;.\" com.intuit.karate.Main api/network_validation.feature"}
-            ]
-            self.execute_parallel(tasks, cwd=os.path.join(tablebuddy_dir, "karate_e2e_tests"))
-        finally:
-            print("[SeikoClaw] Shutting down Tablebuddy Backend...")
-            server.terminate()
 
     def execute_parallel(self, tasks, cwd=None):
         """Runs multiple tasks in parallel using a thread pool."""
@@ -379,10 +448,15 @@ class SeikoClaw:
 
         print(f"[SeikoClaw] Reflecting on completed tasks in {os.path.basename(task_file)}...")
         
-        # 1. Synthesis via Pluggable LLM Provider
+        # 1. Check if a neural LLM is configured
+        llm = get_llm_provider()
+        if getattr(llm, "is_heuristic", False) or not getattr(llm, "is_neural", False):
+            print(f"[INFO] Skipping automated skill reflection: No neural LLM configured (using '{llm.name}').")
+            return None
+
+        # 2. Synthesis via Pluggable Neural LLM Provider
         try:
-            llm = get_llm_provider()
-            print(f"[SeikoClaw] Using LLM Provider for reflection: {llm.name}")
+            print(f"[SeikoClaw] Using Neural LLM Provider for reflection: {llm.name}")
             
             import re
             skill_name_candidate = None
@@ -395,12 +469,21 @@ class SeikoClaw:
                 prev = self.memory.get_skill(skill_name_candidate)
                 if prev:
                     previous_skill_text = str(prev)
+                else:
+                    # Check disk to protect existing hand-written skills
+                    disk_skill_path = os.path.join(".agents", "skills", skill_name_candidate, "SKILL.md")
+                    if os.path.exists(disk_skill_path):
+                        try:
+                            with open(disk_skill_path, "r", encoding="utf-8") as f:
+                                previous_skill_text = f.read()
+                        except Exception:
+                            pass
             
             prompt = SKILL_SYNTHESIS_PROMPT.format(trajectory=content, previous_skill=previous_skill_text)
             skill_text = llm.generate(prompt, max_tokens=1024)
             
             if skill_text and "[Mock Response]" not in skill_text:
-                # 2. Extract and Sanitize Skill Name
+                # 3. Extract and Sanitize Skill Name
                 name_match = re.search(r"name:\s*(.*)", skill_text)
                 raw_name = name_match.group(1).strip() if name_match else "new-skill"
                 skill_name = re.sub(r"[^\w\-]", "-", raw_name.lower()).strip("-") or "new-skill"
@@ -408,18 +491,19 @@ class SeikoClaw:
                 # Ensure skill_text has the sanitized name
                 skill_text = re.sub(r"name:\s*.*", f"name: {skill_name}", skill_text, count=1)
                 
-                # 3. Gating check before saving (Validation & Regression)
+                # 4. Gating check before saving to candidate staging directory
                 passed, gate_msg = self.gater.gate_and_save(
                     skill_text=skill_text,
                     skill_name=skill_name,
                     memory_engine=self.memory,
                     target_dir=".agents/skills",
-                    previous_skill_text=previous_skill_text if previous_skill_text != "None" else None
+                    previous_skill_text=previous_skill_text if previous_skill_text != "None" else None,
+                    staging=True
                 )
                 
                 if passed:
-                    print(f"[SUCCESS] { 'Evolved' if previous_skill_text != 'None' else 'Synthesized' } and gated skill: {skill_name}")
-                    self.sync_wiki(f"Auto-evolved skill: {skill_name}")
+                    print(f"[STAGED CANDIDATE] { 'Evolved' if previous_skill_text != 'None' else 'Synthesized' } candidate skill: {skill_name}")
+                    print(f"[INFO] Candidate saved to .agents/skills/.candidates/{skill_name}/SKILL.md. Use 'seikoclaw skill --promote {skill_name}' to apply.")
                     return skill_name
                 else:
                     print(f"[GATING FAILED] {gate_msg}")
@@ -462,15 +546,15 @@ class SeikoClaw:
     def sync_wiki(self, message="Auto-sync from SeikoClaw"):
         """Syncs the current project state into the Master Wiki."""
         print("[SeikoClaw] Syncing state to Master Wiki...")
-        wiki_dir = os.getenv("SEIKOCLAW_WIKI_DIR") or "d:/DevWorkspace/.master_wiki"
-        if not os.path.exists(wiki_dir):
+        wiki_dir = os.getenv("SEIKOCLAW_WIKI_DIR")
+        if not wiki_dir or not os.path.exists(wiki_dir):
             for candidate in ["../.master_wiki", "./.master_wiki", os.path.join(os.path.expanduser("~"), ".master_wiki")]:
                 if os.path.exists(candidate):
                     wiki_dir = candidate
                     break
 
-        if not os.path.exists(wiki_dir):
-            print(f"[INFO] Master Wiki not found at {wiki_dir}. Skipping wiki sync.")
+        if not wiki_dir or not os.path.exists(wiki_dir):
+            print("[INFO] Master Wiki not configured. Skipping wiki sync.")
             return
             
         # 1. Read task.md for progress
@@ -869,12 +953,15 @@ def main():
     parser = argparse.ArgumentParser(description="SeikoClaw Harness CLI")
     parser.add_argument("action", choices=[
         "plan", "execute", "usage", "doctor", "sync-global", "memory", 
-        "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill",
+        "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill", "skill",
         "ready", "claim", "task", "dep", "wisp", "gate", "health", "sync-tasks", "vault",
         "sync-history", "history-sync"
     ])
     parser.add_argument("--task", type=str, help="Task ID or target")
     parser.add_argument("--skill", type=str, help="Skill name or file to test/gate")
+    parser.add_argument("--list-candidates", action="store_true", help="List staged candidate skills")
+    parser.add_argument("--diff", action="store_true", help="Show diff for candidate skill vs production")
+    parser.add_argument("--promote", action="store_true", help="Promote candidate skill to production")
     parser.add_argument("--status", type=str, help="Task status (open, in_progress, in_qa, closed, deferred)")
     parser.add_argument("--goal", type=str, help="Goal description for autonomous loop")
     parser.add_argument("--turns", type=int, default=5, help="Max loop turns")
@@ -886,6 +973,9 @@ def main():
     parser.add_argument("--query", type=str, help="Search query for memory or secret key")
     parser.add_argument("--set-secret", type=str, help="Set secret in vault (KEY=VALUE)")
     parser.add_argument("--get-secret", type=str, help="Get secret from vault by KEY")
+    
+    parser.add_argument("--auto-merge", action="store_true", help="Auto-merge sandbox branch to original branch on success (default is to leave sandbox branch checked out for review)")
+    parser.add_argument("--config", type=str, help="Path to custom .seikoclaw.yaml configuration file")
     
     # Conversation History Sync flags
     parser.add_argument("--since", type=str, help="Sync history events newer than ISO timestamp or SQLite datetime")
@@ -917,7 +1007,7 @@ def main():
     parser.add_argument("--notes", type=str, default="", help="Gate certification notes")
     
     args = parser.parse_args()
-    claw = SeikoClaw()
+    claw = SeikoClaw(config_path=args.config, brain_dir=args.brain_dir)
 
     if args.action == "ready":
         claw.show_ready_frontier(claim=args.claim, worker_id=args.worker, as_json=args.json)
@@ -1116,29 +1206,62 @@ def main():
             claw.gate_skill(skill_target)
         else:
             print("Error: --skill (or --task) is required for gate-skill.")
+    elif args.action == "skill":
+        skill_target = args.skill or args.task
+        if args.list_candidates:
+            cands = claw.gater.list_candidates()
+            print("=== 🧪 Staged Candidate Skills ===")
+            if not cands:
+                print("No candidate skills currently staged in .agents/skills/.candidates/.")
+            for c in cands:
+                print(f"• {c['name']} -> {c['path']}")
+        elif args.diff:
+            if not skill_target:
+                print("Error: --skill <name> is required to diff a candidate.")
+                sys.exit(1)
+            diff_text = claw.gater.diff_candidate(skill_target)
+            print(f"=== 🔍 Candidate Diff: {skill_target} ===")
+            print(diff_text)
+        elif args.promote:
+            if not skill_target:
+                print("Error: --skill <name> is required to promote a candidate.")
+                sys.exit(1)
+            ok, msg = claw.gater.promote_candidate(skill_target, memory_engine=claw.memory)
+            print(f"[{'SUCCESS' if ok else 'FAILED'}] {msg}")
+        else:
+            print("Usage: seikoclaw skill [--list-candidates | --diff <name> | --promote <name>]")
     elif args.action == "usage":
         print("--- Today's Usage ---")
-        for p in ["anthropic", "google"]:
+        for p in ["anthropic", "google", "local"]:
             u = claw.usage.get_todays_usage(p)
             print(f"{p.upper()}: {u['tokens']} tokens, {u['requests']} requests")
     elif args.action == "doctor":
         print("=== 🩺 SeikoClaw System Diagnostics ===")
+        config_status = 'OK' if claw.config else 'DEFAULT (Local Discovery)'
+        print(f"Configuration: {config_status}")
         db_path = claw.sqlite_path
         print(f"SQLite Database: {db_path} [{'OK' if os.path.exists(db_path) else 'FAIL'}]")
         chroma_ok = claw.memory.collection is not None
         print(f"ChromaDB Vector Store: {claw.chroma_path} [{'OK' if chroma_ok else 'FALLBACK (SQLite)'}]")
         
         llm = get_llm_provider()
-        print(f"Background LLM Provider: {llm.name} [OK]")
+        neural_status = "NEURAL" if getattr(llm, "is_neural", False) else "HEURISTIC FALLBACK"
+        print(f"Background LLM Provider: {llm.name} [{neural_status}]")
         
-        wiki_dir = os.getenv("SEIKOCLAW_WIKI_DIR") or "d:/DevWorkspace/.master_wiki"
-        has_wiki = os.path.isdir(wiki_dir) or any(os.path.isdir(p) for p in ["../.master_wiki", "./.master_wiki"])
-        print(f"Master Wiki: {wiki_dir} [{'OK' if has_wiki else 'OPTIONAL (Unconfigured)'}]")
+        wiki_dir = claw.wiki_dir
+        has_wiki = bool(wiki_dir and os.path.isdir(wiki_dir))
+        print(f"Master Wiki: {wiki_dir or 'Unconfigured'} [{'OK' if has_wiki else 'OPTIONAL (Unconfigured)'}]")
         
         total_tasks = len(claw.graph.list_tasks())
         ready_frontier = len(claw.graph.get_ready_frontier())
         print(f"Task Graph Nodes: {total_tasks} total ({ready_frontier} on ready frontier)")
         
+        # Test guard status
+        guard_test, _ = validate_command_safety("git status")
+        guard_block, _ = validate_command_safety("rm -rf /")
+        guard_ok = guard_test and not guard_block
+        print(f"Deny-Dangerous Guard: [{'OK' if guard_ok else 'FAIL'}]")
+
         health = claw.watchdog.get_health_status()
         print(f"Health Patrol: {health['status']} ({health['total_actions']} tracked actions)")
         print("[SUCCESS] Diagnostics complete.")
@@ -1159,8 +1282,17 @@ def main():
                     print("[ERROR] Failed to initialize sandbox. Aborting task execution.")
                     sys.exit(1)
 
+            # Check safety guard for command
+            is_safe, block_reason = validate_command_safety(args.command)
+            if not is_safe:
+                print(f"[BLOCKED] Command prohibited by safety guard: {block_reason}")
+                claw.watchdog.record_action("cli_execute_blocked", args.task, block_reason, success=False)
+                if sandbox_active:
+                    claw.discard_sandbox(args.task, original_branch, stashed)
+                sys.exit(2)
+
             # Check limits before executing
-            provider = "google"
+            provider = "local"
             limit_reached, msg = claw.usage.check_limits(
                 provider, 
                 claw.limits[provider]["tokens"], 
@@ -1201,6 +1333,14 @@ def main():
 
             # Run verification if provided
             if args.verify:
+                is_safe_verify, block_reason_verify = validate_command_safety(args.verify)
+                if not is_safe_verify:
+                    print(f"[BLOCKED] Verification command prohibited by safety guard: {block_reason_verify}")
+                    claw.watchdog.record_action("cli_verify_blocked", args.task, block_reason_verify, success=False)
+                    if sandbox_active:
+                        claw.discard_sandbox(args.task, original_branch, stashed)
+                    sys.exit(2)
+
                 print(f"[VERIFY] Running verification: {args.verify}")
                 verify_res = subprocess.run(args.verify, shell=True, capture_output=True, text=True)
                 print(verify_res.stdout)
@@ -1226,7 +1366,10 @@ def main():
 
             # If we got here, everything succeeded
             if sandbox_active:
-                claw.commit_and_merge_sandbox(args.task, original_branch, stashed)
+                if args.auto_merge:
+                    claw.commit_and_merge_sandbox(args.task, original_branch, stashed)
+                else:
+                    claw.commit_sandbox(args.task)
                 
             print("[SUCCESS] Task execution completed successfully.")
 
@@ -1239,8 +1382,6 @@ def main():
                         print("[AUTO-HOOK] All tasks completed! Triggering auto-capture and reflection...")
                         subprocess.run(f'"{sys.executable}" auto_capture.py', shell=True)
                     break
-        elif args.task == "tablebuddy":
-            claw.execute_tablebuddy_tests()
         else:
             # Generic parallel test execution
             tasks = [

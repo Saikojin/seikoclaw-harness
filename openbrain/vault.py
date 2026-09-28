@@ -14,18 +14,23 @@ class Vault:
         self._ensure_table()
 
     def _ensure_table(self):
-        """Creates the secrets_vault table if it does not exist."""
+        """Creates the secrets_vault table from schema.sql if it does not exist."""
         conn = sqlite3.connect(self.db_path)
-        cur = conn.cursor()
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS secrets_vault (
-                secret_key TEXT PRIMARY KEY,
-                encrypted_value TEXT NOT NULL,
-                salt TEXT NOT NULL,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-        conn.commit()
+        schema_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "schema.sql")
+        if os.path.exists(schema_path):
+            with open(schema_path, "r", encoding="utf-8") as f:
+                conn.executescript(f.read())
+        else:
+            cur = conn.cursor()
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS secrets_vault (
+                    secret_key TEXT PRIMARY KEY,
+                    encrypted_value TEXT NOT NULL,
+                    salt TEXT NOT NULL,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            conn.commit()
         conn.close()
 
     def unlock(self, master_password: str):

@@ -1,6 +1,7 @@
 ---
 name: modernize
-description: Performs structural migrations and pattern updates. Use when moving a codebase to a new library, framework, or modern design pattern.
+description: Performs structural migrations and modern design pattern updates.
+author: Saikojin (SeikoClaw)
 ---
 
 # Modernize Skill

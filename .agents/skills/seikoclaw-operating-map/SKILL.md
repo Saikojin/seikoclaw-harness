@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-operating-map
-description: Maintains a project map of parallel agent sessions, ownership lanes, blockers, and archived outcomes. Use when delegating concurrent tasks to multiple executors.
+description: Maintains project map of parallel agent sessions and ownership lanes.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Operating Map

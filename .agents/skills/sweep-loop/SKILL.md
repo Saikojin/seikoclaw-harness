@@ -1,6 +1,9 @@
 ---
-name: sweep_loop
-description: Takes a specific technical learning or architectural pattern and aggressively sweeps the entire codebase to apply it.
+name: sweep-loop
+description: Sweeps entire codebase to apply architectural patterns and learnings.
+author: Saikojin (SeikoClaw)
+aliases:
+- sweep_loop
 ---
 
 # Sweep Loop Skill

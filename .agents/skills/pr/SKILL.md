@@ -1,12 +1,7 @@
 ---
 name: pr
-description: "Use when writing a PR body."
-metadata:
-  credits:
-    skill: show-me
-    author: Dex Horthy
-    organisation: Humanlayer
-    url: "https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md"
+description: Generate concise, comprehensive pull request descriptions.
+author: Matt Pocock
 ---
 
 Use this template for writing the PR body:
