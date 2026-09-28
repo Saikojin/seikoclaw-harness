@@ -1,7 +1,7 @@
 ---
 name: handoff
-description: Clean agent handoff protocol between sessions
-disable-model-invocation: false
+description: Clean agent handoff protocol between sessions.
+author: Matt Pocock / David Andrej
 ---
 
 # Handoff

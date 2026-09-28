@@ -1,6 +1,7 @@
 ---
 name: scope-surgeon
-description: Scope Surgeon / Minimum Fun Identifier. Ruthlessly cuts game design scope to a minimal, testable vertical micro-slice to validate core hypotheses before building.
+description: Ruthlessly cuts game design scope to a testable vertical micro-slice.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Scope Surgeon (Minimum Fun Identifier)

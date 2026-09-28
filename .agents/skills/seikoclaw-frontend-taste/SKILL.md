@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-frontend-taste
-description: Enforces a project's design system, checks for consistent spacing/typography, and removes chaotic inline styles during UI tasks.
+description: Enforces design systems, consistent spacing, and typography.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Frontend Taste System

@@ -1,6 +1,10 @@
 ---
-name: coverage_loop
-description: Iteratively write tests and run coverage tools until a specific target threshold is met.
+name: coverage-loop
+description: Iteratively writes tests and runs coverage tools until target threshold
+  is met.
+author: Saikojin (SeikoClaw)
+aliases:
+- coverage_loop
 ---
 
 # Coverage Loop Skill

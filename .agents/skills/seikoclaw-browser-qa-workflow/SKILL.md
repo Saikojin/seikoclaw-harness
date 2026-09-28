@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-browser-qa-workflow
-description: Invokes visual and E2E testing framework (framework agnostic) to capture screenshots, check console errors, and verify layout.
+description: Visual and E2E testing framework for screenshots and layout checks.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Browser QA Workflow

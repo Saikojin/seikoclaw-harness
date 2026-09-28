@@ -18,6 +18,14 @@ logger = logging.getLogger(__name__)
 class BaseLLMProvider:
     name: str = "base"
 
+    @property
+    def is_neural(self) -> bool:
+        return False
+
+    @property
+    def is_heuristic(self) -> bool:
+        return True
+
     def generate(self, prompt: str, max_tokens: int = 1024, temperature: float = 0.3) -> str:
         raise NotImplementedError
 
@@ -25,6 +33,14 @@ LLMProvider = BaseLLMProvider
 
 class LocalMindProvider(BaseLLMProvider):
     name: str = "LocalMind (Local GGUF)"
+
+    @property
+    def is_neural(self) -> bool:
+        return self.is_available()
+
+    @property
+    def is_heuristic(self) -> bool:
+        return not self.is_available()
 
     def __init__(self, model_dir: Optional[str] = None):
         self.model_dir = model_dir or os.getenv("LOCALMIND_MODEL_DIR") or os.getenv("SEIKOCLAW_MODEL_DIR")
@@ -76,6 +92,14 @@ class LocalMindProvider(BaseLLMProvider):
 class OpenAICompatibleProvider(BaseLLMProvider):
     name: str = "OpenAI-Compatible Local API"
 
+    @property
+    def is_neural(self) -> bool:
+        return True
+
+    @property
+    def is_heuristic(self) -> bool:
+        return False
+
     def __init__(self, base_url: Optional[str] = None, api_key: Optional[str] = None, model: str = "default"):
         self.base_url = (base_url or os.getenv("OPENAI_BASE_URL") or os.getenv("OLLAMA_HOST") or "http://localhost:11434/v1").rstrip("/")
         self.api_key = api_key or os.getenv("OPENAI_API_KEY") or "dummy"
@@ -114,70 +138,32 @@ class OpenAICompatibleProvider(BaseLLMProvider):
 
 class HeuristicFallbackProvider(BaseLLMProvider):
     """
-    Zero-dependency rule-based summarizer and skill synthesizer.
+    Zero-dependency rule-based summarizer and fallback provider.
     Operates offline without neural models.
+    Refuses destructive auto-synthesis and lossy memory destruction.
     """
     name: str = "Heuristic Rule-Based Fallback"
 
+    @property
+    def is_neural(self) -> bool:
+        return False
+
+    @property
+    def is_heuristic(self) -> bool:
+        return True
+
     def generate(self, prompt: str, max_tokens: int = 1024, temperature: float = 0.3) -> str:
-        # Check if prompt is a Skill Synthesis prompt
+        # Refuse to synthesize mock skills that clobber disk files
         if "Synthesize or Evolve a \"Skill\"" in prompt or "SKILL.md format" in prompt:
-            return self._heuristic_skill_synthesis(prompt)
+            logger.info("[HeuristicFallback] Skill synthesis skipped: requires neural LLM backend.")
+            return ""
         
-        # Check if prompt is a Caveman Memory Compression prompt
+        # Refuse lossy Caveman memory compression
         if "Smart Caveman logic" in prompt or "Midterm" in prompt:
-            return self._heuristic_memory_compression(prompt)
+            logger.info("[HeuristicFallback] Memory compression skipped: requires neural LLM backend.")
+            return ""
 
         return f"[Heuristic Note] Processed prompt of {len(prompt)} characters."
-
-    def _heuristic_memory_compression(self, prompt: str) -> str:
-        # Extract INPUT MEMORIES
-        match = re.search(r"INPUT MEMORIES:\s*([\s\S]*)", prompt)
-        text = match.group(1) if match else prompt
-
-        # Heuristic Caveman reduction:
-        # Remove articles, filler words, preserve technical lines and errors
-        lines = text.strip().splitlines()
-        compressed = []
-        for line in lines:
-            line = line.strip()
-            if not line or line.startswith("---"):
-                continue
-            # Strip markdown noise
-            line = re.sub(r"\[x\]\s*", "DONE: ", line)
-            line = re.sub(r"\[\s*\]\s*", "TODO: ", line)
-            # Remove articles
-            cleaned = re.sub(r"\b(the|a|an|please|thank you|successfully|just)\b", "", line, flags=re.IGNORECASE)
-            cleaned = re.sub(r"\s+", " ", cleaned).strip()
-            if cleaned:
-                compressed.append(cleaned)
-
-        facts = " | ".join(compressed[:8])
-        return f"[MIDTERM COMPRESSED] {facts}"
-
-    def _heuristic_skill_synthesis(self, prompt: str) -> str:
-        # Extract Trajectory
-        match = re.search(r"TRAJECTORY:\s*([\s\S]*)", prompt)
-        trajectory = match.group(1) if match else prompt
-
-        # Guess skill name
-        name_match = re.search(r"(?:Task|Goal|Skill):\s*([^\n\r]+)", trajectory)
-        skill_name = name_match.group(1).strip() if name_match else "Auto-Synthesized-Skill"
-        skill_slug = re.sub(r"[^\w\-]", "-", skill_name.lower()).strip("-")
-
-        # Synthesize Caveman SKILL.md
-        return f"""---
-name: {skill_slug}
-evolution: Lite
-version: 1.0.0
----
-# RULES
-task executed. verification passed. state persisted.
-# BOUNDARIES
-Do NOT bypass task verification. Do NOT leave untracked changes.
-# AUTO-CLARITY
-Trajectory recorded {len(trajectory.splitlines())} execution steps.
-"""
 
 def get_llm_provider() -> BaseLLMProvider:
     """

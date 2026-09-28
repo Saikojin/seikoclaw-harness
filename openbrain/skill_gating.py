@@ -1,8 +1,10 @@
 import os
 import re
 import yaml
+import shutil
+import difflib
 import logging
-from typing import Tuple, Dict, Any, Optional
+from typing import Tuple, Dict, Any, Optional, List
 
 logger = logging.getLogger(__name__)
 
@@ -126,7 +128,7 @@ class SkillGater:
                     if keywords and not all(k in curr_body_lower for k in keywords[:3]):
                         missing_boundaries.append(neg.strip())
 
-                if len(missing_boundaries) > 2:
+                if len(missing_boundaries) > 0:
                     logger.warning(f"Potential boundary regression: Lost constraints: {missing_boundaries}")
                     return False, f"Regression Error: Candidate skill discarded critical prior boundaries: {missing_boundaries[:2]}"
 
@@ -136,16 +138,30 @@ class SkillGater:
         self, 
         skill_text: str, 
         skill_name: str, 
-        memory_engine: Any, 
+        memory_engine: Any = None, 
         target_dir: str = ".agents/skills", 
-        previous_skill_text: Optional[str] = None
+        previous_skill_text: Optional[str] = None,
+        staging: bool = False
     ) -> Tuple[bool, str]:
         """
         End-to-end gating check and transactional persistence:
         1. Runs schema validation & regression evaluation.
-        2. If passed: Saves to target .agents/skills/<skill_name>/SKILL.md and Openbrain database.
-        3. If failed: Logs rejection to Openbrain as a learning note and leaves prior skill untouched.
+        2. Protects hand-written disk skills by checking disk file if previous_skill_text is None.
+        3. If staging=True: saves candidate to target_dir/.candidates/<skill_name>/SKILL.md.
+        4. If staging=False: writes to target_dir/<skill_name>/SKILL.md and Openbrain database.
+        5. If failed: Logs rejection to Openbrain and leaves prior skill untouched.
         """
+        folder_name = re.sub(r"[^a-zA-Z0-9_\-]", "-", skill_name.lower().strip())
+        target_skill_path = os.path.join(target_dir, folder_name, "SKILL.md")
+
+        # Disk-aware regression protection: Load existing disk skill if previous_skill_text not explicitly given
+        if not previous_skill_text and os.path.exists(target_skill_path):
+            try:
+                with open(target_skill_path, "r", encoding="utf-8") as f:
+                    previous_skill_text = f.read()
+            except Exception as e:
+                logger.warning(f"Failed to read existing disk skill at {target_skill_path}: {e}")
+
         passed, reason = self.evaluate_regression(skill_text, previous_skill_text)
         
         if not passed:
@@ -159,15 +175,18 @@ class SkillGater:
             return False, f"Skill '{skill_name}' REJECTED by Gate: {reason}"
 
         try:
-            folder_name = re.sub(r"[^a-zA-Z0-9_\-]", "-", skill_name.lower().strip())
-            dest_dir = os.path.join(target_dir, folder_name)
+            if staging:
+                dest_dir = os.path.join(target_dir, ".candidates", folder_name)
+            else:
+                dest_dir = os.path.join(target_dir, folder_name)
+                
             os.makedirs(dest_dir, exist_ok=True)
             skill_file_path = os.path.join(dest_dir, "SKILL.md")
 
             with open(skill_file_path, "w", encoding="utf-8") as f:
                 f.write(skill_text.strip() + "\n")
 
-            if memory_engine:
+            if memory_engine and not staging:
                 _, metadata, _, _ = self.parse_skill_text(skill_text)
                 desc = metadata.get("description", "Auto-learned and gated skill") if metadata else "Gated Skill"
                 memory_engine.save_skill(name=skill_name, description=desc, example=skill_text)
@@ -178,6 +197,84 @@ class SkillGater:
                     tags=f"skill,gated,{skill_name}"
                 )
 
-            return True, f"Skill '{skill_name}' successfully gated and saved to {skill_file_path}"
+            location_tag = "staged candidate" if staging else "gated and saved"
+            return True, f"Skill '{skill_name}' successfully {location_tag} to {skill_file_path}"
         except Exception as e:
             return False, f"Failed to persist gated skill: {str(e)}"
+
+    @staticmethod
+    def list_candidates(target_dir: str = ".agents/skills") -> List[Dict[str, Any]]:
+        """Lists all staged candidate skills pending review or promotion."""
+        candidates_dir = os.path.join(target_dir, ".candidates")
+        if not os.path.exists(candidates_dir):
+            return []
+        
+        results = []
+        for name in os.listdir(candidates_dir):
+            p = os.path.join(candidates_dir, name, "SKILL.md")
+            if os.path.exists(p):
+                results.append({
+                    "name": name,
+                    "path": p,
+                    "mtime": os.path.getmtime(p)
+                })
+        return results
+
+    @staticmethod
+    def diff_candidate(candidate_name: str, target_dir: str = ".agents/skills") -> str:
+        """Returns a unified diff between candidate skill and existing skill on disk."""
+        folder_name = re.sub(r"[^a-zA-Z0-9_\-]", "-", candidate_name.lower().strip())
+        cand_path = os.path.join(target_dir, ".candidates", folder_name, "SKILL.md")
+        prod_path = os.path.join(target_dir, folder_name, "SKILL.md")
+
+        if not os.path.exists(cand_path):
+            return f"Candidate skill '{candidate_name}' not found at {cand_path}."
+
+        with open(cand_path, "r", encoding="utf-8") as f:
+            cand_lines = f.readlines()
+
+        prod_lines = []
+        if os.path.exists(prod_path):
+            with open(prod_path, "r", encoding="utf-8") as f:
+                prod_lines = f.readlines()
+
+        diff = difflib.unified_diff(
+            prod_lines,
+            cand_lines,
+            fromfile=f"current/{folder_name}/SKILL.md",
+            tofile=f"candidate/{folder_name}/SKILL.md"
+        )
+        diff_str = "".join(diff)
+        return diff_str or "[No differences detected between candidate and production skill]"
+
+    def promote_candidate(
+        self,
+        candidate_name: str,
+        target_dir: str = ".agents/skills",
+        memory_engine: Any = None
+    ) -> Tuple[bool, str]:
+        """Promotes a candidate skill from staging to production."""
+        folder_name = re.sub(r"[^a-zA-Z0-9_\-]", "-", candidate_name.lower().strip())
+        cand_path = os.path.join(target_dir, ".candidates", folder_name, "SKILL.md")
+        if not os.path.exists(cand_path):
+            return False, f"Candidate skill '{candidate_name}' not found at {cand_path}."
+
+        with open(cand_path, "r", encoding="utf-8") as f:
+            skill_text = f.read()
+
+        passed, msg = self.gate_and_save(
+            skill_text=skill_text,
+            skill_name=candidate_name,
+            memory_engine=memory_engine,
+            target_dir=target_dir,
+            staging=False
+        )
+
+        if passed:
+            # Clean up candidate directory
+            try:
+                shutil.rmtree(os.path.join(target_dir, ".candidates", folder_name), ignore_errors=True)
+            except Exception:
+                pass
+            return True, f"Successfully promoted '{candidate_name}' to production skill."
+        return False, f"Promotion failed gating: {msg}"

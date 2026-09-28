@@ -1,6 +1,8 @@
 ---
 name: game-design-critic
-description: Socratic game design critic persona that stress-tests game ideas, core loops, player motivation, and game feel for non-coding game designers.
+description: Socratic game design critic persona stress-testing game mechanics and
+  core loops.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Game Design Critic

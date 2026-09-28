@@ -1,7 +1,11 @@
 ---
 name: implement
-description: "Implement a piece of work based on a spec or set of tickets."
-disable-model-invocation: true
+description: Implement technical work from a spec, ticket list, or DAG frontier with
+  automated verification.
+author: Matt Pocock
+aliases:
+- implement-spec
+- executor
 ---
 
 Implement the work described by the user in the spec or tickets.

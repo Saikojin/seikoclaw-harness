@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import uuid
 from datetime import datetime
@@ -15,93 +16,27 @@ class MemoryEngine:
         return sqlite3.connect(self.sqlite_path)
 
     def _init_sqlite(self):
-        """Ensures all necessary SQLite tables exist."""
+        """Ensures all necessary SQLite tables exist from schema.sql."""
         conn = sqlite3.connect(self.sqlite_path)
+        schema_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "schema.sql")
+        if os.path.exists(schema_path):
+            with open(schema_path, "r", encoding="utf-8") as f:
+                conn.executescript(f.read())
+
         cur = conn.cursor()
-        
-        # 1. Tiered Memories
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS memories (
-                id TEXT PRIMARY KEY,
-                content TEXT NOT NULL,
-                tier TEXT CHECK(tier IN ('Core', 'Longterm', 'Midterm', 'Shortterm')) DEFAULT 'Shortterm',
-                source TEXT,
-                tags TEXT,
-                weight REAL DEFAULT 1.0,
-                last_accessed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-        
-        # 2. Learned Skills
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS skills (
-                id TEXT PRIMARY KEY,
-                name TEXT UNIQUE NOT NULL,
-                description TEXT,
-                example_usage TEXT,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-        
-        # 3. Project States
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS project_states (
-                project_name TEXT PRIMARY KEY,
-                current_branch TEXT,
-                last_blocker TEXT,
-                next_step TEXT,
-                checkpoint_data JSON,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-        
-        # 4. Usage Statistics
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS usage_stats (
-                stat_date DATE DEFAULT (DATE('now')),
-                provider TEXT NOT NULL,
-                tokens_used INTEGER DEFAULT 0,
-                requests_count INTEGER DEFAULT 0,
-                PRIMARY KEY (stat_date, provider)
-            )
-        """)
-
-        # 5. Generated Assets (for ArtistAgent)
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS generated_assets (
-                id TEXT PRIMARY KEY,
-                prompt TEXT,
-                style_markers TEXT,
-                bias_weight REAL,
-                seed INTEGER,
-                output_path TEXT,
-                rating INTEGER DEFAULT 0,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-
-        # 6. Encrypted Secrets Vault
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS secrets_vault (
-                secret_key TEXT PRIMARY KEY,
-                encrypted_value TEXT NOT NULL,
-                salt TEXT NOT NULL,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-
-        # 7. Conversation History Sync Watermarks
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS history_sync_state (
-                conversation_id TEXT PRIMARY KEY,
-                project_name TEXT,
-                last_synced_step INTEGER DEFAULT 0,
-                last_synced_time TIMESTAMP,
-                memories_count INTEGER DEFAULT 0,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
+        # Self-heal columns if table was created in older version
+        cur.execute("PRAGMA table_info(memories)")
+        cols = [c[1] for c in cur.fetchall()]
+        if "compressed_into" not in cols:
+            try:
+                cur.execute("ALTER TABLE memories ADD COLUMN compressed_into TEXT")
+            except Exception:
+                pass
+        if "archived_at" not in cols:
+            try:
+                cur.execute("ALTER TABLE memories ADD COLUMN archived_at TIMESTAMP")
+            except Exception:
+                pass
         conn.commit()
         conn.close()
 
@@ -155,9 +90,11 @@ class MemoryEngine:
         """Search Chroma for similar items, with SQLite fallback."""
         if self.collection:
             try:
+                where_filter = {"tier": {"$ne": "Archived"}} if min_tier != "All" else None
                 results = self.collection.query(
                     query_texts=[query],
-                    n_results=n_results
+                    n_results=n_results,
+                    where=where_filter
                 )
                 if results['documents'] and results['documents'][0]:
                     memories = []
@@ -172,10 +109,11 @@ class MemoryEngine:
             except Exception:
                 pass
 
-        # Fallback to SQLite LIKE query
+        # Fallback to SQLite LIKE query (excluding Archived memories by default)
         conn = sqlite3.connect(self.sqlite_path)
         cur = conn.cursor()
-        cur.execute("SELECT id, content, tier, source, tags FROM memories WHERE content LIKE ? ORDER BY created_at DESC LIMIT ?", (f"%{query}%", n_results))
+        tier_clause = "AND tier != 'Archived'" if min_tier != "All" else ""
+        cur.execute(f"SELECT id, content, tier, source, tags FROM memories WHERE content LIKE ? {tier_clause} ORDER BY created_at DESC LIMIT ?", (f"%{query}%", n_results))
         rows = cur.fetchall()
         conn.close()
         return [{"id": r[0], "content": r[1], "metadata": {"id": r[0], "tier": r[2], "source": r[3], "tags": r[4]}, "distance": 0.0} for r in rows]
@@ -257,10 +195,13 @@ class MemoryEngine:
         
         if self.collection:
             try:
-                self.collection.update(
-                    ids=[mem_id],
-                    metadatas=[{"tier": new_tier}]
-                )
+                if new_tier == "Archived":
+                    self.collection.delete(ids=[mem_id])
+                else:
+                    self.collection.update(
+                        ids=[mem_id],
+                        metadatas=[{"tier": new_tier}]
+                    )
             except Exception:
                 pass
 

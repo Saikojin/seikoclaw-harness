@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-ingestor
-description: Processes unstructured files (PDFs, transcripts, CSVs) to ground the Master Vision Plan in external reality.
+description: Processes unstructured files to ground vision plans in external reality.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Ingestor (Heavy File Ingestion)

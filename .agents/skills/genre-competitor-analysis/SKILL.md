@@ -1,6 +1,7 @@
 ---
 name: genre-competitor-analysis
-description: Autonomous background research skill that analyzes 3-5 competitor games in a genre, identifies player pain points and market gaps, and outputs a structured COMPETITIVE_LANDSCAPE.md.
+description: Analyzes competitor games and player pain points in a genre.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Genre & Competitor Analysis

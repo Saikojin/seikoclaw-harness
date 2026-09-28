@@ -1,7 +1,12 @@
 ---
 name: codebase-design
-description: domain modeling and ADR workflow following design-it-twice principles
-disable-model-invocation: false
+description: Domain modeling, context mapping, and deepening opportunities following
+  design-it-twice principles.
+author: Matt Pocock / David Andrej
+aliases:
+- domain-modeling
+- improve-codebase-architecture
+- setup-ts-deep-modules
 ---
 
 # Codebase Design

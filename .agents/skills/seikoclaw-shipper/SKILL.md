@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-shipper
-description: Takes a completed task.md and generates a Pull Request description, release notes, and stakeholder updates.
+description: Generates pull request descriptions, release notes, and stakeholder updates.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Shipper

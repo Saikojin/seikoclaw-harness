@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-skill-extractor
-description: Actively generates reusable .md skills from completed sessions.
+description: Actively generates reusable skills from completed sessions.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Skill Extractor

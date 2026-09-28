@@ -1,7 +1,7 @@
 ---
 name: game-forge
-description: Master autonomous framework for end-to-end game creation. Orchestrates design critique, GDD authoring, micro-slice slicing, zero-install HTML5 prototyping, asset generation, developer tooling, and autonomous engine builds without requiring manual skill invocations.
-disable-model-invocation: false
+description: Master autonomous framework for end-to-end game creation.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Game Forge: Master Autonomous Game Creation Framework

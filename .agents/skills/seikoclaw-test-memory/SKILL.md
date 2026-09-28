@@ -1,6 +1,7 @@
 ---
 name: seikoclaw-test-memory
-description: Records successful testing procedures and DOM selectors into a repo-local runbook to prevent redundant discovery.
+description: Records successful testing procedures and DOM selectors into runbooks.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikoclaw Test Memory

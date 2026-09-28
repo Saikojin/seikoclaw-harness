@@ -1,6 +1,7 @@
 ---
 name: game-prototype-builder
-description: Builds zero-install, single-file HTML5 playable game prototypes with procedural sound effects, on-screen debug HUDs, and live parameter tuning sliders to validate micro-slices.
+description: Builds zero-install HTML5 playable prototypes with procedural audio.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Game Prototype Builder

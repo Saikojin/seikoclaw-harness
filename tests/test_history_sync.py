@@ -195,3 +195,41 @@ def test_conversation_sync_lifecycle():
         updated_wm = memory.get_history_sync_watermark(conv1_id)
         assert updated_wm["last_synced_step"] == 5
         assert updated_wm["memories_count"] == 3
+
+        # 5. Multi-Conversation Test: Older Unseen Conversation is NOT Skipped
+        # conv1 has memories up to 2026-09-21. Now add conv2 with timestamp 2026-09-15 (older than conv1).
+        conv2_id = "conv-2222-bbbb"
+        conv2_logs = os.path.join(brain_dir, conv2_id, ".system_generated", "logs")
+        os.makedirs(conv2_logs, exist_ok=True)
+        conv2_transcript = os.path.join(conv2_logs, "transcript.jsonl")
+
+        conv2_steps = [
+            {
+                "step_index": 0,
+                "source": "USER_EXPLICIT",
+                "type": "USER_INPUT",
+                "created_at": "2026-09-15T10:00:00Z",
+                "content": "<USER_REQUEST>Initialize project documentation</USER_REQUEST><user_information>d:\\DevWorkspace\\DocsProject</user_information>"
+            },
+            {
+                "step_index": 1,
+                "source": "MODEL",
+                "type": "PLANNER_RESPONSE",
+                "created_at": "2026-09-15T10:01:00Z",
+                "tool_calls": [{"name": "write_to_file", "args": {"TargetFile": "d:\\DevWorkspace\\DocsProject\\README.md", "toolSummary": "Write README.md"}}]
+            }
+        ]
+        with open(conv2_transcript, "w", encoding="utf-8") as f:
+            for s in conv2_steps:
+                f.write(json.dumps(s) + "\n")
+
+        stats4 = syncer.sync()
+        assert stats4["conversations_updated"] == 1
+        assert stats4["memories_created"] == 1
+        assert "DocsProject" in stats4["synced_projects"]
+
+        wm2 = memory.get_history_sync_watermark(conv2_id)
+        assert wm2 is not None
+        assert wm2["last_synced_step"] == 1
+        assert wm2["memories_count"] == 1
+

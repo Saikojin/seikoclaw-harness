@@ -301,7 +301,7 @@ class ConversationHistorySyncer:
         errors = turn.get("errors", [])
         error_str = f"\n• Errors/Blockers Encountered:\n" + "\n".join([f"  - {e}" for e in errors[:3]]) if errors else ""
 
-        if use_llm and hasattr(self.llm, "generate") and self.llm.name != "HeuristicFallbackProvider":
+        if use_llm and hasattr(self.llm, "generate") and getattr(self.llm, "is_neural", False) and not getattr(self.llm, "is_heuristic", False):
             prompt = (
                 f"Synthesize this developer session turn into a concise 3-line memory record.\n"
                 f"Project: {project_name}\n"
@@ -340,15 +340,13 @@ class ConversationHistorySyncer:
         """
         Executes cross-project conversation history memory synchronization.
         """
-        baseline_time = None
+        user_since_time = None
         if since_time:
-            baseline_time = parse_iso_datetime(since_time)
-        elif not force:
-            baseline_time = self.get_latest_memory_timestamp()
+            user_since_time = parse_iso_datetime(since_time)
 
         print(f"[HistorySync] Initializing Conversation History Sync...")
         print(f"[HistorySync] Brain Directory: {self.brain_dir}")
-        print(f"[HistorySync] Latest Memory Watermark: {baseline_time.isoformat() if baseline_time else 'None (Full History Scan)'}")
+        print(f"[HistorySync] User Filter Since: {user_since_time.isoformat() if user_since_time else 'None (Per-Conversation Watermarks)'}")
         if project_filter:
             print(f"[HistorySync] Project Filter: {project_filter}")
 
@@ -364,12 +362,12 @@ class ConversationHistorySyncer:
             "conversations_updated": 0,
             "memories_created": 0,
             "mistakes_recorded": 0,
-            "latest_timestamp": baseline_time.isoformat() if baseline_time else None,
+            "latest_timestamp": user_since_time.isoformat() if user_since_time else None,
             "synced_projects": set(),
             "dry_run": dry_run
         }
 
-        newest_seen_time = baseline_time
+        newest_seen_time = user_since_time
 
         for item in transcripts:
             conv_id = item["conversation_id"]
@@ -379,7 +377,14 @@ class ConversationHistorySyncer:
 
             watermark = self.memory.get_history_sync_watermark(conv_id) if not force else None
             since_step = watermark["last_synced_step"] if watermark else 0
-            conv_since_time = parse_iso_datetime(watermark["last_synced_time"]) if watermark and watermark.get("last_synced_time") else baseline_time
+            
+            # Baseline watermark per conversation from history_sync_state; do not skip unseen convs based on global timestamp
+            if user_since_time:
+                conv_since_time = user_since_time
+            elif watermark and watermark.get("last_synced_time"):
+                conv_since_time = parse_iso_datetime(watermark["last_synced_time"])
+            else:
+                conv_since_time = None
             
             # Read first few steps to determine project
             initial_steps = []

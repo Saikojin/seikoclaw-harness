@@ -1,6 +1,7 @@
 ---
 name: seikojin-qa
-description: The Seikojin QA Agent Cabinet. Includes the QA Strategist (Brain) for RBT and Rabbit Path analysis, and the QA Engineer (Hands) for Seikojin-Compliant automation. Use when you need to stress-test designs, identify quality gaps, or add 100% stable automation coverage.
+description: Seikojin QA Agent Cabinet with RBT analysis and Clean Slate automation.
+author: Saikojin (SeikoClaw)
 ---
 
 # Seikojin QA Skill & Automated Gatekeeper

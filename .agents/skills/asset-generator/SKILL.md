@@ -1,10 +1,7 @@
 ---
 name: asset-generator
-description: >
-  On-demand game asset generation using Gemini's cloud generate_image tool.
-  Triggered by: /gen-asset, /asset-gen, /texture, /sprite, /layer, /hair, /paperdoll, /backdrop, /gen-image, "generate asset", "make a texture for", "create a sprite", "character layer", "hair sprite", "modular sprite".
-  Automatically applies fantasy RPG art direction, isometric top-down perspective, strict exclusion rules (no face/head/body/mannequin), grayscale palettes for recoloring, handles seamless tiling or alpha keying post-processing, and deploys directly into the project assets folder.
-disable-model-invocation: false
+description: On-demand fantasy RPG game asset generation with strict exclusion rules.
+author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # asset-generator

@@ -1,7 +1,7 @@
 ---
 name: diagnosing-bugs
-description: Structured bug diagnosis loop with HITL (human-in-the-loop) script execution and evidence gathering.
-disable-model-invocation: false
+description: Structured bug diagnosis loop with evidence gathering.
+author: Matt Pocock
 ---
 
 # Diagnosing Bugs

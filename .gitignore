@@ -10,13 +10,24 @@ ENV/
 # Databases
 *.db
 *.db-journal
+*.sqlite
+*.sqlite3
 chroma_db/
 openbrain/openbrain.db
 openbrain/chroma_db/
+openbrain/*.db
+openbrain/*.sqlite3
 
-# OS
+# Crash Dumps & OS
+*.stackdump
+*.core
 .DS_Store
 Thumbs.db
+
+# Test & Staging
+.pytest_cache/
+.scratch/
+.agents/skills/.candidates/
 
 # Local Config
 .seikoclaw.yaml
