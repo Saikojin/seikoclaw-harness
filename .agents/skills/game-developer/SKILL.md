@@ -30,7 +30,7 @@ Before questioning or planning, ingest existing project assets:
 Conduct an interactive, back-and-forth Socratic interview with the user to uncover the hidden tools, authoring interfaces, and pipelines needed.
 
 ### Rules of Grilling:
-- **Ask 2–3 questions per round** from the [Second-Layer Question Bank](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-developer/references/second_layer_questions.md). Never dump an entire questionnaire at once.
+- **Ask 2–3 questions per round** from the [Second-Layer Question Bank](references/second_layer_questions.md). Never dump an entire questionnaire at once.
 - **Probe for manual friction**: Ask "How will a designer create or place 100 of these?" and "How can this be tested in 5 seconds without playing through the whole campaign?"
 - **Cover the 6 Tooling Pillars**:
   1. **Spatial & World Authoring**: Grid geometry, multi-scale LODs, procedural terrain generators, map painters, and spatial baking pipelines.
@@ -108,7 +108,7 @@ graph TD
 
 ## 5. Tool Scaffolding & Starter Blueprints
 
-When building tools during Stage 2, consult [tooling_catalog.md](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-developer/references/tooling_catalog.md) for concrete blueprints:
+When building tools during Stage 2, consult [tooling_catalog.md](references/tooling_catalog.md) for concrete blueprints:
 - **Interactive Browser Tools**: Use standalone HTML5 + Vanilla JS + Canvas 2D / Web Audio. Zero external CDN lock-in so tools work fully offline.
 - **CLI Utilities**: Use Python (`uv run`) with standard libraries (`PIL`, `argparse`, `json`, `pathlib`). Always output structured JSON or processed images to files.
 

@@ -3,37 +3,38 @@
 # Cross-platform compatibility for Bash and PowerShell environments.
 
 # 1. Recursive removal targeted at system root, home directory, or Users directory
-(^|[;&|\s])rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?/(["']?|\*)?(\s+|;|$|&)
-(^|[;&|\s])rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?(~|\$HOME|\$\{HOME\})["']?(/\S*|\*)?(\s+|;|$|&)
-(^|[;&|\s])rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?/Users(/[^/\s"']+)?/?(["']?|\*)?(\s+|;|$|&)
-(^|[;&|\s])cd\s+["']?(/[a-zA-Z0-9_\-\.]*|~|\$HOME|\$\{HOME\})["']?\s*(&&|;)\s*rm\s+
-(^|[;&|\s])Remove-Item\s+.*[A-Za-z]:
+(^|[;&|[:space:]\s])(sudo\s+)?(\S+/)?rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?/(["']?|\*)?(\s+|;|$|&|["'])
+(^|[;&|[:space:]\s])(sudo\s+)?(\S+/)?rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?(~|\$HOME|\$\{HOME\})["']?(/|\*|/\*)?(\s+|;|$|&|["'])
+(^|[;&|[:space:]\s])(sudo\s+)?(\S+/)?rm\s+((-[a-zA-Z]+|--[a-z-]+)\s+)*["']?/Users(/[^/\s"']+)?/?(["']?|\*)?(\s+|;|$|&|["'])
+(^|[;&|[:space:]\s])cd\s+["']?(/[a-zA-Z0-9_\-\.]*|~|\$HOME|\$\{HOME\})["']?\s*(&&|;)\s*(\S+/)?rm\s+
+(^|[;&|[:space:]\s])Remove-Item\s+.*[A-Za-z]:
 --no-preserve-root
 
 # 2. Destructive search deletion
-(^|[;&|\s])find\s+[^;&|]*\s+-delete(\s+|;|$|&)
-(^|[;&|\s])find\s+[^;&|]*\s+-exec\s+rm\s+
+(^|[;&|[:space:]\s])find\s+[^;&|]*\s+-delete(\s+|;|$|&)
+(^|[;&|[:space:]\s])find\s+[^;&|]*\s+-exec\s+(\S+/)?rm\s+
 
 # 3. Raw disk writing / formatting / destructive disk operations
-(^|[;&|\s])dd\s+[^;&|]*of=["']?/dev/
-(^|[;&|\s])mkfs(\.[A-Za-z0-9]+)?\s+
-(^|[;&|\s])Format-Volume\s+
-(^|[;&|\s])Clear-Disk\s+
+(^|[;&|[:space:]\s])(sudo\s+)?(\S+/)?dd\s+[^;&|]*of=["']?/dev/
+(^|[;&|[:space:]\s])mkfs(\.[A-Za-z0-9]+)?\s+
+(^|[;&|[:space:]\s])Format-Volume\s+
+(^|[;&|[:space:]\s])Clear-Disk\s+
 
 # 4. Superuser destructive / system shutdown execution
-(^|[;&|\s])sudo\s+rm\s+-[rRf]+
-(^|[;&|\s])sudo\s+dd\s+
-(^|[;&|\s])Stop-Computer\s+
-(^|[;&|\s])Restart-Computer\s+
+(^|[;&|[:space:]\s])sudo\s+(\S+/)?rm\s+-[rRf]+
+(^|[;&|[:space:]\s])sudo\s+(\S+/)?dd\s+
+(^|[;&|[:space:]\s])Stop-Computer\s+
+(^|[;&|[:space:]\s])Restart-Computer\s+
 
-# 5. Dangerous remote code execution / pipe to shell / process substitution
-(^|[;&|\s])(curl|wget)\s+[^;&|]+\|\s*(sudo\s+)?(sh|bash|zsh|python|perl|pwsh|powershell)
-(^|[;&|\s])(sh|bash|zsh|pwsh|powershell)\s+<\s*\(\s*(curl|wget)
-(^|[;&|\s])Invoke-Expression\s+.*(Invoke-WebRequest|iwr|curl)
+# 5. Dangerous remote code execution / pipe to shell / process substitution / subshells
+(^|[;&|[:space:]\s])(curl|wget)\s+[^;&|]+\|\s*(sudo\s+)?(\S+/)?(sh|bash|zsh|python|perl|pwsh|powershell)
+(^|[;&|[:space:]\s])(sudo\s+)?(\S+/)?(sh|bash|zsh|pwsh|powershell)\s+<\s*\(\s*(curl|wget)
+(^|[;&|[:space:]\s])(sudo\s+)?(\S+/)?(sh|bash|zsh|pwsh|powershell)\s+-c\s+["'].*rm\s+
+(^|[;&|[:space:]\s])Invoke-Expression\s+.*(Invoke-WebRequest|iwr|curl)
 
 # 6. Dangerous Git operations
-(^|[;&|\s])git\s+push\s+.*--force
-(^|[;&|\s])git\s+push\s+.*-f(\s+|;|$)
-(^|[;&|\s])git\s+push\s+[^;&|]*\+[a-zA-Z0-9_\-\.\/]+
-(^|[;&|\s])git\s+reset\s+--hard
-(^|[;&|\s])gh\s+repo\s+delete
+(^|[;&|[:space:]\s])git\s+(-C\s+\S+\s+)?push\s+.*--force
+(^|[;&|[:space:]\s])git\s+(-C\s+\S+\s+)?push\s+.*-f(\s+|;|$)
+(^|[;&|[:space:]\s])git\s+(-C\s+\S+\s+)?push\s+[^;&|]*\+[a-zA-Z0-9_\-\.\/]+
+(^|[;&|[:space:]\s])git\s+(-C\s+\S+\s+)?reset\s+--hard
+(^|[;&|[:space:]\s])gh\s+repo\s+delete

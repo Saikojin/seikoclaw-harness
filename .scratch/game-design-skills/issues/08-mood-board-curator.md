@@ -1,18 +1,4 @@
-Status: closed
-Labels: wayfinder:grilling
-Priority: P2
-Blocked by: (none — frontier)
-Assigned: agent
-
-# Reference & Mood Board Curator — Visual/Audio Direction Skill
-
-## Question
-
-How should the Mood Board Curator work for a non-coding game designer, what does it produce, and how does it connect to ArtistAgent?
-
-## Resolution
-
-Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\mood-board-curator\SKILL.md`](file:///d:/DevWorkspace/SeikoClaw-Harness\.agents\skills\mood-board-curator\SKILL.md).
+Statu.agents/skills/.
 
 ### Key Architectural Decisions Made:
 1. **Multi-Input Ingestion**: Accepts local image/audio files, web URLs, shorthand game title references ("Darkest Dungeon style"), and descriptive text prompts.

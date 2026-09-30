@@ -14,6 +14,7 @@ To decompose a high-level goal into independent, verifiable sub-tasks, establish
 2. **Discovery & Mistake Check**: Query OpenBrain memories (`python seikoclaw.py memory --query "[topic] mistakes"`) and read relevant Knowledge Items (KIs) to avoid past pitfalls.
 3. **Decomposition & DAG Construction**:
    - Break the goal into discrete execution blocks (1-2 edits + 1 verification run).
+   - **Strict Task-Level Test Rule**: Every single `- [ ]` task checkbox MUST specify an exact automated verification command (e.g. `Verify: pytest tests/test_feature.py`). Do not substitute task-level tests with a single plan-level validation note.
    - Create tasks via CLI or `task.md`:
      ```bash
      python seikoclaw.py task --title "Design Data Model" --priority 0
@@ -30,7 +31,7 @@ To decompose a high-level goal into independent, verifiable sub-tasks, establish
 - [ ] Tasks created in DAG with content-derived hash IDs and dependencies.
 - [ ] Critical/high-risk tasks have `gate:qa` attached for Seikojin QA certification.
 - [ ] No single task touches more than 5 files.
-- [ ] Every task has a corresponding automated test/verification command.
+- [ ] **Every single task has a corresponding automated test/verification command inline.**
 - [ ] Two-way sync verified in `task.md`.
 
 ## Handoff

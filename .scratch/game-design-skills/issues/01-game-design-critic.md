@@ -12,7 +12,7 @@ What should the Game Design Critic skill look like — its persona, its question
 
 ## Resolution
 
-Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\game-design-critic\SKILL.md`](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-design-critic/SKILL.md).
+Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\game-design-critic\SKILL.md`](../../.agents/skills/game-design-critic/SKILL.md).
 
 ### Key Architectural Decisions Made:
 1. **Dedicated Skill**: Created as `game-design-critic` with a specialized Lead Game Designer persona prompt.

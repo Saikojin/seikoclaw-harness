@@ -17,14 +17,14 @@ A complete agent skill/persona lineup that lets a **single non-coding person wit
 
 ## Decisions so far
 
-- [01 · Game Design Critic](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/01-game-design-critic.md) — Created dedicated `game-design-critic` skill focused on universal game feel pillars (10s/30s/5m loops, core fantasy, psychology) with dual inline doc updates & summary artifact outputs.
-- [02 · GDD Generator](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/02-gdd-generator.md) — Created dedicated `gdd-generator` skill synthesizing vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` specifications.
-- [03 · Scope Surgeon](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/03-scope-surgeon.md) — Created dedicated `scope-surgeon` skill to ruthlessly cut design scope to 30–90s micro-slices testing 1–2 verbs in `VERTICAL_SLICE_SPEC.md` format.
-- [04 · Game Prototype Builder](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/04-game-prototype-builder.md) — Created dedicated `game-prototype-builder` skill generating zero-dependency single-file HTML5 Canvas games with Web Audio synth sounds, live tuning sliders, and debug HUDs.
-- [05 · Game Systems Modeler](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/05-game-systems-modeler.md) — Created dedicated `game-systems-modeler` skill generating interactive Chart.js dashboards (`balance_simulator.html`) and persisting canonical game math into `docs/design/balance.json`.
-- [06 · Playtest Feedback Loop](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/06-playtest-feedback-loop.md) — Created dedicated `playtest-feedback-loop` skill using a Qualitative-to-Quantitative Heuristic Dictionary ("floaty" -> gravity diffs) + `PLAYTEST_RUNBOOK.md` iteration logging.
-- [07 · Genre & Competitor Analysis](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/07-genre-competitor-analysis.md) — Created dedicated AFK `genre-competitor-analysis` skill executing 5-point competitive matrix research and saving to `docs/design/COMPETITIVE_LANDSCAPE.md`.
-- [08 · Mood Board Curator](file:///d:/DevWorkspace/SeikoClaw-Harness/.scratch/game-design-skills/issues/08-mood-board-curator.md) — Created dedicated `mood-board-curator` skill producing `mood_board.html` galleries and extracting `style_markers.json` to feed ArtistAgent's RAG pipeline while enforcing project style isolation.
+- [01 · Game Design Critic](issues/01-game-design-critic.md) — Created dedicated `game-design-critic` skill focused on universal game feel pillars (10s/30s/5m loops, core fantasy, psychology) with dual inline doc updates & summary artifact outputs.
+- [02 · GDD Generator](issues/02-gdd-generator.md) — Created dedicated `gdd-generator` skill synthesizing vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` specifications.
+- [03 · Scope Surgeon](issues/03-scope-surgeon.md) — Created dedicated `scope-surgeon` skill to ruthlessly cut design scope to 30–90s micro-slices testing 1–2 verbs in `VERTICAL_SLICE_SPEC.md` format.
+- [04 · Game Prototype Builder](issues/04-game-prototype-builder.md) — Created dedicated `game-prototype-builder` skill generating zero-dependency single-file HTML5 Canvas games with Web Audio synth sounds, live tuning sliders, and debug HUDs.
+- [05 · Game Systems Modeler](issues/05-game-systems-modeler.md) — Created dedicated `game-systems-modeler` skill generating interactive Chart.js dashboards (`balance_simulator.html`) and persisting canonical game math into `docs/design/balance.json`.
+- [06 · Playtest Feedback Loop](issues/06-playtest-feedback-loop.md) — Created dedicated `playtest-feedback-loop` skill using a Qualitative-to-Quantitative Heuristic Dictionary ("floaty" -> gravity diffs) + `PLAYTEST_RUNBOOK.md` iteration logging.
+- [07 · Genre & Competitor Analysis](issues/07-genre-competitor-analysis.md) — Created dedicated AFK `genre-competitor-analysis` skill executing 5-point competitive matrix research and saving to `docs/design/COMPETITIVE_LANDSCAPE.md`.
+- [08 · Mood Board Curator](issues/08-mood-board-curator.md) — Created dedicated `mood-board-curator` skill producing `mood_board.html` galleries and extracting `style_markers.json` to feed ArtistAgent's RAG pipeline while enforcing project style isolation.
 
 
 

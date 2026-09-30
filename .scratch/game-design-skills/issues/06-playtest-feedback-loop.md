@@ -1,18 +1,4 @@
-Status: closed
-Labels: wayfinder:grilling
-Priority: P1
-Blocked by: (none — frontier)
-Assigned: agent
-
-# Playtest Feedback Loop — Play → React → Refine Cycle
-
-## Question
-
-How should the Playtest Feedback Loop skill capture qualitative reactions from a non-coding designer, and how does it translate "the jump feels floaty" into actionable changes the executor can implement?
-
-## Resolution
-
-Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\playtest-feedback-loop\SKILL.md`](file:///d:/DevWorkspace/SeikoClaw-Harness\.agents\skills\playtest-feedback-loop\SKILL.md).
+Statu.agents/skills/.
 
 ### Key Architectural Decisions Made:
 1. **Hybrid Ingestion**: Accepts freeform qualitative chat feedback ("jump feels floaty", "too hard") AND optional pasted JSON telemetry from `prototype.html`'s Debug HUD.
