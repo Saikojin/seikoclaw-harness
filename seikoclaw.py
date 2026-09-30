@@ -1001,7 +1001,7 @@ def main():
     parser.add_argument("--to-id", type=str, help="Target/blocked task ID")
     parser.add_argument("--edge-type", type=str, default="blocks", help="Dependency edge type (blocks, parent-child, waits-for, relates-to)")
     parser.add_argument("--certify-qa", action="store_true", help="Certify task QA gate as passed (Seikojin-QA)")
-    parser.add_argument("--pass-rate", type=float, default=1.0, help="Test pass rate for Seikojin QA certification (1.0 = 100%)")
+    parser.add_argument("--pass-rate", type=float, default=1.0, help="Test pass rate for Seikojin QA certification (1.0 = 100%%)")
     parser.add_argument("--approve", action="store_true", help="Approve human or verification gate")
     parser.add_argument("--purge", action="store_true", help="Purge completed ephemeral wisps")
     parser.add_argument("--notes", type=str, default="", help="Gate certification notes")

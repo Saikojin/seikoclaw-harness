@@ -8,5 +8,22 @@
         "timeout": 20
       }
     ]
+  },
+  "deny-dangerous-guard": {
+    "enabled": true,
+    "PreExecution": [
+      {
+        "type": "command",
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .agents/hooks/deny-dangerous.ps1",
+        "timeout": 10,
+        "platform": "windows"
+      },
+      {
+        "type": "command",
+        "command": ".agents/hooks/deny-dangerous.sh",
+        "timeout": 10,
+        "platform": "unix"
+      }
+    ]
   }
 }

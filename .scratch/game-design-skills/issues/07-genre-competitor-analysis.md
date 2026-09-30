@@ -1,18 +1,4 @@
-Status: closed
-Labels: wayfinder:research
-Priority: P2
-Blocked by: (none — frontier)
-Assigned: agent
-
-# Genre & Competitor Analysis — Market Positioning Skill
-
-## Question
-
-What should a game-specific competitor analysis skill produce, and how does it differ from the generic `research` skill?
-
-## Resolution
-
-Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\genre-competitor-analysis\SKILL.md`](file:///d:/DevWorkspace/SeikoClaw-Harness\.agents\skills\genre-competitor-analysis\SKILL.md).
+Statu.agents/skills/.
 
 ### Key Architectural Decisions Made:
 1. **Comprehensive 5-Point Matrix**: Outputs `docs/design/COMPETITIVE_LANDSCAPE.md` covering Genre Conventions, 3-5 Game Feature Matrix, Player Pain Points/Reviews, Unmet Market Gaps, and a 2D Positioning Strategy map.

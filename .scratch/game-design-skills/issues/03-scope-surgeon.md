@@ -12,7 +12,7 @@ How should the Scope Surgeon skill work — what inputs does it take, what heuri
 
 ## Resolution
 
-Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\scope-surgeon\SKILL.md`](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/scope-surgeon/SKILL.md).
+Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\scope-surgeon\SKILL.md`](../../.agents/skills/scope-surgeon/SKILL.md).
 
 ### Key Architectural Decisions Made:
 1. **Multi-Input Flexibility**: Ingests GDDs, `CONTEXT.md`, Master Vision Plans, or raw text descriptions.

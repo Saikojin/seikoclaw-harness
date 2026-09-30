@@ -23,7 +23,6 @@
 │   ├── skills/            # Modular capability definitions (52 canonical skills)
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
-├── .master_wiki/          # Knowledge base & documentation
 ├── openbrain/             # Context Persistence & Sidecar Engine
 │   ├── schema.sql         # Unified SQLite database schema
 │   ├── memory_engine.py   # Tiered memory store & vector search
@@ -33,9 +32,11 @@
 │   ├── vault.py           # Encrypted secrets store (AES-GCM)
 │   └── watchdog.py        # Loop health patrol & circuit breaker
 ├── scripts/               # Setup & bootstrapping utilities
+├── templates/             # Task & project vision templates
+├── tests/                 # Subsystem verification test suite
 ├── CREDITS.md             # Upstream authors & attribution
 ├── seikoclaw.py           # Management CLI & autonomous execution engine
-└── .seikoclaw.yaml        # Local workspace configuration
+└── .seikoclaw.yaml.example # Optional workspace configuration template
 ```
 
 ---
@@ -53,10 +54,10 @@ Configuration: DEFAULT (Local Discovery)
 SQLite Database: ./openbrain/openbrain.db [OK]
 ChromaDB Vector Store: ./openbrain/chroma_db [OK]
 Background LLM Provider: LocalMind (Local GGUF) [NEURAL]
-Master Wiki: ./.master_wiki [OK]
-Task Graph Nodes: 12 total (3 on ready frontier)
+Master Wiki: ../.master_wiki [OK]
+Task Graph Nodes: 3 total (1 on ready frontier)
 Deny-Dangerous Guard: [OK]
-Health Patrol: HEALTHY (14 tracked actions)
+Health Patrol: HEALTHY (5 tracked actions)
 [SUCCESS] Diagnostics complete.
 ```
 

@@ -1,0 +1,14 @@
+# SeikoClaw Workspace Configuration Example
+# Copy to .seikoclaw.yaml to customize paths for your local setup
+
+# Path to OpenBrain SQLite database (defaults to ./openbrain/openbrain.db or global fallback)
+# db_path: ./openbrain/openbrain.db
+
+# Path to Master Wiki / knowledge base directory
+# wiki_dir: ./.master_wiki
+
+# Path to agent conversation transcripts brain directory
+# brain_dir: ~/.gemini/antigravity/brain
+
+# LLM Provider configuration for background cognitive loops
+# llm_provider: localmind # options: localmind, heuristic, llmworkbench, ollama

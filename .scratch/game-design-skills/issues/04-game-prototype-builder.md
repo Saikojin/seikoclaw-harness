@@ -12,7 +12,7 @@ What technology should the Game Prototype Builder use, how does it interface wit
 
 ## Resolution
 
-Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\game-prototype-builder\SKILL.md`](file:///d:/DevWorkspace/SeikoClaw-Harness/.agents/skills/game-prototype-builder/SKILL.md).
+Resolved as a **dedicated standalone skill** located at [`d:\DevWorkspace\SeikoClaw-Harness\.agents\skills\game-prototype-builder\SKILL.md`](../../.agents/skills/game-prototype-builder/SKILL.md).
 
 ### Key Architectural Decisions Made:
 1. **Browser-First (HTML5 Single-File)**: Strictly outputs zero-dependency, single-file HTML5 Canvas games (`prototype.html`) for 100% friction-free double-click testing in any web browser.

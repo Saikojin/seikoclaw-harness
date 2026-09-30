@@ -34,3 +34,6 @@ Thumbs.db
 task.md
 project_vision.md
 implementation_plan.md
+
+#Graphify
+graphify-out/cache/*
