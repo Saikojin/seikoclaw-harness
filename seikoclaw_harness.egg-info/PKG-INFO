@@ -1,0 +1,145 @@
+Metadata-Version: 2.4
+Name: seikoclaw-harness
+Version: 1.0.0
+Summary: Modular Agentic Coding Harness with Persistent Memory, DAG Task Graph, and Cognitive Scaffolding
+Author: Saikojin
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: chromadb>=0.4.0
+Requires-Dist: tiktoken>=0.5.0
+Requires-Dist: cryptography>=41.0.0
+Requires-Dist: pyyaml>=6.0.0
+Provides-Extra: localmind
+Requires-Dist: llama-cpp-python>=0.2.0; extra == "localmind"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+
+# SeikoClaw: Agentic Coding Harness
+
+**SeikoClaw** is a modular framework for building AI-native development environments. It pairs a curated, high-signal library of developer and game-dev agent skills with **OpenBrain**, a lightweight Python sidecar that provides persistent memory, task dependency graphs with deterministic gating, execution security guardrails, and cross-project history synchronization.
+
+---
+
+## 🎯 Highlights
+
+- **P0 Safety Guarantees**: Non-destructive defaults. Skill evolution stages candidates to `.agents/skills/.candidates/` instead of overwriting production files. Short-term memory compression performs soft-archiving rather than raw deletion when neural LLMs are present, and skips safely on heuristic fallbacks.
+- **Pre-Execution Guardrails**: Cross-platform POSIX and PowerShell pre-exec safety hooks that intercept catastrophic shell commands (`rm -rf /`, `curl | bash`, forced git pushes, disk clears) before execution.
+- **Persistent OpenBrain Memory**: Tiered SQLite metadata and ChromaDB vector search with per-conversation watermarking.
+- **DAG Task Graph & QA Gating**: Dependency tracking with Risk-Based Testing (`seikojin-qa`) certification gates and ephemeral task wisps.
+- **Game Forge**: An autonomous end-to-end game creation pipeline from Socratic design critiques and GDDs to zero-install HTML5 Canvas playable prototypes.
+
+---
+
+## 📂 Repository Structure
+
+```text
+.
+├── .agents/
+│   ├── hooks/             # Security pre-exec guards (POSIX & PowerShell)
+│   ├── skills/            # Modular capability definitions (52 canonical skills)
+│   │   └── .candidates/   # Staged evolutionary skill candidates
+│   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
+├── openbrain/             # Context Persistence & Sidecar Engine
+│   ├── schema.sql         # Unified SQLite database schema
+│   ├── memory_engine.py   # Tiered memory store & vector search
+│   ├── history_sync.py    # Per-conversation transcript synchronization
+│   ├── task_graph.py      # Dependency DAG & worker claiming
+│   ├── gates.py           # QA & human sign-off gates
+│   ├── vault.py           # Encrypted secrets store (AES-GCM)
+│   └── watchdog.py        # Loop health patrol & circuit breaker
+├── scripts/               # Setup & bootstrapping utilities
+├── templates/             # Task & project vision templates
+├── tests/                 # Subsystem verification test suite
+├── CREDITS.md             # Upstream authors & attribution
+├── seikoclaw.py           # Management CLI & autonomous execution engine
+└── .seikoclaw.yaml.example # Optional workspace configuration template
+```
+
+---
+
+## 🩺 System Diagnostics (`seikoclaw doctor`)
+
+Verify all sidecar subsystems, databases, and safety guards on your machine with a single command:
+```bash
+python seikoclaw.py doctor
+```
+Output:
+```text
+=== 🩺 SeikoClaw System Diagnostics ===
+Configuration: DEFAULT (Local Discovery)
+SQLite Database: ./openbrain/openbrain.db [OK]
+ChromaDB Vector Store: ./openbrain/chroma_db [OK]
+Background LLM Provider: LocalMind (Local GGUF) [NEURAL]
+Master Wiki: ../.master_wiki [OK]
+Task Graph Nodes: 3 total (1 on ready frontier)
+Deny-Dangerous Guard: [OK]
+Health Patrol: HEALTHY (5 tracked actions)
+[SUCCESS] Diagnostics complete.
+```
+
+---
+
+## 🚀 Core CLI Commands
+
+### 1. Task Execution & Sandboxing
+Execute commands within an isolated, git-backed sandbox branch. Review the branch directly, or pass `--auto-merge` to merge on success:
+```bash
+# Execute task in sandbox branch (leaves branch checked out for review)
+python seikoclaw.py execute --task "TASK-101" --command "pytest tests/" --sandbox
+
+# Auto-merge sandbox branch back to main on verification success
+python seikoclaw.py execute --task "TASK-101" --command "pytest tests/" --verify "npm test" --sandbox --auto-merge
+```
+
+### 2. Autonomous Looping & DAG Pumping
+Run autonomous goal loops with iteration budget and context token oversight:
+```bash
+# Autonomous DAG pump: claims and executes ready frontier tasks
+python seikoclaw.py loop --dag --turns 5
+
+# Simulation mode: estimates token pressure and prepares auto-handoffs
+python seikoclaw.py loop --goal "Refactor user authentication" --simulate
+```
+
+### 3. Skill Staging & Candidate Promotion
+Safely inspect and promote evolved skills staged by reflection:
+```bash
+# List staged candidate skills
+python seikoclaw.py skill --list-candidates
+
+# View diff between candidate and production skill
+python seikoclaw.py skill --diff tdd
+
+# Promote candidate to production
+python seikoclaw.py skill --promote tdd
+```
+
+### 4. Cross-Project History Synchronization
+Sync conversation turns and developer actions across workspaces into OpenBrain memory:
+```bash
+# Preview unindexed conversation turns (dry run)
+python seikoclaw.py sync-history --dry-run --limit 5
+
+# Synchronize all new conversation turns across projects
+python seikoclaw.py sync-history
+
+# Semantic search across past memories
+python seikoclaw.py memory --query "database migration decisions"
+```
+
+---
+
+## 🎖️ Attribution & Upstream Credits
+
+SeikoClaw builds upon foundational work from:
+- **Matt Pocock**: Core developer skills, spec pipelines (`before-building`, `to-spec`, `to-tickets`, `implement`, `tdd`, `prototype`, `diagnosing-bugs`, `agent-authoring`).
+- **David Andrej**: Architecture modeling, ADR decision trees, multi-perspective reviews (`codebase-design`, `adr`, `code-review`, `grill-me`, `handoff`).
+- **Saikojin (SeikoClaw)**: OpenBrain sidecar, QA test automation (`seikojin-qa`), execution security guardrails, and the **Game Forge** creation suite.
+
+See [`CREDITS.md`](CREDITS.md) for full details.
+
+---
+
+## 📜 License
+MIT License.

@@ -1,23 +1,26 @@
 ---
 name: game-forge
-description: Master autonomous framework for end-to-end game creation.
+description: Master autonomous framework for end-to-end game creation. Orchestrates design critique, GDD authoring, micro-slice slicing, zero-install HTML5 prototyping, asset generation, developer tooling, Visual Bar parity loops, and autonomous engine builds without requiring manual skill invocations.
 author: Saikojin (SeikoClaw - Game Forge)
 ---
 
 # Game Forge: Master Autonomous Game Creation Framework
 
-The **Game Forge** framework is an end-to-end game creation orchestrator. It unifies all modular game design, prototyping, asset generation, developer tooling, and execution skills into an automated, sequential pipeline with strict Human-in-the-Loop (HITL) checkpoints.
+The **Game Forge** framework is an end-to-end game creation orchestrator. It unifies modular game design, prototyping, asset generation, developer tooling, visual parity critic loops, and execution skills into an automated, sequential pipeline with strict Human-in-the-Loop (HITL) checkpoints and Stage-Gated Visual Parity validation.
 
 Instead of manually typing separate skills at every step, **Game Forge** manages the entire lifecycle autonomously:
 
 ```
-[Pitch / Idea] ──► (Stage 1: Design & GDD) ──► (Stage 2: 30s Micro-Slice & Prototype)
-                           │                                  │
-                           ▼                                  ▼
-                 [HITL Gate 1: GDD Review]          [HITL Gate 2: Playtest & Feel]
-                                                              │
-                                                              ▼
-[Shipped Game] ◄── (Stage 4: Engine & QA) ◄── (Stage 3: Assets & Tooling Workbenches)
+[Pitch / Idea] ──► (Stage A: Design & Locked Refs) ──► (Stage B: 30s Foundation Prototype)
+                             │                                         │
+                             ▼                                         ▼
+                   [HITL Gate 1: GDD Review]                 [Gate B: Playable Loop Check]
+                                                                       │
+                                                                       ▼
+[Shipped Game] ◄── (Stage D: SxS Visual Bar Loop) ◄── (Stage C: Assets & Tooling Workbenches)
+                             │
+                             ▼
+                    [Gate D*: Stuck Diagnoser]
 ```
 
 ---
@@ -29,16 +32,20 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
 ```json
 {
   "project_name": "GameTitle",
-  "current_stage": "STAGE_1_DESIGN",
+  "current_stage": "STAGE_A_BRIEF_AND_REFS",
   "active_hypothesis": "Parrying telegraphed attacks creates high-risk tension in 30s encounters",
   "core_verbs": ["move", "parry", "strike"],
   "artifacts": {
+    "brief": "docs/design/BRIEF.md",
     "gdd": "docs/design/GDD.md",
+    "refs_locked": "refs-locked/SOURCES.md",
+    "visual_bar": "art/BAR.md",
     "vertical_slice": "docs/design/VERTICAL_SLICE_SPEC.md",
     "prototype_html": "prototypes/prototype.html",
     "balance_json": "docs/design/balance.json",
     "balance_simulator": "docs/design/balance_simulator.html",
     "tooling_architecture": "docs/design/GAME_TOOLING_ARCHITECTURE.md",
+    "rounds_log": "captures/rounds.log",
     "task_list": "task.md"
   },
   "stage_history": []
@@ -47,67 +54,82 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
 
 ---
 
-## 2. The 4-Stage Autonomous Pipeline
+## 2. The 5-Stage Autonomous Pipeline
 
-### Stage 1: Design & Core Loop Synthesis (Autonomous $\rightarrow$ HITL Gate 1)
-1. **Intake Pitch**: Receive the user's game idea, genre, or theme.
-2. **Execute `game-design-critic` Heuristics**:
+### Stage A: Brief, Locked References & Deep Plan (Autonomous $\rightarrow$ HITL Gate 1)
+1. **Intake Pitch**: Receive the user's game idea, genre, and aesthetic direction.
+2. **Execute `game-design-critic` (Phase 1: Mechanics)**:
    - Evaluate the **10-second loop** (moment-to-moment verb satisfaction).
    - Evaluate the **30-second loop** (encounter tactics and risk/reward).
    - Evaluate the **5-minute loop** (session hook & reward).
    - Check for degenerate strategies (spamming 1 move, corner camping).
-   - Ask 2–3 targeted Socratic questions if the core fantasy is ambiguous.
-3. **Execute `genre-competitor-analysis`**: Identify 3 competitor games and extract market gaps.
-4. **Execute `gdd-generator`**: Compile findings into a living `docs/design/GDD.md`.
-5. **HITL Gate 1 Checkpoint**: Present the 1-page GDD executive summary to the user for approval.
+3. **Execute `genre-competitor-analysis` & Lock References**:
+   - Identify 3–5 shipped reference games in the target genre/visual tier.
+   - Save high-res screenshots to `refs-locked/` with provenance documented in `refs-locked/SOURCES.md`.
+   - Author `art/BAR.md` defining the non-negotiable **Visual Bar** (Silhouette, Value Hierarchy, Palette Harmony, Resolution Density, Motion Polish).
+4. **Execute `gdd-generator`**: Compile findings into `docs/design/GDD.md` and `docs/design/BRIEF.md`.
+5. **HITL Gate 1 Checkpoint**: Present GDD summary, locked refs, and Visual Bar to user for approval.
 
 ---
 
-### Stage 2: Scope Carving & Zero-Install Prototyping (Autonomous $\rightarrow$ HITL Gate 2)
+### Stage B: Scope Carving & Playable Foundation (Autonomous $\rightarrow$ Gate B)
 *Triggered immediately upon GDD approval.*
 
 1. **Execute `scope-surgeon`**:
-   - Strip all non-essential systems (inventory, XP curves, multi-room campaigns, complex UI).
-   - Isolate 1 arena, 1–2 verbs, and 1 enemy into `docs/design/VERTICAL_SLICE_SPEC.md`.
+   - Strip non-essential meta-systems; isolate 1 arena, 1–2 verbs, and 1 enemy into `docs/design/VERTICAL_SLICE_SPEC.md`.
 2. **Execute `game-prototype-builder`**:
-   - Write a self-contained, zero-dependency `prototypes/prototype.html` (HTML5 Canvas + Vanilla JS).
-   - Embed procedural sound effects via Web Audio API synth (jumps, hits, explosions).
+   - Build a self-contained, zero-dependency `prototypes/prototype.html` (HTML5 Canvas + Web Audio synth).
+   - Use clean geometric placeholders (boxes/capsules) to focus purely on core loop feel.
    - Embed an on-screen Debug HUD and **Live Parameter Tuning Sliders** (e.g. `Speed`, `Cooldown`, `ParryWindow`).
 3. **Execute `game-systems-modeler`**:
-   - Write `docs/design/balance.json` (canonical baseline curves).
-   - Write `docs/design/balance_simulator.html` (interactive Chart.js dashboard).
-4. **HITL Gate 2 Checkpoint (Playtest)**:
-   - Provide the file path to `prototypes/prototype.html`.
-   - Prompt the user: *"Double-click `prototype.html` to open in your browser. Play 5 rounds, tweak the live sliders, and share your feedback on the game feel."*
+   - Write `docs/design/balance.json` (canonical baseline curves) and `docs/design/balance_simulator.html`.
+4. **Gate B (Loop Validation)**:
+   - Critic verifies mechanics loop with strict verdict: `"B-PASS (loop only, NOT A VISUAL WIN)"`.
+   - Prompt user for playtest feel feedback.
 
 ---
 
-### Stage 3: Feel Tuning, Assets & Developer Tooling (Autonomous $\rightarrow$ HITL Gate 3)
-*Triggered upon receiving user playtest feedback.*
+### Stage C: Staged Art Pipeline & Authoring Workbenches (Autonomous $\rightarrow$ HITL Gate 3)
+*Triggered upon loop sign-off.*
 
-1. **Execute `playtest-feedback-loop`**:
-   - Translate qualitative user notes (*"jump feels floaty"*, *"boss is bullet-spongey"*) into exact parameter diffs in `balance.json` and `prototype.html`.
-2. **Execute `mood-board-curator` & `asset-generator`**:
-   - Generate visual style markers in `docs/design/style_markers.json`.
-   - Generate required modular sprites, seamless textures, and isometric tiles into `assets/`.
+1. **Execute `playtest-feedback-loop`**: Map qualitative feedback into parameter changes.
+2. **Execute Staged Art Pipeline (C0..C5)**:
+   - `C0 - Palettes & Shading`: Generate color ramps and lighting models.
+   - `C1 - Environment & Terrain`: Modular tilesets / backdrops into `assets/`.
+   - `C2 - Hero & Enemy Sprites/Models`: Character layers, animations, or Blender meshes.
+   - `C3 - VFX & Particles`: Impact sparks, hit trails, screen shake shaders.
+   - `C4 - Audio & UI HUD`: Procedural SFX, theme music, tactile HUD styling.
+   - `C5 - Asset Ledger`: Verify all assets match `art/BAR.md` resolution and palette specs.
 3. **Execute `game-developer` (Tooling Architecture)**:
-   - Scaffold data schemas and schema validators (`validate_data.py`).
-   - Scaffold custom browser authoring workbenches (e.g., `tools/map_painter.html`, `tools/sound_workbench.html`, `tools/rigging_studio.html`).
-   - Create developer orchestration scripts (`start_dev.bat` / `start_dev.ps1`).
-4. **HITL Gate 3 Checkpoint**: Verify the authoring workbenches and asset pipeline.
+   - Build schema validators (`validate_data.py`) and browser workbenches (e.g. `tools/map_painter.html`, `tools/sound_workbench.html`).
+4. **HITL Gate 3 Checkpoint**: Verify authoring workbenches and asset ledger.
 
 ---
 
-### Stage 4: Autonomous Engine Build & QA
-*Triggered upon tooling sign-off.*
+### Stage D: Side-by-Side (SxS) Visual Bar Parity Loop (Autonomous $\rightarrow$ Critic WIN)
+*Triggered upon asset delivery.*
 
-1. **Execute `seikoclaw-architect`**: Decompose full engine implementation into `task.md` with explicit evidence contracts.
-2. **Execute `seikoclaw-executor` + `tdd` Loop**:
-   - Build runtime engine / framework modules (Godot, WebGL, PixiJS, or custom engine).
-   - Enforce red-green-refactor test loops.
-3. **Execute `seikojin-qa` & `seikoclaw-browser-qa-workflow`**:
-   - Execute automated visual regression and balance sanity tests.
-4. **Stage Completion**: Deliver the finished, verified game build.
+1. **The Parity Cycle (`Capture -> Critic -> Punch List -> Builder -> Re-capture`)**:
+   - **Capture**: Automated headless browser / screen capture generates in-game stills (`captures/R<n>_frame.png`).
+   - **SxS Composite**: Pair capture side-by-side with matched reference from `refs-locked/`.
+   - **Execute `game-design-critic` (Phase 2: Visual Parity)**: Run critique against `art/BAR.md`.
+     - *If FAIL*: Generate structured defect punch items (`[Still | Matched Ref | Region | Observed Defect | Ref Target | Done-When]`).
+     - *Builder Round*: Implement targeted visual fixes for punch items.
+     - *Re-capture & Re-score*: Log delta in `captures/rounds.log`.
+2. **Stuck-Loop Diagnoser ($D^*$ Protocol)**:
+   - If 3+ consecutive rounds fail the hard gate without visual convergence, pause Builder punches.
+   - Spin up a Diagnoser subagent to inspect render traces, shader code, and draw order before resuming.
+3. **Post-WIN Harsh Visual Read ($D^{**}$ Gate)**:
+   - After Critic returns `WIN`, Orchestrator independently reviews full-res stills and SxS composites.
+   - If visual cohesion, proportions, or perspective fail, void the WIN and continue iteration.
+
+---
+
+### Stage E: Autonomous Engine Build, Verification & Handoff
+1. **Execute `architect` / `seikoclaw-architect`**: Decompose full engine implementation into `task.md` with explicit `[GATE: VISUAL_CRITIC]` and `[GATE: QA]` contracts.
+2. **Execute `implement` / `seikoclaw-executor` + `tdd` Loop**: Build runtime engine modules (WebGL, PixiJS, Godot, or custom engine).
+3. **Execute `seikojin-qa`**: Run full automated regression suites and visual defect certifications.
+4. **Publish / Handoff**: Deliver verified game build, source tree, locked assets, and `rounds.log`.
 
 ---
 

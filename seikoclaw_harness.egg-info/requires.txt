@@ -1,0 +1,10 @@
+chromadb>=0.4.0
+tiktoken>=0.5.0
+cryptography>=41.0.0
+pyyaml>=6.0.0
+
+[dev]
+pytest>=7.0.0
+
+[localmind]
+llama-cpp-python>=0.2.0

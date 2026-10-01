@@ -5,18 +5,18 @@
     "semantic_hash": ""
   },
   ".agents/hooks/deny-dangerous.sh": {
-    "mtime": 1790803206.1893322,
-    "ast_hash": "d0243c82dae007dd6ad36fa07bb552ba",
+    "mtime": 1790804504.0204203,
+    "ast_hash": "de24cd2e16877260aa3199b72230d65b",
     "semantic_hash": ""
   },
   ".agents/hooks/test-guard.ps1": {
-    "mtime": 1790803249.492477,
-    "ast_hash": "3bfd8995e032dea6108d06b4fc6a9799",
+    "mtime": 1790804504.0204203,
+    "ast_hash": "3b686bb2bcb9fd2cd09cf9fb55ad28f2",
     "semantic_hash": ""
   },
   ".agents/hooks/test-guard.sh": {
-    "mtime": 1790803325.9555192,
-    "ast_hash": "a177e9d57e4b9b3e00fe57348593ffa9",
+    "mtime": 1790804504.0209346,
+    "ast_hash": "399921405a18a0f70cc0c3a1f9bb3372",
     "semantic_hash": ""
   },
   ".agents/skills/diagnosing-bugs/scripts/hitl-loop.ps1": {
@@ -105,7 +105,7 @@
     "semantic_hash": ""
   },
   "seikoclaw.py": {
-    "mtime": 1790803731.7799208,
+    "mtime": 1790804504.0504537,
     "ast_hash": "63731295f239f421700bfe6faeb7b6b4",
     "semantic_hash": ""
   },
@@ -135,12 +135,12 @@
     "semantic_hash": ""
   },
   ".agents/hooks/dangerous-patterns.txt": {
-    "mtime": 1790803174.0221202,
-    "ast_hash": "60e95ca16daa10020c20808517c458f7",
+    "mtime": 1790804504.0199003,
+    "ast_hash": "04d3975cd53c68e4c9790fa18dcf443e",
     "semantic_hash": ""
   },
   ".agents/plans/recap/plan.mdx": {
-    "mtime": 1790803689.1088603,
+    "mtime": 1790804504.0389366,
     "ast_hash": "1d6226c1e36dad3a7d6a45de81e2ec18",
     "semantic_hash": ""
   },
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/architect/SKILL.md": {
-    "mtime": 1790803418.3536692,
-    "ast_hash": "99647700cd8fa9feb6353ad8096b51df",
+    "mtime": 1790885330.8774931,
+    "ast_hash": "0274a82e750ad2ffdce202ab249c70c9",
     "semantic_hash": ""
   },
   ".agents/skills/asset-generator/SKILL.md": {
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/before-building/SKILL.md": {
-    "mtime": 1790570268.348548,
-    "ast_hash": "8b3102b5ffc919ddba89a0b24573666b",
+    "mtime": 1790882127.146959,
+    "ast_hash": "cbc24236764dbe74ad37d1eca5112294",
     "semantic_hash": ""
   },
   ".agents/skills/code-review/SKILL.md": {
@@ -205,12 +205,12 @@
     "semantic_hash": ""
   },
   ".agents/skills/game-design-critic/SKILL.md": {
-    "mtime": 1790570268.3495786,
-    "ast_hash": "75f6dc26aa5318cce48c6fa29376e7fe",
+    "mtime": 1790885318.6403573,
+    "ast_hash": "1b9ddb44747e54e741e2b120aed2861e",
     "semantic_hash": ""
   },
   ".agents/skills/game-developer/SKILL.md": {
-    "mtime": 1790803471.61533,
+    "mtime": 1790804504.0399742,
     "ast_hash": "05f10795403ab54e71349802d7561cdc",
     "semantic_hash": ""
   },
@@ -225,8 +225,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/game-forge/SKILL.md": {
-    "mtime": 1790570268.3505526,
-    "ast_hash": "1ab5ac1123306f9cb3d9b9d13c9b38b3",
+    "mtime": 1790885305.5096023,
+    "ast_hash": "2547a758e1a70848c8aa7c0957ef6e44",
     "semantic_hash": ""
   },
   ".agents/skills/game-prototype-builder/SKILL.md": {
@@ -340,18 +340,18 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-frontend-taste/SKILL.md": {
-    "mtime": 1790570268.3559604,
-    "ast_hash": "67382f2023123c7db176bd52f5037a16",
+    "mtime": 1790881393.9608755,
+    "ast_hash": "54e97b83c7c783d4e240e5258a5d8205",
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-goal-prompter/SKILL.md": {
-    "mtime": 1790803385.0596824,
-    "ast_hash": "fe59b77ab454b572b0850739df448380",
+    "mtime": 1790882190.0981333,
+    "ast_hash": "8bd24da5eb1261b6c935318e41489735",
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-harness/SKILL.md": {
-    "mtime": 1790570268.3564737,
-    "ast_hash": "f815f260681230ece3f36b3e03d43a18",
+    "mtime": 1790885375.392122,
+    "ast_hash": "55ae7bccc39f9d70cbb6f876d79f9892",
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-ingestor/SKILL.md": {
@@ -385,8 +385,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/SKILL.md": {
-    "mtime": 1790570268.3580155,
-    "ast_hash": "b718797aa66a9021ccdbde80e2f0f90f",
+    "mtime": 1790885345.4593134,
+    "ast_hash": "6c027e2c404c7bf2752ac08fc82ad08b",
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/resources/personas/Engineer.md": {
@@ -400,8 +400,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/resources/rules.md": {
-    "mtime": 1783716658.441257,
-    "ast_hash": "0e208cd5a8418783f1aedeb73c697c0b",
+    "mtime": 1790885357.9305882,
+    "ast_hash": "169d1d9456a0abc07349229d9d85f76a",
     "semantic_hash": ""
   },
   ".agents/skills/status/SKILL.md": {
@@ -415,13 +415,13 @@
     "semantic_hash": ""
   },
   ".agents/skills/to-spec/SKILL.md": {
-    "mtime": 1790570268.3590548,
-    "ast_hash": "18c77a583138522e4beda1acaa00a405",
+    "mtime": 1790882150.7267094,
+    "ast_hash": "2451e7e2db8c0c27fd6fa317b62cdddf",
     "semantic_hash": ""
   },
   ".agents/skills/to-tickets/SKILL.md": {
-    "mtime": 1790570268.3595757,
-    "ast_hash": "a61626f293164f4869d2d522f0447723",
+    "mtime": 1790882170.1106033,
+    "ast_hash": "b2c47e1aaa2b9a07996841f457b7e7a5",
     "semantic_hash": ""
   },
   ".agents/skills/triage/AGENT-BRIEF.md": {
@@ -445,7 +445,7 @@
     "semantic_hash": ""
   },
   ".agents/skills/wizard/SKILL.md": {
-    "mtime": 1790803491.5304773,
+    "mtime": 1790804504.0404859,
     "ast_hash": "315f4bcbe58630285779b3ea448bf6a3",
     "semantic_hash": ""
   },
@@ -525,7 +525,7 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1790803827.2699087,
+    "mtime": 1790804504.0435853,
     "ast_hash": "e9c3dd8ff5ea158d393a1185ae62749a",
     "semantic_hash": ""
   },
@@ -580,8 +580,8 @@
     "semantic_hash": ""
   },
   ".agents/hooks.json": {
-    "mtime": 1790803226.301631,
-    "ast_hash": "ae96d1245ec5d78a2a48fa897f1b580c",
+    "mtime": 1790804504.0193856,
+    "ast_hash": "3dab900a15eafbd0a182ab9986590964",
     "semantic_hash": ""
   },
   ".agents/hooks/sync-history.ps1": {

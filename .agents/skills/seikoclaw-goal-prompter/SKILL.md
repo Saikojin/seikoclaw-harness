@@ -31,7 +31,7 @@ Every hardened goal prompt must adhere to the 7-field contract format:
 
 ## Workflow
 
-1. **Fitness Evaluation**: Verify task is suitable (has verifiable test/done condition, repo is agent-ready).
+1. **Fitness Evaluation & Intent Restatement**: Verify the task is suitable (has verifiable test/done condition) and restate the user's core intent and non-negotiable boundaries.
 2. **Boundary Definition**: Identify allowed file/module scope vs forbidden modifications (database schemas, public signatures).
 3. **Validation Selection**: Pick exact, deterministic test command (e.g., `pytest tests/unit/`, `npm test`).
 4. **Draft Contract**: Output the structured 7-field prompt block.

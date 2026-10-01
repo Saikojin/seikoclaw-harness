@@ -35,3 +35,8 @@ These rules are absolute and must be followed by any agent performing QA tasks w
 ## 7. Seikojin-Compliant Stack
 - **Rule**: Default to **Karate DSL** for API/Web and **Pure ADB (Python)** for Mobile.
 - **Goal**: Standardized, high-performance, and human-readable automation.
+
+## 8. Visual Parity Rigor (Anti-Soft-Pass Mandate)
+- **Rule**: Zero tolerance for soft passes on visual, graphical, or UI components (e.g., *"good enough for a prototype"*).
+- **Goal**: Eliminate visual debt and ensure commercial-grade aesthetic polish.
+- **Action**: Every graphical defect must be logged as a coordinate-bounded punch list item with a verifiable "Done-When" contract compared against locked shipped references.
