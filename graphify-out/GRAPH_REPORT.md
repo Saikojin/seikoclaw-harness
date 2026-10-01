@@ -1,16 +1,16 @@
-# Graph Report - SeikoClaw-Harness  (2026-09-30)
+# Graph Report - SeikoClaw-Harness  (2026-10-01)
 
 ## Corpus Check
-- 111 files · ~140,431 words
+- 111 files · ~142,522 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 879 nodes · 1114 edges · 103 communities (90 shown, 13 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 51 edges (avg confidence: 0.5)
+- 901 nodes · 1136 edges · 105 communities (92 shown, 13 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 51 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3e29fb14`
+- Built from commit: `51469ecb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,12 +45,15 @@
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
+- [[_COMMUNITY_Community 34|Community 34]]
 - [[_COMMUNITY_Community 35|Community 35]]
 - [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 43|Community 43]]
@@ -75,7 +78,6 @@
 - [[_COMMUNITY_Community 71|Community 71]]
 - [[_COMMUNITY_Community 72|Community 72]]
 - [[_COMMUNITY_Community 74|Community 74]]
-- [[_COMMUNITY_Community 75|Community 75]]
 - [[_COMMUNITY_Community 76|Community 76]]
 - [[_COMMUNITY_Community 78|Community 78]]
 - [[_COMMUNITY_Community 79|Community 79]]
@@ -129,23 +131,23 @@
   auto_capture.py → openbrain/memory_engine.py
 - `AutoCapture` --uses--> `SeikoClaw`  [INFERRED]
   auto_capture.py → seikoclaw.py
+- `MockNeuralLLMProvider` --uses--> `ContextEngine`  [INFERRED]
+  tests/test_memory_compression.py → openbrain/context_engine.py
+- `TestMemoryCompression` --uses--> `ContextEngine`  [INFERRED]
+  tests/test_memory_compression.py → openbrain/context_engine.py
 - `IterationBudget` --uses--> `GateEngine`  [INFERRED]
   seikoclaw.py → openbrain/gates.py
-- `SeikoClaw` --uses--> `GateEngine`  [INFERRED]
-  seikoclaw.py → openbrain/gates.py
-- `TestGates` --uses--> `GateEngine`  [INFERRED]
-  tests/test_gates.py → openbrain/gates.py
 
 ## Import Cycles
 - 1-file cycle: `openbrain/history_sync.py -> openbrain/history_sync.py`
 - 2-file cycle: `openbrain/history_sync.py -> openbrain/memory_engine.py -> openbrain/history_sync.py`
 - 3-file cycle: `openbrain/context_engine.py -> openbrain/history_sync.py -> openbrain/memory_engine.py -> openbrain/context_engine.py`
 
-## Communities (103 total, 13 thin omitted)
+## Communities (105 total, 13 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.10
-Nodes (17): main(), Scans conversation history transcripts across projects and syncs new events into, Validates a command against dangerous regex patterns in .agents/hooks/dangerous-, Executes a single command with safety guard, usage oversight, and watchdog telem, Runs multiple tasks in parallel using a thread pool., Syncs local .agents and third-party skills to global locations., Analyzes a task file and synthesizes or evolves a skill using pluggable LLM prov, Runs validation and regression tests against a skill file or registered skill. (+9 more)
+Cohesion: 0.08
+Nodes (18): IterationBudget, main(), Scans conversation history transcripts across projects and syncs new events into, Validates a command against dangerous regex patterns in .agents/hooks/dangerous-, Executes a single command with safety guard, usage oversight, and watchdog telem, Runs multiple tasks in parallel using a thread pool., Syncs local .agents and third-party skills to global locations., Analyzes a task file and synthesizes or evolves a skill using pluggable LLM prov (+10 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
@@ -156,12 +158,12 @@ Cohesion: 0.08
 Nodes (23): 1. Biome & Map Generator Workbench (`generator_workbench.html`), 2. World Map Manager & Spatial Baking Pipeline (`world_map_manager.html`), 3. Visual Soundscape & Audio Workbench (`sound_workbench.js`), 4. 2D Skeletal Puppet & Rigging Studio (`rigging_studio.html`), 5. Asset Preprocessing CLI Suite (Python / `uv run`), 6. Content Parsers, Schemas & Vault Validators, 7. Single-Command Dev Environment & Packaging, A. Alpha & Transparency Cleaner (`clean_sprite_transparency.py`) (+15 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.15
-Nodes (4): ContextEngine, Scans short-term memories and consolidates them if the threshold is met., MockNeuralLLMProvider, TestMemoryCompression
+Cohesion: 0.17
+Nodes (3): HeuristicFallbackProvider, Zero-dependency rule-based summarizer and fallback provider.     Operates offli, MockNeuralLLMProvider
 
 ### Community 4 - "Community 4"
-Cohesion: 0.08
-Nodes (13): HeuristicFallbackProvider, Zero-dependency rule-based summarizer and fallback provider.     Operates offli, Any, Runs regression checks on the proposed skill.         If evolving from an exist, Automated Skill Regression Gating Engine.     Validates candidate and evolved a, End-to-end gating check and transactional persistence:         1. Runs schema v, Lists all staged candidate skills pending review or promotion., Returns a unified diff between candidate skill and existing skill on disk. (+5 more)
+Cohesion: 0.10
+Nodes (11): Any, Runs regression checks on the proposed skill.         If evolving from an exist, Automated Skill Regression Gating Engine.     Validates candidate and evolved a, End-to-end gating check and transactional persistence:         1. Runs schema v, Lists all staged candidate skills pending review or promotion., Returns a unified diff between candidate skill and existing skill on disk., Parses YAML frontmatter and body markdown from a skill string.         Returns:, Promotes a candidate skill from staging to production. (+3 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.17
@@ -172,8 +174,8 @@ Cohesion: 0.22
 Nodes (16): note(), open_url(), say(), step(), warn(), template.sh script, ask(), ask_secret() (+8 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.08
-Nodes (21): HealthPatrol, find_harness_root(), main(), LLMProvider, ConversationHistorySyncer, Any, MemoryEngine, Determines the project name from transcript steps or conversation directory. (+13 more)
+Cohesion: 0.13
+Nodes (10): HealthPatrol, LLMProvider, MemoryEngine, HealthPatrol, Any, Records an action signature into health patrol buffer and database., Checks if the last N actions have identical signatures or failure loops., Autonomous Watchdog & Health Patrol for SeikoClaw loops.     Detects loop spin, (+2 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.18
@@ -188,28 +190,28 @@ Cohesion: 0.14
 Nodes (13): 1. Input Ingestion, 2. Second-Layer Technical Grilling Protocol, 3. Deliverable 1: `GAME_TOOLING_ARCHITECTURE.md`, 4. Deliverable 2: Wayfinder 4-Stage Linear Production Pipeline, 5. Tool Scaffolding & Starter Blueprints, 6. Boundaries & Relationships, Document Structure:, Game Developer & Tooling Architect (+5 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.16
-Nodes (7): GateEngine, Any, Attaches an async gate (qa, human, test, timer, merge-slot) to a task node., Evaluates whether a task's gate is satisfied.         Returns (is_satisfied, st, Gates Engine for SeikoClaw Hybrid Architecture.     Evaluates and certifies exe, Certifies a QA gate according to Seikojin QA Rules:         - 100% Pass Rate Ma, TaskGraph
+Cohesion: 0.13
+Nodes (6): GateEngine, Evaluates whether a task's gate is satisfied.         Returns (is_satisfied, st, Gates Engine for SeikoClaw Hybrid Architecture.     Evaluates and certifies exe, Certifies a QA gate according to Seikojin QA Rules:         - 100% Pass Rate Ma, TaskGraph, TestGates
 
 ### Community 12 - "Community 12"
 Cohesion: 0.14
 Nodes (13): 1. State the question and pick N, 2. Generate radically different variants, 3. Wire them together, 4. Build the floating switcher, 5. Hand it over, 6. Capture the answer and clean up, Anti-patterns, Process (+5 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.13
-Nodes (11): MemoryEngine, OpenbrainEngine, Openbrain Persistence Engine (Compatibility Module).  This module provides bac, Backward-compatible alias for MemoryEngine.     Maintains support for legacy me, Creates the secrets_vault table from schema.sql if it does not exist., Derives the encryption key from the master password and a salt from the DB., Vault, test_memory_engine_vault_table_creation() (+3 more)
+Cohesion: 0.14
+Nodes (10): MemoryEngine, OpenbrainEngine, Backward-compatible alias for MemoryEngine.     Maintains support for legacy me, Creates the secrets_vault table from schema.sql if it does not exist., Derives the encryption key from the master password and a salt from the DB., Vault, test_memory_engine_vault_table_creation(), test_openbrain_engine_compatibility() (+2 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.15
-Nodes (12): 1. Gather context, 2. Explore the codebase (optional), 3. Draft vertical slices, 4. Quiz the user, 5. Publish the tickets to the configured tracker, Acceptance criteria, Blocked by, <NN> — <Ticket title> (+4 more)
+Nodes (12): 1. Gather context & restate intent, 2. Explore the codebase (optional), 3. Draft vertical slices, 4. Quiz the user, 5. Publish the tickets to the configured tracker, Acceptance criteria, Blocked by, <NN> — <Ticket title> (+4 more)
 
 ### Community 15 - "Community 15"
 Cohesion: 0.17
 Nodes (11): 1. Autonomous Loop Architecture (`loop_until_goal`), 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), 3. Secrets Vault & SQLite Schema Alignment, 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation, 6. Hybrid DAG Gating Enforcement on Frontier, 7. Dependency Manifestation & Packaging, 8. LLM Abstraction for Background Cognitive Loops (+3 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.14
-Nodes (8): Any, Creates a new task node in the DAG., Computes the claimable frontier:         Tasks with status = 'open' whose prere, Atomically claims a task for a worker., Atomically claims the highest-priority ready task from the frontier.         By, Deletes all closed ephemeral wisps from database., Renders the task graph as a clean, hierarchical markdown checklist., Generates a content-derived collision-free hash ID (e.g. sc-a1b2 or sc-a1b2.1).
+Cohesion: 0.22
+Nodes (5): DAG-based Task Graph and Ready Frontier Engine for SeikoClaw.     Provides depe, Updates task status (open, in_progress, in_qa, blocked, closed, deferred)., Deletes all closed ephemeral wisps from database., Renders the task graph as a clean, hierarchical markdown checklist., TaskGraph
 
 ### Community 17 - "Community 17"
 Cohesion: 0.17
@@ -227,9 +229,9 @@ Nodes (11): Chart the map, Fog of war, Invocation, Out of scope, Plan, don't do,
 Cohesion: 0.33
 Nodes (5): 1. Context Pointers & Trigger Discipline, 2. Progressive Disclosure Ladder, 3. Leading Words & Completion Criteria, 4. Writing Modes (Explore vs. Exploit), Agent Authoring: Writing Skills, Workflows & Documents for Agents
 
-### Community 21 - "Community 21"
-Cohesion: 0.29
-Nodes (3): DAG-based Task Graph and Ready Frontier Engine for SeikoClaw.     Provides depe, Updates task status (open, in_progress, in_qa, blocked, closed, deferred)., TaskGraph
+### Community 22 - "Community 22"
+Cohesion: 0.27
+Nodes (5): ContextEngine, Scans short-term memories and consolidates them if the threshold is met., Openbrain Persistence Engine (Compatibility Module).  This module provides bac, OpenBrain Package - Cognitive Architecture and Memory Infrastructure for SeikoCl, Pluggable LLM Provider System for SeikoClaw / Openbrain. Supports LocalMind GGU
 
 ### Community 23 - "Community 23"
 Cohesion: 0.20
@@ -239,29 +241,37 @@ Nodes (9): 1. Seamless Ground Textures, 2. Modular Character Builder Layers (Hai
 Cohesion: 0.20
 Nodes (9): Challenge against the glossary, Cross-reference with code, Discuss concrete scenarios, Domain awareness, During the session, File structure, Offer ADRs sparingly, Sharpen fuzzy language (+1 more)
 
+### Community 25 - "Community 25"
+Cohesion: 0.33
+Nodes (3): Creates a new task node in the DAG., Creates an ephemeral wisp task., Generates a content-derived collision-free hash ID (e.g. sc-a1b2 or sc-a1b2.1).
+
 ### Community 26 - "Community 26"
-Cohesion: 0.28
-Nodes (8): datetime, clean_user_content(), parse_iso_datetime(), Parses various ISO-8601 or SQLite datetime string formats to a UTC-aware datetim, Strips system prompts, metadata, and user settings changes from user input conte, Returns the newest memory or sync watermark timestamp as UTC datetime., test_clean_user_content(), test_parse_iso_datetime()
+Cohesion: 0.14
+Nodes (17): clean_user_content(), ConversationHistorySyncer, parse_iso_datetime(), Any, Determines the project name from transcript steps or conversation directory., Parses a transcript file into segmented conversation turns,         filtering f, Parses various ISO-8601 or SQLite datetime string formats to a UTC-aware datetim, Formats a conversation turn into a structured memory markdown document. (+9 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.22
-Nodes (8): 1. Project Manifest & State Tracking, 2. The 4-Stage Autonomous Pipeline, 3. Invocation Triggers, Game Forge: Master Autonomous Game Creation Framework, Stage 1: Design & Core Loop Synthesis (Autonomous $\rightarrow$ HITL Gate 1), Stage 2: Scope Carving & Zero-Install Prototyping (Autonomous $\rightarrow$ HITL Gate 2), Stage 3: Feel Tuning, Assets & Developer Tooling (Autonomous $\rightarrow$ HITL Gate 3), Stage 4: Autonomous Engine Build & QA
+Cohesion: 0.20
+Nodes (9): 1. Project Manifest & State Tracking, 2. The 5-Stage Autonomous Pipeline, 3. Invocation Triggers, Game Forge: Master Autonomous Game Creation Framework, Stage A: Brief, Locked References & Deep Plan (Autonomous $\rightarrow$ HITL Gate 1), Stage B: Scope Carving & Playable Foundation (Autonomous $\rightarrow$ Gate B), Stage C: Staged Art Pipeline & Authoring Workbenches (Autonomous $\rightarrow$ HITL Gate 3), Stage D: Side-by-Side (SxS) Visual Bar Parity Loop (Autonomous $\rightarrow$ Critic WIN) (+1 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.22
 Nodes (8): 1. Combat & TTK, 2. Progression Curves, Core Capabilities, Dashboard Features:, Game Systems Modeler, Output Specifications, Supported Math Domains & Formulas, Workflow
 
+### Community 30 - "Community 30"
+Cohesion: 0.32
+Nodes (4): Any, Computes the claimable frontier:         Tasks with status = 'open' whose prere, Atomically claims a task for a worker., Atomically claims the highest-priority ready task from the frontier.         By
+
 ### Community 31 - "Community 31"
-Cohesion: 0.22
-Nodes (8): 1. The Rabbit Philosophy (E2E Coherence), 2. Risk-Based Prioritization (RBT), 3. The Clean Slate Mandate, 4. Anti-Flakiness: Wait State Mastery, 5. Surgical Testability, 6. The Handoff Protocol, 7. Seikojin-Compliant Stack, Seikojin Rules: The QA Constitution
+Cohesion: 0.20
+Nodes (9): 1. The Rabbit Philosophy (E2E Coherence), 2. Risk-Based Prioritization (RBT), 3. The Clean Slate Mandate, 4. Anti-Flakiness: Wait State Mastery, 5. Surgical Testability, 6. The Handoff Protocol, 7. Seikojin-Compliant Stack, 8. Visual Parity Rigor (Anti-Soft-Pass Mandate) (+1 more)
 
 ### Community 32 - "Community 32"
-Cohesion: 0.22
-Nodes (8): 1. QA Strategist (Brain - Planning Phase), 2. QA Engineer (Hands - Execution & Gate Certification), CLI Integration Reference, Core Rules (The QA Constitution), Hybrid DAG Workflow, Overview, Personas & Role Division, Seikojin QA Skill & Automated Gatekeeper
+Cohesion: 0.15
+Nodes (12): 1. QA Strategist (Brain - Planning Phase), 2. QA Engineer (Hands - Execution & Gate Certification), Bad Verdict (Subjective, Non-Actionable — REJECTED), CLI Integration Reference, Core Rules (The QA Constitution), Good Verdict (Seikojin Compliant — ACCEPTED), Hybrid DAG Workflow, Overview (+4 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.22
-Nodes (8): Further Notes, Implementation Decisions, Out of Scope, Problem Statement, Process, Solution, Testing Decisions, User Stories
+Nodes (8): Core Intent & Problem Statement, Further Notes, Implementation Decisions, Out of Scope, Process, Solution, Testing Decisions, User Stories
 
 ### Community 35 - "Community 35"
 Cohesion: 0.25
@@ -304,8 +314,8 @@ Cohesion: 0.29
 Nodes (6): Boundaries, Goal, Output Format, Required Inputs, Seikoclaw Browser QA Workflow, Workflow
 
 ### Community 53 - "Community 53"
-Cohesion: 0.29
-Nodes (6): Boundaries, Goal, Output Format, Required Inputs, Seikoclaw Frontend Taste System, Workflow
+Cohesion: 0.12
+Nodes (15): 1. Surface & Component Craft, 2. Typography & Optical Discipline, 3. Motion & Animation Physics (Kowalski Standards), 4. Mobile-Web Native Ergonomics, 5. Execution & Audit Workflow, Easing & Trajectory Rules, Frequency Decision Matrix, GPU Acceleration & Zero-Reflow Performance (+7 more)
 
 ### Community 54 - "Community 54"
 Cohesion: 0.29
@@ -392,8 +402,8 @@ Cohesion: 0.40
 Nodes (3): Connection, Adds a directed dependency edge: `from_id` blocks/precedes `to_id`.         Per, Checks if a directed path exists from start_id to target_id along blocking/waits
 
 ### Community 83 - "Community 83"
-Cohesion: 0.40
-Nodes (4): Core Heuristics & Questioning Pillars, Game Design Critic, Persona & Philosophy, Session Workflow
+Cohesion: 0.18
+Nodes (10): Core Heuristics & Questioning Pillars, Defect Punch List Schema, Game Design & Visual Parity Critic, Mode 1: Gameplay & Mechanics Critic (Phase 1), Mode 2: Visual Parity & SxS Critic (Phase 2), Output Artifacts, Persona & Philosophy, Persona & Stance (+2 more)
 
 ### Community 84 - "Community 84"
 Cohesion: 0.40
@@ -420,8 +430,8 @@ Cohesion: 0.40
 Nodes (4): Goal, Research & Deep Investigation Skill, Research Prompt Structure, Workflow
 
 ### Community 100 - "Community 100"
-Cohesion: 0.40
-Nodes (4): 1. Core Engineering & Spec Pipeline (Matt Pocock / David Andrej), 2. Game Forge Suite (Saikojin), 3. Autonomous Infrastructure & Sidecar (Saikojin), SeikoClaw Harness Router
+Cohesion: 0.33
+Nodes (5): 1. Game Development & Visual Parity (Master Framework & Toolkit), 2. Quality Engineering & Gatekeeping, 3. Architecture & Task Orchestration, 4. Engineering Spec Pipeline & Productivity (Matt Pocock / David Andrej), SeikoClaw Harness Router
 
 ### Community 104 - "Community 104"
 Cohesion: 0.40
@@ -452,8 +462,8 @@ Cohesion: 0.50
 Nodes (3): Goal, Skill Distribution & Sync Workflow, Workflow
 
 ### Community 112 - "Community 112"
-Cohesion: 0.13
-Nodes (7): OpenBrain Package - Cognitive Architecture and Memory Infrastructure for SeikoCl, BaseLLMProvider, get_llm_provider(), LocalMindProvider, OpenAICompatibleProvider, Pluggable LLM Provider System for SeikoClaw / Openbrain. Supports LocalMind GGU, Returns the most capable available LLM provider:     1. LocalMind (Local GGUF v
+Cohesion: 0.14
+Nodes (5): BaseLLMProvider, get_llm_provider(), LocalMindProvider, OpenAICompatibleProvider, Returns the most capable available LLM provider:     1. LocalMind (Local GGUF v
 
 ### Community 115 - "Community 115"
 Cohesion: 0.50
@@ -476,19 +486,19 @@ Cohesion: 0.50
 Nodes (3): Goal, Workflow, YouTube Transcript Ingestion Skill
 
 ## Knowledge Gaps
-- **332 isolated node(s):** `deny-dangerous.sh script`, `Connection`, `Any`, `Changed Files`, `Code Walkthrough` (+327 more)
+- **348 isolated node(s):** `deny-dangerous.sh script`, `Connection`, `Any`, `Changed Files`, `Code Walkthrough` (+343 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `MemoryEngine` connect `Community 1` to `Community 0`, `Community 3`, `Community 4`, `Community 7`, `Community 9`, `Community 11`, `Community 13`, `Community 112`, `Community 21`, `Community 22`, `Community 26`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
-- **Why does `TaskGraph` connect `Community 21` to `Community 0`, `Community 11`, `Community 75`, `Community 112`, `Community 16`, `Community 82`, `Community 22`, `Community 25`, `Community 27`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
-- **Why does `SeikoClaw` connect `Community 0` to `Community 1`, `Community 4`, `Community 7`, `Community 9`, `Community 11`, `Community 13`, `Community 21`, `Community 26`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+- **Why does `MemoryEngine` connect `Community 1` to `Community 0`, `Community 3`, `Community 4`, `Community 7`, `Community 9`, `Community 11`, `Community 13`, `Community 21`, `Community 22`, `Community 26`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `TaskGraph` connect `Community 16` to `Community 0`, `Community 38`, `Community 11`, `Community 82`, `Community 21`, `Community 22`, `Community 25`, `Community 27`, `Community 30`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+- **Why does `SeikoClaw` connect `Community 0` to `Community 1`, `Community 4`, `Community 7`, `Community 9`, `Community 11`, `Community 13`, `Community 16`, `Community 21`, `Community 26`?**
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Are the 14 inferred relationships involving `MemoryEngine` (e.g. with `AutoCapture` and `datetime`) actually correct?**
   _`MemoryEngine` has 14 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `TaskGraph` (e.g. with `GateEngine` and `Any`) actually correct?**

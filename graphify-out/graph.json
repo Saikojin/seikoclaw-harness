@@ -58,7 +58,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_hooks_sync_history_py_hooks_sync_history",
-      "community": 7,
+      "community": 34,
       "norm_label": "sync-history.py"
     },
     {
@@ -68,7 +68,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "hooks_sync_history_find_harness_root",
-      "community": 7,
+      "community": 34,
       "norm_label": "find_harness_root()"
     },
     {
@@ -78,7 +78,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "hooks_sync_history_main",
-      "community": 7,
+      "community": 34,
       "norm_label": "main()"
     },
     {
@@ -606,7 +606,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "auto_capture",
-      "community": 26,
+      "community": 21,
       "norm_label": "auto_capture.py"
     },
     {
@@ -666,7 +666,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_init",
-      "community": 112,
+      "community": 22,
       "norm_label": "__init__.py"
     },
     {
@@ -676,7 +676,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_init_rationale_1",
-      "community": 112,
+      "community": 22,
       "norm_label": "openbrain package - cognitive architecture and memory infrastructure for seikocl"
     },
     {
@@ -686,7 +686,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_context_engine",
-      "community": 112,
+      "community": 22,
       "norm_label": "context_engine.py"
     },
     {
@@ -696,7 +696,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "openbrain_context_engine_contextengine",
-      "community": 3,
+      "community": 22,
       "norm_label": "contextengine"
     },
     {
@@ -706,7 +706,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "openbrain_context_engine_contextengine_init",
-      "community": 3,
+      "community": 112,
       "norm_label": ".__init__()"
     },
     {
@@ -716,7 +716,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "openbrain_context_engine_contextengine_compress_shortterm",
-      "community": 3,
+      "community": 22,
       "norm_label": ".compress_shortterm()"
     },
     {
@@ -726,7 +726,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "openbrain_context_engine_contextengine_get_conn",
-      "community": 3,
+      "community": 22,
       "norm_label": "._get_conn()"
     },
     {
@@ -736,7 +736,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "openbrain_context_engine_rationale_38",
-      "community": 3,
+      "community": 22,
       "norm_label": "scans short-term memories and consolidates them if the threshold is met."
     },
     {
@@ -746,7 +746,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_engine",
-      "community": 13,
+      "community": 22,
       "norm_label": "engine.py"
     },
     {
@@ -806,7 +806,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_engine_rationale_1",
-      "community": 13,
+      "community": 22,
       "norm_label": "openbrain persistence engine (compatibility module).  this module provides bac"
     },
     {
@@ -866,7 +866,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "openbrain_gates_gateengine_attach_gate",
-      "community": 11,
+      "community": 38,
       "norm_label": ".attach_gate()"
     },
     {
@@ -876,7 +876,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "openbrain_gates_py_any",
-      "community": 11,
+      "community": 38,
       "norm_label": "any"
     },
     {
@@ -936,7 +936,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "openbrain_gates_rationale_18",
-      "community": 11,
+      "community": 38,
       "norm_label": "attaches an async gate (qa, human, test, timer, merge-slot) to a task node."
     },
     {
@@ -986,7 +986,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "datetime",
-      "community": 26,
+      "community": 21,
       "norm_label": "datetime"
     },
     {
@@ -1006,7 +1006,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "openbrain_history_sync_conversationhistorysyncer",
-      "community": 7,
+      "community": 26,
       "norm_label": "conversationhistorysyncer"
     },
     {
@@ -1066,7 +1066,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "openbrain_history_sync_conversationhistorysyncer_find_all_transcripts",
-      "community": 7,
+      "community": 26,
       "norm_label": ".find_all_transcripts()"
     },
     {
@@ -1076,7 +1076,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "openbrain_history_sync_conversationhistorysyncer_extract_project_name",
-      "community": 7,
+      "community": 26,
       "norm_label": ".extract_project_name()"
     },
     {
@@ -1086,7 +1086,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "openbrain_history_sync_py_any",
-      "community": 7,
+      "community": 26,
       "norm_label": "any"
     },
     {
@@ -1096,7 +1096,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "openbrain_history_sync_conversationhistorysyncer_parse_turns",
-      "community": 7,
+      "community": 26,
       "norm_label": ".parse_turns()"
     },
     {
@@ -1106,7 +1106,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "openbrain_history_sync_conversationhistorysyncer_synthesize_turn_memory",
-      "community": 7,
+      "community": 26,
       "norm_label": ".synthesize_turn_memory()"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_location": "L331",
       "_origin": "ast",
       "id": "openbrain_history_sync_conversationhistorysyncer_sync",
-      "community": 7,
+      "community": 26,
       "norm_label": ".sync()"
     },
     {
@@ -1146,7 +1146,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "openbrain_history_sync_rationale_55",
-      "community": 7,
+      "community": 26,
       "norm_label": "scans conversation history transcripts across projects, identifies conversation"
     },
     {
@@ -1166,7 +1166,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "openbrain_history_sync_rationale_83",
-      "community": 7,
+      "community": 26,
       "norm_label": "discovers all conversation transcript files across brain folders.         retur"
     },
     {
@@ -1176,7 +1176,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "openbrain_history_sync_rationale_115",
-      "community": 7,
+      "community": 26,
       "norm_label": "determines the project name from transcript steps or conversation directory."
     },
     {
@@ -1186,7 +1186,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "openbrain_history_sync_rationale_169",
-      "community": 7,
+      "community": 26,
       "norm_label": "parses a transcript file into segmented conversation turns,         filtering f"
     },
     {
@@ -1196,7 +1196,7 @@
       "source_location": "L289",
       "_origin": "ast",
       "id": "openbrain_history_sync_rationale_289",
-      "community": 7,
+      "community": 26,
       "norm_label": "formats a conversation turn into a structured memory markdown document."
     },
     {
@@ -1206,7 +1206,7 @@
       "source_location": "L340",
       "_origin": "ast",
       "id": "openbrain_history_sync_rationale_340",
-      "community": 7,
+      "community": 26,
       "norm_label": "executes cross-project conversation history memory synchronization."
     },
     {
@@ -1216,7 +1216,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_llm_provider",
-      "community": 112,
+      "community": 22,
       "norm_label": "llm_provider.py"
     },
     {
@@ -1326,7 +1326,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "openbrain_llm_provider_localmindprovider_generate",
-      "community": 4,
+      "community": 3,
       "norm_label": ".generate()"
     },
     {
@@ -1396,7 +1396,7 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "openbrain_llm_provider_heuristicfallbackprovider",
-      "community": 4,
+      "community": 3,
       "norm_label": "heuristicfallbackprovider"
     },
     {
@@ -1406,7 +1406,7 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "openbrain_llm_provider_heuristicfallbackprovider_is_neural",
-      "community": 4,
+      "community": 3,
       "norm_label": ".is_neural()"
     },
     {
@@ -1416,7 +1416,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "openbrain_llm_provider_heuristicfallbackprovider_is_heuristic",
-      "community": 4,
+      "community": 3,
       "norm_label": ".is_heuristic()"
     },
     {
@@ -1426,7 +1426,7 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "openbrain_llm_provider_heuristicfallbackprovider_generate",
-      "community": 4,
+      "community": 3,
       "norm_label": ".generate()"
     },
     {
@@ -1446,7 +1446,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_llm_provider_rationale_1",
-      "community": 112,
+      "community": 22,
       "norm_label": "pluggable llm provider system for seikoclaw / openbrain. supports localmind ggu"
     },
     {
@@ -1456,7 +1456,7 @@
       "source_location": "L140",
       "_origin": "ast",
       "id": "openbrain_llm_provider_rationale_140",
-      "community": 4,
+      "community": 3,
       "norm_label": "zero-dependency rule-based summarizer and fallback provider.     operates offli"
     },
     {
@@ -1476,7 +1476,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_memory_engine",
-      "community": 26,
+      "community": 22,
       "norm_label": "memory_engine.py"
     },
     {
@@ -2036,7 +2036,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph",
-      "community": 21,
+      "community": 16,
       "norm_label": "taskgraph"
     },
     {
@@ -2046,7 +2046,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_init",
-      "community": 21,
+      "community": 16,
       "norm_label": ".__init__()"
     },
     {
@@ -2066,7 +2066,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_init_tables",
-      "community": 21,
+      "community": 16,
       "norm_label": "._init_tables()"
     },
     {
@@ -2076,7 +2076,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_generate_id",
-      "community": 16,
+      "community": 25,
       "norm_label": ".generate_id()"
     },
     {
@@ -2086,7 +2086,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_create_task",
-      "community": 16,
+      "community": 25,
       "norm_label": ".create_task()"
     },
     {
@@ -2096,7 +2096,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "openbrain_task_graph_py_any",
-      "community": 16,
+      "community": 30,
       "norm_label": "any"
     },
     {
@@ -2156,7 +2156,7 @@
       "source_location": "L221",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_get_task",
-      "community": 16,
+      "community": 30,
       "norm_label": ".get_task()"
     },
     {
@@ -2176,7 +2176,7 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_get_ready_frontier",
-      "community": 16,
+      "community": 30,
       "norm_label": ".get_ready_frontier()"
     },
     {
@@ -2186,7 +2186,7 @@
       "source_location": "L296",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_claim_task",
-      "community": 16,
+      "community": 30,
       "norm_label": ".claim_task()"
     },
     {
@@ -2196,7 +2196,7 @@
       "source_location": "L324",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_claim_next_ready",
-      "community": 16,
+      "community": 30,
       "norm_label": ".claim_next_ready()"
     },
     {
@@ -2206,7 +2206,7 @@
       "source_location": "L335",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_update_status",
-      "community": 21,
+      "community": 16,
       "norm_label": ".update_status()"
     },
     {
@@ -2216,7 +2216,7 @@
       "source_location": "L362",
       "_origin": "ast",
       "id": "openbrain_task_graph_taskgraph_close_task",
-      "community": 21,
+      "community": 16,
       "norm_label": ".close_task()"
     },
     {
@@ -2256,7 +2256,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "openbrain_task_graph_rationale_12",
-      "community": 21,
+      "community": 16,
       "norm_label": "dag-based task graph and ready frontier engine for seikoclaw.     provides depe"
     },
     {
@@ -2266,7 +2266,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "openbrain_task_graph_rationale_70",
-      "community": 16,
+      "community": 25,
       "norm_label": "generates a content-derived collision-free hash id (e.g. sc-a1b2 or sc-a1b2.1)."
     },
     {
@@ -2276,7 +2276,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "openbrain_task_graph_rationale_122",
-      "community": 16,
+      "community": 25,
       "norm_label": "creates a new task node in the dag."
     },
     {
@@ -2316,7 +2316,7 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "openbrain_task_graph_rationale_260",
-      "community": 16,
+      "community": 30,
       "norm_label": "computes the claimable frontier:         tasks with status = 'open' whose prere"
     },
     {
@@ -2326,7 +2326,7 @@
       "source_location": "L297",
       "_origin": "ast",
       "id": "openbrain_task_graph_rationale_297",
-      "community": 16,
+      "community": 30,
       "norm_label": "atomically claims a task for a worker."
     },
     {
@@ -2336,7 +2336,7 @@
       "source_location": "L325",
       "_origin": "ast",
       "id": "openbrain_task_graph_rationale_325",
-      "community": 16,
+      "community": 30,
       "norm_label": "atomically claims the highest-priority ready task from the frontier.         by"
     },
     {
@@ -2346,7 +2346,7 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "openbrain_task_graph_rationale_336",
-      "community": 21,
+      "community": 16,
       "norm_label": "updates task status (open, in_progress, in_qa, blocked, closed, deferred)."
     },
     {
@@ -2376,7 +2376,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_usage_monitor",
-      "community": 9,
+      "community": 21,
       "norm_label": "usage_monitor.py"
     },
     {
@@ -2556,7 +2556,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "openbrain_watchdog",
-      "community": 7,
+      "community": 26,
       "norm_label": "watchdog.py"
     },
     {
@@ -2776,7 +2776,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "seikoclaw_iterationbudget",
-      "community": 22,
+      "community": 0,
       "norm_label": "iterationbudget"
     },
     {
@@ -2786,7 +2786,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "seikoclaw_iterationbudget_init",
-      "community": 22,
+      "community": 0,
       "norm_label": ".__init__()"
     },
     {
@@ -2796,7 +2796,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "seikoclaw_iterationbudget_consume",
-      "community": 22,
+      "community": 0,
       "norm_label": ".consume()"
     },
     {
@@ -2806,7 +2806,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "seikoclaw_iterationbudget_is_exhausted",
-      "community": 22,
+      "community": 0,
       "norm_label": ".is_exhausted()"
     },
     {
@@ -2816,7 +2816,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "seikoclaw_iterationbudget_str",
-      "community": 22,
+      "community": 0,
       "norm_label": ".__str__()"
     },
     {
@@ -3226,7 +3226,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_gates_testgates",
-      "community": 75,
+      "community": 11,
       "norm_label": "testgates"
     },
     {
@@ -3236,7 +3236,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_gates_testgates_setup",
-      "community": 75,
+      "community": 11,
       "norm_label": ".setup()"
     },
     {
@@ -3246,7 +3246,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tests_test_gates_testgates_teardown",
-      "community": 75,
+      "community": 11,
       "norm_label": ".teardown()"
     },
     {
@@ -3256,7 +3256,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_test_gates_testgates_test_attach_and_evaluate_gate",
-      "community": 75,
+      "community": 11,
       "norm_label": ".test_attach_and_evaluate_gate()"
     },
     {
@@ -3266,7 +3266,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_gates_testgates_test_seikojin_qa_certification_100_percent_mandate",
-      "community": 75,
+      "community": 11,
       "norm_label": ".test_seikojin_qa_certification_100_percent_mandate()"
     },
     {
@@ -3276,7 +3276,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "tests_test_gates_testgates_test_human_approval_gate",
-      "community": 75,
+      "community": 11,
       "norm_label": ".test_human_approval_gate()"
     },
     {
@@ -3286,7 +3286,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "tests_test_gates_testgates_test_frontier_gate_filtering_for_automated_workers",
-      "community": 75,
+      "community": 11,
       "norm_label": ".test_frontier_gate_filtering_for_automated_workers()"
     },
     {
@@ -3326,7 +3326,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "tests_test_history_sync_test_extract_project_name",
-      "community": 7,
+      "community": 26,
       "norm_label": "test_extract_project_name()"
     },
     {
@@ -3336,7 +3336,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "tests_test_history_sync_test_conversation_sync_lifecycle",
-      "community": 1,
+      "community": 26,
       "norm_label": "test_conversation_sync_lifecycle()"
     },
     {
@@ -3346,7 +3346,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_memory_compression",
-      "community": 112,
+      "community": 22,
       "norm_label": "test_memory_compression.py"
     },
     {
@@ -3396,7 +3396,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "tests_test_memory_compression_testmemorycompression",
-      "community": 3,
+      "community": 1,
       "norm_label": "testmemorycompression"
     },
     {
@@ -3406,7 +3406,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_memory_compression_testmemorycompression_setup",
-      "community": 3,
+      "community": 1,
       "norm_label": ".setup()"
     },
     {
@@ -3416,7 +3416,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "tests_test_memory_compression_testmemorycompression_teardown",
-      "community": 3,
+      "community": 1,
       "norm_label": ".teardown()"
     },
     {
@@ -3446,7 +3446,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "tests_test_memory_compression_testmemorycompression_test_retrieve_similar_filters_archived",
-      "community": 3,
+      "community": 1,
       "norm_label": ".test_retrieve_similar_filters_archived()"
     },
     {
@@ -3566,7 +3566,7 @@
       "source_location": "L172",
       "_origin": "ast",
       "id": "tests_test_skill_gating_testskillgater_test_heuristic_fallback_safety",
-      "community": 4,
+      "community": 3,
       "norm_label": ".test_heuristic_fallback_safety()"
     },
     {
@@ -3576,7 +3576,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_task_graph",
-      "community": 21,
+      "community": 27,
       "norm_label": "test_task_graph.py"
     },
     {
@@ -4183,7 +4183,7 @@
       "label": "Checklists",
       "file_type": "document",
       "source_file": ".agents/skills/architect/SKILL.md",
-      "source_location": "L28",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "architect_skill_checklists",
       "community": 64,
@@ -4193,7 +4193,7 @@
       "label": "Handoff",
       "file_type": "document",
       "source_file": ".agents/skills/architect/SKILL.md",
-      "source_location": "L37",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "architect_skill_handoff",
       "community": 64,
@@ -4343,7 +4343,7 @@
       "label": "Output Format",
       "file_type": "document",
       "source_file": ".agents/skills/before-building/SKILL.md",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "before_building_skill_output_format",
       "community": 81,
@@ -4580,20 +4580,30 @@
       "norm_label": "skill.md"
     },
     {
-      "label": "Game Design Critic",
+      "label": "Game Design & Visual Parity Critic",
       "file_type": "document",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
-      "id": "game_design_critic_skill_game_design_critic",
+      "id": "game_design_critic_skill_game_design_visual_parity_critic",
       "community": 83,
-      "norm_label": "game design critic"
+      "norm_label": "game design & visual parity critic"
+    },
+    {
+      "label": "Mode 1: Gameplay & Mechanics Critic (Phase 1)",
+      "file_type": "document",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "game_design_critic_skill_mode_1_gameplay_mechanics_critic_phase_1",
+      "community": 83,
+      "norm_label": "mode 1: gameplay & mechanics critic (phase 1)"
     },
     {
       "label": "Persona & Philosophy",
       "file_type": "document",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L10",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "game_design_critic_skill_persona_philosophy",
       "community": 83,
@@ -4603,21 +4613,71 @@
       "label": "Core Heuristics & Questioning Pillars",
       "file_type": "document",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L16",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "game_design_critic_skill_core_heuristics_questioning_pillars",
       "community": 83,
       "norm_label": "core heuristics & questioning pillars"
     },
     {
-      "label": "Session Workflow",
+      "label": "Mode 2: Visual Parity & SxS Critic (Phase 2)",
       "file_type": "document",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L30",
+      "source_location": "L33",
       "_origin": "ast",
-      "id": "game_design_critic_skill_session_workflow",
+      "id": "game_design_critic_skill_mode_2_visual_parity_sxs_critic_phase_2",
       "community": 83,
-      "norm_label": "session workflow"
+      "norm_label": "mode 2: visual parity & sxs critic (phase 2)"
+    },
+    {
+      "label": "Persona & Stance",
+      "file_type": "document",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "game_design_critic_skill_persona_stance",
+      "community": 83,
+      "norm_label": "persona & stance"
+    },
+    {
+      "label": "The 5 Universal Visual Pillars (`art/BAR.md`)",
+      "file_type": "document",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "game_design_critic_skill_the_5_universal_visual_pillars_art_bar_md",
+      "community": 83,
+      "norm_label": "the 5 universal visual pillars (`art/bar.md`)"
+    },
+    {
+      "label": "Verdict Protocol & Output Format",
+      "file_type": "document",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "game_design_critic_skill_verdict_protocol_output_format",
+      "community": 83,
+      "norm_label": "verdict protocol & output format"
+    },
+    {
+      "label": "Defect Punch List Schema",
+      "file_type": "document",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "game_design_critic_skill_defect_punch_list_schema",
+      "community": 83,
+      "norm_label": "defect punch list schema"
+    },
+    {
+      "label": "Output Artifacts",
+      "file_type": "document",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "game_design_critic_skill_output_artifacts",
+      "community": 83,
+      "norm_label": "output artifacts"
     },
     {
       "label": "SKILL.md",
@@ -5103,67 +5163,77 @@
       "label": "1. Project Manifest & State Tracking",
       "file_type": "document",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L25",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "game_forge_skill_1_project_manifest_state_tracking",
       "community": 28,
       "norm_label": "1. project manifest & state tracking"
     },
     {
-      "label": "2. The 4-Stage Autonomous Pipeline",
+      "label": "2. The 5-Stage Autonomous Pipeline",
       "file_type": "document",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L50",
+      "source_location": "L57",
       "_origin": "ast",
-      "id": "game_forge_skill_2_the_4_stage_autonomous_pipeline",
+      "id": "game_forge_skill_2_the_5_stage_autonomous_pipeline",
       "community": 28,
-      "norm_label": "2. the 4-stage autonomous pipeline"
+      "norm_label": "2. the 5-stage autonomous pipeline"
     },
     {
-      "label": "Stage 1: Design & Core Loop Synthesis (Autonomous $\\rightarrow$ HITL Gate 1)",
+      "label": "Stage A: Brief, Locked References & Deep Plan (Autonomous $\\rightarrow$ HITL Gate 1)",
       "file_type": "document",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L52",
+      "source_location": "L59",
       "_origin": "ast",
-      "id": "game_forge_skill_stage_1_design_core_loop_synthesis_autonomous_rightarrow_hitl_gate_1",
+      "id": "game_forge_skill_stage_a_brief_locked_references_deep_plan_autonomous_rightarrow_hitl_gate_1",
       "community": 28,
-      "norm_label": "stage 1: design & core loop synthesis (autonomous $\\rightarrow$ hitl gate 1)"
+      "norm_label": "stage a: brief, locked references & deep plan (autonomous $\\rightarrow$ hitl gate 1)"
     },
     {
-      "label": "Stage 2: Scope Carving & Zero-Install Prototyping (Autonomous $\\rightarrow$ HITL Gate 2)",
+      "label": "Stage B: Scope Carving & Playable Foundation (Autonomous $\\rightarrow$ Gate B)",
       "file_type": "document",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L66",
+      "source_location": "L75",
       "_origin": "ast",
-      "id": "game_forge_skill_stage_2_scope_carving_zero_install_prototyping_autonomous_rightarrow_hitl_gate_2",
+      "id": "game_forge_skill_stage_b_scope_carving_playable_foundation_autonomous_rightarrow_gate_b",
       "community": 28,
-      "norm_label": "stage 2: scope carving & zero-install prototyping (autonomous $\\rightarrow$ hitl gate 2)"
+      "norm_label": "stage b: scope carving & playable foundation (autonomous $\\rightarrow$ gate b)"
     },
     {
-      "label": "Stage 3: Feel Tuning, Assets & Developer Tooling (Autonomous $\\rightarrow$ HITL Gate 3)",
+      "label": "Stage C: Staged Art Pipeline & Authoring Workbenches (Autonomous $\\rightarrow$ HITL Gate 3)",
       "file_type": "document",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L85",
+      "source_location": "L92",
       "_origin": "ast",
-      "id": "game_forge_skill_stage_3_feel_tuning_assets_developer_tooling_autonomous_rightarrow_hitl_gate_3",
+      "id": "game_forge_skill_stage_c_staged_art_pipeline_authoring_workbenches_autonomous_rightarrow_hitl_gate_3",
       "community": 28,
-      "norm_label": "stage 3: feel tuning, assets & developer tooling (autonomous $\\rightarrow$ hitl gate 3)"
+      "norm_label": "stage c: staged art pipeline & authoring workbenches (autonomous $\\rightarrow$ hitl gate 3)"
     },
     {
-      "label": "Stage 4: Autonomous Engine Build & QA",
+      "label": "Stage D: Side-by-Side (SxS) Visual Bar Parity Loop (Autonomous $\\rightarrow$ Critic WIN)",
       "file_type": "document",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L101",
+      "source_location": "L109",
       "_origin": "ast",
-      "id": "game_forge_skill_stage_4_autonomous_engine_build_qa",
+      "id": "game_forge_skill_stage_d_side_by_side_sxs_visual_bar_parity_loop_autonomous_rightarrow_critic_win",
       "community": 28,
-      "norm_label": "stage 4: autonomous engine build & qa"
+      "norm_label": "stage d: side-by-side (sxs) visual bar parity loop (autonomous $\\rightarrow$ critic win)"
+    },
+    {
+      "label": "Stage E: Autonomous Engine Build, Verification & Handoff",
+      "file_type": "document",
+      "source_file": ".agents/skills/game-forge/SKILL.md",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "game_forge_skill_stage_e_autonomous_engine_build_verification_handoff",
+      "community": 28,
+      "norm_label": "stage e: autonomous engine build, verification & handoff"
     },
     {
       "label": "3. Invocation Triggers",
       "file_type": "document",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L114",
+      "source_location": "L136",
       "_origin": "ast",
       "id": "game_forge_skill_3_invocation_triggers",
       "community": 28,
@@ -6523,61 +6593,151 @@
       "label": "Seikoclaw Frontend Taste System",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L6",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
       "community": 53,
       "norm_label": "seikoclaw frontend taste system"
     },
     {
-      "label": "Goal",
+      "label": "1. Surface & Component Craft",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L8",
+      "source_location": "L18",
       "_origin": "ast",
-      "id": "seikoclaw_frontend_taste_skill_goal",
+      "id": "seikoclaw_frontend_taste_skill_1_surface_component_craft",
       "community": 53,
-      "norm_label": "goal"
+      "norm_label": "1. surface & component craft"
     },
     {
-      "label": "Workflow",
-      "file_type": "document",
-      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "seikoclaw_frontend_taste_skill_workflow",
-      "community": 53,
-      "norm_label": "workflow"
-    },
-    {
-      "label": "Required Inputs",
+      "label": "Translucent Alpha Borders",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "seikoclaw_frontend_taste_skill_required_inputs",
+      "id": "seikoclaw_frontend_taste_skill_translucent_alpha_borders",
       "community": 53,
-      "norm_label": "required inputs"
+      "norm_label": "translucent alpha borders"
     },
     {
-      "label": "Output Format",
+      "label": "Layered Shadows & Inset Highlights",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L24",
+      "source_location": "L26",
       "_origin": "ast",
-      "id": "seikoclaw_frontend_taste_skill_output_format",
+      "id": "seikoclaw_frontend_taste_skill_layered_shadows_inset_highlights",
       "community": 53,
-      "norm_label": "output format"
+      "norm_label": "layered shadows & inset highlights"
     },
     {
-      "label": "Boundaries",
+      "label": "Tiered Dark Mode Elevation",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L28",
+      "source_location": "L37",
       "_origin": "ast",
-      "id": "seikoclaw_frontend_taste_skill_boundaries",
+      "id": "seikoclaw_frontend_taste_skill_tiered_dark_mode_elevation",
       "community": 53,
-      "norm_label": "boundaries"
+      "norm_label": "tiered dark mode elevation"
+    },
+    {
+      "label": "2. Typography & Optical Discipline",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_2_typography_optical_discipline",
+      "community": 53,
+      "norm_label": "2. typography & optical discipline"
+    },
+    {
+      "label": "Tracking (Letter Spacing) Rules",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_tracking_letter_spacing_rules",
+      "community": 53,
+      "norm_label": "tracking (letter spacing) rules"
+    },
+    {
+      "label": "Tabular Numbers (`tabular-nums`)",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_tabular_numbers_tabular_nums",
+      "community": 53,
+      "norm_label": "tabular numbers (`tabular-nums`)"
+    },
+    {
+      "label": "Optical Alignment over Geometric Alignment",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_optical_alignment_over_geometric_alignment",
+      "community": 53,
+      "norm_label": "optical alignment over geometric alignment"
+    },
+    {
+      "label": "3. Motion & Animation Physics (Kowalski Standards)",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_3_motion_animation_physics_kowalski_standards",
+      "community": 53,
+      "norm_label": "3. motion & animation physics (kowalski standards)"
+    },
+    {
+      "label": "Frequency Decision Matrix",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_frequency_decision_matrix",
+      "community": 53,
+      "norm_label": "frequency decision matrix"
+    },
+    {
+      "label": "Easing & Trajectory Rules",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_easing_trajectory_rules",
+      "community": 53,
+      "norm_label": "easing & trajectory rules"
+    },
+    {
+      "label": "GPU Acceleration & Zero-Reflow Performance",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_gpu_acceleration_zero_reflow_performance",
+      "community": 53,
+      "norm_label": "gpu acceleration & zero-reflow performance"
+    },
+    {
+      "label": "4. Mobile-Web Native Ergonomics",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_4_mobile_web_native_ergonomics",
+      "community": 53,
+      "norm_label": "4. mobile-web native ergonomics"
+    },
+    {
+      "label": "5. Execution & Audit Workflow",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "seikoclaw_frontend_taste_skill_5_execution_audit_workflow",
+      "community": 53,
+      "norm_label": "5. execution & audit workflow"
     },
     {
       "label": "SKILL.md",
@@ -6670,34 +6830,44 @@
       "norm_label": "seikoclaw harness router"
     },
     {
-      "label": "1. Core Engineering & Spec Pipeline (Matt Pocock / David Andrej)",
+      "label": "1. Game Development & Visual Parity (Master Framework & Toolkit)",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-harness/SKILL.md",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "seikoclaw_harness_skill_1_core_engineering_spec_pipeline_matt_pocock_david_andrej",
+      "id": "seikoclaw_harness_skill_1_game_development_visual_parity_master_framework_toolkit",
       "community": 100,
-      "norm_label": "1. core engineering & spec pipeline (matt pocock / david andrej)"
+      "norm_label": "1. game development & visual parity (master framework & toolkit)"
     },
     {
-      "label": "2. Game Forge Suite (Saikojin)",
+      "label": "2. Quality Engineering & Gatekeeping",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-harness/SKILL.md",
-      "source_location": "L32",
+      "source_location": "L24",
       "_origin": "ast",
-      "id": "seikoclaw_harness_skill_2_game_forge_suite_saikojin",
+      "id": "seikoclaw_harness_skill_2_quality_engineering_gatekeeping",
       "community": 100,
-      "norm_label": "2. game forge suite (saikojin)"
+      "norm_label": "2. quality engineering & gatekeeping"
     },
     {
-      "label": "3. Autonomous Infrastructure & Sidecar (Saikojin)",
+      "label": "3. Architecture & Task Orchestration",
       "file_type": "document",
       "source_file": ".agents/skills/seikoclaw-harness/SKILL.md",
-      "source_location": "L45",
+      "source_location": "L31",
       "_origin": "ast",
-      "id": "seikoclaw_harness_skill_3_autonomous_infrastructure_sidecar_saikojin",
+      "id": "seikoclaw_harness_skill_3_architecture_task_orchestration",
       "community": 100,
-      "norm_label": "3. autonomous infrastructure & sidecar (saikojin)"
+      "norm_label": "3. architecture & task orchestration"
+    },
+    {
+      "label": "4. Engineering Spec Pipeline & Productivity (Matt Pocock / David Andrej)",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikoclaw-harness/SKILL.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "seikoclaw_harness_skill_4_engineering_spec_pipeline_productivity_matt_pocock_david_andrej",
+      "community": 100,
+      "norm_label": "4. engineering spec pipeline & productivity (matt pocock / david andrej)"
     },
     {
       "label": "SKILL.md",
@@ -7133,7 +7303,7 @@
       "label": "Seikojin QA Skill & Automated Gatekeeper",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "seikojin_qa_skill_seikojin_qa_skill_automated_gatekeeper",
       "community": 32,
@@ -7143,7 +7313,7 @@
       "label": "Overview",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "seikojin_qa_skill_overview",
       "community": 32,
@@ -7153,7 +7323,7 @@
       "label": "Personas & Role Division",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "seikojin_qa_skill_personas_role_division",
       "community": 32,
@@ -7163,7 +7333,7 @@
       "label": "1. QA Strategist (Brain - Planning Phase)",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "seikojin_qa_skill_1_qa_strategist_brain_planning_phase",
       "community": 32,
@@ -7173,17 +7343,57 @@
       "label": "2. QA Engineer (Hands - Execution & Gate Certification)",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L28",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "seikojin_qa_skill_2_qa_engineer_hands_execution_gate_certification",
       "community": 32,
       "norm_label": "2. qa engineer (hands - execution & gate certification)"
     },
     {
+      "label": "Visual Defect & Punch List Specification",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "seikojin_qa_skill_visual_defect_punch_list_specification",
+      "community": 32,
+      "norm_label": "visual defect & punch list specification"
+    },
+    {
+      "label": "Paired Verdict Examples",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "seikojin_qa_skill_paired_verdict_examples",
+      "community": 32,
+      "norm_label": "paired verdict examples"
+    },
+    {
+      "label": "Bad Verdict (Subjective, Non-Actionable \u2014 REJECTED)",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "seikojin_qa_skill_bad_verdict_subjective_non_actionable_rejected",
+      "community": 32,
+      "norm_label": "bad verdict (subjective, non-actionable \u2014 rejected)"
+    },
+    {
+      "label": "Good Verdict (Seikojin Compliant \u2014 ACCEPTED)",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "seikojin_qa_skill_good_verdict_seikojin_compliant_accepted",
+      "community": 32,
+      "norm_label": "good verdict (seikojin compliant \u2014 accepted)"
+    },
+    {
       "label": "Core Rules (The QA Constitution)",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L44",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "seikojin_qa_skill_core_rules_the_qa_constitution",
       "community": 32,
@@ -7193,7 +7403,7 @@
       "label": "Hybrid DAG Workflow",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L56",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "seikojin_qa_skill_hybrid_dag_workflow",
       "community": 32,
@@ -7203,7 +7413,7 @@
       "label": "CLI Integration Reference",
       "file_type": "document",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
-      "source_location": "L71",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "seikojin_qa_skill_cli_integration_reference",
       "community": 32,
@@ -7388,6 +7598,16 @@
       "id": "resources_rules_7_seikojin_compliant_stack",
       "community": 31,
       "norm_label": "7. seikojin-compliant stack"
+    },
+    {
+      "label": "8. Visual Parity Rigor (Anti-Soft-Pass Mandate)",
+      "file_type": "document",
+      "source_file": ".agents/skills/seikojin-qa/resources/rules.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "resources_rules_8_visual_parity_rigor_anti_soft_pass_mandate",
+      "community": 31,
+      "norm_label": "8. visual parity rigor (anti-soft-pass mandate)"
     },
     {
       "label": "SKILL.md",
@@ -7583,27 +7803,27 @@
       "label": "Process",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L11",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "to_spec_skill_process",
       "community": 33,
       "norm_label": "process"
     },
     {
-      "label": "Problem Statement",
+      "label": "Core Intent & Problem Statement",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L23",
+      "source_location": "L27",
       "_origin": "ast",
-      "id": "to_spec_skill_problem_statement",
+      "id": "to_spec_skill_core_intent_problem_statement",
       "community": 33,
-      "norm_label": "problem statement"
+      "norm_label": "core intent & problem statement"
     },
     {
       "label": "Solution",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L27",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "to_spec_skill_solution",
       "community": 33,
@@ -7613,7 +7833,7 @@
       "label": "User Stories",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L31",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "to_spec_skill_user_stories",
       "community": 33,
@@ -7623,7 +7843,7 @@
       "label": "Implementation Decisions",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L43",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "to_spec_skill_implementation_decisions",
       "community": 33,
@@ -7633,7 +7853,7 @@
       "label": "Testing Decisions",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L59",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "to_spec_skill_testing_decisions",
       "community": 33,
@@ -7643,7 +7863,7 @@
       "label": "Out of Scope",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L67",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "to_spec_skill_out_of_scope",
       "community": 33,
@@ -7653,7 +7873,7 @@
       "label": "Further Notes",
       "file_type": "document",
       "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L71",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "to_spec_skill_further_notes",
       "community": 33,
@@ -7673,7 +7893,7 @@
       "label": "To Tickets",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L7",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "to_tickets_skill_to_tickets",
       "community": 14,
@@ -7683,27 +7903,27 @@
       "label": "Process",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L13",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "to_tickets_skill_process",
       "community": 14,
       "norm_label": "process"
     },
     {
-      "label": "1. Gather context",
+      "label": "1. Gather context & restate intent",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L15",
+      "source_location": "L17",
       "_origin": "ast",
-      "id": "to_tickets_skill_1_gather_context",
+      "id": "to_tickets_skill_1_gather_context_restate_intent",
       "community": 14,
-      "norm_label": "1. gather context"
+      "norm_label": "1. gather context & restate intent"
     },
     {
       "label": "2. Explore the codebase (optional)",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L19",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "to_tickets_skill_2_explore_the_codebase_optional",
       "community": 14,
@@ -7713,7 +7933,7 @@
       "label": "3. Draft vertical slices",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L25",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "to_tickets_skill_3_draft_vertical_slices",
       "community": 14,
@@ -7723,7 +7943,7 @@
       "label": "4. Quiz the user",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L42",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "to_tickets_skill_4_quiz_the_user",
       "community": 14,
@@ -7733,7 +7953,7 @@
       "label": "5. Publish the tickets to the configured tracker",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L58",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "to_tickets_skill_5_publish_the_tickets_to_the_configured_tracker",
       "community": 14,
@@ -7743,7 +7963,7 @@
       "label": "<NN> \u2014 <Ticket title>",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L71",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "to_tickets_skill_nn_ticket_title",
       "community": 14,
@@ -7753,7 +7973,7 @@
       "label": "Parent",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L86",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "to_tickets_skill_parent",
       "community": 14,
@@ -7763,7 +7983,7 @@
       "label": "What to build",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L90",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "to_tickets_skill_what_to_build",
       "community": 14,
@@ -7773,7 +7993,7 @@
       "label": "Acceptance criteria",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L94",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "to_tickets_skill_acceptance_criteria",
       "community": 14,
@@ -7783,7 +8003,7 @@
       "label": "Blocked by",
       "file_type": "document",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L99",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "to_tickets_skill_blocked_by",
       "community": 14,
@@ -10123,9 +10343,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "openbrain_context_engine",
-      "confidence_score": 1.0
+      "target": "openbrain_context_engine"
     },
     {
       "relation": "method",
@@ -10196,9 +10416,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "openbrain_context_engine_contextengine",
-      "confidence_score": 1.0
+      "target": "openbrain_context_engine_contextengine"
     },
     {
       "relation": "uses",
@@ -10206,9 +10426,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L11",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_mockneuralllmprovider",
-      "target": "openbrain_context_engine_contextengine",
-      "confidence_score": 0.5
+      "target": "openbrain_context_engine_contextengine"
     },
     {
       "relation": "uses",
@@ -10216,9 +10436,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L11",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "openbrain_context_engine_contextengine",
-      "confidence_score": 0.5
+      "target": "openbrain_context_engine_contextengine"
     },
     {
       "relation": "calls",
@@ -11581,9 +11801,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "openbrain_llm_provider",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider"
     },
     {
       "relation": "method",
@@ -11601,9 +11821,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_basellmprovider",
-      "target": "openbrain_llm_provider_basellmprovider_is_heuristic",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_basellmprovider_is_heuristic"
     },
     {
       "relation": "method",
@@ -11611,9 +11831,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_basellmprovider",
-      "target": "openbrain_llm_provider_basellmprovider_is_neural",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_basellmprovider_is_neural"
     },
     {
       "relation": "references",
@@ -11663,9 +11883,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "openbrain_llm_provider_basellmprovider",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_basellmprovider"
     },
     {
       "relation": "uses",
@@ -11673,9 +11893,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_mockneuralllmprovider",
-      "target": "openbrain_llm_provider_basellmprovider",
-      "confidence_score": 0.5
+      "target": "openbrain_llm_provider_basellmprovider"
     },
     {
       "relation": "uses",
@@ -11683,9 +11903,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "openbrain_llm_provider_basellmprovider",
-      "confidence_score": 0.5
+      "target": "openbrain_llm_provider_basellmprovider"
     },
     {
       "relation": "calls",
@@ -11744,9 +11964,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_localmindprovider",
-      "target": "openbrain_llm_provider_localmindprovider_is_heuristic",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_localmindprovider_is_heuristic"
     },
     {
       "relation": "method",
@@ -11754,9 +11974,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_localmindprovider",
-      "target": "openbrain_llm_provider_localmindprovider_is_neural",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_localmindprovider_is_neural"
     },
     {
       "relation": "calls",
@@ -11765,9 +11985,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_localmindprovider_is_neural",
-      "target": "openbrain_llm_provider_openaicompatibleprovider_is_available",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_openaicompatibleprovider_is_available"
     },
     {
       "relation": "calls",
@@ -11776,9 +11996,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_localmindprovider_is_heuristic",
-      "target": "openbrain_llm_provider_openaicompatibleprovider_is_available",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_openaicompatibleprovider_is_available"
     },
     {
       "relation": "calls",
@@ -11860,9 +12080,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_openaicompatibleprovider",
-      "target": "openbrain_llm_provider_openaicompatibleprovider_is_heuristic",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_openaicompatibleprovider_is_heuristic"
     },
     {
       "relation": "method",
@@ -11870,9 +12090,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_openaicompatibleprovider",
-      "target": "openbrain_llm_provider_openaicompatibleprovider_is_neural",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_openaicompatibleprovider_is_neural"
     },
     {
       "relation": "calls",
@@ -11912,9 +12132,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_heuristicfallbackprovider",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider_is_heuristic",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_heuristicfallbackprovider_is_heuristic"
     },
     {
       "relation": "method",
@@ -11922,9 +12142,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_heuristicfallbackprovider",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider_is_neural",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_heuristicfallbackprovider_is_neural"
     },
     {
       "relation": "rationale_for",
@@ -11932,9 +12152,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_rationale_140",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_heuristicfallbackprovider"
     },
     {
       "relation": "imports",
@@ -11943,9 +12163,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_heuristicfallbackprovider"
     },
     {
       "relation": "uses",
@@ -11953,9 +12173,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_mockneuralllmprovider",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider",
-      "confidence_score": 0.5
+      "target": "openbrain_llm_provider_heuristicfallbackprovider"
     },
     {
       "relation": "uses",
@@ -11963,9 +12183,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider",
-      "confidence_score": 0.5
+      "target": "openbrain_llm_provider_heuristicfallbackprovider"
     },
     {
       "relation": "calls",
@@ -11985,9 +12205,9 @@
       "source_file": "tests/test_skill_gating.py",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_skill_gating",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_heuristicfallbackprovider"
     },
     {
       "relation": "uses",
@@ -11995,9 +12215,9 @@
       "source_file": "tests/test_skill_gating.py",
       "source_location": "L173",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_skill_gating_testskillgater",
-      "target": "openbrain_llm_provider_heuristicfallbackprovider",
-      "confidence_score": 0.5
+      "target": "openbrain_llm_provider_heuristicfallbackprovider"
     },
     {
       "relation": "calls",
@@ -12016,9 +12236,9 @@
       "source_file": "openbrain/llm_provider.py",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_llm_provider_rationale_169",
-      "target": "openbrain_llm_provider_get_llm_provider",
-      "confidence_score": 1.0
+      "target": "openbrain_llm_provider_get_llm_provider"
     },
     {
       "relation": "imports",
@@ -12092,9 +12312,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "openbrain_memory_engine",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine"
     },
     {
       "relation": "imports_from",
@@ -12379,9 +12599,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "openbrain_memory_engine_memoryengine",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine"
     },
     {
       "relation": "uses",
@@ -12389,9 +12609,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L10",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_mockneuralllmprovider",
-      "target": "openbrain_memory_engine_memoryengine",
-      "confidence_score": 0.5
+      "target": "openbrain_memory_engine_memoryengine"
     },
     {
       "relation": "uses",
@@ -12399,9 +12619,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L10",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "openbrain_memory_engine_memoryengine",
-      "confidence_score": 0.5
+      "target": "openbrain_memory_engine_memoryengine"
     },
     {
       "relation": "calls",
@@ -12496,9 +12716,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_19",
-      "target": "openbrain_memory_engine_memoryengine_init_sqlite",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_init_sqlite"
     },
     {
       "relation": "calls",
@@ -12517,9 +12737,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_52",
-      "target": "openbrain_memory_engine_memoryengine_save_memory",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_save_memory"
     },
     {
       "relation": "calls",
@@ -12538,9 +12758,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_90",
-      "target": "openbrain_memory_engine_memoryengine_retrieve_similar",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_retrieve_similar"
     },
     {
       "relation": "rationale_for",
@@ -12548,9 +12768,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_122",
-      "target": "openbrain_memory_engine_memoryengine_save_mistake",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_save_mistake"
     },
     {
       "relation": "rationale_for",
@@ -12558,9 +12778,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_139",
-      "target": "openbrain_memory_engine_memoryengine_get_mistakes",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_get_mistakes"
     },
     {
       "relation": "rationale_for",
@@ -12568,9 +12788,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_144",
-      "target": "openbrain_memory_engine_memoryengine_save_asset",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_save_asset"
     },
     {
       "relation": "rationale_for",
@@ -12578,9 +12798,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_157",
-      "target": "openbrain_memory_engine_memoryengine_score_asset",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_score_asset"
     },
     {
       "relation": "rationale_for",
@@ -12588,9 +12808,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_189",
-      "target": "openbrain_memory_engine_memoryengine_promote_memory",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_promote_memory"
     },
     {
       "relation": "rationale_for",
@@ -12598,9 +12818,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L209",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_209",
-      "target": "openbrain_memory_engine_memoryengine_update_kanban",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_update_kanban"
     },
     {
       "relation": "rationale_for",
@@ -12608,9 +12828,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_244",
-      "target": "openbrain_memory_engine_memoryengine_get_kanban",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_get_kanban"
     },
     {
       "relation": "rationale_for",
@@ -12618,9 +12838,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L258",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_258",
-      "target": "openbrain_memory_engine_memoryengine_save_skill",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_save_skill"
     },
     {
       "relation": "rationale_for",
@@ -12628,9 +12848,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L273",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_273",
-      "target": "openbrain_memory_engine_memoryengine_get_skill",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_get_skill"
     },
     {
       "relation": "rationale_for",
@@ -12638,9 +12858,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L284",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_284",
-      "target": "openbrain_memory_engine_memoryengine_get_latest_memory_timestamp",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_get_latest_memory_timestamp"
     },
     {
       "relation": "rationale_for",
@@ -12648,9 +12868,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L301",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_301",
-      "target": "openbrain_memory_engine_memoryengine_get_history_sync_watermark",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_get_history_sync_watermark"
     },
     {
       "relation": "rationale_for",
@@ -12658,9 +12878,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L312",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_312",
-      "target": "openbrain_memory_engine_memoryengine_update_history_sync_state",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_update_history_sync_state"
     },
     {
       "relation": "rationale_for",
@@ -12668,9 +12888,9 @@
       "source_file": "openbrain/memory_engine.py",
       "source_location": "L329",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_memory_engine_rationale_329",
-      "target": "openbrain_memory_engine_memoryengine_list_history_sync_states",
-      "confidence_score": 1.0
+      "target": "openbrain_memory_engine_memoryengine_list_history_sync_states"
     },
     {
       "relation": "contains",
@@ -12710,9 +12930,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_12",
-      "target": "openbrain_skill_gating_skillgater",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater"
     },
     {
       "relation": "method",
@@ -12720,9 +12940,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_skillgater",
-      "target": "openbrain_skill_gating_skillgater_diff_candidate",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_diff_candidate"
     },
     {
       "relation": "method",
@@ -12750,9 +12970,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_skillgater",
-      "target": "openbrain_skill_gating_skillgater_list_candidates",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_list_candidates"
     },
     {
       "relation": "method",
@@ -12770,9 +12990,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L250",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_skillgater",
-      "target": "openbrain_skill_gating_skillgater_promote_candidate",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_promote_candidate"
     },
     {
       "relation": "method",
@@ -12864,9 +13084,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_25",
-      "target": "openbrain_skill_gating_skillgater_parse_skill_text",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_parse_skill_text"
     },
     {
       "relation": "calls",
@@ -12930,9 +13150,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_skillgater_list_candidates",
-      "target": "openbrain_skill_gating_py_any",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_py_any"
     },
     {
       "relation": "references",
@@ -12941,9 +13161,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L250",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_skillgater_promote_candidate",
-      "target": "openbrain_skill_gating_py_any",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_py_any"
     },
     {
       "relation": "references",
@@ -12962,9 +13182,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_50",
-      "target": "openbrain_skill_gating_skillgater_validate_schema",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_validate_schema"
     },
     {
       "relation": "calls",
@@ -12983,9 +13203,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_108",
-      "target": "openbrain_skill_gating_skillgater_evaluate_regression",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_evaluate_regression"
     },
     {
       "relation": "calls",
@@ -13004,9 +13224,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_146",
-      "target": "openbrain_skill_gating_skillgater_gate_and_save",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_gate_and_save"
     },
     {
       "relation": "calls",
@@ -13015,9 +13235,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L265",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_skillgater_promote_candidate",
-      "target": "openbrain_skill_gating_skillgater_gate_and_save",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_gate_and_save"
     },
     {
       "relation": "rationale_for",
@@ -13025,9 +13245,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L207",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_207",
-      "target": "openbrain_skill_gating_skillgater_list_candidates",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_list_candidates"
     },
     {
       "relation": "rationale_for",
@@ -13035,9 +13255,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L225",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_225",
-      "target": "openbrain_skill_gating_skillgater_diff_candidate",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_diff_candidate"
     },
     {
       "relation": "rationale_for",
@@ -13045,9 +13265,9 @@
       "source_file": "openbrain/skill_gating.py",
       "source_location": "L256",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_skill_gating_rationale_256",
-      "target": "openbrain_skill_gating_skillgater_promote_candidate",
-      "confidence_score": 1.0
+      "target": "openbrain_skill_gating_skillgater_promote_candidate"
     },
     {
       "relation": "contains",
@@ -14210,9 +14430,9 @@
       "source_file": "openbrain/vault.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "openbrain_vault_rationale_37",
-      "target": "openbrain_vault_vault_unlock",
-      "confidence_score": 1.0
+      "target": "openbrain_vault_vault_unlock"
     },
     {
       "relation": "contains",
@@ -14638,9 +14858,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw",
-      "target": "seikoclaw_validate_command_safety",
-      "confidence_score": 1.0
+      "target": "seikoclaw_validate_command_safety"
     },
     {
       "relation": "calls",
@@ -14649,9 +14869,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L1260",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_main",
-      "target": "seikoclaw_validate_command_safety",
-      "confidence_score": 1.0
+      "target": "seikoclaw_validate_command_safety"
     },
     {
       "relation": "rationale_for",
@@ -14659,9 +14879,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_31",
-      "target": "seikoclaw_validate_command_safety",
-      "confidence_score": 1.0
+      "target": "seikoclaw_validate_command_safety"
     },
     {
       "relation": "calls",
@@ -14670,9 +14890,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L327",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_seikoclaw_run_task",
-      "target": "seikoclaw_validate_command_safety",
-      "confidence_score": 1.0
+      "target": "seikoclaw_validate_command_safety"
     },
     {
       "relation": "method",
@@ -14774,9 +14994,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L261",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_seikoclaw",
-      "target": "seikoclaw_seikoclaw_commit_sandbox",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_commit_sandbox"
     },
     {
       "relation": "method",
@@ -15005,9 +15225,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_186",
-      "target": "seikoclaw_seikoclaw_sync_conversation_history",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_sync_conversation_history"
     },
     {
       "relation": "calls",
@@ -15027,9 +15247,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L264",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_seikoclaw_commit_sandbox",
-      "target": "seikoclaw_seikoclaw_git_run",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_git_run"
     },
     {
       "relation": "calls",
@@ -15148,9 +15368,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L1372",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_main",
-      "target": "seikoclaw_seikoclaw_commit_sandbox",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_commit_sandbox"
     },
     {
       "relation": "calls",
@@ -15180,9 +15400,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L325",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_325",
-      "target": "seikoclaw_seikoclaw_run_task",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_run_task"
     },
     {
       "relation": "calls",
@@ -15212,9 +15432,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L384",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_384",
-      "target": "seikoclaw_seikoclaw_execute_parallel",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_execute_parallel"
     },
     {
       "relation": "calls",
@@ -15243,9 +15463,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L394",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_394",
-      "target": "seikoclaw_seikoclaw_sync_global",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_sync_global"
     },
     {
       "relation": "calls",
@@ -15264,9 +15484,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L439",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_439",
-      "target": "seikoclaw_seikoclaw_reflect_on_task",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_reflect_on_task"
     },
     {
       "relation": "calls",
@@ -15307,9 +15527,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L516",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_516",
-      "target": "seikoclaw_seikoclaw_gate_skill",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_gate_skill"
     },
     {
       "relation": "calls",
@@ -15328,9 +15548,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L547",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_547",
-      "target": "seikoclaw_seikoclaw_sync_wiki",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_sync_wiki"
     },
     {
       "relation": "calls",
@@ -15360,9 +15580,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L593",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_593",
-      "target": "seikoclaw_seikoclaw_manage_kanban",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_manage_kanban"
     },
     {
       "relation": "calls",
@@ -15381,9 +15601,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L606",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_606",
-      "target": "seikoclaw_seikoclaw_loop_until_goal",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_loop_until_goal"
     },
     {
       "relation": "calls",
@@ -15402,9 +15622,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L702",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_702",
-      "target": "seikoclaw_seikoclaw_show_ready_frontier",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_show_ready_frontier"
     },
     {
       "relation": "calls",
@@ -15423,9 +15643,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L740",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_740",
-      "target": "seikoclaw_seikoclaw_show_health_status",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_show_health_status"
     },
     {
       "relation": "calls",
@@ -15444,9 +15664,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L756",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_756",
-      "target": "seikoclaw_seikoclaw_generate_visual_plan",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_generate_visual_plan"
     },
     {
       "relation": "calls",
@@ -15465,9 +15685,9 @@
       "source_file": "seikoclaw.py",
       "source_location": "L835",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_rationale_835",
-      "target": "seikoclaw_seikoclaw_generate_visual_recap",
-      "confidence_score": 1.0
+      "target": "seikoclaw_seikoclaw_generate_visual_recap"
     },
     {
       "relation": "contains",
@@ -15585,9 +15805,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "tests_test_memory_compression_mockneuralllmprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_mockneuralllmprovider"
     },
     {
       "relation": "contains",
@@ -15595,9 +15815,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression",
-      "target": "tests_test_memory_compression_testmemorycompression",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_testmemorycompression"
     },
     {
       "relation": "method",
@@ -15605,9 +15825,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_mockneuralllmprovider",
-      "target": "tests_test_memory_compression_mockneuralllmprovider_generate",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_mockneuralllmprovider_generate"
     },
     {
       "relation": "method",
@@ -15615,9 +15835,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_mockneuralllmprovider",
-      "target": "tests_test_memory_compression_mockneuralllmprovider_is_heuristic",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_mockneuralllmprovider_is_heuristic"
     },
     {
       "relation": "method",
@@ -15625,9 +15845,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_mockneuralllmprovider",
-      "target": "tests_test_memory_compression_mockneuralllmprovider_is_neural",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_mockneuralllmprovider_is_neural"
     },
     {
       "relation": "calls",
@@ -15636,9 +15856,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_testmemorycompression_test_neural_llm_soft_archives_memories",
-      "target": "tests_test_memory_compression_mockneuralllmprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_mockneuralllmprovider"
     },
     {
       "relation": "method",
@@ -15646,9 +15866,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "tests_test_memory_compression_testmemorycompression_setup",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_testmemorycompression_setup"
     },
     {
       "relation": "method",
@@ -15656,9 +15876,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "tests_test_memory_compression_testmemorycompression_teardown",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_testmemorycompression_teardown"
     },
     {
       "relation": "method",
@@ -15666,9 +15886,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "tests_test_memory_compression_testmemorycompression_test_heuristic_fallback_does_not_delete_memories",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_testmemorycompression_test_heuristic_fallback_does_not_delete_memories"
     },
     {
       "relation": "method",
@@ -15676,9 +15896,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "tests_test_memory_compression_testmemorycompression_test_neural_llm_soft_archives_memories",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_testmemorycompression_test_neural_llm_soft_archives_memories"
     },
     {
       "relation": "method",
@@ -15686,9 +15906,9 @@
       "source_file": "tests/test_memory_compression.py",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_memory_compression_testmemorycompression",
-      "target": "tests_test_memory_compression_testmemorycompression_test_retrieve_similar_filters_archived",
-      "confidence_score": 1.0
+      "target": "tests_test_memory_compression_testmemorycompression_test_retrieve_similar_filters_archived"
     },
     {
       "relation": "contains",
@@ -15726,9 +15946,9 @@
       "source_file": "tests/test_skill_gating.py",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_skill_gating_testskillgater",
-      "target": "tests_test_skill_gating_testskillgater_test_candidate_staging_and_promotion",
-      "confidence_score": 1.0
+      "target": "tests_test_skill_gating_testskillgater_test_candidate_staging_and_promotion"
     },
     {
       "relation": "method",
@@ -15736,9 +15956,9 @@
       "source_file": "tests/test_skill_gating.py",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_skill_gating_testskillgater",
-      "target": "tests_test_skill_gating_testskillgater_test_disk_aware_regression_protection",
-      "confidence_score": 1.0
+      "target": "tests_test_skill_gating_testskillgater_test_disk_aware_regression_protection"
     },
     {
       "relation": "method",
@@ -15756,9 +15976,9 @@
       "source_file": "tests/test_skill_gating.py",
       "source_location": "L172",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_skill_gating_testskillgater",
-      "target": "tests_test_skill_gating_testskillgater_test_heuristic_fallback_safety",
-      "confidence_score": 1.0
+      "target": "tests_test_skill_gating_testskillgater_test_heuristic_fallback_safety"
     },
     {
       "relation": "method",
@@ -16126,9 +16346,9 @@
       "source_file": ".agents/skills/agent-authoring/SKILL.md",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agent_authoring_skill",
-      "target": "agent_authoring_skill_agent_authoring_writing_skills_workflows_documents_for_agents",
-      "confidence_score": 1.0
+      "target": "agent_authoring_skill_agent_authoring_writing_skills_workflows_documents_for_agents"
     },
     {
       "relation": "contains",
@@ -16136,9 +16356,9 @@
       "source_file": ".agents/skills/agent-authoring/SKILL.md",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agent_authoring_skill_agent_authoring_writing_skills_workflows_documents_for_agents",
-      "target": "agent_authoring_skill_1_context_pointers_trigger_discipline",
-      "confidence_score": 1.0
+      "target": "agent_authoring_skill_1_context_pointers_trigger_discipline"
     },
     {
       "relation": "contains",
@@ -16146,9 +16366,9 @@
       "source_file": ".agents/skills/agent-authoring/SKILL.md",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agent_authoring_skill_agent_authoring_writing_skills_workflows_documents_for_agents",
-      "target": "agent_authoring_skill_2_progressive_disclosure_ladder",
-      "confidence_score": 1.0
+      "target": "agent_authoring_skill_2_progressive_disclosure_ladder"
     },
     {
       "relation": "contains",
@@ -16156,9 +16376,9 @@
       "source_file": ".agents/skills/agent-authoring/SKILL.md",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agent_authoring_skill_agent_authoring_writing_skills_workflows_documents_for_agents",
-      "target": "agent_authoring_skill_3_leading_words_completion_criteria",
-      "confidence_score": 1.0
+      "target": "agent_authoring_skill_3_leading_words_completion_criteria"
     },
     {
       "relation": "contains",
@@ -16166,9 +16386,9 @@
       "source_file": ".agents/skills/agent-authoring/SKILL.md",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agent_authoring_skill_agent_authoring_writing_skills_workflows_documents_for_agents",
-      "target": "agent_authoring_skill_4_writing_modes_explore_vs_exploit",
-      "confidence_score": 1.0
+      "target": "agent_authoring_skill_4_writing_modes_explore_vs_exploit"
     },
     {
       "relation": "contains",
@@ -16624,41 +16844,101 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "game_design_critic_skill",
-      "target": "game_design_critic_skill_game_design_critic"
+      "target": "game_design_critic_skill_game_design_visual_parity_critic",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L16",
+      "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "game_design_critic_skill_game_design_critic",
-      "target": "game_design_critic_skill_core_heuristics_questioning_pillars"
+      "source": "game_design_critic_skill_game_design_visual_parity_critic",
+      "target": "game_design_critic_skill_mode_1_gameplay_mechanics_critic_phase_1",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L10",
+      "source_location": "L33",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "game_design_critic_skill_game_design_critic",
-      "target": "game_design_critic_skill_persona_philosophy"
+      "source": "game_design_critic_skill_game_design_visual_parity_critic",
+      "target": "game_design_critic_skill_mode_2_visual_parity_sxs_critic_phase_2",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-design-critic/SKILL.md",
-      "source_location": "L30",
+      "source_location": "L71",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "game_design_critic_skill_game_design_critic",
-      "target": "game_design_critic_skill_session_workflow"
+      "source": "game_design_critic_skill_game_design_visual_parity_critic",
+      "target": "game_design_critic_skill_output_artifacts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "game_design_critic_skill_mode_1_gameplay_mechanics_critic_phase_1",
+      "target": "game_design_critic_skill_core_heuristics_questioning_pillars",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "game_design_critic_skill_mode_1_gameplay_mechanics_critic_phase_1",
+      "target": "game_design_critic_skill_persona_philosophy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "game_design_critic_skill_mode_2_visual_parity_sxs_critic_phase_2",
+      "target": "game_design_critic_skill_defect_punch_list_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "game_design_critic_skill_mode_2_visual_parity_sxs_critic_phase_2",
+      "target": "game_design_critic_skill_persona_stance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "game_design_critic_skill_mode_2_visual_parity_sxs_critic_phase_2",
+      "target": "game_design_critic_skill_the_5_universal_visual_pillars_art_bar_md",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/game-design-critic/SKILL.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "game_design_critic_skill_mode_2_visual_parity_sxs_critic_phase_2",
+      "target": "game_design_critic_skill_verdict_protocol_output_format",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17114,11 +17394,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L50",
+      "source_location": "L57",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "game_forge_skill_game_forge_master_autonomous_game_creation_framework",
-      "target": "game_forge_skill_2_the_4_stage_autonomous_pipeline"
+      "target": "game_forge_skill_2_the_5_stage_autonomous_pipeline",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17134,41 +17414,51 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L52",
+      "source_location": "L59",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "game_forge_skill_2_the_4_stage_autonomous_pipeline",
-      "target": "game_forge_skill_stage_1_design_core_loop_synthesis_autonomous_rightarrow_hitl_gate_1"
+      "source": "game_forge_skill_2_the_5_stage_autonomous_pipeline",
+      "target": "game_forge_skill_stage_a_brief_locked_references_deep_plan_autonomous_rightarrow_hitl_gate_1",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L66",
+      "source_location": "L75",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "game_forge_skill_2_the_4_stage_autonomous_pipeline",
-      "target": "game_forge_skill_stage_2_scope_carving_zero_install_prototyping_autonomous_rightarrow_hitl_gate_2"
+      "source": "game_forge_skill_2_the_5_stage_autonomous_pipeline",
+      "target": "game_forge_skill_stage_b_scope_carving_playable_foundation_autonomous_rightarrow_gate_b",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L85",
+      "source_location": "L92",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "game_forge_skill_2_the_4_stage_autonomous_pipeline",
-      "target": "game_forge_skill_stage_3_feel_tuning_assets_developer_tooling_autonomous_rightarrow_hitl_gate_3"
+      "source": "game_forge_skill_2_the_5_stage_autonomous_pipeline",
+      "target": "game_forge_skill_stage_c_staged_art_pipeline_authoring_workbenches_autonomous_rightarrow_hitl_gate_3",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L101",
+      "source_location": "L109",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "game_forge_skill_2_the_4_stage_autonomous_pipeline",
-      "target": "game_forge_skill_stage_4_autonomous_engine_build_qa"
+      "source": "game_forge_skill_2_the_5_stage_autonomous_pipeline",
+      "target": "game_forge_skill_stage_d_side_by_side_sxs_visual_bar_parity_loop_autonomous_rightarrow_critic_win",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/game-forge/SKILL.md",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "game_forge_skill_2_the_5_stage_autonomous_pipeline",
+      "target": "game_forge_skill_stage_e_autonomous_engine_build_verification_handoff",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -18304,31 +18594,71 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L28",
+      "source_location": "L18",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
-      "target": "seikoclaw_frontend_taste_skill_boundaries"
+      "target": "seikoclaw_frontend_taste_skill_1_surface_component_craft",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L8",
+      "source_location": "L46",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
-      "target": "seikoclaw_frontend_taste_skill_goal"
+      "target": "seikoclaw_frontend_taste_skill_2_typography_optical_discipline",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L24",
+      "source_location": "L63",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
-      "target": "seikoclaw_frontend_taste_skill_output_format"
+      "target": "seikoclaw_frontend_taste_skill_3_motion_animation_physics_kowalski_standards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
+      "target": "seikoclaw_frontend_taste_skill_4_mobile_web_native_ergonomics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
+      "target": "seikoclaw_frontend_taste_skill_5_execution_audit_workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_1_surface_component_craft",
+      "target": "seikoclaw_frontend_taste_skill_layered_shadows_inset_highlights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_1_surface_component_craft",
+      "target": "seikoclaw_frontend_taste_skill_tiered_dark_mode_elevation",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -18336,19 +18666,69 @@
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
       "source_location": "L20",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
-      "target": "seikoclaw_frontend_taste_skill_required_inputs"
+      "source": "seikoclaw_frontend_taste_skill_1_surface_component_craft",
+      "target": "seikoclaw_frontend_taste_skill_translucent_alpha_borders",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
-      "source_location": "L11",
+      "source_location": "L57",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "seikoclaw_frontend_taste_skill_seikoclaw_frontend_taste_system",
-      "target": "seikoclaw_frontend_taste_skill_workflow"
+      "source": "seikoclaw_frontend_taste_skill_2_typography_optical_discipline",
+      "target": "seikoclaw_frontend_taste_skill_optical_alignment_over_geometric_alignment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_2_typography_optical_discipline",
+      "target": "seikoclaw_frontend_taste_skill_tabular_numbers_tabular_nums",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_2_typography_optical_discipline",
+      "target": "seikoclaw_frontend_taste_skill_tracking_letter_spacing_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_3_motion_animation_physics_kowalski_standards",
+      "target": "seikoclaw_frontend_taste_skill_easing_trajectory_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_3_motion_animation_physics_kowalski_standards",
+      "target": "seikoclaw_frontend_taste_skill_frequency_decision_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-frontend-taste/SKILL.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "seikoclaw_frontend_taste_skill_3_motion_animation_physics_kowalski_standards",
+      "target": "seikoclaw_frontend_taste_skill_gpu_acceleration_zero_reflow_performance",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -18386,9 +18766,9 @@
       "source_file": ".agents/skills/seikoclaw-goal-prompter/SKILL.md",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "seikoclaw_goal_prompter_skill_seikoclaw_goal_prompter_contract_enforcer",
-      "target": "seikoclaw_goal_prompter_skill_the_7_field_hardened_contract_structure",
-      "confidence_score": 1.0
+      "target": "seikoclaw_goal_prompter_skill_the_7_field_hardened_contract_structure"
     },
     {
       "relation": "contains",
@@ -18427,27 +18807,37 @@
       "source_location": "L11",
       "weight": 1.0,
       "source": "seikoclaw_harness_skill_seikoclaw_harness_router",
-      "target": "seikoclaw_harness_skill_1_core_engineering_spec_pipeline_matt_pocock_david_andrej",
+      "target": "seikoclaw_harness_skill_1_game_development_visual_parity_master_framework_toolkit",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/seikoclaw-harness/SKILL.md",
-      "source_location": "L32",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "seikoclaw_harness_skill_seikoclaw_harness_router",
-      "target": "seikoclaw_harness_skill_2_game_forge_suite_saikojin",
+      "target": "seikoclaw_harness_skill_2_quality_engineering_gatekeeping",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/seikoclaw-harness/SKILL.md",
-      "source_location": "L45",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "seikoclaw_harness_skill_seikoclaw_harness_router",
-      "target": "seikoclaw_harness_skill_3_autonomous_infrastructure_sidecar_saikojin",
+      "target": "seikoclaw_harness_skill_3_architecture_task_orchestration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikoclaw-harness/SKILL.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "seikoclaw_harness_skill_seikoclaw_harness_router",
+      "target": "seikoclaw_harness_skill_4_engineering_spec_pipeline_productivity_matt_pocock_david_andrej",
       "confidence_score": 1.0
     },
     {
@@ -18864,11 +19254,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "seikojin_qa_skill_seikojin_qa_skill_automated_gatekeeper",
+      "target": "seikojin_qa_skill_paired_verdict_examples",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
       "source_location": "L15",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "seikojin_qa_skill_seikojin_qa_skill_automated_gatekeeper",
       "target": "seikojin_qa_skill_personas_role_division"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "seikojin_qa_skill_seikojin_qa_skill_automated_gatekeeper",
+      "target": "seikojin_qa_skill_visual_defect_punch_list_specification",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -18889,6 +19299,26 @@
       "confidence_score": 1.0,
       "source": "seikojin_qa_skill_personas_role_division",
       "target": "seikojin_qa_skill_2_qa_engineer_hands_execution_gate_certification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "seikojin_qa_skill_paired_verdict_examples",
+      "target": "seikojin_qa_skill_bad_verdict_subjective_non_actionable_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikojin-qa/SKILL.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "seikojin_qa_skill_paired_verdict_examples",
+      "target": "seikojin_qa_skill_good_verdict_seikojin_compliant_accepted",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -19039,6 +19469,16 @@
       "confidence_score": 1.0,
       "source": "resources_rules_seikojin_rules_the_qa_constitution",
       "target": "resources_rules_7_seikojin_compliant_stack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/seikojin-qa/resources/rules.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "resources_rules_seikojin_rules_the_qa_constitution",
+      "target": "resources_rules_8_visual_parity_rigor_anti_soft_pass_mandate",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -19194,6 +19634,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/to-spec/SKILL.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "to_spec_skill",
+      "target": "to_spec_skill_core_intent_problem_statement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/to-spec/SKILL.md",
       "source_location": "L71",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -19219,16 +19669,6 @@
       "confidence_score": 1.0,
       "source": "to_spec_skill",
       "target": "to_spec_skill_out_of_scope"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": ".agents/skills/to-spec/SKILL.md",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "to_spec_skill",
-      "target": "to_spec_skill_problem_statement"
     },
     {
       "relation": "contains",
@@ -19304,11 +19744,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/skills/to-tickets/SKILL.md",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "to_tickets_skill_process",
-      "target": "to_tickets_skill_1_gather_context"
+      "target": "to_tickets_skill_1_gather_context_restate_intent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -19916,9 +20356,9 @@
       "source_file": "CREDITS.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "credits",
-      "target": "credits_credits_upstream_attribution",
-      "confidence_score": 1.0
+      "target": "credits_credits_upstream_attribution"
     },
     {
       "relation": "contains",
@@ -19926,9 +20366,9 @@
       "source_file": "CREDITS.md",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "credits_credits_upstream_attribution",
-      "target": "credits_license_usage",
-      "confidence_score": 1.0
+      "target": "credits_license_usage"
     },
     {
       "relation": "contains",
@@ -19936,9 +20376,9 @@
       "source_file": "CREDITS.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "credits_credits_upstream_attribution",
-      "target": "credits_upstream_creators_maintainers",
-      "confidence_score": 1.0
+      "target": "credits_upstream_creators_maintainers"
     },
     {
       "relation": "contains",
@@ -19946,9 +20386,9 @@
       "source_file": "CREDITS.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "credits_upstream_creators_maintainers",
-      "target": "credits_1_matt_pocock_mattpocockuk_https_github_com_mattpocock",
-      "confidence_score": 1.0
+      "target": "credits_1_matt_pocock_mattpocockuk_https_github_com_mattpocock"
     },
     {
       "relation": "contains",
@@ -19956,9 +20396,9 @@
       "source_file": "CREDITS.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "credits_upstream_creators_maintainers",
-      "target": "credits_2_david_andrej_davidandrej_https_github_com_davidandrej",
-      "confidence_score": 1.0
+      "target": "credits_2_david_andrej_davidandrej_https_github_com_davidandrej"
     },
     {
       "relation": "contains",
@@ -19966,9 +20406,9 @@
       "source_file": "CREDITS.md",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "credits_upstream_creators_maintainers",
-      "target": "credits_3_saikojin_seikoclaw_saikojin_https_github_com_saikojin",
-      "confidence_score": 1.0
+      "target": "credits_3_saikojin_seikoclaw_saikojin_https_github_com_saikojin"
     },
     {
       "relation": "contains",
@@ -19986,9 +20426,9 @@
       "source_file": "README.md",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_seikoclaw_agentic_coding_harness",
-      "target": "readme_attribution_upstream_credits",
-      "confidence_score": 1.0
+      "target": "readme_attribution_upstream_credits"
     },
     {
       "relation": "contains",
@@ -19996,9 +20436,9 @@
       "source_file": "README.md",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_seikoclaw_agentic_coding_harness",
-      "target": "readme_core_cli_commands",
-      "confidence_score": 1.0
+      "target": "readme_core_cli_commands"
     },
     {
       "relation": "contains",
@@ -20006,9 +20446,9 @@
       "source_file": "README.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_seikoclaw_agentic_coding_harness",
-      "target": "readme_highlights",
-      "confidence_score": 1.0
+      "target": "readme_highlights"
     },
     {
       "relation": "contains",
@@ -20036,9 +20476,9 @@
       "source_file": "README.md",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_seikoclaw_agentic_coding_harness",
-      "target": "readme_system_diagnostics_seikoclaw_doctor",
-      "confidence_score": 1.0
+      "target": "readme_system_diagnostics_seikoclaw_doctor"
     },
     {
       "relation": "contains",
@@ -20046,9 +20486,9 @@
       "source_file": "README.md",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_core_cli_commands",
-      "target": "readme_1_task_execution_sandboxing",
-      "confidence_score": 1.0
+      "target": "readme_1_task_execution_sandboxing"
     },
     {
       "relation": "contains",
@@ -20056,9 +20496,9 @@
       "source_file": "README.md",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_core_cli_commands",
-      "target": "readme_2_autonomous_looping_dag_pumping",
-      "confidence_score": 1.0
+      "target": "readme_2_autonomous_looping_dag_pumping"
     },
     {
       "relation": "contains",
@@ -20066,9 +20506,9 @@
       "source_file": "README.md",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_core_cli_commands",
-      "target": "readme_3_skill_staging_candidate_promotion",
-      "confidence_score": 1.0
+      "target": "readme_3_skill_staging_candidate_promotion"
     },
     {
       "relation": "contains",
@@ -20076,9 +20516,9 @@
       "source_file": "README.md",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_core_cli_commands",
-      "target": "readme_4_cross_project_history_synchronization",
-      "confidence_score": 1.0
+      "target": "readme_4_cross_project_history_synchronization"
     },
     {
       "relation": "contains",
@@ -20322,5 +20762,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3e29fb1426e8ad88d39c41fcfa54349c404b2fed"
+  "built_at_commit": "51469ecb6ba983728631b612b72198b60ea747ac"
 }
