@@ -59,6 +59,12 @@ class GateEngine:
         # Pending gate evaluations
         if gate_type == "qa":
             return False, "Awaiting Seikojin QA Engineer validation (Clean Slate + Rabbit Path certification)."
+        elif gate_type == "adversarial":
+            meta = task.get("gate_metadata", {})
+            if meta.get("adversarial_passed") and meta.get("blocking_issues_count", 0) == 0:
+                self._set_gate_status(task_id, "passed")
+                return True, f"Adversarial interrogation passed by {meta.get('reviewer_model', 'reviewer')}."
+            return False, "Awaiting multi-model adversarial interrogation review (/interrogate)."
         elif gate_type == "human":
             return False, "Awaiting explicit human operator approval."
         elif gate_type == "test":
@@ -129,6 +135,55 @@ class GateEngine:
             conn.commit()
 
         return True, f"Task {task_id} certified by {engineer_signature}. Downstream frontier unblocked."
+
+    def certify_adversarial_gate(
+        self,
+        task_id: str,
+        reviewer_model: str = "adversarial-interrogator",
+        findings: Optional[list] = None,
+        has_blocking_issues: bool = False,
+        notes: str = ""
+    ) -> Tuple[bool, str]:
+        """
+        Certifies an Adversarial Interrogation gate:
+        - Rejects if any blocking issues / correctness flaws are flagged
+        - Records findings, reviewer model, and timestamp in gate metadata
+        - Sets gate_status to passed and closes task upon successful certification
+        """
+        task = self.graph.get_task(task_id)
+        if not task:
+            return False, f"Task {task_id} not found."
+
+        findings = findings or []
+        blocking_count = sum(1 for f in findings if isinstance(f, dict) and f.get("severity") in ("blocker", "critical", "high"))
+        if has_blocking_issues or blocking_count > 0:
+            self._set_gate_status(task_id, "failed")
+            return False, f"Adversarial Interrogation REJECTED: {blocking_count or len(findings)} blocking issue(s) identified by {reviewer_model}."
+
+        meta = task.get("gate_metadata", {})
+        meta["adversarial_passed"] = True
+        meta["reviewer_model"] = reviewer_model
+        meta["adversarial_certified_at"] = datetime.now().isoformat()
+        meta["findings"] = findings
+        meta["blocking_issues_count"] = 0
+        meta["notes"] = notes
+
+        with self.graph._get_conn() as conn:
+            conn.execute(
+                """
+                UPDATE task_nodes
+                SET gate_status = 'passed',
+                    gate_metadata = ?,
+                    status = 'closed',
+                    closed_at = CURRENT_TIMESTAMP,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+                """,
+                (json.dumps(meta), task_id)
+            )
+            conn.commit()
+
+        return True, f"Task {task_id} cleared adversarial interrogation by {reviewer_model}. Downstream frontier unblocked."
 
     def approve_human_gate(self, task_id: str, approver: str = "user", notes: str = "") -> bool:
         task = self.graph.get_task(task_id)

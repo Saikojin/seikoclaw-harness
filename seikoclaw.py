@@ -955,10 +955,14 @@ def main():
         "plan", "execute", "usage", "doctor", "sync-global", "memory", 
         "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill", "skill",
         "ready", "claim", "task", "dep", "wisp", "gate", "health", "sync-tasks", "vault",
-        "sync-history", "history-sync"
+        "sync-history", "history-sync", "export-skills"
     ])
     parser.add_argument("--task", type=str, help="Task ID or target")
     parser.add_argument("--skill", type=str, help="Skill name or file to test/gate")
+    parser.add_argument("--harness", type=str, default="agents", help="Target harness for export-skills (claude, codex, pi, antigravity, agents, all, custom)")
+    parser.add_argument("--target", type=str, help="Target directory for export-skills (when harness is custom or path is explicit)")
+    parser.add_argument("--symlink", action="store_true", help="Use symlinks instead of copying when exporting skills")
+    parser.add_argument("--overwrite", action="store_true", help="Overwrite existing destination skills during export")
     parser.add_argument("--list-candidates", action="store_true", help="List staged candidate skills")
     parser.add_argument("--diff", action="store_true", help="Show diff for candidate skill vs production")
     parser.add_argument("--promote", action="store_true", help="Promote candidate skill to production")
@@ -1001,7 +1005,9 @@ def main():
     parser.add_argument("--to-id", type=str, help="Target/blocked task ID")
     parser.add_argument("--edge-type", type=str, default="blocks", help="Dependency edge type (blocks, parent-child, waits-for, relates-to)")
     parser.add_argument("--certify-qa", action="store_true", help="Certify task QA gate as passed (Seikojin-QA)")
+    parser.add_argument("--certify-adversarial", action="store_true", help="Certify task adversarial interrogation gate as passed (/interrogate)")
     parser.add_argument("--pass-rate", type=float, default=1.0, help="Test pass rate for Seikojin QA certification (1.0 = 100%%)")
+    parser.add_argument("--playbook", type=str, help="Declarative playbook name (bug-fix, feature, hillclimb, refactoring, visual-parity, shipping)")
     parser.add_argument("--approve", action="store_true", help="Approve human or verification gate")
     parser.add_argument("--purge", action="store_true", help="Purge completed ephemeral wisps")
     parser.add_argument("--notes", type=str, default="", help="Gate certification notes")
@@ -1028,9 +1034,10 @@ def main():
                 priority=args.priority,
                 parent_id=args.parent,
                 gate_type=args.gate_type,
-                task_id=args.task
+                task_id=args.task,
+                playbook=args.playbook
             )
-            print(f"[SUCCESS] Created task: {tid} - {args.title}")
+            print(f"[SUCCESS] Created task: {tid} - {args.title}" + (f" [Playbook: {args.playbook}]" if args.playbook else ""))
             claw.graph.sync_to_file("task.md")
         elif args.task and args.status:
             claw.graph.update_status(args.task, args.status)
@@ -1076,6 +1083,15 @@ def main():
                 args.task,
                 engineer_signature=args.worker,
                 pass_rate=args.pass_rate,
+                notes=args.notes
+            )
+            print(f"[{'PASS' if ok else 'REJECT'}] {msg}")
+            if ok:
+                claw.graph.sync_to_file("task.md")
+        elif args.certify_adversarial:
+            ok, msg = claw.gates.certify_adversarial_gate(
+                args.task,
+                reviewer_model=args.worker,
                 notes=args.notes
             )
             print(f"[{'PASS' if ok else 'REJECT'}] {msg}")
@@ -1230,6 +1246,22 @@ def main():
             print(f"[{'SUCCESS' if ok else 'FAILED'}] {msg}")
         else:
             print("Usage: seikoclaw skill [--list-candidates | --diff <name> | --promote <name>]")
+    elif args.action == "export-skills":
+        from scripts.export_skills import export_skills, HARNESS_MAP
+        source_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".agents", "skills")
+        if args.harness == "all":
+            targets = list(HARNESS_MAP.values())
+        elif args.harness == "custom":
+            if not args.target:
+                print("[ERROR] --target <path> is required when --harness custom is selected.")
+                sys.exit(1)
+            targets = [args.target]
+        else:
+            targets = [HARNESS_MAP.get(args.harness, args.target or HARNESS_MAP["agents"])]
+
+        for t in targets:
+            count = export_skills(source_dir, t, use_symlinks=args.symlink, overwrite=args.overwrite)
+            print(f"[EXPORT SUCCESS] Exported {count} canonical skills to {t}")
     elif args.action == "usage":
         print("--- Today's Usage ---")
         for p in ["anthropic", "google", "local"]:

@@ -7,6 +7,7 @@ import re
 import contextlib
 from datetime import datetime
 from typing import List, Dict, Optional, Any, Tuple
+from openbrain.playbooks import get_playbook, list_playbooks
 
 class TaskGraph:
     """
@@ -40,9 +41,10 @@ class TaskGraph:
                 task_type TEXT DEFAULT 'task', -- task, bug, epic, wisp, spike
                 assignee TEXT DEFAULT NULL,
                 is_ephemeral INTEGER DEFAULT 0,
-                gate_type TEXT DEFAULT NULL, -- qa, human, test, timer, merge-slot
+                gate_type TEXT DEFAULT NULL, -- qa, human, test, timer, merge-slot, adversarial
                 gate_status TEXT DEFAULT 'pending', -- pending, passed, failed, bypassed
                 gate_metadata TEXT DEFAULT '{}',
+                playbook TEXT DEFAULT NULL,
                 claimed_by TEXT DEFAULT NULL,
                 claimed_at TIMESTAMP DEFAULT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -64,6 +66,10 @@ class TaskGraph:
             CREATE INDEX IF NOT EXISTS idx_task_edges_to ON task_edges(to_id);
             CREATE INDEX IF NOT EXISTS idx_task_edges_from ON task_edges(from_id);
             """)
+            try:
+                conn.execute("ALTER TABLE task_nodes ADD COLUMN playbook TEXT DEFAULT NULL;")
+            except sqlite3.OperationalError:
+                pass
             conn.commit()
 
     def generate_id(self, title: str, parent_id: Optional[str] = None) -> str:
@@ -117,7 +123,8 @@ class TaskGraph:
         gate_type: Optional[str] = None,
         is_ephemeral: bool = False,
         task_id: Optional[str] = None,
-        gate_metadata: Optional[Dict[str, Any]] = None
+        gate_metadata: Optional[Dict[str, Any]] = None,
+        playbook: Optional[str] = None
     ) -> str:
         """
         Creates a new task node in the DAG.
@@ -131,10 +138,10 @@ class TaskGraph:
                 """
                 INSERT INTO task_nodes (
                     id, title, description, priority, task_type,
-                    gate_type, is_ephemeral, gate_metadata
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    gate_type, is_ephemeral, gate_metadata, playbook
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
-                (task_id, title, description, priority, task_type, gate_type, int(is_ephemeral), meta_str)
+                (task_id, title, description, priority, task_type, gate_type, int(is_ephemeral), meta_str, playbook)
             )
 
             if parent_id:
@@ -145,7 +152,65 @@ class TaskGraph:
                 )
             conn.commit()
 
+        if playbook:
+            self.expand_playbook(task_id, playbook)
+
         return task_id
+
+    def expand_playbook(self, task_id: str, playbook_name: Optional[str] = None) -> List[str]:
+        """
+        Expands a declarative playbook into sequential child DAG task wisps.
+        """
+        task = self.get_task(task_id)
+        if not task:
+            raise ValueError(f"Task {task_id} not found.")
+
+        target_playbook = playbook_name or task.get("playbook")
+        if not target_playbook:
+            return []
+
+        pb = get_playbook(target_playbook)
+        if not pb:
+            raise ValueError(f"Unknown playbook '{target_playbook}'.")
+
+        created_step_ids = []
+        prev_step_id = None
+
+        for step in pb.get("steps", []):
+            step_title = f"[{target_playbook}] {step['title']}"
+            step_desc = step.get("description", "")
+            step_gate = step.get("gate_type")
+            step_type = step.get("task_type", "wisp")
+
+            step_id = self.create_task(
+                title=step_title,
+                description=step_desc,
+                priority=task.get("priority", 2),
+                task_type=step_type,
+                parent_id=task_id,
+                gate_type=step_gate,
+                is_ephemeral=True
+            )
+            created_step_ids.append(step_id)
+
+            if prev_step_id:
+                # Step N-1 blocks Step N
+                self.add_dependency(from_id=prev_step_id, to_id=step_id, edge_type="blocks")
+
+            prev_step_id = step_id
+
+        if created_step_ids:
+            # Parent is set to in_progress to coordinate child execution
+            pass
+
+        with self._get_conn() as conn:
+            conn.execute(
+                "UPDATE task_nodes SET playbook = ?, status = 'in_progress', updated_at = CURRENT_TIMESTAMP WHERE id = ?",
+                (target_playbook, task_id)
+            )
+            conn.commit()
+
+        return created_step_ids
 
     def create_wisp(self, title: str, description: str = "", parent_id: Optional[str] = None) -> str:
         """
@@ -176,7 +241,7 @@ class TaskGraph:
                 raise ValueError(f"Both task IDs must exist: {from_id} -> {to_id}")
 
             # Check for cycles if adding a blocking edge
-            if edge_type in ("blocks", "waits-for", "parent-child"):
+            if edge_type in ("blocks", "waits-for"):
                 if self._has_path(conn, start_id=to_id, target_id=from_id):
                     raise ValueError(f"Circular dependency detected: adding {from_id} -> {to_id} creates a cycle.")
 
@@ -211,7 +276,7 @@ class TaskGraph:
             visited.add(curr)
 
             cursor = conn.execute(
-                "SELECT to_id FROM task_edges WHERE from_id = ? AND edge_type IN ('blocks', 'waits-for', 'parent-child')",
+                "SELECT to_id FROM task_edges WHERE from_id = ? AND edge_type IN ('blocks', 'waits-for')",
                 (curr,)
             )
             for row in cursor.fetchall():

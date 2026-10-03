@@ -43,6 +43,18 @@ In the SeikoClaw Hybrid Architecture, `seikojin-qa` acts as the **Automated QA G
       ```
     - **Any Failure or Visual Defect**: Rejects certification, generates a structured defect node on the DAG, and blocks downstream tasks.
 
+### 3. Adversarial Interrogator (Red-Team Reviewer)
+- **Trigger**: Tasks protected by `gate:adversarial` or pre-merge code review before landing a stack.
+- **Actions**:
+  - Invokes multi-model adversarial review via `/interrogate`.
+  - Challenges git diffs for race conditions, error swallowing, boundary breaches, and regression blast radius.
+  - **Gate Certification**:
+    - **0 Blocking Issues**: Certifies gate and unlocks downstream merge slot:
+      ```bash
+      python seikoclaw.py gate --task <task-id> --certify-adversarial --worker "Adversarial-Reviewer" --notes "0 blocking issues"
+      ```
+    - **Any Blocking Issue**: Fails gate and creates blocking defect node.
+
 ---
 
 ## Visual Defect & Punch List Specification

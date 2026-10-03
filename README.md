@@ -1,15 +1,18 @@
 # SeikoClaw: Agentic Coding Harness
 
-**SeikoClaw** is a modular framework for building AI-native development environments. It pairs a curated, high-signal library of developer and game-dev agent skills with **OpenBrain**, a lightweight Python sidecar that provides persistent memory, task dependency graphs with deterministic gating, execution security guardrails, and cross-project history synchronization.
+**SeikoClaw** is a modular framework for building AI-native development environments. It pairs a curated, high-signal library of developer and game-dev agent skills with **OpenBrain**, a lightweight Python sidecar that provides persistent memory, task dependency graphs with deterministic gating, declarative execution playbooks, execution security guardrails, and cross-project history synchronization.
 
 ---
 
 ## 🎯 Highlights
 
-- **P0 Safety Guarantees**: Non-destructive defaults. Skill evolution stages candidates to `.agents/skills/.candidates/` instead of overwriting production files. Short-term memory compression performs soft-archiving rather than raw deletion when neural LLMs are present, and skips safely on heuristic fallbacks.
-- **Pre-Execution Guardrails**: Cross-platform POSIX and PowerShell pre-exec safety hooks that intercept catastrophic shell commands (`rm -rf /`, `curl | bash`, forced git pushes, disk clears) before execution.
-- **Persistent OpenBrain Memory**: Tiered SQLite metadata and ChromaDB vector search with per-conversation watermarking.
-- **DAG Task Graph & QA Gating**: Dependency tracking with Risk-Based Testing (`seikojin-qa`) certification gates and ephemeral task wisps.
+- **24 First-Principle Engineering Directives**: Enforces zero-slop code hygiene, minimal diffs, boundary discipline, root-cause debugging, and empirical verification (`.agents/rules/principles.md`).
+- **Declarative Execution Playbooks**: Standard operating procedures (`bug-fix`, `feature`, `hillclimb`, `refactoring`, `visual-parity`, `shipping`) that auto-expand into sequential DAG wisps with blocking verification gates.
+- **Adversarial QA Gating**: Multi-model red-team review (`/interrogate`) paired with **Seikojin QA** Risk-Based Testing (100% stable pass mandate, zero visual punches).
+- **Persistent Decision Trails & Vector Memory**: Ingests and vector-indexes structured TSV decision trails (`/show-me-your-work`) into SQLite and ChromaDB alongside conversation turns.
+- **Cross-Harness Exportability**: Distribute and symlink canonical skills to Claude Code, Codex, Pi, Antigravity, or OpenCode with a single command.
+- **P0 Safety Guarantees**: Non-destructive defaults. Skill evolution stages candidates to `.agents/skills/.candidates/` instead of overwriting production files.
+- **Pre-Execution Guardrails**: Cross-platform POSIX and PowerShell pre-exec safety hooks that intercept catastrophic shell commands (`rm -rf /`, `curl | bash`, forced git pushes) before execution.
 - **Game Forge**: An autonomous end-to-end game creation pipeline from Socratic design critiques and GDDs to zero-install HTML5 Canvas playable prototypes.
 
 ---
@@ -19,19 +22,21 @@
 ```text
 .
 ├── .agents/
-│   ├── hooks/             # Security pre-exec guards (POSIX & PowerShell)
-│   ├── skills/            # Modular capability definitions (52 canonical skills)
+│   ├── hooks/             # Security pre-exec guards & session-start routing
+│   ├── rules/             # 24 First Principles & Graphify rules
+│   ├── skills/            # Modular capability definitions (70 canonical skills)
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
 ├── openbrain/             # Context Persistence & Sidecar Engine
 │   ├── schema.sql         # Unified SQLite database schema
-│   ├── memory_engine.py   # Tiered memory store & vector search
+│   ├── memory_engine.py   # Tiered memory store, vector search & decision trails
+│   ├── playbooks.py       # Declarative engineering playbooks
+│   ├── task_graph.py      # Dependency DAG, playbook expansion & frontier
+│   ├── gates.py           # QA, adversarial interrogation & human sign-off gates
 │   ├── history_sync.py    # Per-conversation transcript synchronization
-│   ├── task_graph.py      # Dependency DAG & worker claiming
-│   ├── gates.py           # QA & human sign-off gates
 │   ├── vault.py           # Encrypted secrets store (AES-GCM)
 │   └── watchdog.py        # Loop health patrol & circuit breaker
-├── scripts/               # Setup & bootstrapping utilities
+├── scripts/               # Setup & cross-harness skill exporter utilities
 ├── templates/             # Task & project vision templates
 ├── tests/                 # Subsystem verification test suite
 ├── CREDITS.md             # Upstream authors & attribution
@@ -47,68 +52,55 @@ Verify all sidecar subsystems, databases, and safety guards on your machine with
 ```bash
 python seikoclaw.py doctor
 ```
-Output:
-```text
-=== 🩺 SeikoClaw System Diagnostics ===
-Configuration: DEFAULT (Local Discovery)
-SQLite Database: ./openbrain/openbrain.db [OK]
-ChromaDB Vector Store: ./openbrain/chroma_db [OK]
-Background LLM Provider: LocalMind (Local GGUF) [NEURAL]
-Master Wiki: ../.master_wiki [OK]
-Task Graph Nodes: 3 total (1 on ready frontier)
-Deny-Dangerous Guard: [OK]
-Health Patrol: HEALTHY (5 tracked actions)
-[SUCCESS] Diagnostics complete.
-```
 
 ---
 
 ## 🚀 Core CLI Commands
 
-### 1. Task Execution & Sandboxing
+### 1. Declarative Task Creation with Playbooks
+Create a task and auto-expand it into sequential DAG steps with blocking gates:
+```bash
+# Create bug-fix task (expands to: repro -> root cause -> fix -> verify -> blast radius -> deslop)
+python seikoclaw.py task --title "Fix login session drift" --playbook bug-fix
+
+# Create metric hillclimb optimization task
+python seikoclaw.py task --title "Optimize vector query latency" --playbook hillclimb
+```
+
+### 2. Task Execution & Sandboxing
 Execute commands within an isolated, git-backed sandbox branch. Review the branch directly, or pass `--auto-merge` to merge on success:
 ```bash
 # Execute task in sandbox branch (leaves branch checked out for review)
-python seikoclaw.py execute --task "TASK-101" --command "pytest tests/" --sandbox
+python seikoclaw.py execute --task "sc-101" --command "pytest tests/" --sandbox
 
 # Auto-merge sandbox branch back to main on verification success
-python seikoclaw.py execute --task "TASK-101" --command "pytest tests/" --verify "npm test" --sandbox --auto-merge
+python seikoclaw.py execute --task "sc-101" --command "pytest tests/" --verify "pytest tests/" --sandbox --auto-merge
 ```
 
-### 2. Autonomous Looping & DAG Pumping
-Run autonomous goal loops with iteration budget and context token oversight:
+### 3. QA & Adversarial Gate Certification
+Certify gates to unlock downstream ready frontier tasks:
 ```bash
-# Autonomous DAG pump: claims and executes ready frontier tasks
-python seikoclaw.py loop --dag --turns 5
+# Certify Seikojin QA gate (100% pass mandate on Rabbit Path)
+python seikoclaw.py gate --task "sc-101.5" --certify-qa --worker "Seikojin-QA"
 
-# Simulation mode: estimates token pressure and prepares auto-handoffs
-python seikoclaw.py loop --goal "Refactor user authentication" --simulate
+# Certify Adversarial Interrogation gate (multi-model red team)
+python seikoclaw.py gate --task "sc-101.6" --certify-adversarial --worker "Adversarial-Reviewer"
 ```
 
-### 3. Skill Staging & Candidate Promotion
-Safely inspect and promote evolved skills staged by reflection:
+### 4. Cross-Harness Skill Export
+Export and symlink skills for Claude Code, Codex, Pi, or Antigravity:
 ```bash
-# List staged candidate skills
-python seikoclaw.py skill --list-candidates
+# Export skills to standard shared agents location
+python seikoclaw.py export-skills --harness agents
 
-# View diff between candidate and production skill
-python seikoclaw.py skill --diff tdd
-
-# Promote candidate to production
-python seikoclaw.py skill --promote tdd
+# Symlink skills to Claude Code
+python seikoclaw.py export-skills --harness claude --symlink
 ```
 
-### 4. Cross-Project History Synchronization
-Sync conversation turns and developer actions across workspaces into OpenBrain memory:
+### 5. Memory & Decision Trail Querying
+Search across past developer actions, transcripts, and architectural decision trails:
 ```bash
-# Preview unindexed conversation turns (dry run)
-python seikoclaw.py sync-history --dry-run --limit 5
-
-# Synchronize all new conversation turns across projects
-python seikoclaw.py sync-history
-
-# Semantic search across past memories
-python seikoclaw.py memory --query "database migration decisions"
+python seikoclaw.py memory --query "why was sqlite chosen over postgres"
 ```
 
 ---
@@ -118,6 +110,8 @@ python seikoclaw.py memory --query "database migration decisions"
 SeikoClaw builds upon foundational work from:
 - **Matt Pocock**: Core developer skills, spec pipelines (`before-building`, `to-spec`, `to-tickets`, `implement`, `tdd`, `prototype`, `diagnosing-bugs`, `agent-authoring`).
 - **David Andrej**: Architecture modeling, ADR decision trees, multi-perspective reviews (`codebase-design`, `adr`, `code-review`, `grill-me`, `handoff`).
+- **Lauren Tan (`@poteto`)**: Cursor `pstack` plugin, 24 First Principles, 23 Playbooks, anti-slop hygiene (`unslop`, `deslop`, `no-comments`), `/interrogate`, `/arena`, `/blast-radius`, `/show-me-your-work`.
+- **Michael Denyer**: `pstack-claude` multi-harness translation, SessionStart hooks, and open standard packaging.
 - **Saikojin (SeikoClaw)**: OpenBrain sidecar, QA test automation (`seikojin-qa`), execution security guardrails, and the **Game Forge** creation suite.
 
 See [`CREDITS.md`](CREDITS.md) for full details.

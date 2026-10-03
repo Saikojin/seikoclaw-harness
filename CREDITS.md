@@ -18,13 +18,24 @@ Key architectural decision-making, domain design, and multi-perspective review w
 - **Deep Alignment**: `grill-me` (stress-testing against domain models, ContextContent, and design-it-twice principles)
 - **Review & Handoff**: `code-review` (parallel Spec & Standards reviewer agents), `handoff`
 
-### 3. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin))
+### 3. Lauren Tan ([@poteto](https://github.com/poteto)) & Cursor Team
+High-rigor engineering playbooks, anti-slop code hygiene, and verification disciplines from Cursor's official `pstack` plugin:
+- **Engineering Principles**: 24 First-Principle Engineering Directives (`laziness-protocol`, `fix-root-causes`, `boundary-discipline`, `prove-it-works`, `foundational-thinking`, `attack-the-premise`, etc.).
+- **Anti-Slop & Quality**: `no-comments` (Comment Sicko), `unslop`, `deslop`, `blast-radius`, `benchmark-checklist`, `explain-the-number`.
+- **Multi-Agent & Review**: `interrogate` (multi-model adversarial red team), `arena` (competitive multi-candidate synthesis), `swarm` (fan-out parallel workers).
+- **Workflows & Decision Trails**: `show-me-your-work` (TSV decision trails), `how`, `why`, `teach`, `create-verification-skill`, `maintain-verification-skill`, `figure-it-out`.
+
+### 4. Michael Denyer ([@michael-denyer](https://github.com/michael-denyer))
+Cross-harness translation layer, multi-environment hooks, and open standard packaging from `pstack-claude`:
+- **Cross-Harness Translation**: SessionStart routing hooks (`session-start.sh` / `session-start.ps1`), cross-platform skill symlinking, and multi-model effort matrix conventions.
+
+### 5. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin))
 The autonomous infrastructure sidecar, QA test automation suites, multi-agent coordination, and Game Forge pipeline:
-- **OpenBrain Sidecar**: SQLite + ChromaDB memory engines, Task Graph DAG with deterministic gating, Health Patrol watchdog, AES-GCM secrets vault, conversation history sync.
-- **Autonomous Infrastructure**: `seikoclaw-harness`, `seikojin-qa` (RBT & QA engineer cabinet), `seikoclaw-red-team`, `seikoclaw-operating-map`, `seikoclaw-shipper`, `seikoclaw-skill-extractor`, `seikoclaw-test-memory`, `seikoclaw-frontend-taste`, `seikoclaw-goal-prompter`, `seikoclaw-ingestor`, `seikoclaw-browser-qa-workflow`, `agent-guardrails`, `agent-self-scheduling`, `distribute-skills`, `architect`, `coverage-loop`, `sweep-loop`, `status`, `learnings`, `modernize`, `interviewer`, `youtube-transcript`.
+- **OpenBrain Sidecar**: SQLite + ChromaDB memory engines, Task Graph DAG with deterministic gating and declarative playbooks, Health Patrol watchdog, AES-GCM secrets vault, conversation history sync, persistent decision trails.
+- **Autonomous Infrastructure**: `seikoclaw-harness`, `seikojin-qa` (RBT, adversarial gating & QA engineer cabinet), `seikoclaw-red-team`, `seikoclaw-operating-map`, `seikoclaw-shipper`, `seikoclaw-skill-extractor`, `seikoclaw-test-memory`, `seikoclaw-frontend-taste`, `seikoclaw-goal-prompter`, `seikoclaw-ingestor`, `seikoclaw-browser-qa-workflow`, `agent-guardrails`, `agent-self-scheduling`, `distribute-skills`, `architect`, `coverage-loop`, `sweep-loop`, `status`, `learnings`, `modernize`, `interviewer`, `youtube-transcript`.
 - **Game Forge Suite**: `game-forge`, `game-design-critic`, `scope-surgeon`, `gdd-generator`, `game-systems-modeler`, `game-prototype-builder`, `mood-board-curator`, `asset-generator`, `game-developer`, `genre-competitor-analysis`, `playtest-feedback-loop`.
 
 ---
 
 ## 📜 License & Usage
-All adapted skills maintain compliance with their respective open licenses. Derivative improvements, security guardrails, candidate skill staging, and sidecar tooling are provided under the MIT License.
+All adapted skills maintain compliance with their respective open licenses (MIT / Apache 2.0). Derivative improvements, security guardrails, candidate skill staging, and sidecar tooling are provided under the MIT License.

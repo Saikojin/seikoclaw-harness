@@ -73,3 +73,15 @@ CREATE TABLE IF NOT EXISTS history_sync_state (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Decision Trails (from /show-me-your-work)
+CREATE TABLE IF NOT EXISTS decision_trails (
+    id TEXT PRIMARY KEY,
+    task_id TEXT,
+    decision_summary TEXT NOT NULL,
+    alternatives_considered TEXT,
+    rationale TEXT NOT NULL,
+    tradeoffs TEXT,
+    tags TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
