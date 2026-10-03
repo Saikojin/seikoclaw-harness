@@ -86,8 +86,10 @@ class MemoryEngine:
 
         return mem_id
 
-    def retrieve_similar(self, query: str, n_results: int = 5, min_tier: str = "Shortterm"):
+    def retrieve_similar(self, query: str, n_results: int = 5, min_tier: str = "Shortterm", top_k: int = None):
         """Search Chroma for similar items, with SQLite fallback."""
+        if top_k is not None:
+            n_results = top_k
         if self.collection:
             try:
                 where_filter = {"tier": {"$ne": "Archived"}} if min_tier != "All" else None
@@ -340,4 +342,67 @@ class MemoryEngine:
             "memories_count": r[4],
             "updated_at": r[5]
         } for r in rows]
+
+    def record_decision_trail(
+        self,
+        decision_summary: str,
+        rationale: str,
+        alternatives: str = "",
+        tradeoffs: str = "",
+        task_id: str = None,
+        tags: str = "decision,pstack"
+    ) -> str:
+        """
+        Records a structured decision trail into SQLite and vector indexes into ChromaDB.
+        """
+        import uuid
+        trail_id = str(uuid.uuid4())
+        conn = sqlite3.connect(self.sqlite_path)
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO decision_trails (id, task_id, decision_summary, alternatives_considered, rationale, tradeoffs, tags)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (trail_id, task_id, decision_summary, alternatives, rationale, tradeoffs, tags))
+        conn.commit()
+        conn.close()
+
+        # Vectorize into memories
+        vector_text = f"DECISION: {decision_summary}\nRATIONALE: {rationale}\nALTERNATIVES: {alternatives}\nTRADEOFFS: {tradeoffs}"
+        self.save_memory(
+            text=vector_text,
+            tier="Longterm",
+            source=f"decision:{task_id or 'general'}",
+            tags=tags
+        )
+        return trail_id
+
+    def ingest_decision_tsv(self, tsv_path: str) -> int:
+        """
+        Parses a TSV decision log (from /show-me-your-work) and ingests unindexed rows.
+        Expected columns: timestamp \t task_id \t decision \t alternatives \t rationale \t tradeoffs
+        """
+        if not os.path.exists(tsv_path):
+            return 0
+        
+        count = 0
+        with open(tsv_path, "r", encoding="utf-8") as f:
+            for line in f:
+                parts = line.strip().split("\t")
+                if len(parts) >= 3:
+                    if parts[0].lower() in ("timestamp", "date", "#"):
+                        continue
+                    task_id = parts[1] if len(parts) > 1 else None
+                    decision = parts[2] if len(parts) > 2 else parts[0]
+                    alts = parts[3] if len(parts) > 3 else ""
+                    rationale = parts[4] if len(parts) > 4 else ""
+                    tradeoffs = parts[5] if len(parts) > 5 else ""
+                    self.record_decision_trail(
+                        decision_summary=decision,
+                        rationale=rationale,
+                        alternatives=alts,
+                        tradeoffs=tradeoffs,
+                        task_id=task_id
+                    )
+                    count += 1
+        return count
 
