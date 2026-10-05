@@ -18,7 +18,7 @@ The **Scope Surgeon** acts as a ruthless scope-cutting agent for non-coding game
 
 Flexible ingestion:
 - Structured GDDs (`docs/design/GDD.md`)
-- Domain models (`CONTEXT.md`)
+- Domain models (`GLOSSARY.md` or legacy `CONTEXT.md`)
 - Master Vision Plans (`project_vision.md`)
 - Raw text prompt / user idea
 

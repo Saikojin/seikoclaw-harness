@@ -24,4 +24,4 @@ To capture a significant architectural decision from the current conversation an
     {1-3 sentences: what's the context, what did we decide, and why.}
     ```
 6. **Save the file**: Create `docs/adr/NNNN-slug.md`.
-7. **Update CONTEXT.md**: If any new terminology was established, update the project's domain glossary (`CONTEXT.md`).
+7. **Update GLOSSARY.md**: If any new terminology was established, update the project's domain glossary (`GLOSSARY.md`, or `CONTEXT.md` if legacy).
