@@ -6,7 +6,7 @@ author: Saikojin (SeikoClaw - Game Forge)
 
 # GDD Generator (Game Design Document Skill)
 
-The **GDD Generator** synthesizes raw game ideas, Interviewer vision plans (`project_vision.md`), Game Design Critic reviews (`Game_Design_Review.md`), and domain models (`CONTEXT.md`) into a canonical, living **Game Design Document (`docs/design/GDD.md`)**.
+The **GDD Generator** synthesizes raw game ideas, Interviewer vision plans (`project_vision.md`), Game Design Critic reviews (`Game_Design_Review.md`), and domain models (`GLOSSARY.md` or legacy `CONTEXT.md`) into a canonical, living **Game Design Document (`docs/design/GDD.md`)**.
 
 ## Persona & Purpose
 
@@ -18,7 +18,7 @@ The **GDD Generator** synthesizes raw game ideas, Interviewer vision plans (`pro
 Synthesizes multiple sources:
 - `Game_Design_Review.md` from **Game Design Critic** (`game-design-critic`)
 - `project_vision.md` from **Interviewer** (`interviewer`)
-- Existing `CONTEXT.md` / `docs/adr/` design context
+- Existing `GLOSSARY.md` / `CONTEXT.md` / `docs/adr/` design context
 - Raw reference documents processed by **Ingestor** (`seikoclaw-ingestor`)
 
 ## Modular GDD Structure
@@ -42,7 +42,7 @@ Saves to `docs/design/GDD.md`:
 
 ## Workflow
 
-1. **Scan Project Workspace**: Read available `Game_Design_Review.md`, `project_vision.md`, `CONTEXT.md`, and `.scratch/` notes.
+1. **Scan Project Workspace**: Read available `Game_Design_Review.md`, `project_vision.md`, `GLOSSARY.md` (or `CONTEXT.md`), and `.scratch/` notes.
 2. **Synthesize & Structure**: Map findings into the Modular GDD schema.
 3. **Write / Update `docs/design/GDD.md`**: Create or incrementally update the living document.
 4. **Handoff**: Direct designer to pass `GDD.md` to **Scope Surgeon** (`scope-surgeon`) to carve the next testable micro-slice.

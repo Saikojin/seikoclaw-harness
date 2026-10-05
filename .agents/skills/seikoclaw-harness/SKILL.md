@@ -23,18 +23,30 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 
 ## 2. Quality Engineering & Gatekeeping
 - [seikojin-qa](../seikojin-qa/SKILL.md) — Automated QA Gatekeeper: QA Strategist (RBT / Rabbit Path) and QA Engineer (100% automation pass rate, Clean Slate wipe, Visual Defect Punch Lists, and QA Constitution Rule #8 Anti-Soft-Pass).
+- [break-ui](../break-ui/SKILL.md) — Adversarial UI stress-testing: feeds components worst-case realistic data (long names, missing avatars, extreme counts, non-Latin text) behind a dev-only toggle to catch layout breaking before production.
+- [review-animations](../review-animations/SKILL.md) — 10 non-negotiable motion standards gatekeeper (justification, sub-300ms budget, origin-aware popovers, exit faster than enter, zero reflow) with companion `STANDARDS.md`.
 - [seikoclaw-browser-qa-workflow](../seikoclaw-browser-qa-workflow/SKILL.md) — Browser automation, visual layout verification, and console error audits.
 - [coverage-loop](../coverage-loop/SKILL.md) — Iteratively writes tests and runs coverage tools until target threshold is met.
 - [code-review](../code-review/SKILL.md) — Two-axis parallel review (Standards + Spec) with Fowler smell baseline.
-- [diagnosing-bugs](../diagnosing-bugs/SKILL.md) — Disciplined diagnosis loop for hard bugs: reproduce → minimize → hypothesize → instrument → fix → test.
+- [diagnosing-bugs](../diagnosing-bugs/SKILL.md) — Disciplined diagnosis loop for hard bugs: tight feedback loop → minimize → hypothesize → instrument → fix → regression test → retro.
+- [retro](../retro/SKILL.md) — Session retrospective optimizing the agent environment: pushes mechanical errors to deterministic checks (linters, hooks, CI) and judgment calls to coding standards.
 
 ## 3. Architecture & Task Orchestration
 - [architect](../architect/SKILL.md) — Decomposes high-level goals into granular DAG tasks and `task.md` checklists with `[GATE: QA]` and `[GATE: VISUAL_CRITIC]` verification contracts.
-- [implement](../implement/SKILL.md) — Builds work from specs, ticket lists, or DAG frontiers with automated verification *(aliases: `executor`)*.
-- [tdd](../tdd/SKILL.md) — Test-driven development: red→green→refactor loop at pre-agreed seams.
+- [implement](../implement/SKILL.md) — Builds work per ticket or spec with automated verification *(aliases: `executor`)*.
+- [implement-spec](../implement-spec/SKILL.md) — Whole-spec parallel DAG orchestrator: runs concurrent implementer subagents across Git worktrees against a shared integration branch.
+- [tdd](../tdd/SKILL.md) — Test-driven development: red→green loop at pre-agreed seams.
 - [codebase-design](../codebase-design/SKILL.md) — Domain modeling, context mapping, and deepening opportunities following design-it-twice principles *(aliases: `domain-modeling`, `improve-codebase-architecture`)*.
+- [setup-ts-deep-modules](../setup-ts-deep-modules/SKILL.md) — Enforces deep module boundaries in TypeScript repos via dependency-cruiser (public root entry points, private subfolders, no barrel files).
 - [adr](../adr/SKILL.md) — Turn architectural decisions into Architecture Decision Records in `docs/adr/`.
 - [seikoclaw-frontend-taste](../seikoclaw-frontend-taste/SKILL.md) — Enforces design systems, Emil Kowalski motion physics, optical alignment, and mobile-native ergonomics.
+- [animate](../animate/SKILL.md) — Builds animations from scratch with frequency gating, hardware-accelerated transforms, and `RECIPES.md` (accordions, modals, tabs, drag).
+- [mobile-native](../mobile-native/SKILL.md) — Eradicates web-on-mobile tells: `100dvh`, iOS 16px input auto-zoom, tap highlight color, sticky touch hover states, and safe-area insets.
+- [apple-design](../apple-design/SKILL.md) — Fluid interaction and momentum physics translated for the web: pointer-down instant feedback, momentum projection, continuous velocity, and interruptible springs.
+- [pick-ui-library](../pick-ui-library/SKILL.md) — Curated dependency whitelist (Base UI, cmdk, Sonner, NumberFlow, motion, input-otp) preventing agents from picking abandoned packages.
+- [improve-animations](../improve-animations/SKILL.md) — Scans existing codebases for animations and generates prioritized, self-contained implementation tickets.
+- [find-animation-opportunities](../find-animation-opportunities/SKILL.md) — Identifies high-leverage UI locations where motion aids comprehension vs what never to animate.
+- [animation-vocabulary](../animation-vocabulary/SKILL.md) — Reverse-lookup glossary translating sensory descriptions ("bouncy pop-in", "rubber-band") into exact technical primitives.
 - [seikoclaw-operating-map](../seikoclaw-operating-map/SKILL.md) — Multi-agent concurrency map, ownership lanes, and blockers.
 - [seikoclaw-goal-prompter](../seikoclaw-goal-prompter/SKILL.md) — Hardens executor prompts using the 7-field contract format.
 
@@ -44,9 +56,9 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [to-tickets](../to-tickets/SKILL.md) — Break plans or specs into tracer-bullet tickets with dependency edges *(aliases: `to-issues`)*.
 - [wayfinder](../wayfinder/SKILL.md) — Plan large, foggy efforts across multiple sessions using a shared decision map.
 - [prototype](../prototype/SKILL.md) — Build a throwaway prototype to answer a design or technical question.
-- [grill-me](../grill-me/SKILL.md) — Relentless interview loop resolving decision trees and updating `CONTEXT.md` / ADRs inline *(aliases: `grilling`, `grill_with_docs`, `loop-me`, `wait-what`)*.
+- [grill-me](../grill-me/SKILL.md) — Relentless interview loop resolving decision trees and updating `GLOSSARY.md` (or `CONTEXT.md`) and ADRs inline *(aliases: `grilling`, `grill_with_docs`, `wait-what`)*.
+- [loop-me](../loop-me/SKILL.md) — Grilling interview identifying repeated personal/dev routines and formalizing them as `workflows/*.md` specs.
 - [pr](../pr/SKILL.md) — Standardized fast-to-review PR body template with evidence pairs and risk analysis.
-- [resolving-merge-conflicts](../resolving-merge-conflicts/SKILL.md) — Hunk-by-hunk resolution of in-progress git merge/rebase conflicts.
 - [triage](../triage/SKILL.md) — Move raw issues and external requests through triage roles into agent-ready tickets.
 - [handoff](../handoff/SKILL.md) — Compact conversation context into a structured handoff document for cross-session continuity.
 - [wizard](../wizard/SKILL.md) — Generate interactive CLI wizards (PowerShell & Bash) to guide manual setups and credentials.
@@ -57,7 +69,7 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [distribute-skills](../distribute-skills/SKILL.md) — Sync and distribute skills between local workspace and global/plugin locations.
 - [sweep-loop](../sweep-loop/SKILL.md) — Sweeps entire codebase to apply architectural patterns and learnings.
 - [status](../status/SKILL.md) — Displays current context health, iteration budget, and token utilization.
-- [learnings](../learnings/SKILL.md) — Captures session-specific technical insights, mistakes, and patterns into OpenBrain *(aliases: `retro`)*.
+- [learnings](../learnings/SKILL.md) — Captures session-specific technical insights, mistakes, and patterns into OpenBrain.
 - [modernize](../modernize/SKILL.md) — Performs structural migrations and modern design pattern updates.
 - [interviewer](../interviewer/SKILL.md) — Synthesizes user ideas into a structured Master Vision Plan.
 - [youtube-transcript](../youtube-transcript/SKILL.md) — Fetches and processes YouTube transcripts for documentation and ingestion.
@@ -66,3 +78,4 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [seikoclaw-skill-extractor](../seikoclaw-skill-extractor/SKILL.md) — Actively generates reusable skills from completed sessions.
 - [seikoclaw-test-memory](../seikoclaw-test-memory/SKILL.md) — Records successful testing procedures and DOM selectors into runbooks.
 - [seikoclaw-ingestor](../seikoclaw-ingestor/SKILL.md) — Processes unstructured files (PDFs, transcripts, CSVs) into grounded context.
+- [book-to-skill](../book-to-skill/SKILL.md) — Compiles technical books, TTRPG rulebooks, and design bibles (PDF, EPUB, DOCX) into on-demand queryable agent skills (SKILL.md, chapters, cheatsheet, patterns, glossary).

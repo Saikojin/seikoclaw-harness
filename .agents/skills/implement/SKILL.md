@@ -1,19 +1,18 @@
 ---
 name: implement
-description: Implement technical work from a spec, ticket list, or DAG frontier with
-  automated verification.
+description: "Implement a piece of work based on a spec or set of tickets."
+disable-model-invocation: true
 author: Matt Pocock
 aliases:
-- implement-spec
 - executor
 ---
 
 Implement the work described by the user in the spec or tickets.
 
-Use /tdd where possible, at pre-agreed seams.
+Call the Skill tool with `tdd` where possible, at pre-agreed seams.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
-Once done, use /code-review to review the work.
+Once done, call the Skill tool with `code-review` to review the work.
 
 Commit your work to the current branch.

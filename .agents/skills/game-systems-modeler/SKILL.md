@@ -42,7 +42,7 @@ Generates:
 
 ## Workflow
 
-1. **Scan Existing Design**: Read `docs/design/GDD.md` or `CONTEXT.md` for combat/economy rules.
+1. **Scan Existing Design**: Read `docs/design/GDD.md` or `GLOSSARY.md` (or `CONTEXT.md`) for combat/economy rules.
 2. **Formulate Math Model**: Map game rules to combat, progression, economy, or probability formulas.
 3. **Generate Dashboard & Config**: Create `balance_simulator.html` and write initial `balance.json`.
 4. **Designer Tuning Session**: Designer opens `balance_simulator.html` in a web browser, adjusts sliders, reviews live visual graphs, and saves `balance.json`.
