@@ -29,7 +29,13 @@ High-rigor engineering playbooks, anti-slop code hygiene, and verification disci
 Cross-harness translation layer, multi-environment hooks, and open standard packaging from `pstack-claude`:
 - **Cross-Harness Translation**: SessionStart routing hooks (`session-start.sh` / `session-start.ps1`), cross-platform skill symlinking, and multi-model effort matrix conventions.
 
-### 5. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin))
+### 5. Addy Osmani ([@addyosmani](https://github.com/addyosmani))
+Production-grade software engineering lifecycles, evaluation suites, and performance standards from `addyosmani/agent-skills`:
+- **Evaluation Discipline**: Tier 2 deterministic skill routing evaluation, description vocabulary collision detection (`scripts/eval_skill_routing.py`), and automated trigger verification (`evals/routing/`).
+- **Engineering References**: Universal Definition of Done (`references/definition-of-done.md`), Core Web Vitals targets (`references/performance-checklist.md`), WCAG 2.1 AA standards (`references/accessibility-checklist.md`), and testing patterns (`references/testing-patterns.md`).
+- **Google SWE Culture**: Hyrum's Law, Beyoncé Rule, test pyramid (80/15/5), DAMP over DRY, and trunk-based deployment principles embedded into review and testing workflows.
+
+### 6. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin))
 The autonomous infrastructure sidecar, QA test automation suites, multi-agent coordination, and Game Forge pipeline:
 - **OpenBrain Sidecar**: SQLite + ChromaDB memory engines, Task Graph DAG with deterministic gating and declarative playbooks, Health Patrol watchdog, AES-GCM secrets vault, conversation history sync, persistent decision trails.
 - **Autonomous Infrastructure**: `seikoclaw-harness`, `seikojin-qa` (RBT, adversarial gating & QA engineer cabinet), `seikoclaw-red-team`, `seikoclaw-operating-map`, `seikoclaw-shipper`, `seikoclaw-skill-extractor`, `seikoclaw-test-memory`, `seikoclaw-frontend-taste`, `seikoclaw-goal-prompter`, `seikoclaw-ingestor`, `seikoclaw-browser-qa-workflow`, `agent-guardrails`, `agent-self-scheduling`, `distribute-skills`, `architect`, `coverage-loop`, `sweep-loop`, `status`, `learnings`, `modernize`, `interviewer`, `youtube-transcript`.

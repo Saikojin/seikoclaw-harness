@@ -7,10 +7,12 @@
 ## 🎯 Highlights
 
 - **24 First-Principle Engineering Directives**: Enforces zero-slop code hygiene, minimal diffs, boundary discipline, root-cause debugging, and empirical verification (`.agents/rules/principles.md`).
+- **Tier 2 Skill Routing & Collision Evals**: Automated frontmatter linting, pairwise vocabulary collision detection, and canonical utterance routing benchmark (`evals/routing/`, `python seikoclaw.py eval-skills`).
+- **Production Reference Checklists**: Industry-grade standards for Core Web Vitals (`performance-checklist`), WCAG 2.1 AA (`accessibility-checklist`), Definition of Done, and testing patterns (`references/`).
 - **Declarative Execution Playbooks**: Standard operating procedures (`bug-fix`, `feature`, `hillclimb`, `refactoring`, `visual-parity`, `shipping`) that auto-expand into sequential DAG wisps with blocking verification gates.
 - **Adversarial QA Gating**: Multi-model red-team review (`/interrogate`) paired with **Seikojin QA** Risk-Based Testing (100% stable pass mandate, zero visual punches).
 - **Persistent Decision Trails & Vector Memory**: Ingests and vector-indexes structured TSV decision trails (`/show-me-your-work`) into SQLite and ChromaDB alongside conversation turns.
-- **Cross-Harness Exportability**: Distribute and symlink canonical skills to Claude Code, Codex, Pi, Antigravity, or OpenCode with a single command.
+- **Cross-Harness Export & Namespace-Isolated Ingestion**: Export canonical skills to Claude, Codex, Pi, or Antigravity, or ingest external skill packs with namespace protection (`python seikoclaw.py import-skills`).
 - **P0 Safety Guarantees**: Non-destructive defaults. Skill evolution stages candidates to `.agents/skills/.candidates/` instead of overwriting production files.
 - **Pre-Execution Guardrails**: Cross-platform POSIX and PowerShell pre-exec safety hooks that intercept catastrophic shell commands (`rm -rf /`, `curl | bash`, forced git pushes) before execution.
 - **Game Forge**: An autonomous end-to-end game creation pipeline from Socratic design critiques and GDDs to zero-install HTML5 Canvas playable prototypes.
@@ -24,9 +26,11 @@
 ├── .agents/
 │   ├── hooks/             # Security pre-exec guards & session-start routing
 │   ├── rules/             # 24 First Principles & Graphify rules
-│   ├── skills/            # Modular capability definitions (70 canonical skills)
+│   ├── skills/            # Modular capability definitions (80+ canonical skills)
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
+├── evals/                 # Benchmark routing evaluation datasets
+│   └── routing/           # Canonical utterance test suites
 ├── openbrain/             # Context Persistence & Sidecar Engine
 │   ├── schema.sql         # Unified SQLite database schema
 │   ├── memory_engine.py   # Tiered memory store, vector search & decision trails
@@ -36,7 +40,8 @@
 │   ├── history_sync.py    # Per-conversation transcript synchronization
 │   ├── vault.py           # Encrypted secrets store (AES-GCM)
 │   └── watchdog.py        # Loop health patrol & circuit breaker
-├── scripts/               # Setup & cross-harness skill exporter utilities
+├── references/            # Production standards (CWV, a11y, DoD, Testing patterns)
+├── scripts/               # Eval runners, setup & cross-harness skill exporter utilities
 ├── templates/             # Task & project vision templates
 ├── tests/                 # Subsystem verification test suite
 ├── CREDITS.md             # Upstream authors & attribution
@@ -87,17 +92,27 @@ python seikoclaw.py gate --task "sc-101.5" --certify-qa --worker "Seikojin-QA"
 python seikoclaw.py gate --task "sc-101.6" --certify-adversarial --worker "Adversarial-Reviewer"
 ```
 
-### 4. Cross-Harness Skill Export
-Export and symlink skills for Claude Code, Codex, Pi, or Antigravity:
+### 4. Cross-Harness Skill Export & Ingestion
+Export and symlink skills for Claude Code, Codex, Pi, or Antigravity, or ingest external skill packs with namespace protection:
 ```bash
 # Export skills to standard shared agents location
 python seikoclaw.py export-skills --harness agents
 
 # Symlink skills to Claude Code
 python seikoclaw.py export-skills --harness claude --symlink
+
+# Ingest external skill pack into SeikoClaw with namespace protection
+python seikoclaw.py import-skills --source ../agent-skills --namespace addy
 ```
 
-### 5. Memory & Decision Trail Querying
+### 5. Deterministic Skill Routing & Collision Evaluation
+Validate frontmatter, check vocabulary collisions, and run benchmark routing tests:
+```bash
+# Run deterministic Tier 2 skill catalog evaluation
+python seikoclaw.py eval-skills
+```
+
+### 6. Memory & Decision Trail Querying
 Search across past developer actions, transcripts, and architectural decision trails:
 ```bash
 python seikoclaw.py memory --query "why was sqlite chosen over postgres"
@@ -112,6 +127,7 @@ SeikoClaw builds upon foundational work from:
 - **David Andrej**: Architecture modeling, ADR decision trees, multi-perspective reviews (`codebase-design`, `adr`, `code-review`, `grill-me`, `handoff`).
 - **Lauren Tan (`@poteto`)**: Cursor `pstack` plugin, 24 First Principles, 23 Playbooks, anti-slop hygiene (`unslop`, `deslop`, `no-comments`), `/interrogate`, `/arena`, `/blast-radius`, `/show-me-your-work`.
 - **Michael Denyer**: `pstack-claude` multi-harness translation, SessionStart hooks, and open standard packaging.
+- **Addy Osmani**: Production-grade engineering lifecycles, Tier 2 skill routing evals, Google SWE culture, Core Web Vitals (`performance-checklist`), and WCAG accessibility standards.
 - **Saikojin (SeikoClaw)**: OpenBrain sidecar, QA test automation (`seikojin-qa`), execution security guardrails, and the **Game Forge** creation suite.
 
 See [`CREDITS.md`](CREDITS.md) for full details.

@@ -20,6 +20,8 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [genre-competitor-analysis](../genre-competitor-analysis/SKILL.md) — Autonomous subagent executing 5-point competitor matrix research (`COMPETITIVE_LANDSCAPE.md`).
 - [mood-board-curator](../mood-board-curator/SKILL.md) — Curates visual/audio reference galleries (`mood_board.html`) and extracts `style_markers.json`.
 - [asset-generator](../asset-generator/SKILL.md) — On-demand 2D game asset creation (textures, sprites, layers, backdrops) via Gemini image generation.
+- [blender-developer](../blender-developer/SKILL.md) — Autonomous live Blender 3D procedural modeling, PBR material creation, Poly Haven / Poly Pizza asset ingestion, 8-directional isometric sprite rendering, and visual self-verification via Blender MCP.
+- [obsidian-atlas-vtt](../obsidian-atlas-vtt/SKILL.md) — Virtual Tabletop scene authoring inside Obsidian with Atlas VTT: `.atlasmap` JSON scenes, Universal VTT (`.uvtt`) map imports, note pins with inline dice rolling, and modular `.atlas-collection.zip` bundles.
 
 ## 2. Quality Engineering & Gatekeeping
 - [seikojin-qa](../seikojin-qa/SKILL.md) — Automated QA Gatekeeper: QA Strategist (RBT / Rabbit Path) and QA Engineer (100% automation pass rate, Clean Slate wipe, Visual Defect Punch Lists, and QA Constitution Rule #8 Anti-Soft-Pass).
@@ -79,3 +81,9 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [seikoclaw-test-memory](../seikoclaw-test-memory/SKILL.md) — Records successful testing procedures and DOM selectors into runbooks.
 - [seikoclaw-ingestor](../seikoclaw-ingestor/SKILL.md) — Processes unstructured files (PDFs, transcripts, CSVs) into grounded context.
 - [book-to-skill](../book-to-skill/SKILL.md) — Compiles technical books, TTRPG rulebooks, and design bibles (PDF, EPUB, DOCX) into on-demand queryable agent skills (SKILL.md, chapters, cheatsheet, patterns, glossary).
+
+## 5. Knowledge Vaults, Obsidian & TTRPG Tooling
+- [obsidian-cli](../obsidian-cli/SKILL.md) — Direct command-line automation of a running Obsidian vault: note CRUD, frontmatter property manipulation, plugin debugging, DOM queries, code eval, and headless `dev:screenshot` capture.
+- [obsidian-markdown](../obsidian-markdown/SKILL.md) — Authoring valid Obsidian Flavored Markdown with wikilinks `[[Note]]`, block transclusions, callouts, and frontmatter properties.
+- [json-canvas](../json-canvas/SKILL.md) — Interactive visual mind-maps, decision trees, and quest webs in `.canvas` (JSON Canvas 1.0) format.
+- [obsidian-bases](../obsidian-bases/SKILL.md) — Dynamic database views (`.base`) with calculated formulas, sorting, and aggregations for game balance curves and asset ledgers.
