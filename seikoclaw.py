@@ -955,10 +955,13 @@ def main():
         "plan", "execute", "usage", "doctor", "sync-global", "memory", 
         "reflect", "wiki-sync", "kanban", "loop", "recap", "gate-skill", "skill",
         "ready", "claim", "task", "dep", "wisp", "gate", "health", "sync-tasks", "vault",
-        "sync-history", "history-sync", "export-skills"
+        "sync-history", "history-sync", "export-skills", "eval-skills", "import-skills"
     ])
     parser.add_argument("--task", type=str, help="Task ID or target")
     parser.add_argument("--skill", type=str, help="Skill name or file to test/gate")
+    parser.add_argument("--cases", type=str, help="Path to routing eval benchmark cases JSON")
+    parser.add_argument("--source", type=str, help="Source directory for import-skills")
+    parser.add_argument("--namespace", type=str, help="Namespace prefix for import-skills")
     parser.add_argument("--harness", type=str, default="agents", help="Target harness for export-skills (claude, codex, pi, antigravity, agents, all, custom)")
     parser.add_argument("--target", type=str, help="Target directory for export-skills (when harness is custom or path is explicit)")
     parser.add_argument("--symlink", action="store_true", help="Use symlinks instead of copying when exporting skills")
@@ -1262,6 +1265,43 @@ def main():
         for t in targets:
             count = export_skills(source_dir, t, use_symlinks=args.symlink, overwrite=args.overwrite)
             print(f"[EXPORT SUCCESS] Exported {count} canonical skills to {t}")
+    elif args.action == "import-skills":
+        from scripts.export_skills import import_skills
+        if not args.source:
+            print("[ERROR] --source <path_or_dir> is required for import-skills.")
+            sys.exit(1)
+        target_dir = args.target or os.path.join(os.path.dirname(os.path.abspath(__file__)), ".agents", "skills")
+        count = import_skills(args.source, target_dir, namespace=args.namespace, overwrite=args.overwrite)
+        print(f"[IMPORT SUCCESS] Imported {count} external skills into {target_dir} (namespace={args.namespace or 'none'})")
+    elif args.action in ["eval-skills", "eval-routing"]:
+        from scripts.eval_skill_routing import load_all_skills, detect_collisions, run_eval_cases, route_query
+        skills_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".agents", "skills")
+        skills, lint_errs = load_all_skills(skills_dir)
+        print(f"=== 🔍 SeikoClaw Skill Catalog Evaluation ({len(skills)} skills loaded) ===")
+        if lint_errs:
+            print(f"[FAIL] Frontmatter errors in {len(lint_errs)} skills:")
+            for s, errs in lint_errs.items():
+                print(f"  - {s}: {', '.join(errs)}")
+        else:
+            print(f"[OK] Frontmatter valid across all {len(skills)} skills.")
+
+        collisions = detect_collisions(skills, threshold=0.65)
+        if collisions:
+            print(f"[WARN] {len(collisions)} collisions detected:")
+            for c in collisions:
+                print(f"  - {c['skill_a']} <-> {c['skill_b']} (sim: {c['similarity']})")
+        else:
+            print("[OK] Zero vocabulary collisions detected.")
+
+        cases_path = args.cases or os.path.join(os.path.dirname(os.path.abspath(__file__)), "evals", "routing", "routing_cases.json")
+        if os.path.exists(cases_path):
+            res = run_eval_cases(skills, cases_path)
+            print(f"[EVAL] Benchmark: {res['passed']}/{res['total']} passed ({res['accuracy']}%)")
+            if res["failed"] > 0 or len(lint_errs) > 0:
+                sys.exit(1)
+        elif len(lint_errs) > 0:
+            sys.exit(1)
+        print("[SUCCESS] Skill evaluation complete.")
     elif args.action == "usage":
         print("--- Today's Usage ---")
         for p in ["anthropic", "google", "local"]:
@@ -1296,6 +1336,18 @@ def main():
 
         health = claw.watchdog.get_health_status()
         print(f"Health Patrol: {health['status']} ({health['total_actions']} tracked actions)")
+
+        # Skill routing & collision check
+        try:
+            from scripts.eval_skill_routing import load_all_skills, detect_collisions
+            skills_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".agents", "skills")
+            skills, lint_errs = load_all_skills(skills_dir)
+            collisions = detect_collisions(skills, threshold=0.65)
+            routing_ok = len(lint_errs) == 0 and len(collisions) == 0
+            print(f"Skill Catalog Routing: {len(skills)} skills loaded, {len(collisions)} collisions [{'OK' if routing_ok else 'WARN'}]")
+        except Exception as e:
+            print(f"Skill Catalog Routing: Check failed ({e}) [WARN]")
+
         print("[SUCCESS] Diagnostics complete.")
     elif args.action == "execute":
         if args.command:

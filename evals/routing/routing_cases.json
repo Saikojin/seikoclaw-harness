@@ -1,0 +1,212 @@
+[
+  {
+    "category": "planning",
+    "query": "Decompose this high-level goal into a granular verifiable task checklist",
+    "expected": "architect"
+  },
+  {
+    "category": "spec",
+    "query": "Synthesize conversation and user requirements into a formal specification",
+    "expected": "to-spec"
+  },
+  {
+    "category": "tickets",
+    "query": "Break down this design spec into discrete dependency-ordered tasks and tickets",
+    "expected": "to-tickets"
+  },
+  {
+    "category": "roadmap",
+    "query": "Plan large milestones and roadmaps across multi-session work",
+    "expected": "wayfinder"
+  },
+  {
+    "category": "tdd",
+    "query": "Follow test-driven development with red-green-refactor cycles",
+    "expected": "tdd"
+  },
+  {
+    "category": "coverage",
+    "query": "Iteratively write tests and run coverage tools until target threshold is met",
+    "expected": "coverage-loop"
+  },
+  {
+    "category": "architecture",
+    "query": "Record this architectural decision into an ADR in docs/adr/",
+    "expected": "adr"
+  },
+  {
+    "category": "domain_modeling",
+    "query": "Perform domain modeling context mapping and deepening opportunities following design-it-twice",
+    "expected": "codebase-design"
+  },
+  {
+    "category": "grilling",
+    "query": "Interview me relentlessly about this plan or design until reaching shared understanding",
+    "expected": "grill-me"
+  },
+  {
+    "category": "anti_slop",
+    "query": "Remove AI-generated code slop and clean up messy code style",
+    "expected": "deslop"
+  },
+  {
+    "category": "anti_slop",
+    "query": "Cut AI tells and robotic filler from writing and documentation",
+    "expected": "unslop"
+  },
+  {
+    "category": "anti_slop",
+    "query": "Enforce no comments rule and spawn comment sicko to clean commentary",
+    "expected": "no-comments"
+  },
+  {
+    "category": "safety",
+    "query": "Find what this change could break somewhere else before it ships and check blast radius",
+    "expected": "blast-radius"
+  },
+  {
+    "category": "review",
+    "query": "Multi-model adversarial review to challenge this code and find blind spots",
+    "expected": "interrogate"
+  },
+  {
+    "category": "arena",
+    "query": "Spawn parallel candidates at the same task and arena graft the best parts",
+    "expected": "arena"
+  },
+  {
+    "category": "review",
+    "query": "Review code changes across Spec and Standards axes",
+    "expected": "code-review"
+  },
+  {
+    "category": "decision_trail",
+    "query": "Keep a reviewable decision trail TSV log with one row per decision",
+    "expected": "show-me-your-work"
+  },
+  {
+    "category": "onboarding",
+    "query": "Explain subsystem architecture runtime flow and how does this work",
+    "expected": "how"
+  },
+  {
+    "category": "rationale",
+    "query": "Why does this work this way and why we picked this design tradeoff",
+    "expected": "why"
+  },
+  {
+    "category": "teaching",
+    "query": "Explain this body of work plainly so a person actually understands it",
+    "expected": "teach"
+  },
+  {
+    "category": "verification_skill",
+    "query": "Generate a project-local verification skill that drives the app like a user",
+    "expected": "create-verification-skill"
+  },
+  {
+    "category": "game_dev",
+    "query": "Master autonomous framework for end-to-end game creation from critique to engine build",
+    "expected": "game-forge"
+  },
+  {
+    "category": "game_dev",
+    "query": "Stress-test gameplay loops mechanics feel and enforce strict visual bar parity",
+    "expected": "game-design-critic"
+  },
+  {
+    "category": "game_dev",
+    "query": "Ruthlessly cut game design scope to a testable vertical micro-slice",
+    "expected": "scope-surgeon"
+  },
+  {
+    "category": "game_dev",
+    "query": "Synthesize design discussions into a living Game Design Document GDD",
+    "expected": "gdd-generator"
+  },
+  {
+    "category": "game_dev",
+    "query": "Generate an interactive balance simulator and parameter tuning models",
+    "expected": "game-systems-modeler"
+  },
+  {
+    "category": "game_dev",
+    "query": "Build a zero-install HTML5 playable game prototype with procedural audio",
+    "expected": "game-prototype-builder"
+  },
+  {
+    "category": "game_dev",
+    "query": "Generate fantasy RPG game assets with strict exclusion rules",
+    "expected": "asset-generator"
+  },
+  {
+    "category": "qa",
+    "query": "Seikojin QA agent cabinet for risk based testing and visual bar certifications",
+    "expected": "seikojin-qa"
+  },
+  {
+    "category": "guardrails",
+    "query": "Denylist of catastrophic shell commands enforced via cross-platform guard hooks",
+    "expected": "agent-guardrails"
+  },
+  {
+    "category": "scheduling",
+    "query": "Schedule AI agent tasks on intervals, crons, or background heartbeats",
+    "expected": "agent-self-scheduling"
+  },
+  {
+    "category": "pr",
+    "query": "Generate concise comprehensive pull request description and release notes",
+    "expected": "pr"
+  },
+  {
+    "category": "migration",
+    "query": "Perform structural migrations and modern design pattern updates",
+    "expected": "modernize"
+  },
+  {
+    "category": "status",
+    "query": "Displays current context health iteration budget and token utilization",
+    "expected": "status"
+  },
+  {
+    "category": "learnings",
+    "query": "Captures session-specific technical insights, mistakes, and patterns into memory",
+    "expected": "learnings"
+  },
+  {
+    "category": "game_dev",
+    "query": "Automate live Blender 3D procedural modeling and bpy scene generation",
+    "expected": "blender-developer"
+  },
+  {
+    "category": "game_dev",
+    "query": "Render 8-directional isometric sprite sheets from 3D models in Blender",
+    "expected": "blender-developer"
+  },
+  {
+    "category": "obsidian",
+    "query": "Interact with Obsidian vaults using the Obsidian CLI to read create search and manage notes",
+    "expected": "obsidian-cli"
+  },
+  {
+    "category": "obsidian",
+    "query": "Create and edit Obsidian Flavored Markdown with wikilinks callouts properties and embeds",
+    "expected": "obsidian-markdown"
+  },
+  {
+    "category": "obsidian",
+    "query": "Create and edit JSON Canvas files with nodes edges groups and visual mind maps",
+    "expected": "json-canvas"
+  },
+  {
+    "category": "obsidian",
+    "query": "Create and edit Obsidian Bases database views with filters formulas and properties",
+    "expected": "obsidian-bases"
+  },
+  {
+    "category": "obsidian",
+    "query": "Virtual tabletop workflows in Obsidian with Atlas VTT scene creation and uvtt imports",
+    "expected": "obsidian-atlas-vtt"
+  }
+]

@@ -47,7 +47,7 @@ A specialized critic persona operating in two distinct modes: **Mode 1 (Gameplay
 ### Verdict Protocol & Output Format
 When evaluating a round's captures against `refs-locked/`:
 
-1. **Inspect Side-by-Side (SxS) Composites**: Left = Locked Shipped Ref, Right = Current Game Capture.
+1. **Inspect Side-by-Side (SxS) Composites**: Left = Locked Shipped Ref, Right = Current Game Capture (from browser canvas, Blender `look`, or `obsidian dev:screenshot`).
 2. **Assign Binary Verdict**:
    - **`PASS` / `WIN`**: Every criterion in `art/BAR.md` passes. 0 punch items.
    - **`FAIL`**: One or more visual defects observed. Must provide a numbered, actionable punch list.

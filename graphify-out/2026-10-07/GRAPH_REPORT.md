@@ -1,13 +1,13 @@
 # Graph Report - SeikoClaw-Harness  (2026-10-07)
 
 ## Corpus Check
-- 266 files · ~305,246 words
+- 255 files · ~297,623 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 7 file(s) not represented in the graph (top: (none) 4, .tsv 1, .example 1)
 
 ## Summary
-- 2339 nodes · 3185 edges · 188 communities (157 shown, 31 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 60 edges (avg confidence: 0.95)
+- 2210 nodes · 3056 edges · 192 communities (153 shown, 39 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 59 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -20,7 +20,7 @@
 - MemoryEngine
 - Glossary of Terms
 - Blender Developer & 3D Procedural MCP Orchestrator
-- HeuristicFallbackProvider
+- SkillGater
 - 🎖️ Upstream Creators & Maintainers
 - Game Tooling Catalog & Architectural Blueprints
 - source-playbook.md
@@ -31,7 +31,7 @@
 - Book-to-Skill Converter
 - tempfile
 - MAP.md
-- UsageMonitor
+- seikoclaw.py
 - TaskGraph
 - 🏛️ Core Principles
 - Process
@@ -43,7 +43,7 @@
 - The Fixes
 - scan_generated_skill.py
 - json
-- export_skills.py
+- argparse
 - Glossary
 - Breaking UI
 - template.sh
@@ -55,14 +55,14 @@
 - feature-map-example/README.md
 - Recurring skip candidates
 - Seikoclaw Frontend Taste System
-- IterationBudget
+- .loop_until_goal
 - discovery_tax.py
 - Diagnosing Bugs
 - Triage
 - references/patterns.md
 - seikoclaw-harness/SKILL.md
 - codex-tools.md
-- seikoclaw.py
+- GateEngine
 - Process
 - Steps
 - wayfinder/SKILL.md
@@ -76,7 +76,7 @@
 - Output
 - The list
 - Patterns to detect and fix
-- ._init_sqlite
+- 3. Secrets Vault & SQLite Schema Alignment
 - Supported Slash Commands & Syntaxes
 - 2. The 5-Stage Autonomous Pipeline
 - During the session
@@ -98,7 +98,7 @@
 - Process
 - Figure it out
 - GDD Generator (Game Design Document Skill)
-- Obsidian Bases Skill
+- dependencies.py
 - Interrogate
 - Output Format
 - Modernize Skill
@@ -128,7 +128,7 @@
 - code-quality-review.md
 - Expert Panel Personas
 - Mood Board Curator (Reference & Mood Board Skill)
-- BaseLLMProvider
+- get_llm_provider
 - Sections
 - Test-Driven Development
 - epistemics.md
@@ -158,7 +158,7 @@
 - Core Engineering Reference: Performance & Web Vitals Checklist
 - Remove AI code slop
 - hitl-loop.template.sh
-- Obsidian Flavored Markdown Skill
+- main
 - No comments
 - merge-safety.md
 - synthesizer.md
@@ -176,20 +176,22 @@
 - pr/CREDITS.md
 - divergent-reviewer.md
 - judgment-reviewer.md
-- sys
+- pdf_inspector_integration.py
 - utils.py
+- replay.py
 - manifest.py
-- JSON Canvas Skill
 - epub.py
 - rtf.py
 - book-to-skill
 - seikoclaw-harness
-- Obsidian CLI
-- Obsidian Atlas VTT Bridge & Scene Specification
 - ExtractionError
-- 2. Tablebuddy & Atlas VTT Interoperability Architecture
-- Skill Distribution & Sync Workflow
+- pathlib
+- Coverage Loop Skill
 - unrealMCP
+- TestTaskGraph
+- _HTMLTextExtractor
+- config.py
+- TestGates
 - Blender Python (bpy) Procedural Recipes for Game Development
 
 ## God Nodes (most connected - your core abstractions)
@@ -219,7 +221,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (188 total, 31 thin omitted)
+## Communities (192 total, 39 thin omitted)
 
 ### Community 2 - "Glossary of Terms"
 Cohesion: 0.04
@@ -262,20 +264,16 @@ Cohesion: 0.06
 Nodes (30): reuse_is_safe(), 1. Full Conversion (Default), 2. Analyze Only, 3. Generate from Prior Analysis, 4. Update / Fold-in (Existing Skill), Book-to-Skill Converter, cheatsheet.md, glossary.md (+22 more)
 
 ### Community 13 - "tempfile"
-Cohesion: 0.12
-Nodes (8): default_output_dir(), OpenbrainEngine, Vault, test_record_and_ingest_decision_trail(), test_memory_engine_vault_table_creation(), test_openbrain_engine_compatibility(), test_vault_fresh_database(), test_vault_wrong_password()
+Cohesion: 0.15
+Nodes (6): OpenbrainEngine, Vault, test_memory_engine_vault_table_creation(), test_openbrain_engine_compatibility(), test_vault_fresh_database(), test_vault_wrong_password()
 
 ### Community 14 - "MAP.md"
 Cohesion: 0.06
 Nodes (23): Game Design Critic — Game-Aware Grilling Persona, Key Architectural Decisions Made:, Question, Resolution, Key Architectural Decisions Made:, Key Architectural Decisions Made:, Question, Resolution (+15 more)
 
-### Community 15 - "UsageMonitor"
-Cohesion: 0.16
-Nodes (6): AutoCapture, main(), UsageMonitor, get_session_context(), main(), print_progress_bar()
-
-### Community 16 - "TaskGraph"
-Cohesion: 0.06
-Nodes (3): TaskGraph, TestGates, TestTaskGraph
+### Community 15 - "seikoclaw.py"
+Cohesion: 0.12
+Nodes (8): AutoCapture, main(), UsageMonitor, get_session_context(), main(), print_progress_bar(), estimate_file(), estimate_tokens()
 
 ### Community 17 - "🏛️ Core Principles"
 Cohesion: 0.07
@@ -317,9 +315,9 @@ Nodes (14): is_invisible_codepoint(), sanitize_extracted_text(), _collect_skill_
 Cohesion: 0.12
 Nodes (9): find_harness_root(), main(), clean_user_content(), ConversationHistorySyncer, parse_iso_datetime(), test_clean_user_content(), test_conversation_sync_lifecycle(), test_extract_project_name() (+1 more)
 
-### Community 27 - "export_skills.py"
-Cohesion: 0.22
-Nodes (7): export_skills(), import_skills(), main(), mock_skills_env(), test_export_skills(), test_import_skills_skip_existing_without_overwrite(), test_import_skills_with_namespace()
+### Community 27 - "argparse"
+Cohesion: 0.18
+Nodes (9): export_skills(), import_skills(), main(), main(), validate_command_safety(), mock_skills_env(), test_export_skills(), test_import_skills_skip_existing_without_overwrite() (+1 more)
 
 ### Community 28 - "Glossary"
 Cohesion: 0.11
@@ -334,8 +332,8 @@ Cohesion: 0.23
 Nodes (17): ask(), ask_secret(), banner(), _clear(), _existing(), finish(), pause(), set_secret() (+9 more)
 
 ### Community 32 - "extract_single_file"
-Cohesion: 0.14
-Nodes (16): install_python_packages(), isolated_install_hint(), missing_python_packages(), offer_dependency_install(), prepare_dependencies(), python_module_available(), run_dependency_check(), extract_with_ebook_convert() (+8 more)
+Cohesion: 0.20
+Nodes (10): extract_with_ebook_convert(), extract_with_ebooklib(), clean_pdftotext(), count_pages(), extract_with_docling(), extract_with_pdfminer(), extract_with_pdftotext(), extract_with_pypdf() (+2 more)
 
 ### Community 33 - "template.ps1"
 Cohesion: 0.18
@@ -362,7 +360,7 @@ Cohesion: 0.12
 Nodes (16): 1. Surface & Component Craft, 2. Typography & Optical Discipline, 3. Motion & Animation Physics (Kowalski Standards), 4. The Sonner Principles (Loved Component Craft), 5. Mobile-Web Native Ergonomics, 6. Execution & Audit Workflow, Easing & Trajectory Rules, Frequency Decision Matrix (+8 more)
 
 ### Community 40 - "discovery_tax.py"
-Cohesion: 0.21
+Cohesion: 0.19
 Nodes (7): _chapter_number(), best_chapter(), count_tokens(), extract_toc(), main(), split_chapters(), token_method()
 
 ### Community 41 - "Diagnosing Bugs"
@@ -379,15 +377,11 @@ Nodes (14): Boundary validation, Branded types, Constructive modeling, Discrimin
 
 ### Community 44 - "seikoclaw-harness/SKILL.md"
 Cohesion: 0.14
-Nodes (7): Codebase Design, Workflow, Coverage Loop Skill, Goal, Workflow, Handoff, Steps
+Nodes (7): Codebase Design, Workflow, Goal, Skill Distribution & Sync Workflow, Workflow, Handoff, Steps
 
 ### Community 45 - "codex-tools.md"
 Cohesion: 0.14
 Nodes (11): Driver and bundled skills pstack references, Instructions file, Model names, Per-skill notes, Session routing hook, Subagent policy, Tool actions, Vendored scripts (+3 more)
-
-### Community 46 - "seikoclaw.py"
-Cohesion: 0.13
-Nodes (5): SkillGater, main(), validate_command_safety(), estimate_file(), estimate_tokens()
 
 ### Community 47 - "Process"
 Cohesion: 0.15
@@ -406,8 +400,8 @@ Cohesion: 0.17
 Nodes (11): Common Failure Modes to Avoid, Models, Operating Posture, Output Format, Reasoning effort, Reference Files, Step 1. Understand the Target and the Question, Step 2. Establish the Code Anchor (+3 more)
 
 ### Community 51 - "Executive Summary & Comparison Chart"
-Cohesion: 0.21
-Nodes (3): Decisions, 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), Executive Summary & Comparison Chart
+Cohesion: 0.19
+Nodes (4): Decisions, 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), Executive Summary & Comparison Chart, SeikoClaw Harness: 3rd-Party Evaluation & Architectural Rationale
 
 ### Community 52 - "Core Engineering Reference: Testing Patterns & Methodologies"
 Cohesion: 0.20
@@ -458,8 +452,8 @@ Cohesion: 0.20
 Nodes (9): How, Models, Output Format, Reasoning effort, Step 1. Assess Complexity, Step 2a. Explore (complex questions only), Step 2b. Direct Explain (simple questions), Step 3. Synthesize (complex questions only) (+1 more)
 
 ### Community 65 - "task_graph.py"
-Cohesion: 0.11
-Nodes (6): GateEngine, get_playbook(), list_playbooks(), test_adversarial_gate_lifecycle(), test_playbook_expansion_creates_sequential_dag(), test_playbooks_registry()
+Cohesion: 0.18
+Nodes (5): get_playbook(), list_playbooks(), test_adversarial_gate_lifecycle(), test_playbook_expansion_creates_sequential_dag(), test_playbooks_registry()
 
 ### Community 66 - "Filtering Principles"
 Cohesion: 0.20
@@ -506,8 +500,8 @@ Cohesion: 0.13
 Nodes (14): 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 3. Production Pipelines, 4. Execution Rules & Best Practices, 5. Troubleshooting & Health Checks, A. Level Layout & Actor Management, B. Blueprint Construction & Assembly, C. Visual Scripting & Node Graph Wiring (+6 more)
 
 ### Community 77 - "Deep Dive: Analysis & Remediation Plan"
-Cohesion: 0.22
-Nodes (8): 1. Autonomous Loop Architecture (`loop_until_goal`), 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation, 6. Hybrid DAG Gating Enforcement on Frontier, 7. Dependency Manifestation & Packaging, 8. LLM Abstraction for Background Cognitive Loops, Deep Dive: Analysis & Remediation Plan, SeikoClaw Harness: 3rd-Party Evaluation & Architectural Rationale
+Cohesion: 0.33
+Nodes (6): 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation, 6. Hybrid DAG Gating Enforcement on Frontier, 7. Dependency Manifestation & Packaging, 8. LLM Abstraction for Background Cognitive Loops, Deep Dive: Analysis & Remediation Plan
 
 ### Community 78 - "Core Engineering Reference: Accessibility (a11y) Checklist"
 Cohesion: 0.33
@@ -525,9 +519,9 @@ Nodes (7): Figure it out, Phase A: Frame, Phase B: Design the workflow, Phase C:
 Cohesion: 0.25
 Nodes (7): Adaptive Modules (Included Only When Relevant):, Core Required Modules:, GDD Generator (Game Design Document Skill), Inputs Ingested, Modular GDD Structure, Persona & Purpose, Workflow
 
-### Community 82 - "Obsidian Bases Skill"
-Cohesion: 0.05
-Nodes (42): Any Type Functions, Date Arithmetic, Date Functions & Fields, Duration Type, File Functions, Global Functions, Link Functions, List Functions (+34 more)
+### Community 82 - "dependencies.py"
+Cohesion: 0.29
+Nodes (7): install_python_packages(), isolated_install_hint(), missing_python_packages(), offer_dependency_install(), prepare_dependencies(), python_module_available(), run_dependency_check()
 
 ### Community 83 - "Interrogate"
 Cohesion: 0.25
@@ -645,9 +639,9 @@ Nodes (5): CTO, Expert Panel Personas, Game Designer, Product Visionary, QA Lead
 Cohesion: 0.33
 Nodes (5): Core Capabilities, Mood Board Curator (Reference & Mood Board Skill), Output Specifications, `style_markers.json` Schema, Workflow
 
-### Community 112 - "BaseLLMProvider"
-Cohesion: 0.10
-Nodes (4): BaseLLMProvider, LocalMindProvider, OpenAICompatibleProvider, MockNeuralLLMProvider
+### Community 112 - "get_llm_provider"
+Cohesion: 0.07
+Nodes (7): BaseLLMProvider, get_llm_provider(), HeuristicFallbackProvider, LocalMindProvider, OpenAICompatibleProvider, MockNeuralLLMProvider, TestMemoryCompression
 
 ### Community 113 - "Sections"
 Cohesion: 0.33
@@ -668,10 +662,6 @@ Nodes (6): 1. Direct, 2. Supported, 3. Inferred, 4. Speculative, 5. Unknown, Con
 ### Community 117 - "Issue tracker: Local Markdown"
 Cohesion: 0.33
 Nodes (5): Conventions, Issue tracker: Local Markdown, Wayfinding operations, When a skill says "fetch the relevant ticket", When a skill says "publish to the issue tracker"
-
-### Community 118 - "os"
-Cohesion: 0.16
-Nodes (3): ContextEngine, get_llm_provider(), setup()
 
 ### Community 120 - "Agent Guardrails & Command Denylist"
 Cohesion: 0.40
@@ -718,8 +708,8 @@ Cohesion: 0.40
 Nodes (4): Files, Implementation vs Review, Reference, Steps
 
 ### Community 131 - "SeikoClaw Harness Router"
-Cohesion: 0.33
-Nodes (6): 1. Game Development & Visual Parity (Master Framework & Toolkit), 2. Quality Engineering & Gatekeeping, 3. Architecture & Task Orchestration, 4. Engineering Spec Pipeline & Productivity (Matt Pocock / David Andrej), 5. Knowledge Vaults, Obsidian & TTRPG Tooling, SeikoClaw Harness Router
+Cohesion: 0.40
+Nodes (5): 1. Game Development & Visual Parity (Master Framework & Toolkit), 2. Quality Engineering & Gatekeeping, 3. Architecture & Task Orchestration, 4. Engineering Spec Pipeline & Productivity (Matt Pocock / David Andrej), SeikoClaw Harness Router
 
 ### Community 132 - "Persona: Seikojin QA Strategist (The Brain)"
 Cohesion: 0.40
@@ -765,9 +755,9 @@ Nodes (3): Focus Areas, Guardrails, Remove AI code slop
 Cohesion: 0.83
 Nodes (3): capture(), hitl-loop.template.sh script, step()
 
-### Community 143 - "Obsidian Flavored Markdown Skill"
-Cohesion: 0.06
-Nodes (30): Basic Callout, Custom Callouts (CSS), Foldable Callouts, Nested Callouts, Supported Callout Types, Embed Audio, Embed Bases, Embed Images (+22 more)
+### Community 143 - "main"
+Cohesion: 0.17
+Nodes (6): estimate_tokens(), main(), prepare_output_dir(), print_intro(), print_support_note(), resolve_input_files()
 
 ### Community 144 - "No comments"
 Cohesion: 0.50
@@ -801,70 +791,66 @@ Nodes (3): Goal, Workflow, YouTube Transcript Ingestion Skill
 Cohesion: 0.50
 Nodes (3): 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation, Consequences, Context
 
-### Community 163 - "sys"
-Cohesion: 0.14
-Nodes (14): main(), enrich_pdf_inspector_metadata(), _fallback_reason(), inspect_pdf(), install_pdf_inspector_hook(), wrapped(), _looks_like_pdf(), _normalise_pdf_type() (+6 more)
+### Community 163 - "pdf_inspector_integration.py"
+Cohesion: 0.15
+Nodes (12): main(), enrich_pdf_inspector_metadata(), _fallback_reason(), inspect_pdf(), install_pdf_inspector_hook(), wrapped(), _looks_like_pdf(), _normalise_pdf_type() (+4 more)
 
 ### Community 164 - "utils.py"
-Cohesion: 0.08
-Nodes (17): supported_formats_message(), normalize_install_mode(), _closed_fence_line_numbers(), _cn_numeral_to_int(), detect_structure(), _fa_chapter_number(), _fa_ordinal_map(), _int_to_roman() (+9 more)
+Cohesion: 0.11
+Nodes (13): normalize_install_mode(), _closed_fence_line_numbers(), _cn_numeral_to_int(), detect_structure(), _fa_chapter_number(), _fa_ordinal_map(), _int_to_roman(), _is_prose_period_tail() (+5 more)
 
-### Community 165 - "manifest.py"
-Cohesion: 0.08
-Nodes (24): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+16 more)
+### Community 165 - "replay.py"
+Cohesion: 0.17
+Nodes (9): canonical_json(), load_fixture(), main(), replay(), aggregate(), _count(), score(), score_trajectory() (+1 more)
 
-### Community 166 - "JSON Canvas Skill"
-Cohesion: 0.07
-Nodes (25): ratio(), Flowchart, Project Board with Groups, Research Canvas with Files and Links, Simple Canvas with Text and Connections, 1. Create a New Canvas, 2. Add a Node to an Existing Canvas, 3. Connect Two Nodes (+17 more)
+### Community 166 - "manifest.py"
+Cohesion: 0.25
+Nodes (11): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+3 more)
 
 ### Community 169 - "epub.py"
-Cohesion: 0.12
-Nodes (8): count_epub_chapters(), count_epub_images(), extract_with_ebooklib(), extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href(), _HTMLTextExtractor
+Cohesion: 0.19
+Nodes (6): count_epub_chapters(), count_epub_images(), extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href()
 
 ### Community 173 - "rtf.py"
 Cohesion: 0.22
 Nodes (9): extract_html_content(), extract_html_file(), _decode_hex_run(), extract_rtf(), _rtf_ansi_encoding(), _rtf_unicode_repl(), _strip_destination_groups(), strip_rtf_fallback() (+1 more)
 
-### Community 176 - "Obsidian CLI"
-Cohesion: 0.20
-Nodes (9): Additional developer commands, Command reference, Common patterns, Develop/test cycle, File targeting, Obsidian CLI, Plugin development, Syntax (+1 more)
-
-### Community 177 - "Obsidian Atlas VTT Bridge & Scene Specification"
-Cohesion: 0.22
-Nodes (8): 1. Scene File Format (`.atlasmap`), 2. Universal VTT (`.uvtt` / `.dd2vtt`) Ingestion, 3. Pinned Markdown Notes & Inline Dice, 4. Fantasy Statblocks Integration, 5. Modular Campaign Bundles (`.atlas-collection.zip`), Key UVTT Geometry Fields:, Obsidian Atlas VTT Bridge & Scene Specification, UVTT Processing Constraints:
-
 ### Community 181 - "ExtractionError"
-Cohesion: 0.17
-Nodes (9): ExtractionError, extract_docx(), extract_docx_with_python_docx(), extract_docx_with_zipfile(), emit_block(), inline_text(), validate_docx_xml_safety(), prepare_output_dir() (+1 more)
+Cohesion: 0.28
+Nodes (7): ExtractionError, extract_docx(), extract_docx_with_python_docx(), extract_docx_with_zipfile(), emit_block(), inline_text(), validate_docx_xml_safety()
 
-### Community 182 - "2. Tablebuddy & Atlas VTT Interoperability Architecture"
-Cohesion: 0.40
-Nodes (4): 2. Tablebuddy & Atlas VTT Interoperability Architecture, Consequences, Context, Decisions
+### Community 182 - "pathlib"
+Cohesion: 0.25
+Nodes (4): build_paper_flat(), _chunks(), main(), _metadata()
 
-### Community 183 - "Skill Distribution & Sync Workflow"
+### Community 183 - "Coverage Loop Skill"
 Cohesion: 0.50
-Nodes (3): Goal, Skill Distribution & Sync Workflow, Workflow
+Nodes (3): Coverage Loop Skill, Goal, Workflow
+
+### Community 187 - "config.py"
+Cohesion: 0.29
+Nodes (3): default_output_dir(), supported_formats_message(), print_usage()
 
 ### Community 190 - "Blender Python (bpy) Procedural Recipes for Game Development"
 Cohesion: 0.33
 Nodes (5): 1. Scene Initialization & Studio Lighting, 2. Low-Poly Stylized Dungeon Chest (Procedural Mesh & Bevel), 3. Automated 8-Direction Isometric Sprite Renderer, 4. Production glTF/GLB Export with PBR Materials, Blender Python (bpy) Procedural Recipes for Game Development
 
 ## Knowledge Gaps
-- **1163 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `seikoclaw-harness`, `uv` (+1158 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1467 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **31 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1062 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `seikoclaw-harness`, `uv` (+1057 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1366 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **39 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `reuse_is_safe()` connect `Book-to-Skill Converter` to `utils.py`?**
-  _High betweenness centrality (0.199) - this node is a cross-community bridge._
+  _High betweenness centrality (0.207) - this node is a cross-community bridge._
 - **Are the 9 inferred relationships involving `MemoryEngine` (e.g. with `AutoCapture` and `Decisions`) actually correct?**
   _`MemoryEngine` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill` to the rest of the system?**
-  _1163 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1062 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `MemoryEngine` be split into smaller, more focused modules?**
-  _Cohesion score 0.05641025641025641 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.059743954480796585 - nodes in this community are weakly interconnected._
 - **Are the 4 inferred relationships involving `TaskGraph` (e.g. with `GateEngine` and `SeikoClaw`) actually correct?**
   _`TaskGraph` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Glossary of Terms` be split into smaller, more focused modules?**

@@ -239,9 +239,9 @@
     "semantic_hash": ""
   },
   ".agents/skills/game-design-critic/SKILL.md": {
-    "mtime": 1791414667.012771,
-    "seen": 1791414739.6250892,
-    "ast_hash": "efdd8bb78dd872fdafda3bb28985baf2",
+    "mtime": 1790885852.1754591,
+    "seen": 1791179887.924846,
+    "ast_hash": "7c895dd214a834aec7afbce276307cda",
     "semantic_hash": ""
   },
   ".agents/skills/game-developer/SKILL.md": {
@@ -263,9 +263,9 @@
     "semantic_hash": ""
   },
   ".agents/skills/game-forge/SKILL.md": {
-    "mtime": 1791414633.2745914,
-    "seen": 1791414739.625425,
-    "ast_hash": "bc55305e990ab0b9c0a166a118d8775d",
+    "mtime": 1791412303.9370282,
+    "seen": 1791412401.7066429,
+    "ast_hash": "6976edfea64b30564d8d4b3818e494ec",
     "semantic_hash": ""
   },
   ".agents/skills/game-prototype-builder/SKILL.md": {
@@ -407,9 +407,9 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-harness/SKILL.md": {
-    "mtime": 1791414212.026116,
-    "seen": 1791414739.6326556,
-    "ast_hash": "c67355b85d8df89462b3519e8778e5f8",
+    "mtime": 1791412327.833285,
+    "seen": 1791412401.7101467,
+    "ast_hash": "945b22abafbe70ff06c5de3eee07810d",
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-ingestor/SKILL.md": {
@@ -1517,9 +1517,9 @@
     "semantic_hash": ""
   },
   "evals/routing/routing_cases.json": {
-    "mtime": 1791414326.0579605,
-    "seen": 1791414739.6170056,
-    "ast_hash": "388738d81cd9a05365b3eb7158b90459",
+    "mtime": 1791412360.5019639,
+    "seen": 1791412401.7011795,
+    "ast_hash": "bbb089eb8f239214b26f31f0de676a2b",
     "semantic_hash": ""
   },
   "scripts/eval_skill_routing.py": {
@@ -1535,9 +1535,9 @@
     "semantic_hash": ""
   },
   "tests/test_skill_evals.py": {
-    "mtime": 1791414373.2601912,
-    "seen": 1791414739.6192298,
-    "ast_hash": "7d42a311634a64c7fd39b320bb3c1bfa",
+    "mtime": 1791395304.8775868,
+    "seen": 1791396083.6507232,
+    "ast_hash": "fe1742d5db3a27cef1facefa0c556eac",
     "semantic_hash": ""
   },
   "references/accessibility-checklist.md": {
@@ -1598,72 +1598,6 @@
     "mtime": 1791412224.6603918,
     "seen": 1791412401.7046738,
     "ast_hash": "c5f04a54f1921d4e51165f1d10663e69",
-    "semantic_hash": ""
-  },
-  ".agents/skills/json-canvas/SKILL.md": {
-    "mtime": 1791414101.0149384,
-    "seen": 1791414739.6276617,
-    "ast_hash": "5f960d99277de827edb0a552a53df946",
-    "semantic_hash": ""
-  },
-  ".agents/skills/json-canvas/references/EXAMPLES.md": {
-    "mtime": 1791414101.229222,
-    "seen": 1791414739.627664,
-    "ast_hash": "b7ec13e38ba387e741408762195f4427",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-atlas-vtt/SKILL.md": {
-    "mtime": 1791414140.5943935,
-    "seen": 1791414739.6283648,
-    "ast_hash": "d9a842ed3a2f67b6acaadef402f79694",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-bases/SKILL.md": {
-    "mtime": 1791414101.3206923,
-    "seen": 1791414739.628366,
-    "ast_hash": "a4fae6b4a6f03828960d17ffda1a7e19",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-bases/references/FUNCTIONS_REFERENCE.md": {
-    "mtime": 1791414101.4214642,
-    "seen": 1791414739.628367,
-    "ast_hash": "bf72a82cc368364a94b3681d9c110181",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-cli/SKILL.md": {
-    "mtime": 1791414100.4624572,
-    "seen": 1791414739.628368,
-    "ast_hash": "d2b6f11834b0ffcf4366270293df5883",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-markdown/SKILL.md": {
-    "mtime": 1791414100.6165836,
-    "seen": 1791414739.6283689,
-    "ast_hash": "1d130ee9234405727c364f3e215952fa",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-markdown/references/CALLOUTS.md": {
-    "mtime": 1791414100.7214177,
-    "seen": 1791414739.6283696,
-    "ast_hash": "24a87b522a298617b4fd5547c46755a9",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-markdown/references/EMBEDS.md": {
-    "mtime": 1791414100.8022435,
-    "seen": 1791414739.6283705,
-    "ast_hash": "66c9160482e3842e1a2d1667e5e3b993",
-    "semantic_hash": ""
-  },
-  ".agents/skills/obsidian-markdown/references/PROPERTIES.md": {
-    "mtime": 1791414100.9025245,
-    "seen": 1791414739.6283717,
-    "ast_hash": "16354a1bc2cf99549b5acf7ce2ea0267",
-    "semantic_hash": ""
-  },
-  "docs/adr/0002-tablebuddy-atlasvtt-interop.md": {
-    "mtime": 1791414469.1136243,
-    "seen": 1791414739.644508,
-    "ast_hash": "3b7abeb1624d214f4baabc7f0dbe4e1d",
     "semantic_hash": ""
   }
 }

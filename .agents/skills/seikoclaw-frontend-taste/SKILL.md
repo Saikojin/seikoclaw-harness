@@ -135,14 +135,17 @@ When auditing or styling a frontend UI component:
 5. **Mobile Readiness Check**:
    - Replace `100vh` with `100dvh`.
    - Verify safe area insets and touch target padding ($\ge 44 \times 44\text{px}$).
-6. **Required Audit Output Format**:
+6. **Performance & Accessibility Inspection Gates**:
+   - **Core Web Vitals Audit**: Audit LCP ($\le 2.5\text{s}$), INP ($\le 200\text{ms}$), and CLS ($\le 0.10$) per [references/performance-checklist.md](../../../references/performance-checklist.md).
+   - **WCAG 2.1 AA Audit**: Verify focus rings ($\ge 3:1$ contrast), keyboard tab flows, modal focus traps, and accessible labels per [references/accessibility-checklist.md](../../../references/accessibility-checklist.md).
+7. **Required Audit Output Format**:
    - When reviewing frontend code, you **must** output findings in a concise Before/After/Why table:
      | Before | After | Why |
      | :--- | :--- | :--- |
      | `transition: all 300ms` | `transition: transform 200ms ease-out` | Avoid `all`; specify exact GPU properties. |
      | `transform: scale(0)` | `transform: scale(0.95); opacity: 0` | Avoid unnatural scale from 0 singularity. |
      | `ease-in` on dropdown | `ease-out` with custom curve | Entrance must feel responsive immediately. |
-7. **Handoff for QA & Specialized Skills**:
+8. **Handoff for QA & Specialized Skills**:
    - Stress-test with realistic worst-case boundary data using [break-ui](../break-ui/SKILL.md).
    - For strict 10-point animation gatekeeping, run [review-animations](../review-animations/SKILL.md).
    - For mobile touch and gesture depth, consult [mobile-native](../mobile-native/SKILL.md) and [apple-design](../apple-design/SKILL.md).
