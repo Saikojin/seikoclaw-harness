@@ -19647,23 +19647,6 @@
       "source_location": "L1"
     },
     {
-      "id": "agents_skills_godot_developer_skill",
-      "label": "godot-developer/SKILL.md",
-      "_origin": "ast",
-      "community": 44,
-      "community_name": "seikoclaw-harness/SKILL.md",
-      "file_type": "document",
-      "frontmatter": {
-        "name": "godot-developer",
-        "description": "Live Godot Engine editor automation, GDScript and C# scripting, Scene and Node authoring, and MCP bridge orchestration.",
-        "author": "Saikojin (SeikoClaw - Game Forge)"
-      },
-      "node_kind": "page",
-      "norm_label": "godot-developer/skill.md",
-      "source_file": ".agents/skills/godot-developer/SKILL.md",
-      "source_location": "L1"
-    },
-    {
       "id": "agents_skills_unity_developer_skill",
       "label": "unity-developer/SKILL.md",
       "_origin": "ast",
@@ -21046,6 +21029,23 @@
       "norm_label": "why",
       "source_file": ".agents/skills/why/SKILL.md",
       "source_location": "L6"
+    },
+    {
+      "id": "agents_skills_godot_developer_skill",
+      "label": "godot-developer/SKILL.md",
+      "_origin": "ast",
+      "community": 51,
+      "community_name": "3. Core Tool Reference",
+      "file_type": "document",
+      "frontmatter": {
+        "name": "godot-developer",
+        "description": "Live Godot Engine editor automation, GDScript and C# scripting, Scene and Node authoring, and MCP bridge orchestration.",
+        "author": "Saikojin (SeikoClaw - Game Forge)"
+      },
+      "node_kind": "page",
+      "norm_label": "godot-developer/skill.md",
+      "source_file": ".agents/skills/godot-developer/SKILL.md",
+      "source_location": "L1"
     },
     {
       "id": "agents_skills_godot_developer_skill_1_system_architecture_connection_protocol",
@@ -64833,17 +64833,6 @@
       "confidence_score": 1.0,
       "source_file": ".agents/skills/game-developer/SKILL.md",
       "source_location": "L33",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_game_forge_skill",
-      "target": "agents_skills_godot_developer_skill",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/game-forge/SKILL.md",
-      "source_location": "L136",
       "weight": 1.0
     },
     {

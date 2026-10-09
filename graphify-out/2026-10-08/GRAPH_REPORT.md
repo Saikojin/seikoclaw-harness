@@ -1,12 +1,12 @@
 # Graph Report - SeikoClaw-Harness  (2026-10-08)
 
 ## Corpus Check
-- 274 files · ~313,518 words
+- 274 files · ~313,516 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 7 file(s) not represented in the graph (top: (none) 4, .tsv 1, .example 1)
 
 ## Summary
-- 2452 nodes · 3301 edges · 187 communities (163 shown, 24 thin omitted)
+- 2452 nodes · 3300 edges · 187 communities (163 shown, 24 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 60 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
@@ -420,7 +420,7 @@ Cohesion: 0.12
 Nodes (15): Common Failure Modes to Avoid, Discovery, Investigator roster. One per available evidence category, Models, Operating Posture, Output Format, Reasoning effort, Reference Files (+7 more)
 
 ### Community 51 - "3. Core Tool Reference"
-Cohesion: 0.11
+Cohesion: 0.10
 Nodes (19): 1. System Architecture & Connection Protocol, 2. Project Setup & Quickstart, 3. Core Tool Reference, 4. Production Pipelines, 5. Execution Rules & Best Practices, 6. Troubleshooting & Health Checks, A. Node & SceneTree Hierarchy Management, B. Scene Management & PackedScenes (+11 more)
 
 ### Community 52 - "Core Engineering Reference: Testing Patterns & Methodologies"
@@ -884,7 +884,7 @@ Nodes (5): 1. Scene Initialization & Studio Lighting, 2. Low-Poly Stylized Dunge
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `reuse_is_safe()` connect `Book-to-Skill Converter` to `utils.py`?**
-  _High betweenness centrality (0.205) - this node is a cross-community bridge._
+  _High betweenness centrality (0.203) - this node is a cross-community bridge._
 - **Are the 9 inferred relationships involving `MemoryEngine` (e.g. with `AutoCapture` and `Decisions`) actually correct?**
   _`MemoryEngine` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill` to the rest of the system?**
