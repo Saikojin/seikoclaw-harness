@@ -21,6 +21,9 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [mood-board-curator](../mood-board-curator/SKILL.md) — Curates visual/audio reference galleries (`mood_board.html`) and extracts `style_markers.json`.
 - [asset-generator](../asset-generator/SKILL.md) — On-demand 2D game asset creation (textures, sprites, layers, backdrops) via Gemini image generation.
 - [blender-developer](../blender-developer/SKILL.md) — Autonomous live Blender 3D procedural modeling, PBR material creation, Poly Haven / Poly Pizza asset ingestion, 8-directional isometric sprite rendering, and visual self-verification via Blender MCP.
+- [unreal-engine-developer](../unreal-engine-developer/SKILL.md) — Live Unreal Engine editor automation, Blueprint authoring, and MCP bridge orchestration via UnrealMCP.
+- [unity-developer](../unity-developer/SKILL.md) — Live Unity Engine editor automation, C# Roslyn scripting, GameObject/Prefab authoring, and MCP bridge orchestration via Unity-MCP (`unity-mcp-cli` / `gamedev-mcp-server`).
+- [godot-developer](../godot-developer/SKILL.md) — Live Godot Engine editor automation, GDScript and C# scripting, Scene and Node authoring, and MCP bridge orchestration via Godot-MCP (`godot-cli` / `gamedev-mcp-server`).
 - [obsidian-atlas-vtt](../obsidian-atlas-vtt/SKILL.md) — Virtual Tabletop scene authoring inside Obsidian with Atlas VTT: `.atlasmap` JSON scenes, Universal VTT (`.uvtt`) map imports, note pins with inline dice rolling, and modular `.atlas-collection.zip` bundles.
 
 ## 2. Quality Engineering & Gatekeeping

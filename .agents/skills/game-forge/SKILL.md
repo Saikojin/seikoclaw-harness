@@ -133,7 +133,7 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
 
 ### Stage E: Autonomous Engine Build, Verification & Handoff
 1. **Execute `architect` / `seikoclaw-architect`**: Decompose full engine implementation into `task.md` with explicit `[GATE: VISUAL_CRITIC]` and `[GATE: QA]` contracts.
-2. **Execute `implement` / `seikoclaw-executor` + `tdd` Loop**: Build runtime engine modules (WebGL, PixiJS, Godot, or custom engine).
+2. **Execute `implement` / `seikoclaw-executor` + Engine Skills Loop**: Build runtime engine modules (Unity via [`unity-developer`](../unity-developer/SKILL.md), Unreal Engine via [`unreal-engine-developer`](../unreal-engine-developer/SKILL.md), Godot via [`godot-developer`](../godot-developer/SKILL.md), WebGL, or PixiJS).
 3. **Execute `seikojin-qa`**: Run full automated regression suites and visual defect certifications.
 4. **Publish / Handoff**: Deliver verified game build, source tree, locked assets, and `rounds.log`.
 
