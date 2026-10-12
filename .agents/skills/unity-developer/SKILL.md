@@ -117,7 +117,10 @@ All Unity MCP tools are callable either via Antigravity MCP (`call_mcp_tool` wit
 
 ### D. Asset & Prefab Pipeline
 - `assets-create-folder`: Create folders in `Assets/` (`{"parentFolder": "Assets", "newFolderName": "Scripts"}`).
-- `assets-material-create`: Create a new Material asset with shader assignment (`{"materialPath": "Assets/Materials/HeroMat.mat", "shaderName": "Standard"}`).
+- `assets-material-create`: Create a new Material asset with shader assignment. **Must match active render pipeline** (Built-in: `"Standard"`; URP: `"Universal Render Pipeline/Lit"`, `"Universal Render Pipeline/Unlit"`, or `"Universal Render Pipeline/Particles/Unlit"` for transparent VFX):
+  ```json
+  {"materialPath": "Assets/Materials/HeroMat.mat", "shaderName": "Universal Render Pipeline/Lit"}
+  ```
 - `assets-find`: Search the AssetDatabase with filters (`"filter": "t:Prefab Hero"` or `"filter": "t:Texture2D"`).
 - `assets-prefab-create`: Convert a scene GameObject into a reusable Prefab asset:
   ```json
@@ -139,11 +142,11 @@ All Unity MCP tools are callable either via Antigravity MCP (`call_mcp_tool` wit
     }
     ```
   - **Full-Class Mode** (`isMethodBody=false`): Define a complete class with a static method.
-- `script-update-or-create`: Create or rewrite permanent `.cs` script files in `Assets/Scripts/`:
+- `script-update-or-create`: Create or rewrite permanent `.cs` script files in `Assets/Scripts/`. Always check active input backend (legacy `Input` vs `UnityEngine.InputSystem`) and apply input ergonomics (deadzones + non-linear curves):
   ```json
   {
     "filePath": "Assets/Scripts/PlayerController.cs",
-    "csharpCode": "using UnityEngine;\n\npublic class PlayerController : MonoBehaviour {\n    public float speed = 5f;\n    void Update() {\n        float h = Input.GetAxis(\"Horizontal\");\n        float v = Input.GetAxis(\"Vertical\");\n        transform.Translate(new Vector3(h, 0, v) * speed * Time.deltaTime);\n    }\n}"
+    "csharpCode": "using UnityEngine;\n#if ENABLE_INPUT_SYSTEM\nusing UnityEngine.InputSystem;\n#endif\n\npublic class PlayerController : MonoBehaviour {\n    public float speed = 5f;\n    void Update() {\n        float h = 0f, v = 0f;\n#if ENABLE_INPUT_SYSTEM\n        if (Keyboard.current != null) {\n            if (Keyboard.current.aKey.isPressed) h -= 1f;\n            if (Keyboard.current.dKey.isPressed) h += 1f;\n            if (Keyboard.current.sKey.isPressed) v -= 1f;\n            if (Keyboard.current.wKey.isPressed) v += 1f;\n        }\n#else\n        h = Input.GetAxis(\"Horizontal\");\n        v = Input.GetAxis(\"Vertical\");\n#endif\n        transform.Translate(new Vector3(h, 0, v) * speed * Time.deltaTime);\n    }\n}"
   }
   ```
 - `script-read`: Read source code of scripts.
@@ -175,19 +178,24 @@ All Unity MCP tools are callable either via Antigravity MCP (`call_mcp_tool` wit
 
 ### Pipeline 1: Full Game Forge Integration (`game-forge` Stage E)
 When executing Stage E of `/game-forge` targeting Unity Engine:
-1. **Ingest Game Design & Specs**: Read `docs/design/GDD.md`, `VERTICAL_SLICE_SPEC.md`, and `docs/design/balance.json`.
+1. **Ingest Game Design & Specs**: Read `docs/design/GDD.md`, `VERTICAL_SLICE_SPEC.md`, `docs/design/balance.json`, and `GAME_FOUNDATIONS_BASELINE.md` overrides in `game_manifest.json`.
 2. **Scaffold Project Structure**:
-   - `assets-create-folder` for `Assets/Scripts`, `Assets/Prefabs`, `Assets/Materials`, `Assets/Scenes`.
+   - `assets-create-folder` for `Assets/Scripts`, `Assets/Prefabs`, `Assets/Materials`, `Assets/Scenes`, `Assets/Audio`.
    - `scene-create` for `Assets/Scenes/GameplaySlice.unity` and `scene-open`.
-3. **Scaffold World Geometry & Lighting**:
+3. **Scaffold Foundational Systems (Non-Negotiable Baseline)**:
+   - **Display Bootstrapper**: `Bootstrapper.cs` configuring windowed mode, 60 FPS cap, and VSync (`Screen.SetResolution(1280, 720, FullScreenMode.Windowed); Application.targetFrameRate = 60; QualitySettings.vSyncCount = 1;`).
+   - **Pause & Time Stack**: Modal pause UI toggled via Escape key; sets `Time.timeScale = 0f`, unlocks cursor (`Cursor.lockState = CursorLockMode.None`), UI animations use `Time.unscaledDeltaTime`.
+   - **Defeat / Game Over Loop**: Hook 0-HP / player destruction event to freeze controls, show Game Over banner, and provide instant Restart button (`SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex)`).
+   - **Combat Targeting Feedback**: Always pair weapons with screen-space reticle/crosshair canvas, billboard enemy HP bar, and hit-spark particles.
+   - **Zero-Asset Procedural Audio Fallback**: Attach `OnAudioFilterRead` synthesizer or procedural `AudioClip.Create()` generator so audio functions immediately without external clips.
+4. **Scaffold World Geometry, Lighting & Colliders**:
    - Spawn arena bounds, ground plane, lighting, and camera using `gameobject-create`.
-   - Apply PBR materials using `assets-material-create` and `gameobject-component-modify`.
-4. **Author Gameplay Scripts**:
+   - **Preserve Solid Colliders**: Ensure all terrain, obstacles, and props retain solid colliders (`BoxCollider`, `SphereCollider`, convex `MeshCollider`).
+   - Apply Pipeline-Compatible PBR materials using `assets-material-create` (URP: `Universal Render Pipeline/Lit`; Built-in: `Standard`).
+5. **Author Gameplay Scripts & Entities**:
    - Write player movement, enemy AI, health systems, and combat loops using `script-update-or-create`.
-   - Call `assets-refresh` to trigger assembly compilation.
-5. **Assemble Entities & Prefabs**:
-   - Spawn primitives or imported meshes, attach authored MonoBehaviours via `gameobject-component-add`.
-   - Bake into reusable prefabs via `assets-prefab-create`.
+   - Enforce input ergonomics: apply deadzones (0.12–0.15) and cubic curves ($f(x) = \text{sign}(x) \cdot |x|^{2.2}$) to analog stick axes.
+   - Assemble GameObjects and bake into reusable prefabs via `assets-prefab-create`.
 6. **Save & Verify**:
    - `scene-save` to persist changes.
    - Run EditMode/PlayMode tests via `tests-run`.
@@ -213,6 +221,22 @@ Connect mathematical models from [`game-systems-modeler`](file:///d:/DevWorkspac
 2. Generate C# `ScriptableObject` classes (e.g. `CombatBalanceConfig.cs`) via `script-update-or-create`.
 3. Populate values directly using `script-execute` with `JsonUtility.FromJsonOverwrite`.
 
+### Pipeline 4: Automated Standalone Build & Packaging
+Automate standalone player compilation and installer creation without touching the Unity Editor GUI:
+1. **Execute Headless Player Build**:
+   Use `script-execute` with `BuildPipeline.BuildPlayer`:
+   ```csharp
+   BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
+   buildPlayerOptions.scenes = new[] { "Assets/Scenes/GameplaySlice.unity" };
+   buildPlayerOptions.locationPathName = "Builds/Windows/MyGame.exe";
+   buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
+   buildPlayerOptions.options = BuildOptions.None;
+   UnityEditor.Build.Reporting.BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
+   Debug.Log("Build Result: " + report.summary.result);
+   ```
+2. **Package Inno Setup Windows Installer**:
+   Generate `installer/setup.iss` configuring executable path, start menu/desktop icons, and run `iscc installer/setup.iss` to produce `Builds/Installer/MyGame_Setup.exe`.
+
 ---
 
 ## 5. Execution Rules & Best Practices
@@ -235,6 +259,22 @@ Connect mathematical models from [`game-systems-modeler`](file:///d:/DevWorkspac
 5. **Roslyn Code Execution Safety**:
    - For quick checks or one-off modifications, prefer `script-execute` with `isMethodBody=true`.
    - For permanent game logic, write structured `.cs` scripts under `Assets/Scripts/`.
+6. **Pipeline-Aware Materials & Anti-Magenta Guard**:
+   - Detect the active render pipeline (`GraphicsSettings.currentRenderPipeline`).
+   - In URP projects, **NEVER** use `Standard` shader or bare `GameObject.CreatePrimitive()` at runtime without immediately assigning an authored URP material (`Universal Render Pipeline/Lit` or `Universal Render Pipeline/Unlit`).
+   - For transparent VFX/cutouts in URP, explicitly set `_Surface = 1.0f`, `_Blend = 0.0f`, and render queue `3000`, or use `Universal Render Pipeline/Particles/Unlit`.
+7. **Display & Windowing Discipline**:
+   - Always initialize windowed mode (`Screen.SetResolution(1280, 720, FullScreenMode.Windowed)`), 60 FPS cap (`Application.targetFrameRate = 60`), and VSync (`QualitySettings.vSyncCount = 1`) at startup to eliminate monitor lockouts and GPU overheating.
+8. **Input Ergonomics & Dual-Backend Compatibility**:
+   - Check if `com.unity.inputsystem` is installed. Support New Input System (`Keyboard.current`, `Gamepad.current`) or legacy input accordingly.
+   - Never feed raw analog thumbstick inputs directly to rotational speeds; always apply a deadzone (0.12–0.15) and a non-linear cubic response curve ($f(x) = \text{sign}(x) \cdot |x|^{2.2}$).
+   - Strict trigger vs. bumper separation: Never bind action events redundantly across bumper buttons and analog triggers.
+9. **Pause & Defeat Lifecycle**:
+   - Every playable scene must include an unscaled-time pause menu (`Time.timeScale = 0f`, cursor unlocked) and a 0-HP defeat state that pauses simulation and allows restart.
+10. **Zero-Asset Procedural Audio Fallback**:
+    - Synthesize procedural audio (`OnAudioFilterRead` or `AudioClip.Create`) so mechanics have immediate audible feedback without relying on uncommitted audio files.
+11. **World Physicality & Collider Preservation**:
+    - Never destroy primitive colliders on environment props without replacement; ensure rigidbodies, colliders, and `OnCollisionEnter` reciprocal damage handlers exist.
 
 ---
 
@@ -247,3 +287,8 @@ Connect mathematical models from [`game-systems-modeler`](file:///d:/DevWorkspac
 | **`Compile errors at launch dialog`** | Compiler error in existing scripts | `unity-mcp-cli open` auto-dismisses this dialog. Check errors via `console-get-logs`. |
 | **`Component type not found`** | Script not compiled or assembly name missing | Run `assets-refresh` and wait 3–5 seconds for Unity to compile the assembly; use fully qualified type name. |
 | **`Server binary not found`** | `GameDev-MCP-Server.exe` missing | Run `unity-mcp-cli install-plugin <path> --with-server` to download and checksum-verify the binary. |
+| **`Bright magenta / pink materials`** | Shader mismatch between Built-in RP and URP | Swap shader to `Universal Render Pipeline/Lit` or `Universal Render Pipeline/Unlit`; assign authored material to runtime primitives. |
+| **`Escape key ignored / controls unresponsive`** | Active input handling setting mismatch | If `com.unity.inputsystem` is active, use `Keyboard.current.escapeKey.wasPressedThisFrame` rather than legacy `Input.GetKeyDown`. |
+| **`No audio in standalone build`** | Audio clip assets missing on disk | Implement procedural audio synthesis via `OnAudioFilterRead` or procedural `AudioClip.Create` sine/noise generator. |
+| **`Entities clip through trees / buildings`** | Colliders destroyed or missing Rigidbody | Retain `BoxCollider` or convex `MeshCollider` on props and attach `OnCollisionEnter` damage receiver. |
+| **`Player continues playing at 0 HP`** | Missing defeat state transition | Wire `currentHealth <= 0` to freeze input, pause simulation (`Time.timeScale = 0f`), and trigger Game Over UI. |

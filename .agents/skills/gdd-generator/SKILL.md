@@ -1,6 +1,6 @@
 ---
 name: gdd-generator
-description: Synthesizes design discussions into a living Game Design Document.
+description: Synthesizes design discussions, critic reviews, and vision plans into a living, modular Game Design Document (GDD.md) for non-coding game designers.
 author: Saikojin (SeikoClaw - Game Forge)
 ---
 
@@ -34,6 +34,7 @@ Saves to `docs/design/GDD.md`:
 3. **Mechanics & Rules Catalog**: Verbs, state machines, win/loss/draw conditions.
 4. **Target Platform & Session Profile**: Controls, session length, hardware profile.
 5. **Active Scope Link**: Pointer to current `VERTICAL_SLICE_SPEC.md` created by Scope Surgeon (`scope-surgeon`).
+6. **Foundations Baseline & User Overrides Matrix**: Codifies the 16 operational pillars from `GAME_FOUNDATIONS_BASELINE.md` (Longevity/Damage model, Defeat/Restart loop, Pause Stack, Input Ergonomics, Combat Feedback, Audio Strategy, World Collisions, Display/60FPS, Packaging format, Multi-Modal Avatar Handover, Spawn Equilibrium, Sensitivity & Input Ergonomics, Projectile Safety, Input Debouncing, Multiplayer Discovery, Package Footprint) with proposed defaults and explicit user override options.
 
 ### Adaptive Modules (Included Only When Relevant):
 - **Progression & Economy Module** (RPGs, Strategy): XP curves, stat scaling, drop rates, item sinks.

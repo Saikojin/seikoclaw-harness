@@ -17,6 +17,11 @@ To decompose a high-level goal into independent, verifiable sub-tasks, establish
 4. **Decomposition & DAG Construction**:
    - Break the goal into discrete execution blocks (1–2 edits + 1 verification run).
    - **Strict Task-Level Test Rule**: Every single `- [ ]` task checkbox MUST specify an exact automated verification command (e.g. `Verify: pytest tests/test_feature.py`) or a visual capture contract. Do not substitute task-level tests with a single plan-level validation note.
+   - **Mandatory Non-Headless E2E Contract**: For any user-facing feature, UI flow, or gameplay mechanic, the task in `task.md` MUST include an `[E2E_CONTRACT] (Non-Headless)` block specifying:
+     - `Launch`: Command to run the app or game in windowed/headed mode (e.g. `godot --windowed`, `-screen-fullscreen 0`, or `npx e2e run --headed`).
+     - `User Journey`: Numbered sequence of actions from the user's POV.
+     - `Observable Done-When`: Concrete visual, audio, physics, and state criteria proving acceptance.
+     - `Artifact`: Frame capture destination path (`captures/R<n>_<feature>.png`).
    - Create tasks via CLI or `task.md`:
      ```bash
      python seikoclaw.py task --title "Design Data Model" --priority 0
@@ -33,11 +38,13 @@ To decompose a high-level goal into independent, verifiable sub-tasks, establish
 - [ ] Core user intent and non-negotiable boundaries restated and confirmed.
 - [ ] High-level requirements are fully understood.
 - [ ] Known mistakes & gotchas checked in Openbrain (`python seikoclaw.py memory --query "[topic] mistakes"`).
+- [ ] For game projects, cross-reference `GAME_FOUNDATIONS_BASELINE.md` against `docs/design/game_manifest.json` (`foundations_config`) to ensure foundational tasks reflect the user's chosen baseline overrides (Longevity model, Defeat loop, Pause stack, Input scheme, Collisions, Display, Installer).
 - [ ] Tasks created in DAG with content-derived hash IDs and dependencies.
 - [ ] Critical/high-risk tasks have `gate:qa` or `gate:critic` attached.
 - [ ] Visual/game tasks include explicit `refs-locked/` targets and done-when visual contracts.
 - [ ] No single task touches more than 5 files.
 - [ ] Every single task has a corresponding automated test/verification command inline or visual critic gate.
+- [ ] Every user-facing feature task specifies an explicit `[E2E_CONTRACT] (Non-Headless)` with launch command, user journey steps, and observable done-when criteria for Seikojin QA.
 - [ ] Two-way sync verified in `task.md`.
 
 ## Handoff
