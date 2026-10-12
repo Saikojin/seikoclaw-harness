@@ -21,10 +21,13 @@ Before generating or running tests, the QA Strategist detects the target applica
 
 | Target Surface / Stack | Primary Automation Engine | Secondary / Fallback Engine | Rationale |
 | :--- | :--- | :--- | :--- |
-| **Web UI (TypeScript / React / Next.js / Vue / Vite)** | **`tester-army/e2e`** (`@e2e-dev/web`) | Playwright / Vitest | Goal-directed actions (`agent.act`), deterministic replay cache (0 LLM calls on CI), auto-wait states. |
+| **Web UI (TypeScript / React / Next.js / Vite)** | **`tester-army/e2e`** (`@e2e-dev/web --headed`) | Playwright (`--headed`) / Vitest | Goal-directed actions (`agent.act`), visible browser window, deterministic replay cache, auto-wait states. |
 | **Mobile Apps (React Native / Expo / iOS / Android)** | **`tester-army/e2e`** (`@e2e-dev/mobile`) | Pure ADB (Python) / Appium | Real simulator/emulator execution with native accessibility tree traversal. |
+| **Godot Games (2D / 3D)** | **Godot Windowed Runner** (`godot --windowed`) | Godot-MCP / `gamedev-mcp-server` | Live viewport rendering, real input injection, viewport screenshot capture (`save_png`). |
+| **Unity Games (URP / Standalone)** | **Unity Windowed Runner** (`-screen-fullscreen 0`) | `unity-harness.ps1` (PlayMode) / Unity-MCP | Validates URP shaders, new Input System, audio submixes, and physics equilibrium in real window. |
+| **Unreal Engine Games** | **Unreal Windowed Standalone** (`-WINDOWED -ResX=1280`) | UnrealMCP / 1-click test batch runner | Proves Chaos physics raycasts, frame-latch input debouncing, and audio submix attenuation live. |
 | **Multi-Service API / Enterprise Contracts** | **Karate DSL** | Pytest (`httpx` / `requests`) | Declarative Gherkin, JSON/XML schema matching, embedded mock servers. |
-| **Python Services & CLI Applications** | **Pytest** | Subprocess PTY / Expect | Python-native assertions, fixtures, and coverage integration. |
+| **Python Services & CLI / TUI Applications** | **Pytest** | Subprocess PTY / Expect | Python-native assertions, fixtures, visible terminal execution, and coverage integration. |
 | **Low-Level Android / Embedded Hardware** | **Pure ADB (Python)** | UIAutomator | Direct shell commands, logcat polling, and OS-level package state manipulation. |
 | **Pre-existing Repository Suites** | **Existing Framework** (e.g. Cypress, Jest) | `e2e` Wrapper | Respect established codebase conventions without introducing competing runtimes. |
 
@@ -39,6 +42,7 @@ Before generating or running tests, the QA Strategist detects the target applica
 - **Actions**:
   - Performs **Risk-Based Testing (RBT)** analysis (`Risk = Likelihood x Impact`).
   - Maps out the core **"Rabbit Path"** (the critical user journey that must never break).
+  - Authors **Mandatory `[E2E_CONTRACT] (Non-Headless)`**: For every user-facing feature, function, or mechanic in `task.md`, specifies the exact windowed/headed launch command, numbered user journey steps, and observable done-when criteria.
   - Authors **Goal-Driven Rabbit Paths**: Uses `agent.act(...)` to specify user intents resilient to minor UI drift.
   - Launches **Exploratory Bug Charters (`e2e explore`)**:
     ```bash
@@ -56,10 +60,11 @@ Before generating or running tests, the QA Strategist detects the target applica
 - **Trigger**: Summoned when an executor completes a task protected by `gate:qa` or `gate:critic` (or when task status is `in_qa`).
 - **Actions**:
   - Enforces **The Clean Slate Mandate** (clears emulator/DB/browser cache before test execution).
-  - Enforces **Wait State Mastery** (zero static `sleep()`; relies on Playwright/e2e actionability auto-waiting and deterministic polling).
+  - Enforces **Non-Headless Live E2E Execution**: Reads the task's `[E2E_CONTRACT]`, launches the application/game in a visible window (headed browser, Godot/Unity/Unreal windowed mode, or desktop console), and executes the user journey steps.
+  - Enforces **Wait State Mastery** (zero static `sleep()`; relies on Playwright/e2e actionability auto-waiting, window readiness polling, and frame readiness assertions).
   - Exercises **Surgical Testability Authority** to add `data-testid` or `test-id` locators to UI/HTML source code when targeting is ambiguous.
   - **Live Agent Triage via `e2e mcp`**: Connects to the running application over MCP (`open_session`, `observe`, `locate`) to inspect the accessibility tree and diagnose failures live.
-  - Executes automated test suites and Side-by-Side (SxS) visual captures.
+  - Executes automated test suites, captures visible screenshots (`captures/R<n>_<feature>.png`), and runs Side-by-Side (SxS) visual checks against `refs-locked/`.
   - **Replay Cache Acceleration**: Uses cached DOM interaction sequences on subsequent runs for instant, zero-cost, deterministic verification.
   - **Gate Certification**:
     - **100% Pass Rate & 0 Punch Items**: Certifies the task and unlocks downstream DAG frontier:
@@ -79,6 +84,73 @@ Before generating or running tests, the QA Strategist detects the target applica
       python seikoclaw.py gate --task <task-id> --certify-adversarial --worker "Adversarial-Reviewer" --notes "0 blocking issues"
       ```
     - **Any Blocking Issue**: Fails gate and creates blocking defect node.
+
+---
+
+## 🖥️ Non-Headless Live E2E Execution & Feature Charter Protocol
+
+Headless tests run in synthetic, offscreen environments that frequently mask fatal production defects: uncompiled GPU shaders (e.g., URP magenta materials), canvas viewport squashing, audio device/submix detachment, single-frame input double-triggers (0ms dead keys), and window focus hijacking. **Seikojin QA mandates non-headless, windowed end-to-end execution for all user-facing features and gameplay mechanics.**
+
+### 1. Project Surface Non-Headless Drivers
+
+| Surface / Technology | Non-Headless Launch Command | Input & Driving Mechanism | Evidence Capture Destination |
+| :--- | :--- | :--- | :--- |
+| **Web Applications (React, Vite, Next.js)** | `npx e2e run --headed` or `npx playwright test --headed` | Goal-directed `agent.act(...)` or Playwright locators | Auto-capture screenshots to `captures/` + DOM snapshot |
+| **Godot Engine 3D/2D** | `godot --windowed --resolution 1280x720 res://scenes/Main.tscn` | Godot-MCP / input event injection / GDScript runner | Viewport capture via `save_png("captures/...")` + engine logs |
+| **Unity Engine** | `build/windows/GameTitle.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720` or `scripts/unity-harness.ps1 test -PlayMode` | Unity-MCP (`gamedev-mcp-server`) / standalone test input loop | `ScreenCapture.CaptureScreenshot("captures/...")` + logs |
+| **Unreal Engine** | `Saved/Package/Windows/GameTitle.exe -WINDOWED -ResX=1280 -ResY=720` | UnrealMCP / batch launcher / Python test script | Frame grab to `captures/` + `Saved/Logs/` |
+| **Desktop / CLI / TUI** | Visible Windows Terminal / GUI process spawn | PTY / Win32 input stream or terminal transcript driver | Terminal transcript + window frame capture |
+
+---
+
+### 2. The `[E2E_CONTRACT]` Schema in `task.md` & QA Tickets
+
+Every user-facing feature, mechanic, or UI function in `task.md` MUST define an E2E contract before implementation begins:
+
+```markdown
+- [ ] **Task <ID>: <Feature / Mechanic Name>**
+  - **Edits**: `<target source files>`
+  - **Verification**: `<unit / component verification command>`
+  - **[E2E_CONTRACT] (Non-Headless)**:
+    - **Launch**: `<exact command to launch windowed app/game>`
+    - **User Journey (Drive Recipe)**:
+      1. `<Step 1 from user POV: e.g. Launch game, wait for main menu>`
+      2. `<Step 2: e.g. Press Spacebar / Gamepad 'A' to throttle to 100%>`
+      3. `<Step 3: e.g. Observe aircraft pitch up and crosshair tracking>`
+      4. `<Step 4: e.g. Press Escape key to toggle pause menu>`
+    - **Observable Done-When**:
+      - **Visual**: `<exact visual elements: e.g. HUD airspeed increases > 60mph, pause menu displays Resume/Settings/Quit buttons with crisp font>`
+      - **Audio / Physics**: `<exact behavior: e.g. Engine audio attenuates by 50% on pause, zero-airspeed stall does not trigger at full throttle>`
+      - **Artifact**: `captures/R<n>_<feature>.png` saved and checked against Visual Bar.
+  - **[GATE: QA]**: Seikojin QA Engineer certifies non-headless execution against `[E2E_CONTRACT]`. (PENDING)
+```
+
+---
+
+### 3. The QA Test Agent Execution Runbook
+
+When a task transitions to `in_qa` (or executor finishes implementation):
+
+1. **Parse E2E Charter**: The QA Engineer extracts `Launch`, `User Journey`, and `Observable Done-When` from `task.md`.
+2. **Execute Clean Slate Mandate**:
+   - Web: Clear local storage, cookies, and indexedDB.
+   - Games: Reset `user://settings.cfg`, wipe test save slots, and ensure standard 1280x720 windowed profile.
+3. **Launch in Non-Headless Mode**:
+   - Spawn the windowed application process.
+   - Enforce **Wait State Mastery** (poll for window title, readiness log line, or initial render frame; never use static `sleep()`).
+4. **Drive the Prescribed User Journey**:
+   - Execute the sequential steps from the user's POV.
+   - For web/mobile: invoke `@e2e-dev` goal-directed actions (`agent.act(...)`).
+   - For game engines: invoke engine MCP endpoints (`call_node_method`, `send_input`) or run the associated test script.
+5. **Capture Multi-Modal Proof**:
+   - Capture in-game/in-app screenshot to `captures/R<n>_<feature>.png`.
+   - Record application stdout/stderr and engine logs to `captures/rounds.log`.
+6. **Evaluate Gate Verdict**:
+   - **PASS**: All observable visual, audio, physics, and state criteria met $\rightarrow$ certify `[GATE: QA]` in `task.md` and unblock downstream tasks:
+     ```bash
+     python seikoclaw.py gate --task <task-id> --certify-qa --worker "Seikojin-QA" --notes "100% pass on [E2E_CONTRACT]"
+     ```
+   - **FAIL**: Any visual glitch, audio detachment, collision bug, or dead key observed $\rightarrow$ author a structured Visual Bug Node or Defect Ticket, mark gate `FAILED`, and block the DAG frontier.
 
 ---
 

@@ -2,10 +2,10 @@
 
 These rules are absolute and must be followed by any agent performing QA tasks within the Seikojin ecosystem.
 
-## 1. The Rabbit Philosophy (E2E Coherence)
-- **Rule**: Every feature must have a "Rabbit Path"—a primary end-to-end user journey that is verified daily.
-- **Goal**: Ensure that fragmented services always come together into a coherent user experience.
-- **Action**: If a change breaks the end-to-end flow, it is a P0 failure, regardless of unit test passes.
+## 1. The Rabbit Philosophy (E2E Coherence & Non-Headless Live Mandate)
+- **Rule**: Every user-facing feature or mechanic must have an explicit "Rabbit Path" with a non-headless `[E2E_CONTRACT]` attached to its QA ticket or `task.md` item.
+- **Goal**: Ensure that fragmented services, shaders, inputs, and game mechanics come together into a coherent, visibly working user experience.
+- **Action**: The test agent must launch the app/game in non-headless (windowed/headed) mode, drive the prescribed user actions, and capture real visual/audio evidence before certifying the gate. If a change breaks the end-to-end flow, it is a P0 failure, regardless of unit test passes.
 
 ## 2. Risk-Based Prioritization (RBT)
 - **Rule**: Testing effort must be proportional to `Risk = Likelihood x Impact`.

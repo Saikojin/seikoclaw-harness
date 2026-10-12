@@ -218,31 +218,115 @@ Connect mathematical models from [`game-systems-modeler`](file:///d:/DevWorkspac
 2. Generate C# or GDScript custom `Resource` definitions (e.g. `res://scripts/CombatBalanceConfig.cs` or `.gd`).
 3. Create corresponding `.tres` Resource instances with `resource-create` and update values via `resource-modify`.
 
+### Pipeline 4: Automated Headless Windows Export & Inno Setup Packaging
+To ship a standalone game build with a zero-friction Windows installer:
+1. **Configure Export Presets**: Ensure `export_presets.cfg` exists in the project root with a `"Windows Desktop"` preset configured for 64-bit architecture and embedded PCK (or external `.pck`).
+2. **Compile C# Assemblies (if Mono)**:
+   ```bash
+   dotnet build -c Release
+   ```
+3. **Execute Headless Godot Export**:
+   ```bash
+   godot --headless --export-release "Windows Desktop" build/windows/GameTitle.exe
+   ```
+4. **Generate & Compile Inno Setup Script**:
+   Author `installer/setup.iss` targeting `build/windows/*`, setting LZMA2 ultra-compression, Start Menu shortcut, desktop icon, and uninstaller.
+   Compile with the Inno Setup CLI compiler:
+   ```powershell
+   & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer/setup.iss
+   ```
+   Outputs a self-contained installer (`GameTitle_Setup_v1.0.exe`) under 35 MB.
+
 ---
 
 ## 5. Execution Rules & Best Practices
 
-1. **Coordinate System Discipline**:
+1. **Coordinate System & 3D Character Facing Discipline**:
    - **Godot 3D uses a Right-Handed coordinate system**:
      - $+X$ = Right
      - $+Y$ = Up
      - $+Z$ = Back (towards camera / viewer)
      - $-Z$ = Forward
    - Units: **1 unit = 1 meter**.
+   - **3D Character Heading Formula**:
+     - Because forward is $-Z$, character rotation towards movement vector $(x, z)$ MUST use:
+       ```gdscript
+       var target_angle = atan2(-direction.x, -direction.z)
+       rotation.y = lerp_angle(rotation.y, target_angle, turn_speed * delta)
+       ```
+     - ⚠️ **Anti-Pattern Warning**: Calling `atan2(direction.x, direction.z)` points characters along $+Z$ (backwards), causing the avatar to face the camera when walking away and face away when walking towards!
+   - **Camera Pitch Clamping**:
+     - Pitch rotation on a `Camera3D` or gimbal must be clamped to prevent gimbal lock / camera inversion:
+       ```gdscript
+       camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-80.0), deg_to_rad(70.0))
+       ```
    - **Godot 2D uses Screen Coordinates**:
-     - $+X$ = Right
-     - $+Y$ = Down
-     - Origin $(0, 0)$ is top-left.
-2. **Existence Verification First**:
+     - $+X$ = Right, $+Y$ = Down, Origin $(0, 0)$ is top-left.
+
+2. **InputMap Collision & UI Focus Theft Prevention**:
+   - **Inspect Default Mappings**: Godot defaults joypad directional buttons to `ui_up`, `ui_down`, `ui_left`, `ui_right`. Never bind flight/combat actions to D-Pad or thumbsticks without ensuring `ui_*` actions don't hijack them.
+   - **UI Focus Mode Isolation**: Set `focus_mode = Control.FOCUS_NONE` on all in-game HUD containers, reticles, and overlay canvas layers during active gameplay. Otherwise, active UI controls will consume or double-trigger gamepad button events during simulation.
+   - **Validation Contract**: Before launching playmode, verify that discrete gameplay actions (e.g. `throttle_up`, `throttle_down`) share zero common button IDs with menu navigation or pause toggles.
+
+3. **Multi-Modal Avatar & Vehicle Mounting Architecture**:
+   - **Diegetic Anchor Contract**: Every drivable vehicle must provide standard `Marker3D` contract nodes:
+     - `CockpitSeatAnchor` (pilot positioning)
+     - `BailoutExitPoint` (eject spawn offset)
+     - `ParachuteHarnessAnchor` (suspension line tie point)
+   - **Mounting Protocol (Avoid Physics Explosions)**:
+     - When mounting a vehicle, never parent the character directly without deferred collision deactivation. Character colliders intersecting vehicle cockpits cause catastrophic physics explosions or orbital ejection.
+     - Protocol:
+       ```gdscript
+       # 1. Disable avatar collision deferred (never in the middle of physics step)
+       avatar.collision_shape.set_deferred("disabled", true)
+       # 2. Halt avatar physics
+       avatar.set_physics_process(false)
+       # 3. Reparent to vehicle anchor
+       avatar.reparent(vehicle.get_node("CockpitSeatAnchor"))
+       avatar.transform = Transform3D.IDENTITY
+       ```
+   - **Eject & Parachute Protocol**:
+     - When bailing out, reparent avatar back to world root, enable collision deferred, switch avatar state machine to `PARACHUTE` or `FREEFALL`, and dynamically draw shroud lines from canopy vertices to `avatar.harness_anchor.global_position` via `ImmediateMesh` or `Line3D`.
+
+4. **Frame-Zero Spawn Equilibrium & Aerodynamic Discipline**:
+   - **Spawn at 0% Throttle**: Vehicles and aircraft must always spawn in a cold/resting stance (0% throttle, engine idle).
+   - **Ground Raycast Snapping**: Never guess spawn height. Spawning even $0.05\text{m}$ inside a ground collider causes physics bouncing on frame zero:
+     ```gdscript
+     if ground_raycast.is_colliding():
+         global_position.y = ground_raycast.get_collision_point().y + landing_gear_height
+     ```
+   - **Aerodynamic Clamping**:
+     - Run aerodynamic calculations ($C_L$, $C_D$, lift, drag, torque) strictly inside `_physics_process(double delta)`, never `_process(double delta)`.
+     - Implement a hard stall drop: when angle of attack $\alpha > \alpha_{\text{crit}}$ ($16^\circ$), multiply lift by 0.35 and double parasite drag to prevent runaway altitude climbs.
+
+5. **Texture Alignment via Triplanar & Two-Sided Culling**:
+   - **Triplanar for Procedural Geometry**: For CSG geometry, runways, terrain, and procedural hulls lacking UV unwrapping, always enable `uv1_triplanar = true` on `StandardMaterial3D` to eliminate distorted and stretched textures.
+   - **Two-Sided Culling for Thin Meshes**: For single-sided geometry (parachute canopies, canvas wings, sails, propeller blades), set `cull_mode = BaseMaterial3D.CULL_DISABLED`.
+
+6. **In-Game Settings Persistence Pattern (`user://settings.cfg`)**:
+   - Store player preferences (Pitch/Roll/Yaw/Look sensitivity, Invert Y, Master/SFX/Music volumes) in `user://settings.cfg` via `ConfigFile`.
+   - **Audio Bus Scaling**: Never pass linear slider values directly to audio buses. Always convert linear scale $(0.0 \dots 1.0)$ using `linear_to_db()`:
+     ```gdscript
+     AudioServer.set_bus_volume_db(bus_idx, linear_to_db(slider_value))
+     ```
+   - **Input Sensitivity**: Apply sensitivity multipliers dynamically to raw input axis values before feeding them into vehicle/character steering calculations:
+     ```gdscript
+     var final_pitch = pitch_raw * SettingsManager.get_sensitivity("pitch")
+     ```
+
+7. **Existence Verification First**:
    - Always run `node-find` or `resource-find` before attempting to modify or delete objects.
-3. **Strict Scene Saving Discipline**:
+
+8. **Strict Scene Saving Discipline**:
    - Modifying nodes or properties leaves the scene in memory.
    - **Always call `scene-save`** immediately after completing a batch of scene edits before entering PlayMode or switching scenes.
-4. **Node Owner Assignment**:
+
+9. **Node Owner Assignment**:
    - For child nodes to be serialized into the `.tscn` file, their `owner` must be set to the scene root. `node-create` handles this automatically.
-5. **C# Assembly Reload & Build Discipline**:
-   - When authoring `.cs` scripts in Godot, C# must be built out-of-band via `dotnet build` or `godot-cli build`.
-   - Call `godot-cli build <project>` before attaching new C# scripts to nodes.
+
+10. **C# Assembly Reload & Build Discipline**:
+    - When authoring `.cs` scripts in Godot, C# must be built out-of-band via `dotnet build` or `godot-cli build`.
+    - Call `godot-cli build <project>` before attaching new C# scripts to nodes.
 
 ---
 

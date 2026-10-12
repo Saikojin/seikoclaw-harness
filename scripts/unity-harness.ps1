@@ -99,7 +99,7 @@ switch ($Action) {
         Show-Header
         $mode = if ($ExtraArgs -contains "-PlayMode") { "PlayMode" } else { "EditMode" }
         Write-Host "Executing Unity $mode Tests for: $fullProjectPath..." -ForegroundColor Yellow
-        $jsonInput = '{"testMode":"' + $mode + '","includeMessages":true,"includePassingTests":false}'
+        $jsonInput = '{\"testMode\":\"' + $mode + '\",\"includeMessages\":true,\"includePassingTests\":false}'
         unity-mcp-cli run-tool tests-run $fullProjectPath --input $jsonInput
     }
 

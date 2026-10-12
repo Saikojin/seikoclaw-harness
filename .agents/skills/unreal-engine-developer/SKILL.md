@@ -148,11 +148,85 @@ Connect mathematical models from [`game-systems-modeler`](file:///d:/DevWorkspac
 
 ---
 
-## 5. Troubleshooting & Health Checks
+---
 
-| Symptom | Cause | Remediation |
+## 5. Production Guardrails & Gameplay Architecture Patterns
+
+The following engineering rules address critical failure modes identified during production flight simulation builds:
+
+### A. Chaos Physics & Projectile Collision Discipline
+- **Rule:** High-speed micro-projectiles spawned by or near pawns must **never have rigid body collision enabled**.
+  ```cpp
+  // WWPProjectile constructor
+  CollisionSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+  ```
+- **Rationale:** In Chaos Physics, overlapping collision volumes between fast-moving projectiles and complex vehicle/skeletal meshes generate astronomical depenetration impulses, flinging pawns at Mach 1.5 (e.g. 1200 mph physics spikes) and destroying joints/spars.
+- **Implementation:** Use swept line traces (`SweepMultiByChannel` / `LineTraceSingleByChannel`) exclusively, and always add `QueryParams.AddIgnoredActor(GetOwner())` to guarantee 3rd-person camera traces never damage the shooter's own airframe.
+
+### B. Enhanced Input Debouncing & Single-Frame Latch Protocol
+- **Rule:** Never poll hardware key state in `PlayerTick()` while simultaneously listening to an Enhanced Input Action mapping for discrete state toggles (Pause menu, camera view mode, landing gear).
+- **Rationale:** Processing the same keypress across both listeners causes a 0ms double-execution on the exact same frame (`GFrameCounter`), toggling open and immediately closed. To the player, the button behaves as a dead key.
+- **Implementation:** Always guard toggles with a frame-counter latch:
+  ```cpp
+  void AMyPlayerController::TogglePauseMenu()
+  {
+      if (LastPauseToggleFrame == GFrameCounter) return;
+      LastPauseToggleFrame = GFrameCounter;
+      // Toggle menu logic...
+  }
+  ```
+
+### C. Audio Submix & Master Volume Synchronization
+- **Rule:** Modifying a local volume variable in PlayerController or GameInstance does **not** attenuate engine audio.
+- **Implementation:** Interface directly with Unreal's audio engine via transient volume scaling:
+  ```cpp
+  if (GEngine && GEngine->GetMainAudioDevice())
+  {
+      GEngine->GetMainAudioDevice()->SetTransientPrimaryVolume(NewVolumeScalar);
+  }
+  ```
+  Ensure all procedural sound components or MetaSound synthesizers synchronize their attenuation and volume multipliers when settings cycle.
+
+### D. Camera-to-Muzzle Aim Convergence & Momentum Projection
+- **Rule:** Gun muzzle traces in 3D combat games must never fire along raw socket forward vectors without camera convergence.
+- **Implementation:**
+  1. **Two-Point Convergence:** Raycast forward 600m from the active camera viewpoint through the screen-center reticle into world space. Calculate muzzle trajectory vector pointing from physical gun muzzle directly toward that hit coordinate.
+  2. **Forward Momentum Inheritance:** When transferring vehicle velocity to bullets, project speed strictly along the barrel forward vector (`FVector::DotProduct(AircraftVelocity, MuzzleDir) * MuzzleDir`). Never add raw transverse velocity vectors, which blow bullets sideways during banked turns.
+
+### E. Asset Coordinate Standard & Pre-Flight DCC Alignment
+- **Rule:** Unreal Engine world space is $+X$ Forward, $+Y$ Right, $+Z$ Up.
+- **Implementation:** Blender and Maya DCC assets default to $+Y$ or $-Y$ forward. Always inspect FBX import options and enforce a $-90^\circ$ yaw adjustment during import if models fly sideways ("crabbing"), if cockpit cameras stare into wing struts, or if propellers spin on the side of the fuselage.
+
+### F. Packaging Hygiene, Shipping Config & PDB Stripping
+- **Rule:** Never distribute development packages with unstripped debug symbol databases.
+- **Implementation:**
+  1. Build using `-clientconfig=Shipping` to strip Vulkan/D3D debug validation layers and reduce monolithic binary sizes by ~75%.
+  2. In Inno Setup scripts, explicitly exclude symbol databases:
+     ```pascal
+     Source: "..\Saved\Package\Windows\*"; DestDir: "{app}"; Excludes: "*.pdb,*.log,*.obj,*.tmp"; Flags: ignoreversion recursesubdirs createallsubdirs
+     ```
+  3. In `Config/DefaultGame.ini`, disable `bCookAll=True` and specify `+MapsToCook=(FilePath="...")` to avoid packaging unreferenced test assets.
+  4. Disable unused heavy plugins in `.uproject` (e.g. `ChaosVehiclesPlugin`, `NNERuntimeORT`, `EditorScriptingUtilities`).
+
+### G. Day-One 1-Click Multiplayer Launchers
+- **Rule:** Every multiplayer-enabled Unreal project must generate 1-click batch scripts in the packaged directory:
+  1. `Launch_Local_2Player_Duel.bat`: Spawns two windowed instances side-by-side (`1280x720`) connecting via `127.0.0.1` for instant single-machine testing.
+  2. `Launch_Host_ListenServer.bat`: Hosts on UDP port 7777 (`Map?listen -WINDOWED -ResX=1600 -ResY=900`).
+  3. `Launch_Join_LAN.bat`: Prompts for host IP and connects.
+
+---
+
+## 6. Troubleshooting & Common Failure Modes
+
+| Symptom | Root Cause | Remediation |
 | :--- | :--- | :--- |
-| **`ConnectionRefusedError: [WinError 10061]`** | Unreal Editor is closed or plugin not initialized | Open the `.uproject` in Unreal Editor. Check that `UnrealMCP` plugin is enabled in `Edit > Plugins`. |
-| **`Socket timeout during receive`** | Editor frozen in heavy compile or modal dialog open | Dismiss any blocking modal dialogs in the Unreal Editor viewport; check `Saved/Logs` in project root. |
-| **`Failed to find component`** | Component name mismatch or compile pending | Ensure component was added via `add_component_to_blueprint` and check exact component name string. |
-| **`Plugin rebuild required on launch`** | Engine version mismatch between UE 5.5 and 5.8 | Right-click `.uproject` > *Generate Visual Studio project files* and build `Development Editor` in Visual Studio. |
+| **`ConnectionRefusedError: [WinError 10061]`** | Unreal Editor is closed or plugin not initialized | Open `.uproject` in Unreal Editor. Check that `UnrealMCP` plugin is enabled in `Edit > Plugins`. |
+| **`Socket timeout during receive`** | Editor frozen in heavy compile or modal dialog open | Dismiss blocking modal dialogs in editor viewport; check `Saved/Logs` in project root. |
+| **Vehicle speed jumps to 1200 mph (Mach 1.5) & auto-resets** | Chaos depenetration explosion from rigid bullet colliding with own pawn | Set projectile collision to `NoCollision`; use swept raycasts with `AddIgnoredActor(Owner)`. |
+| **Escape or Gamepad Start fails to open pause menu** | Double-trigger on exact same frame (Action mapping + Tick polling) | Implement `if (LastPauseToggleFrame == GFrameCounter) return;` latch in PlayerController. |
+| **Master volume controls do not change sound levels** | Setting variable modified without calling Unreal audio device | Call `FAudioDevice::SetTransientPrimaryVolume(Volume)` or apply SoundClass mix override. |
+| **Bullets veer wildly sideways during banked turns** | Raw aircraft velocity vector added to projectile velocity | Project velocity along barrel forward vector: `FVector::DotProduct(Vel, Dir) * Dir`. |
+| **Aircraft flies sideways ("crabbing") or camera looks into strut** | FBX coordinate mismatch (+Y forward in DCC vs +X forward in UE) | Re-import FBX with Yaw offset `-90.0°` to align nose with Unreal $+X$ forward axis. |
+| **Inno Setup compilation fails with Error 32** | Output installer executable is locked by running process | Auto-increment version (e.g. `v1.1`) or terminate hanging installer tasks before compiling. |
+| **Packaged game occupies ~1 GB on disk** | Visual Studio PDB symbols (320+ MB) and unused plugins included | Add `Excludes: "*.pdb,*.log"` in Inno Setup; compile with `-clientconfig=Shipping`. |
+

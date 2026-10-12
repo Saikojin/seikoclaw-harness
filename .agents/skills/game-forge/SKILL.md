@@ -67,8 +67,13 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
    - Identify 3–5 shipped reference games in the target genre/visual tier.
    - Save high-res screenshots to `refs-locked/` with provenance documented in `refs-locked/SOURCES.md`.
    - Author `art/BAR.md` defining the non-negotiable **Visual Bar** (Silhouette, Value Hierarchy, Palette Harmony, Resolution Density, Motion Polish).
-4. **Execute `gdd-generator` & `json-canvas`**: Compile findings into `docs/design/GDD.md`, `docs/design/BRIEF.md`, and generate visual verb loops/quest trees into `docs/design/quest_graph.canvas`.
-5. **HITL Gate 1 Checkpoint**: Present GDD summary, locked refs, and Visual Bar to user for approval.
+4. **Execute `gdd-generator`, `json-canvas` & Author Foundations Matrix**:
+   - Compile findings into `docs/design/GDD.md`, `docs/design/BRIEF.md`, and generate visual verb loops/quest trees into `docs/design/quest_graph.canvas`.
+   - Read [`GAME_FOUNDATIONS_BASELINE.md`](GAME_FOUNDATIONS_BASELINE.md) and construct the **16-Pillar Foundations Baseline Matrix** with proposed defaults tailored to the target genre and explicit user override options.
+5. **HITL Gate 1 Checkpoint (Interactive Proposal & Foundations Callout)**:
+   - Present GDD summary, locked refs, Visual Bar (`art/BAR.md`), and the **Proposed Foundations Baseline Matrix**.
+   - Explicitly prompt the user with the Foundations Callout: *"Review the proposed 16 baseline options. If your design requires modifications (e.g. permadeath instead of restart, timer instead of HP, or mouse-only controls), call out your overrides now before prototyping begins!"*
+   - Record approved baseline parameters into `docs/design/game_manifest.json` under `foundations_config`.
 
 ---
 

@@ -9,10 +9,10 @@ author: Saikojin (SeikoClaw)
 Index of canonical developer, game-dev, and autonomous harness skills available in `.agents/skills/`:
 
 ## 1. Game Development & Visual Parity (Master Framework & Toolkit)
-- [game-forge](../game-forge/SKILL.md) — Master autonomous game creation framework: coordinates Stage Gates A–E, locked reference pipeline (`refs-locked/`), zero-install prototyping, balance modeling, assets, developer workbenches, Side-by-Side (SxS) Visual Bar parity loops, and stuck-loop diagnoser ($D^*$).
+- [game-forge](../game-forge/SKILL.md) — Master autonomous game creation framework: coordinates Stage Gates A–E, locked reference pipeline (`refs-locked/`), 16-Pillar Configurable Foundations Baseline Matrix (`GAME_FOUNDATIONS_BASELINE.md`) with explicit user override callouts in Stage A, zero-install prototyping, balance modeling, assets, developer workbenches, Side-by-Side (SxS) Visual Bar parity loops, and stuck-loop diagnoser ($D^*$).
 - [game-design-critic](../game-design-critic/SKILL.md) — Dual-mode critic persona: **Mode 1 (Gameplay & Mechanics Socratic Critic)** for core loops and player feel; **Mode 2 (Visual Parity & SxS Critic)** for forensic reference comparison, Anti-Soft-Pass enforcement, and coordinate-mapped punch lists.
 - [game-developer](../game-developer/SKILL.md) — Lead Tooling Architect: breaks down design reviews into linear creation pipelines with custom workbenches, asset scripts, and validators.
-- [gdd-generator](../gdd-generator/SKILL.md) — Synthesizes vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` and `docs/design/BRIEF.md` specifications.
+- [gdd-generator](../gdd-generator/SKILL.md) — Synthesizes vision plans, critic reviews, and ingested notes into living `docs/design/GDD.md` (featuring Module 6: Foundations Baseline Matrix & User Overrides) and `docs/design/BRIEF.md` specifications.
 - [scope-surgeon](../scope-surgeon/SKILL.md) — Ruthlessly cuts game design scope to a testable 30–90 second vertical micro-slice in `VERTICAL_SLICE_SPEC.md` format.
 - [game-prototype-builder](../game-prototype-builder/SKILL.md) — Builds zero-install single-file HTML5 Canvas games (`prototype.html`) with Web Audio API synth sounds, live tuning sliders, and telemetry HUDs.
 - [game-systems-modeler](../game-systems-modeler/SKILL.md) — Interactive Chart.js simulators (`balance_simulator.html`) and canonical balance JSON storage (`docs/design/balance.json`).
@@ -21,13 +21,13 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [mood-board-curator](../mood-board-curator/SKILL.md) — Curates visual/audio reference galleries (`mood_board.html`) and extracts `style_markers.json`.
 - [asset-generator](../asset-generator/SKILL.md) — On-demand 2D game asset creation (textures, sprites, layers, backdrops) via Gemini image generation.
 - [blender-developer](../blender-developer/SKILL.md) — Autonomous live Blender 3D procedural modeling, PBR material creation, Poly Haven / Poly Pizza asset ingestion, 8-directional isometric sprite rendering, and visual self-verification via Blender MCP.
-- [unreal-engine-developer](../unreal-engine-developer/SKILL.md) — Live Unreal Engine editor automation, Blueprint authoring, and MCP bridge orchestration via UnrealMCP.
-- [unity-developer](../unity-developer/SKILL.md) — Live Unity Engine editor automation, C# Roslyn scripting, GameObject/Prefab authoring, and MCP bridge orchestration via Unity-MCP (`unity-mcp-cli` / `gamedev-mcp-server`).
-- [godot-developer](../godot-developer/SKILL.md) — Live Godot Engine editor automation, GDScript and C# scripting, Scene and Node authoring, and MCP bridge orchestration via Godot-MCP (`godot-cli` / `gamedev-mcp-server`).
+- [unreal-engine-developer](../unreal-engine-developer/SKILL.md) / [unreal-developer](../unreal-developer/SKILL.md) — Live Unreal Engine editor automation, Blueprint authoring, and MCP bridge orchestration via UnrealMCP, enforcing Chaos physics raycast discipline, frame-latch input debouncing, and shipping footprint hygiene.
+- [unity-developer](../unity-developer/SKILL.md) / [unity-engine-developer](../unity-engine-developer/SKILL.md) — Live Unity Engine editor automation, C# Roslyn scripting, GameObject/Prefab authoring, and MCP bridge orchestration via Unity-MCP, enforcing URP anti-magenta shaders, new Input System ergonomics, and headless build packaging.
+- [godot-developer](../godot-developer/SKILL.md) / [godot-engine-developer](../godot-engine-developer/SKILL.md) — Live Godot Engine editor automation, GDScript and C# scripting, Scene and Node authoring, and MCP bridge orchestration via Godot-MCP, enforcing -Z character heading discipline, input map isolation, and headless Windows export.
 - [obsidian-atlas-vtt](../obsidian-atlas-vtt/SKILL.md) — Virtual Tabletop scene authoring inside Obsidian with Atlas VTT: `.atlasmap` JSON scenes, Universal VTT (`.uvtt`) map imports, note pins with inline dice rolling, and modular `.atlas-collection.zip` bundles.
 
 ## 2. Quality Engineering & Gatekeeping
-- [seikojin-qa](../seikojin-qa/SKILL.md) — Automated QA Gatekeeper: QA Strategist (RBT / Rabbit Path) and QA Engineer (100% automation pass rate, Clean Slate wipe, Visual Defect Punch Lists, and QA Constitution Rule #8 Anti-Soft-Pass).
+- [seikojin-qa](../seikojin-qa/SKILL.md) — Automated QA Gatekeeper: QA Strategist (RBT / Rabbit Path) and QA Engineer (100% automation pass rate, Clean Slate wipe, Non-Headless live windowed execution, `[E2E_CONTRACT]` task certification, Visual Defect Punch Lists, and QA Constitution Rule #8 Anti-Soft-Pass).
 - [break-ui](../break-ui/SKILL.md) — Adversarial UI stress-testing: feeds components worst-case realistic data (long names, missing avatars, extreme counts, non-Latin text) behind a dev-only toggle to catch layout breaking before production.
 - [review-animations](../review-animations/SKILL.md) — 10 non-negotiable motion standards gatekeeper (justification, sub-300ms budget, origin-aware popovers, exit faster than enter, zero reflow) with companion `STANDARDS.md`.
 - [seikoclaw-browser-qa-workflow](../seikoclaw-browser-qa-workflow/SKILL.md) — Browser automation, visual layout verification, and console error audits.
@@ -37,7 +37,7 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [retro](../retro/SKILL.md) — Session retrospective optimizing the agent environment: pushes mechanical errors to deterministic checks (linters, hooks, CI) and judgment calls to coding standards.
 
 ## 3. Architecture & Task Orchestration
-- [architect](../architect/SKILL.md) — Decomposes high-level goals into granular DAG tasks and `task.md` checklists with `[GATE: QA]` and `[GATE: VISUAL_CRITIC]` verification contracts.
+- [architect](../architect/SKILL.md) / [seikoclaw-architect](../seikoclaw-architect/SKILL.md) — Decomposes high-level goals into granular DAG tasks and `task.md` checklists with `[GATE: QA]` and `[GATE: VISUAL_CRITIC]` verification contracts, auditing game foundation baselines against user overrides.
 - [implement](../implement/SKILL.md) — Builds work per ticket or spec with automated verification *(aliases: `executor`)*.
 - [implement-spec](../implement-spec/SKILL.md) — Whole-spec parallel DAG orchestrator: runs concurrent implementer subagents across Git worktrees against a shared integration branch.
 - [tdd](../tdd/SKILL.md) — Test-driven development: red→green loop at pre-agreed seams.
