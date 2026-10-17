@@ -391,49 +391,40 @@ class SeikoClaw:
                 print(f"[Completed] {res}")
 
     def sync_global(self):
-        """Syncs local .agents and third-party skills to global locations."""
+        """Syncs local .agents and third-party skills to global locations in ~/.gemini/config/."""
         import shutil
         user_home = os.path.expanduser("~")
-        global_root = os.path.join(user_home, ".gemini", "antigravity")
+        global_config = os.path.join(user_home, ".gemini", "config")
+        global_skills = os.path.join(global_config, "skills")
+        global_workflows = os.path.join(global_config, "workflows")
         
-        mapping = {
-            ".agents/workflows": os.path.join(global_root, "global_workflows"),
-            ".agents/skills": os.path.join(global_root, "global_skills"),
-            ".agents/modular_skills": os.path.join(global_root, "skills")
-        }
-        
-        print("[SeikoClaw] Starting Global Sync...")
-        # 1. Sync custom assets
-        for local_dir, global_dir in mapping.items():
-            if not os.path.exists(local_dir):
-                continue
-            os.makedirs(global_dir, exist_ok=True)
-            for item in os.listdir(local_dir):
-                s = os.path.join(local_dir, item)
-                d = os.path.join(global_dir, item)
+        print("[SeikoClaw] Starting Global Sync to ~/.gemini/config/...")
+        os.makedirs(global_skills, exist_ok=True)
+        os.makedirs(global_workflows, exist_ok=True)
+
+        # 1. Sync canonical skills (flat, 1 level deep for Antigravity discovery)
+        local_skills = ".agents/skills"
+        if os.path.exists(local_skills):
+            for item in os.listdir(local_skills):
+                if item.startswith("."):
+                    continue
+                s = os.path.join(local_skills, item)
+                d = os.path.join(global_skills, item)
                 if os.path.isdir(s):
                     if os.path.exists(d):
                         shutil.rmtree(d)
                     shutil.copytree(s, d)
-                    print(f"[COPIED-DIR] {item} -> {global_dir}")
-                elif os.path.isfile(s):
+                    print(f"[COPIED-SKILL] {item} -> {global_skills}")
+
+        # 2. Sync workflows
+        local_workflows = ".agents/workflows"
+        if os.path.exists(local_workflows):
+            for item in os.listdir(local_workflows):
+                s = os.path.join(local_workflows, item)
+                d = os.path.join(global_workflows, item)
+                if os.path.isfile(s):
                     shutil.copy2(s, d)
-                    print(f"[COPIED-FILE] {item} -> {global_dir}")
-        
-        # 2. Sync Third-Party Agent Skills (Preserving directory structure)
-        tp_skills_root = "third-party/agent-skills/skills"
-        global_skills_dest = os.path.join(global_root, "skills", "third-party")
-        if os.path.exists(tp_skills_root):
-            print("[SeikoClaw] Syncing Third-Party Skills (Modular)...")
-            os.makedirs(global_skills_dest, exist_ok=True)
-            for skill_name in os.listdir(tp_skills_root):
-                skill_dir = os.path.join(tp_skills_root, skill_name)
-                if os.path.isdir(skill_dir):
-                    dest_dir = os.path.join(global_skills_dest, skill_name)
-                    if os.path.exists(dest_dir):
-                        shutil.rmtree(dest_dir)
-                    shutil.copytree(skill_dir, dest_dir)
-                    print(f"[SYNCED-DIR] {skill_name} -> {global_skills_dest}")
+                    print(f"[COPIED-WORKFLOW] {item} -> {global_workflows}")
 
     def reflect_on_task(self, task_file: str):
         """Analyzes a task file and synthesizes or evolves a skill using pluggable LLM provider."""

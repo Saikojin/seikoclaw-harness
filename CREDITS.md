@@ -41,7 +41,13 @@ The autonomous infrastructure sidecar, QA test automation suites, multi-agent co
 - **Autonomous Infrastructure**: `seikoclaw-harness`, `seikojin-qa` (RBT, adversarial gating & QA engineer cabinet), `seikoclaw-red-team`, `seikoclaw-operating-map`, `seikoclaw-shipper`, `seikoclaw-skill-extractor`, `seikoclaw-test-memory`, `seikoclaw-frontend-taste`, `seikoclaw-goal-prompter`, `seikoclaw-ingestor`, `seikoclaw-browser-qa-workflow`, `agent-guardrails`, `agent-self-scheduling`, `distribute-skills`, `architect`, `coverage-loop`, `sweep-loop`, `status`, `learnings`, `modernize`, `interviewer`, `youtube-transcript`.
 - **Game Forge Suite**: `game-forge`, `game-design-critic`, `scope-surgeon`, `gdd-generator`, `game-systems-modeler`, `game-prototype-builder`, `mood-board-curator`, `asset-generator`, `game-developer`, `genre-competitor-analysis`, `playtest-feedback-loop`.
 
+### 7. Poly Haven ([polyhaven.com](https://polyhaven.com/))
+Open public library for CC0 3D assets, PBR textures, and environment HDRIs, founded by Greg Zaal and Rob Tuytel:
+- **CC0 Asset Infrastructure**: Powers the `polyhaven-assets` skill and `scripts/polyhaven.py` pipeline.
+- **PBR Realism & Visual Parity**: Supplies photorealistic environment lighting, ground textures, and 3D props that anchor Game Forge's visual parity critique against locked shipped-game references without paywalls or restrictive licensing.
+- **Licensing**: All Poly Haven content is released under the [Creative Commons 0 (CC0)](https://creativecommons.org/publicdomain/zero/1.0/) public domain dedication. Support their work on [Patreon](https://www.patreon.com/polyhaven).
+
 ---
 
 ## 📜 License & Usage
-All adapted skills maintain compliance with their respective open licenses (MIT / Apache 2.0). Derivative improvements, security guardrails, candidate skill staging, and sidecar tooling are provided under the MIT License.
+All adapted skills maintain compliance with their respective open licenses (MIT / Apache 2.0 / CC0). Derivative improvements, security guardrails, candidate skill staging, and sidecar tooling are provided under the MIT License. Poly Haven assets remain under Creative Commons 0 (CC0).

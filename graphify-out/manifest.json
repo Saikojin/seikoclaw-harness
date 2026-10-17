@@ -125,9 +125,9 @@
     "semantic_hash": ""
   },
   "seikoclaw.py": {
-    "mtime": 1791415610.9049642,
-    "seen": 1791515082.839159,
-    "ast_hash": "85cb97526c339b8b121c5501e692198e",
+    "mtime": 1792215007.037949,
+    "seen": 1792261558.6133041,
+    "ast_hash": "66a9f447699c2168faf2d842720a4dbc",
     "semantic_hash": ""
   },
   "tests/test_gates.py": {
@@ -197,8 +197,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/architect/SKILL.md": {
-    "mtime": 1791779621.0425596,
-    "seen": 1791779716.8358316,
+    "mtime": 1791780570.4140103,
+    "seen": 1792261558.6150053,
     "ast_hash": "9e86b7d90f7183cbe4ce1c9690cd271a",
     "semantic_hash": ""
   },
@@ -263,8 +263,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/game-forge/SKILL.md": {
-    "mtime": 1791777486.9747732,
-    "seen": 1791777797.4423292,
+    "mtime": 1791780570.414526,
+    "seen": 1792261558.6201758,
     "ast_hash": "465e7c05dbe78a9cdb7324bcaaf9310c",
     "semantic_hash": ""
   },
@@ -281,8 +281,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/gdd-generator/SKILL.md": {
-    "mtime": 1791777528.9037557,
-    "seen": 1791777797.4425235,
+    "mtime": 1791780570.4150403,
+    "seen": 1792261558.6206994,
     "ast_hash": "32119cb117614a0f80ec2b9e93af6a3d",
     "semantic_hash": ""
   },
@@ -407,9 +407,9 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-harness/SKILL.md": {
-    "mtime": 1791779665.8588972,
-    "seen": 1791779716.8457384,
-    "ast_hash": "59566ff63a03d04f4b56863042f7721a",
+    "mtime": 1792261217.439444,
+    "seen": 1792261558.627025,
+    "ast_hash": "07ecd2981d28f8295346de13ad45136f",
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-ingestor/SKILL.md": {
@@ -449,26 +449,26 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/SKILL.md": {
-    "mtime": 1791779450.3115988,
-    "seen": 1791779716.8461251,
+    "mtime": 1791780570.416603,
+    "seen": 1792261558.6276586,
     "ast_hash": "7af9c6078623a816c7b863d1f0a4b325",
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/resources/personas/Engineer.md": {
-    "mtime": 1791779531.03093,
-    "seen": 1791779716.8461263,
+    "mtime": 1791780570.416603,
+    "seen": 1792261558.62766,
     "ast_hash": "58ed14e705ce4b36ac084ae8632fd02e",
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/resources/personas/Strategist.md": {
-    "mtime": 1791779494.519759,
-    "seen": 1791779716.8461273,
+    "mtime": 1791780570.4171257,
+    "seen": 1792261558.6276612,
     "ast_hash": "2976d72ed64f1714d296ce67b07b6dbd",
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/resources/rules.md": {
-    "mtime": 1791779472.9623713,
-    "seen": 1791779716.8461285,
+    "mtime": 1791780570.4171257,
+    "seen": 1792261558.6276627,
     "ast_hash": "8192e84f5622cab989e778f7553a9e26",
     "semantic_hash": ""
   },
@@ -611,9 +611,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1791415610.8821614,
-    "seen": 1791515082.8534303,
-    "ast_hash": "9c8f56c0d96a85cea52a89edd9255a1f",
+    "mtime": 1792265634.7445166,
+    "seen": 1792265778.9783652,
+    "ast_hash": "385b2df5998f17bfc10e4441eb30ad1b",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE_EVALUATION.md": {
@@ -719,9 +719,9 @@
     "semantic_hash": ""
   },
   "CREDITS.md": {
-    "mtime": 1791415610.8816452,
-    "seen": 1791515082.853429,
-    "ast_hash": "37be6910e5cae56388e715459ca79d07",
+    "mtime": 1792265575.8771913,
+    "seen": 1792265778.978363,
+    "ast_hash": "4e03eadd2d5ccda17232d3c5f974fd86",
     "semantic_hash": ""
   },
   ".agents/hooks/session-start.ps1": {
@@ -749,9 +749,9 @@
     "semantic_hash": ""
   },
   "scripts/export_skills.py": {
-    "mtime": 1791415610.904451,
-    "seen": 1791515082.8388119,
-    "ast_hash": "72409bc740b299c3334c6af70172aed3",
+    "mtime": 1792214952.9728668,
+    "seen": 1792261558.6129751,
+    "ast_hash": "0e127ff79ab874fed021827c2c57d86f",
     "semantic_hash": ""
   },
   "tests/test_decision_trails.py": {
@@ -1517,9 +1517,9 @@
     "semantic_hash": ""
   },
   "evals/routing/routing_cases.json": {
-    "mtime": 1791415610.8826811,
-    "seen": 1791515082.836164,
-    "ast_hash": "7a1f75b5b95fdb4a0d881906951d8bbd",
+    "mtime": 1792261304.3057425,
+    "seen": 1792261558.61184,
+    "ast_hash": "0fcc94a42e507bb4d422fbb1e8060e67",
     "semantic_hash": ""
   },
   "scripts/eval_skill_routing.py": {
@@ -1535,9 +1535,9 @@
     "semantic_hash": ""
   },
   "tests/test_skill_evals.py": {
-    "mtime": 1791415610.906016,
-    "seen": 1791515082.8401794,
-    "ast_hash": "2cdf8d30c72da02670305be58ac074d5",
+    "mtime": 1792261398.7223084,
+    "seen": 1792261558.6137462,
+    "ast_hash": "0a8b7c6ad55fef1709229dafb242308a",
     "semantic_hash": ""
   },
   "references/accessibility-checklist.md": {
@@ -1571,9 +1571,9 @@
     "semantic_hash": ""
   },
   ".agents/skills/unreal-engine-developer/SKILL.md": {
-    "mtime": 1791767339.8924994,
-    "seen": 1791777797.448345,
-    "ast_hash": "39781e88061f58c60d247a9be5d9bb67",
+    "mtime": 1791780570.4186728,
+    "seen": 1792261558.6293187,
+    "ast_hash": "d76fdcca0f6355d481d93bbcf9e92588",
     "semantic_hash": ""
   },
   "unreal-mcp-main/Python/README.md": {
@@ -1667,8 +1667,8 @@
     "semantic_hash": ""
   },
   "scripts/unity-harness.ps1": {
-    "mtime": 1791587516.9651895,
-    "seen": 1791777797.437852,
+    "mtime": 1791780570.4418845,
+    "seen": 1792261558.6132407,
     "ast_hash": "8abd7ed7aeaf7217e38af3b112345a7d",
     "semantic_hash": ""
   },
@@ -1679,15 +1679,15 @@
     "semantic_hash": ""
   },
   ".agents/skills/unity-developer/SKILL.md": {
-    "mtime": 1791770924.1294296,
-    "seen": 1791777797.4483407,
-    "ast_hash": "75936fd765d7af48d9014ccb72b84a35",
+    "mtime": 1791780570.4176414,
+    "seen": 1792261558.6293135,
+    "ast_hash": "38d1abd4251419e5712bc19cc4ef9679",
     "semantic_hash": ""
   },
   ".agents/skills/unity-engine-developer/SKILL.md": {
-    "mtime": 1791770985.6158667,
-    "seen": 1791777797.4483423,
-    "ast_hash": "77cf25110747fa1c7d71a10cdea693e9",
+    "mtime": 1791780570.418161,
+    "seen": 1792261558.6293156,
+    "ast_hash": "2493160c0ce990642c50d7faffa6d569",
     "semantic_hash": ""
   },
   "scripts/godot-harness.ps1": {
@@ -1703,27 +1703,63 @@
     "semantic_hash": ""
   },
   ".agents/skills/godot-developer/SKILL.md": {
-    "mtime": 1791767098.3395185,
-    "seen": 1791777797.442596,
-    "ast_hash": "fc46b2f6997483d0806cdc7a4e8e0363",
+    "mtime": 1791780570.4150403,
+    "seen": 1792261558.6208198,
+    "ast_hash": "e8e9194ce1c3fd8bd1de6311c5d690f8",
     "semantic_hash": ""
   },
   ".agents/skills/godot-engine-developer/SKILL.md": {
-    "mtime": 1791767145.0187478,
-    "seen": 1791777797.4425974,
-    "ast_hash": "11c7cbc565bb3846705258f18cc34352",
+    "mtime": 1791780570.4155607,
+    "seen": 1792261558.6208217,
+    "ast_hash": "4969ca2856381617113581ef66303dc8",
     "semantic_hash": ""
   },
   ".agents/skills/game-forge/GAME_FOUNDATIONS_BASELINE.md": {
-    "mtime": 1791760213.245323,
-    "seen": 1791777797.4423273,
-    "ast_hash": "908908ffd50e200dc1ba9f9335a7f40e",
+    "mtime": 1791780570.414526,
+    "seen": 1792261558.6201725,
+    "ast_hash": "ba5ada2edeacee0a1d8bc040e2822569",
     "semantic_hash": ""
   },
   ".agents/skills/unreal-developer/SKILL.md": {
-    "mtime": 1791777654.8982098,
-    "seen": 1791777797.4483433,
-    "ast_hash": "99bee36e3f209ba099f9673458558b86",
+    "mtime": 1791780570.418161,
+    "seen": 1792261558.629317,
+    "ast_hash": "c213a0b6120fbc737042009cb8c6cc02",
+    "semantic_hash": ""
+  },
+  "scripts/polyhaven.py": {
+    "mtime": 1792265681.4300492,
+    "seen": 1792265778.9644506,
+    "ast_hash": "ab9270ff21a510350e545c775be59daf",
+    "semantic_hash": ""
+  },
+  "tests/test_polyhaven.py": {
+    "mtime": 1792261360.5604022,
+    "seen": 1792261558.6137447,
+    "ast_hash": "ae6983f79306c1d846ec7079188a86ba",
+    "semantic_hash": ""
+  },
+  ".agents/skills/polyhaven-assets/SKILL.md": {
+    "mtime": 1792265710.928854,
+    "seen": 1792265778.9727647,
+    "ast_hash": "e57cd2eeebffe4ef63b35ad1f9d9edd3",
+    "semantic_hash": ""
+  },
+  "HANDOFF.md": {
+    "mtime": 1792261579.478374,
+    "seen": 1792265778.9783645,
+    "ast_hash": "1fd5923a89621781f64ea0c43b6f11a3",
+    "semantic_hash": ""
+  },
+  "docs/POLYHAVEN_INTEGRATION_PLAN.md": {
+    "mtime": 1792259573.6430163,
+    "seen": 1792261558.6323645,
+    "ast_hash": "9b02a08543dea86b613de6f32030b02e",
+    "semantic_hash": ""
+  },
+  "docs/adr/0003-polyhaven-asset-pipeline.md": {
+    "mtime": 1792259543.627664,
+    "seen": 1792261558.6325421,
+    "ast_hash": "263b6437db92735b8aa0c8716a7f8d6e",
     "semantic_hash": ""
   }
 }
