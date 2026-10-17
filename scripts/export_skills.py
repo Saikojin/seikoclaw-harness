@@ -16,7 +16,7 @@ HARNESS_MAP = {
     "claude": os.path.expanduser("~/.claude/skills"),
     "codex": os.path.expanduser("~/.codex/skills"),
     "pi": os.path.expanduser("~/.pi/skills"),
-    "antigravity": os.path.expanduser("~/.gemini/skills"),
+    "antigravity": os.path.expanduser("~/.gemini/config/skills"),
     "agents": os.path.expanduser("~/.agents/skills")
 }
 

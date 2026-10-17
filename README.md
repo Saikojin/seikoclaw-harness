@@ -16,6 +16,7 @@
 - **P0 Safety Guarantees**: Non-destructive defaults. Skill evolution stages candidates to `.agents/skills/.candidates/` instead of overwriting production files.
 - **Pre-Execution Guardrails**: Cross-platform POSIX and PowerShell pre-exec safety hooks that intercept catastrophic shell commands (`rm -rf /`, `curl | bash`, forced git pushes) before execution.
 - **Game Forge**: An autonomous end-to-end game creation pipeline from Socratic design critiques and GDDs to zero-install HTML5 Canvas playable prototypes.
+- **Poly Haven CC0 Asset Pipeline**: Automated search, metadata inspection, and downloading of CC0 textures, HDRIs, and models with strict 2K resolution default gating and multi-engine adapters for Godot, Unity, Unreal, and Blender (`scripts/polyhaven.py`, `polyhaven-assets`).
 
 ---
 
@@ -128,6 +129,7 @@ SeikoClaw builds upon foundational work from:
 - **Lauren Tan (`@poteto`)**: Cursor `pstack` plugin, 24 First Principles, 23 Playbooks, anti-slop hygiene (`unslop`, `deslop`, `no-comments`), `/interrogate`, `/arena`, `/blast-radius`, `/show-me-your-work`.
 - **Michael Denyer**: `pstack-claude` multi-harness translation, SessionStart hooks, and open standard packaging.
 - **Addy Osmani**: Production-grade engineering lifecycles, Tier 2 skill routing evals, Google SWE culture, Core Web Vitals (`performance-checklist`), and WCAG accessibility standards.
+- **Poly Haven ([polyhaven.com](https://polyhaven.com/))**: Greg Zaal, Rob Tuytel, and the Poly Haven community for the 100% free CC0 PBR textures, HDRIs, and 3D models integrated into our game development tooling and visual parity pipelines.
 - **Saikojin (SeikoClaw)**: OpenBrain sidecar, QA test automation (`seikojin-qa`), execution security guardrails, and the **Game Forge** creation suite.
 
 See [`CREDITS.md`](CREDITS.md) for full details.

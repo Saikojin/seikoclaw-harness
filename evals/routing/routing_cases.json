@@ -208,5 +208,45 @@
     "category": "obsidian",
     "query": "Virtual tabletop workflows in Obsidian with Atlas VTT scene creation and uvtt imports",
     "expected": "obsidian-atlas-vtt"
+  },
+  {
+    "category": "game_assets",
+    "query": "Search and download CC0 textures and HDRIs from Poly Haven with 2K resolution gating",
+    "expected": "polyhaven-assets"
+  },
+  {
+    "category": "game_assets",
+    "query": "Fetch Poly Haven wood PBR textures and generate Godot StandardMaterial3D",
+    "expected": "polyhaven-assets"
+  },
+  {
+    "category": "game_assets",
+    "query": "Download Poly Haven HDRI environment sky and transpile for Blender",
+    "expected": "polyhaven-assets"
+  },
+  {
+    "category": "game_assets",
+    "query": "Ingest CC0 PBR textures from Poly Haven with DirectX normal maps for Unity",
+    "expected": "polyhaven-assets"
+  },
+  {
+    "category": "game_assets",
+    "query": "Inspect Poly Haven asset file sizes and metadata before downloading",
+    "expected": "polyhaven-assets"
+  },
+  {
+    "category": "game_assets",
+    "query": "Manage Poly Haven local LRU cache and prune storage below 10GB",
+    "expected": "polyhaven-assets"
+  },
+  {
+    "category": "game_assets",
+    "query": "Fetch brick texture from Poly Haven at 2k resolution with multi-engine adapters",
+    "expected": "polyhaven-assets"
+  },
+  {
+    "category": "game_assets",
+    "query": "Download CC0 environment lighting HDRI from Poly Haven",
+    "expected": "polyhaven-assets"
   }
 ]
