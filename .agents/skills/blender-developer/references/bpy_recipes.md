@@ -172,3 +172,178 @@ def export_active_as_glb(target_filepath):
 # Example usage:
 # export_active_as_glb("d:/DevWorkspace/GameProject/assets/models/chest.glb")
 ```
+
+---
+
+## 5. Appending / Linking External `.blend` Assets (BlendSwap Pipeline)
+
+Appends collections, hierarchies, and objects from an external `.blend` library into the active scene, preserving parent-child rigs, selecting new items, and automatically grounding to $Z=0$:
+
+```python
+import bpy
+import mathutils
+from pathlib import Path
+
+def append_blend_asset(blend_filepath, link=False, ground_to_z=True):
+    blend_path = Path(blend_filepath).resolve().as_posix()
+    if not Path(blend_path).exists():
+        raise FileNotFoundError(f"Asset file not found: {blend_path}")
+
+    # Deselect all objects in current scene
+    bpy.ops.object.select_all(action='DESELECT')
+
+    # 1. Inspect and load data-blocks
+    with bpy.data.libraries.load(blend_path, link=link) as (data_from, data_to):
+        if data_from.collections:
+            # Prefer collections: preserves hierarchies, armatures, and group transforms
+            data_to.collections = list(data_from.collections)
+        elif data_from.objects:
+            data_to.objects = list(data_from.objects)
+        elif data_from.materials:
+            data_to.materials = list(data_from.materials)
+
+    # 2. Link newly loaded collections/objects to active scene collection
+    appended_objects = []
+    if hasattr(data_to, 'collections') and data_to.collections:
+        for coll in data_to.collections:
+            if coll:
+                bpy.context.scene.collection.children.link(coll)
+                appended_objects.extend(coll.all_objects)
+    elif hasattr(data_to, 'objects') and data_to.objects:
+        for obj in data_to.objects:
+            if obj:
+                bpy.context.scene.collection.objects.link(obj)
+                appended_objects.append(obj)
+
+    # 3. Grounding and View Selection
+    if appended_objects:
+        for obj in appended_objects:
+            if obj:
+                obj.select_set(True)
+
+        if ground_to_z:
+            mesh_objs = [o for o in appended_objects if o and o.type == 'MESH']
+            if mesh_objs:
+                all_min_z = []
+                for obj in mesh_objs:
+                    bbox_corners = [obj.matrix_world @ mathutils.Vector(corner) for corner in obj.bound_box]
+                    all_min_z.append(min(corner.z for corner in bbox_corners))
+                global_min_z = min(all_min_z)
+                # Translate root parent objects only
+                for root in [o for o in appended_objects if o and o.parent is None]:
+                    root.location.z -= global_min_z
+
+        bpy.context.view_layer.objects.active = appended_objects[0]
+        print(f"Loaded {len(appended_objects)} objects from {blend_path}")
+        return appended_objects
+
+    return []
+
+# Example usage:
+# append_blend_asset("d:/DevWorkspace/SeikoClaw-Harness/assets/blendswap/chest.blend")
+```
+
+---
+
+## 6. In-Scene DCC Validation & Punch Remediation Recipes
+
+### A. Quick In-Scene Assertion Script (Execute via `execute_blender_code`)
+```python
+import bpy, bmesh, mathutils
+
+def validate_active_model(max_tris=15000):
+    obj = bpy.context.active_object
+    if not obj or obj.type != 'MESH':
+        return {"status": "FAIL", "error": "No active mesh object"}
+
+    errors = []
+    
+    # 1. Scale applied check
+    if any(abs(s - 1.0) > 1e-4 for s in obj.scale):
+        errors.append(f"Unapplied scale: {tuple(round(s, 4) for s in obj.scale)}. Run bpy.ops.object.transform_apply(scale=True)")
+
+    # 2. Ground check
+    bbox = [obj.matrix_world @ mathutils.Vector(c) for c in obj.bound_box]
+    min_z = min(c.z for c in bbox)
+    if abs(min_z) > 0.005:
+        errors.append(f"Not grounded: min Z is {min_z:.4f}m. Lowest vertex must rest on Z=0")
+
+    # 3. Manifold check
+    bm = bmesh.new()
+    bm.from_mesh(obj.data)
+    non_manifold_edges = [e for e in bm.edges if not e.is_manifold]
+    loose_verts = [v for v in bm.verts if len(v.link_edges) == 0]
+    bm.free()
+
+    if non_manifold_edges:
+        errors.append(f"Mesh has {len(non_manifold_edges)} non-manifold edges")
+    if loose_verts:
+        errors.append(f"Mesh has {len(loose_verts)} loose vertices")
+
+    # 4. Triangle budget
+    tri_count = sum(len(p.vertices) - 2 for p in obj.data.polygons)
+    if tri_count > max_tris:
+        errors.append(f"Poly count {tri_count} exceeds budget of {max_tris}")
+
+    status = "PASS" if not errors else "FAIL"
+    print(f"[{status}] Validation for '{obj.name}': {errors if errors else '0 defects'}")
+    return {"status": status, "triangles": tri_count, "errors": errors}
+
+# Run assertion
+validate_active_model(max_tris=15000)
+```
+
+### B. Common Actionable Remediation Snippets
+
+#### 1. Instant Transform & Grounding Fix
+```python
+import bpy, mathutils
+
+obj = bpy.context.active_object
+# Apply scale and rotation
+bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+
+# Snap minimum Z to 0.0
+bbox = [obj.matrix_world @ mathutils.Vector(c) for c in obj.bound_box]
+min_z = min(c.z for c in bbox)
+obj.location.z -= min_z
+bpy.ops.object.transform_apply(location=True, rotation=False, scale=False)
+```
+
+#### 2. Clean Non-Manifold Geometry & Remove Doubles
+```python
+import bpy, bmesh
+
+obj = bpy.context.active_object
+bm = bmesh.new()
+bm.from_mesh(obj.data)
+
+# Merge duplicate vertices within 0.1mm
+bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=0.0001)
+
+# Recalculate face normals outward
+bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+
+# Delete loose isolated geometry
+loose_verts = [v for v in bm.verts if len(v.link_edges) == 0]
+bmesh.ops.delete(bm, geom=loose_verts, context='VERTS')
+
+bm.to_mesh(obj.data)
+bm.free()
+obj.data.update()
+```
+
+#### 3. PBR Material Metallicity & Roughness Punch Fix
+```python
+import bpy
+
+mat = bpy.context.active_object.active_material
+if mat and mat.use_nodes:
+    bsdf = next(n for n in mat.node_tree.nodes if n.type == "BSDF_PRINCIPLED")
+    # Brass/Gold: Metallic 1.0, Roughness 0.2-0.3, Golden Base Color
+    bsdf.inputs["Metallic"].default_value = 1.0
+    bsdf.inputs["Roughness"].default_value = 0.25
+    bsdf.inputs["Base Color"].default_value = (0.78, 0.57, 0.22, 1.0)
+```
+
+

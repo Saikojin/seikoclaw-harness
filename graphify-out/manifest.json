@@ -125,9 +125,9 @@
     "semantic_hash": ""
   },
   "seikoclaw.py": {
-    "mtime": 1792215007.037949,
-    "seen": 1792261558.6133041,
-    "ast_hash": "66a9f447699c2168faf2d842720a4dbc",
+    "mtime": 1792299911.4871218,
+    "seen": 1792299992.4361038,
+    "ast_hash": "b27578fcbbda4ad3f35f8b479ab08e41",
     "semantic_hash": ""
   },
   "tests/test_gates.py": {
@@ -263,9 +263,9 @@
     "semantic_hash": ""
   },
   ".agents/skills/game-forge/SKILL.md": {
-    "mtime": 1791780570.414526,
-    "seen": 1792261558.6201758,
-    "ast_hash": "465e7c05dbe78a9cdb7324bcaaf9310c",
+    "mtime": 1792299962.4070485,
+    "seen": 1792299992.441698,
+    "ast_hash": "f0b537ac2f54fa0686cf0f7be2d00039",
     "semantic_hash": ""
   },
   ".agents/skills/game-prototype-builder/SKILL.md": {
@@ -407,8 +407,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-harness/SKILL.md": {
-    "mtime": 1792261217.439444,
-    "seen": 1792261558.627025,
+    "mtime": 1792266291.5380633,
+    "seen": 1792275088.6699104,
     "ast_hash": "07ecd2981d28f8295346de13ad45136f",
     "semantic_hash": ""
   },
@@ -449,9 +449,9 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/SKILL.md": {
-    "mtime": 1791780570.416603,
-    "seen": 1792261558.6276586,
-    "ast_hash": "7af9c6078623a816c7b863d1f0a4b325",
+    "mtime": 1792299826.5154169,
+    "seen": 1792299992.4469135,
+    "ast_hash": "bd2247be0d8e34dfadb75ab5b857cae3",
     "semantic_hash": ""
   },
   ".agents/skills/seikojin-qa/resources/personas/Engineer.md": {
@@ -611,9 +611,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792265634.7445166,
-    "seen": 1792265778.9783652,
-    "ast_hash": "385b2df5998f17bfc10e4441eb30ad1b",
+    "mtime": 1792892575.7437122,
+    "seen": 1792893005.8014772,
+    "ast_hash": "d4d197b07277d5d57ff333bed4aa7d24",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE_EVALUATION.md": {
@@ -719,8 +719,8 @@
     "semantic_hash": ""
   },
   "CREDITS.md": {
-    "mtime": 1792265575.8771913,
-    "seen": 1792265778.978363,
+    "mtime": 1792266291.5380633,
+    "seen": 1792275088.679335,
     "ast_hash": "4e03eadd2d5ccda17232d3c5f974fd86",
     "semantic_hash": ""
   },
@@ -749,8 +749,8 @@
     "semantic_hash": ""
   },
   "scripts/export_skills.py": {
-    "mtime": 1792214952.9728668,
-    "seen": 1792261558.6129751,
+    "mtime": 1792266291.564036,
+    "seen": 1792275088.656713,
     "ast_hash": "0e127ff79ab874fed021827c2c57d86f",
     "semantic_hash": ""
   },
@@ -1517,8 +1517,8 @@
     "semantic_hash": ""
   },
   "evals/routing/routing_cases.json": {
-    "mtime": 1792261304.3057425,
-    "seen": 1792261558.61184,
+    "mtime": 1792266291.5396478,
+    "seen": 1792275088.6551929,
     "ast_hash": "0fcc94a42e507bb4d422fbb1e8060e67",
     "semantic_hash": ""
   },
@@ -1535,8 +1535,8 @@
     "semantic_hash": ""
   },
   "tests/test_skill_evals.py": {
-    "mtime": 1792261398.7223084,
-    "seen": 1792261558.6137462,
+    "mtime": 1792266291.5655766,
+    "seen": 1792275088.6574578,
     "ast_hash": "0a8b7c6ad55fef1709229dafb242308a",
     "semantic_hash": ""
   },
@@ -1589,15 +1589,15 @@
     "semantic_hash": ""
   },
   ".agents/skills/blender-developer/SKILL.md": {
-    "mtime": 1791415610.8762975,
-    "seen": 1791515082.8421333,
-    "ast_hash": "b9b4f75013b55fbcb4f1f3598112bb04",
+    "mtime": 1792299725.6520903,
+    "seen": 1792299992.4394717,
+    "ast_hash": "42719d05dbb16e5805526b6614e6824c",
     "semantic_hash": ""
   },
   ".agents/skills/blender-developer/references/bpy_recipes.md": {
-    "mtime": 1791415610.8769593,
-    "seen": 1791515082.8421345,
-    "ast_hash": "a5b01d8f251e6bd76d6250c9dab527ea",
+    "mtime": 1792299751.758754,
+    "seen": 1792299992.4395466,
+    "ast_hash": "bc4389db1867432cef8a136620961f3b",
     "semantic_hash": ""
   },
   ".agents/skills/json-canvas/SKILL.md": {
@@ -1727,39 +1727,165 @@
     "semantic_hash": ""
   },
   "scripts/polyhaven.py": {
-    "mtime": 1792265681.4300492,
-    "seen": 1792265778.9644506,
-    "ast_hash": "ab9270ff21a510350e545c775be59daf",
+    "mtime": 1792266291.564547,
+    "seen": 1792275088.656836,
+    "ast_hash": "297ad9cc0638bce774f3e07a33e43c31",
     "semantic_hash": ""
   },
   "tests/test_polyhaven.py": {
-    "mtime": 1792261360.5604022,
-    "seen": 1792261558.6137447,
-    "ast_hash": "ae6983f79306c1d846ec7079188a86ba",
+    "mtime": 1792266291.5655766,
+    "seen": 1792275088.6574569,
+    "ast_hash": "78b2497ae9be65a66854eba9fe205845",
     "semantic_hash": ""
   },
   ".agents/skills/polyhaven-assets/SKILL.md": {
-    "mtime": 1792265710.928854,
-    "seen": 1792265778.9727647,
-    "ast_hash": "e57cd2eeebffe4ef63b35ad1f9d9edd3",
+    "mtime": 1792266291.5375516,
+    "seen": 1792275088.667985,
+    "ast_hash": "e8a789887c1ddff9442618a8936220c8",
     "semantic_hash": ""
   },
   "HANDOFF.md": {
-    "mtime": 1792261579.478374,
-    "seen": 1792265778.9783645,
-    "ast_hash": "1fd5923a89621781f64ea0c43b6f11a3",
+    "mtime": 1792266291.5385957,
+    "seen": 1792275088.6793375,
+    "ast_hash": "fcc892a2ad8af850c88f786f74b60ab6",
     "semantic_hash": ""
   },
   "docs/POLYHAVEN_INTEGRATION_PLAN.md": {
-    "mtime": 1792259573.6430163,
-    "seen": 1792261558.6323645,
-    "ast_hash": "9b02a08543dea86b613de6f32030b02e",
+    "mtime": 1792266291.5391269,
+    "seen": 1792275088.6794107,
+    "ast_hash": "364c4b599ce6227a0ef3a5411b9338f2",
     "semantic_hash": ""
   },
   "docs/adr/0003-polyhaven-asset-pipeline.md": {
-    "mtime": 1792259543.627664,
-    "seen": 1792261558.6325421,
-    "ast_hash": "263b6437db92735b8aa0c8716a7f8d6e",
+    "mtime": 1792266291.5396478,
+    "seen": 1792275088.6795483,
+    "ast_hash": "af0a002b945991a4623a108e88346d1b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/scripts/blendswap_client.py": {
+    "mtime": 1792274696.2871013,
+    "seen": 1792275088.6507232,
+    "ast_hash": "dc4ff68468f2910d4707f9d929dae2e5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/scripts/blendswap_mcp_server.py": {
+    "mtime": 1792274812.9675536,
+    "seen": 1792275088.6507275,
+    "ast_hash": "f3a81f50a77d70aba2a4e1b42f4da398",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/references/blendswap_api_guide.md": {
+    "mtime": 1792274866.3636322,
+    "seen": 1792275088.6618903,
+    "ast_hash": "9383926254e599dd8187e88a613644c6",
+    "semantic_hash": ""
+  },
+  "scripts/fetch_asset_references.py": {
+    "mtime": 1792352833.7118196,
+    "seen": 1792893005.7876763,
+    "ast_hash": "89ada23f20f1e7a46d841d26c71f399d",
+    "semantic_hash": ""
+  },
+  "scripts/validate_blender_asset.py": {
+    "mtime": 1792299579.6110618,
+    "seen": 1792299992.436102,
+    "ast_hash": "51d299d0239ddd1b8d129ec955dc05fe",
+    "semantic_hash": ""
+  },
+  "tests/test_blender_validator.py": {
+    "mtime": 1792299686.8883166,
+    "seen": 1792299992.436105,
+    "ast_hash": "047064d61ca84709d299422899de4458",
+    "semantic_hash": ""
+  },
+  ".agents/plans/plan/plan.mdx": {
+    "mtime": 1792298568.0548713,
+    "seen": 1792299992.4375188,
+    "ast_hash": "be1b43f556faca795bdc38cca3c752d8",
+    "semantic_hash": ""
+  },
+  "docs/demos/clawexermart/assets/index-Bym1AQwo.js": {
+    "mtime": 1792892077.330994,
+    "seen": 1792893005.7865357,
+    "ast_hash": "6e62eba7247f8122312b4339c9762fc5",
+    "semantic_hash": ""
+  },
+  "docs/demos/rawexermart/assets/index-0jVwK8iL.js": {
+    "mtime": 1792892090.9094515,
+    "seen": 1792893005.7865376,
+    "ast_hash": "ea922679d15a71c29d471d41abf098dc",
+    "semantic_hash": ""
+  },
+  ".github/workflows/pages.yml": {
+    "mtime": 1792892429.4180086,
+    "seen": 1792893005.800801,
+    "ast_hash": "bd146adbde9df4a3dbc6bd1313c2cc05",
+    "semantic_hash": ""
+  },
+  "docs/EXERMART_CASE_STUDY.md": {
+    "mtime": 1792892427.6083877,
+    "seen": 1792893005.80155,
+    "ast_hash": "6c9d09f69d18a2d0d67a0a142c88c6f2",
+    "semantic_hash": ""
+  },
+  "docs/demos/clawexermart/index.html": {
+    "mtime": 1792892077.330994,
+    "seen": 1792893005.80189,
+    "ast_hash": "38b30e3d9e043d72fe1f79db8b0abcce",
+    "semantic_hash": ""
+  },
+  "docs/demos/rawexermart/index.html": {
+    "mtime": 1792892090.9094515,
+    "seen": 1792893005.8018913,
+    "ast_hash": "afdea579b371471d4a935854273f87f1",
+    "semantic_hash": ""
+  },
+  "docs/index.html": {
+    "mtime": 1792892426.77301,
+    "seen": 1792893005.801892,
+    "ast_hash": "828829c77afcf04380db1b8159175520",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R1_navbar.png": {
+    "mtime": 1792891243.4199326,
+    "seen": 1792893005.8029559,
+    "ast_hash": "63b188a27d93315ef16d90257f2c21ac",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R2_catalog.png": {
+    "mtime": 1792891244.0261726,
+    "seen": 1792893005.8029573,
+    "ast_hash": "011ab14c32d873b896271e98a0d9154b",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R3_product_modal.png": {
+    "mtime": 1792891244.778229,
+    "seen": 1792893005.8029583,
+    "ast_hash": "3bc9a02f5b02934a1a871b8745a7e665",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R4_sell_portal.png": {
+    "mtime": 1792891245.889613,
+    "seen": 1792893005.8029594,
+    "ast_hash": "14320b11d9cb56e13ee43d1a1da43ddb",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R5_space_matcher.png": {
+    "mtime": 1792891246.5725648,
+    "seen": 1792893005.8029604,
+    "ast_hash": "67ac24d48f835defa31162683c8db59c",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R6_cart_checkout.png": {
+    "mtime": 1792891247.737093,
+    "seen": 1792893005.8029613,
+    "ast_hash": "93885e5e96ec66097577c8b213c268c0",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R7_break_ui_stress.png": {
+    "mtime": 1792891249.3136816,
+    "seen": 1792893005.8029625,
+    "ast_hash": "cbc050bc7cfdfacbd67858e1a796560c",
     "semantic_hash": ""
   }
 }

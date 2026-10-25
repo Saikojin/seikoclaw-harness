@@ -1339,6 +1339,15 @@ def main():
         except Exception as e:
             print(f"Skill Catalog Routing: Check failed ({e}) [WARN]")
 
+        # 3D DCC & Visual Asset Tooling check
+        try:
+            val_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "validate_blender_asset.py")
+            ref_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "fetch_asset_references.py")
+            dcc_ok = os.path.exists(val_script) and os.path.exists(ref_script)
+            print(f"Blender DCC & Visual Asset Suite: [{'OK' if dcc_ok else 'WARN'}]")
+        except Exception as e:
+            print(f"Blender DCC & Visual Asset Suite: Check failed ({e}) [WARN]")
+
         print("[SUCCESS] Diagnostics complete.")
     elif args.action == "execute":
         if args.command:

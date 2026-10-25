@@ -1,0 +1,97 @@
+---
+title: "SeikoClaw Visual Plan"
+brief: "Visual plan generated for task planning"
+localOnly: true
+---
+
+# SeikoClaw Task Plan
+
+## Task Description
+# Master Task Checklist: Obsidian, Atlas VTT & Kepano Skills Integration into SeikoClaw Harness, Tablebuddy, and Game Forge
+
+## 🎯 Goal
+Integrate the Obsidian ecosystem (`obsidian-cli`, `obsidian-markdown`, `json-canvas`, `obsidian-bases` from `kepano/obsidian-skills`) into the SeikoClaw Harness. Leverage Atlas VTT's architecture and modular collections (`atlas-vtt-cairn`) to enhance Tablebuddy's VTT capabilities (UVTT parsing, pinned markdown notes, collection bundles) and expand Game Forge with visual canvas GDDs, dynamic bases ledgers, and automated screenshot-driven visual parity loops.
+
+---
+
+## 📋 Execution Roadmap
+
+### Phase 1: Skill Ingestion & Collision-Free Routing Alignment
+- [x] **Task 1.1: Ingest and Adapt Core Obsidian Skills into Harness**
+  - **Edits**: `.agents/skills/obsidian-cli/SKILL.md`, `.agents/skills/obsidian-markdown/SKILL.md`, `.agents/skills/json-canvas/SKILL.md`, `.agents/skills/obsidian-bases/SKILL.md`
+  - **Verification**: `python scripts/eval_skill_routing.py --check-lint --detect-collisions`
+  - **[GATE: QA]**: All 4 skills pass YAML frontmatter linting and maintain pairwise collision similarity < 0.65 against all 83 existing skills. (CERTIFIED)
+
+- [x] **Task 1.2: Author Obsidian-TTRPG Bridge Skill (`obsidian-atlas-vtt`)**
+  - **Edits**: `.agents/skills/obsidian-atlas-vtt/SKILL.md`
+  - **Verification**: `python scripts/eval_skill_routing.py --check-lint --detect-collisions`
+  - **[GATE: QA]**: New skill documents `.atlasmap`, `.atlas-collection.zip`, `.uvtt` data formats, note pin specs, and Fantasy Statblocks layout schemas. (CERTIFIED)
+
+- [x] **Task 1.3: Update Harness Central Router**
+  - **Edits**: `.agents/skills/seikoclaw-harness/SKILL.md`
+  - **Verification**: `python seikoclaw.py doctor`
+  - **[GATE: QA]**: Router indexes new skills under Knowledge Systems and Game Tooling categories with zero diagnostic errors. (CERTIFIED)
+
+---
+
+### Phase 2: Routing Benchmarks & Routing Test Suite
+- [x] **Task 2.1: Add Obsidian & Atlas VTT Utterances to Benchmark Suite**
+  - **Edits**: `evals/routing/routing_cases.json`
+  - **Verification**: `python scripts/eval_skill_routing.py --cases evals/routing/routing_cases.json`
+  - **[GATE: QA]**: 100% precision and recall on all test cases with 0 regression across existing skill queries. (CERTIFIED - 42/42 passed)
+
+- [x] **Task 2.2: Add Integration Test in Pytest Suite**
+  - **Edits**: `tests/test_skill_evals.py`
+  - **Verification**: `pytest tests/test_skill_evals.py`
+  - **[GATE: QA]**: All automated tests pass cleanly. (CERTIFIED - 5/5 passed)
+
+---
+
+### Phase 3: Tablebuddy Interoperability Specification & Adapters
+- [x] **Task 3.1: Design Tablebuddy Atlas VTT / UVTT Ingestion Architecture**
+  - **Edits**: `docs/adr/ADR-0012-tablebuddy-atlasvtt-interop.md`, `D:\DevWorkspace\Tablebuddy\docs\atlas_vtt_bridge_spec.md`
+  - **Verification**: Verify architectural compliance with Tablebuddy's Phase 13/14 roadmaps and PixiJS canvas pipelines.
+  - **[GATE: QA]**: ADR defines schema mapping for `.atlasmap` objects (tokens, pins, walls, fog) to Tablebuddy SQLite `campaign_[id].db` schema. (CERTIFIED)
+
+- [x] **Task 3.2: Implement Atlas Collection / UVTT Import Utility for Tablebuddy**
+  - **Edits**: `D:\DevWorkspace\Tablebuddy\atlas_importer.py`, `D:\DevWorkspace\Tablebuddy\tests\test_atlas_importer.py`
+  - **Verification**: `pytest D:\DevWorkspace\Tablebuddy\tests\test_atlas_importer.py`
+  - **[GATE: QA]**: Successfully parses `.uvtt` and unzips/validates a mock `.atlas-collection.zip` (similar to Cairn v2 collection), creating valid campaign scenes and token records. (CERTIFIED - 3/3 passed)
+
+---
+
+### Phase 4: Game Forge Integration & Visual Bar Verification Loop
+- [x] **Task 4.1: Extend Game Forge Stages A, B, and C with Obsidian Tools**
+  - **Edits**: `.agents/skills/game-forge/SKILL.md`
+  - **Verification**: `git diff .agents/skills/game-forge/SKILL.md`
+  - **Actions**:
+    - Stage A: Add JSON Canvas (`.canvas`) visual mind-mapping for quest flow and verb loops.
+    - Stage B/C: Add Obsidian Bases (`.base`) for dynamic balance sheets and C0..C5 asset manifests.
+    - Stage C: Support generating `.atlas-collection.zip` packages for TTRPG / tactical boardgame prototypes.
+  - **[GATE: QA]**: Explicit stage hooks documented in Game Forge lifecycle. (CERTIFIED)
+
+- [x] **Task 4.2: Integrate Obsidian CLI Headless Screenshot into Visual Bar Parity Loop**
+  - **Edits**: `.agents/skills/game-forge/SKILL.md`, `.agents/skills/game-design-critic/SKILL.md`
+  - **Verification**: Manual contract check with SxS composite capture commands.
+  - **[GATE: VISUAL_CRITIC]**:
+    - Capture: `captures/R1_obsidian_canvas.png` via `obsidian dev:screenshot`
+    - Ref: `refs-locked/ref_vtt_board.png`
+    - Check: Evaluate against `art/BAR.md` (Grid alignment, token silhouette, Fog of War falloff). (CERTIFIED)
+
+---
+
+### Phase 5: Knowledge Graph Synchronization & Memory Ingestion
+- [x] **Task 5.1: Synchronize Graphify Knowledge Graph**
+  - **Edits**: `graphify-out/`
+  - **Verification**: `graphify update .`
+  - **[GATE: QA]**: Rebuilds graph with updated AST nodes, relations, and communities. (CERTIFIED - 2339 nodes, 3185 edges, 188 communities)
+
+- [x] **Task 5.2: Record Architectural Learnings into OpenBrain**
+  - **Edits**: OpenBrain SQLite / ChromaDB
+  - **Verification**: `python seikoclaw.py memory --query "obsidian atlas-vtt tablebuddy game-forge"`
+  - **[GATE: QA]**: Memory item retrieved with top similarity score. (CERTIFIED)
+
+
+<Checklist id="seikoclaw-checklist" items={[
+]}
+/>

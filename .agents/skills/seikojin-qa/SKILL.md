@@ -29,6 +29,7 @@ Before generating or running tests, the QA Strategist detects the target applica
 | **Multi-Service API / Enterprise Contracts** | **Karate DSL** | Pytest (`httpx` / `requests`) | Declarative Gherkin, JSON/XML schema matching, embedded mock servers. |
 | **Python Services & CLI / TUI Applications** | **Pytest** | Subprocess PTY / Expect | Python-native assertions, fixtures, visible terminal execution, and coverage integration. |
 | **Low-Level Android / Embedded Hardware** | **Pure ADB (Python)** | UIAutomator | Direct shell commands, logcat polling, and OS-level package state manipulation. |
+| **Blender 3D DCC & Visual Assets** | **`validate_blender_asset.py`** (BPY live assertion + GLB binary check) + **`fetch_asset_references.py`** | `game-design-critic` SxS (`look(mode="angles")` vs web refs) | Enforces 100% applied transforms, watertight geometry, 0 missing textures, and web-grounded visual parity before engine export. |
 | **Pre-existing Repository Suites** | **Existing Framework** (e.g. Cypress, Jest) | `e2e` Wrapper | Respect established codebase conventions without introducing competing runtimes. |
 
 ---
@@ -70,6 +71,11 @@ Before generating or running tests, the QA Strategist detects the target applica
     - **100% Pass Rate & 0 Punch Items**: Certifies the task and unlocks downstream DAG frontier:
       ```bash
       python seikoclaw.py gate --task <task-id> --certify-qa --worker "Seikojin-QA" --notes "100% pass on Rabbit Path and Visual Bar"
+      ```
+    - **Blender 3D Asset Gate (`[GATE: BLENDER_VALIDATION]`)**:
+      Requires `scripts/validate_blender_asset.py` returning `status: PASS` (0 geometric defects, 100% applied scale, min $Z=0$, 0 missing textures) AND `game-design-critic` certifying 0 visual punch items against web references.
+      ```bash
+      python seikoclaw.py gate --task <task-id> --certify-qa --worker "Seikojin-QA" --notes "BVVP Certified: 0 DCC defects, 0 visual punch items"
       ```
     - **Any Failure or Visual Defect**: Rejects certification, generates a structured defect node on the DAG, and blocks downstream tasks.
 

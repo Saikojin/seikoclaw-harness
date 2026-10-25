@@ -1,23 +1,23 @@
 # Graph Report - SeikoClaw-Harness  (2026-10-17)
 
 ## Corpus Check
-- 282 files · ~329,689 words
+- 285 files · ~334,347 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 7 file(s) not represented in the graph (top: (none) 4, .tsv 1, .example 1)
 
 ## Summary
-- 2628 nodes · 3585 edges · 195 communities (170 shown, 25 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 89 edges (avg confidence: 0.95)
+- 2702 nodes · 3716 edges · 219 communities (172 shown, 47 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 93 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `55c0b56a`
+- Built from commit: `ff6029d0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - 3. Core Tool Reference
-- MemoryEngine
+- os
 - Glossary of Terms
 - Blender Developer & 3D Procedural MCP Orchestrator
 - 3. Core Tool Reference
@@ -29,10 +29,9 @@
 - Animation Recipes
 - Model Context Protocol for Unreal Engine
 - Book-to-Skill Converter
-- os
+- tempfile
 - MAP.md
 - SeikoClaw
-- TaskGraph
 - 🏛️ Core Principles
 - Process
 - rationale-template.md
@@ -45,7 +44,7 @@
 - ConversationHistorySyncer
 - EngineAdapters
 - Glossary
-- Worst-Case Catalog
+- Breaking UI
 - template.sh
 - HealthPatrol
 - extract_single_file
@@ -56,7 +55,7 @@
 - Recurring skip candidates
 - Seikoclaw Frontend Taste System
 - godot-mcp-server.js
-- discovery_tax.py
+- BlendSwapClient
 - Diagnosing Bugs
 - Triage
 - references/patterns.md
@@ -81,9 +80,9 @@
 - 2. The 5-Stage Autonomous Pipeline
 - During the session
 - How
-- task_graph.py
+- GateEngine
 - Filtering Principles
-- llm_provider.py
+- BaseLLMProvider
 - Show me your work
 - Game Systems Modeler
 - reviewer-prompt.md
@@ -93,7 +92,7 @@
 - synthesizer-prompt.md
 - Output Format
 - 5. Production Guardrails & Gameplay Architecture Patterns
-- Deep Dive: Analysis & Remediation Plan
+- 3. Secrets Vault & SQLite Schema Alignment
 - Core Engineering Reference: Accessibility (a11y) Checklist
 - Process
 - Figure it out
@@ -128,14 +127,14 @@
 - code-quality-review.md
 - Expert Panel Personas
 - Mood Board Curator (Reference & Mood Board Skill)
-- SkillGater
+- TestSkillGater
 - Sections
 - Test-Driven Development
 - epistemics.md
 - Confidence Tiers
 - Issue tracker: Local Markdown
-- status.py
-- 2. CLI Command Workflows (`scripts/polyhaven.py`)
+- export_skills.py
+- Poly Haven Asset Pipeline & Cross-Engine Bridge
 - Agent Guardrails & Command Denylist
 - design-red-flags.md
 - Before Building (Instant Gut-Check)
@@ -166,6 +165,7 @@
 - Persona: Seikojin QA Engineer (The Hands)
 - polyhaven.py
 - 5. Production Guardrails & Gameplay Architecture Patterns
+- SkillGater
 - PolyHavenCache
 - check
 - tooling-reviewer.md
@@ -176,10 +176,10 @@
 - pr/CREDITS.md
 - divergent-reviewer.md
 - judgment-reviewer.md
-- sys
+- pdf_inspector_integration.py
 - utils.py
-- replay.py
-- JSON Canvas Skill
+- json
+- discovery_tax.py
 - epub.py
 - rtf.py
 - book-to-skill
@@ -194,12 +194,25 @@
 - unrealMCP
 - test_polyhaven.py
 - PolyHavenAPI
-- Reviewing Animations
+- task_graph.py
 - 3. Poly Haven Asset Ingestion Pipeline & Resolution Gating
 - Blender Python (bpy) Procedural Recipes for Game Development
 - Session Handoff: Poly Haven Asset Pipeline Integration
-- Sweep Loop Skill
+- Deep Dive: Analysis & Remediation Plan
 - Step 3. Spawn Parallel Investigators (default posture)
+- .loop_until_goal
+- TestTaskGraph
+- manifest.py
+- LocalMindProvider
+- score.py
+- 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation
+- TaskGraph
+- Worst-Case Catalog
+- HeuristicFallbackProvider
+- Reviewing Animations
+- detect_structure
+- OpenAICompatibleProvider
+- Sweep Loop Skill
 - YouTube Transcript Ingestion Skill
 
 ## God Nodes (most connected - your core abstractions)
@@ -211,8 +224,8 @@
 6. `Apple Design` - 21 edges
 7. `ConversationHistorySyncer` - 20 edges
 8. `Book-to-Skill Converter` - 19 edges
-9. `ExtractionError` - 18 edges
-10. `GateEngine` - 18 edges
+9. `BlendSwapClient` - 18 edges
+10. `ExtractionError` - 18 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `5. Persistence Layer Consolidation` --references--> `OpenbrainEngine`  [INFERRED]
@@ -221,31 +234,31 @@
   docs/ARCHITECTURE_EVALUATION.md → openbrain/memory_engine.py
 - `Executive Summary & Comparison Chart` --references--> `Vault`  [INFERRED]
   docs/ARCHITECTURE_EVALUATION.md → openbrain/vault.py
-- `2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`)` --references--> `HealthPatrol`  [INFERRED]
-  docs/ARCHITECTURE_EVALUATION.md → openbrain/watchdog.py
 - `Executive Summary & Comparison Chart` --references--> `HealthPatrol`  [INFERRED]
   docs/ARCHITECTURE_EVALUATION.md → openbrain/watchdog.py
+- `Extending` --references--> `extract_single_file()`  [INFERRED]
+  .agents/skills/book-to-skill/docs/architecture.md → .agents/skills/book-to-skill/book_to_skill/utils.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (195 total, 25 thin omitted)
+## Communities (219 total, 47 thin omitted)
 
 ### Community 0 - "3. Core Tool Reference"
 Cohesion: 0.10
 Nodes (19): 1. System Architecture & Connection Protocol, 2. Project Setup & Quickstart, 3. Core Tool Reference, 4. Production Pipelines, 5. Execution Rules & Best Practices, 6. Troubleshooting & Health Checks, A. GameObject & Hierarchy Management, B. Component Authoring & Property Manipulation (+11 more)
 
-### Community 1 - "MemoryEngine"
+### Community 1 - "os"
 Cohesion: 0.05
-Nodes (7): 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation, Consequences, Context, Decisions, 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), Executive Summary & Comparison Chart, MemoryEngine
+Nodes (7): Decisions, Executive Summary & Comparison Chart, ContextEngine, get_llm_provider(), MemoryEngine, test_record_and_ingest_decision_trail(), test_conversation_sync_lifecycle()
 
 ### Community 2 - "Glossary of Terms"
 Cohesion: 0.04
 Nodes (43): Bard Talents (2d6 Table), Bard Titles, Bardic Arts, Chapter 1: The Bard Class, Class Fundamentals, Core Features & Abilities, Magical Dabbler, Presence (+35 more)
 
 ### Community 3 - "Blender Developer & 3D Procedural MCP Orchestrator"
-Cohesion: 0.12
-Nodes (16): 1. Robust Shader Node Lookup (Never Use Localized Names), 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 2. Mesh Cleanup & Bounding Box Grounding, 3. Idiomatic BPY Scripting Rules, 3. Safe Dynamic Enums, 4. Game Asset Export Pipelines, 5. Verification & Visual Bar Loop (+8 more)
+Cohesion: 0.11
+Nodes (18): 1. Robust Shader Node Lookup (Never Use Localized Names), 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 2. Mesh Cleanup & Bounding Box Grounding, 3. Idiomatic BPY Scripting Rules, 3. Safe Dynamic Enums, 4. Game Asset Export Pipelines, 5. Verification & Visual Bar Loop (+10 more)
 
 ### Community 4 - "3. Core Tool Reference"
 Cohesion: 0.11
@@ -253,7 +266,7 @@ Nodes (19): 1. System Architecture & Connection Protocol, 2. Project Setup & Qui
 
 ### Community 5 - "🎖️ Upstream Creators & Maintainers"
 Cohesion: 0.08
-Nodes (22): 1. Matt Pocock ([@mattpocockuk](https://github.com/mattpocock)), 2. David Andrej ([@davidandrej](https://github.com/davidandrej)), 3. Lauren Tan ([@poteto](https://github.com/poteto)) & Cursor Team, 4. Michael Denyer ([@michael-denyer](https://github.com/michael-denyer)), 5. Addy Osmani ([@addyosmani](https://github.com/addyosmani)), 6. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin)), Credits & Upstream Attribution, 📜 License & Usage (+14 more)
+Nodes (23): 1. Matt Pocock ([@mattpocockuk](https://github.com/mattpocock)), 2. David Andrej ([@davidandrej](https://github.com/davidandrej)), 3. Lauren Tan ([@poteto](https://github.com/poteto)) & Cursor Team, 4. Michael Denyer ([@michael-denyer](https://github.com/michael-denyer)), 5. Addy Osmani ([@addyosmani](https://github.com/addyosmani)), 6. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin)), 7. Poly Haven ([polyhaven.com](https://polyhaven.com/)), Credits & Upstream Attribution (+15 more)
 
 ### Community 6 - "Game Tooling Catalog & Architectural Blueprints"
 Cohesion: 0.04
@@ -283,21 +296,13 @@ Nodes (22): Development, Setup, Testing Scripts, Troubleshooting, Unreal MCP, �
 Cohesion: 0.06
 Nodes (30): reuse_is_safe(), 1. Full Conversion (Default), 2. Analyze Only, 3. Generate from Prior Analysis, 4. Update / Fold-in (Existing Skill), Book-to-Skill Converter, cheatsheet.md, glossary.md (+22 more)
 
-### Community 13 - "os"
-Cohesion: 0.10
-Nodes (10): default_output_dir(), OpenbrainEngine, Vault, setup(), test_record_and_ingest_decision_trail(), test_conversation_sync_lifecycle(), test_memory_engine_vault_table_creation(), test_openbrain_engine_compatibility() (+2 more)
+### Community 13 - "tempfile"
+Cohesion: 0.13
+Nodes (7): default_output_dir(), OpenbrainEngine, Vault, test_memory_engine_vault_table_creation(), test_openbrain_engine_compatibility(), test_vault_fresh_database(), test_vault_wrong_password()
 
 ### Community 14 - "MAP.md"
 Cohesion: 0.06
 Nodes (23): Game Design Critic — Game-Aware Grilling Persona, Key Architectural Decisions Made:, Question, Resolution, Key Architectural Decisions Made:, Key Architectural Decisions Made:, Question, Resolution (+15 more)
-
-### Community 15 - "SeikoClaw"
-Cohesion: 0.07
-Nodes (3): 1. Autonomous Loop Architecture (`loop_until_goal`), IterationBudget, SeikoClaw
-
-### Community 16 - "TaskGraph"
-Cohesion: 0.06
-Nodes (3): TaskGraph, TestGates, TestTaskGraph
 
 ### Community 17 - "🏛️ Core Principles"
 Cohesion: 0.07
@@ -320,8 +325,8 @@ Cohesion: 0.08
 Nodes (22): 1. Purpose & frequency, 2. Easing & duration, 3. Physicality & origin, 4. Interruptibility, 5. Performance, 6. Accessibility, 7. Cohesion & tokens, 8. Missed opportunities (+14 more)
 
 ### Community 22 - "seikoclaw.py"
-Cohesion: 0.05
-Nodes (41): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+33 more)
+Cohesion: 0.11
+Nodes (18): compute_token_frequencies(), detect_collisions(), load_all_skills(), parse_skill_file(), route_query(), run_eval_cases(), score_skill_against_query(), tokenize() (+10 more)
 
 ### Community 23 - "Apple Design"
 Cohesion: 0.10
@@ -336,20 +341,20 @@ Cohesion: 0.15
 Nodes (14): is_invisible_codepoint(), sanitize_extracted_text(), _collect_skill_files(), Finding, _frontmatter_line_numbers(), _is_invisible(), main(), _read_skill_files() (+6 more)
 
 ### Community 26 - "ConversationHistorySyncer"
-Cohesion: 0.15
-Nodes (4): find_harness_root(), main(), ConversationHistorySyncer, test_extract_project_name()
+Cohesion: 0.12
+Nodes (8): find_harness_root(), main(), clean_user_content(), ConversationHistorySyncer, parse_iso_datetime(), test_clean_user_content(), test_extract_project_name(), test_parse_iso_datetime()
 
 ### Community 27 - "EngineAdapters"
-Cohesion: 0.14
-Nodes (13): 3. CLI Specification (`scripts/polyhaven.py`), CLI Arguments & Options, Phase 1: Implement Core CLI Tool (`scripts/polyhaven.py`), Phase 2: Author Skill Specification, Phase 3: Engine Adapters Implementation, Phase 4: Benchmark & Evaluation Suite, 📋 Ready Frontier Execution Checklist (Next Steps), EngineAdapters (+5 more)
+Cohesion: 0.13
+Nodes (14): 3. CLI Specification (`scripts/polyhaven.py`), CLI Arguments & Options, Phase 1: Implement Core CLI Tool (`scripts/polyhaven.py`), Phase 2: Author Skill Specification, Phase 3: Engine Adapters Implementation, Phase 4: Benchmark & Evaluation Suite, Phase 5: Global Antigravity Integration, 📋 Ready Frontier Execution Checklist (Completed Milestones) (+6 more)
 
 ### Community 28 - "Glossary"
 Cohesion: 0.11
 Nodes (18): Animation Vocabulary, Easing — how speed changes over an animation, Entrances & Exits — how elements appear and disappear, Examples, Feedback & Interaction — responding to the user's actions, Glossary, Initial Response, Instructions (+10 more)
 
-### Community 29 - "Worst-Case Catalog"
-Cohesion: 0.06
-Nodes (29): Collections, Emails, URLs, identifiers, Environment, Images and media, Labels, titles, and copy from data, Numbers and money, People and names, States (+21 more)
+### Community 29 - "Breaking UI"
+Cohesion: 0.11
+Nodes (19): Breaking UI, Failure signatures, Hard Rules, Initial Response, Invocation Variants, Operating Posture, Part 1 — What broke, Part 2 — Decisions for you (+11 more)
 
 ### Community 30 - "template.sh"
 Cohesion: 0.23
@@ -357,11 +362,11 @@ Nodes (17): ask(), ask_secret(), banner(), _clear(), _existing(), finish(), paus
 
 ### Community 31 - "HealthPatrol"
 Cohesion: 0.13
-Nodes (6): clean_user_content(), parse_iso_datetime(), HealthPatrol, test_clean_user_content(), test_parse_iso_datetime(), TestWatchdog
+Nodes (3): 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), HealthPatrol, TestWatchdog
 
 ### Community 32 - "extract_single_file"
-Cohesion: 0.11
-Nodes (20): install_python_packages(), isolated_install_hint(), missing_python_packages(), offer_dependency_install(), prepare_dependencies(), python_module_available(), run_dependency_check(), extract_with_ebook_convert() (+12 more)
+Cohesion: 0.13
+Nodes (17): install_python_packages(), isolated_install_hint(), missing_python_packages(), offer_dependency_install(), prepare_dependencies(), python_module_available(), run_dependency_check(), extract_with_ebook_convert() (+9 more)
 
 ### Community 33 - "template.ps1"
 Cohesion: 0.18
@@ -391,9 +396,9 @@ Nodes (16): 1. Surface & Component Craft, 2. Typography & Optical Discipline, 3.
 Cohesion: 0.08
 Nodes (18): args, child, crypto, defaultServerPath, fs, os, path, projectRoot (+10 more)
 
-### Community 40 - "discovery_tax.py"
-Cohesion: 0.24
-Nodes (6): best_chapter(), count_tokens(), extract_toc(), main(), split_chapters(), token_method()
+### Community 40 - "BlendSwapClient"
+Cohesion: 0.05
+Nodes (23): 1. Catalog Search: `GET /api/v1/assets`, 1. Executive Summary & Architectural Evaluation, 2. API Endpoints & Transport Protocols, 2. Single Asset Details: `GET /api/v1/assets/:id`, 3. File Listing: `GET /api/v1/assets/:id/files`, 3. REST API Specification (`/api/v1`), 4. Download Request: `POST /api/v1/downloads`, 4. Model Context Protocol (MCP) Integration (+15 more)
 
 ### Community 41 - "Diagnosing Bugs"
 Cohesion: 0.13
@@ -472,8 +477,8 @@ Cohesion: 0.18
 Nodes (10): Communication artifacts, Content, Filler, Jargon, Language, Patterns to detect and fix, Plain speech, Process (+2 more)
 
 ### Community 60 - "UsageMonitor"
-Cohesion: 0.16
-Nodes (3): AutoCapture, main(), UsageMonitor
+Cohesion: 0.12
+Nodes (8): AutoCapture, main(), UsageMonitor, get_session_context(), main(), print_progress_bar(), estimate_file(), estimate_tokens()
 
 ### Community 61 - "Supported Slash Commands & Syntaxes"
 Cohesion: 0.20
@@ -491,17 +496,9 @@ Nodes (9): Challenge against the glossary, Cross-reference with code, Discuss co
 Cohesion: 0.20
 Nodes (9): How, Models, Output Format, Reasoning effort, Step 1. Assess Complexity, Step 2a. Explore (complex questions only), Step 2b. Direct Explain (simple questions), Step 3. Synthesize (complex questions only) (+1 more)
 
-### Community 65 - "task_graph.py"
-Cohesion: 0.11
-Nodes (6): GateEngine, get_playbook(), list_playbooks(), test_adversarial_gate_lifecycle(), test_playbook_expansion_creates_sequential_dag(), test_playbooks_registry()
-
 ### Community 66 - "Filtering Principles"
 Cohesion: 0.20
 Nodes (9): Filtering Principles, Hypothetical vs. Actual, "I Would Have Done It Differently", Missing Context Signals, Nitpick Gravity, Premature Abstraction Warnings, Verdict Calibration, When Reviewers Are Right (+1 more)
-
-### Community 67 - "llm_provider.py"
-Cohesion: 0.06
-Nodes (8): ContextEngine, BaseLLMProvider, get_llm_provider(), HeuristicFallbackProvider, LocalMindProvider, OpenAICompatibleProvider, MockNeuralLLMProvider, TestMemoryCompression
 
 ### Community 68 - "Show me your work"
 Cohesion: 0.20
@@ -538,10 +535,6 @@ Nodes (9): Competing Hypotheses, Confidence Summary, Output Format, Sources Cons
 ### Community 76 - "5. Production Guardrails & Gameplay Architecture Patterns"
 Cohesion: 0.09
 Nodes (22): 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 3. Production Pipelines, 4. Execution Rules & Best Practices, 5. Production Guardrails & Gameplay Architecture Patterns, 6. Troubleshooting & Common Failure Modes, A. Chaos Physics & Projectile Collision Discipline, A. Level Layout & Actor Management (+14 more)
-
-### Community 77 - "Deep Dive: Analysis & Remediation Plan"
-Cohesion: 0.14
-Nodes (8): 3. Secrets Vault & SQLite Schema Alignment, 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation, 6. Hybrid DAG Gating Enforcement on Frontier, 7. Dependency Manifestation & Packaging, 8. LLM Abstraction for Background Cognitive Loops, Deep Dive: Analysis & Remediation Plan, SeikoClaw Harness: 3rd-Party Evaluation & Architectural Rationale
 
 ### Community 78 - "Core Engineering Reference: Accessibility (a11y) Checklist"
 Cohesion: 0.33
@@ -699,13 +692,13 @@ Nodes (6): 1. Direct, 2. Supported, 3. Inferred, 4. Speculative, 5. Unknown, Con
 Cohesion: 0.33
 Nodes (5): Conventions, Issue tracker: Local Markdown, Wayfinding operations, When a skill says "fetch the relevant ticket", When a skill says "publish to the issue tracker"
 
-### Community 118 - "status.py"
-Cohesion: 0.31
-Nodes (5): get_session_context(), main(), print_progress_bar(), estimate_file(), estimate_tokens()
+### Community 118 - "export_skills.py"
+Cohesion: 0.22
+Nodes (7): export_skills(), import_skills(), main(), mock_skills_env(), test_export_skills(), test_import_skills_skip_existing_without_overwrite(), test_import_skills_with_namespace()
 
-### Community 119 - "2. CLI Command Workflows (`scripts/polyhaven.py`)"
-Cohesion: 0.13
-Nodes (14): 1. Storage Discipline & 2K Resolution Policy, 2. CLI Command Workflows (`scripts/polyhaven.py`), 3. Multi-Engine Target Adapters, 4. Integration with Game Forge & Agent Workflows, A. Search Assets, B. Inspect Asset Metadata & File Sizes, 🎨 Blender DCC (`--target blender`), C. Fetch Asset (2K Default) (+6 more)
+### Community 119 - "Poly Haven Asset Pipeline & Cross-Engine Bridge"
+Cohesion: 0.12
+Nodes (15): 1. Storage Discipline & 2K Resolution Policy, 2. CLI Command Workflows (`scripts/polyhaven.py`), 3. Multi-Engine Target Adapters, 4. Integration with Game Forge & Agent Workflows, 5. Credits & Upstream Attribution, A. Search Assets, B. Inspect Asset Metadata & File Sizes, 🎨 Blender DCC (`--target blender`) (+7 more)
 
 ### Community 120 - "Agent Guardrails & Command Denylist"
 Cohesion: 0.40
@@ -820,36 +813,36 @@ Cohesion: 0.50
 Nodes (3): Core Directives, Mission, Persona: Seikojin QA Engineer (The Hands)
 
 ### Community 148 - "polyhaven.py"
-Cohesion: 0.17
+Cohesion: 0.18
 Nodes (7): cmd_cache(), cmd_fetch(), cmd_info(), cmd_search(), format_bytes(), main(), test_format_bytes()
 
 ### Community 149 - "5. Production Guardrails & Gameplay Architecture Patterns"
 Cohesion: 0.09
 Nodes (22): 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 3. Production Pipelines, 4. Execution Rules & Best Practices, 5. Production Guardrails & Gameplay Architecture Patterns, 6. Troubleshooting & Common Failure Modes, A. Chaos Physics & Projectile Collision Discipline, A. Level Layout & Actor Management (+14 more)
 
-### Community 163 - "sys"
-Cohesion: 0.14
+### Community 163 - "pdf_inspector_integration.py"
+Cohesion: 0.13
 Nodes (14): main(), enrich_pdf_inspector_metadata(), _fallback_reason(), inspect_pdf(), install_pdf_inspector_hook(), wrapped(), _looks_like_pdf(), _normalise_pdf_type() (+6 more)
 
 ### Community 164 - "utils.py"
 Cohesion: 0.08
-Nodes (18): supported_formats_message(), normalize_install_mode(), _chapter_number(), _closed_fence_line_numbers(), _cn_numeral_to_int(), detect_structure(), _fa_chapter_number(), _fa_ordinal_map() (+10 more)
+Nodes (16): supported_formats_message(), normalize_install_mode(), _cn_numeral_to_int(), _fa_chapter_number(), _fa_ordinal_map(), _int_to_roman(), _is_prose_period_tail(), _match_chapter_number() (+8 more)
 
-### Community 165 - "replay.py"
-Cohesion: 0.17
-Nodes (9): canonical_json(), load_fixture(), main(), replay(), aggregate(), _count(), score(), score_trajectory() (+1 more)
+### Community 165 - "json"
+Cohesion: 0.11
+Nodes (14): generate_bpy_append_snippet(), main(), handle_call_tool(), main(), send_response(), build_paper_flat(), _chunks(), main() (+6 more)
 
-### Community 166 - "JSON Canvas Skill"
-Cohesion: 0.07
-Nodes (25): ratio(), Flowchart, Project Board with Groups, Research Canvas with Files and Links, Simple Canvas with Text and Connections, 1. Create a New Canvas, 2. Add a Node to an Existing Canvas, 3. Connect Two Nodes (+17 more)
+### Community 166 - "discovery_tax.py"
+Cohesion: 0.06
+Nodes (32): _chapter_number(), best_chapter(), count_tokens(), extract_toc(), main(), ratio(), split_chapters(), token_method() (+24 more)
 
 ### Community 169 - "epub.py"
 Cohesion: 0.13
-Nodes (7): count_epub_chapters(), extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href(), extract_html_content(), _HTMLTextExtractor
+Nodes (7): count_epub_chapters(), count_epub_images(), extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href(), _HTMLTextExtractor
 
 ### Community 173 - "rtf.py"
-Cohesion: 0.31
-Nodes (6): _decode_hex_run(), extract_rtf(), _rtf_ansi_encoding(), _rtf_unicode_repl(), _strip_destination_groups(), strip_rtf_fallback()
+Cohesion: 0.22
+Nodes (9): extract_html_content(), extract_html_file(), _decode_hex_run(), extract_rtf(), _rtf_ansi_encoding(), _rtf_unicode_repl(), _strip_destination_groups(), strip_rtf_fallback() (+1 more)
 
 ### Community 176 - "Obsidian CLI"
 Cohesion: 0.20
@@ -872,8 +865,8 @@ Cohesion: 0.50
 Nodes (3): Coverage Loop Skill, Goal, Workflow
 
 ### Community 181 - "ExtractionError"
-Cohesion: 0.17
-Nodes (9): ExtractionError, extract_docx(), extract_docx_with_python_docx(), extract_docx_with_zipfile(), emit_block(), inline_text(), validate_docx_xml_safety(), prepare_output_dir() (+1 more)
+Cohesion: 0.28
+Nodes (7): ExtractionError, extract_docx(), extract_docx_with_python_docx(), extract_docx_with_zipfile(), emit_block(), inline_text(), validate_docx_xml_safety()
 
 ### Community 182 - "2. Tablebuddy & Atlas VTT Interoperability Architecture"
 Cohesion: 0.40
@@ -883,53 +876,81 @@ Nodes (4): 2. Tablebuddy & Atlas VTT Interoperability Architecture, Consequences
 Cohesion: 0.21
 Nodes (6): build_parser(), parse_size_to_bytes(), select_best_resolution(), test_cli_default_resolution_is_2k(), test_parse_size_to_bytes(), test_select_best_resolution()
 
-### Community 188 - "Reviewing Animations"
-Cohesion: 0.20
-Nodes (10): Aggressive Escalation Triggers, Guidelines, Initial Response, Operating Posture, Part 1 — Findings table (REQUIRED), Part 2 — Verdict (REQUIRED), Remedial Preference Hierarchy, Required Output Format (+2 more)
+### Community 188 - "task_graph.py"
+Cohesion: 0.16
+Nodes (6): get_playbook(), list_playbooks(), setup(), test_adversarial_gate_lifecycle(), test_playbook_expansion_creates_sequential_dag(), test_playbooks_registry()
 
 ### Community 189 - "3. Poly Haven Asset Ingestion Pipeline & Resolution Gating"
 Cohesion: 0.40
 Nodes (4): 3. Poly Haven Asset Ingestion Pipeline & Resolution Gating, Consequences, Context, Decisions
 
 ### Community 190 - "Blender Python (bpy) Procedural Recipes for Game Development"
-Cohesion: 0.33
-Nodes (5): 1. Scene Initialization & Studio Lighting, 2. Low-Poly Stylized Dungeon Chest (Procedural Mesh & Bevel), 3. Automated 8-Direction Isometric Sprite Renderer, 4. Production glTF/GLB Export with PBR Materials, Blender Python (bpy) Procedural Recipes for Game Development
+Cohesion: 0.29
+Nodes (6): 1. Scene Initialization & Studio Lighting, 2. Low-Poly Stylized Dungeon Chest (Procedural Mesh & Bevel), 3. Automated 8-Direction Isometric Sprite Renderer, 4. Production glTF/GLB Export with PBR Materials, 5. Appending / Linking External `.blend` Assets (BlendSwap Pipeline), Blender Python (bpy) Procedural Recipes for Game Development
 
 ### Community 191 - "Session Handoff: Poly Haven Asset Pipeline Integration"
 Cohesion: 0.40
 Nodes (4): 🏛️ Architectural Decisions & Created Specs, 📌 Context & Objective, Session Handoff: Poly Haven Asset Pipeline Integration, 🔍 Verification Commands for Incoming Agent
 
-### Community 192 - "Sweep Loop Skill"
-Cohesion: 0.50
-Nodes (3): Goal, Sweep Loop Skill, Workflow
+### Community 192 - "Deep Dive: Analysis & Remediation Plan"
+Cohesion: 0.25
+Nodes (7): 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation, 6. Hybrid DAG Gating Enforcement on Frontier, 7. Dependency Manifestation & Packaging, 8. LLM Abstraction for Background Cognitive Loops, Deep Dive: Analysis & Remediation Plan, SeikoClaw Harness: 3rd-Party Evaluation & Architectural Rationale
 
 ### Community 193 - "Step 3. Spawn Parallel Investigators (default posture)"
 Cohesion: 0.50
 Nodes (4): Discovery, Investigator roster. One per available evidence category, Step 3. Spawn Parallel Investigators (default posture), When to skip an investigator
 
-### Community 194 - "YouTube Transcript Ingestion Skill"
+### Community 196 - "manifest.py"
+Cohesion: 0.25
+Nodes (11): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+3 more)
+
+### Community 199 - "score.py"
+Cohesion: 0.26
+Nodes (5): aggregate(), _count(), score(), score_trajectory(), _state()
+
+### Community 200 - "1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation"
+Cohesion: 0.50
+Nodes (3): 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation, Consequences, Context
+
+### Community 202 - "Worst-Case Catalog"
+Cohesion: 0.18
+Nodes (10): Collections, Emails, URLs, identifiers, Environment, Images and media, Labels, titles, and copy from data, Numbers and money, People and names, States (+2 more)
+
+### Community 204 - "Reviewing Animations"
+Cohesion: 0.20
+Nodes (10): Aggressive Escalation Triggers, Guidelines, Initial Response, Operating Posture, Part 1 — Findings table (REQUIRED), Part 2 — Verdict (REQUIRED), Remedial Preference Hierarchy, Required Output Format (+2 more)
+
+### Community 206 - "detect_structure"
+Cohesion: 0.40
+Nodes (3): _closed_fence_line_numbers(), detect_structure(), _structural_chapter_count()
+
+### Community 209 - "Sweep Loop Skill"
+Cohesion: 0.50
+Nodes (3): Goal, Sweep Loop Skill, Workflow
+
+### Community 210 - "YouTube Transcript Ingestion Skill"
 Cohesion: 0.50
 Nodes (3): Goal, Workflow, YouTube Transcript Ingestion Skill
 
 ## Knowledge Gaps
-- **1306 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `seikoclaw-harness`, `{ spawn }` (+1301 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1641 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **25 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1324 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `seikoclaw-harness`, `{ spawn }` (+1319 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1683 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **47 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `reuse_is_safe()` connect `Book-to-Skill Converter` to `utils.py`?**
-  _High betweenness centrality (0.129) - this node is a cross-community bridge._
+  _High betweenness centrality (0.139) - this node is a cross-community bridge._
 - **Are the 9 inferred relationships involving `MemoryEngine` (e.g. with `AutoCapture` and `Decisions`) actually correct?**
   _`MemoryEngine` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill` to the rest of the system?**
-  _1306 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1324 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `3. Core Tool Reference` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Are the 4 inferred relationships involving `TaskGraph` (e.g. with `GateEngine` and `SeikoClaw`) actually correct?**
   _`TaskGraph` has 4 INFERRED edges - model-reasoned connections that need verification._
-- **Should `MemoryEngine` be split into smaller, more focused modules?**
-  _Cohesion score 0.04784313725490196 - nodes in this community are weakly interconnected._
+- **Should `os` be split into smaller, more focused modules?**
+  _Cohesion score 0.04895104895104895 - nodes in this community are weakly interconnected._
 - **Are the 9 inferred relationships involving `SeikoClaw` (e.g. with `AutoCapture` and `GateEngine`) actually correct?**
   _`SeikoClaw` has 9 INFERRED edges - model-reasoned connections that need verification._
