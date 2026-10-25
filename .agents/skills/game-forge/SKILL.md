@@ -86,7 +86,7 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
    - Build a self-contained, zero-dependency `prototypes/prototype.html` (HTML5 Canvas + Web Audio synth).
    - Use clean geometric placeholders (boxes/capsules) to focus purely on core loop feel.
    - Embed an on-screen Debug HUD and **Live Parameter Tuning Sliders** (e.g. `Speed`, `Cooldown`, `ParryWindow`).
-   - *3D Prototyping Option*: For 3D titles, trigger `blender-developer` to generate blockout arenas, collision geometry, and export `.glb` to `prototypes/assets/`.
+    - *3D Prototyping Option*: For 3D titles, trigger `blender-developer` to generate blockout arenas, collision geometry, and export `.glb` to `prototypes/assets/`. Must pass `[GATE: BLENDER_VALIDATION]` (0 non-manifold edges, applied scale, min Z=0).
 3. **Execute `game-systems-modeler` & `obsidian-bases`**:
    - Write `docs/design/balance.json` (canonical baseline curves), `docs/design/balance_simulator.html`, and dynamic property database `docs/design/balance.base`.
 4. **Gate B (Loop Validation)**:
@@ -101,13 +101,13 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
 1. **Execute `playtest-feedback-loop`**: Map qualitative feedback into parameter changes.
 2. **Execute Staged Art Pipeline (C0..C5)**:
    - `C0 - Palettes & Shading`: Generate color ramps and lighting models.
-   - `C1 - Environment & Terrain`: Modular tilesets / backdrops into `assets/`. For 3D or isometric environments, use `blender-developer` to query Poly Haven for CC0 textures/HDRIs or generate procedural blockouts and props.
+   - `C1 - Environment & Terrain`: Modular tilesets / backdrops into `assets/`. For 3D or isometric environments, use `blender-developer` to query Poly Haven for CC0 textures/HDRIs or generate procedural blockouts and props (protected by `[GATE: BLENDER_VALIDATION]`).
    - `C2 - Hero & Enemy Sprites/Models`: Character layers, animations, or meshes.
-     - *For 3D Games*: Use `blender-developer` for procedural mesh modeling, Poly Pizza low-poly imports, armature rigging, and `.glb` exports.
+     - *For 3D Games*: Use `blender-developer` for procedural mesh modeling, Poly Pizza low-poly imports, armature rigging, and `.glb` exports. Every asset prompt/description is stored in `assets/metadata/<asset>.json`, and the asset must pass `[GATE: BLENDER_VALIDATION]`.
      - *For 2D Games*: Use `blender-developer` to render 8-directional isometric sprite sheets from 3D models at locked pixel resolutions and palette specs.
    - `C3 - VFX & Particles`: Impact sparks, hit trails, screen shake shaders.
    - `C4 - Audio & UI HUD`: Procedural SFX, theme music, tactile HUD styling.
-   - `C5 - Asset Ledger`: Verify all assets match `art/BAR.md` resolution and palette specs, tracking deliverables in `docs/design/assets.base`.
+   - `C5 - Asset Ledger`: Verify all assets match `art/BAR.md` resolution and palette specs, tracking deliverables in `docs/design/assets.base`. No asset may be entered without certified validation report.
 3. **Execute `game-developer` (Tooling Architecture)**:
    - Build schema validators (`validate_data.py`) and browser workbenches (e.g. `tools/map_painter.html`, `tools/sound_workbench.html`).
    - *For TTRPG & Tactical Titles*: Execute `obsidian-atlas-vtt` to author `.atlasmap` test scenes, emit `.atlas-collection.zip` bundles, or ingest `.uvtt` maps for instant in-vault playtesting.
@@ -120,12 +120,12 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
 
 1. **The Parity Cycle (`Capture -> Critic -> Punch List -> Builder -> Re-capture`)**:
    - **Capture**: Automated headless browser / screen capture generates in-game stills (`captures/R<n>_frame.png`).
-     - *For 3D in Blender*: invoke `look(mode="angles")` to generate 4-view contact sheets and `look(shading="wireframe")` for topology audits.
+     - *For 3D in Blender*: invoke `look(mode="angles")` to generate 4-view contact sheets and `scripts/fetch_asset_references.py` to acquire web ground-truth reference images matching the asset description.
      - *For Obsidian / Atlas VTT*: invoke `obsidian dev:screenshot path=captures/R<n>_frame.png` for automated headless capture of the active vault canvas.
-   - **SxS Composite**: Pair capture side-by-side with matched reference from `refs-locked/`.
+   - **SxS Composite**: Pair capture side-by-side with matched reference using `scripts/fetch_asset_references.py composite`.
    - **Execute `game-design-critic` (Phase 2: Visual Parity)**: Run critique against `art/BAR.md`.
-     - *If FAIL*: Generate structured defect punch items (`[Still | Matched Ref | Region | Observed Defect | Ref Target | Done-When]`).
-     - *Builder Round*: Implement targeted visual fixes for punch items.
+     - *If FAIL*: Generate structured defect punch items (`[Still | Matched Ref | Region | Observed Defect | Ref Target | Done-When | BPY Fix]`).
+     - *Builder Round*: Implement targeted visual fixes for punch items using in-scene BPY recipes.
      - *Re-capture & Re-score*: Log delta in `captures/rounds.log`.
 2. **Stuck-Loop Diagnoser ($D^*$ Protocol)**:
    - If 3+ consecutive rounds fail the hard gate without visual convergence, pause Builder punches.

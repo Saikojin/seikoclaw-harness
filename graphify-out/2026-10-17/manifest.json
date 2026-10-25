@@ -125,8 +125,8 @@
     "semantic_hash": ""
   },
   "seikoclaw.py": {
-    "mtime": 1792215007.037949,
-    "seen": 1792261558.6133041,
+    "mtime": 1792266291.5650613,
+    "seen": 1792275088.6570733,
     "ast_hash": "66a9f447699c2168faf2d842720a4dbc",
     "semantic_hash": ""
   },
@@ -407,8 +407,8 @@
     "semantic_hash": ""
   },
   ".agents/skills/seikoclaw-harness/SKILL.md": {
-    "mtime": 1792261217.439444,
-    "seen": 1792261558.627025,
+    "mtime": 1792266291.5380633,
+    "seen": 1792275088.6699104,
     "ast_hash": "07ecd2981d28f8295346de13ad45136f",
     "semantic_hash": ""
   },
@@ -611,9 +611,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1791415610.8821614,
-    "seen": 1791515082.8534303,
-    "ast_hash": "9c8f56c0d96a85cea52a89edd9255a1f",
+    "mtime": 1792266291.5391269,
+    "seen": 1792275088.679339,
+    "ast_hash": "385b2df5998f17bfc10e4441eb30ad1b",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE_EVALUATION.md": {
@@ -719,9 +719,9 @@
     "semantic_hash": ""
   },
   "CREDITS.md": {
-    "mtime": 1791415610.8816452,
-    "seen": 1791515082.853429,
-    "ast_hash": "37be6910e5cae56388e715459ca79d07",
+    "mtime": 1792266291.5380633,
+    "seen": 1792275088.679335,
+    "ast_hash": "4e03eadd2d5ccda17232d3c5f974fd86",
     "semantic_hash": ""
   },
   ".agents/hooks/session-start.ps1": {
@@ -749,8 +749,8 @@
     "semantic_hash": ""
   },
   "scripts/export_skills.py": {
-    "mtime": 1792214952.9728668,
-    "seen": 1792261558.6129751,
+    "mtime": 1792266291.564036,
+    "seen": 1792275088.656713,
     "ast_hash": "0e127ff79ab874fed021827c2c57d86f",
     "semantic_hash": ""
   },
@@ -1517,8 +1517,8 @@
     "semantic_hash": ""
   },
   "evals/routing/routing_cases.json": {
-    "mtime": 1792261304.3057425,
-    "seen": 1792261558.61184,
+    "mtime": 1792266291.5396478,
+    "seen": 1792275088.6551929,
     "ast_hash": "0fcc94a42e507bb4d422fbb1e8060e67",
     "semantic_hash": ""
   },
@@ -1535,8 +1535,8 @@
     "semantic_hash": ""
   },
   "tests/test_skill_evals.py": {
-    "mtime": 1792261398.7223084,
-    "seen": 1792261558.6137462,
+    "mtime": 1792266291.5655766,
+    "seen": 1792275088.6574578,
     "ast_hash": "0a8b7c6ad55fef1709229dafb242308a",
     "semantic_hash": ""
   },
@@ -1589,15 +1589,15 @@
     "semantic_hash": ""
   },
   ".agents/skills/blender-developer/SKILL.md": {
-    "mtime": 1791415610.8762975,
-    "seen": 1791515082.8421333,
-    "ast_hash": "b9b4f75013b55fbcb4f1f3598112bb04",
+    "mtime": 1792275012.9169545,
+    "seen": 1792275088.6618886,
+    "ast_hash": "ef5b9899af33076492182928ab7bdc39",
     "semantic_hash": ""
   },
   ".agents/skills/blender-developer/references/bpy_recipes.md": {
-    "mtime": 1791415610.8769593,
-    "seen": 1791515082.8421345,
-    "ast_hash": "a5b01d8f251e6bd76d6250c9dab527ea",
+    "mtime": 1792274909.6305845,
+    "seen": 1792275088.661892,
+    "ast_hash": "48592d6ef2a0d88774a5db61f3a468b9",
     "semantic_hash": ""
   },
   ".agents/skills/json-canvas/SKILL.md": {
@@ -1727,39 +1727,57 @@
     "semantic_hash": ""
   },
   "scripts/polyhaven.py": {
-    "mtime": 1792261065.6498563,
-    "seen": 1792261558.6131139,
-    "ast_hash": "8d2b934902d510f39b6daad237dbdfb3",
+    "mtime": 1792266291.564547,
+    "seen": 1792275088.656836,
+    "ast_hash": "297ad9cc0638bce774f3e07a33e43c31",
     "semantic_hash": ""
   },
   "tests/test_polyhaven.py": {
-    "mtime": 1792261360.5604022,
-    "seen": 1792261558.6137447,
-    "ast_hash": "ae6983f79306c1d846ec7079188a86ba",
+    "mtime": 1792266291.5655766,
+    "seen": 1792275088.6574569,
+    "ast_hash": "78b2497ae9be65a66854eba9fe205845",
     "semantic_hash": ""
   },
   ".agents/skills/polyhaven-assets/SKILL.md": {
-    "mtime": 1792261244.4312956,
-    "seen": 1792261558.6246495,
-    "ast_hash": "218b3745334e509402356d3762ae7d29",
+    "mtime": 1792266291.5375516,
+    "seen": 1792275088.667985,
+    "ast_hash": "e8a789887c1ddff9442618a8936220c8",
     "semantic_hash": ""
   },
   "HANDOFF.md": {
-    "mtime": 1792259593.7963336,
-    "seen": 1792261558.6321967,
-    "ast_hash": "d35f3b26188ab237ac01f29696f14e94",
+    "mtime": 1792266291.5385957,
+    "seen": 1792275088.6793375,
+    "ast_hash": "fcc892a2ad8af850c88f786f74b60ab6",
     "semantic_hash": ""
   },
   "docs/POLYHAVEN_INTEGRATION_PLAN.md": {
-    "mtime": 1792259573.6430163,
-    "seen": 1792261558.6323645,
-    "ast_hash": "9b02a08543dea86b613de6f32030b02e",
+    "mtime": 1792266291.5391269,
+    "seen": 1792275088.6794107,
+    "ast_hash": "364c4b599ce6227a0ef3a5411b9338f2",
     "semantic_hash": ""
   },
   "docs/adr/0003-polyhaven-asset-pipeline.md": {
-    "mtime": 1792259543.627664,
-    "seen": 1792261558.6325421,
-    "ast_hash": "263b6437db92735b8aa0c8716a7f8d6e",
+    "mtime": 1792266291.5396478,
+    "seen": 1792275088.6795483,
+    "ast_hash": "af0a002b945991a4623a108e88346d1b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/scripts/blendswap_client.py": {
+    "mtime": 1792274696.2871013,
+    "seen": 1792275088.6507232,
+    "ast_hash": "dc4ff68468f2910d4707f9d929dae2e5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/scripts/blendswap_mcp_server.py": {
+    "mtime": 1792274812.9675536,
+    "seen": 1792275088.6507275,
+    "ast_hash": "f3a81f50a77d70aba2a4e1b42f4da398",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/references/blendswap_api_guide.md": {
+    "mtime": 1792274866.3636322,
+    "seen": 1792275088.6618903,
+    "ast_hash": "9383926254e599dd8187e88a613644c6",
     "semantic_hash": ""
   }
 }
