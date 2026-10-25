@@ -4,6 +4,18 @@
 
 ---
 
+## Live Showcase & A/B Case Study (`RawExerMart` vs. `ClawExerMart`)
+
+Compare how an AI agent codes from the exact same prompt **without** vs. **with** the SeikoClaw Harness:
+
+- **Interactive GitHub Pages Showcase & Split-Screen Sandbox**: [`https://saikojin.github.io/seikoclaw-harness/`](https://saikojin.github.io/seikoclaw-harness/)
+- **Play Live `ClawExerMart` (With SeikoClaw Harness)**: [`https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html`](https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html) ([launch in `break-ui` worst-case stress mode](https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html?data=worst))
+- **Play Live `RawExerMart` (Control Group Without Harness)**: [`https://saikojin.github.io/seikoclaw-harness/demos/rawexermart/index.html`](https://saikojin.github.io/seikoclaw-harness/demos/rawexermart/index.html)
+- **Full Forensic Report & 12-Dimension Chart**: [`docs/EXERMART_CASE_STUDY.md`](docs/EXERMART_CASE_STUDY.md)
+- **Source Repositories**: [`Saikojin/ClawExerMart`](https://github.com/Saikojin/ClawExerMart) vs. [`Saikojin/RawExerMart`](https://github.com/Saikojin/RawExerMart)
+
+---
+
 ## 🎯 Highlights
 
 - **24 First-Principle Engineering Directives**: Enforces zero-slop code hygiene, minimal diffs, boundary discipline, root-cause debugging, and empirical verification (`.agents/rules/principles.md`).
@@ -30,6 +42,10 @@
 │   ├── skills/            # Modular capability definitions (80+ canonical skills)
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
+├── docs/                  # GitHub Pages Interactive Showcase & Architecture Docs
+│   ├── index.html         # Interactive A/B Showcase (RawExerMart vs. ClawExerMart)
+│   ├── demos/             # Embedded static builds of ClawExerMart & RawExerMart
+│   └── assets/exermart/   # Non-headless visual verification captures (R1..R7)
 ├── evals/                 # Benchmark routing evaluation datasets
 │   └── routing/           # Canonical utterance test suites
 ├── openbrain/             # Context Persistence & Sidecar Engine

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeikoClaw Harness Showcase: RawExerMart vs. ClawExerMart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            mono: ['"JetBrains Mono"', '"SF Mono"', 'Consolas', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      letter-spacing: -0.01em;
+    }
+    body {
+      background-color: #020617;
+      color: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    h1, h2, h3 {
+      letter-spacing: -0.025em;
+    }
+    .apple-press {
+      transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), opacity 120ms ease;
+      will-change: transform;
+    }
+    .apple-press:active {
+      transform: scale(0.97);
+    }
+    .apple-glass {
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    }
+    .apple-glass-card {
+      background: rgba(15, 23, 42, 0.62);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .apple-press:active {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- Sticky Frosted Glass Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md">
+          SC
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-base text-white tracking-tight">SeikoClaw Harness</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              A/B Case Study
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Empirical Comparison: RawExerMart vs. ClawExerMart</p>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1 bg-slate-900/90 p-1 rounded-full border border-slate-800 text-xs font-medium">
+        <a href="#rubric" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 apple-press">Rubric Chart</a>
+        <a href="#live-sandbox" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 apple-press">Live Split-Screen</a>
+        <a href="#matrix" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 apple-press">12-Axis Matrix</a>
+        <a href="#gallery" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 apple-press">Visual Captures</a>
+        <a href="#break-ui" class="px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 apple-press">break-ui Audit</a>
+      </nav>
+
+      <div class="flex items-center gap-2 text-xs">
+        <a
+          href="https://github.com/Saikojin/seikoclaw-harness"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold apple-press"
+        >
+          Harness Repo ↗
+        </a>
+        <a
+          href="demos/clawexermart/index.html"
+          target="_blank"
+          class="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold apple-press shadow-sm"
+        >
+          Play ClawExerMart ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+    <!-- Hero Banner -->
+    <section class="relative rounded-3xl apple-glass p-8 md:p-12 border border-slate-800/90 overflow-hidden">
+      <div class="max-w-4xl space-y-5">
+        <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-semibold">
+          <span>Same Base Prompt · Two Execution Environments · Verified Runtime Proof</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+          What changes when an AI agent codes <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-emerald-400">with vs. without</span> the SeikoClaw Harness?
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+          Both projects below were generated from the same requirement: build a new and pre-owned gym equipment marketplace modeled on Michael Leonard's <a href="https://medium.com/@michael.leonard/story-test-plan-template-a4202531e741" target="_blank" rel="noopener noreferrer" class="text-amber-400 underline underline-offset-4">Story Test Plan Template</a> with zero PHP dependencies.
+          <strong class="text-white">RawExerMart</strong> ran without the harness. <strong class="text-white">ClawExerMart</strong> ran with SeikoClaw's domain modeling, Apple motion standards, non-headless Chrome E2E gates, and <code class="text-amber-300 bg-slate-900 px-1.5 py-0.5 rounded">break-ui</code> stress testing.
+        </p>
+
+        <!-- Repository & Live Demo Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3">
+          <!-- Card 1: SeikoClaw Harness -->
+          <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">The Agentic Harness</span>
+              <h3 class="text-sm font-bold text-white mt-0.5">Saikojin / seikoclaw-harness</h3>
+              <p class="text-xs text-slate-400 mt-1">94 canonical skills, OpenBrain SQLite/Chroma sidecar, DAG task gates, and pre-exec safety hooks.</p>
+            </div>
+            <div class="flex items-center gap-2 pt-2">
+              <a href="https://github.com/Saikojin/seikoclaw-harness" target="_blank" rel="noopener noreferrer" class="w-full text-center px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white border border-slate-700 apple-press">
+                View Harness GitHub ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: RawExerMart -->
+          <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Control Group (No Harness)</span>
+              <h3 class="text-sm font-bold text-white mt-0.5">Saikojin / RawExerMart</h3>
+              <p class="text-xs text-slate-400 mt-1">27 source files (2,921 LOC). Express + React catalog, vendor price table, and 40 JSDOM/Supertest tests.</p>
+            </div>
+            <div class="flex items-center gap-2 pt-2">
+              <a href="demos/rawexermart/index.html" target="_blank" class="flex-1 text-center px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white border border-slate-700 apple-press">
+                Live Demo ↗
+              </a>
+              <a href="https://github.com/Saikojin/RawExerMart" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-slate-300 border border-slate-800 apple-press">
+                Repo ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: ClawExerMart -->
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">Treatment Group (With Harness)</span>
+              <h3 class="text-sm font-bold text-white mt-0.5">Saikojin / ClawExerMart</h3>
+              <p class="text-xs text-slate-300 mt-1">23 source files (4,133 LOC). 8-point inspection sheet, ceiling clearance matcher, valuation engine, and live <code class="text-amber-300">break-ui</code> toggle.</p>
+            </div>
+            <div class="flex items-center gap-2 pt-2">
+              <a href="demos/clawexermart/index.html" target="_blank" class="flex-1 text-center px-3 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-xs font-bold text-slate-950 apple-press shadow">
+                Live Demo ↗
+              </a>
+              <a href="demos/clawexermart/index.html?data=worst" target="_blank" class="px-2.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-amber-400 border border-amber-500/40 apple-press" title="Launch with break-ui Worst Case dataset active">
+                break-ui ↗
+              </a>
+              <a href="https://github.com/Saikojin/ClawExerMart" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-slate-300 border border-slate-800 apple-press">
+                Repo ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: 7-Axis Quantitative Rubric Chart -->
+    <section id="rubric" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Section 01 · Quantitative Evaluation</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">7-axis engineering & quality rubric (0 to 10 scale)</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+            Scored against concrete repository artifacts. Notice that RawExerMart scores higher on Backend API because it built an Express server, whereas ClawExerMart dominates across domain depth, UI/motion physics, adversarial stress resilience, and real browser verification.
+          </p>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-slate-500 inline-block"></span> RawExerMart (No Harness)</span>
+          <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-amber-500 inline-block"></span> ClawExerMart (SeikoClaw Harness)</span>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-3xl apple-glass-card space-y-5 tabular-nums">
+        <!-- Axis 1 -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-white">1. Domain Modeling Depth <span class="text-slate-400 font-normal ml-1">(8-point inspection, room/ceiling clearance math, resale valuation vs. basic price table)</span></span>
+            <span class="font-mono"><span class="text-slate-400">5.0</span> vs <span class="text-amber-400 font-bold">9.5 / 10</span></span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-slate-500 h-full rounded-full" style="width: 50%"></div>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Axis 2 -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-white">2. Backend REST Service & HTTP Contract Tests <span class="text-slate-400 font-normal ml-1">(RawExerMart includes Express API + Supertest; ClawExerMart uses client state)</span></span>
+            <span class="font-mono"><span class="text-emerald-400 font-bold">8.5</span> vs <span class="text-slate-400">3.0 / 10</span></span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-slate-400 h-full rounded-full" style="width: 85%"></div>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-amber-500/70 h-full rounded-full" style="width: 30%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Axis 3 -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-white">3. UI Polish & Motion Physics <span class="text-slate-400 font-normal ml-1">(apple-design tactile press, frosted glass, sub-300ms GPU curves, reduced-motion guard)</span></span>
+            <span class="font-mono"><span class="text-slate-400">5.0</span> vs <span class="text-amber-400 font-bold">9.5 / 10</span></span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-slate-500 h-full rounded-full" style="width: 50%"></div>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Axis 4 -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-white">4. Adversarial Edge-Case Resilience (<code class="text-amber-300">break-ui</code>) <span class="text-slate-400 font-normal ml-1">(145-char titles, $129,999 prices, CJK/diacritics, broken image fallback, 1-item grammar)</span></span>
+            <span class="font-mono"><span class="text-slate-400">4.0</span> vs <span class="text-amber-400 font-bold">9.5 / 10</span></span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-slate-500 h-full rounded-full" style="width: 40%"></div>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Axis 5 -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-white">5. Real Windowed Browser E2E Verification (<code class="text-amber-300">seikojin-qa</code>) <span class="text-slate-400 font-normal ml-1">(JSDOM-only in Raw vs. live Chrome Playwright + 7 visual proofs in Claw)</span></span>
+            <span class="font-mono"><span class="text-slate-400">2.0</span> vs <span class="text-amber-400 font-bold">10.0 / 10</span></span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-slate-500 h-full rounded-full" style="width: 20%"></div>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Axis 6 -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-white">6. 4-Tier Story Test Plan Breadth <span class="text-slate-400 font-normal ml-1">(Unit + Component + Non-Headless E2E + Visual/Motion Critic & Enterprise Roadmap)</span></span>
+            <span class="font-mono"><span class="text-slate-400">8.0</span> vs <span class="text-amber-400 font-bold">9.5 / 10</span></span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-slate-500 h-full rounded-full" style="width: 80%"></div>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Axis 7 -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-white">7. Auditability & Gate Traceability <span class="text-slate-400 font-normal ml-1">(task.md [E2E_CONTRACT] blocks, Fowler smell review, and before/after motion log)</span></span>
+            <span class="font-mono"><span class="text-slate-400">7.0</span> vs <span class="text-amber-400 font-bold">9.5 / 10</span></span>
+          </div>
+          <div class="grid grid-cols-1 gap-1.5">
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-slate-500 h-full rounded-full" style="width: 70%"></div>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Split-Screen Live Sandbox -->
+    <section id="live-sandbox" class="space-y-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Section 02 · Interactive Sandbox</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Side-by-side live application comparison</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Interact with both compiled applications directly below, or toggle ClawExerMart into <code class="text-amber-300">?data=worst</code> adversarial stress mode.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <button
+            type="button"
+            onclick="document.getElementById('claw-iframe').src = 'demos/clawexermart/index.html'"
+            class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold border border-slate-700 apple-press"
+          >
+            Claw: Demo Data
+          </button>
+          <button
+            type="button"
+            onclick="document.getElementById('claw-iframe').src = 'demos/clawexermart/index.html?data=worst'"
+            class="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold apple-press"
+          >
+            Claw: Worst-Case Stress (?data=worst)
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Left Iframe: RawExerMart -->
+        <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+          <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
+              <strong class="text-white">RawExerMart</strong>
+              <span class="text-slate-400">(Without Harness)</span>
+            </div>
+            <a href="demos/rawexermart/index.html" target="_blank" class="text-amber-400 hover:underline font-medium">Open Full Tab ↗</a>
+          </div>
+          <iframe
+            src="demos/rawexermart/index.html"
+            title="RawExerMart Live Demo"
+            class="w-full h-[620px] bg-slate-950 border-0"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <!-- Right Iframe: ClawExerMart -->
+        <div class="rounded-3xl apple-glass-card overflow-hidden border border-amber-500/30 flex flex-col">
+          <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <strong class="text-white">ClawExerMart</strong>
+              <span class="text-amber-400 font-medium">(With SeikoClaw Harness)</span>
+            </div>
+            <a href="demos/clawexermart/index.html" target="_blank" class="text-amber-400 hover:underline font-medium">Open Full Tab ↗</a>
+          </div>
+          <iframe
+            id="claw-iframe"
+            src="demos/clawexermart/index.html"
+            title="ClawExerMart Live Demo"
+            class="w-full h-[620px] bg-slate-950 border-0"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: 12-Dimension Master Comparison Matrix -->
+    <section id="matrix" class="space-y-5">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Section 03 · Architectural Matrix</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">12-dimension forensic comparison chart</h2>
+      </div>
+
+      <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-slate-800 bg-slate-900/80 text-slate-300 uppercase tracking-wider text-[11px]">
+                <th class="py-3.5 px-4">Dimension</th>
+                <th class="py-3.5 px-4">RawExerMart (No Harness)</th>
+                <th class="py-3.5 px-4">ClawExerMart (With SeikoClaw Harness)</th>
+                <th class="py-3.5 px-4">SeikoClaw Skill / Gate</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-slate-300">
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">1. Source Footprint</td>
+                <td class="py-3.5 px-4">27 source files (<code class="text-slate-200">2,921 LOC</code> across <code class="text-slate-400">client/</code> and <code class="text-slate-400">server/</code>)</td>
+                <td class="py-3.5 px-4">23 source files (<code class="text-amber-300">4,133 LOC</code> in <code class="text-slate-400">src/</code>)</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">architect</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">2. Core User Workflows</td>
+                <td class="py-3.5 px-4">3 workflows: Catalog browse/filter, 5-vendor price comparison table, and basic listing modal</td>
+                <td class="py-3.5 px-4">6 workflows: Catalog browse/filter, 8-point physical inspection sheet, counter-offer modal, algorithmic consignment/buyout valuation portal, room & ceiling clearance matcher, and LTL freight cart drawer</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">codebase-design</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">3. Pricing & Valuation Math</td>
+                <td class="py-3.5 px-4">Min/average vendor price comparison in <code class="text-slate-400">marketplaceComparisonService.ts</code></td>
+                <td class="py-3.5 px-4">Brand retention multipliers (<code class="text-amber-300">1.25x</code> Eleiko, <code class="text-amber-300">1.20x</code> Concept2, <code class="text-amber-300">1.15x</code> Rogue), condition discount curves, annual depreciation floor, and <code class="text-amber-300">72%</code> instant cash buyout offer in <code class="text-slate-400">valuation.ts</code></td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">codebase-design</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">4. Spatial & Ceiling Modeling</td>
+                <td class="py-3.5 px-4">Static strings inside <code class="text-slate-400">specs</code> dictionary</td>
+                <td class="py-3.5 px-4">Interactive room & ceiling height clearance engine (<code class="text-emerald-400">FITS_PERFECTLY</code>, <code class="text-amber-400">TIGHT_CLEARANCE</code>, <code class="text-rose-400">EXCEEDS_CEILING</code>) in <code class="text-slate-400">spaceCalculator.ts</code></td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">codebase-design</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">5. Pre-Owned Trust Mechanics</td>
+                <td class="py-3.5 px-4">Single <code class="text-slate-400">conditionNotes</code> text string</td>
+                <td class="py-3.5 px-4">Structured <code class="text-slate-400">InspectionReport</code> grading frame weld integrity, needle-bearing runout, cable tension, upholstery rebound, cardio motor hours, and oxidation check</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">codebase-design</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">6. Backend API Layer</td>
+                <td class="py-3.5 px-4"><strong class="text-emerald-400">Express REST API</strong> (<code class="text-slate-400">/api/equipment</code>, <code class="text-slate-400">/api/marketplaces/compare/:id</code>) with Scenario 2 fallback</td>
+                <td class="py-3.5 px-4">Client-side state with <code class="text-slate-400">CartContext</code> and URL search parameter state (<code class="text-slate-400">?data=worst</code>)</td>
+                <td class="py-3.5 px-4">Baseline architecture</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">7. Typography & Surface Craft</td>
+                <td class="py-3.5 px-4">25-line <code class="text-slate-400">index.css</code> with default Tailwind classes</td>
+                <td class="py-3.5 px-4">78-line <code class="text-slate-400">index.css</code> with <code class="text-amber-300">-0.025em</code> optical heading tracking, <code class="text-amber-300">tabular-nums</code>, and <code class="text-amber-300">.apple-glass</code> (<code class="text-slate-400">backdrop-filter: blur(20px) saturate(180%)</code> + inset top specular border)</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">apple-design</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">8. Motion & Animation Physics</td>
+                <td class="py-3.5 px-4">Stock Tailwind <code class="text-rose-400">animate-bounce</code> on toast notification; <code class="text-slate-400">500ms</code> card image hover</td>
+                <td class="py-3.5 px-4"><code class="text-amber-300">.apple-press</code> pointer scaling (<code class="text-slate-400">scale(0.97)</code> on <code class="text-slate-400">cubic-bezier(0.16, 1, 0.3, 1)</code> at <code class="text-slate-400">120ms</code>), GPU-only sub-300ms transitions, and <code class="text-emerald-400">prefers-reduced-motion</code> reset</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">review-animations</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">9. Adversarial Stress Testing</td>
+                <td class="py-3.5 px-4">Tested only against short demo strings</td>
+                <td class="py-3.5 px-4">Live <code class="text-amber-300">BreakUiToggle</code> (<code class="text-slate-400">Demo data / Worst case / 1 item / Empty</code>) testing 145-char titles, <code class="text-amber-300">$129,999</code> prices, CJK/diacritics, broken image fallback, and 52-char serial hashes</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">break-ui</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">10. Automated Test Suite</td>
+                <td class="py-3.5 px-4">40 tests across 8 Vitest/Supertest suites (Unit, API Integration, RTL Journey in JSDOM)</td>
+                <td class="py-3.5 px-4">23 Vitest tests across 9 suites + Non-Headless Playwright Chrome E2E runner (<code class="text-slate-400">scripts/run-e2e.mjs</code>)</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">seikojin-qa</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">11. Real Browser Visual Proof</td>
+                <td class="py-3.5 px-4">0 browser runs; 0 screenshots</td>
+                <td class="py-3.5 px-4">7 non-headless Chrome PNG captures committed in <code class="text-slate-400">captures/R1..R7.png</code> with 0 console errors</td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">seikojin-qa</code></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-bold text-white">12. Code Review & Traceability</td>
+                <td class="py-3.5 px-4"><code class="text-slate-400">DEV_LOG.md</code> + <code class="text-slate-400">ci.yml</code></td>
+                <td class="py-3.5 px-4"><code class="text-slate-400">task.md</code> DAG with <code class="text-amber-300">[E2E_CONTRACT]</code> blocks + <code class="text-slate-400">WORKFLOW_LOG.md</code> with Fowler smell & motion audits + <code class="text-slate-400">ci.yml</code></td>
+                <td class="py-3.5 px-4"><code class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">code-review</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Non-Headless Visual Verification Gallery (R1 - R7) -->
+    <section id="gallery" class="space-y-5">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Section 04 · Non-Headless Browser Proof</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">7 visual verification captures (<code class="text-amber-300">scripts/run-e2e.mjs</code>)</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          Captured automatically in visible windowed Chrome against the production Vite preview bundle under the Seikojin QA <code class="text-slate-300">[E2E_CONTRACT]</code> mandate.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <figure class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+          <img src="assets/exermart/R1_navbar.png" alt="R1 Hero and Frosted Glass Navbar" class="w-full aspect-[16/10] object-cover object-top border-b border-slate-800" loading="lazy" />
+          <figcaption class="p-4 text-xs text-slate-300">
+            <strong class="text-white block">R1_navbar.png · Hero & Frosted Glass Navigation</strong>
+            Verified <code class="text-amber-300">backdrop-filter: blur(20px) saturate(180%)</code> sticky header, optical heading tracking, and bottom-center <code class="text-amber-300">break-ui</code> switcher.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+          <img src="assets/exermart/R2_catalog.png" alt="R2 Marketplace Catalog Grid" class="w-full aspect-[16/10] object-cover object-top border-b border-slate-800" loading="lazy" />
+          <figcaption class="p-4 text-xs text-slate-300">
+            <strong class="text-white block">R2_catalog.png · Catalog Grid & Vertically Stacked Top-Left Badges</strong>
+            Condition pill and <code class="text-amber-300">Save 30%</code> badge stack vertically in the top-left corner, maintaining clean separation from <code class="text-amber-300">98/100 Inspected</code> on the top-right.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl apple-glass-card overflow-hidden border border-amber-500/40 flex flex-col md:col-span-2">
+          <img src="assets/exermart/R7_break_ui_stress.png" alt="R7 Adversarial break-ui Worst Case Stress Mode" class="w-full max-h-[540px] object-cover object-top border-b border-slate-800" loading="lazy" />
+          <figcaption class="p-4 text-xs text-slate-300">
+            <strong class="text-amber-400 block">R7_break_ui_stress.png · Adversarial break-ui Stress Mode (?data=worst)</strong>
+            Proves layout resilience under a 145-character title, compound municipality name (<code class="text-slate-200">Kleinfeltersville-Schwenksville, PA</code>), broken image fallback surface (<code class="text-slate-200">Verified Equipment Photo Pending</code>), German/CJK characters (<code class="text-slate-200">Hantelscheiben-Großraumstation & 競技用パワーラック 250kg</code>), six-figure tabular prices (<code class="text-slate-200">$129,999</code>), and a minimal 1-word <code class="text-slate-200">$15</code> item.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+          <img src="assets/exermart/R3_product_modal.png" alt="R3 Certified 8-Point Physical Inspection Modal" class="w-full aspect-[16/10] object-cover object-top border-b border-slate-800" loading="lazy" />
+          <figcaption class="p-4 text-xs text-slate-300">
+            <strong class="text-white block">R3_product_modal.png · Certified 8-Point Physical Inspection Modal</strong>
+            Technician diagnostic scores, LTL freight delivery tier selector, and counter-offer trigger.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+          <img src="assets/exermart/R4_sell_portal.png" alt="R4 Algorithmic Resale and Instant Cash Buyout Portal" class="w-full aspect-[16/10] object-cover object-top border-b border-slate-800" loading="lazy" />
+          <figcaption class="p-4 text-xs text-slate-300">
+            <strong class="text-white block">R4_sell_portal.png · Algorithmic Resale & Instant Cash Buyout Portal</strong>
+            Real-time valuation computing recommended list price (<code class="text-amber-300">$781</code>) and instant cash buyout (<code class="text-amber-300">$562</code>).
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+          <img src="assets/exermart/R5_space_matcher.png" alt="R5 Interactive Gym Space and Ceiling Clearance Matcher" class="w-full aspect-[16/10] object-cover object-top border-b border-slate-800" loading="lazy" />
+          <figcaption class="p-4 text-xs text-slate-300">
+            <strong class="text-white block">R5_space_matcher.png · Gym Space & Ceiling Clearance Matcher</strong>
+            Audits 8ft basement ceilings against 90-inch power racks (<code class="text-amber-300">Tight Clearance: +0" remaining</code>) vs. rowers (<code class="text-emerald-400">+42" remaining</code>).
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+          <img src="assets/exermart/R6_cart_checkout.png" alt="R6 LTL Freight and Liftgate Checkout Drawer" class="w-full aspect-[16/10] object-cover object-top border-b border-slate-800" loading="lazy" />
+          <figcaption class="p-4 text-xs text-slate-300">
+            <strong class="text-white block">R6_cart_checkout.png · LTL Freight & Liftgate Cart Drawer</strong>
+            Calculates palletized curbside liftgate delivery, tax, and mechanical guarantee receipt.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Section 5: Adversarial break-ui Defect Audit Table -->
+    <section id="break-ui" class="space-y-5">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Section 05 · Adversarial Stress Audit</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">8 bugs uncovered and fixed via <code class="text-amber-300">break-ui</code></h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          Every component looks clean when tested against short demo strings. Feeding worst-case realistic data through <code class="text-slate-300">WORST_CASE_EQUIPMENT</code> exposed 8 bugs that were fixed and locked into <code class="text-slate-300">src/test/BreakUi.test.tsx</code>.
+        </p>
+      </div>
+
+      <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-slate-800 bg-slate-900/80 text-slate-300 uppercase tracking-wider text-[11px]">
+                <th class="py-3.5 px-4">#</th>
+                <th class="py-3.5 px-4">Severity</th>
+                <th class="py-3.5 px-4">Component & Field</th>
+                <th class="py-3.5 px-4">Worst-Case Value</th>
+                <th class="py-3.5 px-4">What Broke Before Fix</th>
+                <th class="py-3.5 px-4">Fix Applied</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-slate-300">
+              <tr>
+                <td class="py-3 px-4 font-mono">1</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 font-bold text-[10px]">BROKEN</span></td>
+                <td class="py-3 px-4 font-semibold text-white">Catalog.tsx (<code class="text-amber-300">maxPrice</code>)</td>
+                <td class="py-3 px-4"><code class="text-slate-200">$24,995</code> & <code class="text-slate-200">$129,999</code> commercial rigs</td>
+                <td class="py-3 px-4">Slider max was <code class="text-slate-400">5000</code> (<code class="text-slate-400">$5,000+</code>), silently filtering out all items over $5,000 on initial page load</td>
+                <td class="py-3 px-4">Treated <code class="text-emerald-400">maxPrice === 5000</code> as unbounded (<code class="text-slate-400">$5,000+</code>) in <code class="text-slate-400">Catalog.tsx:73</code></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-mono">2</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-[10px]">UGLY</span></td>
+                <td class="py-3 px-4 font-semibold text-white">EquipmentCard.tsx (<code class="text-amber-300">badge-savings</code>)</td>
+                <td class="py-3 px-4">Pre-owned card with <code class="text-slate-200">Save 30%</code> pill</td>
+                <td class="py-3 px-4">Top-left <code class="text-slate-400">flex-wrap</code> row stretched horizontally into the top-right <code class="text-slate-400">98/100 Inspected</code> badge</td>
+                <td class="py-3 px-4">Stacked top-left badges vertically with <code class="text-emerald-400">flex-col items-start gap-1.5 max-w-[58%]</code></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-mono">3</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 font-bold text-[10px]">BROKEN</span></td>
+                <td class="py-3 px-4 font-semibold text-white">EquipmentCard.tsx (<code class="text-amber-300">images[0]</code>)</td>
+                <td class="py-3 px-4"><code class="text-slate-200">https://invalid.example.test/...</code></td>
+                <td class="py-3 px-4">Browser rendered broken image icon with collapsed container contrast</td>
+                <td class="py-3 px-4">Added <code class="text-emerald-400">imgError</code> state & fallback panel (<code class="text-slate-400">Verified Equipment Photo Pending</code>)</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-mono">4</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-[10px]">UGLY</span></td>
+                <td class="py-3 px-4 font-semibold text-white">EquipmentCard.tsx (<code class="text-amber-300">location.city</code>)</td>
+                <td class="py-3 px-4"><code class="text-slate-200">Kleinfeltersville-Schwenksville, PA</code></td>
+                <td class="py-3 px-4">Compound city name wrapped the bottom image overlay banner onto two lines</td>
+                <td class="py-3 px-4">Added <code class="text-emerald-400">min-w-0 truncate</code> on location and <code class="text-emerald-400">flex-shrink-0</code> on freight cost</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-mono">5</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-[10px]">UGLY</span></td>
+                <td class="py-3 px-4 font-semibold text-white">EquipmentCard.tsx (<code class="text-amber-300">brand</code>)</td>
+                <td class="py-3 px-4"><code class="text-slate-200">Hammer Strength by Life Fitness Commercial Division</code></td>
+                <td class="py-3 px-4">52-char brand wrapped onto 2 lines, misaligning card titles across the 3-column grid</td>
+                <td class="py-3 px-4">Added <code class="text-emerald-400">truncate</code> and full <code class="text-emerald-400">title</code> tooltip</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-mono">6</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-[10px]">UGLY</span></td>
+                <td class="py-3 px-4 font-semibold text-white">EquipmentCard.tsx (<code class="text-amber-300">price</code>)</td>
+                <td class="py-3 px-4"><code class="text-slate-200">$129,999</code> + <code class="text-slate-200">$185,000</code> MSRP</td>
+                <td class="py-3 px-4">Six-figure price + strikethrough MSRP squished the Add to Cart and Details buttons</td>
+                <td class="py-3 px-4">Added <code class="text-emerald-400">tabular-nums</code>, <code class="text-emerald-400">min-w-0</code> on price column, and <code class="text-emerald-400">flex-shrink-0</code> on CTAs</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-mono">7</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-[10px]">UGLY</span></td>
+                <td class="py-3 px-4 font-semibold text-white">Catalog.tsx (<code class="text-amber-300">results-count</code>)</td>
+                <td class="py-3 px-4"><code class="text-slate-200">1 item</code> dataset mode</td>
+                <td class="py-3 px-4">Rendered ungrammatical <code class="text-slate-400">"1 Equipment Listings Found"</code></td>
+                <td class="py-3 px-4">Added singular/plural check (<code class="text-emerald-400">1 Equipment Listing Found</code>)</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-mono">8</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-[10px]">UGLY</span></td>
+                <td class="py-3 px-4 font-semibold text-white">ProductDetailModal.tsx (<code class="text-amber-300">specs</code>)</td>
+                <td class="py-3 px-4"><code class="text-slate-200">HS-IWF-3085512-994021-SWEDEN-REV4B...</code></td>
+                <td class="py-3 px-4">Unbreakable 52-char serial hash overflowed the specification table column</td>
+                <td class="py-3 px-4">Added <code class="text-emerald-400">min-w-0 break-all sm:break-words</code> on <code class="text-slate-400">dd</code> elements</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <strong class="text-white">SeikoClaw Agentic Coding Harness</strong> · Built by Saikojin
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://github.com/Saikojin/seikoclaw-harness" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">seikoclaw-harness Repo ↗</a>
+        <a href="https://github.com/Saikojin/ClawExerMart" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">ClawExerMart Repo ↗</a>
+        <a href="https://github.com/Saikojin/RawExerMart" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">RawExerMart Repo ↗</a>
+        <a href="EXERMART_CASE_STUDY.md" class="hover:text-amber-400">Markdown Report ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
