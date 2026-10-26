@@ -8,7 +8,8 @@
 
 Compare how an AI agent codes from the exact same prompt **without** vs. **with** the SeikoClaw Harness:
 
-- **Interactive GitHub Pages Showcase & Split-Screen Sandbox**: [`https://saikojin.github.io/seikoclaw-harness/`](https://saikojin.github.io/seikoclaw-harness/)
+- **Interactive GitHub Pages Showcase & Split-Screen Sandbox**: [`https://saikojin.github.io/seikoclaw-harness/`](https://saikojin.github.io/seikoclaw-harness/) ([open directly in Executive Story view](https://saikojin.github.io/seikoclaw-harness/?view=executive))
+- **Executive Story (3-Minute C-Suite One-Pager)**: [`docs/EXECUTIVE_STORY.md`](docs/EXECUTIVE_STORY.md)
 - **Play Live `ClawExerMart` (With SeikoClaw Harness)**: [`https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html`](https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html) ([launch in `break-ui` worst-case stress mode](https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html?data=worst))
 - **Play Live `RawExerMart` (Control Group Without Harness)**: [`https://saikojin.github.io/seikoclaw-harness/demos/rawexermart/index.html`](https://saikojin.github.io/seikoclaw-harness/demos/rawexermart/index.html)
 - **Full Forensic Report & 12-Dimension Chart**: [`docs/EXERMART_CASE_STUDY.md`](docs/EXERMART_CASE_STUDY.md)
@@ -43,7 +44,8 @@ Compare how an AI agent codes from the exact same prompt **without** vs. **with*
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
 ├── docs/                  # GitHub Pages Interactive Showcase & Architecture Docs
-│   ├── index.html         # Interactive A/B Showcase (RawExerMart vs. ClawExerMart)
+│   ├── index.html         # Interactive A/B Showcase (Executive Story + Engineering Audit)
+│   ├── EXECUTIVE_STORY.md # 3-minute C-suite narrative one-pager
 │   ├── demos/             # Embedded static builds of ClawExerMart & RawExerMart
 │   └── assets/exermart/   # Non-headless visual verification captures (R1..R7)
 ├── evals/                 # Benchmark routing evaluation datasets
