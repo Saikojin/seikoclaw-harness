@@ -1,0 +1,171 @@
+{
+  "id": "narrative-investigation-time-slots",
+  "system": "narrative",
+  "edition": 3,
+  "name": {
+    "zh": "把有限时段分给不同线索",
+    "en": "Allocate limited time among leads"
+  },
+  "summary": {
+    "zh": "查这一条线索，就暂时放下另一条。",
+    "en": "Following one lead means setting another aside for now."
+  },
+  "rules": {
+    "zh": "调查行动消耗游戏内时间，人物和事件也有出现时段。玩家根据预期收益安排访问、交谈和等待；到达新时段后，能见的人或剩余机会发生变化。它关注调查顺序与机会成本，不要求玩家现实中快速阅读。",
+    "en": "Investigative actions advance in-game time, while people and events have schedules. Plan visits, conversations and waiting according to expected value. A new time period changes availability or remaining opportunities; the rule concerns scheduling, not reading quickly in real time."
+  },
+  "loop": [
+    {
+      "zh": "查看线索与可用时段",
+      "en": "Review leads and available time"
+    },
+    {
+      "zh": "选择一次调查或等待",
+      "en": "Choose an investigation or wait"
+    },
+    {
+      "zh": "获得信息并推进时钟",
+      "en": "Gain information and advance time"
+    },
+    {
+      "zh": "按新的日程重新排优先级",
+      "en": "Reprioritize against the new schedule"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先查把握较大的线索，还是赶在人物离开前问一个不确定问题？",
+      "en": "Follow the promising lead or catch a departing witness for an uncertain question?"
+    },
+    {
+      "zh": "等关键人物出现，还是用这段时间调查别处？",
+      "en": "Wait for a key person or investigate elsewhere in the interval?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "行动消耗的粒度",
+        "en": "Time-cost granularity"
+      },
+      "effect": {
+        "zh": "整段时段易读；细分分钟更灵活，但需要更好的日程提示。",
+        "en": "Whole time slots are easy to read; minute-level costs are flexible but need clearer scheduling aids."
+      }
+    },
+    {
+      "name": {
+        "zh": "错过机会能否重来",
+        "en": "Whether missed opportunities return"
+      },
+      "effect": {
+        "zh": "隔天再来会减轻焦虑；永久错过则需要提前提醒。",
+        "en": "Returning the next day reduces anxiety; permanent misses need advance warnings."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Pentiment",
+      "gameZh": "隐迹渐现",
+      "steamId": 1205520,
+      "image": "https://images.loopyhop.com/gameplayatlas/35140f1879a28cefe39ed635.webp",
+      "imageSource": "https://limitedrungames.com/products/switch-limited-run-229-pentiment",
+      "rights": "Obsidian Entertainment / Xbox Game Studios / image via Limited Run Games",
+      "implementation": {
+        "zh": "部分调查行动会推进到后续时段，玩家无法在一次调查中完成所有事情，必须挑选要追的线索。",
+        "en": "Some investigations move time forward, preventing every lead from being completed in one investigation and requiring priorities."
+      },
+      "source": "https://pentiment.fandom.com/wiki/Time",
+      "sourceLabel": "Community wiki — Pentiment Wiki",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：室内多人对话场景可见；时间安排与背景技能判定没有显示。",
+        "en": "System reference: Several people appear in an indoor conversation; scheduling and background-skill checks are not shown. See the linked text source for the rules."
+      },
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://cld.accentuate.io/7360460161077/1708528229091/pentiment-limited-run-games-3.jpg?options=w_1920&v=1708528229092"
+    },
+    {
+      "game": "Disco Elysium",
+      "gameZh": "极乐迪斯科",
+      "image": "https://images.loopyhop.com/gameplayatlas/bf7db5548173f5ddca2fdc12.jpg",
+      "imageSource": "https://store.steampowered.com/app/632470/",
+      "rights": "ZA/UM",
+      "implementation": {
+        "zh": "交谈、阅读和特定事件推进游戏时间，人物有各自日程；走动本身通常不消耗时间，安排问话比操作速度更重要。",
+        "en": "Conversation, reading and certain events advance time while characters follow schedules. Walking normally does not consume time, so scheduling matters more than input speed."
+      },
+      "source": "https://discoelysium.wiki.gg/wiki/Time",
+      "sourceLabel": "Community wiki — Disco Elysium Wiki",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "observation": {
+        "zh": "沿用已有资料中的系统参考图，帮助辨认作品；本条的对话或事件规则以文字来源为准。",
+        "en": "System reference reused from the existing research to identify the game; use the written source for this entry’s dialogue or event rule."
+      },
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/ss_9125a718ee9ba85386ae5d4eb820f3266073fc97.1920x1080.jpg?t=1780913406"
+    }
+  ],
+  "contrast": {
+    "zh": "Pentiment 的阶段限制会迫使玩家舍弃线索；Disco Elysium 更强调一天内的时间推进与人物可用时段，不能把所有任务都当成硬截止。",
+    "en": "Pentiment’s phases force abandoned leads; Disco Elysium emphasizes time progression and character schedules rather than a hard deadline for every task."
+  },
+  "combinesWith": [
+    "exploration"
+  ],
+  "combinationIds": [
+    "exploration-fast-travel-network"
+  ],
+  "combination": {
+    "zh": "组合提案：先实地走通路线才能建立快速旅行节点；减少之后的路程耗时，就能在同一天多安排一次访谈。",
+    "en": "Design proposal: surveying a route opens a fast-travel node. Saving later travel time allows one more interview in the same day."
+  },
+  "related": [
+    "narrative-background-dialogue-access",
+    "narrative-delayed-choice-consequences",
+    "narrative-loop-event-schedule",
+    "narrative-perspective-handoff"
+  ],
+  "tags": [
+    "planning",
+    "time",
+    "information"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "下午只剩两个时段，能验物证、访证人或参加集会。",
+      "en": "Two afternoon slots remain for evidence analysis, a witness visit or a meeting."
+    },
+    "action": {
+      "zh": "玩家先访即将离开的证人，再去集会。",
+      "en": "The player visits the departing witness, then attends the meeting."
+    },
+    "result": {
+      "zh": "拿到一段证词，但物证当天来不及检验。",
+      "en": "A testimony is obtained, but evidence cannot be analyzed that day."
+    },
+    "next": {
+      "zh": "第二天需要决定先验证证词，还是追新线索。",
+      "en": "The next day brings a choice between checking the testimony and following a new lead."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做三个地点、四个行动和两个时段，提前显示每项行动是否推进时间。",
+      "en": "Build three locations, four actions and two slots, clearly labeling time-advancing actions."
+    },
+    "pitfall": {
+      "zh": "不要在玩家刚读完一大段文字后，才突然告知时间已经耗尽。",
+      "en": "Do not reveal that time expired only after the player finishes a long passage."
+    },
+    "test": {
+      "zh": "玩家是在衡量线索价值，还是因为不懂计时规则而反复读档？",
+      "en": "Are players weighing leads or reloading because the time rules are unclear?"
+    }
+  }
+}

@@ -30,6 +30,7 @@ Compare how an AI agent codes from the exact same prompt **without** vs. **with*
 - **Pre-Execution Guardrails**: Cross-platform POSIX and PowerShell pre-exec safety hooks that intercept catastrophic shell commands (`rm -rf /`, `curl | bash`, forced git pushes) before execution.
 - **Game Forge**: An autonomous end-to-end game creation pipeline from Socratic design critiques and GDDs to zero-install HTML5 Canvas playable prototypes.
 - **Poly Haven CC0 Asset Pipeline**: Automated search, metadata inspection, and downloading of CC0 textures, HDRIs, and models with strict 2K resolution default gating and multi-engine adapters for Godot, Unity, Unreal, and Blender (`scripts/polyhaven.py`, `polyhaven-assets`).
+- **Gameplay Atlas Offline Intelligence**: High-performance local SQLite FTS5 database and CLI query lever (`scripts/gameplay_atlas.py`, `gameplay-atlas`) indexing 280 structured game mechanics across 28 systems, complete with 4-stage core loops, player dilemmas, tunable parameters, shipped game cases, and Stage B micro-slice prototyping recipes.
 
 ---
 
@@ -43,6 +44,7 @@ Compare how an AI agent codes from the exact same prompt **without** vs. **with*
 │   ├── skills/            # Modular capability definitions (80+ canonical skills)
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
+├── data/                  # Offline datasets & SQLite indexes (Gameplay Atlas DB & raw cache)
 ├── docs/                  # GitHub Pages Interactive Showcase & Architecture Docs
 │   ├── index.html         # Interactive A/B Showcase (Executive Story + Engineering Audit)
 │   ├── EXECUTIVE_STORY.md # 3-minute C-suite narrative one-pager
@@ -137,6 +139,23 @@ Search across past developer actions, transcripts, and architectural decision tr
 python seikoclaw.py memory --query "why was sqlite chosen over postgres"
 ```
 
+### 7. Gameplay Atlas Mechanics Lookup & Prototyping Recipes
+Query the offline SQLite FTS5 database of 280 game mechanics across 28 systems:
+```bash
+# Full-text search with optional system or tag filtering
+python scripts/gameplay_atlas.py search "stamina" --system combat
+
+# Inspect complete mechanic card (rules, loop, dilemmas, parameters, shipped cases)
+python scripts/gameplay_atlas.py get combat-stamina-budget
+
+# Extract Stage B micro-slice rapid prototyping recipe (firstStep, pitfall, test criteria)
+python scripts/gameplay_atlas.py prototype-recipe automation-belt-routing
+
+# Explore cross-system mechanic combinations & shipped game references
+python scripts/gameplay_atlas.py combine combat farming
+python scripts/gameplay_atlas.py cases "Factorio"
+```
+
 ---
 
 ## 🎖️ Attribution & Upstream Credits
@@ -148,6 +167,8 @@ SeikoClaw builds upon foundational work from:
 - **Michael Denyer**: `pstack-claude` multi-harness translation, SessionStart hooks, and open standard packaging.
 - **Addy Osmani**: Production-grade engineering lifecycles, Tier 2 skill routing evals, Google SWE culture, Core Web Vitals (`performance-checklist`), and WCAG accessibility standards.
 - **Poly Haven ([polyhaven.com](https://polyhaven.com/))**: Greg Zaal, Rob Tuytel, and the Poly Haven community for the 100% free CC0 PBR textures, HDRIs, and 3D models integrated into our game development tooling and visual parity pipelines.
+- **Abhishek Barali & Contributors ([`awesome-gamedev-agent-skills`](https://github.com/gamedev-skills/awesome-gamedev-agent-skills))**: The 77-skill gamedev catalog across 12 game engines, disciplines, genres, and publishing workflows integrated under the `gamedev-*` namespace and dispatched via `game-router`.
+- **Gameplay Atlas ([`gameplayatlas.loopyhop.com`](https://gameplayatlas.loopyhop.com/)) by Loopyhop**: The curated field guide of 280 game mechanics across 28 systems, loops, player dilemmas, parameters, shipped game cases, and prototyping recipes powering `gameplay-atlas` and Game Forge.
 - **Saikojin (SeikoClaw)**: OpenBrain sidecar, QA test automation (`seikojin-qa`), execution security guardrails, and the **Game Forge** creation suite.
 
 See [`CREDITS.md`](CREDITS.md) for full details.

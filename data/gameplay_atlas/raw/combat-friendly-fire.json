@@ -1,0 +1,172 @@
+{
+  "id": "combat-friendly-fire",
+  "system": "combat",
+  "name": {
+    "zh": "范围攻击也会伤到队友",
+    "en": "Area attacks with friendly fire"
+  },
+  "summary": {
+    "zh": "威力大的范围技能，需要先替自己人留出安全位置。",
+    "en": "Powerful area attacks require safe positions for allies."
+  },
+  "tags": [
+    "spatial",
+    "risk",
+    "planning"
+  ],
+  "rules": {
+    "zh": "部分范围攻击对区域里的友军同样生效。玩家选施放位置前，要同时检查敌人收益和己方损失，也可以先移动队友再攻击。结算后受伤和站位变化会影响下一步；哪些技能、难度或天赋免疫误伤需要明确说明。",
+    "en": "Some area attacks also affect allies inside the area. Weigh enemy damage against friendly losses, or reposition allies first. Damage and positions shape the next action. Clearly state which skills, difficulties or talents prevent friendly fire."
+  },
+  "loop": [
+    {
+      "zh": "检查敌我站位",
+      "en": "Inspect ally and enemy positions"
+    },
+    {
+      "zh": "预览攻击覆盖区",
+      "en": "Preview the affected area"
+    },
+    {
+      "zh": "移开友军或接受代价",
+      "en": "Move allies or accept the cost"
+    },
+    {
+      "zh": "施放后重整队伍",
+      "en": "Attack and regroup"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "少命中一个敌人保全队友，还是承担误伤尽快结束战斗？",
+      "en": "Miss one enemy to protect an ally or accept friendly damage to end the fight?"
+    },
+    {
+      "zh": "花一次行动让队友撤开，是否值得换取更好的范围攻击？",
+      "en": "Is an ally’s repositioning action worth the better area attack?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "友军伤害比例",
+        "en": "Friendly damage ratio"
+      },
+      "effect": {
+        "zh": "较低比例便于学习，完全伤害会让站位更重要但容错更低。",
+        "en": "Reduced damage eases learning; full damage increases positional importance and punishes mistakes."
+      }
+    },
+    {
+      "name": {
+        "zh": "范围预览精度",
+        "en": "Area preview accuracy"
+      },
+      "effect": {
+        "zh": "明确标出将受影响的友军，玩家才是在选择风险而非猜测判定。",
+        "en": "Highlight affected allies so players choose a risk instead of guessing collision rules."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Baldur’s Gate 3",
+      "gameZh": "博德之门3",
+      "steamId": 1086940,
+      "screenshotIndex": 11,
+      "implementation": {
+        "zh": "火球术作用于爆炸区域内的目标，并非默认只打敌人；需要结合友军位置和相关职业保护能力决定落点。",
+        "en": "Fireball affects the blast area rather than filtering only enemies, so placement depends on ally positions and any class-based protections."
+      },
+      "source": "https://bg3.wiki/wiki/Fireball",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/d430f490d988e9e19c08a9be.jpg",
+      "imageSource": "https://store.steampowered.com/app/1086940/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "画面正在播放大范围火焰效果，顶部有战斗顺序、底部有行动栏；不能凭这一帧确认推落或误伤结果。",
+        "en": "A large fire effect is playing above the action bar and beneath the turn order; this frame does not establish a shove or friendly-fire result."
+      },
+      "rights": "Larian Studios",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_332cd26db210d4b10df744485ecf0a9b3f2e9024.1920x1080.jpg?t=1777363040"
+    },
+    {
+      "game": "Dragon Age: Origins",
+      "gameZh": "龙腾世纪：起源",
+      "steamId": 47810,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "PC版中多种范围法术会误伤；手册规定简单难度友军免疫、普通减半，困难不再降低误伤伤害。",
+        "en": "On PC, several area spells can harm allies; the manual specifies immunity on Easy, half damage on Normal, and no reduction on Hard."
+      },
+      "source": "https://eaassets-a.akamaihd.net/eahelp/manuals/dragon-age-origins-manuals_PC.pdf",
+      "sourceLabel": "Official manual",
+      "image": "https://images.loopyhop.com/gameplayatlas/f592b9242dbf3e0279b645c0.jpg",
+      "imageSource": "https://store.steampowered.com/app/47810/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "角色在户外与巨龙交战，画面没有指令界面；用于辨认游戏场景，暂停与误伤规则以手册为准。",
+        "en": "Characters fight a dragon outdoors without a command interface; consult the manual for pause and friendly-fire rules."
+      },
+      "rights": "BioWare",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47810/ss_7fe94447069d399c8b32c125d684ec7b255600ba.1920x1080.jpg?t=1782471846"
+    }
+  ],
+  "contrast": {
+    "zh": "《博德之门3》把误伤与技能范围、队友站位和职业能力联系起来；《龙腾世纪：起源》还用难度设置调节惩罚。",
+    "en": "Baldur’s Gate 3 ties risk to spell areas, positioning and class abilities; Dragon Age: Origins also scales the penalty through difficulty."
+  },
+  "walkthrough": {
+    "setup": {
+      "zh": "三个敌人围着你的战士，火球半径能把四人一起罩住。",
+      "en": "Three enemies surround your fighter; a fireball would hit all four."
+    },
+    "action": {
+      "zh": "先让战士撤开一格，再把火球中心放在敌群后方。",
+      "en": "Move the fighter one tile away, then place the blast behind the enemies."
+    },
+    "result": {
+      "zh": "两名敌人中招，队友安全；你主动放弃了第三个目标。",
+      "en": "Two enemies are hit and the ally is safe; you deliberately sacrifice the third target."
+    },
+    "next": {
+      "zh": "余下敌人追过来后，再决定单体攻击还是重新聚拢敌群。",
+      "en": "When the survivor approaches, choose a single-target attack or regroup the enemies."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用圆形或格子范围、两名友军和三个敌人；先做准确预览再加特效。",
+      "en": "Use a circular or tiled area, two allies and three enemies; implement an accurate preview before effects."
+    },
+    "pitfall": {
+      "zh": "画面范围和实际受击范围不一致，会把有意取舍变成挫败。",
+      "en": "Mismatch between the shown and actual area turns deliberate risk into frustration."
+    },
+    "test": {
+      "zh": "检查玩家能否在施放前指出谁会受伤，以及是否愿意为了某次收益接受误伤。",
+      "en": "Ask players who will be hit before casting and whether they would ever deliberately accept friendly damage."
+    }
+  },
+  "combinesWith": [
+    "combat"
+  ],
+  "combination": {
+    "zh": "与地表连锁结合：先把队友移出水面，再用电击影响聚集的敌人。",
+    "en": "Combine with surface reactions: move allies out of water before electrifying clustered enemies."
+  },
+  "combinationIds": [
+    "combat-surface-reactions"
+  ],
+  "related": [
+    "combat-cover-flanking",
+    "combat-destructible-cover",
+    "combat-forced-movement",
+    "combat-overwatch"
+  ],
+  "edition": 2
+}

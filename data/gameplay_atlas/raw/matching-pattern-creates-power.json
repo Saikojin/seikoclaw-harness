@@ -1,0 +1,172 @@
+{
+  "id": "matching-pattern-creates-power",
+  "system": "matching",
+  "edition": 3,
+  "name": {
+    "zh": "凑出特定形状制造特殊块",
+    "en": "Create a power piece with a match pattern"
+  },
+  "summary": {
+    "zh": "同样是消除，凑成哪种形状决定留下什么工具。",
+    "en": "The shape of a match determines the tool it leaves behind."
+  },
+  "rules": {
+    "zh": "普通匹配只清除物件，较长直线或拐角形状还会留下特殊块。玩家先通过移动准备形状，再决定何时触发特殊块；生成位置和作用范围必须看得清，才能规划它将来帮助哪一片区域。",
+    "en": "A basic match clears pieces, while a longer line or corner pattern leaves a power piece. Players prepare the pattern, then choose when to use its effect. Clear creation positions and effect ranges make future use predictable."
+  },
+  "loop": [
+    {
+      "zh": "寻找能扩成特殊形状的匹配",
+      "en": "Find a match that can become a special pattern"
+    },
+    {
+      "zh": "调整位置完成形状",
+      "en": "Arrange the required pattern"
+    },
+    {
+      "zh": "留下对应的特殊块",
+      "en": "Create the corresponding power piece"
+    },
+    {
+      "zh": "选择位置与时机使用",
+      "en": "Choose where and when to use it"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "现在做普通三连完成一点目标，还是多花一步凑出能清整列的工具？",
+      "en": "Take a small ordinary match now or spend another move preparing a column-clearing tool?"
+    },
+    {
+      "zh": "特殊块更强，但生成位置离目标太远，是否值得准备？",
+      "en": "Is a powerful piece worth creating if it appears far from the target?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "形状到效果的对应",
+        "en": "Pattern-to-effect mapping"
+      },
+      "effect": {
+        "zh": "少量固定对应易于记忆；形状过多会让玩家转而依赖提示。",
+        "en": "A few fixed mappings are memorable; too many patterns make players dependent on hints."
+      }
+    },
+    {
+      "name": {
+        "zh": "特殊块生成位置",
+        "en": "Creation cell"
+      },
+      "effect": {
+        "zh": "位置可预测时能提前布局；随机位置会削弱空间规划。",
+        "en": "A predictable creation cell supports planning; random placement weakens spatial choices."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Candy Crush Saga",
+      "gameZh": "糖果传奇",
+      "implementation": {
+        "zh": "四颗成直线可生成条纹糖，五颗组成T形或L形可生成包装糖，五颗直线可生成彩色炸弹。",
+        "en": "Four in a line create a striped candy; a five-piece T or L creates a wrapped candy; five in a line create a color bomb."
+      },
+      "source": "https://candycrush.zendesk.com/hc/en-us/articles/211939685-Creating-and-combining-Special-Candies",
+      "sourceLabel": "Official developer help / documentation",
+      "image": "https://images.loopyhop.com/gameplayatlas/78312ac2db59fc9217772498.png",
+      "imageSource": "https://play.google.com/store/apps/details?id=com.king.candycrushsaga",
+      "imageKind": "system",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：官方商店宣传图可见糖果棋盘和特殊糖果示意；它不是完整操作录屏，也不能证明交换、掉落或组合的先后顺序。",
+        "en": "System reference: the official store promotional image includes a candy board and special-candy illustrations; it does not establish the order of swaps, falls or combinations."
+      },
+      "rights": "King",
+      "verified": "2026-10-21",
+      "originalImage": "https://play-lh.googleusercontent.com/xdO4K6fRIzlShYIDhMS4wEKkdkejl44CYyGq9XGMSxEa-_ZmBCuUwDUAkpDvpxylbGfslj9FjMnTi4dXIJ3rSQ%3Dw526-h296"
+    },
+    {
+      "game": "Bejeweled 3",
+      "gameZh": "宝石迷阵3",
+      "implementation": {
+        "zh": "四颗直线形成火焰宝石，T形或L形匹配形成星形宝石，五颗直线形成超能方块，分别提供不同清除范围。",
+        "en": "A four-gem line forms a Flame Gem, a T or L forms a Star Gem, and a five-gem line forms a Hypercube, each with a different clearing effect."
+      },
+      "source": "https://en.wikipedia.org/wiki/Bejeweled_3",
+      "sourceLabel": "Community reference — Wikipedia gameplay section",
+      "image": "https://images.loopyhop.com/gameplayatlas/58816aca69006e51b5d39c50.jpg",
+      "imageSource": "https://store.steampowered.com/app/78000/",
+      "imageKind": "system",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：宝石盘面中可见十字形闪电效果与计分信息。",
+        "en": "System reference: A cross-shaped lightning effect and score information appear on the gem board. See the linked text source for the rules."
+      },
+      "rights": "PopCap Games / Electronic Arts",
+      "verified": "2026-10-21",
+      "steamId": 78000,
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/78000/ss_4418c1dbf7d2548087b42b5dd1597e13f8b436a0.1920x1080.jpg?t=1725652822"
+    }
+  ],
+  "contrast": {
+    "zh": "相似的形状在两作中不一定对应相同作用范围：糖果传奇四连产生行列清除工具，宝石迷阵3四连产生邻域爆炸工具。",
+    "en": "Similar patterns need not map to the same effect: a four-match creates a line-clearing tool in Candy Crush but a local explosion in Bejeweled 3."
+  },
+  "combinesWith": [
+    "combat"
+  ],
+  "combinationIds": [
+    "combat-posture-break"
+  ],
+  "combination": {
+    "zh": "组合提案：横线、拐角和长直线分别生成压制、破甲和处决资源。玩家先读敌人的失衡需求，再选择准备哪种形状。",
+    "en": "Design proposal: line, corner and long-line matches create suppression, armor-breaking and execution resources. Read the enemy’s posture needs before choosing a pattern."
+  },
+  "related": [
+    "matching-complete-lines",
+    "matching-merge-three-upgrade",
+    "matching-swap-to-align",
+    "matching-tap-connected-group"
+  ],
+  "tags": [
+    "planning",
+    "spatial",
+    "optimization"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "目标藏在最右列，棋盘左侧可以立刻三连，也可以准备四连。",
+      "en": "The target sits in the rightmost column; the left side offers an immediate three-match or a possible four-match setup."
+    },
+    "action": {
+      "zh": "玩家先调整一块，再做四连生成纵向清除块。",
+      "en": "The player sets up a four-match to create a vertical clear piece."
+    },
+    "result": {
+      "zh": "清除块留在预期位置，成为下一步可用的工具。",
+      "en": "The power piece appears at the predicted cell as a tool for the next action."
+    },
+    "next": {
+      "zh": "接下来要把工具移动到目标列，或寻找能直接触发它的机会。",
+      "en": "The player now tries to position it in the target column or find a useful trigger."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "只做普通三连和一种四连特殊块，让生成位置固定且可预览。",
+      "en": "Start with basic three-matches and one four-match power piece, with a fixed previewable creation cell."
+    },
+    "pitfall": {
+      "zh": "同时解释多种形状和多种爆炸范围会压过核心选择，先验证一种。",
+      "en": "Teaching many patterns and blast ranges at once can overwhelm the decision; test one first."
+    },
+    "test": {
+      "zh": "玩家会不会为了未来作用范围，主动放弃眼前的普通匹配？",
+      "en": "Will players reject an immediate ordinary match to prepare a useful future effect?"
+    }
+  }
+}

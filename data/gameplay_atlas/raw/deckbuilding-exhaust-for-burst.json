@@ -1,0 +1,172 @@
+{
+  "id": "deckbuilding-exhaust-for-burst",
+  "system": "deckbuilding",
+  "name": {
+    "zh": "这一战只用一次的强牌",
+    "en": "Powerful cards spent for the fight"
+  },
+  "summary": {
+    "zh": "先打出强力效果，代价是这场战斗后面再也抽不到它。",
+    "en": "Take a powerful effect now, losing access to that card for the rest of the fight."
+  },
+  "tags": [
+    "risk",
+    "timing",
+    "planning"
+  ],
+  "rules": {
+    "zh": "带有消耗标记的牌打出后进入本场战斗的移除区，不跟弃牌一起洗回。玩家必须判断当前危机是否值得花掉它；战斗结束后恢复到原牌库，和永久删牌分开处理。",
+    "en": "A marked card leaves the combat cycle when played instead of returning with the discard pile. The player decides whether the present threat warrants spending it; ordinary copies return for the next fight."
+  },
+  "loop": [
+    {
+      "zh": "识别最危险回合",
+      "en": "Identify the dangerous turn"
+    },
+    {
+      "zh": "决定是否消耗强牌",
+      "en": "Decide whether to spend the card"
+    },
+    {
+      "zh": "结算一次性效果",
+      "en": "Resolve the one-use effect"
+    },
+    {
+      "zh": "用剩余牌撑到结束",
+      "en": "Finish with the remaining deck"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "现在保命，还是留给已经预告的首领大招？",
+      "en": "Survive now, or save it for the announced boss attack?"
+    },
+    {
+      "zh": "消耗一张辅助牌后牌库更精简，但还能应付后续变化吗？",
+      "en": "A spent utility card thins the cycle, but will you need it later?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "单次效果强度",
+        "en": "One-use strength"
+      },
+      "effect": {
+        "zh": "越强越有救场感，也越容易让普通牌失去作用。",
+        "en": "Stronger effects rescue bad turns but can overshadow reusable cards."
+      }
+    },
+    {
+      "name": {
+        "zh": "预计战斗长度",
+        "en": "Expected fight length"
+      },
+      "effect": {
+        "zh": "战斗越长，失去重复使用机会的代价越明显。",
+        "en": "Longer fights make the lost reuse more costly."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Slay the Spire",
+      "gameZh": "杀戮尖塔",
+      "steamId": 646570,
+      "screenshotIndex": 1,
+      "implementation": {
+        "zh": "Exhaust 把牌移出当前战斗的普通循环；一些卡牌也会主动消耗其他牌。",
+        "en": "Exhaust removes a card from the ordinary cycle for this combat; some effects exhaust other cards too."
+      },
+      "source": "https://slaythespire.wiki.gg/wiki/Keywords",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c17f51c280502584fd54e78a.jpg",
+      "imageSource": "https://store.steampowered.com/app/646570/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：画面可见手牌、费用与正在打出的 Zap+；未展示本条所述的具体选择过程。",
+        "en": "System reference: the hand, costs and a played Zap+ are visible; the specific choice described here is not shown."
+      },
+      "rights": "Mega Crit",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_01aa3e7759e457bfbf2422f31c325d7b3ba8a6eb.1920x1080.jpg?t=1774015376"
+    },
+    {
+      "game": "Monster Train",
+      "gameZh": "怪物火车",
+      "steamId": 1102190,
+      "screenshotIndex": 3,
+      "implementation": {
+        "zh": "带 Consume 的法术在本场战斗使用后被消耗，不能像普通弃牌那样循环。",
+        "en": "Spells with Consume are spent for the battle instead of cycling like ordinary discarded spells."
+      },
+      "source": "https://monster-train.fandom.com/wiki/Spells",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/96820c2de4c6c3ccacd7b7a4.jpg",
+      "imageSource": "https://store.steampowered.com/app/1102190/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：分层敌我单位与底部手牌同时可见，适合观察法术和单位的关系。",
+        "en": "System reference: friendly and enemy floor units appear above the hand, illustrating how spells relate to deployed units."
+      },
+      "rights": "Shiny Shoe / Good Shepherd Entertainment",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1102190/ss_cd1c375e15c677f1d79a5dcd59692f918b19ebde.1920x1080.jpg?t=1779381275"
+    }
+  ],
+  "contrast": {
+    "zh": "《杀戮尖塔》可围绕消耗其他牌建立连锁；《怪物火车》把一次性法术放进持续多波的防守。",
+    "en": "Slay the Spire can build reactions around exhausting other cards; Monster Train places spent spells inside multi-wave defense."
+  },
+  "combinesWith": [
+    "combat"
+  ],
+  "combinationIds": [
+    "combat-posture-break"
+  ],
+  "combination": {
+    "zh": "设计提案：把一次性震击留给敌人即将失衡的回合，让爆发牌与破防时机互相配合。",
+    "en": "Design proposal: Save a one-use shock for the turn an enemy approaches a posture break."
+  },
+  "related": [
+    "combat-stamina-budget",
+    "deckbuilding-discard-redraw",
+    "deckbuilding-dual-use-cards",
+    "combat-cover-flanking"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "编辑示例：敌人本回合打十点，手里有普通三点护盾和一次性十点护盾。",
+      "en": "Editorial example: an enemy threatens ten damage; you hold three-block and one-use ten-block cards."
+    },
+    "action": {
+      "zh": "玩家用十点护盾挡住攻击。",
+      "en": "Play the ten-block card."
+    },
+    "result": {
+      "zh": "伤害被挡住，但这张牌进入本战消耗区。",
+      "en": "The attack is blocked and the card leaves the combat cycle."
+    },
+    "next": {
+      "zh": "之后必须靠普通护盾或尽快击败敌人。",
+      "en": "Rely on ordinary defense or end the fight quickly."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "只做抽牌、弃牌和消耗三个区，再加一张明显值得保留的救命牌。",
+      "en": "Implement draw, discard and exhausted piles plus one compelling emergency card."
+    },
+    "pitfall": {
+      "zh": "不要把永久删牌和本战消耗放在同一个按钮或同一种提示中。",
+      "en": "Do not present permanent deletion and combat exhaustion with the same label."
+    },
+    "test": {
+      "zh": "玩家首次使用后能准确说出它何时回来，并会为了未来威胁保留它。",
+      "en": "Players know when the card returns and sometimes save it for a future threat."
+    }
+  },
+  "edition": 2
+}

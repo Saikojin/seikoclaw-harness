@@ -1,0 +1,171 @@
+{
+  "id": "allocation-public-goal-race",
+  "system": "allocation",
+  "edition": 3,
+  "name": {
+    "zh": "抢先拿到公共目标奖励",
+    "en": "Race for a public objective reward"
+  },
+  "summary": {
+    "zh": "进度够了还要赶得上，奖励可能先被别人拿走。",
+    "en": "Meeting the requirement matters only if the reward is still available."
+  },
+  "rules": {
+    "zh": "多人能争取同一公开目标，但奖励名额有限或先到者先持有。玩家观察彼此进度，决定为抢先完成投入多少；有人得手后，其他人需要换目标，或按规则继续追赶争回奖励。",
+    "en": "Several players pursue a public objective with limited reward slots or an initial holder. Watch relative progress and decide how much to spend on speed. Once claimed, rivals must switch goals or continue pursuing a reward that can be taken back."
+  },
+  "loop": [
+    {
+      "zh": "比较公开目标与双方进度",
+      "en": "Compare objectives and progress"
+    },
+    {
+      "zh": "集中资源加快完成",
+      "en": "Commit resources to finish sooner"
+    },
+    {
+      "zh": "领取或失去争夺机会",
+      "en": "Claim the reward or lose the opportunity"
+    },
+    {
+      "zh": "切换目标或继续追赶",
+      "en": "Switch targets or keep chasing"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "花额外资源抢这一轮完成，还是冒着被抢的风险慢慢积累？",
+      "en": "Pay extra to finish now or risk a rival getting there first?"
+    },
+    {
+      "zh": "落后时继续追这个目标，还是转向竞争较少的目标？",
+      "en": "Chase while behind or pursue a less contested goal?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "奖励名额",
+        "en": "Reward slots"
+      },
+      "effect": {
+        "zh": "名额越少，观察对手进度越重要；名额过少可能让后来者无事可做。",
+        "en": "Fewer slots increase attention to rivals, but too few can leave late players without goals."
+      }
+    },
+    {
+      "name": {
+        "zh": "是否能被夺回",
+        "en": "Reclaimability"
+      },
+      "effect": {
+        "zh": "永久领取鼓励冲刺，可夺回奖励还需要后续维护。",
+        "en": "Permanent claims encourage sprints; transferable rewards require upkeep."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Terraforming Mars",
+      "gameZh": "殖民火星",
+      "rights": "Artefacts Studio / Twin Sails Interactive / FryxGames",
+      "image": "https://images.loopyhop.com/gameplayatlas/9d0e1664917de295d658014c.jpg",
+      "imageSource": "https://www.pcgamer.com/terraforming-mars-digital-is-a-quick-playing-alternative-to-tabletop/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：火星六边形地图、资源栏与里程碑及奖励标签同屏显示。",
+        "en": "System reference: The hexagonal Mars map, resources, and milestone and award tabs share the screen. See the linked text source for the rules."
+      },
+      "implementation": {
+        "zh": "里程碑需要先满足条件再支付费用宣告，基础规则只允许有限个里程碑被认领，其他人不能重复领取已认领的目标。",
+        "en": "Milestones require meeting a condition and paying to claim it; the base game allows only a limited number to be claimed, and a claimed milestone cannot be claimed again."
+      },
+      "source": "https://fryxgames.se/wp-content/uploads/2023/04/TMRULESFINAL.pdf",
+      "sourceLabel": "Official rulebook — FryxGames",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://cdn.mos.cms.futurecdn.net/v2/t%3A0%2Cl%3A171%2Ccw%3A1024%2Cch%3A768%2Cq%3A80%2Cw%3A1024/LXfGH5bGjRq4qy3KYwkgrc.jpg"
+    },
+    {
+      "game": "Dune: Imperium",
+      "gameZh": "沙丘：帝国",
+      "rights": "Dire Wolf Digital / Legendary",
+      "image": "https://images.loopyhop.com/gameplayatlas/bfe930ebb27773abdd537450.jpg",
+      "imageSource": "https://www.pcgamer.com/games/board-games/much-loved-board-game-dune-imperium-has-a-digital-version-now-and-its-getting-rave-response/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：共享棋盘上可见行动地点、资源与阵营影响力信息。",
+        "en": "System reference: Action spaces, resources and faction influence appear on the shared board. See the linked text source for the rules."
+      },
+      "implementation": {
+        "zh": "某阵营影响力先达到联盟要求可取得联盟标记，后来者若影响力更高又能夺走，因此抢先后仍需关注追赶。",
+        "en": "Reaching a faction’s alliance requirement first can claim its alliance token; a rival with greater influence can later take it, so the initial winner must monitor challengers."
+      },
+      "source": "https://news.direwolfdigital.com/dune-imperium-designer-diary-2-power-economics-and-politics/",
+      "sourceLabel": "Official designer diary — Dire Wolf Digital",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://cdn.mos.cms.futurecdn.net/Vz8gVJEgojaiHksnftGMbX.jpg"
+    }
+  ],
+  "contrast": {
+    "zh": "殖民火星的已认领里程碑不会被后来者抢走；沙丘的联盟奖励可以转手，抢先与守住是两个阶段。",
+    "en": "Terraforming Mars milestones remain claimed; Dune alliances can transfer, separating the initial race from defending the lead."
+  },
+  "combinesWith": [
+    "commerce"
+  ],
+  "combinationIds": [
+    "commerce-timed-contracts"
+  ],
+  "combination": {
+    "zh": "组合提案：商会公开一批限时交付委托，每单只付给首位交货者，玩家据库存与路程选择抢近单还是改做低竞争远单。",
+    "en": "Design proposal: public delivery contracts pay only the first arrival, making stock and travel time determine whether to race for a nearby order or pursue a quieter distant one."
+  },
+  "related": [
+    "allocation-area-majority",
+    "allocation-follow-phase",
+    "allocation-public-pick",
+    "allocation-snake-order"
+  ],
+  "tags": [
+    "planning",
+    "timing"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "三人都能争五件货物的首单奖励，你有四件，对手也有四件。",
+      "en": "Three players can claim a first-delivery reward for five goods; you and one rival each have four."
+    },
+    "action": {
+      "zh": "加钱购买最后一件并立即交付。",
+      "en": "Pay a premium for the last item and deliver now."
+    },
+    "result": {
+      "zh": "抢到奖励，但现金减少。",
+      "en": "You secure the reward but lose cash."
+    },
+    "next": {
+      "zh": "下一份目标需要不同货物，决定是否转型或先恢复资金。",
+      "en": "The next goal needs different goods; choose between switching production and rebuilding cash."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "competitive",
+    "firstStep": {
+      "zh": "给两名本地玩家三个公开目标，先只做一次领取、立即移除的奖励。",
+      "en": "Give two local players three public goals with one-time rewards removed when claimed."
+    },
+    "pitfall": {
+      "zh": "必须区分达到条件与真正领取，避免玩家觉得奖励被无故抢走。",
+      "en": "Distinguish eligibility from claiming so lost rewards feel understandable."
+    },
+    "test": {
+      "zh": "玩家会不会因对手接近完成而加速、改目标或及时止损？",
+      "en": "Do rivals’ progress cause players to accelerate, switch goals or cut losses?"
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "id": "rhythm-onbeat-actions",
+  "system": "rhythm",
+  "edition": 3,
+  "name": {
+    "zh": "踩着拍点移动或出手",
+    "en": "Move or attack on the beat"
+  },
+  "summary": {
+    "zh": "同一招什么时候出手，也会决定它能否奏效。",
+    "en": "When you act matters alongside which action you choose."
+  },
+  "rules": {
+    "zh": "系统持续给出拍点，玩家要把移动、攻击等操作放在允许的时间窗口内。做对动作但时机偏离，可能无法执行或失去效果加成；下一拍到来前还要重新判断站位和目标。本条关注每次行动的时机，连续多次成功如何累积倍率属于另一条规则。",
+    "en": "A repeating beat sets windows for movement, attacks or other actions. The right action at the wrong time may fail to execute or lose its bonus. Reconsider position and targets before the next beat. This rule concerns the timing of each action; building a multiplier over many actions is a separate rule."
+  },
+  "loop": [
+    {
+      "zh": "听出稳定拍点",
+      "en": "Find the steady beat"
+    },
+    {
+      "zh": "决定下一拍做什么",
+      "en": "Choose the next beat’s action"
+    },
+    {
+      "zh": "在窗口内按下操作",
+      "en": "Act inside the timing window"
+    },
+    {
+      "zh": "根据新位置与敌情接下一拍",
+      "en": "Read the changed position and enemies before the next beat"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "下一拍用来靠近目标，还是先退开避开攻击？",
+      "en": "Use the next beat to close in or retreat from an attack?"
+    },
+    {
+      "zh": "现在抢着出手，还是等到合拍窗口再打得更有效？",
+      "en": "Act immediately or wait for the window that makes the attack more effective?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "拍速",
+        "en": "Beat tempo"
+      },
+      "effect": {
+        "zh": "拍速越快，留给观察和选动作的时间越少。",
+        "en": "A faster tempo leaves less time to observe and select an action."
+      }
+    },
+    {
+      "name": {
+        "zh": "允许误差",
+        "en": "Timing tolerance"
+      },
+      "effect": {
+        "zh": "窗口变宽能降低操作门槛；过窄则容易让设备延迟掩盖策略判断。",
+        "en": "Wider windows lower the input barrier; very narrow windows can let device latency overshadow tactical choices."
+      }
+    },
+    {
+      "name": {
+        "zh": "离拍后果",
+        "en": "Offbeat consequence"
+      },
+      "effect": {
+        "zh": "不执行动作与只取消加成会产生不同压力，反馈应立即说明是哪一种。",
+        "en": "Blocking an action and merely removing its bonus create different pressure; feedback should immediately identify which occurred."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Crypt of the NecroDancer",
+      "gameZh": "节奏地牢",
+      "implementation": {
+        "zh": "常规节拍角色随音乐移动或攻击；敌人也按各自规律逐拍行动，玩家要同时读懂节奏与安全站位。",
+        "en": "Standard beat-driven characters move or attack to the music while enemies follow their own beat patterns, joining timing with safe positioning."
+      },
+      "source": "https://store.steampowered.com/app/247080/",
+      "sourceLabel": "Official Steam store — Brace Yourself Games",
+      "rights": "Brace Yourself Games",
+      "verified": "2026-10-21",
+      "steamId": 247080,
+      "image": "https://images.loopyhop.com/gameplayatlas/f5e17b241fb6c6a3c56da19a.avif",
+      "imageSource": "https://www.nintendo.com/us/store/products/crypt-of-the-necrodancer-nintendo-switch-edition-switch/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：地牢格子、敌人和底部节拍标记可见；单张图不展示按拍操作或金币倍率怎样变化。",
+        "en": "System reference: dungeon tiles, enemies and beat markers are visible; a still does not show timed input or changing coin multipliers."
+      },
+      "imageKind": "system",
+      "originalImage": "https://assets.nintendo.com/image/upload/ar_16%3A9%2Cb_auto%3Aborder%2Cc_lpad/b_white/f_auto/q_auto/dpr_1.5/store/software/switch/70010000003787/e5026c09c44f45eb7450c7e1e46e787a41d22e77690216b0021d71acb5538b66"
+    },
+    {
+      "game": "Metal: Hellsinger",
+      "gameZh": "重金属：地狱歌手",
+      "implementation": {
+        "zh": "射击、冲刺和终结技可以跟随节拍；武器的出手节奏不同，玩家要把瞄准和行动时机配合起来。",
+        "en": "Shooting, dashing and finishers can follow the beat. Weapons use different firing rhythms, so aiming and action timing must work together."
+      },
+      "source": "https://news.xbox.com/en-us/2022/09/07/fuel-the-music-in-metal-hellsinger/?ver=3.7.1",
+      "sourceLabel": "Developer article — Xbox Wire",
+      "rights": "The Outsiders / Funcom",
+      "verified": "2026-10-21",
+      "steamId": 1061910,
+      "image": "https://images.loopyhop.com/gameplayatlas/2991ec58514357a6e21e5090.avif",
+      "imageSource": "https://www.playstation.com/en-us/games/metal-hellsinger/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：第一人称武器和敌群呈现战斗背景；图中没有可读的节拍判定或狂怒倍率变化。",
+        "en": "System reference: first-person weapons and enemies provide combat context; no readable timing judgment or Fury change is shown."
+      },
+      "imageKind": "system",
+      "originalImage": "https://gmedia.playstation.com/is/image/SIEPDC/Metal-Hellsinger-screenshot-10-27jun22?$1600px$"
+    }
+  ],
+  "contrast": {
+    "zh": "节奏地牢把拍点变成格子移动与敌人行动的共同节奏；Hellsinger 把合拍操作放进持续瞄准的战斗。",
+    "en": "NecroDancer gives tile movement and enemies a shared pulse; Hellsinger layers beat timing onto continuous aiming."
+  },
+  "combinesWith": [
+    "combat"
+  ],
+  "combinationIds": [
+    "combat-intent-preview"
+  ],
+  "combination": {
+    "zh": "组合提案：敌人在下一拍前亮出攻击格，玩家每拍只能选一步移动或一次攻击，用固定节奏制造短促而清楚的战术决策。",
+    "en": "Design proposal: show the enemy’s threatened tiles before each beat and allow one move or attack per beat, creating brief, readable tactical decisions."
+  },
+  "related": [
+    "rhythm-sustain-notes",
+    "combat-combo-variation",
+    "combat-invulnerable-dodge",
+    "combat-stamina-budget"
+  ],
+  "tags": [
+    "timing",
+    "planning",
+    "dexterity"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "教学示例：三格走廊每秒一拍，敌人将在下一拍攻击中间格。",
+      "en": "Teaching example: a three-tile corridor pulses once per second; the enemy will strike the middle tile next beat."
+    },
+    "action": {
+      "zh": "玩家等到拍点，从中间格移到侧格。",
+      "en": "The player waits for the beat and moves from the middle to a side tile."
+    },
+    "result": {
+      "zh": "移动成功，敌人的攻击落在原位置，界面显示合拍。",
+      "en": "The move succeeds, the attack hits the old tile, and feedback confirms the timing."
+    },
+    "next": {
+      "zh": "下一拍敌人露出空当，要选择反击还是继续拉开。",
+      "en": "The enemy opens up on the next beat: counterattack or keep distance?"
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做五格小地图、一名按两拍循环的敌人、移动和攻击两个动作；用节拍声与闪光共同提示。",
+      "en": "Build five tiles, one enemy with a two-beat cycle, movement and attack; cue beats with sound and a flash."
+    },
+    "pitfall": {
+      "zh": "输入、音频与画面时钟不一致，会让正确按拍也被判错；先提供校准与清楚的早晚反馈。",
+      "en": "Input, audio and visual clocks can disagree; provide calibration and clear early/late feedback first."
+    },
+    "test": {
+      "zh": "玩家失败后能否说清是选错方向，还是按早或按晚？",
+      "en": "After a failure, can players tell a bad direction choice from an early or late input?"
+    }
+  }
+}

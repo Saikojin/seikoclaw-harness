@@ -1,0 +1,175 @@
+{
+  "id": "cooking-heat-window",
+  "system": "cooking",
+  "name": {
+    "zh": "出锅时机窗口",
+    "en": "Cooking completion windows"
+  },
+  "summary": {
+    "zh": "熟了不等于完成：必须在过火之前取走。",
+    "en": "Food must be removed after cooking but before it burns."
+  },
+  "tags": [
+    "timing",
+    "risk",
+    "time"
+  ],
+  "rules": {
+    "zh": "食物放入热源后随时间变化，进入可取出的熟成窗口，继续加热则烧焦或引发事故。玩家需要离开做别的事，同时记住回来的时机；声音、颜色或进度条承担提醒。",
+    "en": "Food changes over time on a heat source, enters a ready window, and burns or causes trouble if left longer. Players multitask while remembering when to return, supported by sound, color or progress cues."
+  },
+  "loop": [
+    {
+      "zh": "放入生食",
+      "en": "Place raw food"
+    },
+    {
+      "zh": "等待同时做其他事",
+      "en": "Work on another task"
+    },
+    {
+      "zh": "辨认完成反馈",
+      "en": "Notice the ready cue"
+    },
+    {
+      "zh": "及时取出",
+      "en": "Remove it in time"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "守着炉子保证成功，还是利用等待时间处理其他工作？",
+      "en": "Guard the stove or use the waiting time productively?"
+    },
+    {
+      "zh": "两锅同时完成时先救哪一锅？",
+      "en": "Which pot should be rescued when two finish together?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "安全窗口",
+        "en": "Safe window"
+      },
+      "effect": {
+        "zh": "窗口更短提高注意切换压力；更长适合轻松的营地节奏。",
+        "en": "Short windows increase attention pressure; long ones suit relaxed camp routines."
+      }
+    },
+    {
+      "name": {
+        "zh": "烧焦代价",
+        "en": "Burn penalty"
+      },
+      "effect": {
+        "zh": "损失材料促使谨慎；连锁火灾会把个人失误变成团队危机。",
+        "en": "Lost ingredients reward caution; spreading fire turns one mistake into a team crisis."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Valheim",
+      "gameZh": "英灵神殿",
+      "steamAppId": 892970,
+      "implementation": {
+        "zh": "烹饪架上的生肉熟后可取下；继续留在火上会变成煤，要求玩家留意烹饪状态。",
+        "en": "Meat on a cooking station can be taken when ready; leaving it over the fire turns it into coal."
+      },
+      "source": "https://valheimwiki.net/en/buildings/cooking-station",
+      "sourceLabel": "Community game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/e1ecfb67a07b41221ac1f377.jpg",
+      "imageSource": "https://store.steampowered.com/app/892970/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "营火与简易营地展示野外加热的生活场景。系统参考图，未显示完整熟成计时。",
+        "en": "A campfire and simple camp show outdoor heating context. System reference; a complete cooking timer is not shown."
+      },
+      "rights": "Iron Gate / Coffee Stain Publishing",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/ss_f4ea4f0f93cc8b38042f6d5916413da185ec221c.600x338.jpg?t=1791544831",
+      "imageIndex": 10,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/ss_f4ea4f0f93cc8b38042f6d5916413da185ec221c.1920x1080.jpg?t=1791544831"
+    },
+    {
+      "game": "Overcooked! 2",
+      "gameZh": "胡闹厨房 2",
+      "steamAppId": 728880,
+      "implementation": {
+        "zh": "锅具在食物煮好后需要及时处理，忽视警报会烧焦并可能起火；灭火又会占用厨师时间。",
+        "en": "Cooked food needs timely attention; ignored warnings lead to burning and possible fire, which consumes more chef time."
+      },
+      "source": "https://www.team17.com/news/the-a-z-of-overcooked-2",
+      "sourceLabel": "Developer documentation",
+      "image": "https://images.loopyhop.com/gameplayatlas/31072da3a0ba97537f017ae4.jpg",
+      "imageSource": "https://store.steampowered.com/app/728880/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "热源、工作台与水域把厨房分成不同区域，离开炉具需要移动时间。系统参考图。",
+        "en": "Heat sources, counters and water divide the kitchen, making trips away from stoves costly. System reference."
+      },
+      "rights": "Ghost Town Games / Team17",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_2f84a12e1fe82cca37848bf29d4b8b16e83db03b.600x338.jpg?t=1789548883",
+      "imageIndex": 0,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_2f84a12e1fe82cca37848bf29d4b8b16e83db03b.1920x1080.jpg?t=1789548883"
+    }
+  ],
+  "contrast": {
+    "zh": "英灵神殿用单份材料损失提醒照看火候；胡闹厨房把过火升级为会阻塞流程的公共事故。",
+    "en": "Valheim uses ingredient loss; Overcooked turns overcooking into a shared disruption."
+  },
+  "combinesWith": [
+    "automation",
+    "relationships"
+  ],
+  "combination": {
+    "zh": "组合创意：自动炉能保证不烧焦，但手动掌握窄窗口可获得额外品质，让自动化与手艺各有价值。",
+    "en": "Design proposal: automatic ovens prevent burning, while manual timing earns quality bonuses."
+  },
+  "related": [
+    "cooking-order-triage",
+    "cooking-food-preservation",
+    "automation-byproduct-loop",
+    "automation-power-budget"
+  ],
+  "combinationIds": [
+    "automation-conditional-control"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "汤还要等一会儿才熟，旁边有菜需要切。",
+      "en": "The soup needs more time while vegetables still need chopping."
+    },
+    "action": {
+      "zh": "你趁等待切菜，听到熟成提示后立刻回来取锅。",
+      "en": "Chop while waiting, then return when the ready signal sounds."
+    },
+    "result": {
+      "zh": "在可取窗口内出锅成功；拖太久则过火损失食材。",
+      "en": "Removing it within the ready window succeeds; waiting too long burns the ingredients."
+    },
+    "next": {
+      "zh": "下一锅开火前，按上次的耗时重新安排并行工作。",
+      "en": "Use the previous timing to schedule parallel work before starting the next pot."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "只做一个炉灶、一道有生／熟／焦三态的菜，再配一个耗时短任务。",
+      "en": "Start with one stove, raw/ready/burnt food states and one short competing task."
+    },
+    "pitfall": {
+      "zh": "过早做复杂物理搬运会掩盖时间取舍；先保证熟成提示可靠且可被发现。",
+      "en": "Complex physical handling can obscure timing choices; first make readiness cues reliable and noticeable."
+    },
+    "test": {
+      "zh": "玩家能否离开炉灶去做事，并根据提示及时返回，而不是一直原地等？",
+      "en": "Can players leave to work elsewhere and return on cue instead of staring at the stove?"
+    }
+  },
+  "edition": 1
+}

@@ -1,0 +1,173 @@
+{
+  "id": "exploration-air-action-refill",
+  "system": "movement",
+  "name": {
+    "zh": "空中位移与补充节点",
+    "en": "Air movement and refill nodes"
+  },
+  "summary": {
+    "zh": "让一次跳跃通过有限位移资源，串成一整条空中路线。",
+    "en": "Chain an airborne route through a limited movement resource."
+  },
+  "tags": [
+    "dexterity",
+    "planning",
+    "spatial"
+  ],
+  "rules": {
+    "zh": "空中位移只有有限次数或依赖消耗物，玩家必须在耗尽前接触补充点或安全落地。资源状态清楚反馈还剩几次修正机会，关卡通过补充点的位置塑造路线。",
+    "en": "Air movement has limited charges or consumes a pickup. Reach a refill or land safely before running out; visible resource state communicates remaining corrections, while refill placement shapes the route."
+  },
+  "loop": [
+    {
+      "zh": "辨认落点与补充点",
+      "en": "Locate landings and refills"
+    },
+    {
+      "zh": "消耗空中位移",
+      "en": "Spend a movement charge"
+    },
+    {
+      "zh": "接触补充节点",
+      "en": "Reach the refill"
+    },
+    {
+      "zh": "重新规划下一段",
+      "en": "Plan the next segment"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "现在用掉位移纠正失误，还是留下来跨越最后的缺口？",
+      "en": "Spend a charge to correct a mistake or save it for the final gap?"
+    },
+    {
+      "zh": "直线更短，但绕到补充点可能开辟更长的连续路线。",
+      "en": "A straight line is shorter, but detouring through a refill can enable a longer chain."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "可储存次数",
+        "en": "Stored charges"
+      },
+      "effect": {
+        "zh": "多次储存允许补救，单次储存会突出节点顺序。",
+        "en": "Multiple charges allow recovery; one charge makes node order central."
+      }
+    },
+    {
+      "name": {
+        "zh": "补充点位置",
+        "en": "Refill placement"
+      },
+      "effect": {
+        "zh": "放在危险边缘会鼓励冒险，放在安全处则适合学习。",
+        "en": "Refills near hazards reward risk; safe refills support learning."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Celeste",
+      "gameZh": "蔚蓝",
+      "steamId": 504230,
+      "screenshotIndex": 2,
+      "implementation": {
+        "zh": "基础冲刺可向八个方向发动，通常落地或接触补充水晶后恢复，头发颜色提示当前可用状态。",
+        "en": "The basic dash travels in eight directions and normally refills on landing or touching a refill crystal; hair color communicates availability."
+      },
+      "source": "https://en.wikipedia.org/wiki/Celeste_%28video_game%29",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/ff80b42d646113a26b79d0d7.jpg",
+      "imageSource": "https://store.steampowered.com/app/504230/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察平台、尖刺与空中空隙；补充时机需用规则说明。",
+        "en": "System reference: inspect platforms, spikes and aerial gaps; the rule reference explains refill timing."
+      },
+      "rights": "Maddy Makes Games / Extremely OK Games",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/ss_4b0f0222341b64a37114033aca9994551f27c161.1920x1080.jpg?t=1714089525"
+    },
+    {
+      "game": "Neon White",
+      "gameZh": "霓虹白客",
+      "steamId": 1533420,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "丢弃 Soul Card 可发动对应移动能力，例如 Elevate 追加跳跃、Godspeed 冲刺；路径上的卡片决定可用位移。",
+        "en": "Discarding Soul Cards triggers movement abilities such as Elevate’s jump and Godspeed’s dash; card pickups along the route determine available movement."
+      },
+      "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=2847858129",
+      "sourceLabel": "Community reference",
+      "image": "https://images.loopyhop.com/gameplayatlas/d3b9d796cab916a0d17e1208.jpg",
+      "imageSource": "https://store.steampowered.com/app/1533420/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察第一人称路线与手中卡片；截图不声称所有卡片都会恢复冲刺。",
+        "en": "System reference: inspect the route and held cards; not every card restores a dash."
+      },
+      "rights": "Angel Matrix / Annapurna Interactive",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1533420/ss_d8c2c0eb97bc25344f24da92e55b6420ca94c607.1920x1080.jpg?t=1785424399"
+    }
+  ],
+  "contrast": {
+    "zh": "《蔚蓝》主要补充同一种基础能力；《霓虹白客》补给的是不同功能的卡片，还要权衡射击与丢弃。",
+    "en": "Celeste primarily replenishes one core ability; Neon White supplies different functional cards and makes shooting compete with discarding."
+  },
+  "combinesWith": [
+    "inventory",
+    "combat"
+  ],
+  "combination": {
+    "zh": "设计提案：空中快递用包裹作为一次性位移燃料；消耗越多越容易到达，但交付收入随之减少。",
+    "en": "Design proposal: an aerial courier can burn parcels for movement, making arrival easier at the cost of delivery income."
+  },
+  "related": [
+    "exploration-climbing-rest-route",
+    "exploration-gliding-descent",
+    "exploration-grapple-swing",
+    "exploration-wall-jump"
+  ],
+  "combinationIds": [
+    "commerce-timed-contracts"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你只有一次空中冲刺，前面有两个缺口和一个补充点。",
+      "en": "You have one air dash, two gaps ahead, and a refill point between them."
+    },
+    "action": {
+      "zh": "你先斜向冲刺碰到补充点，再使用恢复的冲刺跨第二个缺口。",
+      "en": "Dash diagonally into the refill, then use the restored dash across the second gap."
+    },
+    "result": {
+      "zh": "补充反馈亮起，整条原本不够距离的路线变得可行。",
+      "en": "The refill feedback lights up, making the previously unreachable route possible."
+    },
+    "next": {
+      "zh": "在下个落脚点判断剩余次数，规划下一段空中路线。",
+      "en": "At the next landing, check remaining charges and plan the next aerial segment."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一次冲刺、一种空中补充物和一个需要连续使用两次冲刺的房间。",
+      "en": "Build one dash, one refill object, and a room requiring two linked dashes."
+    },
+    "pitfall": {
+      "zh": "补充必须可见可感知；玩家不知道是否恢复时，路线规划会变成猜测。",
+      "en": "Refills must be obvious; unclear charge restoration turns route planning into guessing."
+    },
+    "test": {
+      "zh": "观察玩家失败后是否调整先碰哪个补充点，而不是只改变按键速度。",
+      "en": "See whether a failed attempt changes refill order instead of merely input speed."
+    }
+  },
+  "edition": 1
+}

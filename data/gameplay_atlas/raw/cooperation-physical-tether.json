@@ -1,0 +1,170 @@
+{
+  "id": "cooperation-physical-tether",
+  "system": "cooperation",
+  "name": {
+    "zh": "身体连接与互相借力",
+    "en": "Move while physically tethered"
+  },
+  "summary": {
+    "zh": "绳子把两人的移动连在一起，伙伴既能拉你上去，也会被你拖下去。",
+    "en": "A tether links movement: a partner can pull you upward or be dragged down with you."
+  },
+  "tags": [
+    "cooperation",
+    "spatial",
+    "dexterity"
+  ],
+  "rules": {
+    "zh": "角色之间有长度受限的物理连接，超过距离会产生牵拉。玩家协调站位、起跳和支撑，用连接把一个人的移动传给另一个人；失误也会沿连接影响全队。",
+    "en": "A limited physical link pulls characters when stretched. Players coordinate positions, jumps and anchors to transfer motion; mistakes can propagate through the same link."
+  },
+  "loop": [
+    {
+      "zh": "观察平台与绳长",
+      "en": "Inspect platforms and tether length"
+    },
+    {
+      "zh": "约定谁固定谁移动",
+      "en": "Choose who anchors and who moves"
+    },
+    {
+      "zh": "同步起跳或借力摆荡",
+      "en": "Jump together or swing for momentum"
+    },
+    {
+      "zh": "落稳后交换职责",
+      "en": "Land securely and exchange roles"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "一起跳容易互相干扰，要不要让一人先站稳当支点？",
+      "en": "Jump together or secure one player as an anchor first?"
+    },
+    {
+      "zh": "抢救正在掉落的伙伴，还是先稳住自己避免两人一起掉？",
+      "en": "Pull a falling partner immediately or secure yourself first?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "连接长度",
+        "en": "Tether length"
+      },
+      "effect": {
+        "zh": "短绳要求贴近配合，长绳给摆荡空间也更难预判。",
+        "en": "Short links require close coordination; long ones enable wider swings but are harder to predict."
+      }
+    },
+    {
+      "name": {
+        "zh": "失误回退距离",
+        "en": "Distance lost on a fall"
+      },
+      "effect": {
+        "zh": "回退太远会把练习变成重复赶路，应匹配操作难度。",
+        "en": "Large setbacks can turn practice into repeated travel; match them to control difficulty."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Bread & Fred",
+      "gameZh": "面包和年糕",
+      "steamId": 1607680,
+      "implementation": {
+        "zh": "两只企鹅连接在一起，一人固定在地面或短暂抓墙，让另一人利用摆荡动量跨过更远距离。",
+        "en": "The linked penguins use one partner as a ground or temporary wall anchor so the other can swing across larger gaps."
+      },
+      "source": "https://store.steampowered.com/app/1607680/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/bc400b0720963089aaec1d11.jpg",
+      "imageSource": "https://store.steampowered.com/app/1607680/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "两只企鹅站在同一小平台上，身体之间连着绳子；四周落差让下一次跳跃需要考虑伙伴位置。",
+        "en": "Two penguins share a small platform with a rope between them; the surrounding gaps make the partner’s position matter."
+      },
+      "rights": "SandCastles Studio / Infogrames / Atari",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1607680/ss_7e1f28d600cb16d3ec858b3a76678bc9adbc1703.1920x1080.jpg?t=1773071421"
+    },
+    {
+      "game": "Chained Together",
+      "gameZh": "Chained Together",
+      "steamId": 2567870,
+      "implementation": {
+        "zh": "玩家被模拟的链条连在一起攀登，链条可以绕过平台，位置与跳跃必须相互协调。",
+        "en": "Players climb while joined by a simulated chain that can wrap around platforms, making positions and jumps interdependent."
+      },
+      "source": "https://store.steampowered.com/app/2567870/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/3d2679067029bbd0349f0735.jpg",
+      "imageSource": "https://store.steampowered.com/app/2567870/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "四名角色被一条实体链条连接，画面还有拉拽提示；这是连接关系参考，不是完整攀爬演示。",
+        "en": "Four characters are joined by a physical chain, with a pull prompt visible. This shows the link, not a complete climb."
+      },
+      "rights": "Anegar Games / Lab42 / Secret Mode",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2567870/ss_b321a9c6a20052b905dba4255680b1cee1f21edc.1920x1080.jpg?t=1791478907"
+    }
+  ],
+  "contrast": {
+    "zh": "《面包和年糕》突出一人固定、一人摆荡；《Chained Together》还要考虑三维平台如何挡住或改变链条路径。",
+    "en": "Bread & Fred emphasizes anchoring and swinging; Chained Together also makes 3D platform geometry affect the chain’s route."
+  },
+  "combinesWith": [
+    "movement"
+  ],
+  "combinationIds": [
+    "exploration-grapple-swing"
+  ],
+  "combination": {
+    "zh": "设计提案：把抓钩锚点换成另一个玩家；先只做二维固定绳长，观察双方能否一起找到摆荡节奏。",
+    "en": "Design proposal: replace a grapple anchor with another player, beginning with a fixed-length 2D rope to test shared swinging rhythm."
+  },
+  "related": [
+    "cooperation-synchronized-triggers",
+    "cooperation-complementary-abilities",
+    "cooperation-discussion-vote",
+    "cooperation-downed-revival"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "编辑示例：两人被三米绳连接，B够不到对面平台，A身后有安全地面。",
+      "en": "Editorial example: a three-meter rope joins A and B; B cannot reach the next platform and A has safe ground behind them."
+    },
+    "action": {
+      "zh": "A后退固定，B走下边缘摆荡，接近最高点时跳向平台。",
+      "en": "A anchors behind the edge while B swings below it and jumps near the top of the arc."
+    },
+    "result": {
+      "zh": "B落稳后绳子绷紧，变成A接下来借力的支点。",
+      "en": "B lands securely and becomes the next anchor for A."
+    },
+    "next": {
+      "zh": "两人交换职责，把同样的方法用到下一个缺口。",
+      "en": "They swap roles and apply the method to the next gap."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "cooperative",
+    "firstStep": {
+      "zh": "先做二维两人、三个平台、一条固定长度绳和明确的固定动作，只支持本机双人。",
+      "en": "Build two local 2D characters, three platforms, a fixed-length rope and an explicit anchor action."
+    },
+    "pitfall": {
+      "zh": "先避免绳子缠绕与三维碰撞；物理失控或联网延迟会让失败难以归因。",
+      "en": "Defer rope wrapping and 3D collisions; unstable physics or network delay can make failure hard to understand."
+    },
+    "test": {
+      "zh": "试玩者能预测谁会被拉动，并在失败后主动改变支点或起跳顺序。",
+      "en": "Testers can predict who will be pulled and adjust the anchor or jump order after failure."
+    }
+  },
+  "edition": 2
+}

@@ -1,0 +1,171 @@
+{
+  "id": "command-workers-or-soldiers",
+  "system": "command",
+  "edition": 3,
+  "name": {
+    "zh": "在人口中分配生产与作战",
+    "en": "Allocate people between work and combat"
+  },
+  "summary": {
+    "zh": "多一个作战单位，可能就少一个持续创造资源的人。",
+    "en": "Another fighter can mean one fewer resource producer."
+  },
+  "rules": {
+    "zh": "生产者提供未来收入，战斗者提供眼前保护或扩张，两者争用人口、训练资源或同一批人员。玩家根据外部压力调整比例；生产变化和战斗结果共同反馈这次选择是否可持续。",
+    "en": "Workers generate future income while fighters provide immediate protection or expansion. They compete for population, training resources or the same people. Adjust the balance as threats change, judging both income and combat results."
+  },
+  "loop": [
+    {
+      "zh": "查看收入与外部威胁",
+      "en": "Inspect income and threats"
+    },
+    {
+      "zh": "增加生产者或战斗者",
+      "en": "Add workers or fighters"
+    },
+    {
+      "zh": "承受短期强弱变化",
+      "en": "Experience the short-term shift"
+    },
+    {
+      "zh": "按新资源与威胁再分配",
+      "en": "Reallocate around new resources and threats"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "现在多训练工人让以后更强，是否来得及抵挡下一次进攻？",
+      "en": "Will extra workers pay back before the next attack arrives?"
+    },
+    {
+      "zh": "打完仗后保留军队威慑，还是让更多人口恢复生产？",
+      "en": "Keep military deterrence after a fight or restore production?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "转职或训练成本",
+        "en": "Conversion or training cost"
+      },
+      "effect": {
+        "zh": "成本低允许临时应急；成本高让扩军变成长期承诺。",
+        "en": "Low costs allow emergency responses; high costs make armies long-term commitments."
+      }
+    },
+    {
+      "name": {
+        "zh": "压力到达时间",
+        "en": "Time until pressure"
+      },
+      "effect": {
+        "zh": "提前预告让玩家能规划，完全随机容易让经济选择沦为猜运气。",
+        "en": "Warnings support planning; fully random pressure can make economic choices a gamble."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Age of Empires II: Definitive Edition",
+      "gameZh": "帝国时代 II：决定版",
+      "rights": "World’s Edge / Forgotten Empires / Xbox Game Studios",
+      "image": "https://images.loopyhop.com/gameplayatlas/e347d77c8884b3a7055d0a09.jpg",
+      "imageSource": "https://store.steampowered.com/app/813780/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：城镇建筑与部队可见；这张图没有显示集火指令或职业切换界面。",
+        "en": "System reference: Town buildings and troops are visible; focus-fire orders and role-switching controls are not shown. See the linked text source for the rules."
+      },
+      "implementation": {
+        "zh": "村民和军事单位都占人口并消耗资源，持续训练村民能扩大经济，但军事建设也需要及时投入。",
+        "en": "Villagers and military units consume population and resources. Continued villager production expands the economy, while military production still needs timely investment."
+      },
+      "source": "https://www.ageofempires.com/learn-to-play/expanding-your-empire-aoe2/",
+      "sourceLabel": "Official tutorial — World’s Edge",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/813780/ss_1a552052274732058f91d649716fffc5879d824e.1920x1080.jpg?t=1790623375"
+    },
+    {
+      "game": "Northgard",
+      "gameZh": "北境之地",
+      "rights": "Shiro Games",
+      "image": "https://images.loopyhop.com/gameplayatlas/5b7b2620a47beeb11739bf5c.jpg",
+      "imageSource": "https://www.gamestar.de/galerien/northgard,100868.html",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：选中部队、燃烧的建筑与周围地形同屏显示。",
+        "en": "System reference: Selected troops, burning buildings and surrounding terrain share the screen. See the linked text source for the rules."
+      },
+      "implementation": {
+        "zh": "村民进入军事建筑后可被训练成士兵，转换直接减少能够采集和工作的民用人手。",
+        "en": "Villagers assigned to military camps can become soldiers, directly reducing the civilian workforce available for gathering and production."
+      },
+      "source": "https://northgard.fandom.com/wiki/How_to_play_guide_for_Northgard",
+      "sourceLabel": "Official community wiki — Northgard",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://images.cgames.de/images/gamestar/287/northgard_6026070.jpg"
+    }
+  ],
+  "contrast": {
+    "zh": "帝国时代更多通过并行训练争夺资源和人口；北境之地可以直接把已有村民转换成战斗人员。",
+    "en": "Age of Empires emphasizes competing recruitment queues and population; Northgard directly converts existing civilians into fighters."
+  },
+  "combinesWith": [
+    "defense"
+  ],
+  "combinationIds": [
+    "defense-day-night-investment"
+  ],
+  "combination": {
+    "zh": "组合提案：白天先安排生产与训练，夜晚敌人到来后无法临时补人，迫使玩家提前留出防守余量。",
+    "en": "Design proposal: allocate production and training by day, then prevent emergency recruitment during the night assault."
+  },
+  "related": [
+    "command-focus-fire",
+    "command-frontline-shielding",
+    "command-initiative-order",
+    "command-prebattle-formation"
+  ],
+  "tags": [
+    "economy",
+    "planning"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "有八名工人，收入充足，但下一波敌人快来了。",
+      "en": "Eight workers provide good income, but the next attack is near."
+    },
+    "action": {
+      "zh": "抽三人去训练成守卫。",
+      "en": "Train three of them as guards."
+    },
+    "result": {
+      "zh": "防守变强，食物收入降低。",
+      "en": "Defense improves while food income falls."
+    },
+    "next": {
+      "zh": "敌人退去后决定留几名守卫，避免下次缺粮。",
+      "en": "After the raid, decide how many guards to keep without causing a food shortage."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用人口标记切换工人和守卫，配一条收入条和定时威胁。",
+      "en": "Switch population tokens between worker and guard roles, with an income meter and timed threats."
+    },
+    "pitfall": {
+      "zh": "初版不要同时加入复杂科技、补给和多资源市场。",
+      "en": "Keep technology trees, supply lines and complex markets out of the first test."
+    },
+    "test": {
+      "zh": "玩家会不会因预告中的敌情改变人口分配？",
+      "en": "Do players change workforce allocation when a threat is announced?"
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "progression-death-loses-training",
+  "system": "progression",
+  "name": {
+    "zh": "死亡会损失练出的能力",
+    "en": "Death costs trained abilities"
+  },
+  "summary": {
+    "zh": "失败不只丢物品，还会损失一部分练习成果。",
+    "en": "Death can cost training as well as possessions."
+  },
+  "tags": [
+    "risk",
+    "progression",
+    "planning"
+  ],
+  "rules": {
+    "zh": "角色死亡后，已练出的熟练度下降，或新角色不再拥有前一人的训练成果。玩家因此要衡量继续冒险的收益与重新练习的成本；找回装备和找回能力是两回事。",
+    "en": "Death reduces trained proficiency, or a successor does not inherit the previous character’s training. Compare the benefit of pushing farther with the cost of retraining. Recovering equipment and recovering abilities are separate concerns."
+  },
+  "loop": [
+    {
+      "zh": "靠行动练出能力",
+      "en": "Develop abilities through use"
+    },
+    {
+      "zh": "评估危险与撤退时机",
+      "en": "Assess danger and retreat"
+    },
+    {
+      "zh": "失败后查看损失",
+      "en": "Review losses after death"
+    },
+    {
+      "zh": "重新训练并调整路线",
+      "en": "Retrain and revise the route"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "带着已经练强的角色去冒险，还是暂时撤退保住训练成果？",
+      "en": "Risk a well-trained character or retreat to protect that investment?"
+    },
+    {
+      "zh": "损失后先练回原本优势，还是趁机会改练另一种生存方法？",
+      "en": "Rebuild the former specialty or develop a different way to survive?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "损失幅度",
+        "en": "Training loss"
+      },
+      "effect": {
+        "zh": "损失大时撤退更有意义，也更容易让玩家反复做低风险练习。",
+        "en": "Large losses make retreat meaningful but encourage repetitive safe training."
+      }
+    },
+    {
+      "name": {
+        "zh": "恢复途径",
+        "en": "Recovery options"
+      },
+      "effect": {
+        "zh": "重新练习若能换路线，就比强迫重复同一段动作更有选择。",
+        "en": "Recovery offers more agency when retraining can use another route rather than repeat identical actions."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Valheim",
+      "gameZh": "英灵神殿",
+      "steamId": 892970,
+      "screenshotIndex": 4,
+      "implementation": {
+        "zh": "死亡通常会降低技能熟练度，装备回收不等于恢复全部训练成果；实际惩罚力度会受世界设置影响。",
+        "en": "Death normally reduces skill proficiency; recovering equipment does not restore all training. The penalty’s strength depends on world settings."
+      },
+      "source": "https://valheim.fandom.com/wiki/Skills",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/72ba9ac6d36741355505ef43.jpg",
+      "imageSource": "https://store.steampowered.com/app/892970/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：角色面对巨魔，展示冒险风险；画面没有死亡后技能变化。",
+        "en": "System reference: a character faces a troll, illustrating danger but not post-death skill changes."
+      },
+      "rights": "Iron Gate AB / Coffee Stain Publishing",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/ss_cd0262c5abf8a90ee5e1059acafc5a92b6be0e73.1920x1080.jpg?t=1791544831"
+    },
+    {
+      "game": "Project Zomboid",
+      "gameZh": "僵尸毁灭工程",
+      "steamId": 108600,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "角色死亡后，可在仍保留的世界中建立新角色，但前一人练出的技能经验不会随之继承。新角色仍有由职业与特征带来的初始技能。",
+        "en": "After death, a new character can enter the retained world but does not inherit the previous character’s earned skill experience. Occupation and traits still provide starting skills."
+      },
+      "source": "https://projectzomboid.fandom.com/wiki/Skills_and_Leveling_Up",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/82b8278985f458c08af81dca.jpg",
+      "imageSource": "https://store.steampowered.com/app/108600/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "场景参考图：夜间住宅区与道路可见；此图不显示人物死亡或技能重建。",
+        "en": "Scene reference: homes and roads at night are visible; character death and retraining are not shown."
+      },
+      "rights": "The Indie Stone",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/e0dd37d69051f7da85896d11027ab018d23893fa/ss_e0dd37d69051f7da85896d11027ab018d23893fa.1920x1080.jpg?t=1787740093"
+    }
+  ],
+  "contrast": {
+    "zh": "《英灵神殿》通常削减同一人物的熟练度；《僵尸毁灭工程》让旧人物死亡，新人物重新建立自己的技能成长。",
+    "en": "Valheim normally reduces the same character’s proficiency; Project Zomboid ends that character and starts another person’s training."
+  },
+  "combinesWith": [
+    "inventory"
+  ],
+  "combinationIds": [
+    "inventory-death-retrieval"
+  ],
+  "combination": {
+    "zh": "设计提案：死亡后工具留在原地可取回，但工具使用经验下降；玩家要决定立即冒险取回，还是先用备用工具练习。",
+    "en": "Design proposal: tools remain recoverable after death while tool proficiency drops; decide between immediate retrieval and training with a spare."
+  },
+  "related": [
+    "progression-challenge-tiers",
+    "progression-evolution-recipes",
+    "progression-permanent-run-currency",
+    "progression-practice-based-growth"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你的攀爬熟练度为 10，远处有奖励，但体力只剩一半。",
+      "en": "Climbing proficiency is 10, and a reward lies farther ahead, but stamina is half full."
+    },
+    "action": {
+      "zh": "你继续攀爬却跌落；本例规定死亡扣除 2 点熟练度。",
+      "en": "You push on and fall; this example removes 2 proficiency on death."
+    },
+    "result": {
+      "zh": "重新出发时装备能找回，攀爬熟练度却只剩 8。",
+      "en": "Your gear can be recovered, but climbing proficiency is now 8."
+    },
+    "next": {
+      "zh": "下一次先走安全路线练回能力，或承担更低熟练度继续挑战。",
+      "en": "Retrain on a safer route or face the challenge with lower proficiency."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一条安全练习路线和一条高风险路线，只有一个熟练度数值与清楚的死亡扣减。",
+      "en": "Build a safe training route, a risky route and one proficiency value with an explicit death deduction."
+    },
+    "pitfall": {
+      "zh": "先别让大量技能一起掉；玩家若不知道失去什么，惩罚只会变成模糊挫败。",
+      "en": "Avoid reducing many skills at once; unclear losses create frustration without a useful decision."
+    },
+    "test": {
+      "zh": "临近危险时玩家是否主动撤退，死亡后又能准确说明需要恢复什么？",
+      "en": "Do players sometimes retreat near danger and accurately explain what needs rebuilding after death?"
+    }
+  },
+  "edition": 2
+}

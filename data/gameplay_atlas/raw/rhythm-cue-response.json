@@ -1,0 +1,181 @@
+{
+  "id": "rhythm-cue-response",
+  "system": "rhythm",
+  "edition": 3,
+  "name": {
+    "zh": "听完提示，在指定拍回应",
+    "en": "Answer a cue on its target beat"
+  },
+  "summary": {
+    "zh": "不是听到声音就按，而是认出提示后等到该你回应的那一拍。",
+    "en": "Do not press at every sound: identify the cue and wait for the response beat."
+  },
+  "rules": {
+    "zh": "系统先给声音或动作提示，玩家根据已学会的规则推算回应时机，再用简短操作接上节奏。不同提示可以要求不同间隔；判定后立即反馈早了、晚了或正好。本条关注提示与回应的对应关系，不要求每拍都做动作。",
+    "en": "A sound or animation cues a response. Use the learned pattern to work out when to act, then join the rhythm with a short input. Different cues may imply different delays; feedback reports early, late or accurate timing. This concerns the cue-response relationship, without requiring an action on every beat."
+  },
+  "loop": [
+    {
+      "zh": "辨认刚出现的提示",
+      "en": "Recognize the cue"
+    },
+    {
+      "zh": "按提示规则等待或数拍",
+      "en": "Wait or count according to its pattern"
+    },
+    {
+      "zh": "在目标拍执行回应",
+      "en": "Respond on the target beat"
+    },
+    {
+      "zh": "利用反馈接住下一次提示",
+      "en": "Use feedback to catch the next cue"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "这段提示要求立刻接上，还是留出几拍再回应？",
+      "en": "Does this cue call for an immediate answer or a delay of several beats?"
+    },
+    {
+      "zh": "两个提示接连出现时，哪一次回应先到，怎样避免被后一个提示带乱？",
+      "en": "When cues overlap, which response is due first, and how can you avoid losing it to the newer cue?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "提示到回应的间隔",
+        "en": "Cue-to-response interval"
+      },
+      "effect": {
+        "zh": "间隔越长，越依赖保持节拍；间隔变化应先用清楚提示教会。",
+        "en": "Longer gaps rely more on keeping time; changing gaps need clear teaching cues."
+      }
+    },
+    {
+      "name": {
+        "zh": "提示种类",
+        "en": "Cue variety"
+      },
+      "effect": {
+        "zh": "一种提示适合建立规则，多种提示会增加识别与切换负担。",
+        "en": "One cue establishes the rule; multiple cues add recognition and switching demands."
+      }
+    },
+    {
+      "name": {
+        "zh": "提示重叠量",
+        "en": "Cue overlap"
+      },
+      "effect": {
+        "zh": "前一个回应还未结束就给新提示，会把简单反应变成多条节奏的协调。",
+        "en": "Issuing another cue before the first response resolves turns a simple reaction into coordination across patterns."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Rhythm Doctor",
+      "gameZh": "节奏医生",
+      "implementation": {
+        "zh": "经典心跳先给出脉冲序列，玩家在第七拍按键完成治疗；重点是读懂节拍位置后准确补上回应。",
+        "en": "Classic beats establish a pulse sequence and ask for a treatment input on the seventh beat, testing recognition of the response position."
+      },
+      "source": "https://rhythm-doctor.fandom.com/wiki/Classic_Beats",
+      "sourceLabel": "Community wiki — Classic Beats",
+      "rights": "7th Beat Games",
+      "verified": "2026-10-21",
+      "steamId": 774181,
+      "image": "https://images.loopyhop.com/gameplayatlas/b0855eb405f2dd03bdcd787b.jpg",
+      "imageSource": "https://store.steampowered.com/app/774181/Rhythm_Doctor/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：心跳线、数字提示与病人状态可见；图中不展示完整数拍过程或静音拍点。",
+        "en": "System reference: a pulse line, number cue and patient status are visible; the complete count and silent beats are not shown."
+      },
+      "imageKind": "system",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/774181/ss_cb3a0ab6aaaf1bfb929e32bd8df05a3ffd7140e3.1920x1080.jpg?t=1786548815"
+    },
+    {
+      "game": "Rhythm Heaven Megamix",
+      "gameZh": "节奏天国：精选合集",
+      "implementation": {
+        "zh": "小游戏用声音与画面提示引导玩家在合适的拍子按键或触屏，例如按节奏回击乒乓球；先练习提示，再在歌曲中回应。",
+        "en": "Minigames use audio and visual cues to guide timed button or touch responses, such as returning a table-tennis ball; practice introduces the pattern before play."
+      },
+      "source": "https://www.nintendo.com/en-gb/Games/Nintendo-3DS-games/Rhythm-Paradise-Megamix-1091313.html",
+      "sourceLabel": "Official Nintendo game page",
+      "rights": "Nintendo / Tsunku♂",
+      "verified": "2026-10-21",
+      "image": "https://images.loopyhop.com/gameplayatlas/1171940aea6aaa6938f59b7a.jpg",
+      "imageSource": "https://www.nintendo.com/au/games/nintendo-3ds/rhythm-paradise-megamix/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：变色龙伸舌接取目标的小游戏场景；静态画面不含声音，也不能说明提示何时消失。",
+        "en": "System reference: a chameleon reaches for a target in a minigame; a still contains no sound and does not establish when cues disappear."
+      },
+      "imageKind": "system",
+      "originalImage": "https://assets.nintendo.com.au/image/upload/f_auto%2Cq_auto/v1623975340/NAL/3DS/Rhythm%20Paradise%20Megamix/3DS_RhythmParadiseMegamix_02"
+    }
+  ],
+  "contrast": {
+    "zh": "节奏医生的经典拍以第七拍为明确目标；节奏天国把提示与回应包装成不同的短动作场景。",
+    "en": "Rhythm Doctor’s classic pattern gives a specific seventh-beat target; Rhythm Heaven expresses cue-response timing through varied short action scenes."
+  },
+  "combinesWith": [
+    "puzzles"
+  ],
+  "combinationIds": [
+    "puzzles-visual-rule-learning"
+  ],
+  "combination": {
+    "zh": "组合提案：三种机器图案搭配提示音，分别代表隔一拍、隔两拍或连续两次敲击；先给可反复试的短例子，再让玩家识别并回应混合提示。",
+    "en": "Design proposal: three machine symbols paired with sounds mean a one-beat wait, a two-beat wait, or two consecutive strikes. Teach them with repeatable examples before mixing the cues."
+  },
+  "related": [
+    "rhythm-hidden-beats",
+    "rhythm-sustain-notes",
+    "puzzles-time-scrubbing",
+    "rhythm-onbeat-actions"
+  ],
+  "tags": [
+    "timing",
+    "information",
+    "precision"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "教学示例：两声短铃代表“再等两拍后敲击”，每拍相隔一秒。",
+      "en": "Teaching example: two short chimes mean “strike after two more beats,” with one second between beats."
+    },
+    "action": {
+      "zh": "玩家听完后默数两拍，再按空格。",
+      "en": "The player counts two beats after the cue and presses space."
+    },
+    "result": {
+      "zh": "机器亮绿灯并回放正确时点，确认这次回应没有抢早。",
+      "en": "The machine lights green and replays the target time, confirming the response was not early."
+    },
+    "next": {
+      "zh": "下一次换成一声长铃，玩家需要套用另一种等待规则。",
+      "en": "A long chime arrives next, requiring a different response delay."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用一个键、两种音色提示和两个固定等待间隔，提供可重复的练习段与早晚反馈。",
+      "en": "Use one key, two cue sounds and two fixed delays, with a repeatable practice section and early/late feedback."
+    },
+    "pitfall": {
+      "zh": "用几乎相同的音色表示完全不同的回应，会让失误来自辨认困难，而非节奏挑战。",
+      "en": "Nearly identical sounds for very different responses can make cue recognition, rather than timing, the obstacle."
+    },
+    "test": {
+      "zh": "不看说明重试时，玩家能否预测下一次应该在哪一拍按？",
+      "en": "On a retry without the instructions, can players predict the beat on which they should press?"
+    }
+  }
+}

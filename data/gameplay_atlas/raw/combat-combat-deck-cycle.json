@@ -1,0 +1,173 @@
+{
+  "id": "combat-combat-deck-cycle",
+  "system": "combat",
+  "name": {
+    "zh": "战斗牌库循环",
+    "en": "Combat draw–discard cycles"
+  },
+  "summary": {
+    "zh": "每次出牌既解决眼前问题，也改变下一轮抽牌结构。",
+    "en": "Playing a card solves the present while shaping the next draw cycle."
+  },
+  "tags": [
+    "planning",
+    "randomness",
+    "optimization"
+  ],
+  "rules": {
+    "zh": "从牌库抽取手牌，在能量限制内出牌；使用或未保留的牌进入弃牌区。抽牌堆耗尽后弃牌堆重新洗入，玩家通过过牌、保留和移除改变关键牌出现的频率。",
+    "en": "Draw a hand and play within an energy budget. Played or unretained cards enter discard; when the draw pile empties, discard is reshuffled. Draw, retain and removal effects change access to key cards."
+  },
+  "loop": [
+    {
+      "zh": "查看手牌与敌情",
+      "en": "Inspect hand and threats"
+    },
+    {
+      "zh": "分配能量与出牌顺序",
+      "en": "Allocate energy and play order"
+    },
+    {
+      "zh": "弃牌并结束回合",
+      "en": "Discard and end the turn"
+    },
+    {
+      "zh": "抽取或重洗下一手",
+      "en": "Draw or reshuffle the next hand"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "本回合防守与快速过牌冲突：能否承受一点伤害换下一手关键组合？",
+      "en": "Defense can compete with cycling: can some damage be accepted to reach a key combination?"
+    },
+    {
+      "zh": "一张强牌只有被抽到才有价值，精简与冗余各有代价。",
+      "en": "A strong card only matters when drawn; deck thinning and redundancy have different costs."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "手牌与能量比",
+        "en": "Hand-to-energy ratio"
+      },
+      "effect": {
+        "zh": "牌多能量少强调取舍，能量宽松则强调排序。",
+        "en": "Many cards with scarce energy emphasize selection; abundant energy emphasizes ordering."
+      }
+    },
+    {
+      "name": {
+        "zh": "重洗节奏",
+        "en": "Reshuffle frequency"
+      },
+      "effect": {
+        "zh": "小牌库更稳定，大牌库更需要搜索与冗余。",
+        "en": "Small decks are more consistent; large decks need search and redundancy."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Slay the Spire",
+      "gameZh": "杀戮尖塔",
+      "steamId": 646570,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "用攻击、防御与技能回应敌方意图；抽牌堆耗尽时把弃牌堆洗回，消耗牌进入独立区域。",
+        "en": "Attacks, block and skills respond to enemy intent. An empty draw pile reshuffles discard, while exhausted cards enter a separate zone."
+      },
+      "source": "https://slaythespire.wiki.gg/wiki/Mechanics",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/82c30d3444cd2a30d9c25200.jpg",
+      "imageSource": "https://store.steampowered.com/app/646570/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "画面正在进行敌方回合，可见角色、敌人和状态图标，底部没有可操作手牌；用于说明战斗场景，牌库调整规则请看文字来源。",
+        "en": "This enemy-turn frame shows characters, enemies and status icons, with no playable hand below; consult the written source for deck-management rules."
+      },
+      "rights": "Mega Crit",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_c171816f7ecd35b5b46d2fa27532f4c5b8ca3cc5.1920x1080.jpg?t=1774015376"
+    },
+    {
+      "game": "Monster Train",
+      "gameZh": "怪物火车",
+      "steamId": 1102190,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "手牌循环同时服务法术和单位部署；部署后的单位留在列车楼层作战，未打出的牌与法术仍影响后续抽牌。",
+        "en": "The draw cycle supports spells and unit deployment. Deployed units remain on train floors, while unplayed cards and spells continue to shape later draws."
+      },
+      "source": "https://monster-train.fandom.com/wiki/Battle",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/09df738a9ea850e3924dab42.jpg",
+      "imageSource": "https://store.steampowered.com/app/1102190/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察楼层单位与手牌之间的关系；抽牌重洗过程需参见规则。",
+        "en": "System reference: inspect the relationship between floor units and the hand; reshuffling requires the rules."
+      },
+      "rights": "Shiny Shoe / Good Shepherd Entertainment",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1102190/ss_edce778e9006c559cc347542ba2a61ed1461c945.1920x1080.jpg?t=1779381275"
+    }
+  ],
+  "contrast": {
+    "zh": "《杀戮尖塔》常把手牌直接兑换为当回合攻防；《怪物火车》还有持续驻场单位，让早期部署影响多轮战斗。",
+    "en": "Slay the Spire often converts a hand directly into immediate offense and defense; Monster Train also deploys persistent units that influence many rounds."
+  },
+  "combinesWith": [
+    "inventory",
+    "automation"
+  ],
+  "combination": {
+    "zh": "设计提案：把维修动作做成循环牌库，机器故障会加入临时故障牌；修理不仅恢复设备，也清理未来抽牌。",
+    "en": "Design proposal: represent maintenance as a cycling deck where breakdowns add temporary fault cards; repairs restore machinery and improve future draws."
+  },
+  "related": [
+    "inventory-deck-thinning",
+    "automation-aerial-logistics",
+    "automation-belt-routing",
+    "automation-blueprint-reuse"
+  ],
+  "combinationIds": [
+    "inventory-durability"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "本回合有 3 点能量，手里有攻击、防御和抽牌三种牌。",
+      "en": "You have 3 energy and attack, defense, and draw cards in hand."
+    },
+    "action": {
+      "zh": "你先花 1 点抽牌，再用剩余能量应对敌人即将发动的攻击。",
+      "en": "Spend 1 energy drawing, then use the rest to answer the enemy’s coming attack."
+    },
+    "result": {
+      "zh": "打出的牌进入弃牌区；抽牌堆空后，这些牌会重新回到循环。",
+      "en": "Played cards enter the discard pile and return to circulation when the draw pile empties."
+    },
+    "next": {
+      "zh": "下一手到来时，重新判断眼前的攻防与后续抽牌机会。",
+      "en": "When the next hand arrives, reconsider immediate defense and future draw opportunities."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做十张固定卡、一名显示意图的敌人、抽牌堆与弃牌堆。",
+      "en": "Start with ten fixed cards, one enemy with visible intent, a draw pile, and a discard pile."
+    },
+    "pitfall": {
+      "zh": "先确认抽牌、弃牌、洗牌的时序；特殊效果太早加入会掩盖循环问题。",
+      "en": "Settle draw, discard, and shuffle timing before special effects obscure the core cycle."
+    },
+    "test": {
+      "zh": "观察玩家是否会为了下一轮少打一张牌，并能解释抽牌堆与弃牌堆的区别。",
+      "en": "See whether players sacrifice an immediate play for the next turn and understand both piles."
+    }
+  },
+  "edition": 1
+}

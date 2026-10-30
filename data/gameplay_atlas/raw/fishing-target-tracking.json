@@ -1,0 +1,169 @@
+{
+  "id": "fishing-target-tracking",
+  "system": "fishing",
+  "name": {
+    "zh": "追踪鱼标",
+    "en": "Tracking a moving fish"
+  },
+  "summary": {
+    "zh": "持续把控制区覆盖在鱼标上，累积捕获进度。",
+    "en": "Keep a controlled zone over a moving fish to build catch progress."
+  },
+  "rules": {
+    "zh": "玩家通过按住与松开按钮移动控制条，使鱼标尽量留在条内。重力或惯性阻止瞬间精确定位，鱼又会改变位置；覆盖时进度增长，离开时倒退，考验持续纠偏。",
+    "en": "Press and release to move a controlled bar over a fish icon. Gravity or inertia prevents instant positioning while the fish moves. Overlap builds progress; separation loses it, testing continual correction."
+  },
+  "loop": [
+    {
+      "zh": "读取鱼标移动方向",
+      "en": "Read the fish's movement"
+    },
+    {
+      "zh": "短按或持续按压调整控制条",
+      "en": "Tap or hold to position the bar"
+    },
+    {
+      "zh": "保持覆盖累积进度",
+      "en": "Maintain overlap to gain progress"
+    },
+    {
+      "zh": "补救偏离并完成捕获",
+      "en": "Recover from errors and complete the catch"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "追着鱼的当前位置跑容易过冲，预判转向更有效。",
+      "en": "Chasing the current position can overshoot; anticipating direction changes is more effective."
+    },
+    {
+      "zh": "稳定在鱼的常用区域，还是积极追每次跳动，取决于进度损失速度。",
+      "en": "Holding a likely zone or chasing every movement depends on how quickly progress drains."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "控制条宽度",
+        "en": "Control-zone size"
+      },
+      "effect": {
+        "zh": "更宽提高容错，更窄强化精准控制。",
+        "en": "A larger zone increases tolerance; a smaller zone emphasizes precision."
+      }
+    },
+    {
+      "name": {
+        "zh": "控制惯性",
+        "en": "Control inertia"
+      },
+      "effect": {
+        "zh": "惯性越大越需要预判，越小越像直接跟随光标。",
+        "en": "More inertia demands prediction; less feels like direct cursor tracking."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "implementation": {
+        "zh": "把绿色控制条保持在鱼图标位置，填满捕获进度；鱼种会表现不同移动行为。",
+        "en": "Keep the green bar over the fish icon until progress fills; fish species use differing movement behaviors."
+      },
+      "source": "https://stardewvalleywiki.com/Fishing",
+      "sourceLabel": "Stardew Valley Wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c6411c596fc9018b514712f4.jpg",
+      "imageSource": "https://www.gamesradar.com/stardew-valley-prismatic-shard-farming/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "绿色控制条覆盖鱼标，右侧进度条独立显示捕获进展；可直接理解覆盖目标与累计进度的关系。",
+        "en": "The green control zone overlaps the fish while a separate bar shows capture progress, making the overlap objective directly readable."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "originalImage": "https://cdn.mos.cms.futurecdn.net/8c8HagRPnYoVBmPwnQgJHR-1024-80.jpg"
+    },
+    {
+      "game": "Graveyard Keeper",
+      "gameZh": "守墓人",
+      "implementation": {
+        "zh": "按键控制有重量感的黄色条覆盖鱼，旁边绿色进度条显示捕获进展。",
+        "en": "Control a weighted yellow bar over the fish while a green bar shows catch progress."
+      },
+      "source": "https://www.neoseeker.com/graveyard-keeper/appendix/Fishing",
+      "sourceLabel": "Neoseeker guide",
+      "image": "https://images.loopyhop.com/gameplayatlas/125c661b4c5e64182d6ece5e.jpg",
+      "imageSource": "https://store.steampowered.com/app/599140/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "画面展示瀑布钓点、抛投区域与鱼饵选择界面；它是捕获小游戏之前的准备画面。",
+        "en": "The waterfall spot, cast zones and bait selection are visible; this is preparation before the capture minigame."
+      },
+      "rights": "Lazy Bear Games / tinyBuild",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/599140/ss_a929a220c5acd0ed33e47eda1448fcd2347dd718.1920x1080.jpg?t=1791579735"
+    }
+  ],
+  "contrast": {
+    "zh": "两个例子共享连续追踪原型，差异主要落在控制手感、鱼行为和外围装备系统。",
+    "en": "Both share a continuous-tracking prototype; differentiation comes from control response, fish behavior and surrounding equipment systems."
+  },
+  "combinesWith": [
+    "combat",
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "设计提案：魔法鱼会制造短暂假鱼标，玩家需要记住真实轨迹，而不只是追随最亮的目标。",
+    "en": "Design proposal: magical fish create brief decoys, requiring memory of the real trajectory rather than following the brightest marker."
+  },
+  "tags": [
+    "dexterity",
+    "precision",
+    "timing"
+  ],
+  "related": [
+    "fishing-bite-window",
+    "fishing-line-tension",
+    "combat-combo-variation",
+    "combat-invulnerable-dodge"
+  ],
+  "combinationIds": [
+    "puzzles-visual-rule-learning"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "鱼标开始向上移动，你的控制条仍在下方。",
+      "en": "The fish marker moves upward while your control bar is below it."
+    },
+    "action": {
+      "zh": "你先长按追上，再改成短按，避免控制条冲过头。",
+      "en": "Hold to catch up, then use short presses to avoid overshooting."
+    },
+    "result": {
+      "zh": "鱼标留在条内时进度增加，离开后进度下降。",
+      "en": "Progress increases while the marker stays inside the bar and falls outside it."
+    },
+    "next": {
+      "zh": "鱼一转向就调整按压节奏，直到捕获条填满。",
+      "en": "Adjust your presses when the fish changes direction until capture progress fills."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一条纵向轨道、受重力影响的控制条和一种往返鱼标运动，不需要水面场景。",
+      "en": "Build one vertical track, a gravity-driven control bar and one moving-marker pattern; no fishing scene is required."
+    },
+    "pitfall": {
+      "zh": "大量突然反向或高速跳动会掩盖控制学习；先让一种运动模式稳定可读。",
+      "en": "Frequent abrupt reversals hide control learning; make one movement pattern consistently readable first."
+    },
+    "test": {
+      "zh": "同一条鱼重复试玩时，玩家是否减少过冲，并学会用短按维持位置？",
+      "en": "On repeated attempts, do players overshoot less and learn short presses to maintain position?"
+    }
+  },
+  "edition": 1
+}

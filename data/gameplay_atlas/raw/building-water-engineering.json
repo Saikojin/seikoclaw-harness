@@ -1,0 +1,169 @@
+{
+  "id": "building-water-engineering",
+  "system": "building",
+  "name": {
+    "zh": "蓄水结构与水位管理",
+    "en": "Water retention and level management"
+  },
+  "summary": {
+    "zh": "通过阻挡与放流改变水位，把水变成可管理的地形资源。",
+    "en": "Use barriers and release to manage water as a terrain resource."
+  },
+  "tags": [
+    "spatial",
+    "risk",
+    "planning"
+  ],
+  "rules": {
+    "zh": "玩家修建阻水结构，让水在指定区域积累或排出。来水、高差和出口能力决定水位；持续观察漫溢与干涸，再调整控制。",
+    "en": "Players build barriers to retain or release water. Inflow, elevation and outlet capacity determine levels; flooding and drying guide adjustments."
+  },
+  "loop": [
+    {
+      "zh": "评估上下游",
+      "en": "Assess upstream and downstream"
+    },
+    {
+      "zh": "建设阻水和出口",
+      "en": "Build barriers and outlets"
+    },
+    {
+      "zh": "观察水位",
+      "en": "Watch water levels"
+    },
+    {
+      "zh": "调整放流防护",
+      "en": "Adjust release and protection"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "多蓄水能应对旱期，也增加上游淹水风险。",
+      "en": "More storage helps dry periods but raises upstream flood risk."
+    },
+    {
+      "zh": "大坝集中控制，小型分段更容易逐步验证。",
+      "en": "Large dams centralize control; small stages are easier to validate."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "来水波动",
+        "en": "Inflow variation"
+      },
+      "effect": {
+        "zh": "季节变化强化提前蓄水和安全溢流的价值。",
+        "en": "Seasonal changes reward storage planning and safe overflow."
+      }
+    },
+    {
+      "name": {
+        "zh": "反馈速度",
+        "en": "Response speed"
+      },
+      "effect": {
+        "zh": "慢变化鼓励预测，快变化要求即时补救。",
+        "en": "Slow responses reward forecasts; fast responses demand quick recovery."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Timberborn",
+      "gameZh": "海狸浮生记",
+      "implementation": {
+        "zh": "可调高度闸门控制挡水高度，供玩家蓄水与放流。",
+        "en": "Height-adjustable floodgates control retention for storage and release."
+      },
+      "source": "https://timberborn.wiki.gg/wiki/Floodgate",
+      "sourceLabel": "Official wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/d930cc1c66bf945857d9d7f5.jpg",
+      "imageSource": "https://store.steampowered.com/app/1062090/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察水体与堤坝的关系；图片不展示一次完整开闸过程。",
+        "en": "Inspect water and barriers; the image does not demonstrate a complete gate operation."
+      },
+      "rights": "Mechanistry",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062090/6d19ce417b52a9dc9bd75c8c9ff821a139de27f8/ss_6d19ce417b52a9dc9bd75c8c9ff821a139de27f8.1920x1080.jpg?t=1788438437"
+    },
+    {
+      "game": "Oxygen Not Included",
+      "gameZh": "缺氧",
+      "implementation": {
+        "zh": "玩家围出液池并用液泵排水；泵的处理能力有限，可把高处的泵作为溢水应急，但不能保证应付所有来水。",
+        "en": "Players contain liquid in pools and pump it out. Pump throughput is limited; a high overflow pump can help without guaranteeing protection against all inflow."
+      },
+      "source": "https://oxygennotincluded.wiki.gg/wiki/Liquid_Pump",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/7f890132ccd1f25ef932f89f.jpg",
+      "imageSource": "https://store.steampowered.com/app/457140/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察基地底部液体与隔间的关系；此系统图不展示正在运行的溢水保护。",
+        "en": "Inspect liquid and compartments near the bottom of the base; this system image does not demonstrate active overflow protection."
+      },
+      "rights": "Klei Entertainment",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/457140/ss_78d1c92edeecc7b17cafa9248867fe7d4390a0a0.1920x1080.jpg?t=1790785089"
+    }
+  ],
+  "contrast": {
+    "zh": "Timberborn用闸门控制河道蓄水；缺氧在格子空间内用池体边界和主动抽水管理积液。",
+    "en": "Timberborn controls river retention with gates; ONI manages contained liquid through pool boundaries and active pumping."
+  },
+  "combinesWith": [
+    "farming",
+    "automation"
+  ],
+  "combination": {
+    "zh": "上下游村庄共用水系，在农田灌溉、工厂取水和洪水缓冲之间分配放流时间。",
+    "en": "Have villages share a river and schedule releases among irrigation, industry and flood buffers."
+  },
+  "related": [
+    "building-structural-support",
+    "building-access-network",
+    "building-room-requirements",
+    "building-service-coverage"
+  ],
+  "combinationIds": [
+    "farming-irrigation-layout"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "雨季进水增多，水库快满；下游农田还需要持续供水。",
+      "en": "Rain increases inflow and the reservoir nears capacity while downstream fields still need water."
+    },
+    "action": {
+      "zh": "你适度开闸，既给下游补水，也保留旱期储备。",
+      "en": "Open the gate partly to supply downstream fields while retaining dry-season reserves."
+    },
+    "result": {
+      "zh": "水位变化直观显示进出差额，放太少会漫溢，放太多会耗尽储备。",
+      "en": "The level shows the inflow-outflow balance: too little release floods, too much drains reserves."
+    },
+    "next": {
+      "zh": "进入旱期后按余量调整放水节奏。",
+      "en": "During the dry period, adjust release according to remaining storage."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先做两个相连水池、固定容量和可调闸门，以总体积计算水位，不做完整水流模拟。",
+      "en": "Use two connected basins, fixed capacity and an adjustable gate, calculating levels from total volume rather than full fluid simulation."
+    },
+    "pitfall": {
+      "zh": "真实水流、可变地形与多闸门网络会显著增加计算和调试，应先验证蓄放取舍。",
+      "en": "Real fluid flow, deformable terrain and gate networks greatly increase computation and debugging; test storage decisions first."
+    },
+    "test": {
+      "zh": "给雨季和旱期两段变化，玩家是否会预留容量或储备，而非一直把闸门开到底？",
+      "en": "Across wet and dry phases, do players reserve capacity or water rather than leaving the gate fully open?"
+    }
+  },
+  "edition": 1
+}

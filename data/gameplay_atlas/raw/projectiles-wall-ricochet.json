@@ -1,0 +1,173 @@
+{
+  "id": "projectiles-wall-ricochet",
+  "system": "projectiles",
+  "edition": 3,
+  "name": {
+    "zh": "借墙反弹，把攻击送到拐角",
+    "en": "Bounce a shot around a corner"
+  },
+  "summary": {
+    "zh": "墙面成为弹道的一部分，打不到的目标也可能有间接路线。",
+    "en": "Walls become part of the firing path and create indirect routes to targets."
+  },
+  "rules": {
+    "zh": "投射物碰到允许反弹的表面后改变方向，并消耗次数或能量。玩家用墙的位置与角度安排间接攻击，也要观察反弹是否把危险带回自己身边；反弹结束后重新寻找下一条路线。",
+    "en": "A projectile changes direction at eligible surfaces and spends bounce count or energy. Use wall geometry for indirect attacks, while considering whether the returning path creates danger; then find a new route for the next shot."
+  },
+  "loop": [
+    {
+      "zh": "寻找目标与可反弹墙面",
+      "en": "Find the target and a usable wall"
+    },
+    {
+      "zh": "选择入射角度",
+      "en": "Choose the incoming angle"
+    },
+    {
+      "zh": "观察反弹后的路径",
+      "en": "Watch the reflected path"
+    },
+    {
+      "zh": "换角度或换位置再发射",
+      "en": "Change angle or position for the next shot"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "直射更可靠，借墙能保持掩护但路线更难判断。",
+      "en": "A direct shot is reliable; a bank shot preserves cover but is harder to predict."
+    },
+    {
+      "zh": "多次反弹能扫更大范围，也可能浪费在空处或带来自伤风险。",
+      "en": "More bounces cover more space but can waste shots or create self-harm risk."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "反弹次数与能量保留",
+        "en": "Bounce count and retained energy"
+      },
+      "effect": {
+        "zh": "次数多会放大场地几何的重要性；逐次衰减能限制无限扫场。",
+        "en": "More bounces make geometry matter more; decay prevents indefinite room coverage."
+      }
+    },
+    {
+      "name": {
+        "zh": "可反弹表面的辨识",
+        "en": "Readable surfaces"
+      },
+      "effect": {
+        "zh": "材质与标记应清楚区分反弹、吸收和穿透，避免靠猜。",
+        "en": "Clearly distinguish reflective, absorbing and penetrable surfaces."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "steamId": 311690,
+      "game": "Enter the Gungeon",
+      "gameZh": "挺进地牢",
+      "image": "https://images.loopyhop.com/gameplayatlas/4664dd867d0923d8098083bf.jpg",
+      "imageSource": "https://store.steampowered.com/app/311690/",
+      "rights": "Dodge Roll / Devolver Digital",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：俯视房间内可见角色、敌人、掩体与弹幕。",
+        "en": "System reference: A top-down room shows the character, enemies, cover and projectiles. See the linked text source for the rules."
+      },
+      "implementation": {
+        "zh": "Charge Shot 发射能穿透敌人、并在墙面反弹的能量弹，玩家可用房间边界延长弹道覆盖。",
+        "en": "Charge Shot fires a projectile that pierces enemies and bounces from walls, allowing room boundaries to extend its coverage."
+      },
+      "source": "https://enterthegungeon.wiki.gg/wiki/Charge_Shot",
+      "sourceLabel": "Community wiki — game rules",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311690/ss_703de0f20d4a817d3a320241f4e9ac7f7fa95bc1.1920x1080.jpg?t=1779733990"
+    },
+    {
+      "game": "Noita",
+      "gameZh": "女巫",
+      "steamId": 881100,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "Bounce 修饰法术给兼容投射物加入碰撞反弹行为；与其他法术组合后，玩家需要重新判断反弹路径。",
+        "en": "The Bounce modifier adds bouncing behavior to compatible projectiles, changing how combined wand spells interact with surfaces."
+      },
+      "source": "https://noita.wiki.gg/wiki/BOUNCE",
+      "sourceLabel": "Community wiki — game rules",
+      "image": "https://images.loopyhop.com/gameplayatlas/c8a5e0fd4b0b4582dfd2531b.jpg",
+      "imageSource": "https://store.steampowered.com/app/881100/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：提供本作的场景语境，不把静态画面作为本条操作过程的证明。",
+        "en": "System reference: provides context for this game; the still image does not establish this interaction sequence."
+      },
+      "rights": "Nolla Games",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_626b401fd6d78ab335ecb8ff1e4b0a8ce7d25f66.1920x1080.jpg?t=1675987871"
+    }
+  ],
+  "contrast": {
+    "zh": "挺进地牢把反弹作为特定枪械的规则；Noita 允许把反弹加入法术组合，适用边界更需要说明。",
+    "en": "Gungeon packages bouncing in a weapon; Noita lets it modify spell combinations, making compatibility boundaries more important."
+  },
+  "combinesWith": [
+    "building"
+  ],
+  "combinationIds": [
+    "building-modular-snapping"
+  ],
+  "combination": {
+    "zh": "组合提案：允许玩家在战斗前吸附摆放少量反射板，用有限板件规划能绕过掩体的射线。",
+    "en": "Design proposal: snap a limited set of reflective panels into place before combat to route shots around cover."
+  },
+  "related": [
+    "building-modular-snapping",
+    "projectiles-ballistic-arc",
+    "projectiles-independent-aim",
+    "building-terrain-shaping"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "敌人在直角墙后，正面射线被挡住。",
+      "en": "An enemy is hidden behind a right-angle wall."
+    },
+    "action": {
+      "zh": "玩家向旁边的斜反射板开火。",
+      "en": "The player fires toward a slanted reflective panel."
+    },
+    "result": {
+      "zh": "弹丸反弹到墙后，消耗一次反弹机会。",
+      "en": "The shot reaches behind the wall and spends one bounce."
+    },
+    "next": {
+      "zh": "敌人换位后，玩家也要调整发射点而非重复原角度。",
+      "en": "When the enemy moves, the player must revise the firing point."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一个房间、一种固定速度的弹丸和最多一次反弹，先显示路线辅助线。",
+      "en": "Build one room, a fixed-speed projectile and one allowed bounce, initially with a guide line."
+    },
+    "pitfall": {
+      "zh": "角落、薄墙和高速碰撞最容易让反弹结果失真。",
+      "en": "Corners, thin walls and high-speed collisions are the likeliest sources of misleading results."
+    },
+    "test": {
+      "zh": "玩家能否在第二次尝试前预测弹丸会从哪面墙离开？",
+      "en": "Can players predict which wall the shot will leave after the next attempt?"
+    }
+  },
+  "tags": [
+    "spatial",
+    "precision",
+    "creativity"
+  ]
+}

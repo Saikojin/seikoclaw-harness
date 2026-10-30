@@ -1,0 +1,173 @@
+{
+  "id": "exploration-ability-gates",
+  "system": "exploration",
+  "name": {
+    "zh": "能力解锁旧路径",
+    "en": "Ability-gated backtracking"
+  },
+  "summary": {
+    "zh": "先看到去不了的地方，再用新能力重新理解旧地图。",
+    "en": "See an unreachable place, then reinterpret it with a new ability."
+  },
+  "tags": [
+    "discovery",
+    "progression",
+    "information"
+  ],
+  "rules": {
+    "zh": "地图用跳跃距离、墙面、特殊障碍等限制通行。获得能力后，玩家回忆旧障碍并重访；真正的奖励不仅是新房间，还包括原有空间连接方式的改变。",
+    "en": "Traversal limits such as jump range, walls and special barriers block paths. After earning an ability, recall and revisit old obstacles; the reward is new connectivity as well as new rooms."
+  },
+  "loop": [
+    {
+      "zh": "发现当前无法通过的路",
+      "en": "Notice an inaccessible route"
+    },
+    {
+      "zh": "记住位置与障碍特征",
+      "en": "Remember location and obstacle"
+    },
+    {
+      "zh": "获取对应能力",
+      "en": "Acquire a relevant ability"
+    },
+    {
+      "zh": "返回并打开新连接",
+      "en": "Return and open a connection"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "继续寻找主路，还是为可疑支路做标记？玩家在未知收益间分配注意力。",
+      "en": "Continue the main route or mark a suspicious branch? Attention is allocated among uncertain rewards."
+    },
+    {
+      "zh": "新能力到手后，先推进还是回收旧区域，形成节奏选择。",
+      "en": "After an upgrade, advancing and revisiting become competing rhythms."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "障碍可辨识度",
+        "en": "Gate readability"
+      },
+      "effect": {
+        "zh": "视觉语言越清楚，玩家越容易记住需要哪种能力。",
+        "en": "Clear visual language helps players remember which ability is missing."
+      }
+    },
+    {
+      "name": {
+        "zh": "回访距离",
+        "en": "Backtrack distance"
+      },
+      "effect": {
+        "zh": "距离太长会变成跑腿；捷径可让回访保留发现感。",
+        "en": "Excessive distance turns revisits into chores; shortcuts preserve discovery."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Hollow Knight",
+      "gameZh": "空洞骑士",
+      "steamId": 367520,
+      "screenshotIndex": 3,
+      "implementation": {
+        "zh": "螳螂爪允许攀墙与蹬墙跳，原先无法攀上的竖直通道因此成为新路线。",
+        "en": "Mantis Claw grants wall sliding and wall jumping, turning previously inaccessible vertical spaces into routes."
+      },
+      "source": "https://hollowknight.wiki/w/Mantis_Claw",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/2fcd99ee7267d5065d8767cb.jpg",
+      "imageSource": "https://store.steampowered.com/app/367520/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察尖刺、竖直墙面和悬空平台构成的移动限制；画面没有证明角色拥有哪些能力。",
+        "en": "System reference: inspect spikes, walls and airborne platforms as movement constraints; ability ownership is not established."
+      },
+      "rights": "Team Cherry",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_62e10cf506d461e11e050457b08aa0e2a1c078d0.1920x1080.jpg?t=1776125684"
+    },
+    {
+      "game": "Ori and the Blind Forest",
+      "gameZh": "奥日与黑暗森林",
+      "steamId": 261570,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "Bash 能借助敌人、弹丸或指定物体改变移动方向，将原本的危险物变成穿越空间的支点。",
+        "en": "Bash redirects movement using enemies, projectiles or suitable objects, turning some hazards into traversal anchors."
+      },
+      "source": "https://oriandtheblindforest.fandom.com/wiki/Bash_%28Blind_Forest%29",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/130cff176a4ca5684c097386.jpg",
+      "imageSource": "https://store.steampowered.com/app/261570/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察平台、空隙和空中物体；是否可借力需看具体物体规则。",
+        "en": "System reference: inspect platforms, gaps and airborne objects; target eligibility depends on the rules."
+      },
+      "rights": "Moon Studios / Xbox Game Studios",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/261570/ss_c617379b9d195eed0342f3ecf86898513e702b96.1920x1080.jpg?t=1667504148"
+    }
+  ],
+  "contrast": {
+    "zh": "《空洞骑士》常用固定地形承接能力门槛；《奥日》的借力还把动态敌人与弹丸纳入路线。",
+    "en": "Hollow Knight often gates fixed geometry; Ori’s Bash can incorporate moving enemies and projectiles into a route."
+  },
+  "combinesWith": [
+    "puzzles",
+    "inventory"
+  ],
+  "combination": {
+    "zh": "设计提案：新制作工具同时改变穿越方式，例如可展开的织布机既生产布料，也能搭出短时攀爬面。",
+    "en": "Design proposal: make a crafting tool alter traversal too—a deployable loom produces cloth and creates a temporary climbing surface."
+  },
+  "related": [
+    "exploration-earned-map",
+    "exploration-fast-travel-network",
+    "exploration-procedural-route-reading",
+    "inventory-identification"
+  ],
+  "combinationIds": [
+    "automation-production-chain"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你发现一条高处支路，当前跳跃高度还够不到。",
+      "en": "You find a high side passage beyond your current jump height."
+    },
+    "action": {
+      "zh": "先记下位置，探索别处取得二段跳，再回到这里。",
+      "en": "Remember the location, obtain a double jump elsewhere, and return."
+    },
+    "result": {
+      "zh": "旧障碍变成入口，你进入新房间并找到另一条连接道路。",
+      "en": "The old obstacle becomes an entrance to a new room and a connecting route."
+    },
+    "next": {
+      "zh": "用新能力重新检查记得的其他障碍，或继续深入新区域。",
+      "en": "Revisit other remembered obstacles with the ability or continue into the new area."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做五个相连房间、一项移动能力和两处明显但暂时无法通过的障碍。",
+      "en": "Build five linked rooms, one movement upgrade, and two visible gates it unlocks."
+    },
+    "pitfall": {
+      "zh": "地图没形成值得回访的连接时，增加能力只会增加找路负担。",
+      "en": "Without useful connections, more abilities merely increase the burden of remembering where to return."
+    },
+    "test": {
+      "zh": "取得能力后不给任务标记，观察玩家能否主动想起至少一处旧障碍。",
+      "en": "After granting the ability, remove quest guidance and see whether players remember an earlier gate."
+    }
+  },
+  "edition": 1
+}

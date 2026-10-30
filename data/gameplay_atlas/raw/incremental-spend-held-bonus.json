@@ -1,0 +1,172 @@
+{
+  "id": "incremental-spend-held-bonus",
+  "system": "incremental",
+  "edition": 3,
+  "name": {
+    "zh": "花掉资源，也会失去持有加成",
+    "en": "Spend a resource that also grants a held bonus"
+  },
+  "summary": {
+    "zh": "同一份资源既是购买力，也是当前收益的一部分。",
+    "en": "The same resource funds purchases and contributes to current output."
+  },
+  "rules": {
+    "zh": "玩家持有某种资源时会得到持续加成，也能把它花掉换取特定升级。购买会减少余额，从而降低原有加成；新升级只有补回这部分损失才真正划算。玩家需要比较交易前后的总效果，而不是只看升级说明。",
+    "en": "Holding a resource grants an ongoing bonus, but it can also purchase specific upgrades. Spending reduces the balance and its existing bonus. An upgrade must outweigh that loss to be worthwhile, so compare the total before and after rather than the upgrade text alone."
+  },
+  "loop": [
+    {
+      "zh": "查看持有量带来的加成",
+      "en": "Check the bonus from the held balance"
+    },
+    {
+      "zh": "比较升级收益和失去的加成",
+      "en": "Compare the upgrade with the lost bonus"
+    },
+    {
+      "zh": "选择花多少或继续保留",
+      "en": "Choose an amount to spend or retain"
+    },
+    {
+      "zh": "用总产出判断是否划算",
+      "en": "Judge the result by total output"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "一次强升级是否值得花掉大半积蓄，让原有加成明显下降？",
+      "en": "Is a strong upgrade worth spending most of the reserve and lowering its existing bonus?"
+    },
+    {
+      "zh": "分几次小额投入观察效果，还是攒到一次关键购买？",
+      "en": "Make small purchases and observe the result, or save for a pivotal one?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "持有加成曲线",
+        "en": "Held-bonus curve"
+      },
+      "effect": {
+        "zh": "余额越少损失越敏感，会鼓励保留底仓；平缓曲线更容易大胆花费。",
+        "en": "A sensitive low-balance curve encourages a reserve; a flatter curve makes spending easier."
+      }
+    },
+    {
+      "name": {
+        "zh": "购买前后预览",
+        "en": "Before-and-after preview"
+      },
+      "effect": {
+        "zh": "展示净变化能让取舍来自策略，而不是心算或误读。",
+        "en": "Showing the net change makes this a strategy decision rather than a calculation trap."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Clicker Heroes",
+      "gameZh": "点击英雄",
+      "steamId": 363970,
+      "implementation": {
+        "zh": "未花掉的英雄之魂会提供伤害加成，也可以用于召唤或升级古代者；花费后要同时考虑余额减少与新能力收益。",
+        "en": "Unspent Hero Souls grant damage and can also summon or level Ancients. Spending changes both the remaining balance bonus and the purchased ability."
+      },
+      "source": "https://clickerheroes.fandom.com/wiki/Currencies",
+      "sourceLabel": "Community game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/6254a39c4fea29f6a4bf06ca.jpg",
+      "imageSource": "https://store.steampowered.com/app/363970/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：英雄升级、金币和敌人展示推进背景；本条所述的奖励结算与长期变化需结合规则来源阅读。",
+        "en": "System reference: upgrades, gold and an enemy provide progression context; read the rule source for reward settlement and changes over time."
+      },
+      "rights": "Playsaurus",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/363970/3c9142b888c07f6846293e555d9f0000e958cfc8/ss_3c9142b888c07f6846293e555d9f0000e958cfc8.1920x1080.jpg?t=1792369175"
+    },
+    {
+      "game": "AdVenture Capitalist",
+      "gameZh": "冒险资本家",
+      "steamId": 346900,
+      "rights": "Hyper Hippo Games",
+      "image": "https://images.loopyhop.com/gameplayatlas/58a6cff5ba296cc36aad862d.jpg",
+      "imageSource": "https://store.steampowered.com/app/346900/",
+      "visualInspected": true,
+      "implementation": {
+        "zh": "天使投资者提供利润加成，也能被牺牲来购买天使升级；被花掉的天使不再贡献原来的利润加成。",
+        "en": "Angel Investors boost profits and can be sacrificed for angel upgrades. Spent angels stop contributing their previous profit bonus."
+      },
+      "source": "https://adventure-capitalist.fandom.com/wiki/Angel_Upgrades",
+      "sourceLabel": "Community game wiki",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "observation": {
+        "zh": "系统参考图：官方商店宣传合成图中可见产业购买与收益界面；不是完整操作截图。",
+        "en": "System reference: This official-store promotional composite includes business-purchase and income panels; it is not a complete gameplay screenshot. See the linked text source for the rules."
+      },
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/346900/ss_24fbcd72d11e70c34a041ab3c6e4fe661f111ccd.1920x1080.jpg?t=1769198593"
+    }
+  ],
+  "contrast": {
+    "zh": "点击英雄用余额伤害和古代者能力进行比较；冒险资本家在通用利润加成与天使升级之间做类似净收益判断。",
+    "en": "Clicker Heroes weighs balance-based damage against Ancient abilities; AdVenture Capitalist weighs the general profit bonus against angel upgrades."
+  },
+  "combinesWith": [
+    "inventory"
+  ],
+  "combinationIds": [
+    "inventory-equipment-budget"
+  ],
+  "combination": {
+    "zh": "组合提案：让未装备的能量碎片提供全局小加成，装进技能槽后转为局部强效果，玩家同时比较槽位和失去的持有收益。",
+    "en": "Design proposal: unequipped energy shards grant a small global bonus; slotting them into abilities trades that bonus for a stronger local effect."
+  },
+  "related": [
+    "incremental-escalating-copy-price",
+    "incremental-allocate-progress-capacity",
+    "incremental-offline-window",
+    "incremental-overlap-income-bursts"
+  ],
+  "tags": [
+    "economy",
+    "planning",
+    "optimization"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "持有10颗宝石时产出为每轮20；花4颗买升级后，余额加成使基础产出降到16，升级再乘1.5。",
+      "en": "Ten gems yield twenty per round. Spending four lowers balance-adjusted output to sixteen before a new 1.5× upgrade."
+    },
+    "action": {
+      "zh": "玩家查看净产出预览后购买。",
+      "en": "Inspect the net-output preview and buy."
+    },
+    "result": {
+      "zh": "最终每轮产24，比原来多4。",
+      "en": "Final output becomes twenty-four, four more than before."
+    },
+    "next": {
+      "zh": "下一项更贵，不能照搬这次购买的判断。",
+      "en": "A more expensive next upgrade requires a fresh comparison."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "只做一种既可持有加成又可消费的货币和两种升级，提供购买前后预览。",
+      "en": "Use one currency with a held bonus, two upgrades and a before-and-after preview."
+    },
+    "pitfall": {
+      "zh": "不能只显示升级百分比而隐藏被扣掉的原有加成。",
+      "en": "Do not show only the upgrade percentage while hiding the lost balance bonus."
+    },
+    "test": {
+      "zh": "玩家能否解释为什么有的升级现在买反而变弱？",
+      "en": "Can players explain why buying a particular upgrade now could make them weaker?"
+    }
+  }
+}

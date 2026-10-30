@@ -1,0 +1,169 @@
+{
+  "id": "farming-irrigation-layout",
+  "system": "farming",
+  "name": {
+    "zh": "灌溉覆盖布局",
+    "en": "Irrigation coverage"
+  },
+  "summary": {
+    "zh": "用占地与建造成本，交换重复浇水的时间。",
+    "en": "Trade footprint and construction costs for less repeated watering."
+  },
+  "rules": {
+    "zh": "玩家把灌溉装置放入田地，让覆盖范围内的作物自动得到水。装置本身占位，覆盖形状与供水条件形成布局约束；漏水地块会暴露设计中的空隙。",
+    "en": "Place irrigation devices so nearby crops receive water automatically. Device footprint, coverage shape and supply rules constrain layouts; uncovered plots reveal gaps."
+  },
+  "loop": [
+    {
+      "zh": "标出种植范围",
+      "en": "Mark the crop area"
+    },
+    {
+      "zh": "放置灌溉与供水设施",
+      "en": "Place irrigation and water supply"
+    },
+    {
+      "zh": "检查边角覆盖",
+      "en": "Check edge coverage"
+    },
+    {
+      "zh": "扩田并重排装置",
+      "en": "Expand and rearrange"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "最大种植密度不一定便于收获，必须留出通路。",
+      "en": "Maximum planting density may obstruct harvesting; access still matters."
+    },
+    {
+      "zh": "先覆盖已有地块还是为扩张预留管线，决定短期与长期成本。",
+      "en": "Covering today's plots or planning future supply trades immediate cost against expansion."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "覆盖形状",
+        "en": "Coverage shape"
+      },
+      "effect": {
+        "zh": "十字、方形与圆形会产生不同的留白和拼接问题。",
+        "en": "Cross, square and circular coverage create different gaps and tiling problems."
+      }
+    },
+    {
+      "name": {
+        "zh": "供水依赖",
+        "en": "Supply dependency"
+      },
+      "effect": {
+        "zh": "加入水源或水箱后，单点摆放升级为网络规划。",
+        "en": "Requiring a source or tank turns placement into network planning."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "implementation": {
+        "zh": "不同等级洒水器每天早晨浇灌固定范围，不需要连接水箱。",
+        "en": "Different sprinkler tiers water fixed areas each morning without a tank connection."
+      },
+      "source": "https://stardewvalleywiki.com/Sprinkler",
+      "sourceLabel": "Stardew Valley Wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/e41b5c5743ac273115891b2e.jpg",
+      "imageSource": "https://store.steampowered.com/app/413150/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察作物分块、通路和设施占位，思考哪些边角需要额外覆盖；画面不是灌溉范围图。",
+        "en": "Inspect field divisions, paths and device footprints to consider coverage gaps; this is not a sprinkler-range diagram."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_f79d2066dfaf32bbe87868d36db4845f771eddbd.1920x1080.jpg?t=1786554168"
+    },
+    {
+      "game": "Dinkum",
+      "gameZh": "澳洲梦想镇",
+      "implementation": {
+        "zh": "洒水器还需要处于水箱支持范围，田地覆盖与供水覆盖要同时满足。",
+        "en": "Sprinklers also require water-tank coverage, so both crop coverage and supply coverage must be satisfied."
+      },
+      "source": "https://dinkum.fandom.com/wiki/Sprinkler",
+      "sourceLabel": "Dinkum community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/96fb89ae24a09a6e97751066.jpg",
+      "imageSource": "https://store.steampowered.com/app/1062520/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "密集田地被围栏与通路包围，可用于考虑灌溉覆盖和可达性；图中未标示水箱覆盖范围。",
+        "en": "Dense crops are enclosed by fences and paths, useful for considering coverage and access; tank range is not marked."
+      },
+      "rights": "James Bendon / KRAFTON",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062520/ss_e1475ccea78fcfd36eb0471ceceac8d0a55d3d57.1920x1080.jpg?t=1767607973"
+    }
+  ],
+  "contrast": {
+    "zh": "星露谷主要考验局部覆盖；Dinkum额外增加供水设施的空间关系。",
+    "en": "Stardew primarily tests local coverage; Dinkum adds the spatial relationship to water infrastructure."
+  },
+  "combinesWith": [
+    "automation",
+    "building"
+  ],
+  "combination": {
+    "zh": "设计提案：灌溉沿地势流动，玩家同时设计梯田与蓄水池，让建造改变种田效率。",
+    "en": "Design proposal: irrigation follows elevation, making terraces and reservoirs part of farm efficiency."
+  },
+  "tags": [
+    "spatial",
+    "optimization",
+    "planning"
+  ],
+  "related": [
+    "automation-aerial-logistics",
+    "automation-belt-routing",
+    "automation-flow-splitting",
+    "building-access-network"
+  ],
+  "combinationIds": [
+    "building-water-engineering"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "一块5×5田地里有20株作物，喷头只浇相邻四格。",
+      "en": "A five-by-five field contains twenty crops; each sprinkler waters four neighbouring cells."
+    },
+    "action": {
+      "zh": "你把两个喷头移到内部，让覆盖尽量少重叠。",
+      "en": "Move two sprinklers inward to reduce overlap."
+    },
+    "result": {
+      "zh": "预览显示哪些作物每天自动得水，边角仍需手浇。",
+      "en": "The preview marks automatically watered crops; some corners still need manual care."
+    },
+    "next": {
+      "zh": "用节省的浇水行动扩田，再重新检查边缘。",
+      "en": "Use the saved watering actions to expand, then check the new edges."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做固定网格、一种十字覆盖喷头和干湿两种地块状态，实时显示遗漏数。",
+      "en": "Use a fixed grid, one cross-shaped sprinkler and wet/dry cells, with a live count of missed plots."
+    },
+    "pitfall": {
+      "zh": "水压、地下管线与可旋转喷头会增加另一套规则，可在布局本身好玩后再加。",
+      "en": "Pressure, underground pipes and rotating heads add separate rules; postpone them until placement is engaging."
+    },
+    "test": {
+      "zh": "给相同数量的喷头，观察玩家能否改位置减少手浇，而不是只能继续买设备。",
+      "en": "With a fixed sprinkler budget, can players reduce manual watering by repositioning existing devices?"
+    }
+  },
+  "edition": 1
+}

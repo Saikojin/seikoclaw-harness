@@ -1,0 +1,172 @@
+{
+  "id": "deckbuilding-trigger-order",
+  "system": "deckbuilding",
+  "name": {
+    "zh": "同样的效果，换顺序结果不同",
+    "en": "Ordering effects to change the result"
+  },
+  "summary": {
+    "zh": "先加再乘，或先挂弱点再攻击，把顺序本身变成决策。",
+    "en": "Add before multiplying or expose a weakness before attacking: sequence becomes a decision."
+  },
+  "tags": [
+    "planning",
+    "optimization"
+  ],
+  "rules": {
+    "zh": "让效果按可理解的顺序逐个结算，而不是同时生效。玩家调整卡牌顺序或出牌先后，使前一步为后一步创造条件；界面应展示每次触发和当前结果，方便核对。",
+    "en": "Resolve effects in a readable sequence rather than simultaneously. Players reorder modifiers or actions so earlier steps prepare later ones, with visible intermediate results."
+  },
+  "loop": [
+    {
+      "zh": "查看各效果的条件",
+      "en": "Read each effect’s condition"
+    },
+    {
+      "zh": "安排先后顺序",
+      "en": "Arrange their order"
+    },
+    {
+      "zh": "逐步观察结算",
+      "en": "Watch each resolution"
+    },
+    {
+      "zh": "比较并修正顺序",
+      "en": "Compare and revise"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先加固定数值再翻倍，还是先翻倍再加？要看它们在哪个结算阶段生效。",
+      "en": "Add before multiplying or afterward? Their resolution stage matters."
+    },
+    {
+      "zh": "把能量先花在弱点上，剩下的攻击是否足以收回这笔准备成本？",
+      "en": "Will the remaining attacks repay the cost of applying a vulnerability first?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "顺序可编辑范围",
+        "en": "Editable order"
+      },
+      "effect": {
+        "zh": "只让玩家排同一阶段的效果，较容易预测和解释。",
+        "en": "Restricting rearrangement to one stage keeps results easier to predict."
+      }
+    },
+    {
+      "name": {
+        "zh": "中间结果可见度",
+        "en": "Intermediate feedback"
+      },
+      "effect": {
+        "zh": "逐步显示计算能把试错变成理解，减少只查攻略的情况。",
+        "en": "Showing intermediate values turns trial and error into understanding."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Balatro",
+      "gameZh": "小丑牌",
+      "steamId": 2379780,
+      "implementation": {
+        "zh": "同一结算阶段的小丑牌通常按位置从左往右触发，先加倍率再乘倍率会改变最终分数。",
+        "en": "Within a scoring stage, Jokers generally resolve left to right, so additive and multiplicative bonuses can produce different totals."
+      },
+      "source": "https://balatrogame.fandom.com/wiki/Guide%3A_Activation_Sequence",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c05b09c45a93c43df70c3f17.jpg",
+      "imageSource": "https://store.steampowered.com/app/2379780/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：塔罗牌效果与可选择的扑克牌同时显示。",
+        "en": "System reference: A Tarot card effect appears beside a selection of playing cards. See the linked text source for the rules."
+      },
+      "rights": "LocalThunk / Playstack",
+      "verified": "2026-10-21",
+      "visualInspected": true,
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1790693638"
+    },
+    {
+      "game": "Slay the Spire",
+      "gameZh": "杀戮尖塔",
+      "steamId": 646570,
+      "screenshotIndex": 1,
+      "implementation": {
+        "zh": "易伤提高之后受到的攻击伤害，因此先施加易伤再打其他攻击，会影响这一回合的伤害。",
+        "en": "Vulnerable increases subsequent attack damage, so applying it before other attacks changes the turn’s output."
+      },
+      "source": "https://slay-the-spire.fandom.com/wiki/Vulnerable",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c17f51c280502584fd54e78a.jpg",
+      "imageSource": "https://store.steampowered.com/app/646570/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：画面可见手牌、费用与正在打出的 Zap+；未展示本条所述的具体选择过程。",
+        "en": "System reference: the hand, costs and a played Zap+ are visible; the specific choice described here is not shown."
+      },
+      "rights": "Mega Crit",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_01aa3e7759e457bfbf2422f31c325d7b3ba8a6eb.1920x1080.jpg?t=1774015376"
+    }
+  ],
+  "contrast": {
+    "zh": "《小丑牌》让玩家整理持续效果的位置；《杀戮尖塔》主要通过手动出牌先后控制状态与伤害。",
+    "en": "Balatro exposes positional ordering of persistent effects; Slay the Spire uses the order of played actions."
+  },
+  "combinesWith": [
+    "automation"
+  ],
+  "combinationIds": [
+    "automation-production-chain"
+  ],
+  "combination": {
+    "zh": "设计提案：把分数处理做成流水线：先清洗材料加价值，再用精加工倍率放大，玩家拖动工序比较收益。",
+    "en": "Design proposal: Build a scoring production line where cleaning adds value before a finishing multiplier."
+  },
+  "related": [
+    "deckbuilding-dice-allocation",
+    "deckbuilding-duplicate-investment",
+    "deckbuilding-opening-hand-control",
+    "deckbuilding-reward-choice"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "编辑示例：基础倍率为三，有一个加二效果和一个乘二效果。",
+      "en": "Editorial example: base multiplier is three, with add-two and multiply-by-two effects."
+    },
+    "action": {
+      "zh": "玩家把加二放在乘二之前。",
+      "en": "Place add-two before multiply-by-two."
+    },
+    "result": {
+      "zh": "倍率先变五，再变十；反过来只有八。",
+      "en": "The value becomes five, then ten; the reverse order gives eight."
+    },
+    "next": {
+      "zh": "下一次拿到新效果时，再检查它应该插入哪一步。",
+      "en": "When a new modifier arrives, decide where it belongs."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做三种效果和一条可拖动结算队列，每一步显示前后数值。",
+      "en": "Use three modifier types and a draggable queue showing each intermediate value."
+    },
+    "pitfall": {
+      "zh": "不要一开始就混合多套隐藏优先级；无法解释的例外会破坏学习。",
+      "en": "Avoid hidden priority layers whose exceptions undermine learning."
+    },
+    "test": {
+      "zh": "玩家能在点击结算前预测两种排列的差别，并用动画验证。",
+      "en": "Players predict the difference between two orders before resolving them."
+    }
+  },
+  "edition": 2
+}

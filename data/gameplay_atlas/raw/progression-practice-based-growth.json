@@ -1,0 +1,172 @@
+{
+  "id": "progression-practice-based-growth",
+  "system": "progression",
+  "name": {
+    "zh": "做什么，就练强什么",
+    "en": "Practice-based skill growth"
+  },
+  "summary": {
+    "zh": "成长跟随实际行为，常做的事情自然变成特长。",
+    "en": "Repeated actions build the corresponding skill."
+  },
+  "tags": [
+    "progression",
+    "planning",
+    "time"
+  ],
+  "rules": {
+    "zh": "行动成功时，相关技能获得经验，达到门槛后提高效率或开放新做法。经验不能任意分给别的技能，玩家需要在完成当前目标和练习薄弱能力之间分配时间。",
+    "en": "Successful actions grant experience to the skill used. Reaching a threshold improves efficiency or unlocks options. Experience cannot simply be assigned elsewhere, so time spent solving the current problem competes with practicing a weak skill."
+  },
+  "loop": [
+    {
+      "zh": "选择要做的事情",
+      "en": "Choose an activity"
+    },
+    {
+      "zh": "完成行动获得对应经验",
+      "en": "Earn matching experience"
+    },
+    {
+      "zh": "跨过技能门槛",
+      "en": "Reach a threshold"
+    },
+    {
+      "zh": "利用新效率或改练别项",
+      "en": "Use the gain or train elsewhere"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "用最熟练的办法快速完成任务，还是换不熟悉的办法顺便练习？",
+      "en": "Finish quickly with your strongest skill or practice a weaker approach?"
+    },
+    {
+      "zh": "专练一项提高产出，还是分散练习以应对更多任务？",
+      "en": "Specialize for efficiency or spread practice to handle more tasks?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "经验触发条件",
+        "en": "Experience trigger"
+      },
+      "effect": {
+        "zh": "只奖励有效行动可减少原地刷按钮，但条件必须容易看懂。",
+        "en": "Rewarding meaningful results discourages empty repetition, but the trigger must be clear."
+      }
+    },
+    {
+      "name": {
+        "zh": "成长带来的变化",
+        "en": "Skill benefit"
+      },
+      "effect": {
+        "zh": "只涨小数字容易无感；更省资源或新增做法更容易察觉。",
+        "en": "Tiny numeric gains can be obscure; lower costs or new actions are easier to notice."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "steamId": 413150,
+      "screenshotIndex": 2,
+      "implementation": {
+        "zh": "耕种、采矿、钓鱼等活动分别积累对应技能经验；技能提升会带来工具熟练度、制作配方等收益。",
+        "en": "Farming, mining, fishing and other activities accumulate their own skill experience, with benefits such as tool proficiency and recipes."
+      },
+      "source": "https://stardewvalleywiki.com/Skills",
+      "sourceLabel": "Official wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/65643f247f7e32380fa20be0.jpg",
+      "imageSource": "https://store.steampowered.com/app/413150/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：人物在农场进行日常活动；此图没有显示经验结算。",
+        "en": "System reference: characters perform farm activities; experience gains are not displayed."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_4fa0866709ede3753fdf2745349b528d5e8c4054.1920x1080.jpg?t=1786554168"
+    },
+    {
+      "game": "The Elder Scrolls V: Skyrim Special Edition",
+      "gameZh": "上古卷轴5：天际 特别版",
+      "steamId": 489830,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "使用某项技能会推动它的成长，技能提升也推动角色等级。玩家通过实际采用的战斗、潜行或制作方式塑造人物。",
+        "en": "Using a skill develops it, and skill increases also advance character level. Actual choices in combat, stealth or crafting shape the character."
+      },
+      "source": "https://assets.ctfassets.net/rporu91m20dc/1IuJHrbXY8GqSQQM0GuuUM/2a3c85e2d7772c2eb45f996443f320f4/manual_skyrim-le_ps3_en-us.pdf",
+      "sourceLabel": "Official game manual",
+      "image": "https://images.loopyhop.com/gameplayatlas/27bf0e00b58195f11fd76166.jpg",
+      "imageSource": "https://store.steampowered.com/app/489830/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "场景参考图：雪山遗迹展示探索环境；不展示技能条或练习过程。",
+        "en": "Scene reference: a snowy ruin shows the exploration setting, not a skill bar or training sequence."
+      },
+      "rights": "Bethesda Game Studios / Bethesda Softworks",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/ss_73c1a0bb7e1720c8a1847186c3ddd837d3ca7a8d.1920x1080.jpg?t=1786648247"
+    }
+  ],
+  "contrast": {
+    "zh": "《星露谷物语》让日常工作逐渐变熟练；《天际》还把各项技能增长汇入人物等级，练习会影响更广的成长节奏。",
+    "en": "Stardew Valley develops daily work skills; Skyrim also feeds skill increases into character level, linking practice to overall progression."
+  },
+  "combinesWith": [
+    "commerce"
+  ],
+  "combinationIds": [
+    "commerce-timed-contracts"
+  ],
+  "combination": {
+    "zh": "设计提案：工坊订单同时给报酬和对应工艺经验，玩家可以接熟悉订单赚钱，也能接低利润订单练新手艺。",
+    "en": "Design proposal: workshop orders grant payment and matching craft experience, trading reliable income against practicing a new craft."
+  },
+  "related": [
+    "progression-challenge-tiers",
+    "progression-death-loses-training",
+    "progression-evolution-recipes",
+    "progression-prestige-reset"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "木工经验为 8/10，缝纫为 1/10；今天只能完成两件工作。",
+      "en": "Carpentry is at 8/10 experience and sewing at 1/10; you can finish two jobs today."
+    },
+    "action": {
+      "zh": "你先做木盒，获得 2 点木工经验。",
+      "en": "Make a box and gain 2 carpentry experience."
+    },
+    "result": {
+      "zh": "木工升级，以后每件木制品少用 1 根木材。",
+      "en": "Carpentry improves; later wooden items use one less plank."
+    },
+    "next": {
+      "zh": "剩下一次工作机会，是继续用优势赚钱，还是练缝纫？",
+      "en": "Spend the remaining job on profitable carpentry or sewing practice?"
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做两类工作、各自经验条和一个可见的成本下降门槛。",
+      "en": "Build two job types, separate experience bars and one visible cost-reduction threshold."
+    },
+    "pitfall": {
+      "zh": "别先加几十项技能；先确认每项都有值得重复的行动。",
+      "en": "Avoid dozens of skills before each one has an activity worth repeating."
+    },
+    "test": {
+      "zh": "玩家能否指出哪次行动带来了成长，并为练习主动换一次工作？",
+      "en": "Can players connect an action to a gain and deliberately switch jobs to train?"
+    }
+  },
+  "edition": 2
+}

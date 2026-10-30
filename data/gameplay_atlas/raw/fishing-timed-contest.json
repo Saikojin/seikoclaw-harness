@@ -1,0 +1,169 @@
+{
+  "id": "fishing-timed-contest",
+  "system": "fishing",
+  "name": {
+    "zh": "限时钓鱼赛事",
+    "en": "Timed fishing contests"
+  },
+  "summary": {
+    "zh": "用短暂计分窗口，让熟悉的钓鱼变成路线与效率挑战。",
+    "en": "Turn familiar fishing into a routing and efficiency challenge with a scoring window."
+  },
+  "rules": {
+    "zh": "玩家在规定时间内捕获符合赛事条件的鱼，并按规则结算成绩。练习、装备和路线都在倒计时里变得重要；计分条件决定玩家追求数量、目标鱼种还是稀有度。",
+    "en": "Catch qualifying fish within a time limit and submit results under the event rules. Practice, equipment and routing matter under the countdown; scoring decides whether quantity, a target species or rarity is optimal."
+  },
+  "loop": [
+    {
+      "zh": "确认计分与截止规则",
+      "en": "Read scoring and deadline rules"
+    },
+    {
+      "zh": "准备钓具并选择路线",
+      "en": "Prepare gear and route"
+    },
+    {
+      "zh": "在时限内捕获目标",
+      "en": "Catch qualifying fish in time"
+    },
+    {
+      "zh": "结算成绩并领取奖励",
+      "en": "Submit results and claim rewards"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "远处更好的钓点未必抵得过来回时间，路线要按赛制优化。",
+      "en": "A better distant spot may not repay the travel time; plan around the scoring rules."
+    },
+    {
+      "zh": "剩余时间只够少数尝试，要赌一条高分难鱼，还是继续稳定捕获容易的小鱼？",
+      "en": "With few attempts left, risk a difficult high-scoring fish or keep catching easier fish reliably?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "计分方式",
+        "en": "Scoring system"
+      },
+      "effect": {
+        "zh": "按数量鼓励快速目标，按价值则鼓励高风险选择。",
+        "en": "Count scoring favors quick catches; value scoring favors riskier targets."
+      }
+    },
+    {
+      "name": {
+        "zh": "准备期",
+        "en": "Preparation period"
+      },
+      "effect": {
+        "zh": "提前公布赛制奖励规划，临场公布更考验适应。",
+        "en": "Advance notice rewards preparation; surprise rules reward adaptation."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "implementation": {
+        "zh": "冰雪节包含限时钓鱼比赛，在冰洞附近抛竿并争取足够数量的鱼。",
+        "en": "The Festival of Ice includes a timed contest centered on casting into ice holes and catching enough fish."
+      },
+      "source": "https://stardewvalleywiki.com/Festival_of_Ice",
+      "sourceLabel": "Stardew Valley Wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c2c1c2deb9b5bc1c8ec86c6a.webp",
+      "imageSource": "https://pinion.jp/ガイド/stardew-valley各季節ごとのイベント-住民の誕生日一覧/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "冰洞周围的参赛者与左上角倒计时、鱼数同时可见，直接展示比赛的空间和计分压力。",
+        "en": "Participants surround ice holes while the upper-left timer and fish count display the contest space and scoring pressure."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "originalImage": "https://pinion.jp/webp.php/2025/05/S__42860633-1024x576.jpg"
+    },
+    {
+      "game": "Dinkum",
+      "gameZh": "澳洲梦想镇",
+      "implementation": {
+        "zh": "Max举办钓鱼赛事，以指定赛事目标计分，玩家需要在结束前登记成绩。",
+        "en": "Max hosts fishing competitions with event-specific scoring targets; players must record their results before the deadline."
+      },
+      "source": "https://dinkum.fandom.com/wiki/Fish_Catching_Comp",
+      "sourceLabel": "Dinkum community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/1f6a259276f7ee5762d088ba.jpg",
+      "imageSource": "https://store.steampowered.com/app/1062520/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "船上多人钓鱼场景可参照移动和站位，但这不是赛事计分界面。",
+        "en": "The group fishing scene illustrates travel and positioning; it is not a competition scoring screen."
+      },
+      "rights": "James Bendon / KRAFTON",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062520/ss_dd3c7d818608ab4ccfb2ff823136de4625746ddb.1920x1080.jpg?t=1767607973"
+    }
+  ],
+  "contrast": {
+    "zh": "星露谷把比赛集中在固定节庆场景；Dinkum把活动组织与岛屿上的钓鱼行动相连。",
+    "en": "Stardew concentrates the contest in a festival setting; Dinkum connects event participation to fishing around the island."
+  },
+  "combinesWith": [
+    "commerce",
+    "exploration"
+  ],
+  "combination": {
+    "zh": "设计提案：每轮只公布一种生态特征而非鱼名，玩家运用图鉴知识判断最有效的捕获路线。",
+    "en": "Design proposal: each round names a habitat trait rather than a fish, making journal knowledge guide the best route."
+  },
+  "tags": [
+    "time",
+    "optimization",
+    "planning"
+  ],
+  "related": [
+    "fishing-passive-traps",
+    "commerce-timed-contracts",
+    "commerce-trade-route-programming",
+    "fishing-bait-loadout"
+  ],
+  "combinationIds": [
+    "puzzles-visual-rule-learning"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "比赛剩60秒，近处容易钓到小鱼，远处可能有高分大鱼。",
+      "en": "Sixty seconds remain; small fish are nearby while high-scoring fish may be farther away."
+    },
+    "action": {
+      "zh": "你估算移动和拉鱼时间，选择继续在近点快速得分。",
+      "en": "Estimate travel and fighting time, then stay nearby for quick points."
+    },
+    "result": {
+      "zh": "计分条上涨，倒计时也在下降，每次转点都有机会成本。",
+      "en": "Your score rises as time falls; every relocation costs scoring opportunities."
+    },
+    "next": {
+      "zh": "结算后复盘空等与移动时间，下次改路线。",
+      "en": "After scoring, review idle and travel time and revise the next route."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做两个钓点、统一倒计时和一种明确计分方式，先让单人挑战自己的成绩。",
+      "en": "Use two fishing spots, one countdown and one clear scoring rule; begin with a solo score challenge."
+    },
+    "pitfall": {
+      "zh": "不要同时混合数量、重量、稀有度等多个不透明评分，先让玩家看懂为何得分。",
+      "en": "Avoid combining opaque quantity, weight and rarity scoring initially; make points understandable."
+    },
+    "test": {
+      "zh": "剩余时间变少时，玩家是否调整目标，放弃来不及完成的远程选择？",
+      "en": "As time runs low, do players change targets and abandon trips they cannot finish?"
+    }
+  },
+  "edition": 1
+}

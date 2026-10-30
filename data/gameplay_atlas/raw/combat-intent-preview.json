@@ -1,0 +1,172 @@
+{
+  "id": "combat-intent-preview",
+  "system": "combat",
+  "name": {
+    "zh": "敌人下一步提前公开",
+    "en": "Previewing enemy intent"
+  },
+  "summary": {
+    "zh": "先知道威胁，再用有限行动改变将要发生的事。",
+    "en": "Read the threat, then spend limited actions to change what happens."
+  },
+  "tags": [
+    "information",
+    "planning",
+    "risk"
+  ],
+  "rules": {
+    "zh": "敌人行动前显示下一次攻击的目标、范围或伤害。玩家据此选择防御、击杀、移动或打断，回合结算后检查危险是否解除。可见的信息必须可靠；不公开的部分也要明确标示，才会形成能推理的局面。",
+    "en": "Before an enemy acts, reveal its target, area or damage. Players defend, kill, move or interrupt, then check the resolution. Visible information must be reliable, with any remaining uncertainty clearly indicated."
+  },
+  "loop": [
+    {
+      "zh": "读出即将发生的攻击",
+      "en": "Read the next attack"
+    },
+    {
+      "zh": "比较可用应对",
+      "en": "Compare available responses"
+    },
+    {
+      "zh": "花行动改变局面",
+      "en": "Spend actions to change the situation"
+    },
+    {
+      "zh": "结算并读取新威胁",
+      "en": "Resolve and read the next threat"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "挡住伤害，还是先消灭威胁最大的敌人？",
+      "en": "Block the damage or eliminate the most dangerous enemy?"
+    },
+    {
+      "zh": "救自己，还是保护这一回合受到攻击的目标？",
+      "en": "Protect yourself or an objective threatened this turn?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "预告精度",
+        "en": "Preview detail"
+      },
+      "effect": {
+        "zh": "只给攻击类型会保留猜测；给出目标和数值更适合精确解题。",
+        "en": "Showing only attack type preserves uncertainty; exact targets and values support precise planning."
+      }
+    },
+    {
+      "name": {
+        "zh": "应对行动数量",
+        "en": "Response budget"
+      },
+      "effect": {
+        "zh": "行动越少，越需要挑选真正值得解除的威胁。",
+        "en": "Fewer actions force the player to choose which threats deserve intervention."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Into the Breach",
+      "gameZh": "陷阵之志",
+      "steamId": 590380,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "敌人的攻击在玩家回合前预告，玩家可通过击退、击杀等方式保护建筑。",
+        "en": "Enemy attacks are telegraphed before the player acts, allowing attacks to be redirected or prevented to protect buildings."
+      },
+      "source": "https://store.steampowered.com/app/590380/Into_The_Breach/",
+      "sourceLabel": "Official store description",
+      "image": "https://images.loopyhop.com/gameplayatlas/5e09714eafae8966d55c32dd.jpg",
+      "imageSource": "https://store.steampowered.com/app/590380/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "网格上有攻击箭头和红色目标格，右下地形提示说明地面单位被推入深渊会被消灭。",
+        "en": "Attack arrows and red target tiles are visible; the chasm tooltip explains that pushed ground units are destroyed."
+      },
+      "rights": "Subset Games",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/590380/ss_6113590509c195f98fa64cd738df534762e0c358.1920x1080.jpg?t=1755610784"
+    },
+    {
+      "game": "Slay the Spire",
+      "gameZh": "杀戮尖塔",
+      "steamId": 646570,
+      "screenshotIndex": 1,
+      "implementation": {
+        "zh": "敌人头顶的意图告诉玩家下一回合是攻击、防御还是其他动作，攻击通常还给出伤害数值。",
+        "en": "Intent icons reveal upcoming attacks, defense or other actions, usually including damage for attacks."
+      },
+      "source": "https://slay-the-spire.fandom.com/wiki/Intent",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c17f51c280502584fd54e78a.jpg",
+      "imageSource": "https://store.steampowered.com/app/646570/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "敌人上方可见带数字的攻击意图，底部是手牌；这一张还正在播放出牌效果。",
+        "en": "A numbered attack intent appears above the enemy, with cards below and a card effect playing."
+      },
+      "rights": "Mega Crit",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_01aa3e7759e457bfbf2422f31c325d7b3ba8a6eb.1920x1080.jpg?t=1774015376"
+    }
+  ],
+  "contrast": {
+    "zh": "《陷阵之志》强调空间中的目标与推拉；《杀戮尖塔》把预告转成出牌时的攻防预算。",
+    "en": "Into the Breach makes intent spatial; Slay the Spire turns it into an attack-versus-block budget."
+  },
+  "walkthrough": {
+    "setup": {
+      "zh": "两个敌人分别准备打你3点和打村民5点，你只有两次行动。",
+      "en": "Two enemies will deal 3 damage to you and 5 to a villager; you have two actions."
+    },
+    "action": {
+      "zh": "先把攻击村民的敌人推离射线，再用一次防御挡自己的伤害。",
+      "en": "Push the enemy off the villager’s firing line, then defend yourself."
+    },
+    "result": {
+      "zh": "结算后村民没受伤，你的护盾吸收了3点伤害。",
+      "en": "The villager is safe and your shield absorbs 3 damage."
+    },
+    "next": {
+      "zh": "下一回合敌人换了目标，你重新判断哪一个威胁最急。",
+      "en": "Targets change next turn, so reassess the most urgent threat."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用一张小网格、两类敌人和“移动／攻击／防御”做三回合战斗。",
+      "en": "Build three turns on a small grid with two enemy types and move, attack and defend."
+    },
+    "pitfall": {
+      "zh": "预告与实际结果不一致，会让玩家觉得自己被规则欺骗。",
+      "en": "A preview that disagrees with resolution breaks trust."
+    },
+    "test": {
+      "zh": "观察试玩者能否在结算前说出自己为什么安全，失败后能否解释原因。",
+      "en": "Check whether testers can explain safety before resolution and the cause of failure afterward."
+    }
+  },
+  "combinesWith": [
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "把敌人意图接到推箱子：箱子既能挡炮，也会占用撤退空间。",
+    "en": "Combine intent previews with box pushing: a crate blocks a shot but may obstruct retreat."
+  },
+  "combinationIds": [
+    "puzzles-box-pushing"
+  ],
+  "related": [
+    "combat-cover-flanking",
+    "combat-destructible-cover",
+    "combat-forced-movement",
+    "combat-friendly-fire"
+  ],
+  "edition": 2
+}

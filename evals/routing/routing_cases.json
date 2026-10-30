@@ -248,5 +248,70 @@
     "category": "game_assets",
     "query": "Download CC0 environment lighting HDRI from Poly Haven",
     "expected": "polyhaven-assets"
+  },
+  {
+    "category": "gamedev_routing",
+    "query": "Unified game development and game design dispatcher for SeikoClaw",
+    "expected": "game-router"
+  },
+  {
+    "category": "gamedev_engine",
+    "query": "Implement CharacterBody2D kinematic movement with move_and_slide in Godot",
+    "expected": "gamedev-godot-2d-movement"
+  },
+  {
+    "category": "gamedev_engine",
+    "query": "Architect data-driven inventory and items with Unity ScriptableObjects",
+    "expected": "gamedev-unity-scriptableobjects"
+  },
+  {
+    "category": "gamedev_engine",
+    "query": "Build a 2D game using Rust Bevy ECS entity component systems",
+    "expected": "gamedev-bevy-ecs"
+  },
+  {
+    "category": "gamedev_engine",
+    "query": "Build a 2D game in Go with Ebitengine update and draw loop",
+    "expected": "gamedev-ebitengine-game"
+  },
+  {
+    "category": "gamedev_genre",
+    "query": "Design card zones deck hand discard and card resolution rules",
+    "expected": "gamedev-card-game"
+  },
+  {
+    "category": "gamedev_discipline",
+    "query": "Add game feel juice screen shake hit stop and squash and stretch",
+    "expected": "gamedev-game-feel"
+  },
+  {
+    "category": "gamedev_discipline",
+    "query": "Serialize and restore game save slots with autosave and version migration",
+    "expected": "gamedev-save-systems"
+  },
+  {
+    "category": "gamedev_discipline",
+    "query": "Implement procedural dungeon generation with noise RNG seeds and grid layout",
+    "expected": "gamedev-procedural-gen"
+  },
+  {
+    "category": "gamedev_workflow",
+    "query": "Prepare Steamworks store page build depots and release checklist",
+    "expected": "gamedev-steam-publish"
+  },
+  {
+    "category": "gamedev_mechanics",
+    "query": "Look up game mechanics field guide loops parameters and shipped game cases in gameplay atlas",
+    "expected": "gameplay-atlas"
+  },
+  {
+    "category": "gamedev_mechanics",
+    "query": "Search offline catalog of 280 gameplay mechanics loops and prototyping recipes",
+    "expected": "gameplay-atlas"
+  },
+  {
+    "category": "gamedev_mechanics",
+    "query": "Extract micro-slice prototyping recipe and player dilemmas for game mechanics",
+    "expected": "gameplay-atlas"
   }
 ]

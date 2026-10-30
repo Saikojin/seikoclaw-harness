@@ -1,0 +1,170 @@
+{
+  "id": "driving-start-charge",
+  "system": "driving",
+  "edition": 3,
+  "name": {
+    "zh": "倒计时中踩准起步蓄力",
+    "en": "Time the throttle during the countdown"
+  },
+  "summary": {
+    "zh": "比赛开始前的一次或几次油门输入，决定起步能否抢得速度。",
+    "en": "One or several timed throttle inputs determine the speed gained at the start."
+  },
+  "rules": {
+    "zh": "倒计时提供可预测的声音或画面提示。玩家在有效窗口踩油门，积累或触发起步加速；过早、漏按或错误节奏可能失去奖励。回合从辨认提示开始，以看到起步结果并调整下一次时机结束，适合短距离反复练习。",
+    "en": "A countdown supplies predictable audio or visual cues. Throttle inputs within a valid window charge or trigger a start boost; early, missed or mistimed inputs can lose the reward. Read the cue, act, see the launch result and adjust the next attempt in a short practice loop."
+  },
+  "loop": [
+    {
+      "zh": "识别倒计时提示",
+      "en": "Read the countdown cue"
+    },
+    {
+      "zh": "在窗口内踩油门",
+      "en": "Apply throttle in the window"
+    },
+    {
+      "zh": "看起步加速或失败反馈",
+      "en": "Read the boost or failure feedback"
+    },
+    {
+      "zh": "下一次调整输入时机",
+      "en": "Adjust timing on the next attempt"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "采用稳妥的宽窗口，还是追求更精确的高收益时机？",
+      "en": "Choose a safer timing window or aim for a more precise, stronger launch?"
+    },
+    {
+      "zh": "连按蓄力时，继续追下一次提示还是保住当前掌握的节奏？",
+      "en": "During repeated charges, chase the next cue or stick to a rhythm you can reliably execute?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "有效输入窗口",
+        "en": "Valid input window"
+      },
+      "effect": {
+        "zh": "宽窗口易上手；窄窗口需要更清楚的声音、动画和失败原因。",
+        "en": "A wide window is approachable; a narrow one needs clearer cues and failure explanations."
+      }
+    },
+    {
+      "name": {
+        "zh": "失败损失",
+        "en": "Failure cost"
+      },
+      "effect": {
+        "zh": "只失去奖励适合学习；额外起步迟滞会让抢按风险更大。",
+        "en": "Losing only the bonus supports learning; an extra delay makes early input riskier."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Mario Kart 8 Deluxe",
+      "gameZh": "马力欧卡丁车8 豪华版",
+      "implementation": {
+        "zh": "倒计时到“2”时开始按住加速可触发火箭起步；更准确的时机延长加速，按得太早则会失败。",
+        "en": "Holding acceleration at the countdown’s two can trigger a Rocket Start. Better timing extends the boost; starting too early causes failure."
+      },
+      "source": "https://www.nintendo.com/jp/ichikara/aabpa/index_en.html",
+      "sourceLabel": "Nintendo-hosted guide / GameWith",
+      "verified": "2026-10-21",
+      "image": "https://images.loopyhop.com/gameplayatlas/e98f959510a0cebf34050df1.avif",
+      "imageSource": "https://www.nintendo.com/jp/ichikara/aabpa/index_en.html",
+      "rights": "Nintendo",
+      "visualInspected": true,
+      "observation": {
+        "zh": "起跑线、绿色信号与车尾加速火焰呈现成功起步后的反馈；精确按键时机不在单帧中。",
+        "en": "The start line, green signal and exhaust flames show the feedback after a successful launch; precise input timing is not visible in a still."
+      },
+      "imageKind": "mechanic",
+      "originalImage": "https://www.nintendo.com/jp/ichikara/aabpa/photo/01/004.jpg"
+    },
+    {
+      "game": "Sonic & All-Stars Racing Transformed Collection",
+      "gameZh": "索尼克与全明星赛车：变形",
+      "implementation": {
+        "zh": "通常可随倒计时提示分次踩下并松开油门，为起步加速逐级蓄力；部分计时挑战的起步流程不同。",
+        "en": "In typical races, pressing and releasing the throttle with countdown cues builds successive start-boost levels. Some time-trial and challenge starts differ."
+      },
+      "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=157677829",
+      "sourceLabel": "Community guide / Steam",
+      "verified": "2026-10-21",
+      "image": "https://images.loopyhop.com/gameplayatlas/f2cc3243b81e11cda4e39b9a.jpg",
+      "imageSource": "https://store.steampowered.com/app/212480/Sonic__AllStars_Racing_Transformed_Collection/",
+      "rights": "Sumo Digital / SEGA",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：车辆在起伏赛道上行驶；画面没有呈现漂移蓄力档位、倒计时输入或特技奖励结算。",
+        "en": "System reference: vehicles travel over an uneven track; drift charge, countdown input and trick-reward settlement are not shown."
+      },
+      "imageKind": "system",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/212480/ss_4ba08b636cf5301ae19e0081f151e32197a25f4e.1920x1080.jpg?t=1762752125"
+    }
+  ],
+  "contrast": {
+    "zh": "马力欧卡丁车重点是一处开始按住的时机；索尼克通常需要跟随连续提示多次输入。",
+    "en": "Mario Kart focuses on when to begin holding the throttle; Sonic typically asks for repeated inputs across the countdown."
+  },
+  "combinesWith": [
+    "cooking"
+  ],
+  "combinationIds": [
+    "cooking-heat-window"
+  ],
+  "combination": {
+    "zh": "组合提案：餐车先把锅预热到合适区间，再用准确起步让热食尽快送出；两个时机窗口可以重叠，产生注意力分配。",
+    "en": "Design proposal: preheat a food truck’s pan into a useful window, then launch accurately to deliver hot food. Overlapping timing windows create an attention tradeoff."
+  },
+  "related": [
+    "driving-air-balance",
+    "driving-air-stunt",
+    "driving-drift-boost",
+    "cooking-measurement-precision"
+  ],
+  "tags": [
+    "timing",
+    "precision",
+    "dexterity"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "教学原型提示灯每秒变化一次，最后一次亮起后有短暂输入窗口。",
+      "en": "The teaching prototype changes its cue light once a second, with a short input window after the final light."
+    },
+    "action": {
+      "zh": "玩家看见最后提示后按住油门。",
+      "en": "Hold the throttle after noticing the final cue."
+    },
+    "result": {
+      "zh": "车获得起步加速，反馈条显示本次输入略晚。",
+      "en": "The car launches with a boost; feedback shows the input was slightly late."
+    },
+    "next": {
+      "zh": "下一次尝试提前少许，比较起步距离。",
+      "en": "Try slightly earlier on the next attempt and compare launch distance."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做倒计时、一个按钮和三秒直线冲刺，并在每次结束后显示早晚偏差。",
+      "en": "Build a countdown, one button and a three-second straight sprint, then show timing error after each attempt."
+    },
+    "pitfall": {
+      "zh": "先处理输入延迟与提示同步，避免玩家被设备差异误导。",
+      "en": "Handle input latency and cue synchronization before interpreting player errors."
+    },
+    "test": {
+      "zh": "只看反馈，玩家是否能稳定地把下一次输入往正确方向调整？",
+      "en": "Can players use feedback to consistently adjust their next input in the right direction?"
+    }
+  }
+}

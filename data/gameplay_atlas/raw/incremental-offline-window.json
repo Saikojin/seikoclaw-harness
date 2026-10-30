@@ -1,0 +1,172 @@
+{
+  "id": "incremental-offline-window",
+  "system": "incremental",
+  "edition": 3,
+  "name": {
+    "zh": "离开前安排收益，回来后结算",
+    "en": "Set up earnings before leaving"
+  },
+  "summary": {
+    "zh": "离线收益取决于离开时的安排，也可能受到时间上限约束。",
+    "en": "Offline rewards depend on the setup left behind and may have a time limit."
+  },
+  "rules": {
+    "zh": "玩家离开前选择持续执行的动作或产出配置。返回时按有效离线时长结算，耗材、容量或时间上限可能使后续时间不再产生同等收益。下一次离开前，玩家会依据停工原因重新准备。",
+    "en": "Before leaving, choose a continuing action or production setup. On return, the game settles eligible offline time; consumables, capacity or time limits may stop equivalent gains. The reason progress stopped informs the next preparation."
+  },
+  "loop": [
+    {
+      "zh": "查看本次要离开多久",
+      "en": "Estimate time away"
+    },
+    {
+      "zh": "选择可持续执行的安排",
+      "en": "Choose a sustainable setup"
+    },
+    {
+      "zh": "回来查看离线结算",
+      "en": "Review the offline settlement"
+    },
+    {
+      "zh": "补足限制再安排下一次",
+      "en": "Fix the limiting factor for next time"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "离开很久时，选择收益高但很快耗尽材料的任务，还是低收益却能持续的任务？",
+      "en": "For a long absence, choose high output that soon exhausts materials or lower sustainable output?"
+    },
+    {
+      "zh": "先提高产出速度，还是先延长有效离线时间？",
+      "en": "Improve production speed or extend the useful offline window first?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "有效离线时长",
+        "en": "Eligible offline time"
+      },
+      "effect": {
+        "zh": "上限越短，配置与实际离开时间越容易不匹配；应清楚显示何时停止结算。",
+        "en": "Shorter caps create more mismatch with time away; clearly show when settlement stops."
+      }
+    },
+    {
+      "name": {
+        "zh": "离线效率",
+        "en": "Offline efficiency"
+      },
+      "effect": {
+        "zh": "与在线相同便于理解；不同时应同时显示速率和损失原因。",
+        "en": "Matching online efficiency is easier to read; if it differs, show both the rate and reason."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Melvor Idle",
+      "gameZh": "梅尔沃放置",
+      "steamId": 1267910,
+      "rights": "Games by Malcs / Jagex",
+      "image": "https://images.loopyhop.com/gameplayatlas/369e803b1134d55022a3c708.jpg",
+      "imageSource": "https://store.steampowered.com/app/1267910/",
+      "visualInspected": true,
+      "implementation": {
+        "zh": "关闭游戏后，当前活动可以按离线进度规则继续结算经验和物品；离线时长有上限，具体能力还受活动条件影响。",
+        "en": "The selected activity can continue earning experience and items under offline-progression rules. Eligible time is capped, and activity requirements still matter."
+      },
+      "source": "https://wiki.melvoridle.com/index.php?title=Beginners_Guide",
+      "sourceLabel": "Official-hosted community wiki",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "observation": {
+        "zh": "系统参考图：钓鱼地点、技能与当前进度可见；这张图没有显示离线收益上限。",
+        "en": "System reference: Fishing locations, skills and current progress are visible; an offline-earnings cap is not shown. See the linked text source for the rules."
+      },
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1267910/ss_95358489ee0448102954f2c72e16d995d192d6e1.1920x1080.jpg?t=1700624451"
+    },
+    {
+      "game": "Cookie Clicker",
+      "gameZh": "饼干点点乐",
+      "steamId": 1454400,
+      "implementation": {
+        "zh": "PC版通过天堂升级获得并强化离线生产；升级影响离线产量比例与高效生产时长，不能把移动版规则直接套过来。",
+        "en": "The PC version unlocks and improves offline production through heavenly upgrades, affecting efficiency and the optimal production window. Mobile rules differ."
+      },
+      "source": "https://cookieclicker.wiki.gg/wiki/Offline_Cookie_Production",
+      "sourceLabel": "Community game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/99c4a3931d85082aa20b115b.jpg",
+      "imageSource": "https://store.steampowered.com/app/1454400/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：饼干和购买栏呈现基础增长界面；截图不能证明本条玩法随时间变化的完整过程。",
+        "en": "System reference: the cookie and purchase column show the growth interface; a still image cannot establish the full timed interaction."
+      },
+      "rights": "Orteil / Opti / Playsaurus",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1454400/ss_f02c40720fca88f7c59b95127d26ef668d372b8c.1920x1080.jpg?t=1792369237"
+    }
+  ],
+  "contrast": {
+    "zh": "梅尔沃保留正在执行的活动及其条件；饼干点点乐PC版把离线产量和持续时间本身做成可升级能力。",
+    "en": "Melvor carries over the chosen activity and its requirements; PC Cookie Clicker makes offline efficiency and duration upgradeable capabilities."
+  },
+  "combinesWith": [
+    "inventory"
+  ],
+  "combinationIds": [
+    "inventory-stack-limits"
+  ],
+  "combination": {
+    "zh": "组合提案：离线采集先写入有限格数的仓库，离开前可预留空格或选择已有堆叠的资源，回来解释哪种材料最先塞满。",
+    "en": "Design proposal: offline gathering fills a limited-slot store. Before leaving, reserve slots or gather an already stacked resource; explain what filled the storage first."
+  },
+  "related": [
+    "incremental-spend-time-advance",
+    "incremental-allocate-progress-capacity",
+    "incremental-escalating-copy-price",
+    "incremental-limited-team-dispatch"
+  ],
+  "tags": [
+    "time",
+    "planning",
+    "economy"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "采矿每小时得10块矿，有效离线窗口是4小时；玩家准备离开6小时。",
+      "en": "Mining yields ten ore an hour with a four-hour eligible window; the player expects six hours away."
+    },
+    "action": {
+      "zh": "先把离线窗口升级到6小时，再开始采矿。",
+      "en": "Extend the window to six hours before starting mining."
+    },
+    "result": {
+      "zh": "回来结算60块矿，并显示6小时都有效。",
+      "en": "Return to sixty ore and a report that all six hours counted."
+    },
+    "next": {
+      "zh": "下次离开更久，要重新比较延长窗口和提高速度。",
+      "en": "A longer absence creates a new choice between duration and speed."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "保存退出时间与一种任务，返回时结算带上限的时间差，并展示计算明细。",
+      "en": "Save an exit time and one task; settle a capped elapsed duration on return with a visible breakdown."
+    },
+    "pitfall": {
+      "zh": "设备时间变化、重复结算和材料不足都要有确定规则。",
+      "en": "Define behavior for clock changes, duplicate settlement and exhausted materials."
+    },
+    "test": {
+      "zh": "玩家能否从结算报告解释为什么少赚了一部分？",
+      "en": "Can players explain a shortfall from the settlement report?"
+    }
+  }
+}

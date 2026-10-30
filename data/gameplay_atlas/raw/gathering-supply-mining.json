@@ -1,0 +1,175 @@
+{
+  "id": "gathering-supply-mining",
+  "system": "gathering",
+  "name": {
+    "zh": "采集反哺续航",
+    "en": "Gathering to sustain gathering"
+  },
+  "summary": {
+    "zh": "途中补充继续采集所需的弹药、能源或生命。",
+    "en": "Gather the supplies that keep the expedition itself running."
+  },
+  "tags": [
+    "economy",
+    "risk",
+    "optimization"
+  ],
+  "rules": {
+    "zh": "部分资源不直接作为最终目标，而是转化为持续行动所需的补给。玩家在推进目标与维持工具、队伍续航之间切换；补给过少会迫使行动提前结束。",
+    "en": "Some resources are not final objectives but sustain tools or the team. Players alternate between goal progress and maintaining expedition capacity; insufficient supplies can end the outing early."
+  },
+  "loop": [
+    {
+      "zh": "检查续航缺口",
+      "en": "Check supply needs"
+    },
+    {
+      "zh": "寻找补给资源",
+      "en": "Find sustaining resources"
+    },
+    {
+      "zh": "消耗资源恢复能力",
+      "en": "Spend them to restore capacity"
+    },
+    {
+      "zh": "继续目标采集",
+      "en": "Resume objective gathering"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "眼前就有目标资源，要不要先绕路补给？",
+      "en": "Mine the nearby objective or detour for supplies first?"
+    },
+    {
+      "zh": "备用补给攒到多少才足够，何时变成无效囤积？",
+      "en": "How much reserve is enough before stockpiling becomes wasted time?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "补给转换率",
+        "en": "Supply conversion"
+      },
+      "effect": {
+        "zh": "高转换率降低维护频率；低转换率可能让玩家一直在为采集而采集。",
+        "en": "High conversion reduces upkeep frequency; low conversion risks endless maintenance loops."
+      }
+    },
+    {
+      "name": {
+        "zh": "资源分布重叠",
+        "en": "Resource overlap"
+      },
+      "effect": {
+        "zh": "补给与目标重叠使流程顺滑；分离分布制造明确路线取舍。",
+        "en": "Overlapping supplies and targets smooth the loop; separate distributions force route decisions."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Deep Rock Galactic",
+      "gameZh": "深岩银河",
+      "steamAppId": 548430,
+      "implementation": {
+        "zh": "硝石可用于呼叫补给舱，恢复队伍弹药与状态；即使不是本次任务的目标矿物，也需要关注。",
+        "en": "Nitra is spent on resupply pods that restore team ammunition and condition, making it important even when it is not the mission objective."
+      },
+      "source": "https://deeprockgalactic.wiki.gg/wiki/Nitra",
+      "sourceLabel": "Official game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/e4a00a31581330fef2016e14.jpg",
+      "imageSource": "https://store.steampowered.com/app/548430/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "不同矿物分布在通行空间周围，补给资源与目标资源都需要绕路采集。系统参考图，未显示补给兑换。",
+        "en": "Different minerals surround traversal space, contextualizing supply detours. System reference; resupply conversion is not shown."
+      },
+      "rights": "Ghost Ship Games / Coffee Stain Publishing",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.600x338.jpg?t=1792497307",
+      "imageIndex": 1,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.1920x1080.jpg?t=1792497307"
+    },
+    {
+      "game": "No Man's Sky",
+      "gameZh": "无人深空",
+      "steamAppId": 275850,
+      "implementation": {
+        "zh": "采矿光束需要能源，碳等材料可用于补充其能量；采集工具因此依赖沿途资源维持工作。",
+        "en": "The Mining Beam needs energy and can be recharged with materials such as carbon, so gathering tools rely on resources found along the way."
+      },
+      "source": "https://nomanssky.fandom.com/wiki/Mining_Beam",
+      "sourceLabel": "Community game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/9fa9c8bc9a6d0c3cdbd997dd.jpg",
+      "imageSource": "https://store.steampowered.com/app/275850/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "可采集植被与地表资源是行星工具续航的物资背景。系统参考图，未显示采矿光束充能。",
+        "en": "Harvestable vegetation and surface materials contextualize tool fuel. System reference; Mining Beam recharge is not shown."
+      },
+      "rights": "Hello Games",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/6c2ddcffe192b0e155a69aa2a1dd3f33b863033d/ss_6c2ddcffe192b0e155a69aa2a1dd3f33b863033d.600x338.jpg?t=1789479023",
+      "imageIndex": 0,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/6c2ddcffe192b0e155a69aa2a1dd3f33b863033d/ss_6c2ddcffe192b0e155a69aa2a1dd3f33b863033d.1920x1080.jpg?t=1789479023"
+    }
+  ],
+  "contrast": {
+    "zh": "深岩银河让补给资源服务整个团队的战斗续航；无人深空让燃料直接闭合采矿工具的能量循环。",
+    "en": "Deep Rock feeds a team’s combat endurance; No Man’s Sky closes the energy loop of the mining tool itself."
+  },
+  "combinesWith": [
+    "combat",
+    "automation"
+  ],
+  "combination": {
+    "zh": "组合创意：采矿车用低级矿作燃料，高级矿负责收益；玩家可以临时烧掉货物自救，但会压低利润。",
+    "en": "Design proposal: a mining vehicle burns low-grade ore as fuel; valuable cargo can be sacrificed in an emergency at a profit cost."
+  },
+  "related": [
+    "gathering-gathering-quota",
+    "gathering-salvage-dismantling",
+    "automation-byproduct-loop",
+    "automation-power-budget"
+  ],
+  "combinationIds": [
+    "commerce-debt-pressure"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "工具电量快用完，目标矿在前方，旁边能找到充电材料。",
+      "en": "Your tool is nearly empty; the target ore is ahead and recharge material lies nearby."
+    },
+    "action": {
+      "zh": "你暂时绕去采充电材料，补满工具后再回到目标。",
+      "en": "Detour for recharge material, refill the tool, then return to the objective."
+    },
+    "result": {
+      "zh": "这次没有直接推进任务，却延长了可持续工作的时间。",
+      "en": "The detour did not directly advance the objective, but extended your working time."
+    },
+    "next": {
+      "zh": "每隔一段路检查余量，避免到目标面前才断电。",
+      "en": "Check reserves along the route rather than running out at the next target."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做目标矿与能源矿两类节点、一个电量条和明确的采矿耗能。",
+      "en": "Use objective and energy deposits, one charge gauge and a clear mining energy cost."
+    },
+    "pitfall": {
+      "zh": "补能过程若消耗比产出还大又没有替代路径，会形成无法恢复的死循环。",
+      "en": "If refuelling costs more than it yields and no alternative exists, players can enter an unrecoverable loop."
+    },
+    "test": {
+      "zh": "玩家能否提前补能，并根据距离选择带多少储备，而非总被耗尽提示赶着走？",
+      "en": "Can players refuel proactively and budget reserves for distance rather than only reacting to an empty gauge?"
+    }
+  },
+  "edition": 1
+}

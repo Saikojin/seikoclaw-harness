@@ -1,0 +1,172 @@
+{
+  "id": "deckbuilding-card-upgrade",
+  "system": "deckbuilding",
+  "name": {
+    "zh": "把资源投给已有卡牌",
+    "en": "Investing in existing cards"
+  },
+  "summary": {
+    "zh": "不扩大牌库，而是挑一张值得反复使用的牌进行强化。",
+    "en": "Improve a card you already own instead of enlarging the deck."
+  },
+  "tags": [
+    "progression",
+    "economy",
+    "optimization"
+  ],
+  "rules": {
+    "zh": "玩家花金币、休息机会或升级材料强化已有卡牌，增强数值或改变费用与效果。升级机会有限，因此需要判断哪张牌最常发挥作用；收益在之后每次抽到它时重复出现。",
+    "en": "Spend money, a rest opportunity or materials to improve an owned card. Limited upgrades make reliability matter: an improvement pays off each time that card is drawn."
+  },
+  "loop": [
+    {
+      "zh": "找到经常使用的牌",
+      "en": "Find a frequently used card"
+    },
+    {
+      "zh": "预览升级前后",
+      "en": "Preview the change"
+    },
+    {
+      "zh": "支付机会成本",
+      "en": "Pay the opportunity cost"
+    },
+    {
+      "zh": "重复享受强化收益",
+      "en": "Reuse the improved effect"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "升级主力输出，还是把一张昂贵牌降费以便整回合顺畅？",
+      "en": "Improve damage, or reduce a cost to make whole turns work?"
+    },
+    {
+      "zh": "现在升级，还是用同一次休息机会恢复生命？",
+      "en": "Upgrade now, or spend that stop recovering health?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "升级幅度",
+        "en": "Upgrade impact"
+      },
+      "effect": {
+        "zh": "小幅数值提升适合稳定累积，改变费用更容易重塑组合。",
+        "en": "Small gains accumulate; cost changes can reshape combinations."
+      }
+    },
+    {
+      "name": {
+        "zh": "升级上限",
+        "en": "Upgrade limit"
+      },
+      "effect": {
+        "zh": "限制单牌强化次数，能促使投资分散到不同功能。",
+        "en": "Per-card limits encourage investment across different roles."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Slay the Spire",
+      "gameZh": "杀戮尖塔",
+      "steamId": 646570,
+      "screenshotIndex": 1,
+      "implementation": {
+        "zh": "营火的锻造选项可升级一张牌，通常与休息回血竞争同一次机会。",
+        "en": "Smith at a rest site upgrades a card, normally competing with healing for that visit."
+      },
+      "source": "https://slay-the-spire.fandom.com/wiki/Rest_Site",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c17f51c280502584fd54e78a.jpg",
+      "imageSource": "https://store.steampowered.com/app/646570/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：画面可见手牌、费用与正在打出的 Zap+；未展示本条所述的具体选择过程。",
+        "en": "System reference: the hand, costs and a played Zap+ are visible; the specific choice described here is not shown."
+      },
+      "rights": "Mega Crit",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_01aa3e7759e457bfbf2422f31c325d7b3ba8a6eb.1920x1080.jpg?t=1774015376"
+    },
+    {
+      "game": "Monster Train",
+      "gameZh": "怪物火车",
+      "steamId": 1102190,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "商店提供单位或法术升级，卡牌升级槽限制同一张牌能装多少强化。",
+        "en": "Shops sell unit or spell upgrades, with slots limiting investments on one card."
+      },
+      "source": "https://monster-train.fandom.com/wiki/Upgrades",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/09df738a9ea850e3924dab42.jpg",
+      "imageSource": "https://store.steampowered.com/app/1102190/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：底部手牌和分层战场同时可见；奖励、升级与复制操作需参照文字来源。",
+        "en": "System reference: the hand and multi-floor battlefield are visible; reward, upgrade and copying actions require the written sources."
+      },
+      "rights": "Shiny Shoe / Good Shepherd Entertainment",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1102190/ss_edce778e9006c559cc347542ba2a61ed1461c945.1920x1080.jpg?t=1779381275"
+    }
+  ],
+  "contrast": {
+    "zh": "前者把升级与当下生存放在同一选择里；后者更强调购买不同升级并分配有限槽位。",
+    "en": "The first trades improvement against immediate recovery; the second emphasizes paid upgrades and slot allocation."
+  },
+  "combinesWith": [
+    "commerce"
+  ],
+  "combinationIds": [
+    "commerce-price-discovery"
+  ],
+  "combination": {
+    "zh": "设计提案：让旅行商人对不同卡牌强化收取不同价格，玩家在维修主力与等待折扣之间选择。",
+    "en": "Design proposal: Give traveling merchants different upgrade prices so players choose between improving now and waiting."
+  },
+  "related": [
+    "deckbuilding-duplicate-investment",
+    "commerce-debt-pressure",
+    "commerce-dynamic-market",
+    "commerce-trade-route-programming"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "编辑示例：火球耗两点能量，每回合只有三点。",
+      "en": "Editorial example: Fireball costs two energy out of a three-energy turn."
+    },
+    "action": {
+      "zh": "玩家花本次升级机会，把火球费用降为一点。",
+      "en": "Spend the upgrade to reduce Fireball’s cost to one."
+    },
+    "result": {
+      "zh": "下一次抽到火球时，还能同时打出两张一点费用牌。",
+      "en": "The next draw allows Fireball plus two other one-cost cards."
+    },
+    "next": {
+      "zh": "玩家开始寻找能利用剩余能量的配合牌。",
+      "en": "Now look for cards that exploit the freed energy."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做四张牌，每张只有一个明确升级；用两场战斗对比升级前后。",
+      "en": "Use four cards with one upgrade each and compare them across two encounters."
+    },
+    "pitfall": {
+      "zh": "同时加入随机词缀和多层强化会让玩家看不出这次投资改变了什么。",
+      "en": "Random affixes and layered upgrades can hide what the investment actually changed."
+    },
+    "test": {
+      "zh": "玩家能在升级前预测下一回合多做哪一步，升级后观察到它。",
+      "en": "Players predict an extra action before upgrading and see it happen afterward."
+    }
+  },
+  "edition": 2
+}

@@ -1,0 +1,168 @@
+{
+  "id": "command-split-objectives",
+  "system": "command",
+  "edition": 3,
+  "name": {
+    "zh": "把队伍拆开处理不同目标",
+    "en": "Split forces between simultaneous objectives"
+  },
+  "summary": {
+    "zh": "同一批人无法同时守住每个地方。",
+    "en": "One force cannot cover every location at once."
+  },
+  "rules": {
+    "zh": "多个目标同时需要人员，玩家把有限单位分组分别移动、守点或执行任务。分兵扩大覆盖范围，也让每组更脆弱；距离和到达时间决定是否来得及相互支援。",
+    "en": "Several objectives need units at once. Split a limited force to move, defend or work separately. Coverage grows but each group becomes weaker, and distance determines whether reinforcements can arrive in time."
+  },
+  "loop": [
+    {
+      "zh": "比较同时发生的需求",
+      "en": "Compare simultaneous demands"
+    },
+    {
+      "zh": "给各目标分配人数",
+      "en": "Allocate units to objectives"
+    },
+    {
+      "zh": "分别执行并观察压力",
+      "en": "Act separately and watch pressure"
+    },
+    {
+      "zh": "调回援军或放弃一处",
+      "en": "Reinforce or concede a location"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "守住所有入口但每处都薄弱，还是集中守一个关键点？",
+      "en": "Cover every entrance thinly or concentrate on one critical point?"
+    },
+    {
+      "zh": "派精锐救远端目标，会不会让本阵失守？",
+      "en": "Will sending elites to a distant objective expose the base?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "目标间距离",
+        "en": "Distance between objectives"
+      },
+      "effect": {
+        "zh": "越远越难临时改派，分兵决策更接近承诺。",
+        "en": "Long distances make reassignment harder and commitments stronger."
+      }
+    },
+    {
+      "name": {
+        "zh": "失败后果差异",
+        "en": "Unequal failure costs"
+      },
+      "effect": {
+        "zh": "不同损失让优先级成立，而非只比较最近哪个点。",
+        "en": "Different losses create priorities beyond whichever point is closest."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Total War: THREE KINGDOMS",
+      "gameZh": "全面战争：三国",
+      "implementation": {
+        "zh": "玩家可分别选择部队并下达移动或攻击命令，让不同兵力牵制正面、绕行或守住区域。",
+        "en": "Separate unit selections receive movement or attack orders, enabling simultaneous holding, flanking and area defense."
+      },
+      "source": "https://segaretro.org/images/f/fd/TW3K_Steam_manual.pdf",
+      "sourceLabel": "Official game manual, archived by Sega Retro",
+      "image": "https://images.loopyhop.com/gameplayatlas/cb768e3a55a81773171482f5.jpg",
+      "imageSource": "https://store.steampowered.com/app/779340/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：复用已收录的本作截图提供场景语境，不能单凭画面确认本条的完整规则。",
+        "en": "System reference: an existing screenshot from this game supplies context, not proof of this complete rule."
+      },
+      "rights": "Creative Assembly / SEGA",
+      "verified": "2026-10-21",
+      "imageThumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/61ed9cf0bfe459294ee86058d2e4927cc3e68ea1/ss_61ed9cf0bfe459294ee86058d2e4927cc3e68ea1.600x338.jpg?t=1780332718",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/779340/61ed9cf0bfe459294ee86058d2e4927cc3e68ea1/ss_61ed9cf0bfe459294ee86058d2e4927cc3e68ea1.1920x1080.jpg?t=1780332718"
+    },
+    {
+      "game": "RimWorld",
+      "gameZh": "环世界",
+      "implementation": {
+        "zh": "征召后的殖民者可被分别指派位置与攻击目标；袭击多处发生时，玩家在防守、救援和撤回间分配人手。",
+        "en": "Drafted colonists can receive individual positions and attack targets, dividing scarce people between defense, rescue and retreat during raids."
+      },
+      "source": "https://rimworldwiki.com/wiki/Controls",
+      "sourceLabel": "Community wiki — RimWorld",
+      "image": "https://images.loopyhop.com/gameplayatlas/3c244c3c6e003889e534751f.jpg",
+      "imageSource": "https://store.steampowered.com/app/294100/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：复用已收录的本作截图提供场景语境，不能单凭画面确认本条的完整规则。",
+        "en": "System reference: an existing screenshot from this game supplies context, not proof of this complete rule."
+      },
+      "rights": "Ludeon Studios",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/57c3e8d556d47bb5ad048699643528aefc652aa6/ss_57c3e8d556d47bb5ad048699643528aefc652aa6.1920x1080.jpg?t=1782756789"
+    }
+  ],
+  "contrast": {
+    "zh": "全面战争主要分配成队兵力；环世界分配的是兼有生产价值与个人伤势的殖民者。",
+    "en": "Total War allocates military formations; RimWorld allocates individuals with work roles and personal injuries."
+  },
+  "combinesWith": [
+    "cooperation"
+  ],
+  "combinationIds": [
+    "cooperation-synchronized-triggers"
+  ],
+  "combination": {
+    "zh": "组合提案：两处目标都要同步触发，玩家先派人到位，又必须留下足够护卫抵挡到达前的威胁。",
+    "en": "Design proposal: two objectives require synchronized activation, forcing allocation of both operators and escorts."
+  },
+  "related": [
+    "command-frontline-shielding",
+    "command-prebattle-formation",
+    "command-focus-fire",
+    "command-initiative-order"
+  ],
+  "tags": [
+    "planning",
+    "spatial"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "六名守卫面对仓库失火和北门来敌。",
+      "en": "Six guards face a warehouse fire and enemies at the north gate."
+    },
+    "action": {
+      "zh": "两人去灭火，四人守门。",
+      "en": "Send two to the fire and four to the gate."
+    },
+    "result": {
+      "zh": "仓库保住，但门口队伍开始吃力。",
+      "en": "The warehouse survives, but the gate defenders are struggling."
+    },
+    "next": {
+      "zh": "让灭火的人赶回，或先撤门口队伍保存力量。",
+      "en": "Return the firefighters as reinforcements or withdraw the defenders."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "两个倒计时目标、六个可拖动人员标记和固定旅行时间。",
+      "en": "Use two timed objectives, six draggable unit tokens and fixed travel times."
+    },
+    "pitfall": {
+      "zh": "别一开始就做复杂寻路；先验证分配是否有取舍。",
+      "en": "Validate allocation trade-offs before complex pathfinding."
+    },
+    "test": {
+      "zh": "玩家是否会根据目标价值改变人数，而不是始终平均分配？",
+      "en": "Do players vary group sizes by objective value instead of always splitting evenly?"
+    }
+  }
+}
