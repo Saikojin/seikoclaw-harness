@@ -1,0 +1,173 @@
+{
+  "id": "combat-invulnerable-dodge",
+  "system": "combat",
+  "name": {
+    "zh": "无敌帧闪避",
+    "en": "Invulnerability-window dodging"
+  },
+  "summary": {
+    "zh": "不只离开危险区，也能在正确瞬间穿过攻击。",
+    "en": "Avoid damage by timing a brief safe window, not only by moving away."
+  },
+  "tags": [
+    "timing",
+    "dexterity",
+    "spatial"
+  ],
+  "rules": {
+    "zh": "闪避动作在部分时间内不受特定伤害，动作结束后仍可能落在危险位置。玩家需要同时判断按键时机、移动方向和落点，反馈来自擦身而过与反击窗口。",
+    "en": "An evasive action grants a limited window against certain damage. Its destination can still be unsafe, so the player must judge timing, direction and landing position together."
+  },
+  "loop": [
+    {
+      "zh": "读取攻击轨迹",
+      "en": "Read the attack path"
+    },
+    {
+      "zh": "选定安全落点",
+      "en": "Choose the exit position"
+    },
+    {
+      "zh": "对齐闪避窗口",
+      "en": "Align the dodge window"
+    },
+    {
+      "zh": "回到可进攻距离",
+      "en": "Return to attack range"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "向外撤退更安全，穿过敌人可能更快进入背后反击位置。",
+      "en": "Retreating can be safer; passing through an enemy can reach a faster counterattack position."
+    },
+    {
+      "zh": "连续闪避能脱险，却可能把自己送进下一组危险。",
+      "en": "Repeated evasions can escape one threat while moving into the next."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "无敌时段占比",
+        "en": "Safe-window fraction"
+      },
+      "effect": {
+        "zh": "占比增大会降低精确时机要求，但落点仍可保持挑战。",
+        "en": "A larger fraction reduces timing difficulty while landing hazards can preserve challenge."
+      }
+    },
+    {
+      "name": {
+        "zh": "冷却与连用次数",
+        "en": "Cooldown and chains"
+      },
+      "effect": {
+        "zh": "更长冷却迫使玩家预判，短冷却适合密集弹幕。",
+        "en": "Long cooldowns demand anticipation; short ones support dense projectile patterns."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Hades",
+      "gameZh": "哈迪斯",
+      "steamId": 1145360,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "冲刺提供短暂无敌；可用升级改变冲刺次数。冲刺攻击与纯冲刺的安全性并不完全相同。",
+        "en": "Dashing provides brief invulnerability and upgrades can change the number of dashes. A dash attack is not identical in safety to a plain dash."
+      },
+      "source": "https://www.leereamsnyder.com/hades-build-guide",
+      "sourceLabel": "Game guide / analysis",
+      "image": "https://images.loopyhop.com/gameplayatlas/e52c7a48405b5a280603ebeb.jpg",
+      "imageSource": "https://store.steampowered.com/app/1145360/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察俯视战场中敌人与弹幕的分布；不能用截图测量无敌帧。",
+        "en": "System reference: inspect enemy and projectile distribution; a screenshot cannot measure invulnerability frames."
+      },
+      "rights": "Supergiant Games",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_c0fed447426b69981cf1721756acf75369801b31.1920x1080.jpg?t=1758127023"
+    },
+    {
+      "game": "Dead Cells",
+      "gameZh": "死亡细胞",
+      "steamId": 588650,
+      "screenshotIndex": 2,
+      "implementation": {
+        "zh": "翻滚能躲过多数攻击、穿过敌人，还会缩小角色高度以通过狭窄通道；并非所有危险都可翻滚无视。",
+        "en": "Rolling avoids most attacks, passes through enemies and reduces the character’s height for narrow gaps; it does not negate every hazard."
+      },
+      "source": "https://deadcells.wiki.gg/wiki/Mechanics",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/192561581df7fb557365c85c.jpg",
+      "imageSource": "https://store.steampowered.com/app/588650/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察桥面、首领与攻击特效的横向关系；单帧不能测量翻滚无敌时间。",
+        "en": "System reference: inspect the bridge, boss and attack effects; one frame cannot measure roll invulnerability."
+      },
+      "rights": "Motion Twin",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_e87e72a247918d8493892e035d5e1b4b84470d2f.1920x1080.jpg?t=1779086887"
+    }
+  ],
+  "contrast": {
+    "zh": "《哈迪斯》重视俯视空间中的连续位移；《死亡细胞》还让同一动作兼任穿过敌人和钻洞。",
+    "en": "Hades emphasizes chaining movement across a top-down arena; Dead Cells also uses the action to pass enemies and enter low passages."
+  },
+  "combinesWith": [
+    "exploration",
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "设计提案：让安全落点激活短时压力板，闪避不仅用于保命，还决定下一次环境连锁的起点。",
+    "en": "Design proposal: make a safe dodge landing activate a short-lived pressure plate, turning evasion into the start of an environmental chain."
+  },
+  "related": [
+    "combat-combo-variation",
+    "combat-action-points",
+    "combat-cover-flanking",
+    "combat-destructible-cover"
+  ],
+  "combinationIds": [
+    "puzzles-box-pushing"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "一道横扫正在逼近，你背后是墙，敌人身后有空位。",
+      "en": "A sweeping attack approaches; a wall is behind you and space is behind the enemy."
+    },
+    "action": {
+      "zh": "你迎着攻击翻滚，在短暂无伤时段穿过横扫。",
+      "en": "Roll toward the attack and pass through it during the brief protected interval."
+    },
+    "result": {
+      "zh": "横扫没有造成伤害，但翻滚结束的位置决定你是否会挨下一击。",
+      "en": "The sweep misses, but your landing position determines exposure to the next strike."
+    },
+    "next": {
+      "zh": "从新位置选择反击或继续拉开距离。",
+      "en": "Choose whether to counter or create more distance from the new position."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用一个圆形角色、一种横扫和可显示的闪避保护时段做测试场。",
+      "en": "Use a simple character, one sweeping attack, and a visible dodge-protection interval."
+    },
+    "pitfall": {
+      "zh": "先解决角色碰撞与落点，避免玩家明明躲过攻击却卡在敌人身体里。",
+      "en": "Resolve collision and landing before adding attacks, so successful dodges do not trap players inside enemies."
+    },
+    "test": {
+      "zh": "观察玩家是否同时改变翻滚时机和方向，而非只反复按闪避。",
+      "en": "Check whether players adjust both timing and direction instead of repeatedly pressing dodge."
+    }
+  },
+  "edition": 1
+}

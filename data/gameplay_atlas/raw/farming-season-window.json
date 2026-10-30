@@ -1,0 +1,169 @@
+{
+  "id": "farming-season-window",
+  "system": "farming",
+  "name": {
+    "zh": "季节种植窗口",
+    "en": "Seasonal planting windows"
+  },
+  "summary": {
+    "zh": "让收成的截止日期，比种子价格更值得考虑。",
+    "en": "Make the harvest deadline matter as much as seed cost."
+  },
+  "rules": {
+    "zh": "玩家根据当前季节和剩余天数选择作物。作物需要在适宜季节完成成长；跨季后无法继续的作物会失去后续收益，因此播种前必须倒排收获日期。",
+    "en": "Choose crops using the season and days remaining. Crops must grow in a suitable season; incompatible season changes end their future yield, so planting starts with a harvest deadline."
+  },
+  "loop": [
+    {
+      "zh": "查看季节与剩余天数",
+      "en": "Check the season and remaining days"
+    },
+    {
+      "zh": "计算能完成的收获次数",
+      "en": "Estimate feasible harvests"
+    },
+    {
+      "zh": "买种并播种",
+      "en": "Buy seeds and plant"
+    },
+    {
+      "zh": "季末收获或换种",
+      "en": "Harvest or replace at season end"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "高价长周期作物未必适合季末；短周期作物能填补空档。",
+      "en": "A valuable slow crop may be a poor late-season choice; fast crops fill gaps."
+    },
+    {
+      "zh": "多季作物减少换季损失，但可能占用下一季更有利的土地。",
+      "en": "Multi-season crops reduce transition loss but occupy land needed for better next-season options."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "季节长度",
+        "en": "Season length"
+      },
+      "effect": {
+        "zh": "短季节要求精确规划，长季节允许更松弛的经营。",
+        "en": "Short seasons demand tight planning; long seasons allow a relaxed pace."
+      }
+    },
+    {
+      "name": {
+        "zh": "跨季惩罚",
+        "en": "Transition penalty"
+      },
+      "effect": {
+        "zh": "枯萎制造明确截止线；仅减产则鼓励承担风险。",
+        "en": "Withering creates a firm deadline; reduced yield encourages risk taking."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "implementation": {
+        "zh": "大部分作物在不适宜季节到来时枯萎；玉米等多季作物可跨越指定季节继续生长。",
+        "en": "Most crops wither when an unsuitable season arrives; multi-season crops such as corn continue across their listed seasons."
+      },
+      "source": "https://stardewvalleywiki.com/Crops",
+      "sourceLabel": "Stardew Valley Wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/e41b5c5743ac273115891b2e.jpg",
+      "imageSource": "https://store.steampowered.com/app/413150/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "秋色环境中的多块田展示季节化农场；具体作物的剩余生长天数需查文字规则。",
+        "en": "Autumn-colored surroundings frame several crop plots; remaining growth days must be checked in the rules."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_f79d2066dfaf32bbe87868d36db4845f771eddbd.1920x1080.jpg?t=1786554168"
+    },
+    {
+      "game": "Dinkum",
+      "gameZh": "澳洲梦想镇",
+      "implementation": {
+        "zh": "种子有适宜季节，玩家要结合成长天数安排播种；部分作物适合多个季节。",
+        "en": "Seeds have suitable seasons, requiring planting plans around growth days; some crops span multiple seasons."
+      },
+      "source": "https://dinkum.fandom.com/wiki/Crops",
+      "sourceLabel": "Dinkum community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/8933c78b2946da7eaade622d.jpg",
+      "imageSource": "https://store.steampowered.com/app/1062520/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察农田与小镇建筑的空间安排；截图用于农场系统参考，不证明季节切换结果。",
+        "en": "Inspect the placement of plots among town buildings; this is a farm-system reference, not proof of season-transition behavior."
+      },
+      "rights": "James Bendon / KRAFTON",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062520/ss_767bcbda803dfceedee650dfcbae8a52fbd2b1b7.1920x1080.jpg?t=1767607973"
+    }
+  ],
+  "contrast": {
+    "zh": "两者都用日历限制投资回收，但作物季节表不同；应借鉴时间窗口，而非照搬利润表。",
+    "en": "Both constrain returns with a calendar, but their crop calendars differ; borrow the time-window decision rather than a profit table."
+  },
+  "combinesWith": [
+    "commerce",
+    "inventory"
+  ],
+  "combination": {
+    "zh": "设计提案：订单在换季前到期，玩家可提前囤货，也可接受昂贵的温室生产。",
+    "en": "Design proposal: orders expire before a season change, letting players stockpile early or pay for greenhouse production."
+  },
+  "tags": [
+    "planning",
+    "time",
+    "economy"
+  ],
+  "related": [
+    "farming-orchard-investment",
+    "farming-regrowth-crops",
+    "commerce-timed-contracts",
+    "farming-growth-care"
+  ],
+  "combinationIds": [
+    "commerce-timed-contracts"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "本季还剩5天；萝卜4天成熟，南瓜7天成熟。",
+      "en": "Five days remain this season; turnips take four days and pumpkins take seven."
+    },
+    "action": {
+      "zh": "你买萝卜种子，并把预计收获日标在日历上。",
+      "en": "Buy turnip seeds and mark the expected harvest day on the calendar."
+    },
+    "result": {
+      "zh": "萝卜在换季前成熟；此时再播同一作物已经来不及。",
+      "en": "The turnips mature before the season changes; another batch would be too late."
+    },
+    "next": {
+      "zh": "卖出收成，把土地与资金留给下一季。",
+      "en": "Sell the harvest and reserve land and money for the next season."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一张10天日历和两种成长时长不同的作物，让玩家预览收获日期。",
+      "en": "Build a ten-day calendar and two crops with different growth times, including a harvest-date preview."
+    },
+    "pitfall": {
+      "zh": "不要一开始叠加天气、病害和多季节例外，否则很难判断玩家算错在哪里。",
+      "en": "Avoid weather, disease and seasonal exceptions initially; they obscure why a planting decision failed."
+    },
+    "test": {
+      "zh": "改变剩余天数，检查玩家是否会换作物，并能说出“这批赶不上收获”。",
+      "en": "Change the days remaining and see whether players switch crops and explain the deadline."
+    }
+  },
+  "edition": 1
+}

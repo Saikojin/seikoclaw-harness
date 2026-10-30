@@ -1,0 +1,171 @@
+{
+  "id": "relationships-gift-allocation",
+  "system": "relationships",
+  "name": {
+    "zh": "送礼偏好与分配",
+    "en": "Gift preferences and allocation"
+  },
+  "summary": {
+    "zh": "把有限礼物送给合适的人，换取关系或实用回馈。",
+    "en": "Allocate scarce gifts to characters for affection or practical rewards."
+  },
+  "rules": {
+    "zh": "玩家从礼物库存中选择对象和物品。接收者的偏好、赠送次数限制或剧情门槛改变收益；台词、关系记录或回礼让玩家修正下一次分配。",
+    "en": "Choose a recipient and an item. Preferences, gift limits or story gates determine the benefit; dialogue, relationship records and return gifts inform the next allocation."
+  },
+  "loop": [
+    {
+      "zh": "了解对象",
+      "en": "Learn preferences"
+    },
+    {
+      "zh": "获得礼物",
+      "en": "Acquire gifts"
+    },
+    {
+      "zh": "分配并赠送",
+      "en": "Allocate and give"
+    },
+    {
+      "zh": "记录反应",
+      "en": "Record reactions"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "稀有礼物给最喜欢的角色，还是给能立即提供能力的人？",
+      "en": "Give a rare gift to a favorite character or someone offering immediate utility?"
+    },
+    {
+      "zh": "未知偏好值得试错，还是重复已知的安全选择？",
+      "en": "Test an unknown preference or repeat a safe choice?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "偏好差异",
+        "en": "Preference spread"
+      },
+      "effect": {
+        "zh": "差异越大，记住人物细节越有价值。",
+        "en": "Larger differences reward remembering individual traits."
+      }
+    },
+    {
+      "name": {
+        "zh": "赠送上限",
+        "en": "Gift allowance"
+      },
+      "effect": {
+        "zh": "上限越低，单次分配越重要，也越容易形成等待。",
+        "en": "Lower limits make allocation meaningful but add waiting."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "implementation": {
+        "zh": "村民有喜爱和厌恶的礼物，一般每周可送两份；生日会显著放大送礼效果。",
+        "en": "Villagers have loved and hated gifts, normally limited to two per week; birthdays amplify their effects."
+      },
+      "source": "https://stardewvalleywiki.com/Friendship",
+      "sourceLabel": "Official Stardew Valley Wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/579cfdf513157daca13b8c29.jpg",
+      "imageSource": "https://store.steampowered.com/app/413150/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：人物对话和私人空间让礼物对象具有人格；这里没有展示赠礼操作。",
+        "en": "System reference: dialogue and a private room establish the recipient as a person; gifting is not shown."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "imageThumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_30aeedc47e731232ade368831a598d6545346f70.600x338.jpg?t=1786554168",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_30aeedc47e731232ade368831a598d6545346f70.1920x1080.jpg?t=1786554168"
+    },
+    {
+      "game": "Hades",
+      "gameZh": "哈迪斯",
+      "implementation": {
+        "zh": "多数可赠礼角色初次收到蜜露会给纪念品；同一种礼物跨人物使用，重点转为先解锁谁的回礼。",
+        "en": "Most giftable characters return a Keepsake for their first Nectar; a shared gift resource shifts the decision toward which reward to unlock first."
+      },
+      "source": "https://hades.fandom.com/wiki/Nectar",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/169a5866d8cd3a448cb61ece.jpg",
+      "imageSource": "https://store.steampowered.com/app/1145360/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察冥界之家的角色对话；蜜露与纪念品的交换不在这张图中。",
+        "en": "System reference: character dialogue in the House of Hades; Nectar and Keepsake exchange is not shown."
+      },
+      "rights": "Supergiant Games",
+      "verified": "2026-10-21",
+      "imageThumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_8a9f0953e8a014bd3df2789c2835cb787cd3764d.600x338.jpg?t=1758127023",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_8a9f0953e8a014bd3df2789c2835cb787cd3764d.1920x1080.jpg?t=1758127023"
+    }
+  ],
+  "contrast": {
+    "zh": "星露谷强调物品与人物的匹配；哈迪斯更强调同一资源在人物之间的分配。",
+    "en": "Stardew emphasizes matching items to people; Hades emphasizes allocating one resource across people."
+  },
+  "combinesWith": [
+    "gathering",
+    "combat"
+  ],
+  "combination": {
+    "zh": "组合创意：采集物既能制作装备，也能赠给教练换取招式；每种关系投资都放弃一部分装备进度。",
+    "en": "Design proposal: gathering materials can become gear or gifts that unlock a trainer’s moves; relationship investment sacrifices equipment progress."
+  },
+  "related": [
+    "relationships-dynastic-marriage",
+    "combat-intent-preview",
+    "combat-part-destruction",
+    "combat-pause-orders"
+  ],
+  "tags": [
+    "planning",
+    "progression",
+    "information"
+  ],
+  "combinationIds": [
+    "gathering-renewable-forage-route"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你只有一枚稀有果实，两位角色都值得维持关系，但偏好不同。",
+      "en": "You have one rare fruit and two relationships to maintain, with different preferences."
+    },
+    "action": {
+      "zh": "你把果实送给已经确认喜欢它的人，把普通礼物留给另一位。",
+      "en": "Give the fruit to the person known to like it and reserve a common gift for the other."
+    },
+    "result": {
+      "zh": "对方的反应验证了偏好，关系进度增加，稀有礼物也消耗掉了。",
+      "en": "Their response confirms the preference and raises the relationship, consuming the rare gift."
+    },
+    "next": {
+      "zh": "根据反馈补充偏好记录，安排下一批礼物给谁。",
+      "en": "Update your preference notes and allocate the next set of gifts."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做三位角色、六种礼物和可记录的喜欢、普通、讨厌三种反应。",
+      "en": "Build three characters, six gifts, and recorded liked, neutral, and disliked reactions."
+    },
+    "pitfall": {
+      "zh": "不必先写大量台词；先让偏好能被观察与记忆，避免纯试错查表。",
+      "en": "Defer extensive dialogue; make preferences observable and memorable instead of pure trial-and-error lookup."
+    },
+    "test": {
+      "zh": "礼物不足时，观察玩家是否依据偏好和目标分配，而非每人机械送一份。",
+      "en": "With too few gifts, see whether players allocate by preference and goals rather than routine equal distribution."
+    }
+  },
+  "edition": 1
+}

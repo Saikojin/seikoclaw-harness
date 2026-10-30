@@ -1,0 +1,172 @@
+{
+  "id": "matching-trace-color-chain",
+  "system": "matching",
+  "edition": 3,
+  "name": {
+    "zh": "沿同类物件画出一条链",
+    "en": "Trace a path through matching pieces"
+  },
+  "summary": {
+    "zh": "一次拖动选择整条路线，长度和终点都影响收益。",
+    "en": "One drag selects a whole route; both length and endpoint can matter."
+  },
+  "rules": {
+    "zh": "玩家沿允许的相邻方向，连续选中同类物件，松手后整条链一起结算。路线不能随意跨越空格或不匹配物件，因此玩家要在当前可达范围里比较长链、目标位置和结束位置。",
+    "en": "Trace through matching pieces using the allowed adjacency directions, then release to resolve the selected chain. Gaps and incompatible pieces constrain the route, creating choices about chain length, required targets and where the path ends."
+  },
+  "loop": [
+    {
+      "zh": "看清可连接的物件",
+      "en": "Inspect connected pieces"
+    },
+    {
+      "zh": "拖出一条可行路径",
+      "en": "Trace a legal route"
+    },
+    {
+      "zh": "确认并结算整条链",
+      "en": "Confirm and resolve the chain"
+    },
+    {
+      "zh": "读取补位后的新路线",
+      "en": "Read the routes created by refill"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "走最长的链，还是选择较短但能到达目标位置的链？",
+      "en": "Choose the longest chain or a shorter path reaching a useful location?"
+    },
+    {
+      "zh": "现在清掉连接桥，是否会把下一轮的一大片同类物件分开？",
+      "en": "Would clearing a bridge now split a large group needed next turn?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "允许的相邻方向",
+        "en": "Allowed adjacency"
+      },
+      "effect": {
+        "zh": "只允许横纵相邻容易读图；允许斜线会增加路线数量。",
+        "en": "Orthogonal adjacency is easier to read; diagonal links greatly increase route options."
+      }
+    },
+    {
+      "name": {
+        "zh": "跨色连接点",
+        "en": "Color-switch nodes"
+      },
+      "effect": {
+        "zh": "少量连接点能打通被颜色分隔的区域，但必须显示切换后的合法路径。",
+        "en": "A few switch nodes connect color-separated regions, but legal continuations must remain clear."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Two Dots",
+      "gameZh": "两点之间",
+      "implementation": {
+        "zh": "连接两个以上同色圆点，路径沿横向或纵向相邻延伸；连成方形还能清除棋盘上的该颜色。",
+        "en": "Connect two or more matching dots along horizontal or vertical neighbors; a square clears that color across the board."
+      },
+      "source": "https://dots.helpshift.com/hc/en/3-two-dots/faq/368-how-do-i-play-two-dots/",
+      "sourceLabel": "Official developer help / documentation",
+      "image": "https://images.loopyhop.com/gameplayatlas/089b72bac9ecbed5f663d892.webp",
+      "imageSource": "https://play.google.com/store/apps/details?id=com.weplaydots.twodotsandroid",
+      "imageKind": "system",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：官方商店拼图展示多个彩色点阵棋盘；没有展示手指如何连线，操作规则需看文字来源。",
+        "en": "System reference: the official store montage shows several colored-dot boards; it does not show the finger path used to connect them."
+      },
+      "rights": "Playdots / Take-Two Interactive",
+      "verified": "2026-10-21",
+      "originalImage": "https://play-lh.googleusercontent.com/RlfNR_mMOSuVOELKVRxIM0Y8ezXwAFkWAHqYBd-NpxrRUrAlaQlymJtUX79JvObZj47yjAh8P06YF1Z9v7PvIQ=w526-h296-rw"
+    },
+    {
+      "game": "Grindstone",
+      "gameZh": "磨刀石",
+      "implementation": {
+        "zh": "规划穿过同色敌人的攻击路径；磨刀石可以改变路径颜色，让同一条链延伸到另一组敌人。",
+        "en": "Plan an attack path through same-colored enemies; grindstones allow the chain to change color and continue into another group."
+      },
+      "source": "https://www.capybaragames.com/games/grindstone/",
+      "sourceLabel": "Official developer help / documentation",
+      "image": "https://images.loopyhop.com/gameplayatlas/157416e77e806216007ccd9d.jpg",
+      "imageSource": "https://store.steampowered.com/app/1818690/",
+      "imageKind": "system",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：彩色敌人盘面上可见一条选中的连接路线。",
+        "en": "System reference: A selected connecting path appears across a board of colored enemies. See the linked text source for the rules."
+      },
+      "rights": "Capybara Games",
+      "verified": "2026-10-21",
+      "steamId": 1818690,
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1818690/ss_5b9614549f1a9f5c5ed529a809edf90d15e00fd2.1920x1080.jpg?t=1768317405"
+    }
+  ],
+  "contrast": {
+    "zh": "Two Dots强调连接形状带来的全色清除；Grindstone把路径变成角色攻击路线，并加入跨色连接点。",
+    "en": "Two Dots rewards a closed square with a color clear; Grindstone turns the path into a character attack and adds color-switch junctions."
+  },
+  "combinesWith": [
+    "exploration"
+  ],
+  "combinationIds": [
+    "exploration-earned-map"
+  ],
+  "combination": {
+    "zh": "组合提案：每条连接链同时是一段侦察路线，经过的格子揭开地图，但终点必须是安全营地才能带回发现。",
+    "en": "Design proposal: use the traced chain as a scouting route that reveals map cells, requiring a safe camp endpoint to retain discoveries."
+  },
+  "related": [
+    "matching-clear-under-cargo",
+    "matching-complete-lines",
+    "matching-gravity-cascade",
+    "matching-merge-three-upgrade"
+  ],
+  "tags": [
+    "planning",
+    "spatial",
+    "precision"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "一片蓝点分成两支，左支通向目标，右支长度更长。",
+      "en": "Blue dots form two branches: the left reaches a target, while the right is longer."
+    },
+    "action": {
+      "zh": "玩家只连接左支四个点。",
+      "en": "The player links the four dots on the left."
+    },
+    "result": {
+      "zh": "获得较少的消除数量，但清到了要求的目标格。",
+      "en": "The clear is smaller, but reaches the required target cell."
+    },
+    "next": {
+      "zh": "空出的格子补入新点，下一轮可重新连接右侧区域。",
+      "en": "Refill creates a new opportunity to connect the right-hand region next turn."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做五乘五棋盘和可回退的连线预览，先只允许横纵相邻。",
+      "en": "Make a five-by-five board with a reversible path preview and orthogonal links only."
+    },
+    "pitfall": {
+      "zh": "手指滑过拐角时容易误选；路径预览和退回上一格必须可靠。",
+      "en": "Corners can cause accidental selection; preview and backtracking need reliable behavior."
+    },
+    "test": {
+      "zh": "玩家会不会主动缩短链来换取更好的终点或目标位置？",
+      "en": "Do players deliberately shorten chains for a better endpoint or target cell?"
+    }
+  }
+}

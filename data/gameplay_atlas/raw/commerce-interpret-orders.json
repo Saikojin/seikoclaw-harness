@@ -1,0 +1,171 @@
+{
+  "id": "commerce-interpret-orders",
+  "system": "commerce",
+  "name": {
+    "zh": "识别顾客需求",
+    "en": "Interpreting customer requests"
+  },
+  "summary": {
+    "zh": "从自然表达中识别需求，再用产品属性满足它。",
+    "en": "Infer a need from natural language and match it with product properties."
+  },
+  "rules": {
+    "zh": "顾客不一定直接报出商品名，可能描述症状、口味或用途。玩家解析关键条件，选择或制作合适产品；接受、拒绝与追加报酬反馈理解是否准确。",
+    "en": "Customers may describe symptoms, tastes or uses instead of naming a product. Infer constraints, choose or craft a match, and learn from acceptance, rejection or extra payment."
+  },
+  "loop": [
+    {
+      "zh": "听取需求",
+      "en": "Listen to the request"
+    },
+    {
+      "zh": "提取关键属性",
+      "en": "Identify properties"
+    },
+    {
+      "zh": "选择或制作产品",
+      "en": "Select or craft"
+    },
+    {
+      "zh": "交付并观察反馈",
+      "en": "Serve and observe"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "满足最低要求，还是投入稀有材料完成额外偏好？",
+      "en": "Meet the minimum or spend rare inputs on preferences?"
+    },
+    {
+      "zh": "模糊描述有多种合理答案时，选成本低还是故事上合适的？",
+      "en": "When several answers fit, favor cost or character context?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "描述含糊度",
+        "en": "Request ambiguity"
+      },
+      "effect": {
+        "zh": "适度含糊制造推理，缺少可识别线索则变猜谜。",
+        "en": "Moderate ambiguity creates inference; missing clues create guesswork."
+      }
+    },
+    {
+      "name": {
+        "zh": "可接受答案数量",
+        "en": "Valid alternatives"
+      },
+      "effect": {
+        "zh": "多个答案鼓励创造，唯一答案强调知识识别。",
+        "en": "Several valid answers reward creativity; one emphasizes recognition."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Potion Craft: Alchemist Simulator",
+      "gameZh": "药剂工艺：炼金模拟器",
+      "implementation": {
+        "zh": "顾客描述需要的效果，也可能提出额外限制；必需条件不满足会拒买，可选条件能提高报酬。",
+        "en": "Customers request effects and sometimes extra constraints; unmet required conditions block purchase, while optional ones increase payment."
+      },
+      "source": "https://potion-craft.fandom.com/wiki/Requests",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/9a7a31f03f6ba8998ce85e1a.jpg",
+      "imageSource": "https://store.steampowered.com/app/1210320/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "观察顾客提出的问题与可选药剂效果；交付需要把文字需求转成产品属性。",
+        "en": "Inspect the customer’s request and available potion effects; delivery maps language to product properties."
+      },
+      "rights": "niceplay games / tinyBuild",
+      "verified": "2026-10-21",
+      "imageThumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1210320/ss_594f4f435a27c625e0f5c8d3603883c9e293b967.600x338.jpg?t=1786023837",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1210320/ss_594f4f435a27c625e0f5c8d3603883c9e293b967.1920x1080.jpg?t=1786023837"
+    },
+    {
+      "game": "VA-11 Hall-A: Cyberpunk Bartender Action",
+      "gameZh": "VA-11 HALL-A：赛博朋克酒保行动",
+      "implementation": {
+        "zh": "顾客点单可使用饮品名称或口味描述；玩家查配方调酒，提供的饮品会影响顾客反应与对话。",
+        "en": "Orders may name a drink or describe a flavor; players consult recipes and mix drinks, influencing customer reactions and dialogue."
+      },
+      "source": "https://store.steampowered.com/app/447530/VA11_HallA_Cyberpunk_Bartender_Action/",
+      "sourceLabel": "Developer / store",
+      "image": "https://images.loopyhop.com/gameplayatlas/a8363bca81ffeb74beb50014.jpg",
+      "imageSource": "https://store.steampowered.com/app/447530/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "观察“Something small, sweet and icy”式需求与配方分类并列，让描述可以对应配方属性。",
+        "en": "Inspect a request for something small, sweet and icy beside recipe categories, connecting descriptions to drink properties."
+      },
+      "rights": "Sukeban Games / Ysbryd Games",
+      "verified": "2026-10-21",
+      "imageThumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/447530/ss_b9171d76f5972a2bfb940fc16d956b129f568977.600x338.jpg?t=1730740610",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/447530/ss_b9171d76f5972a2bfb940fc16d956b129f568977.1920x1080.jpg?t=1730740610"
+    }
+  ],
+  "contrast": {
+    "zh": "药剂工艺把需求拆成效果与约束；VA-11 HALL-A让服务结果继续参与叙事。",
+    "en": "Potion Craft frames requests as effects and constraints; VA-11 HALL-A also carries the serving result into narrative."
+  },
+  "combinesWith": [
+    "cooking",
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "组合创意：冒险者说“想在雪山不被发现”，裁缝可在保暖、颜色和静音材料之间设计不同合格方案。",
+    "en": "Design proposal: an adventurer wants to remain unnoticed in snowy mountains; a tailor can satisfy that through different combinations of warmth, color and quiet materials."
+  },
+  "related": [
+    "commerce-auction-bidding",
+    "commerce-price-discovery",
+    "cooking-judged-flavor",
+    "puzzles-language-decoding"
+  ],
+  "tags": [
+    "information",
+    "creativity",
+    "narrative"
+  ],
+  "combinationIds": [
+    "inventory-equipment-budget"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "顾客说想要清爽、不太甜的饮品，没有直接报出名字。",
+      "en": "A customer asks for a refreshing drink that is not too sweet, without naming one."
+    },
+    "action": {
+      "zh": "你提取两个条件，从配方里选择符合口味且材料够用的一种。",
+      "en": "Identify both conditions and choose an affordable recipe with suitable flavors."
+    },
+    "result": {
+      "zh": "顾客接受并评价口味，反馈说明你满足了哪些要求。",
+      "en": "The customer accepts and comments on the flavor, showing which requirements were met."
+    },
+    "next": {
+      "zh": "下一位顾客给出新描述，你用已学会的属性继续匹配。",
+      "en": "The next customer describes another need; use the learned attributes to match it."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做五种有两个明确属性的商品、六条自然语言需求和可解释的反馈。",
+      "en": "Build five products with two clear attributes, six natural-language requests, and explanatory feedback."
+    },
+    "pitfall": {
+      "zh": "先使用人工编写的有限描述；无边界自然语言会让规则验证变困难。",
+      "en": "Start with a finite set of authored descriptions; unrestricted language makes rule validation difficult."
+    },
+    "test": {
+      "zh": "顾客拒绝后，玩家能否指出遗漏的条件，并改选真正符合要求的商品。",
+      "en": "After rejection, can players identify the missed condition and select a genuinely matching product?"
+    }
+  },
+  "edition": 1
+}

@@ -1,0 +1,174 @@
+{
+  "id": "narrative-conversation-intervention",
+  "system": "narrative",
+  "edition": 3,
+  "name": {
+    "zh": "在对方说完前介入",
+    "en": "Intervene before the other person finishes"
+  },
+  "summary": {
+    "zh": "何时开口或行动，也能改变正在发生的对话。",
+    "en": "When to speak or act can change a conversation already in progress."
+  },
+  "rules": {
+    "zh": "对方说话或事件演出期间出现短暂的介入机会。玩家可以立即插话或行动，改变正在进行的场景；也可以放过机会，听完或让原进程继续。它关注是否打断当前行为，而非只是轮到自己时选一句回答。",
+    "en": "A brief opportunity appears while someone speaks or an event unfolds. Intervene with a line or action to alter the scene, or let the opportunity pass and hear or see the original continuation. The choice is whether to interrupt, not merely what to answer on your turn."
+  },
+  "loop": [
+    {
+      "zh": "观察正在发生的言行",
+      "en": "Observe the ongoing speech or action"
+    },
+    {
+      "zh": "识别可介入的机会",
+      "en": "Notice an intervention opportunity"
+    },
+    {
+      "zh": "打断或让过程继续",
+      "en": "Interrupt or let it continue"
+    },
+    {
+      "zh": "处理改变后的对话局面",
+      "en": "Handle the changed conversation"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "现在制止能避免风险，但是否会漏听重要信息？",
+      "en": "Intervening now may avert a risk, but could it cut off useful information?"
+    },
+    {
+      "zh": "用行动表达立场，还是让对方把话说完再决定？",
+      "en": "Show a stance through action or hear the person out before deciding?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "介入提示的预告量",
+        "en": "Advance warning"
+      },
+      "effect": {
+        "zh": "有足够预告才能让玩家做判断；突然闪一下更像反应测试。",
+        "en": "Enough warning allows judgment; a sudden flash behaves more like a reflex test."
+      }
+    },
+    {
+      "name": {
+        "zh": "放弃介入的后续",
+        "en": "Continuation without intervention"
+      },
+      "effect": {
+        "zh": "不介入也应产生可理解的剧情，而不总是直接失败。",
+        "en": "Letting it pass should produce a readable continuation rather than always failing."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Mass Effect 2 (2010 Edition)",
+      "gameZh": "质量效应2（2010版）",
+      "steamId": 24980,
+      "image": "https://images.loopyhop.com/gameplayatlas/ecc775c00da27cdf5a2df610.avif",
+      "imageSource": "https://www.ea.com/games/mass-effect/mass-effect-2",
+      "rights": "BioWare / Electronic Arts",
+      "implementation": {
+        "zh": "部分对话中出现楷模或叛逆介入机会，玩家可在提示时触发行动，改变当前场景的走向。",
+        "en": "Some conversations offer Paragon or Renegade interrupts, allowing a prompted action to redirect the current scene."
+      },
+      "source": "https://eaassets-a.akamaihd.net/eahelp/manuals/mass-effect-2-manuals_PC_en_GB.pdf",
+      "sourceLabel": "Official EA game manual",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：对话场景中可见人物特写；打断提示没有显示。",
+        "en": "System reference: A conversation scene shows a character close-up; an interruption prompt is not shown. See the linked text source for the rules."
+      },
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://drop-assets.ea.com/images/3Y80zbMGz7bWFiwBZbLBOV/c0a37c9e77889cba671a452353e71b08/MASS_EFFECT2-screenshot-6-16x9.jpg"
+    },
+    {
+      "game": "Oxenfree",
+      "gameZh": "狼奔豕突",
+      "steamId": 388880,
+      "image": "https://images.loopyhop.com/gameplayatlas/caa9cb5cddafe31694f11cb7.jpg",
+      "imageSource": "https://www.androidcentral.com/tune-your-radio-terror-oxenfree-android",
+      "rights": "Night School Studio / screenshot via Android Central",
+      "implementation": {
+        "zh": "回应气泡可以在别人仍说话时出现，玩家可提前开口打断，也可等待或不介入；角色会承接这样的谈话节奏。",
+        "en": "Response bubbles can appear while another person is speaking. Players may interrupt, wait or refrain, with the conversation reacting to that timing."
+      },
+      "source": "https://time.com/4178013/review-oxenfree-wrestles-with-teenage-distress-and-devastation/",
+      "sourceLabel": "Reported gameplay observation — TIME review",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：角色上方同时出现多个对话气泡选项。",
+        "en": "System reference: Several dialogue-bubble choices appear above the characters. See the linked text source for the rules."
+      },
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://cdn.mos.cms.futurecdn.net/nqp3BQZSUMTp2nfc8v2hYo.jpg"
+    }
+  ],
+  "contrast": {
+    "zh": "质量效应2的介入常表现为明确的行动提示；Oxenfree 把介入融入连续的口语交流。",
+    "en": "Mass Effect 2 often presents a discrete action prompt; Oxenfree embeds intervention in continuous spoken conversation."
+  },
+  "combinesWith": [
+    "combat"
+  ],
+  "combinationIds": [
+    "combat-intent-preview"
+  ],
+  "combination": {
+    "zh": "组合提案：谈判中提前显示对方即将采取的行动，让玩家决定打断劝阻，还是等他说完以获取更多动机。",
+    "en": "Design proposal: preview a negotiator’s imminent action, letting the player interrupt to stop it or wait for more information about the motive."
+  },
+  "related": [
+    "narrative-background-dialogue-access",
+    "narrative-deliberate-silence",
+    "narrative-evidence-rebuttal",
+    "narrative-perspective-handoff"
+  ],
+  "tags": [
+    "timing",
+    "narrative",
+    "information"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "守卫边说话边伸手去拉警铃，出现介入提示。",
+      "en": "A guard reaches for an alarm while speaking, and an intervention prompt appears."
+    },
+    "action": {
+      "zh": "玩家立即打断，出示通行证。",
+      "en": "The player interrupts immediately and presents a pass."
+    },
+    "result": {
+      "zh": "拉铃动作停止，但守卫没说完关于失踪货物的线索。",
+      "en": "The alarm is stopped, but a clue about missing cargo is cut short."
+    },
+    "next": {
+      "zh": "玩家需要在后续对话中另找机会补问。",
+      "en": "The player must find another opening to ask about it later."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "写一段可中断的台词和两条后续；先用字幕和按钮验证，不制作复杂演出。",
+      "en": "Write one interruptible line and two continuations, using text and a button before complex presentation."
+    },
+    "pitfall": {
+      "zh": "必须处理被打断台词、字幕和动作的状态，不让角色同时说两句话。",
+      "en": "Handle interrupted dialogue, subtitles and actions so characters do not speak two lines at once."
+    },
+    "test": {
+      "zh": "玩家能否清楚说明自己选择了介入时机，而非误以为必须抢按？",
+      "en": "Can players explain the chosen intervention time rather than assuming they must press every prompt?"
+    }
+  }
+}

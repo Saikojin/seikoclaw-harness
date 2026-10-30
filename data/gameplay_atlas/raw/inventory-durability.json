@@ -1,0 +1,169 @@
+{
+  "id": "inventory-durability",
+  "system": "inventory",
+  "name": {
+    "zh": "工具耐久与维护",
+    "en": "Tool durability and maintenance"
+  },
+  "summary": {
+    "zh": "工具会耗尽，出发前必须估算它能撑多久。",
+    "en": "Tools wear out, making trip length a preparation decision."
+  },
+  "rules": {
+    "zh": "使用工具或承受伤害会降低耐久，归零后无法继续正常使用。玩家准备备用件、寻找修理条件或制造替代品；耐久条让一次远行逐渐接近维护节点。",
+    "en": "Use or damage reduces durability until equipment becomes unusable. Carry spares, locate repair facilities or craft replacements; the durability meter brings each expedition closer to a maintenance stop."
+  },
+  "loop": [
+    {
+      "zh": "检查剩余耐久",
+      "en": "Check remaining durability"
+    },
+    {
+      "zh": "执行采集或战斗",
+      "en": "Gather or fight"
+    },
+    {
+      "zh": "判断还能否继续",
+      "en": "Assess the remaining trip"
+    },
+    {
+      "zh": "修理或替换工具",
+      "en": "Repair or replace"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "备用工具占空间，但能避免提前返程，带不带？",
+      "en": "A spare costs space but prevents an early return. Is it worth carrying?"
+    },
+    {
+      "zh": "现在回去修理最稳，继续挖下一处矿能否撑到收工？",
+      "en": "Repair now for safety, or trust the remaining durability for one more vein?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "修理消耗",
+        "en": "Repair cost"
+      },
+      "effect": {
+        "zh": "免费修理偏向路线管理；材料收费同时产生资源回流。",
+        "en": "Free repair emphasizes routing; material costs also create resource sinks."
+      }
+    },
+    {
+      "name": {
+        "zh": "损坏结果",
+        "en": "Break result"
+      },
+      "effect": {
+        "zh": "保留坏工具鼓励回收；直接消失则提高准备压力。",
+        "en": "Keeping broken tools encourages recovery; destruction increases preparation pressure."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Valheim",
+      "gameZh": "英灵神殿",
+      "implementation": {
+        "zh": "装备耐久耗尽后可在合适的工作台或锻造设施修理，修理本身不消耗材料。",
+        "en": "Depleted equipment can be repaired at an appropriate workbench or forge without spending materials."
+      },
+      "source": "https://valheim.fandom.com/wiki/Repair_shack",
+      "sourceLabel": "Game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/35d08bd3d6d6e126d6530ec7.jpg",
+      "imageSource": "https://store.steampowered.com/app/892970/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：装备中的角色与探索环境。画面不显示负重、修理窗口或墓碑回收过程。",
+        "en": "System reference: an equipped character in an exploration setting; weight, repair menus and grave retrieval are not shown."
+      },
+      "rights": "Iron Gate AB",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/f7a47b4bd150ce1a2c6ec88f7d79fd57e7c538c8/ss_f7a47b4bd150ce1a2c6ec88f7d79fd57e7c538c8.1920x1080.jpg?t=1791544831"
+    },
+    {
+      "game": "Don't Starve",
+      "gameZh": "饥荒",
+      "implementation": {
+        "zh": "多数普通工具有有限使用次数，耗尽后消失；因此需要储备材料或替换工具。",
+        "en": "Most ordinary tools have limited uses and disappear when exhausted, encouraging spare materials or replacements."
+      },
+      "source": "https://dontstarve.wiki.gg/wiki/Durability",
+      "sourceLabel": "Game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/b0be87c7477156497856298d.jpg",
+      "imageSource": "https://store.steampowered.com/app/219740/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察角色携带的斧头和采集环境；系统参考图未显示耐久数值或工具耗尽。",
+        "en": "Observe the carried axe and gathering environment; this system reference does not show durability values or exhaustion."
+      },
+      "rights": "Klei Entertainment",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219740/ss_3d32a04e77363f3c8179a319de6f90ac1b8b2e0e.1920x1080.jpg?t=1790876891"
+    }
+  ],
+  "contrast": {
+    "zh": "《英灵神殿》把维护变成返站节奏；《饥荒》的普通工具损耗更直接进入制造和材料预算。",
+    "en": "Valheim makes maintenance a return-to-base rhythm; ordinary tools in Don’t Starve feed directly into crafting and material budgets."
+  },
+  "combinesWith": [
+    "gathering",
+    "automation"
+  ],
+  "combination": {
+    "zh": "组合提案：矿镐耐久影响敲击稳定性，但允许玩家在矿洞搭建临时修理台延长远行。",
+    "en": "Design proposal: pick wear affects strike stability, while a temporary cave repair station extends expeditions."
+  },
+  "tags": [
+    "planning",
+    "risk",
+    "time"
+  ],
+  "related": [
+    "inventory-light-reserve",
+    "gathering-oxygen-gathering",
+    "inventory-death-retrieval",
+    "inventory-weight-budget"
+  ],
+  "combinationIds": [
+    "building-room-requirements"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "镐子还能挖三次，目标矿脉需要五次，备用镐会占背包空间。",
+      "en": "Your pick has three uses left; the vein needs five, and a spare occupies bag space."
+    },
+    "action": {
+      "zh": "你先回工作台修理，腾出原本准备带备用镐的位置。",
+      "en": "Repair at the workbench first, freeing the slot that would hold a spare."
+    },
+    "result": {
+      "zh": "出发晚了一点，但这趟能够完成开采并多带一格材料。",
+      "en": "You leave later but can finish mining and carry another slot of resources."
+    },
+    "next": {
+      "zh": "返程后查看剩余耐久，决定下次修理还是带备件。",
+      "en": "After returning, inspect durability and choose repair or a spare for the next trip."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一把工具、固定使用损耗、一处修理点和明确的剩余使用提示。",
+      "en": "Build one tool, fixed wear per use, one repair station, and a clear uses-remaining indicator."
+    },
+    "pitfall": {
+      "zh": "不要只增加频繁点击修理；维护需要影响出发准备或路线才有取舍。",
+      "en": "Avoid mere repair-click repetition; maintenance should affect preparation or routes."
+    },
+    "test": {
+      "zh": "提供短途与长途任务，观察玩家是否改变修理和备件安排。",
+      "en": "Offer short and long trips and see whether repair and spare choices change."
+    }
+  },
+  "edition": 1
+}

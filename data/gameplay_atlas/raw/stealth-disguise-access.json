@@ -1,0 +1,172 @@
+{
+  "id": "stealth-disguise-access",
+  "system": "stealth",
+  "name": {
+    "zh": "伪装与身份权限",
+    "en": "Disguise permissions"
+  },
+  "summary": {
+    "zh": "换一身衣服，就换了一张能去不同地方的通行证。",
+    "en": "Changing clothes changes where you are allowed to go."
+  },
+  "rules": {
+    "zh": "区域按身份决定谁能进入、能携带什么。玩家先取得合适服装，再利用权限接近目标；特定识破者或越界行为仍会暴露身份，界面应及时解释原因。",
+    "en": "Areas decide access and permitted equipment by role. Acquire an outfit and use its permissions to approach a goal; recognizers and forbidden actions can still expose you, with clear feedback explaining why."
+  },
+  "tags": [
+    "information",
+    "planning",
+    "risk"
+  ],
+  "loop": [
+    {
+      "zh": "辨认区域要求的身份",
+      "en": "Identify the required role"
+    },
+    {
+      "zh": "取得合适服装",
+      "en": "Acquire the right outfit"
+    },
+    {
+      "zh": "避开会识破的人",
+      "en": "Avoid people who recognize impostors"
+    },
+    {
+      "zh": "利用权限完成目标",
+      "en": "Use access to reach the goal"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先绕路拿权限更大的服装，还是利用现有身份走一条更窄的路线？",
+      "en": "Detour for a more useful outfit, or use a narrower route with your current role?"
+    },
+    {
+      "zh": "一个身份能过门却不能带武器时，要放下工具还是另找入口？",
+      "en": "If a role grants access but forbids your weapon, leave it behind or find another entrance?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "身份覆盖范围",
+        "en": "Permission coverage"
+      },
+      "effect": {
+        "zh": "一种服装能进的区域越多，换装决策越少；权限交错会增加路线规划。",
+        "en": "Broader access reduces outfit changes; overlapping permissions create route choices."
+      }
+    },
+    {
+      "name": {
+        "zh": "识破者密度",
+        "en": "Recognizer density"
+      },
+      "effect": {
+        "zh": "少量固定识破者能让玩家读懂规则，过密会使伪装几乎失去作用。",
+        "en": "A few consistent recognizers clarify the rule; too many make disguises ineffective."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "HITMAN World of Assassination",
+      "gameZh": "杀手：暗杀世界",
+      "steamId": 1659040,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "服装决定区域和携带物权限，特定人物仍能识破；这些规则延续自三部曲首作。",
+        "en": "Outfits determine access and legal equipment, while specific NPCs recognize impostors; these rules carry over from the trilogy’s first game."
+      },
+      "source": "https://www.feralinteractive.com/en/manuals/hitman/latest/linux/",
+      "sourceLabel": "Official HITMAN (2016) manual; shared trilogy mechanics",
+      "image": "https://images.loopyhop.com/gameplayatlas/f019d97180de1c8197340f9a.jpg",
+      "imageSource": "https://store.steampowered.com/app/1659040/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：近距离对话中的不同服装与身份可作场景参考；本图不显示伪装权限判定。",
+        "en": "System reference: contrasting outfits in a close conversation provide role context; disguise permissions are not shown."
+      },
+      "rights": "IO Interactive A/S",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1659040/e36f6fef05b5dc74f32fcfa2b7e80637d88becbb/ss_e36f6fef05b5dc74f32fcfa2b7e80637d88becbb.1920x1080.jpg?t=1792084177"
+    },
+    {
+      "game": "Shadow Tactics: Blades of the Shogun",
+      "gameZh": "影子战术：将军之刃",
+      "steamId": 418240,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "爱子可换成艺伎装扮，用伪装与交谈分散敌人注意；能力属于特定队员。",
+        "en": "Aiko uses a geisha disguise and conversation to distract enemies; the ability belongs to a specific squad member."
+      },
+      "source": "https://store.steampowered.com/app/418240/Shadow_Tactics_Blades_of_the_Shogun/",
+      "sourceLabel": "Official developer store description",
+      "image": "https://images.loopyhop.com/gameplayatlas/024ff7d3cf76ae02fdaec53b.jpg",
+      "imageSource": "https://store.steampowered.com/app/418240/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：雪地街道上的绿色视野范围与多名守卫可见；没有显示伪装菜单或同步行动队列。",
+        "en": "System reference: green sight coverage and several guards are visible in a snowy street; disguise controls and synchronized orders are not shown."
+      },
+      "rights": "Mimimi Games / Daedalic",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/418240/ss_410b4a15c97f1d27ab2e2e86bc7a1ffa1d175f3f.1920x1080.jpg?t=1789475696"
+    }
+  ],
+  "contrast": {
+    "zh": "《杀手》让同一角色收集多种权限；《影子战术》把伪装作为团队里一个人的专长。",
+    "en": "HITMAN lets one character collect permissions; Shadow Tactics makes disguise one squad member’s specialty."
+  },
+  "combinesWith": [
+    "inventory"
+  ],
+  "combinationIds": [
+    "inventory-equipment-budget"
+  ],
+  "combination": {
+    "zh": "设计提案：制服也占装备槽，带两套制服就少带一件工具，让进入路线与工具选择一起决定。",
+    "en": "Design proposal: outfits use equipment slots, so carrying two uniforms means one fewer tool; access plans and loadouts become one decision."
+  },
+  "related": [
+    "stealth-peeking",
+    "stealth-body-concealment",
+    "stealth-hiding-spots",
+    "stealth-knockout-window"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "仓库只准搬运工进入，办公室只准文员进入。",
+      "en": "The warehouse admits porters; the office admits clerks."
+    },
+    "action": {
+      "zh": "你换上搬运服，从仓库拿到办公室钥匙，再回更衣室换装。",
+      "en": "Wear the porter outfit to retrieve an office key, then return to change."
+    },
+    "result": {
+      "zh": "你拿到了钥匙，但搬运服仍不能让你安全穿过办公室。",
+      "en": "You have the key, but the porter outfit still cannot safely cross the office."
+    },
+    "next": {
+      "zh": "下一步判断换文员服是否值得多走一趟。",
+      "en": "Decide whether another trip for the clerk outfit is worth it."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做两间房、两套服装、一个门卫；用颜色说明当前身份能去哪里。",
+      "en": "Build two rooms, two outfits and one guard; color-code the areas your current role can enter."
+    },
+    "pitfall": {
+      "zh": "先别做复杂人物记忆；必须先让玩家分清“钥匙开门”和“身份获准进入”。",
+      "en": "Avoid complex NPC memory first; make unlocking a door distinct from being permitted inside."
+    },
+    "test": {
+      "zh": "让玩家解释为什么同一扇门换衣前后反应不同，并观察是否会主动规划换装顺序。",
+      "en": "Ask why the same doorway reacts differently after changing clothes, and watch whether players plan outfit order."
+    }
+  },
+  "edition": 2
+}

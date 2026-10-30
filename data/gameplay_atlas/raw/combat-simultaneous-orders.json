@@ -1,0 +1,173 @@
+{
+  "id": "combat-simultaneous-orders",
+  "system": "combat",
+  "name": {
+    "zh": "双方先排指令再同时执行",
+    "en": "Simultaneous planned orders"
+  },
+  "summary": {
+    "zh": "先排好几秒动作，再观看双方计划撞在一起。",
+    "en": "Plan a few seconds of action, then watch both plans collide."
+  },
+  "tags": [
+    "planning",
+    "time",
+    "information"
+  ],
+  "rules": {
+    "zh": "战斗分成规划与执行两段。规划时为单位安排移动、瞄准或攻击；确认后双方在同一时间段一起执行，过程中不能随时改令。执行完重新观察，再规划下一段。敌方计划可隐藏，也可部分公开，难点随之变化。",
+    "en": "Combat alternates planning and execution. Queue movement, aim or attacks, then commit both sides to the same time interval without continuous intervention. Reassess afterward. Enemy plans may be hidden or partly revealed, changing the central challenge."
+  },
+  "loop": [
+    {
+      "zh": "观察当前局面",
+      "en": "Inspect the situation"
+    },
+    {
+      "zh": "安排动作及时间",
+      "en": "Schedule actions and timing"
+    },
+    {
+      "zh": "确认后同时执行",
+      "en": "Commit and resolve together"
+    },
+    {
+      "zh": "复盘再规划",
+      "en": "Review and plan again"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先停下瞄准，还是抢先穿过对手射线？",
+      "en": "Stop to aim or cross a firing line early?"
+    },
+    {
+      "zh": "按最可能的敌方计划下注，还是牺牲效率防住多个可能？",
+      "en": "Bet on the likeliest enemy plan or trade efficiency for robustness?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "执行片段长度",
+        "en": "Execution interval"
+      },
+      "effect": {
+        "zh": "片段越长，承诺越重，也越难看懂失误发生在哪一刻。",
+        "en": "Longer intervals increase commitment and make mistakes harder to diagnose."
+      }
+    },
+    {
+      "name": {
+        "zh": "敌方计划可见度",
+        "en": "Enemy plan visibility"
+      },
+      "effect": {
+        "zh": "隐藏计划偏预测博弈，公开计划偏时间和空间排程。",
+        "en": "Hidden plans favor prediction; visible plans favor temporal and spatial scheduling."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Frozen Synapse",
+      "gameZh": "冰封触点",
+      "steamId": 98200,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "双方分别规划和模拟指令，提交后同时执行；试演是对假设的检查，不等于知道对手真正的计划。",
+        "en": "Both sides plan and simulate orders before simultaneous resolution; a simulation tests assumptions rather than revealing the opponent’s real plan."
+      },
+      "source": "https://store.steampowered.com/app/98200/Frozen_Synapse/",
+      "sourceLabel": "Official store description",
+      "image": "https://images.loopyhop.com/gameplayatlas/dc549700860b26275b87e941.jpg",
+      "imageSource": "https://store.steampowered.com/app/98200/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "俯视地图中可见绿色人物、白色规划路径与路径点；静态画面不能展示双方同时执行的全过程。",
+        "en": "Green units, white planned paths and waypoints are visible; the still cannot show the full simultaneous resolution."
+      },
+      "rights": "Mode 7",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/98200/ss_8a3c20ebb40066b04e78d7a74e4013a4d69fd57e.1920x1080.jpg?t=1458256347"
+    },
+    {
+      "game": "Phantom Brigade",
+      "gameZh": "幻影旅团",
+      "steamId": 553540,
+      "implementation": {
+        "zh": "时间轴让玩家读取敌方即将发生的行动，再排入己方移动和攻击，执行后进入下一轮规划。",
+        "en": "The timeline exposes upcoming enemy actions so players can schedule movement and attacks before execution and the next planning phase."
+      },
+      "source": "https://store.steampowered.com/app/553540/Phantom_Brigade/",
+      "sourceLabel": "Official store description",
+      "image": "https://images.loopyhop.com/gameplayatlas/dc741ea8f150a73b3097675f.jpg",
+      "imageSource": "https://store.steampowered.com/app/553540/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：战场上的预测路线与时间轴同屏显示。",
+        "en": "System reference: Predicted paths on the battlefield appear together with the timeline. See the linked text source for the rules."
+      },
+      "rights": "Brace Yourself Games",
+      "verified": "2026-10-21",
+      "visualInspected": true,
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553540/a5a7eb0487728efa33db704e0878fce43e291a0d/ss_a5a7eb0487728efa33db704e0878fce43e291a0d.1920x1080.jpg?t=1791916831"
+    }
+  ],
+  "contrast": {
+    "zh": "《冰封触点》侧重对手计划未知时的预测；《幻影旅团》把可见未来变成时间轴上的避让和反击。",
+    "en": "Frozen Synapse emphasizes prediction under hidden plans; Phantom Brigade turns visible future actions into scheduling and counters."
+  },
+  "walkthrough": {
+    "setup": {
+      "zh": "两名队员需要穿过同一条射线，敌人会在第2秒开火。",
+      "en": "Two allies must cross one firing line; the enemy fires at second 2."
+    },
+    "action": {
+      "zh": "安排第一人第1秒通过，第二人等到第3秒再走。",
+      "en": "Schedule the first crossing at second 1 and the second at second 3."
+    },
+    "result": {
+      "zh": "执行时两人避开射击窗口，等待也成为有效动作。",
+      "en": "Both avoid the firing window; waiting proves useful."
+    },
+    "next": {
+      "zh": "下一段敌人转向，你要根据新时间表再次排动作。",
+      "en": "The enemy turns in the next interval, requiring a new schedule."
+    }
+  },
+  "prototype": {
+    "scope": "large",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先用两名单位、离散时间格和固定敌方计划做一个房间，不做自由物理或联网。",
+      "en": "Start with two units, discrete time slots and fixed enemy plans in one room, without free physics or networking."
+    },
+    "pitfall": {
+      "zh": "规划预览与实际执行若使用不同规则，玩家无法信任时间轴。",
+      "en": "If preview and execution use different rules, players cannot trust the timeline."
+    },
+    "test": {
+      "zh": "检查玩家能否从回放指出哪一秒出错，并修改那一段获得不同结果。",
+      "en": "Check whether players can locate a mistaken second in replay and revise that interval."
+    }
+  },
+  "combinesWith": [
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "加入有限次数的时间回退，让玩家修正一次计划，同时保留其他单位已经发生的结果。",
+    "en": "Add limited rewinds that revise one plan while preserving the consequences for other units."
+  },
+  "combinationIds": [
+    "puzzles-time-scrubbing"
+  ],
+  "related": [
+    "combat-pause-orders",
+    "combat-intent-preview",
+    "combat-action-points",
+    "combat-combat-deck-cycle"
+  ],
+  "edition": 2
+}

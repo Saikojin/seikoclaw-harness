@@ -1,0 +1,175 @@
+{
+  "id": "cooking-judged-flavor",
+  "system": "cooking",
+  "name": {
+    "zh": "目标风味评分",
+    "en": "Targeted flavor scoring"
+  },
+  "summary": {
+    "zh": "同样能吃的食物，也要按评判标准决定做成什么样。",
+    "en": "A valid dish still needs to satisfy a particular evaluation target."
+  },
+  "tags": [
+    "optimization",
+    "information",
+    "creativity"
+  ],
+  "rules": {
+    "zh": "系统给出目标风味或配方要求，玩家用配料与加工操作影响多个评分维度。端上菜后得到分项评价，下一轮据此调整；关键是理解评分标准，而非只追求总量。",
+    "en": "The game presents flavor or recipe targets, and ingredients and processing affect several scoring dimensions. Serving produces feedback for the next attempt; understanding criteria matters more than maximizing quantity."
+  },
+  "loop": [
+    {
+      "zh": "读取评价目标",
+      "en": "Read evaluation goals"
+    },
+    {
+      "zh": "选择材料与处理",
+      "en": "Choose ingredients and processing"
+    },
+    {
+      "zh": "提交成品",
+      "en": "Submit the dish"
+    },
+    {
+      "zh": "按分项反馈改进",
+      "en": "Improve using component feedback"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "把时间用于补齐短板，还是继续强化已经占优的风味？",
+      "en": "Fix a weak dimension or strengthen an existing advantage?"
+    },
+    {
+      "zh": "为了评委偏好牺牲通用高分组合是否划算？",
+      "en": "Is adapting to a judge worth abandoning a strong general recipe?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "目标公开程度",
+        "en": "Target disclosure"
+      },
+      "effect": {
+        "zh": "公开标准使玩家可规划；隐藏偏好适合试探但要提供可读反馈。",
+        "en": "Visible criteria support planning; hidden tastes need readable feedback."
+      }
+    },
+    {
+      "name": {
+        "zh": "维度权重",
+        "en": "Scoring weights"
+      },
+      "effect": {
+        "zh": "单一高权重会导向专精；多项均衡促使材料搭配。",
+        "en": "One dominant weight favors specialization; balanced criteria encourage ingredient combinations."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Battle Chef Brigade Deluxe",
+      "gameZh": "战斗厨师旅团",
+      "steamAppId": 452570,
+      "implementation": {
+        "zh": "狩猎所得食材进入料理拼盘，玩家通过拼图式烹饪提高菜肴表现，并围绕比赛要求准备餐点。",
+        "en": "Hunted ingredients feed puzzle-based cooking, where players improve dishes around competition requirements."
+      },
+      "source": "https://store.steampowered.com/app/452570/Battle_Chef_Brigade_Deluxe/",
+      "sourceLabel": "Official store",
+      "image": "https://images.loopyhop.com/gameplayatlas/49eba6d7d708eec94a931af1.jpg",
+      "imageSource": "https://store.steampowered.com/app/452570/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "料理台下方的彩色棋盘把食材表现转成可操作的拼图；图中未显示最终评委评分。",
+        "en": "Colored boards below the cooking counter turn ingredients into manipulable puzzles; final judging is not displayed."
+      },
+      "rights": "Trinket Studios",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/452570/ss_3f988beafbdd8d2a0392e338a458fab24251caab.600x338.jpg?t=1763397067",
+      "imageIndex": 6,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/452570/ss_3f988beafbdd8d2a0392e338a458fab24251caab.1920x1080.jpg?t=1763397067"
+    },
+    {
+      "game": "Cooking Simulator",
+      "gameZh": "料理模拟器",
+      "steamAppId": 641320,
+      "implementation": {
+        "zh": "职业模式按菜谱制作并向顾客供餐，成品评价反馈准备与烹饪表现，鼓励按要求改进下一道。",
+        "en": "Career mode serves recipe-based dishes to customers, with evaluation feeding back into preparation and cooking improvements."
+      },
+      "source": "https://store.steampowered.com/app/641320/Cooking_Simulator/",
+      "sourceLabel": "Official store",
+      "image": "https://images.loopyhop.com/gameplayatlas/f529f8e60e1c3ab8e676adee.jpg",
+      "imageSource": "https://store.steampowered.com/app/641320/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "炉具、锅具与配方信息同时出现在第一人称操作视野。系统参考图，未显示顾客评分。",
+        "en": "Stoves, pans and recipe information share the first-person workspace. System reference; customer scoring is not shown."
+      },
+      "rights": "Big Cheese Studio",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/641320/ss_b1fdfb493e4201cf786491d0c5e4e9d85ac28e2d.600x338.jpg?t=1792319371",
+      "imageIndex": 3,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/641320/ss_b1fdfb493e4201cf786491d0c5e4e9d85ac28e2d.1920x1080.jpg?t=1792319371"
+    }
+  ],
+  "contrast": {
+    "zh": "战斗厨师旅团把料理表现交给拼图操作；料理模拟器强调遵循配方并控制物理过程。",
+    "en": "Battle Chef Brigade uses puzzle manipulation; Cooking Simulator emphasizes recipe execution and physical handling."
+  },
+  "combinesWith": [
+    "puzzles",
+    "relationships"
+  ],
+  "combination": {
+    "zh": "组合创意：美食评委只公布两个偏好，玩家从历次评语推断第三项隐藏标准，再决定是否为其定制菜单。",
+    "en": "Design proposal: judges reveal two preferences; players infer a third from past reviews and decide whether to specialize."
+  },
+  "related": [
+    "cooking-ingredient-substitution",
+    "cooking-meal-loadout",
+    "cooking-measurement-precision",
+    "cooking-preparation-chain"
+  ],
+  "combinationIds": [
+    "puzzles-scene-deduction"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "评审要偏酸的菜，你的试作品咸味够了，酸味明显不足。",
+      "en": "The judge wants a sour dish; your trial has enough salt but not enough acidity."
+    },
+    "action": {
+      "zh": "你用最后一份配料增加酸味，不再继续堆已经够高的咸味。",
+      "en": "Spend the final ingredient on acidity rather than adding more salt."
+    },
+    "result": {
+      "zh": "分项评分指出哪一项接近目标，哪一项仍偏离。",
+      "en": "Separate scores show which flavour matches the target and which still misses."
+    },
+    "next": {
+      "zh": "下一轮按差距调整比例，再提交检验。",
+      "en": "Adjust proportions based on the gaps and submit another attempt."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做酸、甜、咸三维目标和4种配料，用条形反馈展示提交后的差距。",
+      "en": "Use sour, sweet and salty targets with four ingredients and bar feedback showing gaps after submission."
+    },
+    "pitfall": {
+      "zh": "评分公式若不透明，玩家只会试遍组合；先让分项反馈能指导下一次改变。",
+      "en": "Opaque scoring encourages exhaustive guessing; feedback should guide the next change."
+    },
+    "test": {
+      "zh": "看一次评分后，玩家能否明确指出该增加或减少哪种配料？",
+      "en": "After one evaluation, can players identify an ingredient to increase or reduce?"
+    }
+  },
+  "edition": 1
+}

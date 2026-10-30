@@ -1,0 +1,168 @@
+{
+  "id": "movement-carry-object",
+  "system": "movement",
+  "edition": 3,
+  "name": {
+    "zh": "让角色和手中物件一起通过障碍",
+    "en": "Move yourself and a carried object through obstacles"
+  },
+  "summary": {
+    "zh": "自己能过去还不够，还要让手里的物件到达目的地。",
+    "en": "Reaching the destination yourself is not enough; the object must arrive too."
+  },
+  "rules": {
+    "zh": "任务要求把场景中的实体物件送到指定位置，物件仍有自己的位置和碰撞。玩家可以抱着走、暂放或抛到另一侧，再让角色跟上；核心是规划人和物件的两条路线，而非比较背包总重量。",
+    "en": "Deliver a physical object that retains its own position and collisions. Carry it, place it temporarily or send it across before following. Plan the routes of both character and object, rather than comparing total inventory weight."
+  },
+  "loop": [
+    {
+      "zh": "观察物件目的地",
+      "en": "Locate the object destination"
+    },
+    {
+      "zh": "规划人和物件的路线",
+      "en": "Plan both routes"
+    },
+    {
+      "zh": "携带、暂放或投递",
+      "en": "Carry, place or pass the object"
+    },
+    {
+      "zh": "重新会合并继续搬运",
+      "en": "Rejoin and continue delivery"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "抱着物件走较远的安全路，还是先把它送过间隙再自己追上？",
+      "en": "Carry it along a longer safe route or send it across a gap and follow?"
+    },
+    {
+      "zh": "把物件留在开关上能开门，但下一段是否还需要把它带走？",
+      "en": "Leaving it on a switch opens a door, but will you need the object in the next section?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "持物时可做的动作",
+        "en": "Actions available while carrying"
+      },
+      "effect": {
+        "zh": "保留全部动作更流畅，限制部分动作会让暂放与转移变得有意义。",
+        "en": "Keeping all actions is fluid; restricting some makes placing and transferring the object matter."
+      }
+    },
+    {
+      "name": {
+        "zh": "物件失落后的恢复",
+        "en": "Recovery after losing the object"
+      },
+      "effect": {
+        "zh": "就近重置能保留解题节奏；长距离找回会把空间规划变成重复搬运。",
+        "en": "A nearby reset preserves puzzle flow; a long retrieval can turn planning into repetitive hauling."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Portal 2",
+      "gameZh": "传送门2",
+      "image": "https://images.loopyhop.com/gameplayatlas/90208b507794e4ad17e2a940.jpg",
+      "imageSource": "https://store.steampowered.com/app/620/",
+      "rights": "Valve",
+      "implementation": {
+        "zh": "玩家搬运方块并放到重压按钮等装置上，让物件位置改变测试室通路；需要同时考虑自己是否能通过和方块是否能到位。",
+        "en": "Players carry cubes to devices such as weighted buttons, changing test-chamber routes through object placement. Both the player and the cube must reach usable positions."
+      },
+      "source": "https://theportalwiki.com/wiki/Weighted_Storage_Cube",
+      "sourceLabel": "Community wiki — Cubes",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：测试室与机关给出搬运环境；此图不能确认一次方块搬运或压住按钮。",
+        "en": "System reference: the test chamber and devices provide delivery context; the image does not establish a cube carry or button press."
+      },
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_6a4f5afdaa98402de9cf0b59fed27bab3256a6f4.1920x1080.jpg?t=1790187113"
+    },
+    {
+      "game": "Celeste",
+      "gameZh": "蔚蓝",
+      "image": "https://images.loopyhop.com/gameplayatlas/ff80b42d646113a26b79d0d7.jpg",
+      "imageSource": "https://store.steampowered.com/app/504230/",
+      "rights": "Maddy Makes Games / Extremely OK Games",
+      "implementation": {
+        "zh": "镜之寺后段要携带困住 Theo 的水晶前进，玩家能拿起和抛出水晶，安排自己与水晶先后越过障碍。",
+        "en": "In the later Mirror Temple section, the player carries the crystal containing Theo. Picking it up and throwing it lets the player sequence the crystal and their own movement through obstacles."
+      },
+      "source": "https://www.neoseeker.com/celeste/walkthrough/Chapter_5_-_Mirror_Temple",
+      "sourceLabel": "Community walkthrough — Mirror Temple",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：平台场景提供穿越背景；该配图未核实含 Theo 水晶，搬运细节以规则来源为准。",
+        "en": "System reference: a platforming scene provides traversal context; Theo crystal presence has not been verified in this image, so use the rule source for carrying details."
+      },
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/ss_4b0f0222341b64a37114033aca9994551f27c161.1920x1080.jpg?t=1714089525"
+    }
+  ],
+  "contrast": {
+    "zh": "《传送门2》主要通过方块停在哪个机关上改变通路；《蔚蓝》的 Theo 水晶更强调带着同一个实体连续通过动作障碍。",
+    "en": "Portal 2 primarily changes routes through where a cube is placed on devices; Celeste emphasizes taking the same Theo crystal through a sequence of action obstacles."
+  },
+  "combinesWith": [
+    "puzzles"
+  ],
+  "combinationIds": [
+    "puzzles-linked-portals"
+  ],
+  "combination": {
+    "zh": "设计提案：把两个传送口分配给角色和货箱使用，部分平台只能站人、部分按钮必须压箱，迫使玩家安排两者先后抵达。",
+    "en": "Design proposal: use linked portals to move a character and a crate. Some platforms support only the character and some switches require the crate, making their arrival order matter."
+  },
+  "related": [
+    "exploration-air-action-refill",
+    "exploration-climbing-rest-route",
+    "exploration-gliding-descent",
+    "movement-ledge-catch"
+  ],
+  "tags": [
+    "spatial",
+    "planning",
+    "precision"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "教学示例：一只方块需要送到出口按钮前，中途有一段角色能跳过、抱箱时无法跳过的间隙。",
+      "en": "Teaching example: a cube must reach an exit button; the character can jump a gap only while empty-handed."
+    },
+    "action": {
+      "zh": "你先把方块抛到对面安全台，再跳过去重新拿起。",
+      "en": "Throw the cube onto the safe far platform, then jump across and pick it up again."
+    },
+    "result": {
+      "zh": "人和方块在另一侧会合，通往按钮的路线变得可用。",
+      "en": "Character and cube reunite on the far side, making the route to the button usable."
+    },
+    "next": {
+      "zh": "按钮打开后还有一道门，要决定把方块留住门，还是利用别的机关接替。",
+      "en": "Once the button opens the door, decide whether to leave the cube there or find another device to keep the route open."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "在单屏中做一个可拾放方块、一个低台和一个终点按钮；再加入一次必须先送箱再移动角色的间隙。",
+      "en": "On one screen, build a pickup/place cube, a low platform and an exit button; add one gap that requires sending the cube before moving the character."
+    },
+    "pitfall": {
+      "zh": "物件卡进地形或掉到取不回的位置会制造无意义重开，需要明确的重置与防卡规则。",
+      "en": "Objects stuck inside terrain or lost in unreachable places force pointless restarts; define reset and anti-stuck behavior."
+    },
+    "test": {
+      "zh": "检查玩家能否指出下一步先移动人还是物件，并且失败后不必重做已经理解的整段搬运。",
+      "en": "Check whether players can explain whether the character or object must move next, and recover from failure without repeating an already understood delivery route."
+    }
+  }
+}

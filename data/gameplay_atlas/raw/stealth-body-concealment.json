@@ -1,0 +1,172 @@
+{
+  "id": "stealth-body-concealment",
+  "system": "stealth",
+  "name": {
+    "zh": "搬运与藏匿身体",
+    "en": "Moving and hiding bodies"
+  },
+  "summary": {
+    "zh": "放倒守卫只是前半步，还得决定把留下的证据放哪儿。",
+    "en": "Taking down a guard is only half the task; the body still needs a destination."
+  },
+  "rules": {
+    "zh": "倒地人物留在场景里，其他人发现后会改变警戒。玩家可花时间拖走或放入藏匿点，但搬运时更难迅速脱身；先选处置位置，往往比先动手更重要。",
+    "en": "Downed characters remain in the level and can change alert behavior when found. Moving or concealing them costs time and makes escape harder; choosing a destination before a takedown matters."
+  },
+  "tags": [
+    "planning",
+    "spatial",
+    "risk"
+  ],
+  "loop": [
+    {
+      "zh": "观察其他人的巡逻",
+      "en": "Check other patrols"
+    },
+    {
+      "zh": "选好放倒位置",
+      "en": "Choose the takedown spot"
+    },
+    {
+      "zh": "把身体移到遮蔽处",
+      "en": "Move the body out of sight"
+    },
+    {
+      "zh": "重新检查通路",
+      "en": "Recheck the route"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "就地绕过身体节省时间，还是搬走以免稍后的巡逻发现？",
+      "en": "Leave the body and save time, or move it before a later patrol arrives?"
+    },
+    {
+      "zh": "近处藏点方便但会绕远出口，远处藏点是否值得更长搬运？",
+      "en": "A nearby hiding spot may pull you away from the exit; is a longer carry worthwhile?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "搬运速度",
+        "en": "Carry speed"
+      },
+      "effect": {
+        "zh": "速度差越大，放倒地点越重要，也越需要规划第二个人的视线。",
+        "en": "A larger speed penalty makes takedown location and other guards’ sightlines more important."
+      }
+    },
+    {
+      "name": {
+        "zh": "藏匿容量",
+        "en": "Hiding capacity"
+      },
+      "effect": {
+        "zh": "有限容量迫使玩家分散行动地点，而非反复堆在同一处。",
+        "en": "Limited capacity spreads takedowns across the level instead of encouraging one dumping spot."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "HITMAN World of Assassination",
+      "gameZh": "杀手：暗杀世界",
+      "steamId": 1659040,
+      "screenshotIndex": 7,
+      "implementation": {
+        "zh": "可拖动失去行动能力的人，并把身体放入合适容器，降低被路人发现的风险。",
+        "en": "Incapacitated people can be dragged and placed in suitable containers to prevent passers-by finding them."
+      },
+      "source": "https://www.feralinteractive.com/en/manuals/hitman/latest/linux/",
+      "sourceLabel": "Official HITMAN (2016) manual; shared trilogy mechanics",
+      "image": "https://images.loopyhop.com/gameplayatlas/73c3220f91557c5260741335.jpg",
+      "imageSource": "https://store.steampowered.com/app/1659040/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：47 走入拥挤市场，可观察公共空间与人流；本图没有显示身份权限、藏匿或监控反馈。",
+        "en": "System reference: 47 enters a crowded market; inspect public space and pedestrian flow. Permissions, hiding and surveillance feedback are not shown."
+      },
+      "rights": "IO Interactive A/S",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1659040/ss_0d982ccc2b91093d71a7ae607e7ae0542651bc79.1920x1080.jpg?t=1792084177"
+    },
+    {
+      "game": "Desperados III",
+      "gameZh": "赏金奇兵3",
+      "steamId": 610370,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "人物可把倒地守卫搬入灌木等藏匿处；任务路线需要同时安排处理身体的路径。",
+        "en": "Characters can move downed guards into hiding places such as bushes, adding a body-disposal route to the plan."
+      },
+      "source": "https://gamefaqs.gamespot.com/pc/246140-desperados-iii/faqs/78420/until-death-do-us-part",
+      "sourceLabel": "Community walkthrough — mission rules",
+      "image": "https://images.loopyhop.com/gameplayatlas/e3be821fde8a8b184b959354.jpg",
+      "imageSource": "https://store.steampowered.com/app/610370/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：峡谷、水车和楼梯构成多条接近路线；图中没有显示诱饵、绳索或藏尸操作。",
+        "en": "System reference: the canyon, watermill and stairs create approach routes; lure, restraint and body-hiding actions are not shown."
+      },
+      "rights": "Mimimi Games / THQ Nordic",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/610370/ss_0278ff2c4d3a7bc4b2e2968f27b07db332d81edf.1920x1080.jpg?t=1725010859"
+    }
+  ],
+  "contrast": {
+    "zh": "《杀手》的容器形成明确收纳点；《赏金奇兵3》把搬运放进俯视视野与多角色调度中。",
+    "en": "HITMAN uses explicit containers; Desperados III integrates carrying with overhead sightlines and squad positioning."
+  },
+  "combinesWith": [
+    "inventory"
+  ],
+  "combinationIds": [
+    "inventory-weight-budget"
+  ],
+  "combination": {
+    "zh": "设计提案：救援任务中，背着伤员会占满负重；必须先丢弃战利品，才能把同伴安全带走。",
+    "en": "Design proposal: in a rescue mission, carrying a wounded ally fills the weight budget; abandon loot to bring the ally home."
+  },
+  "related": [
+    "stealth-disguise-access",
+    "stealth-knockout-window",
+    "stealth-peeking",
+    "stealth-synchronized-actions"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "守卫每隔一圈会经过楼梯，楼梯旁有一处灌木。",
+      "en": "A patrol circles past a staircase beside a bush."
+    },
+    "action": {
+      "zh": "你在楼梯口放倒另一名守卫，立即把他拖入灌木。",
+      "en": "Down another guard by the stairs and drag him into the bush."
+    },
+    "result": {
+      "zh": "巡逻回来时没有看到身体，但你因搬运错过了开门时机。",
+      "en": "The patrol returns without seeing the body, but carrying made you miss the door opening."
+    },
+    "next": {
+      "zh": "下一次先把目标引近藏点，再开始行动。",
+      "en": "Next time lure the target closer to concealment before acting."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做两名守卫、一条巡逻线、一个可拖动身体与一个藏匿区。",
+      "en": "Build two guards, one patrol route, a draggable body and one concealment zone."
+    },
+    "pitfall": {
+      "zh": "避免身体碰撞与动画先耗尽工期；原型用一个可拖动标记验证路线成本即可。",
+      "en": "Do not start with complex body physics and animation; a draggable token can test route costs."
+    },
+    "test": {
+      "zh": "玩家第二次尝试时，会不会先看藏点再决定在哪里放倒守卫？",
+      "en": "On the second attempt, do players check hiding locations before choosing the takedown spot?"
+    }
+  },
+  "edition": 2
+}

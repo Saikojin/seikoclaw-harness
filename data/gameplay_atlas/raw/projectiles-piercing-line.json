@@ -1,0 +1,177 @@
+{
+  "id": "projectiles-piercing-line",
+  "system": "projectiles",
+  "edition": 3,
+  "name": {
+    "zh": "让多个目标排进同一条弹道",
+    "en": "Line up targets for a piercing shot"
+  },
+  "summary": {
+    "zh": "一发不在第一个目标处停下，站位就能换来额外命中。",
+    "en": "A shot continues beyond the first target, making alignment valuable."
+  },
+  "rules": {
+    "zh": "贯穿弹命中目标后继续前进，直到耗尽穿透次数、距离或能量。玩家移动到能把敌人排成一线的位置，再决定立即射击还是等队形更集中；命中顺序和衰减影响后排收益。",
+    "en": "A piercing shot continues until its penetration count, distance or energy runs out. Reposition to align enemies, then fire now or wait for a better line; hit order and decay determine the value against later targets."
+  },
+  "loop": [
+    {
+      "zh": "观察目标之间的相对位置",
+      "en": "Read the positions between targets"
+    },
+    {
+      "zh": "调整站位形成一条线",
+      "en": "Reposition to make a line"
+    },
+    {
+      "zh": "发射并查看贯穿结果",
+      "en": "Fire and inspect the penetration"
+    },
+    {
+      "zh": "趁敌人重新散开再选位置",
+      "en": "Choose a new position as enemies spread"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先打掉前排威胁，还是等后排靠近后一起贯穿？",
+      "en": "Remove the front threat now or wait to catch the rear target too?"
+    },
+    {
+      "zh": "为了多打一人而绕到侧面，是否会暴露给另一组敌人？",
+      "en": "Does moving sideways for another hit expose you to a different group?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "贯穿上限",
+        "en": "Penetration limit"
+      },
+      "effect": {
+        "zh": "上限低强调精确排队；上限高更依赖场地和敌群密度来控制收益。",
+        "en": "A low limit rewards precise alignment; a high one makes terrain and crowd density central to balance."
+      }
+    },
+    {
+      "name": {
+        "zh": "逐目标伤害衰减",
+        "en": "Damage decay per target"
+      },
+      "effect": {
+        "zh": "衰减明显时，玩家还要决定把谁放在第一命中位。",
+        "en": "Strong decay makes the identity of the first target important."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Terraria",
+      "gameZh": "泰拉瑞亚",
+      "steamAppId": 105600,
+      "implementation": {
+        "zh": "小丑之箭可以贯穿多名敌人，且不受重力影响；把敌人引到同一直线上能提高一支箭的覆盖。",
+        "en": "Jester’s Arrows pierce multiple enemies without gravity, making enemy alignment useful for covering several targets with one arrow."
+      },
+      "source": "https://terraria.wiki.gg/wiki/Jester_arrow",
+      "sourceLabel": "Community wiki — game rules",
+      "image": "https://images.loopyhop.com/gameplayatlas/60d2c6e96e95975f2976ab87.jpg",
+      "imageSource": "https://store.steampowered.com/app/105600/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：提供本作的场景语境，不把静态画面作为本条操作过程的证明。",
+        "en": "System reference: provides context for this game; the still image does not establish this interaction sequence."
+      },
+      "rights": "Re-Logic",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/ss_ae168a00ab08104ba266dc30232654d4b3c919e5.600x338.jpg?t=1792530636",
+      "imageIndex": 1,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/ss_ae168a00ab08104ba266dc30232654d4b3c919e5.1920x1080.jpg?t=1792530636"
+    },
+    {
+      "game": "Deep Rock Galactic",
+      "gameZh": "深岩银河",
+      "steamAppId": 548430,
+      "implementation": {
+        "zh": "ArmsKore Coil Gun 能穿透敌人与一定厚度的地形，并留下伤害轨迹；选线同时涉及敌人队形和地形厚度。",
+        "en": "The ArmsKore Coil Gun penetrates enemies and limited terrain thickness, leaving a damaging trail; its firing line depends on both formation and terrain."
+      },
+      "source": "https://deeprockgalactic.wiki.gg/wiki/Coil",
+      "sourceLabel": "Community wiki — game rules",
+      "image": "https://images.loopyhop.com/gameplayatlas/c62d268c4a224d5dd102b4f2.jpg",
+      "imageSource": "https://store.steampowered.com/app/548430/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：可见洞穴中的枪械与队友；静图不能验证这里讨论的武器操作及数值。",
+        "en": "System reference: weapons and teammates are visible in the cave; the still cannot verify the weapon interaction or its values."
+      },
+      "rights": "Ghost Ship Games / Coffee Stain Publishing",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.600x338.jpg?t=1792497307",
+      "imageIndex": 1,
+      "screenshotIndex": 2,
+      "steamId": 548430,
+      "visualInspected": true,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/cf8c347fac940f99a9a256730aca3cb647cb563f/ss_cf8c347fac940f99a9a256730aca3cb647cb563f.1920x1080.jpg?t=1792497307"
+    }
+  ],
+  "contrast": {
+    "zh": "泰拉瑞亚的例子重点在同线多目标；线圈枪还把地形穿透和残留伤害轨迹接到同一发攻击上。",
+    "en": "Terraria emphasizes aligned enemies; the Coil Gun adds terrain penetration and a lingering damage trail."
+  },
+  "combinesWith": [
+    "combat"
+  ],
+  "combinationIds": [
+    "combat-forced-movement"
+  ],
+  "combination": {
+    "zh": "组合提案：先用低伤害推拉把敌人挤到一条通道，再消耗一枚珍贵贯穿弹；控制行动的价值由后续命中数体现。",
+    "en": "Design proposal: use a low-damage push or pull to align enemies, then spend a scarce piercing round, making setup value visible in the later hit count."
+  },
+  "related": [
+    "combat-action-points",
+    "combat-combat-deck-cycle",
+    "combat-cover-flanking",
+    "combat-destructible-cover"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "三个敌人散成三角形，只剩一枚贯穿弹。",
+      "en": "Three enemies form a triangle and one piercing round remains."
+    },
+    "action": {
+      "zh": "玩家侧移，引前两个敌人沿窄道追来。",
+      "en": "The player sidesteps and draws two enemies into a narrow lane."
+    },
+    "result": {
+      "zh": "开火贯穿两人，第三人仍留在侧面。",
+      "en": "The shot hits two enemies; the third remains to the side."
+    },
+    "next": {
+      "zh": "根据剩余威胁选择继续引位，或换普通武器处理。",
+      "en": "Choose another alignment setup or switch to an ordinary weapon."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先做三个圆形目标、一次最多命中两人的直线弹，以及命中次序标记。",
+      "en": "Build three circular targets, a straight shot that hits at most two, and a visible hit-order marker."
+    },
+    "pitfall": {
+      "zh": "同一弹丸不可每帧重复伤害同一目标；命中与继续穿过的反馈要分清。",
+      "en": "Prevent repeated per-frame hits on the same target and distinguish a hit from continued travel."
+    },
+    "test": {
+      "zh": "玩家是否为了第二次命中主动改变站位，而不是只提高射速？",
+      "en": "Do players change position for a second hit rather than merely firing faster?"
+    }
+  },
+  "tags": [
+    "spatial",
+    "planning",
+    "optimization"
+  ]
+}

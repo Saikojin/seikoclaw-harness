@@ -1,0 +1,173 @@
+{
+  "id": "exploration-procedural-route-reading",
+  "system": "exploration",
+  "name": {
+    "zh": "随机地形下的路线判断",
+    "en": "Route reading in procedural terrain"
+  },
+  "summary": {
+    "zh": "每局都要重新判断怎么走，而不是背熟同一条最优路。",
+    "en": "Read a new route each run instead of memorizing one optimal path."
+  },
+  "tags": [
+    "randomness",
+    "discovery",
+    "risk"
+  ],
+  "rules": {
+    "zh": "关卡用随机组合改变通道、危险与奖励位置。玩家观察当前局部信息，判断绕路收益与生存风险；学习保留的是规则和危险识别，而非每个房间的固定答案。",
+    "en": "Procedural layouts vary passages, hazards and rewards. Read local information and weigh detours against survival; learned rules and hazard recognition persist even when room solutions do not."
+  },
+  "loop": [
+    {
+      "zh": "观察新布局",
+      "en": "Read the new layout"
+    },
+    {
+      "zh": "评估出口与支路",
+      "en": "Assess exits and branches"
+    },
+    {
+      "zh": "选择路径并应对变化",
+      "en": "Commit and adapt"
+    },
+    {
+      "zh": "带着规则经验进入下一层",
+      "en": "Carry rule knowledge to the next level"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "已知出口近在眼前，是否为看得到的奖励多冒一次险？",
+      "en": "An exit is close: is a visible reward worth one more risk?"
+    },
+    {
+      "zh": "地形可改造时，绕路与直接开路的成本需要重新比较。",
+      "en": "When terrain is editable, detouring competes with making a direct route."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "安全路径保证",
+        "en": "Guaranteed safe connectivity"
+      },
+      "effect": {
+        "zh": "保证出口连通能把难度集中在选择；不保证则容易产生无解感。",
+        "en": "Guaranteed connectivity focuses difficulty on choices; without it, runs may feel unsolvable."
+      }
+    },
+    {
+      "name": {
+        "zh": "信息可见范围",
+        "en": "Visible information range"
+      },
+      "effect": {
+        "zh": "短视野强调探路，长视野更像整体路线优化。",
+        "en": "Short visibility emphasizes scouting; broad visibility emphasizes route optimization."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Spelunky 2",
+      "gameZh": "洞穴探险2",
+      "steamId": 418530,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "每轮探索的洞穴布局会变化，陷阱、敌人和可破坏地形要求玩家重新判断下行路线。",
+        "en": "Cave layouts change between runs; traps, enemies and destructible terrain demand a fresh reading of the descent."
+      },
+      "source": "https://store.steampowered.com/app/418530/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/e8efbcf900521efadc279a78.jpg",
+      "imageSource": "https://store.steampowered.com/app/418530/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察平台层次与陷阱位置；一张截图不能证明随机生成。",
+        "en": "System reference: inspect platform layers and hazards; one screenshot cannot demonstrate random generation."
+      },
+      "rights": "Mossmouth / BlitWorks",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/418530/ss_bf20692e69cfef2da4b6b4096f42823a5283701c.1920x1080.jpg?t=1663719294"
+    },
+    {
+      "game": "Noita",
+      "gameZh": "女巫",
+      "steamId": 881100,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "程序生成洞穴结合逐像素物理，火、水和可破坏材料会继续改变通路，安全路线可能在行动后失效。",
+        "en": "Procedural caves combine with pixel-level physics; fire, liquids and destructible materials keep altering routes after generation."
+      },
+      "source": "https://store.steampowered.com/app/881100/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/c8a5e0fd4b0b4582dfd2531b.jpg",
+      "imageSource": "https://store.steampowered.com/app/881100/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察洞穴材料与液体区域；截图不声称显示了完整物理演化。",
+        "en": "System reference: inspect cave materials and liquid areas; the frame does not show the full physical evolution."
+      },
+      "rights": "Nolla Games",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_626b401fd6d78ab335ecb8ff1e4b0a8ce7d25f66.1920x1080.jpg?t=1675987871"
+    }
+  ],
+  "contrast": {
+    "zh": "《洞穴探险2》强调读懂随机组合的陷阱与平台；《女巫》还允许材料反应持续改写原本的地形。",
+    "en": "Spelunky 2 emphasizes reading recombined traps and platforms; Noita also lets material reactions continuously rewrite the generated terrain."
+  },
+  "combinesWith": [
+    "gathering",
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "设计提案：随机矿洞保留玩家上次留下的支撑柱，地形变化与持久建设共同决定下一次的安全通道。",
+    "en": "Design proposal: a procedural mine retains support pillars from prior visits, letting shifting terrain and persistent construction jointly shape future safe routes."
+  },
+  "related": [
+    "exploration-ability-gates",
+    "exploration-earned-map",
+    "exploration-fast-travel-network",
+    "gathering-depth-targeting"
+  ],
+  "combinationIds": [
+    "building-structural-support"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "这次出口在左下方，右侧奖励附近却出现了新的陷阱布局。",
+      "en": "This run’s exit is down-left, while a reward on the right has a new trap arrangement."
+    },
+    "action": {
+      "zh": "你先观察陷阱的触发方式，再决定绕过去拿奖励。",
+      "en": "Inspect how the trap triggers before deciding whether to detour for the reward."
+    },
+    "result": {
+      "zh": "你没有依靠上局路线，而是用熟悉的规则判断这局风险。",
+      "en": "You judge this run using learned rules instead of following the previous route."
+    },
+    "next": {
+      "zh": "带着消耗后的资源进入下一块区域，重新判断局部路线。",
+      "en": "Enter the next area with your remaining resources and reassess the local route."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先随机组合少量手工房间，并验证入口到出口始终可达。",
+      "en": "Randomly assemble a small set of authored rooms and verify that the exit stays reachable."
+    },
+    "pitfall": {
+      "zh": "无限随机容易产生无解或无趣布局；先保证可读的选择，再增加组合数量。",
+      "en": "Unrestricted randomness creates impossible or dull layouts; prioritize readable choices before variety."
+    },
+    "test": {
+      "zh": "多次游玩后，观察玩家是否说出通用判断规则，而非只记住固定走法。",
+      "en": "Across runs, check whether players learn reusable rules rather than a fixed path."
+    }
+  },
+  "edition": 1
+}

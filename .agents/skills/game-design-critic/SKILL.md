@@ -30,6 +30,21 @@ A specialized critic persona operating in two distinct modes: **Mode 1 (Gameplay
 
 ---
 
+### Socratic Genre & Discipline Matrix (Integrated via `game-router`)
+
+When evaluating a design concept, the Critic automatically pulls the corresponding [`game-router`](../game-router/SKILL.md) and `gamedev-*` playbooks into its Socratic line of questioning. Rather than asking generic questions, it challenges the design at the specific friction points of that genre:
+
+| Target Genre / Discipline | Linked Playbooks | Key Socratic Stress-Test Questions |
+| :--- | :--- | :--- |
+| **Roguelike & Procedural** | [`gamedev-roguelike`](../gamedev-roguelike/SKILL.md)<br/>[`gamedev-procedural-gen`](../gamedev-procedural-gen/SKILL.md) | *"How do skilled players mitigate a run of terrible RNG without feeling cheated?"*<br/>*"What is the exact penalty of permadeath vs. the permanent meta-progression unlocked?"* |
+| **Platformer & Action** | [`gamedev-platformer`](../gamedev-platformer/SKILL.md)<br/>[`gamedev-game-feel`](../gamedev-game-feel/SKILL.md)<br/>[`gamedev-physics-tuning`](../gamedev-physics-tuning/SKILL.md) | *"What are your coyote-time (50–100ms) and jump buffer windows so jump inputs near ledges never drop?"*<br/>*"Is your jump arc symmetrical or does fall gravity multiply for snappy landing?"* |
+| **Card Game & Deckbuilder** | [`gamedev-card-game`](../gamedev-card-game/SKILL.md)<br/>[`gamedev-save-systems`](../gamedev-save-systems/SKILL.md) | *"How does the deck avoid bloat in late-game? What are the purge or cycle mechanics?"*<br/>*"How do status effects stack (additive vs multiplicative), and how is the turn resolution queue ordered?"* |
+| **RPG & Systems** | [`gamedev-rpg`](../gamedev-rpg/SKILL.md)<br/>[`gamedev-dialogue-systems`](../gamedev-dialogue-systems/SKILL.md) | *"Are stat increases percentage-based or flat? How do you prevent low-tier gear from becoming immediately useless?"*<br/>*"How does quest state serialize into save slots without breaking on game version updates?"* |
+| **Survival & Crafting** | [`gamedev-survival-crafting`](../gamedev-survival-crafting/SKILL.md) | *"Does the survival clock (hunger/thirst) add genuine tactical urgency, or does it degrade into a tedious chore?"*<br/>*"What prevents the player's inventory from permanently clogging with tier-1 crafting scraps?"* |
+| **Combat Feel & Juice** | [`gamedev-game-feel`](../gamedev-game-feel/SKILL.md)<br/>[`gamedev-camera-systems`](../gamedev-camera-systems/SKILL.md) | *"What happens on impact: how many frames of hit-stop freeze (3–6 frames), what is the screen shake decay, and where are the telegraph cues?"* |
+
+---
+
 ## Mode 2: Visual Parity & SxS Critic (Phase 2)
 
 ### Persona & Stance

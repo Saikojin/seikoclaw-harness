@@ -1,0 +1,171 @@
+{
+  "id": "commerce-dynamic-market",
+  "system": "commerce",
+  "name": {
+    "zh": "供需驱动价格",
+    "en": "Supply-driven market prices"
+  },
+  "summary": {
+    "zh": "让买卖行为改变下一次报价，市场成为会被玩家影响的系统。",
+    "en": "Let trading change subsequent prices, making the market responsive to players."
+  },
+  "rules": {
+    "zh": "玩家观察行情后买入或卖出。市场供需随交易与生产变化，连续抛售可能压低自身利润；收入反馈同时也是下一步的市场信号。",
+    "en": "Observe prices, then buy or sell. Trading and production alter supply and demand; repeated selling can reduce the seller’s own margins, feeding information into the next decision."
+  },
+  "loop": [
+    {
+      "zh": "观察价格与产量",
+      "en": "Inspect prices and output"
+    },
+    {
+      "zh": "选择买卖方向",
+      "en": "Choose a trade"
+    },
+    {
+      "zh": "执行交易",
+      "en": "Execute it"
+    },
+    {
+      "zh": "重估改变后的市场",
+      "en": "Reassess the changed market"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "现在卖掉锁定收益，还是等待需求上升？",
+      "en": "Lock in a return now or wait for demand?"
+    },
+    {
+      "zh": "扩大产能是否会把高价市场自己做没？",
+      "en": "Will expanding production erase its attractive price?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "价格弹性",
+        "en": "Price elasticity"
+      },
+      "effect": {
+        "zh": "交易少量就大幅变价会强化择时，也可能鼓励短线操控。",
+        "en": "Large changes from small trades emphasize timing and manipulation."
+      }
+    },
+    {
+      "name": {
+        "zh": "市场共享范围",
+        "en": "Market scope"
+      },
+      "effect": {
+        "zh": "共享市场加强对抗，分区市场增加运输意义。",
+        "en": "Shared markets strengthen competition; regional markets reward transport."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Offworld Trading Company",
+      "gameZh": "外星贸易公司",
+      "implementation": {
+        "zh": "资源市场随玩家买卖改变价格，玩家可选择购买廉价投入品或生产短缺资源获利。",
+        "en": "Resource prices react to player trades, encouraging cheap input purchases or production of scarce goods."
+      },
+      "source": "https://offworldtradingcompany.fandom.com/wiki/Market",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/11c2afc9d888f585f23bec4a.jpg",
+      "imageSource": "https://store.steampowered.com/app/271240/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察左侧商品行情与同屏生产地图；单张图不证明价格如何随交易变化。",
+        "en": "Inspect the commodity price panel beside the production map; one still cannot prove price responses."
+      },
+      "rights": "Mohawk Games / Stardock",
+      "verified": "2026-10-21",
+      "imageThumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271240/ss_fdb1d1301e763bd7cdbed153a2e83a2801bbdc67.600x338.jpg?t=1790866876",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271240/ss_fdb1d1301e763bd7cdbed153a2e83a2801bbdc67.1920x1080.jpg?t=1790866876"
+    },
+    {
+      "game": "Patrician IV",
+      "gameZh": "大航海家4",
+      "implementation": {
+        "zh": "城市商品价格随供应与需求变化；向同一城市大量出售会改变继续售卖的利润。",
+        "en": "City commodity prices change with supply and demand, so selling large quantities alters the profitability of further sales."
+      },
+      "source": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/57620/manuals/p4_manual-en.pdf?t=1730294615",
+      "sourceLabel": "Official manual",
+      "image": "https://images.loopyhop.com/gameplayatlas/f9c14d0696ba149f08af9453.jpg",
+      "imageSource": "https://store.steampowered.com/app/57620/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：城市与港口是商品供需节点；本图没有展示逐笔买卖价格。",
+        "en": "System reference: cities and ports form supply-demand nodes; per-transaction prices are not shown."
+      },
+      "rights": "Gaming Minds Studios / Kalypso Media",
+      "verified": "2026-10-21",
+      "imageThumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/57620/ss_a69ce4bc3b76d34d7244eab1640fa145f8df3599.600x338.jpg?t=1730294615",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/57620/ss_a69ce4bc3b76d34d7244eab1640fa145f8df3599.1920x1080.jpg?t=1730294615"
+    }
+  ],
+  "contrast": {
+    "zh": "外星贸易公司的实时共享市场让对手直接影响行情；大航海家4把价格与城市、航程连接。",
+    "en": "Offworld’s shared real-time market makes rivals direct influences; Patrician ties pricing to cities and voyages."
+  },
+  "combinesWith": [
+    "automation",
+    "gathering"
+  ],
+  "combination": {
+    "zh": "组合创意：矿业小镇中玩家开采过多某矿会拉低当地价格，逼迫采集路线与制造用途一起调整。",
+    "en": "Design proposal: excessive mining depresses a town’s local ore price, forcing changes to gathering routes and manufacturing uses."
+  },
+  "related": [
+    "commerce-auction-bidding",
+    "commerce-debt-pressure",
+    "commerce-haggling",
+    "commerce-price-discovery"
+  ],
+  "tags": [
+    "economy",
+    "optimization",
+    "risk"
+  ],
+  "combinationIds": [
+    "gathering-depth-targeting"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "市场急缺木材，当前每份卖 10，你手上有一批库存。",
+      "en": "The market lacks wood and pays 10 per unit; you hold a large stock."
+    },
+    "action": {
+      "zh": "你先卖出一小批，观察剩余需求与新报价。",
+      "en": "Sell a small batch and inspect remaining demand and the new price."
+    },
+    "result": {
+      "zh": "供给增加后价格下降，继续全卖的平均收益会变低。",
+      "en": "The added supply lowers the price, reducing the average return of selling everything."
+    },
+    "next": {
+      "zh": "决定分批等待、转卖其他商品，或接受低价尽快回笼资金。",
+      "en": "Wait between batches, sell another good, or accept the lower price for immediate cash."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做两种商品、可见库存与简单的供需价格公式，每轮刷新需求。",
+      "en": "Build two goods, visible stocks, a simple supply-demand pricing rule, and periodic demand updates."
+    },
+    "pitfall": {
+      "zh": "先限制价格边界和买卖差价，避免玩家靠同一循环无限套利。",
+      "en": "Set price bounds and trading spreads to avoid an unlimited buy-sell exploit."
+    },
+    "test": {
+      "zh": "大批卖出后，玩家是否理解自己压低了价格，并改变后续交易量。",
+      "en": "After a large sale, do players understand their price impact and adjust later quantities?"
+    }
+  },
+  "edition": 1
+}

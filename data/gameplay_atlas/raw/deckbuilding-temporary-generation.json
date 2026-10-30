@@ -1,0 +1,171 @@
+{
+  "id": "deckbuilding-temporary-generation",
+  "system": "deckbuilding",
+  "name": {
+    "zh": "战斗中临时生出新牌",
+    "en": "Generating cards during combat"
+  },
+  "summary": {
+    "zh": "用一张牌或一个单位，在这一战里制造额外的行动材料。",
+    "en": "Use a card or unit to create extra action cards within the current fight."
+  },
+  "tags": [
+    "planning",
+    "optimization"
+  ],
+  "rules": {
+    "zh": "部分效果把原牌库没有的牌加入手牌或弃牌区，只影响当前战斗。玩家要安排生成时机、手牌空间和后续出牌费用；生成牌可能马上消耗，也可能继续参与本战循环。",
+    "en": "Some effects add cards absent from the starting deck to the hand or discard pile for this fight. Timing, hand space and play costs matter; created cards may be one-use or remain in the combat cycle."
+  },
+  "loop": [
+    {
+      "zh": "启动造牌效果",
+      "en": "Activate a card generator"
+    },
+    {
+      "zh": "检查手牌和费用",
+      "en": "Check hand space and costs"
+    },
+    {
+      "zh": "使用新生成的牌",
+      "en": "Play the created cards"
+    },
+    {
+      "zh": "让造牌节奏配合战况",
+      "en": "Match generation to the encounter"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先开增益再造小攻击，还是先造牌确保本回合能清场？",
+      "en": "Set up a bonus first, or generate attacks immediately to clear the threat?"
+    },
+    {
+      "zh": "持续造牌的单位占了战场位置，产出的牌是否值得这个位置？",
+      "en": "Does a generator’s output justify the battlefield space it occupies?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "每次产牌数",
+        "en": "Cards per trigger"
+      },
+      "effect": {
+        "zh": "数量越多越能触发连击，也越容易挤满手牌。",
+        "en": "More output supports repeated triggers but can clog the hand."
+      }
+    },
+    {
+      "name": {
+        "zh": "生成牌去向",
+        "en": "Destination"
+      },
+      "effect": {
+        "zh": "直接入手立即见效；进弃牌区则要等待下一轮洗牌。",
+        "en": "Hand insertion gives immediate access; discard insertion delays it."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Slay the Spire",
+      "gameZh": "杀戮尖塔",
+      "steamId": 646570,
+      "screenshotIndex": 1,
+      "implementation": {
+        "zh": "刀舞等牌可以生成零费小刀，小刀打出后消耗；这些不是永久加入牌库的奖励。",
+        "en": "Effects such as Blade Dance create zero-cost Shivs that exhaust when played, rather than permanent reward additions."
+      },
+      "source": "https://slay-the-spire.fandom.com/wiki/Shiv",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c17f51c280502584fd54e78a.jpg",
+      "imageSource": "https://store.steampowered.com/app/646570/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：画面可见手牌、费用与正在打出的 Zap+；未展示本条所述的具体选择过程。",
+        "en": "System reference: the hand, costs and a played Zap+ are visible; the specific choice described here is not shown."
+      },
+      "rights": "Mega Crit",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_01aa3e7759e457bfbf2422f31c325d7b3ba8a6eb.1920x1080.jpg?t=1774015376"
+    },
+    {
+      "game": "Monster Train",
+      "gameZh": "怪物火车",
+      "steamId": 1102190,
+      "screenshotIndex": 3,
+      "implementation": {
+        "zh": "Vinemother 的 Resolve 效果持续向手牌加入 Sting 法术，单位因此兼具造牌功能。",
+        "en": "Vinemother adds Sting spells to the hand through Resolve, turning a deployed unit into a card generator."
+      },
+      "source": "https://monster-train.fandom.com/wiki/Cards",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/96820c2de4c6c3ccacd7b7a4.jpg",
+      "imageSource": "https://store.steampowered.com/app/1102190/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：分层敌我单位与底部手牌同时可见，适合观察法术和单位的关系。",
+        "en": "System reference: friendly and enemy floor units appear above the hand, illustrating how spells relate to deployed units."
+      },
+      "rights": "Shiny Shoe / Good Shepherd Entertainment",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1102190/ss_cd1c375e15c677f1d79a5dcd59692f918b19ebde.1920x1080.jpg?t=1779381275"
+    }
+  ],
+  "contrast": {
+    "zh": "小刀强调短时间内连续出牌；Vinemother 把持续产牌能力绑定在要保护的单位身上。",
+    "en": "Shivs emphasize immediate repeated plays; Vinemother ties ongoing supply to a unit that must survive."
+  },
+  "combinesWith": [
+    "building"
+  ],
+  "combinationIds": [
+    "building-structural-support"
+  ],
+  "combination": {
+    "zh": "设计提案：让一座临时工坊每回合生成一张支撑卡，工坊垮塌后停止供给，形成保设施还是抢建造的取舍。",
+    "en": "Design proposal: Have a temporary workshop generate support cards until it collapses, making protection compete with building."
+  },
+  "related": [
+    "deckbuilding-dice-allocation",
+    "deckbuilding-duplicate-investment",
+    "deckbuilding-opening-hand-control",
+    "deckbuilding-reward-choice"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "编辑示例：手中一张备料牌能生成两张零费木板卡。",
+      "en": "Editorial example: Prepare Materials creates two free plank cards."
+    },
+    "action": {
+      "zh": "玩家先用备料，再把两张木板分别补到断桥的两个缺口。",
+      "en": "Play it, then use one plank on each of two bridge gaps."
+    },
+    "result": {
+      "zh": "这一回合多完成两次修补，但木板用完就消耗。",
+      "en": "Two repairs finish this turn, and the plank cards are spent."
+    },
+    "next": {
+      "zh": "下一回合需要再次抽到备料或改用其他建材。",
+      "en": "Next turn requires another generator draw or a different material."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先做一种生成牌、一个产牌效果和明确的手牌上限。",
+      "en": "Start with one created card, one generator and a visible hand limit."
+    },
+    "pitfall": {
+      "zh": "生成牌再生成自身会造成无限链；首版禁止递归造牌。",
+      "en": "Self-generating cards can create infinite chains; forbid them initially."
+    },
+    "test": {
+      "zh": "玩家会为了产牌提前清出手牌空间，并理解战后这些牌不会留下。",
+      "en": "Players clear hand space before generating and understand that created cards do not persist after battle."
+    }
+  },
+  "edition": 2
+}

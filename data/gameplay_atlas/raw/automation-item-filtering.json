@@ -1,0 +1,169 @@
+{
+  "id": "automation-item-filtering",
+  "system": "automation",
+  "name": {
+    "zh": "按物料筛选运输",
+    "en": "Item-filtered transport"
+  },
+  "summary": {
+    "zh": "为混合物流设定规则，让不同物品自动走向正确出口。",
+    "en": "Assign routing rules so mixed items reach the correct destinations."
+  },
+  "tags": [
+    "information",
+    "optimization",
+    "planning"
+  ],
+  "rules": {
+    "zh": "玩家设定允许通过的物品类型，把混合输入拆成专线。未匹配物品必须有去处，否则可能阻塞；正确分类、误投与溢出构成反馈。",
+    "en": "Players define item rules and separate mixed input into dedicated routes. Unmatched items need an exit or can jam the line; correct sorting and overflow reveal rule quality."
+  },
+  "loop": [
+    {
+      "zh": "查看混入的物品",
+      "en": "Inspect incoming items"
+    },
+    {
+      "zh": "配置过滤条件",
+      "en": "Configure filters"
+    },
+    {
+      "zh": "设置未匹配出口",
+      "en": "Provide an unmatched exit"
+    },
+    {
+      "zh": "测试异常输入",
+      "en": "Test unexpected input"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "精细白名单更可靠，但新增产品时需要维护。",
+      "en": "Strict allowlists are predictable but need updating for new products."
+    },
+    {
+      "zh": "保留回收通道占空间，却避免一个异物停掉全线。",
+      "en": "A reject route costs space but prevents one stray item stopping the line."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "物品种类",
+        "en": "Item variety"
+      },
+      "effect": {
+        "zh": "种类越多，记忆过滤规则越困难，分类界面越重要。",
+        "en": "More item types increase rule-management demands."
+      }
+    },
+    {
+      "name": {
+        "zh": "错误后果",
+        "en": "Misrouting consequence"
+      },
+      "effect": {
+        "zh": "允许自动退回会鼓励实验；不可逆污染会迫使先做测试。",
+        "en": "Automatic returns encourage experiments; irreversible contamination encourages testing first."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Factorio",
+      "gameZh": "异星工厂",
+      "implementation": {
+        "zh": "分流器可指定物品过滤，并把选中的类型导向指定侧。",
+        "en": "A splitter can filter an item type toward a designated output."
+      },
+      "source": "https://wiki.factorio.com/Splitter",
+      "sourceLabel": "Official wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/3ce24c08bcd2d6e78214318e.jpg",
+      "imageSource": "https://store.steampowered.com/app/427520/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察物料线路的分区；这张系统图不展示过滤设置面板。",
+        "en": "Inspect separated transport areas; this system image does not show filter settings."
+      },
+      "rights": "Wube Software",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_2533e54b0bd90a29adbedb60108ed277536ad445.1920x1080.jpg?t=1787348817"
+    },
+    {
+      "game": "Satisfactory",
+      "gameZh": "幸福工厂",
+      "implementation": {
+        "zh": "智能分流器可分别设置出口规则，并提供溢出等特殊选项。",
+        "en": "Smart Splitters assign rules to individual outputs, including overflow behavior."
+      },
+      "source": "https://satisfactory.wiki.gg/wiki/Smart_Splitter",
+      "sourceLabel": "Official wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/3914da7942b8b87c6b1bc2c2.jpg",
+      "imageSource": "https://store.steampowered.com/app/526870/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察工厂物流场景；出口规则需要查阅案例说明。",
+        "en": "Inspect the factory logistics setting; consult the text for output rules."
+      },
+      "rights": "Coffee Stain Studios",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/ss_b1104309f1c22c85de6ad6c401e6d889411c14d2.1920x1080.jpg?t=1791192059"
+    }
+  ],
+  "contrast": {
+    "zh": "前者围绕双出口的选定物品分离；后者用多出口规则组织类型与溢出。",
+    "en": "Factorio separates a selected item across two outputs; Satisfactory combines multiple output rules with overflow."
+  },
+  "combinesWith": [
+    "gathering",
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "让矿石夹杂有害碎片：玩家先观察颜色特征，再设计过滤线，错误材料进入熔炉会降低成品质量。",
+    "en": "Mix hazardous fragments into ore; players learn visual traits and build filters before contaminants damage product quality."
+  },
+  "related": [
+    "automation-aerial-logistics",
+    "automation-belt-routing",
+    "automation-blueprint-reuse",
+    "automation-byproduct-loop"
+  ],
+  "combinationIds": [
+    "gathering-hidden-deposit-clues"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "混合运输带送来铁矿和煤，熔炉燃料口只需要煤。",
+      "en": "A mixed belt carries ore and coal; the furnace fuel input accepts only coal."
+    },
+    "action": {
+      "zh": "你把煤送入燃料支路，矿石走另一出口，并留出异常物品去处。",
+      "en": "Route coal to fuel, ore to a separate branch, and provide an outlet for unexpected items."
+    },
+    "result": {
+      "zh": "正确物料抵达各自入口，一件混入的杂物也不会堵住全线。",
+      "en": "Correct items reach their inputs, while an unexpected item does not block the whole line."
+    },
+    "next": {
+      "zh": "加入新品种物料后，检查过滤规则是否仍完整。",
+      "en": "Review filter coverage when a new item type enters the network."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "只用三类物品、一个过滤节点和默认出口，显示每种物品最终走到哪里。",
+      "en": "Use three item types, one filter and a default outlet, showing each item’s destination."
+    },
+    "pitfall": {
+      "zh": "规则优先级与“没有匹配”必须可见，避免玩家只能靠反复拆线调试。",
+      "en": "Make rule priority and unmatched behaviour visible so players need not repeatedly rebuild to debug."
+    },
+    "test": {
+      "zh": "故意混入一种新物品，观察玩家是否能给它安排去处并保持原线路运行。",
+      "en": "Introduce an unfamiliar item and see whether players route it without breaking the existing flow."
+    }
+  },
+  "edition": 1
+}

@@ -1,0 +1,176 @@
+{
+  "id": "projectiles-heat-pacing",
+  "system": "projectiles",
+  "edition": 3,
+  "name": {
+    "zh": "在过热之前停火冷却",
+    "en": "Stop firing before overheating"
+  },
+  "summary": {
+    "zh": "现在多打一会儿，可能换来之后更长的一段无法射击。",
+    "en": "A little more fire now may force a much longer pause afterward."
+  },
+  "rules": {
+    "zh": "开火持续积累热量，松开后冷却；越过临界点会触发更长停机或其他明确惩罚。玩家观察热量和敌人状态，在主动短停与强行补完最后一击之间取舍。热量管理与弹药管理可以并存。",
+    "en": "Firing builds heat that falls when the trigger is released. Crossing a threshold causes a longer shutdown or a clear penalty. Watch heat and enemy state to choose a short voluntary pause or a final risky burst; heat may coexist with ammunition limits."
+  },
+  "loop": [
+    {
+      "zh": "查看热量和当前威胁",
+      "en": "Read heat and the current threat"
+    },
+    {
+      "zh": "开火到接近临界点",
+      "en": "Fire toward the threshold"
+    },
+    {
+      "zh": "主动冷却或冒险继续",
+      "en": "Cool deliberately or risk more fire"
+    },
+    {
+      "zh": "恢复后安排下一段射击",
+      "en": "Plan the next firing window after recovery"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "敌人只剩少量生命时，是否值得让武器过热来确保击杀？",
+      "en": "Is finishing a nearly defeated enemy worth overheating?"
+    },
+    {
+      "zh": "冷却时换副武器，还是继续保持主武器瞄准等待？",
+      "en": "Switch weapons during cooling or keep the primary aimed and wait?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "正常冷却与过热停机差距",
+        "en": "Cooling versus overheat downtime"
+      },
+      "effect": {
+        "zh": "差距越大，提前停火越重要；差距太小则很难形成取舍。",
+        "en": "A larger gap makes early release valuable; little difference weakens the decision."
+      }
+    },
+    {
+      "name": {
+        "zh": "临界提示",
+        "en": "Threshold feedback"
+      },
+      "effect": {
+        "zh": "声音、颜色和动画共同提示接近过热，让玩家不用一直盯着仪表。",
+        "en": "Sound, color and animation can warn of heat without requiring constant meter watching."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Deep Rock Galactic",
+      "gameZh": "深岩银河",
+      "steamAppId": 548430,
+      "implementation": {
+        "zh": "Lead Storm 机枪持续开火会积热，过热后需等待恢复；玩家可通过分段射击管理热量，但弹药仍然有限。",
+        "en": "The Lead Storm minigun builds heat and must recover after overheating. Controlled bursts manage heat while ammunition remains finite."
+      },
+      "source": "https://deeprockgalactic.wiki.gg/wiki/%22Lead_Storm%22_Powered_Minigun",
+      "sourceLabel": "Community wiki — game rules",
+      "image": "https://images.loopyhop.com/gameplayatlas/c62d268c4a224d5dd102b4f2.jpg",
+      "imageSource": "https://store.steampowered.com/app/548430/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：可见洞穴中的枪械与队友；静图不能验证这里讨论的武器操作及数值。",
+        "en": "System reference: weapons and teammates are visible in the cave; the still cannot verify the weapon interaction or its values."
+      },
+      "rights": "Ghost Ship Games / Coffee Stain Publishing",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.600x338.jpg?t=1792497307",
+      "imageIndex": 1,
+      "screenshotIndex": 2,
+      "steamId": 548430,
+      "visualInspected": true,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/cf8c347fac940f99a9a256730aca3cb647cb563f/ss_cf8c347fac940f99a9a256730aca3cb647cb563f.1920x1080.jpg?t=1792497307"
+    },
+    {
+      "game": "Titanfall 2",
+      "gameZh": "泰坦陨落2",
+      "steamId": 1237970,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "L-STAR 用热量限制连续射击，长时间不松手会触发过热恢复；适时松开扳机可避免进入更长停顿。",
+        "en": "The L-STAR limits sustained fire through heat; releasing the trigger in time avoids its longer overheat recovery."
+      },
+      "source": "https://titanfall.wiki.gg/wiki/L-STAR",
+      "sourceLabel": "Community wiki — game rules",
+      "image": "https://images.loopyhop.com/gameplayatlas/4ca4dafa02f15a442e13b945.jpg",
+      "imageSource": "https://store.steampowered.com/app/1237970/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：提供本作的场景语境，不把静态画面作为本条操作过程的证明。",
+        "en": "System reference: provides context for this game; the still image does not establish this interaction sequence."
+      },
+      "rights": "Respawn Entertainment / Electronic Arts",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1237970/ss_d5c13576c0ab4e6ca93b51aa39aa74271672e75f.1920x1080.jpg?t=1779987598"
+    }
+  ],
+  "contrast": {
+    "zh": "深岩银河把热量与任务弹药储备叠加；Titanfall 2 的 L-STAR 更突出连续交火中的停火节奏。",
+    "en": "DRG combines heat with mission ammunition reserves; Titanfall 2’s L-STAR emphasizes trigger pacing during sustained encounters."
+  },
+  "combinesWith": [
+    "defense"
+  ],
+  "combinationIds": [
+    "defense-early-wave-call"
+  ],
+  "combination": {
+    "zh": "组合提案：塔炮有热量表，提前叫波能多拿资源，但会压缩冷却时间；玩家要看防线剩余火力再决定要不要加速。",
+    "en": "Design proposal: towers have heat meters, so calling waves early earns resources while reducing cooling time; spare firing capacity becomes part of the call decision."
+  },
+  "related": [
+    "projectiles-active-reload",
+    "projectiles-charged-release",
+    "projectiles-spread-recovery",
+    "defense-early-wave-call"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "热量已到八成，两个敌人还在靠近。",
+      "en": "Heat is at eighty percent and two enemies are approaching."
+    },
+    "action": {
+      "zh": "玩家先松开扳机，绕过柱子争取冷却。",
+      "en": "The player releases fire and circles a pillar to cool."
+    },
+    "result": {
+      "zh": "热量下降，敌人也绕到了同一侧。",
+      "en": "Heat drops while the enemies move to the same side."
+    },
+    "next": {
+      "zh": "重新开火，并判断这轮能否在过热前结束。",
+      "en": "Fire again and judge whether the encounter can end before overheating."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一根热量条、正常冷却和过热锁定两种状态，配一个持续接近的靶子。",
+      "en": "Build one heat meter, ordinary cooling, an overheated lockout and one approaching target."
+    },
+    "pitfall": {
+      "zh": "不要让热量条看似线性、实际临界点却无法预测。",
+      "en": "Keep the displayed threshold predictable instead of hiding an unexpected overheat point."
+    },
+    "test": {
+      "zh": "玩家是否会在临界前主动松手，而不是每次都等系统强制停机？",
+      "en": "Do players release before the limit instead of always waiting for forced shutdown?"
+    }
+  },
+  "tags": [
+    "timing",
+    "risk",
+    "optimization"
+  ]
+}

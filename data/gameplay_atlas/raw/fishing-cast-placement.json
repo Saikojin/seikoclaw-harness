@@ -1,0 +1,169 @@
+{
+  "id": "fishing-cast-placement",
+  "system": "fishing",
+  "name": {
+    "zh": "抛竿落点选择",
+    "en": "Choosing a cast location"
+  },
+  "summary": {
+    "zh": "一次出手前，把距离、角度和鱼的位置考虑进去。",
+    "en": "Consider range, angle and fish position before releasing the cast."
+  },
+  "rules": {
+    "zh": "玩家调整站位或蓄力，把浮标投向有价值的位置。距离过短、落点偏离或靠岸太近可能降低效率；反馈来自落点、水面标记与鱼的接近行为，而非只看是否按下按钮。",
+    "en": "Adjust position or casting power to land the bobber in a useful spot. Short or misplaced casts may be less productive; landing points, surface markers and fish approaches provide spatial feedback."
+  },
+  "loop": [
+    {
+      "zh": "观察岸线与水面",
+      "en": "Read shoreline and surface"
+    },
+    {
+      "zh": "调整站位与抛投力度",
+      "en": "Adjust position and cast strength"
+    },
+    {
+      "zh": "确认落点",
+      "en": "Check the landing point"
+    },
+    {
+      "zh": "等待或收回重投",
+      "en": "Wait or recast"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "追求最远距离可能错过近处的特殊水面，远不等于好。",
+      "en": "The longest cast may miss a nearby special patch; farther is not always better."
+    },
+    {
+      "zh": "移动到更合适的岸边有时间成本，但可能省下多次空等。",
+      "en": "Repositioning costs time but can prevent repeated unproductive waits."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "落点容错",
+        "en": "Placement tolerance"
+      },
+      "effect": {
+        "zh": "大范围有效区适合放松，小范围热点鼓励瞄准。",
+        "en": "Large valid areas are relaxing; small hotspots reward aiming."
+      }
+    },
+    {
+      "name": {
+        "zh": "重投成本",
+        "en": "Recast cost"
+      },
+      "effect": {
+        "zh": "免费重投鼓励练习，消耗体力或时间则增加承诺感。",
+        "en": "Free recasts encourage practice; stamina or time costs add commitment."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "implementation": {
+        "zh": "抛竿距离与浮标离岸距离有关，水面气泡可提高咬钩效率；玩家可调整抛投。",
+        "en": "Casting range and distance from land matter, while bubble patches improve bite efficiency; players can adjust their cast."
+      },
+      "source": "https://stardewvalleywiki.com/Fishing",
+      "sourceLabel": "Stardew Valley Wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/c6411c596fc9018b514712f4.jpg",
+      "imageSource": "https://www.gamesradar.com/stardew-valley-prismatic-shard-farming/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "浮标落在码头外侧，鱼线连接角色与水面落点；观察可站立位置和目标水格的空间关系。",
+        "en": "The bobber lands outside the pier and the line connects it to the player; inspect the relationship between standing position and target water tile."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "originalImage": "https://cdn.mos.cms.futurecdn.net/8c8HagRPnYoVBmPwnQgJHR-1024-80.jpg"
+    },
+    {
+      "game": "Dinkum",
+      "gameZh": "澳洲梦想镇",
+      "implementation": {
+        "zh": "先观察水中可见的鱼，把浮标抛到它附近，等待它接近并咬钩。",
+        "en": "Observe visible fish and place the bobber nearby, then wait for the fish to approach and bite."
+      },
+      "source": "https://www.neoseeker.com/dinkum/Fishing",
+      "sourceLabel": "Neoseeker guide",
+      "image": "https://images.loopyhop.com/gameplayatlas/1f6a259276f7ee5762d088ba.jpg",
+      "imageSource": "https://store.steampowered.com/app/1062520/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "船上钓竿指向周围水面，可比较船只站位与抛投方向；图中未展示浮标最终落点。",
+        "en": "Rods point out from the boat; compare vessel position and casting direction, without inferring the final bobber position."
+      },
+      "rights": "James Bendon / KRAFTON",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062520/ss_dd3c7d818608ab4ccfb2ff823136de4625746ddb.1920x1080.jpg?t=1767607973"
+    }
+  ],
+  "contrast": {
+    "zh": "星露谷主要优化水格条件；Dinkum让玩家围绕可见游鱼瞄准。",
+    "en": "Stardew primarily optimizes water-tile conditions; Dinkum centers placement on visible swimming fish."
+  },
+  "combinesWith": [
+    "exploration",
+    "puzzles"
+  ],
+  "combination": {
+    "zh": "设计提案：河流把浮标带向下游，玩家要从上游抛投，利用水流把饵送进遮蔽物后方。",
+    "en": "Design proposal: current carries the bobber downstream, so players cast upstream to deliver bait behind cover."
+  },
+  "tags": [
+    "spatial",
+    "precision",
+    "planning"
+  ],
+  "related": [
+    "fishing-equipment-access",
+    "fishing-bait-loadout",
+    "fishing-bite-window",
+    "fishing-habitat-search"
+  ],
+  "combinationIds": [
+    "building-water-engineering"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "鱼群在右侧近岸，正前方虽然更远却没有动静。",
+      "en": "Fish gather near the right bank; the water straight ahead is farther away but quiet."
+    },
+    "action": {
+      "zh": "你向右换站位，降低抛投力度，把浮标落到鱼群附近。",
+      "en": "Move right and use less casting power to land near the fish."
+    },
+    "result": {
+      "zh": "落点与目标距离可见，投偏后可以选择立即重投。",
+      "en": "The distance to the target is visible; a poor cast can be retrieved immediately."
+    },
+    "next": {
+      "zh": "鱼群位置变化后，再重新选择站位与力度。",
+      "en": "Reassess your position and power when the school moves."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一块平面水域、可见目标圆和蓄力抛投抛物线，先用静止目标。",
+      "en": "Use a flat water area, a visible target circle and a charged cast arc, starting with a stationary target."
+    },
+    "pitfall": {
+      "zh": "风向、移动鱼群与复杂岸线同时加入，会让玩家不知道哪项造成偏差。",
+      "en": "Adding wind, moving schools and complex banks together makes missed casts hard to diagnose."
+    },
+    "test": {
+      "zh": "连续三次抛投后，玩家能否有方向地调整力度与站位，让落点更接近目标？",
+      "en": "After three casts, can players deliberately adjust power and position to improve accuracy?"
+    }
+  },
+  "edition": 1
+}

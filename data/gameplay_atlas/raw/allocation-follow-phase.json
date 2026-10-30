@@ -1,0 +1,171 @@
+{
+  "id": "allocation-follow-phase",
+  "system": "allocation",
+  "edition": 3,
+  "name": {
+    "zh": "我选行动，其他人也能跟着做",
+    "en": "Choose a phase that others can also use"
+  },
+  "summary": {
+    "zh": "自己开启的机会，也可能帮对手推进计划。",
+    "en": "Opening your action can also advance an opponent’s plan."
+  },
+  "rules": {
+    "zh": "玩家各自选择希望发生的行动阶段，公布后只执行有人选择的阶段，其他玩家也可在符合条件时参与。玩家要判断别人会选什么，借对方开启的阶段完成自己的计划；自己选择则确保阶段发生，或获得选择者奖励。",
+    "en": "Players choose phases, then only selected phases occur. Eligible rivals may participate as well. Predict others’ choices to use phases they open, while choosing a phase yourself guarantees it or earns a selector benefit."
+  },
+  "loop": [
+    {
+      "zh": "观察大家当前需要什么",
+      "en": "Read everyone’s current needs"
+    },
+    {
+      "zh": "选择自己必须确保的阶段",
+      "en": "Choose a phase you must guarantee"
+    },
+    {
+      "zh": "揭示并共同执行已选阶段",
+      "en": "Reveal and resolve selected phases"
+    },
+    {
+      "zh": "利用结果预测下一轮",
+      "en": "Use the result to predict the next round"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "相信别人会选生产，自己去选出售，还是亲自确保生产发生？",
+      "en": "Trust someone else to select production and choose selling, or guarantee production yourself?"
+    },
+    {
+      "zh": "某个阶段对自己有利，但会让对手更快得分，还要开启吗？",
+      "en": "Open a useful phase if it advances an opponent’s score even more?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "选择是否隐藏",
+        "en": "Hidden selection"
+      },
+      "effect": {
+        "zh": "同时暗选强化预测，公开顺选则强化回应与让利判断。",
+        "en": "Simultaneous hidden picks emphasize prediction; visible sequential picks emphasize response."
+      }
+    },
+    {
+      "name": {
+        "zh": "选择者优势",
+        "en": "Selector benefit"
+      },
+      "effect": {
+        "zh": "额外收益能补偿开启公共机会，也不能大到让跟随没有意义。",
+        "en": "A benefit compensates for opening a public opportunity without making following pointless."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Race for the Galaxy",
+      "gameZh": "银河竞逐",
+      "rights": "Temple Gates Games / Rio Grande Games",
+      "image": "https://images.loopyhop.com/gameplayatlas/845417f74f621a681e5ef94b.jpg",
+      "imageSource": "https://store.steampowered.com/app/579940/Race_for_the_Galaxy/",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：个人卡牌区域、资源与阶段选择栏同屏显示。",
+        "en": "System reference: The card tableau, resources and phase-selection column share the screen. See the linked text source for the rules."
+      },
+      "implementation": {
+        "zh": "玩家同时选择行动牌，本轮执行被选中的阶段；所有人可参与对应阶段，选择该阶段的人获得相应奖励。",
+        "en": "Players choose action cards simultaneously; selected phases occur for everyone, with a matching bonus for the player who selected each phase."
+      },
+      "source": "https://www.riograndegames.com/wp-content/uploads/2013/02/RFTG_2e_rules.pdf",
+      "sourceLabel": "Official rulebook — Rio Grande Games",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/579940/ss_416a1235d9fd992e52c5b8a90ed5aedf5ed6a77b.1920x1080.jpg?t=1573172455"
+    },
+    {
+      "game": "Roll for the Galaxy",
+      "gameZh": "银河骰子",
+      "rights": "Temple Gates Games / Rio Grande Games",
+      "image": "https://images.loopyhop.com/gameplayatlas/fc6b79e83ff4580cdbe3c669.webp",
+      "imageSource": "https://www.iphonelife.com/content/roll-galaxy-game-review",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：骰子与工人分配区域、行动栏和卡牌同屏显示。",
+        "en": "System reference: Dice, worker-assignment areas, action controls and cards share the screen. See the linked text source for the rules."
+      },
+      "implementation": {
+        "zh": "玩家用一枚骰子选择确保发生的阶段，并把工人骰分配到各阶段；别人选择的阶段也会执行，但自己要已分配工人才有相应行动。",
+        "en": "A die selects a guaranteed phase while worker dice are assigned across phases; phases selected by others also occur, but a player needs assigned workers to act in them."
+      },
+      "source": "https://www.riograndegames.com/wp-content/uploads/2013/02/Roll-for-the-Galaxy-Rules.pdf",
+      "sourceLabel": "Official rulebook — Rio Grande Games",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://www.iphonelife.com/sites/iphonelife.com/files/roll-05.png"
+    }
+  ],
+  "contrast": {
+    "zh": "银河竞逐用行动牌和选择者奖励安排阶段；银河骰子还要求预先分配骰子工人，猜对阶段却没派人也无法充分利用。",
+    "en": "Race uses action cards and selector bonuses; Roll additionally requires advance worker allocation, so predicting a phase is insufficient without assigned workers."
+  },
+  "combinesWith": [
+    "automation"
+  ],
+  "combinationIds": [
+    "automation-production-chain"
+  ],
+  "combination": {
+    "zh": "组合提案：多个工厂各选一道公共生产工序，只执行被选中的工序；玩家可借对手开启的加工阶段，把自己的选择留给运输环节。",
+    "en": "Design proposal: factories each choose a public production step; only selected steps run, allowing one player to rely on a rival’s processing phase and choose transport instead."
+  },
+  "related": [
+    "allocation-public-pick",
+    "allocation-area-majority",
+    "allocation-public-goal-race",
+    "allocation-shared-stock"
+  ],
+  "tags": [
+    "information",
+    "planning"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你有原料，对手有待加工材料，双方都可能选择加工。",
+      "en": "You have raw material and the opponent has material ready to process; both may choose processing."
+    },
+    "action": {
+      "zh": "判断对手会加工，自己选择运输。",
+      "en": "Expect the opponent to process and choose transport."
+    },
+    "result": {
+      "zh": "对手果然选加工，两道工序都发生，你完成加工后接着出货。",
+      "en": "The opponent selects processing, so both phases occur and you process before shipping."
+    },
+    "next": {
+      "zh": "下轮对手库存变空，不能再默认他会选相同阶段。",
+      "en": "The opponent’s stock is now empty, so the same prediction may fail next round."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "competitive",
+    "firstStep": {
+      "zh": "两名本地玩家轮流遮屏选三种阶段，生产、加工、出售按固定顺序执行。",
+      "en": "Use two local players choosing among three phases privately; resolve production, processing and selling in fixed order."
+    },
+    "pitfall": {
+      "zh": "必须区分选阶段与在阶段中有资格行动，避免用户觉得跟随被漏算。",
+      "en": "Distinguish selecting a phase from eligibility to act in it."
+    },
+    "test": {
+      "zh": "玩家是否会根据对手库存预测阶段，且猜错后能解释原因？",
+      "en": "Do players predict phases from rivals’ stock and explain failed predictions?"
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "incremental-escalating-copy-price",
+  "system": "incremental",
+  "edition": 3,
+  "name": {
+    "zh": "同一种买得越多，下一份越贵",
+    "en": "Each additional copy costs more"
+  },
+  "summary": {
+    "zh": "旧选择的价格会改变，逼着玩家反复比较下一笔投资。",
+    "en": "An earlier choice grows more expensive, forcing each next investment to be reconsidered."
+  },
+  "rules": {
+    "zh": "同一种产出单位每买一份，下一份价格就提高，而单份基础收益可以保持不变。玩家比较“增加多少收益、要等多久回本”，在多种单位间切换。这里的取舍来自连续涨价，不依赖跨门槛奖励。",
+    "en": "Every copy of a producer raises the price of the next, while its base output can stay constant. Compare additional income and payback time, switching among producer types. This decision comes from rising marginal cost, independently of threshold rewards."
+  },
+  "loop": [
+    {
+      "zh": "查看下一份的实际价格",
+      "en": "Inspect the next-copy price"
+    },
+    {
+      "zh": "比较新增收益与回本时间",
+      "en": "Compare added output and payback"
+    },
+    {
+      "zh": "购买或攒钱换一种",
+      "en": "Buy or save for another type"
+    },
+    {
+      "zh": "价格上涨后重新比较",
+      "en": "Recompare after the price rises"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "继续买熟悉的低价单位，还是等到能买更贵但回报更高的新单位？",
+      "en": "Keep buying the familiar cheaper producer or wait for a larger, better-returning one?"
+    },
+    {
+      "zh": "一次买很多是否省事，但也错过了中途应该换投资对象的时点？",
+      "en": "Does buying in bulk save effort but pass the point where another producer becomes better?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "每次涨价幅度",
+        "en": "Price growth per copy"
+      },
+      "effect": {
+        "zh": "涨价快会更早推动换线；涨价慢让同一选择维持更久。",
+        "en": "Fast growth encourages earlier switching; slow growth keeps one choice attractive longer."
+      }
+    },
+    {
+      "name": {
+        "zh": "收益展示方式",
+        "en": "Return display"
+      },
+      "effect": {
+        "zh": "同时显示新增产量和下一份价格，比只显示总产量更能支持比较。",
+        "en": "Showing added output alongside the next price supports comparison better than total output alone."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Cookie Clicker",
+      "gameZh": "饼干点点乐",
+      "steamId": 1454400,
+      "implementation": {
+        "zh": "同类建筑的下一份基础价格随拥有数量递增，玩家需要持续比较不同建筑与升级的新增产量。",
+        "en": "The next base price of a building type rises with the number owned, encouraging repeated comparison of marginal production from buildings and upgrades."
+      },
+      "source": "https://cookieclicker.wiki.gg/wiki/Buildings",
+      "sourceLabel": "Community game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/99c4a3931d85082aa20b115b.jpg",
+      "imageSource": "https://store.steampowered.com/app/1454400/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：饼干和购买栏呈现基础增长界面；截图不能证明本条玩法随时间变化的完整过程。",
+        "en": "System reference: the cookie and purchase column show the growth interface; a still image cannot establish the full timed interaction."
+      },
+      "rights": "Orteil / Opti / Playsaurus",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1454400/ss_f02c40720fca88f7c59b95127d26ef668d372b8c.1920x1080.jpg?t=1792369237"
+    },
+    {
+      "game": "AdVenture Capitalist",
+      "gameZh": "冒险资本家",
+      "steamId": 346900,
+      "rights": "Hyper Hippo Games",
+      "image": "https://images.loopyhop.com/gameplayatlas/58a6cff5ba296cc36aad862d.jpg",
+      "imageSource": "https://store.steampowered.com/app/346900/",
+      "visualInspected": true,
+      "implementation": {
+        "zh": "企业每增加一份投资，后续购买成本按该企业的增长系数提高；不同企业系数不同，原本便宜的选项未必一直划算。",
+        "en": "Each added business investment raises subsequent cost using that business’s growth coefficient. Different coefficients mean a previously cheap option need not remain efficient."
+      },
+      "source": "https://adventure-capitalist.fandom.com/wiki/Businesses",
+      "sourceLabel": "Community game wiki",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "observation": {
+        "zh": "系统参考图：官方商店宣传合成图中可见产业购买与收益界面；不是完整操作截图。",
+        "en": "System reference: This official-store promotional composite includes business-purchase and income panels; it is not a complete gameplay screenshot. See the linked text source for the rules."
+      },
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/346900/ss_24fbcd72d11e70c34a041ab3c6e4fe661f111ccd.1920x1080.jpg?t=1769198593"
+    }
+  ],
+  "contrast": {
+    "zh": "饼干点点乐的同类建筑基础涨价规律较统一；冒险资本家让不同企业采用不同成本增长速度。",
+    "en": "Cookie Clicker uses a broadly shared base price-growth rule; AdVenture Capitalist gives businesses differing cost-growth rates."
+  },
+  "combinesWith": [
+    "commerce"
+  ],
+  "combinationIds": [
+    "commerce-timed-contracts"
+  ],
+  "combination": {
+    "zh": "组合提案：订单截止前可以持续加购工人，但下一名更贵；玩家只买足以赶上交付的数量，避免订单结束后回不了本。",
+    "en": "Design proposal: hire increasingly expensive workers to meet a contract deadline, buying only enough capacity to finish without leaving an unpayable investment afterward."
+  },
+  "related": [
+    "incremental-spend-held-bonus",
+    "commerce-trade-route-programming",
+    "incremental-allocate-progress-capacity",
+    "incremental-offline-window"
+  ],
+  "tags": [
+    "economy",
+    "optimization",
+    "planning"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "A每台加1产量，下台要10币，再下台要15币；B加2产量需要24币。",
+      "en": "A adds one output: the next costs ten, the one after fifteen. B adds two for twenty-four."
+    },
+    "action": {
+      "zh": "玩家先买10币的A。",
+      "en": "Buy the ten-coin A."
+    },
+    "result": {
+      "zh": "下一台A涨到15币，此时两台A的连续采购不再像刚才便宜。",
+      "en": "The next A now costs fifteen, changing the comparison for further purchases."
+    },
+    "next": {
+      "zh": "玩家重新比较B，而非一直点击同一按钮。",
+      "en": "Reconsider B rather than repeatedly clicking the same button."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用两种单位、一种货币和可见的递增价格，展示下一份而非历史均价。",
+      "en": "Use two producer types and one currency; show the rising next price, not the historical average."
+    },
+    "pitfall": {
+      "zh": "避免大数直接溢出或四舍五入后显示相同价格，令决策失真。",
+      "en": "Prevent overflow or rounding that makes distinct prices appear identical."
+    },
+    "test": {
+      "zh": "玩家能否发现最优的下一笔购买会随已有数量改变？",
+      "en": "Can players notice that the best next purchase changes with ownership counts?"
+    }
+  }
+}

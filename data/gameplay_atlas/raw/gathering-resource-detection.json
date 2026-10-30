@@ -1,0 +1,175 @@
+{
+  "id": "gathering-resource-detection",
+  "system": "gathering",
+  "name": {
+    "zh": "资源探测高亮",
+    "en": "Resource detection overlays"
+  },
+  "summary": {
+    "zh": "花费道具或基础设施，把寻找资源从盲搜变成定位。",
+    "en": "Spend items or infrastructure to turn blind searching into localization."
+  },
+  "tags": [
+    "information",
+    "discovery",
+    "optimization"
+  ],
+  "rules": {
+    "zh": "玩家启动探测效果，使范围内某类资源被标记。标记减少搜索时间，却不自动解决路程、地形或危险；玩家仍要规划到达路线并采集。",
+    "en": "Detection marks nearby resources of a selected type. It reduces search time without removing travel, terrain or danger; players still plan a route and extract the target."
+  },
+  "loop": [
+    {
+      "zh": "确定缺少的资源",
+      "en": "Choose a needed resource"
+    },
+    {
+      "zh": "启动探测",
+      "en": "Activate detection"
+    },
+    {
+      "zh": "规划到标记的路线",
+      "en": "Route to a marker"
+    },
+    {
+      "zh": "采集并寻找下一点",
+      "en": "Harvest and move on"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先投入探测设施，还是凭地形经验直接找？",
+      "en": "Invest in detection or search using terrain knowledge?"
+    },
+    {
+      "zh": "近处低产点和远处富集点，哪个更值得？",
+      "en": "Choose a nearby poor deposit or a distant rich one?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "覆盖范围",
+        "en": "Detection range"
+      },
+      "effect": {
+        "zh": "范围大节省盲搜，但过大时容易抹掉发现地形的乐趣。",
+        "en": "Large ranges reduce blind searching but can erase terrain discovery."
+      }
+    },
+    {
+      "name": {
+        "zh": "使用成本",
+        "en": "Activation cost"
+      },
+      "effect": {
+        "zh": "消耗品鼓励关键时刻使用；常驻设施促使建立采集据点。",
+        "en": "Consumables encourage selective use; permanent facilities encourage gathering outposts."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Terraria",
+      "gameZh": "泰拉瑞亚",
+      "steamAppId": 105600,
+      "implementation": {
+        "zh": "洞穴探险药水让周围宝物和矿石高亮，效果有持续时间，适合把一次采矿安排在增益窗口内。",
+        "en": "Spelunker Potions highlight nearby treasure and ore for a limited duration, encouraging focused mining trips."
+      },
+      "source": "https://terraria.wiki.gg/wiki/Spelunker_Potion",
+      "sourceLabel": "Official game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/3b55ff9aa76f1ccce2f6acf7.jpg",
+      "imageSource": "https://store.steampowered.com/app/105600/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "洞穴里的矿点与曲折通路说明定位后仍须规划接近路线。系统参考图，未显示洞穴探险药水效果。",
+        "en": "Deposits and winding passages show why localization still needs routing. System reference; the Spelunker effect is not shown."
+      },
+      "rights": "Re-Logic",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/ss_9edd98caaf9357c2f40758f354475a56e356e8b0.600x338.jpg?t=1792530636",
+      "imageIndex": 2,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/ss_9edd98caaf9357c2f40758f354475a56e356e8b0.1920x1080.jpg?t=1792530636"
+    },
+    {
+      "game": "Subnautica",
+      "gameZh": "深海迷航",
+      "steamAppId": 264710,
+      "implementation": {
+        "zh": "扫描室按选定资源搜索周围区域，玩家可结合 HUD 芯片显示目标位置；需要设施与能源支持。",
+        "en": "The Scanner Room searches nearby space for a chosen resource, with a HUD chip showing targets; it requires infrastructure and power."
+      },
+      "source": "https://subnautica.fandom.com/wiki/Scanner_Room_(Subnautica)",
+      "sourceLabel": "Community game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/9489d1e568f2164713658905.jpg",
+      "imageSource": "https://store.steampowered.com/app/264710/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "海底基地设施体现固定据点与周围探索范围的关系。系统参考图，未显示扫描室资源高亮。",
+        "en": "Seabed facilities contextualize fixed infrastructure and surrounding exploration. System reference; Scanner Room highlights are not shown."
+      },
+      "rights": "Unknown Worlds Entertainment",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_cebc378d2f7bc78978c21db4e3c5e12ccd067349.600x338.jpg?t=1777456112",
+      "imageIndex": 3,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/ss_cebc378d2f7bc78978c21db4e3c5e12ccd067349.1920x1080.jpg?t=1777456112"
+    }
+  ],
+  "contrast": {
+    "zh": "泰拉瑞亚让检测能力随角色短时移动；深海迷航让探测依附在基地与服务范围上。",
+    "en": "Terraria makes detection a temporary mobile buff; Subnautica anchors it to infrastructure and coverage."
+  },
+  "combinesWith": [
+    "building",
+    "exploration"
+  ],
+  "combination": {
+    "zh": "组合创意：探测器每次只显示矿脉方向，玩家在两个地点测量后交叉定位，再决定钻探路线。",
+    "en": "Design proposal: scanners report only a bearing; two readings triangulate a vein before drilling."
+  },
+  "related": [
+    "gathering-hidden-deposit-clues",
+    "exploration-ability-gates",
+    "exploration-earned-map",
+    "gathering-depth-targeting"
+  ],
+  "combinationIds": [
+    "exploration-earned-map"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你缺铜矿，只剩一次探测机会；最近的山洞已经搜过。",
+      "en": "You need copper and have one scan left; the nearest cave is already searched."
+    },
+    "action": {
+      "zh": "你到未知区域启动探测，查看亮起的矿点与通路。",
+      "en": "Scan an unexplored area and inspect the highlighted deposits and routes."
+    },
+    "result": {
+      "zh": "位置变明确了，但远处矿点仍可能被危险地形挡住。",
+      "en": "Locations become known, but hazardous terrain may still block a distant deposit."
+    },
+    "next": {
+      "zh": "先选可达且划算的点，采完后再决定是否补充探测资源。",
+      "en": "Choose a worthwhile reachable deposit, then consider replenishing scans afterward."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用遮蔽网格、固定探测半径和少量障碍，比较探测前后的路径选择。",
+      "en": "Use a hidden grid, fixed scan radius and a few obstacles to compare route choices before and after scanning."
+    },
+    "pitfall": {
+      "zh": "探测若同时自动寻路和自动采集，会抹去定位之后的判断空间。",
+      "en": "Automatic navigation and collection attached to scanning remove decisions after discovery."
+    },
+    "test": {
+      "zh": "探测给出多个点时，玩家是否比较路线成本，而非永远选画面上最近的一点？",
+      "en": "When scanning reveals several deposits, do players compare route costs rather than visual distance alone?"
+    }
+  },
+  "edition": 1
+}

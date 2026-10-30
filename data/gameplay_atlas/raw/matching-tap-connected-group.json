@@ -1,0 +1,172 @@
+{
+  "id": "matching-tap-connected-group",
+  "system": "matching",
+  "edition": 3,
+  "name": {
+    "zh": "点掉一整团相邻同色块",
+    "en": "Clear a connected group with one tap"
+  },
+  "summary": {
+    "zh": "先改变周围排列，把小团接成大团，再选择何时收掉。",
+    "en": "Rearrange the surroundings to join small groups, then decide when to collect them."
+  },
+  "rules": {
+    "zh": "玩家点击一团横纵相连的同色块，只要达到数量门槛，整团就会消失。空位让其他块移动，原本分开的同色块可能接到一起；因此点击位置既决定眼前收益，也决定下一团会长在哪里。",
+    "en": "Tap an orthogonally connected group of matching blocks that meets the minimum size to clear the whole group. Other blocks move into gaps, potentially joining previously separated groups. The chosen group changes both immediate rewards and future connections."
+  },
+  "loop": [
+    {
+      "zh": "找到相连的同色团",
+      "en": "Find a connected color group"
+    },
+    {
+      "zh": "比较当前清除与后续连通",
+      "en": "Compare immediate clearing with future connections"
+    },
+    {
+      "zh": "点击整团并结算",
+      "en": "Tap the group to resolve it"
+    },
+    {
+      "zh": "利用移动后的新团",
+      "en": "Use the groups formed by movement"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "先清一小团把两侧的大团接起来，还是马上消掉已有的大团？",
+      "en": "Clear a small divider to connect two large groups or collect an existing group now?"
+    },
+    {
+      "zh": "大团离目标很远，靠目标的小团是否更值得这一步？",
+      "en": "Is a small group beside the objective worth more than a distant large group?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "最低团块大小",
+        "en": "Minimum group size"
+      },
+      "effect": {
+        "zh": "较低门槛减少卡死；较高门槛更强调先改变周围布局。",
+        "en": "A lower threshold reduces dead ends; a higher one emphasizes preparing the surroundings."
+      }
+    },
+    {
+      "name": {
+        "zh": "空位移动规则",
+        "en": "Gap movement"
+      },
+      "effect": {
+        "zh": "只向下落和整列横向压缩会形成不同的后续连通关系。",
+        "en": "Downward fall and horizontal column compression create different future connections."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Toon Blast",
+      "gameZh": "卡通爆破",
+      "implementation": {
+        "zh": "点击至少两个同色方块进行消除；较大的组合可生成火箭、炸弹或迪斯科球等特殊物件。",
+        "en": "Tap at least two same-colored cubes to clear them; larger groups produce items such as rockets, bombs and disco balls."
+      },
+      "source": "https://peakgames.helpshift.com/hc/en/4-toon-blast/faq/5-how-to-play/",
+      "sourceLabel": "Official developer help / documentation",
+      "image": "https://images.loopyhop.com/gameplayatlas/495d7629265d7a2918756407.png",
+      "imageSource": "https://apps.apple.com/us/app/toon-blast/id1176027022?uo=4",
+      "imageKind": "system",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：官方商店图展示彩色方块、特殊道具与关卡目标。",
+        "en": "System reference: The official-store image shows colored blocks, special items and level goals. See the linked text source for the rules."
+      },
+      "rights": "Peak",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/19/79/711979ed-5ebd-1a36-154a-2c208c1bdb1b/pr_source.png/576x768bb.png"
+    },
+    {
+      "game": "Pet Rescue Saga",
+      "gameZh": "宠物大营救",
+      "implementation": {
+        "zh": "通过匹配两个以上同色方块清理障碍并救出宠物；有限步数要求玩家兼顾消除规模和救援目标。",
+        "en": "Match two or more same-colored blocks to clear obstacles and rescue pets, balancing group size against rescue goals within limited moves."
+      },
+      "source": "https://play.google.com/store/apps/details?id=com.king.petrescuesaga",
+      "sourceLabel": "Official store description — King",
+      "image": "https://images.loopyhop.com/gameplayatlas/23674d37d988b6f3c8118cb8.jpg",
+      "imageSource": "https://play.google.com/store/apps/details?id=com.king.petrescuesaga",
+      "imageKind": "system",
+      "visualInspected": true,
+      "observation": {
+        "zh": "系统参考图：官方宣传图中的玩法区域展示宠物与彩色方块；下方包含宣传文字。",
+        "en": "System reference: The gameplay area of this official promotional image shows pets and colored blocks, with advertising text below. See the linked text source for the rules."
+      },
+      "rights": "King",
+      "verified": "2026-10-21",
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://play-lh.googleusercontent.com/AXwL163QMRQa9i80kanEkfKxqbFUsHWkp5KEMjeRSnIiy7_CKhlLwCoKGvwwICCBydd9dZipsr8YH-ldbwSuetQ%3Dw526-h296"
+    }
+  ],
+  "contrast": {
+    "zh": "Toon Blast把大团连接到特殊物件的生成；Pet Rescue Saga把清除价值连接到宠物救援。相同点击动作可以服务不同目标。",
+    "en": "Toon Blast ties larger groups to special-item creation; Pet Rescue Saga ties clearing to pet rescue. The same input can serve different objectives."
+  },
+  "combinesWith": [
+    "gathering"
+  ],
+  "combinationIds": [
+    "gathering-resource-detection"
+  ],
+  "combination": {
+    "zh": "组合提案：扫描器显示哪些色块下藏有矿物。玩家可以为开采目标先清小团，也可以先接大团减少开采次数。",
+    "en": "Design proposal: a scanner reveals minerals under colored blocks. Clear a small group to reach a deposit now, or join a larger group to reduce extraction actions."
+  },
+  "related": [
+    "matching-complete-lines",
+    "matching-merge-three-upgrade",
+    "matching-pattern-creates-power",
+    "matching-swap-to-align"
+  ],
+  "tags": [
+    "planning",
+    "spatial",
+    "optimization"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "上下两团红块被中间的两块蓝色分开，右下角还有一个收集目标。",
+      "en": "Upper and lower red groups are separated by two blue blocks, with a collection target at the lower right."
+    },
+    "action": {
+      "zh": "先点掉中间蓝块，让红块在补位后接起来。",
+      "en": "Clear the blue divider so the red groups meet after movement."
+    },
+    "result": {
+      "zh": "下一步能整团清除更多红块，并接近收集目标。",
+      "en": "The next action can clear a larger red group and approach the target."
+    },
+    "next": {
+      "zh": "玩家要决定立即收掉，还是再接入旁边的小红团。",
+      "en": "The player chooses whether to collect now or connect a nearby smaller red group first."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一个五乘六棋盘，点团后只向下补位，显示点击将影响的整团。",
+      "en": "Build a five-by-six board with downward refill and a preview of the whole tapped group."
+    },
+    "pitfall": {
+      "zh": "不要只奖励团块数量；给一个位置目标，才能观察玩家是否会规划。",
+      "en": "Add a positional objective rather than rewarding group size alone, so planning can be observed."
+    },
+    "test": {
+      "zh": "玩家是否愿意先消少量物件，为下一步创造更有用的大团？",
+      "en": "Will players clear a small group to prepare a more useful larger one?"
+    }
+  }
+}

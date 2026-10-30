@@ -1,0 +1,171 @@
+{
+  "id": "cooperation-complementary-abilities",
+  "system": "cooperation",
+  "name": {
+    "zh": "角色能力互补",
+    "en": "Combine different character abilities"
+  },
+  "summary": {
+    "zh": "每个人擅长不同事情，搭配顺序比谁单独最强更重要。",
+    "en": "Different strengths make the order of teamwork more important than individual power."
+  },
+  "tags": [
+    "cooperation",
+    "planning",
+    "creativity"
+  ],
+  "rules": {
+    "zh": "把解决障碍所需的工具分给不同角色，并让一种能力创造另一种能力可以利用的条件。玩家识别瓶颈、决定谁先行动，再用配合后的结果推进；下一种障碍会改变主导者。",
+    "en": "Give characters distinct tools and let one ability create conditions another can exploit. Players identify the obstacle, choose an order and combine actions; the next obstacle can give a different role the lead."
+  },
+  "loop": [
+    {
+      "zh": "识别眼前需要的能力",
+      "en": "Identify the needed abilities"
+    },
+    {
+      "zh": "安排谁先创造条件",
+      "en": "Choose who sets up the situation"
+    },
+    {
+      "zh": "伙伴接着发挥特长",
+      "en": "Let the partner use that setup"
+    },
+    {
+      "zh": "通过障碍并重新分工",
+      "en": "Pass the obstacle and reassign"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "用我的能力直接尝试，还是先给伙伴创造更稳的条件？",
+      "en": "Try my tool directly or set up a safer solution for my partner?"
+    },
+    {
+      "zh": "队伍缺照明、通路还是防守，先补哪个短板？",
+      "en": "Does the team need light, access or protection most urgently?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "能力依赖程度",
+        "en": "Ability dependence"
+      },
+      "effect": {
+        "zh": "完全独立容易各玩各的，完全依赖又会让一人掉队就卡死。",
+        "en": "Fully independent tools encourage parallel solo play; total dependence can stall everyone when one player falls behind."
+      }
+    },
+    {
+      "name": {
+        "zh": "角色轮流主导",
+        "en": "Alternating leadership"
+      },
+      "effect": {
+        "zh": "不同障碍轮流需要不同角色，可避免一个人长期只当跟班。",
+        "en": "Alternating which role solves the bottleneck prevents one player from remaining a permanent assistant."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Deep Rock Galactic",
+      "gameZh": "深岩银河",
+      "steamId": 548430,
+      "implementation": {
+        "zh": "侦察兵用照明弹和抓钩探路，钻机手改变地形，枪手与工程师提供不同防守工具；官方明确鼓励合用工具组。",
+        "en": "The Scout lights and traverses caves, the Driller reshapes terrain, and the Gunner and Engineer provide different defensive tools; the game encourages combining kits."
+      },
+      "source": "https://store.steampowered.com/app/548430/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/e4a00a31581330fef2016e14.jpg",
+      "imageSource": "https://store.steampowered.com/app/548430/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "第一人称视角前方有一名队友，矿晶分布在洞穴通道旁；可观察协作场景，但画面没有展示倒地救援或各职业能力的完整配合。",
+        "en": "A teammate stands ahead in a first-person view, with crystals beside a cave passage. This shows a cooperative setting, not revival or a complete class-ability combination."
+      },
+      "rights": "Ghost Ship Games / Coffee Stain Publishing",
+      "verified": "2026-10-21",
+      "screenshotIndex": 1,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.1920x1080.jpg?t=1792497307"
+    },
+    {
+      "game": "Trine 2",
+      "gameZh": "三位一体2",
+      "steamId": 35720,
+      "implementation": {
+        "zh": "法师召唤箱子与木板，骑士处理正面障碍，盗贼使用绳索和弓箭；玩家可单人切换或多人分别操作。",
+        "en": "The wizard conjures boxes and planks, the knight tackles obstacles, and the thief uses rope and arrows; players can switch alone or share roles in co-op."
+      },
+      "source": "https://store.steampowered.com/app/35720/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/c5ae093f3f5bef07f97229c4.jpg",
+      "imageSource": "https://store.steampowered.com/app/35720/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察左侧角色与右侧巨蛙形成的横向障碍；这是关卡环境参考，并未同时展示三种角色能力。",
+        "en": "Notice the character on the left and the giant frog forming a horizontal obstacle; this level reference does not show all three abilities at once."
+      },
+      "rights": "Frozenbyte",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/35720/ss_acfd5a377d7967954f4e8274cd067197fb990f45.1920x1080.jpg?t=1789543075"
+    }
+  ],
+  "contrast": {
+    "zh": "《深岩银河》把分工放在探索、地形与战斗里；《三位一体2》更集中于同一屏障碍的不同解法。",
+    "en": "Deep Rock Galactic spreads roles across exploration, terrain and combat; Trine 2 focuses more on alternative solutions to shared platforming obstacles."
+  },
+  "combinesWith": [
+    "exploration"
+  ],
+  "combinationIds": [
+    "exploration-ability-gates"
+  ],
+  "combination": {
+    "zh": "设计提案：一人能搭临时桥，一人能穿过窄缝；窄缝后的开关能固定桥，让两种能力形成前后衔接。",
+    "en": "Design proposal: one player builds temporary bridges and another fits through narrow gaps; a switch beyond a gap secures the bridge."
+  },
+  "related": [
+    "cooperation-shared-vehicle",
+    "cooperation-discussion-vote",
+    "cooperation-downed-revival",
+    "cooperation-hidden-role"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "编辑示例：A能放一个箱子，B能跳两格，前方有三格高墙。",
+      "en": "Editorial example: A can place one box, B can jump two tiles, and a three-tile wall blocks the route."
+    },
+    "action": {
+      "zh": "A把箱子放在墙边，B踩箱跳上去，拉下绳梯。",
+      "en": "A places the box beside the wall; B jumps from it and lowers a ladder."
+    },
+    "result": {
+      "zh": "A沿绳梯上去，两人都通过，箱子还留在原地。",
+      "en": "A climbs the ladder, so both cross while the box remains below."
+    },
+    "next": {
+      "zh": "下一个障碍需要B先探路，再由A补上通道。",
+      "en": "The next obstacle asks B to scout first and A to complete the route."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "cooperative",
+    "firstStep": {
+      "zh": "先做两名同屏角色，每人只有一种专属能力，用三个固定障碍交替要求他们先行动。",
+      "en": "Build two local characters with one unique ability each and three fixed obstacles that alternate who acts first."
+    },
+    "pitfall": {
+      "zh": "先验证互相需要又都能操作；职业树、装备和大量技能会让配合原因难以看清。",
+      "en": "First verify mutual dependence with active participation; class trees and many skills can obscure why cooperation works."
+    },
+    "test": {
+      "zh": "每人都至少主导一次解法，并能说出伙伴的能力帮自己做到了什么。",
+      "en": "Each player leads one solution and can explain what their partner enabled them to do."
+    }
+  },
+  "edition": 2
+}

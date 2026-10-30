@@ -1,0 +1,169 @@
+{
+  "id": "inventory-equipment-budget",
+  "system": "inventory",
+  "name": {
+    "zh": "有限槽位的能力配装",
+    "en": "Budgeted ability loadouts"
+  },
+  "summary": {
+    "zh": "拥有所有能力，也不等于能同时装备。",
+    "en": "Owning every ability does not mean equipping them all."
+  },
+  "rules": {
+    "zh": "每个能力占用一定容量，玩家在固定预算下搭配少数强能力或多个小能力。更换通常发生在安全节点，出发后用实际表现检验组合，再回到节点调整。",
+    "en": "Abilities consume capacity, forcing a choice between a few expensive powers and several small ones. Usually revised at safe points, each loadout is tested in play before the next adjustment."
+  },
+  "loop": [
+    {
+      "zh": "查看可用容量",
+      "en": "Check available capacity"
+    },
+    {
+      "zh": "选定核心能力",
+      "en": "Choose core abilities"
+    },
+    {
+      "zh": "补齐协同与短板",
+      "en": "Add synergy and coverage"
+    },
+    {
+      "zh": "实战后回站重配",
+      "en": "Return and revise after play"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "纯输出最大化，还是牺牲一部分效率换生存或便利？",
+      "en": "Maximize damage, or trade some efficiency for survival or convenience?"
+    },
+    {
+      "zh": "带一个高容量的强能力，还是带几种小能力应对更多情况？",
+      "en": "Equip one costly powerful ability, or several small abilities for broader coverage?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "容量成长",
+        "en": "Capacity growth"
+      },
+      "effect": {
+        "zh": "逐步加容量给予组合成长；固定容量强调持续取舍。",
+        "en": "Growing capacity expands combinations; fixed capacity preserves trade-offs."
+      }
+    },
+    {
+      "name": {
+        "zh": "重配位置",
+        "en": "Respec location"
+      },
+      "effect": {
+        "zh": "随时更换鼓励逐题应对；仅安全点更换要求预判。",
+        "en": "Anywhere swapping supports local solutions; safe-point changes require anticipation."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Hollow Knight",
+      "gameZh": "空洞骑士",
+      "implementation": {
+        "zh": "护符消耗不同数量的护符槽，通常在长椅处装备，有限槽位限制同时生效的效果。",
+        "en": "Charms have differing notch costs and are normally equipped at benches, limiting simultaneous effects."
+      },
+      "source": "https://hollowknight.wiki/w/Charms",
+      "sourceLabel": "Game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/3ce10bc837c1941490633d0d.jpg",
+      "imageSource": "https://store.steampowered.com/app/367520/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察左上角生命、灵魂与吉欧的同时呈现；本图没有护符菜单或暗影回收过程。",
+        "en": "System reference: health, Soul and Geo are displayed together at the top left; charms and Shade retrieval are not shown."
+      },
+      "rights": "Team Cherry",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5384f9f8b96a0b9934b2bc35a4058376211636d2.1920x1080.jpg?t=1776125684"
+    },
+    {
+      "game": "Transistor",
+      "gameZh": "晶体管",
+      "implementation": {
+        "zh": "函数可作为主动、升级或被动能力安装，同时受可用内存与各类槽位限制。",
+        "en": "Functions can be installed as active, upgrade or passive abilities, constrained by memory and slot types."
+      },
+      "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=2278545223",
+      "sourceLabel": "Community mechanics guide",
+      "image": "https://images.loopyhop.com/gameplayatlas/954777b9c3f887a3b4e8aac8.jpg",
+      "imageSource": "https://store.steampowered.com/app/237930/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：观察函数能力在战场上的范围与反馈；本图未打开内存与配装菜单。",
+        "en": "System reference: observe ability ranges and feedback in combat; memory and loadout menus are not open."
+      },
+      "rights": "Supergiant Games",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/237930/ss_ba509bfde06591298410299b106747e7694ad011.1920x1080.jpg?t=1729113992"
+    }
+  ],
+  "contrast": {
+    "zh": "护符主要选择被动组合；函数还让同一能力在主动、增幅与被动角色间转换。",
+    "en": "Charms mainly combine passive effects; Functions also change roles between active, modifier and passive use."
+  },
+  "combinesWith": [
+    "combat",
+    "exploration"
+  ],
+  "combination": {
+    "zh": "组合提案：探险机器人同一块芯片既能装备成扫描器，也能给机械臂增幅，但会占用不同容量。",
+    "en": "Design proposal: a robot chip can become a scanner or an arm modifier, consuming a different budget in each role."
+  },
+  "tags": [
+    "planning",
+    "optimization",
+    "progression"
+  ],
+  "related": [
+    "inventory-adjacency",
+    "inventory-deck-thinning",
+    "inventory-shape-packing",
+    "inventory-stack-limits"
+  ],
+  "combinationIds": [
+    "gathering-resource-detection"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你有五格能力容量，强攻占三格，护盾与侦察各占两格。",
+      "en": "You have five capacity: heavy offense costs three, while shield and scouting cost two each."
+    },
+    "action": {
+      "zh": "准备进陌生地图时，你选择护盾加侦察，暂时放弃强攻。",
+      "en": "Before entering an unfamiliar area, choose shield and scouting over heavy offense."
+    },
+    "result": {
+      "zh": "伤害下降，但探索时更容易发现危险并承受失误。",
+      "en": "Damage falls, but spotting danger and surviving mistakes becomes easier."
+    },
+    "next": {
+      "zh": "回到休息点，根据实际遇到的威胁重新配置。",
+      "en": "At the rest point, adjust the loadout to the threats encountered."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做五种有明确用途的能力和一个容量上限，用两种不同任务验证搭配。",
+      "en": "Build five clearly differentiated abilities and a capacity cap, then test with two mission types."
+    },
+    "pitfall": {
+      "zh": "先避免几十个百分比加成；用途有区别才能让容量取舍容易理解。",
+      "en": "Avoid dozens of percentage bonuses; distinct purposes make capacity choices understandable."
+    },
+    "test": {
+      "zh": "切换任务后，观察玩家是否主动换装，并能说明牺牲了什么。",
+      "en": "Change the mission and see whether players reconfigure and explain their sacrifice."
+    }
+  },
+  "edition": 1
+}

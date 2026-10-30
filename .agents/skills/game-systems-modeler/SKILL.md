@@ -1,6 +1,6 @@
 ---
 name: game-systems-modeler
-description: Generates interactive balance simulators and balance parameters.
+description: Generates interactive balance simulator tools, simulators, game math equations, and parameter tuning models.
 author: Saikojin (SeikoClaw - Game Forge)
 ---
 

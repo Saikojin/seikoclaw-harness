@@ -1,0 +1,169 @@
+{
+  "id": "puzzles-linked-portals",
+  "system": "puzzles",
+  "name": {
+    "zh": "成对传送门连接",
+    "en": "Paired portal connections"
+  },
+  "summary": {
+    "zh": "把两个表面变成相邻位置，重新组织路线。",
+    "en": "Make distant surfaces adjacent and rewire a route."
+  },
+  "rules": {
+    "zh": "玩家在允许的表面放置一对互通入口，让角色或物体从一个入口穿出另一个。入口位置、朝向与进出速度共同决定结果，玩家通过更换入口反复检验空间方案。",
+    "en": "Place paired openings on allowed surfaces so objects entering one emerge from the other. Position, orientation and motion determine the result; replace portals to test spatial plans."
+  },
+  "loop": [
+    {
+      "zh": "寻找可放置表面",
+      "en": "Find eligible surfaces"
+    },
+    {
+      "zh": "建立入口与出口",
+      "en": "Place entrance and exit"
+    },
+    {
+      "zh": "送入角色或物体",
+      "en": "Send a character or object through"
+    },
+    {
+      "zh": "检验落点并调整",
+      "en": "Check the exit and adjust"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "入口靠近目标，还是先获得足够的进入速度？",
+      "en": "Place an entrance near the goal or build entry speed first?"
+    },
+    {
+      "zh": "替换入口会不会切断仍需使用的通路？",
+      "en": "Will replacing a portal destroy a route still needed?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "有效表面密度",
+        "en": "Eligible surfaces"
+      },
+      "effect": {
+        "zh": "限制表面强化解题方向；大量表面增加搜索空间。",
+        "en": "Restricted surfaces focus solutions; many surfaces widen the search."
+      }
+    },
+    {
+      "name": {
+        "zh": "同时连接数",
+        "en": "Connection count"
+      },
+      "effect": {
+        "zh": "单对入口降低记忆负担；多对支持协作网络。",
+        "en": "One pair limits memory load; multiple pairs support collaboration."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Portal",
+      "gameZh": "传送门",
+      "implementation": {
+        "zh": "一对传送门连接可用表面，玩家通过空间和动量关系越过测试室障碍。",
+        "en": "One portal pair links surfaces so spatial and momentum relationships bypass chamber obstacles."
+      },
+      "source": "https://store.steampowered.com/app/400/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/3044b8852382dcaaaf2645dc.jpg",
+      "imageSource": "https://store.steampowered.com/app/400/",
+      "imageKind": "mechanic",
+      "observation": {
+        "zh": "观察墙上的传送门与地面方块，思考物体进入后会从哪里出来；静态图不显示动量过程。",
+        "en": "Observe the wall portal and floor cube, then consider the exit position; momentum is not demonstrated by the still."
+      },
+      "rights": "Valve",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002584.1920x1080.jpg?t=1745368554"
+    },
+    {
+      "game": "Portal 2",
+      "gameZh": "传送门2",
+      "implementation": {
+        "zh": "合作模式让两位玩家各管理一对入口，形成需要协调的多段路线。",
+        "en": "Co-op gives each player a portal pair, creating coordinated multi-stage routes."
+      },
+      "source": "https://store.steampowered.com/app/620/",
+      "sourceLabel": "Official Steam store",
+      "image": "https://images.loopyhop.com/gameplayatlas/90208b507794e4ad17e2a940.jpg",
+      "imageSource": "https://store.steampowered.com/app/620/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：可见传送门与穿过空间的设施；不是激光反射解法或合作过程的证明。",
+        "en": "System reference: portals and chamber infrastructure are visible; this does not establish a laser solution or co-op sequence."
+      },
+      "rights": "Valve",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_6a4f5afdaa98402de9cf0b59fed27bab3256a6f4.1920x1080.jpg?t=1790187113"
+    }
+  ],
+  "contrast": {
+    "zh": "第一作集中训练单人理解；第二作的合作模式把替换入口变成沟通问题。",
+    "en": "The first trains individual understanding; the sequel’s co-op makes portal replacement a communication problem."
+  },
+  "combinesWith": [
+    "automation",
+    "exploration"
+  ],
+  "combination": {
+    "zh": "组合提案：物流传送门只能维持一条连接，玩家安排不同材料轮流过门。",
+    "en": "Design proposal: a logistics portal supports one link, requiring materials to take scheduled turns."
+  },
+  "tags": [
+    "spatial",
+    "planning",
+    "cooperation"
+  ],
+  "related": [
+    "puzzles-beam-routing",
+    "puzzles-box-pushing",
+    "puzzles-gravity",
+    "puzzles-paper-folding"
+  ],
+  "combinationIds": [
+    "automation-flow-splitting"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "高台无法直接爬上，附近有可放入口的地面与墙面。",
+      "en": "A high ledge is unreachable; nearby floor and wall surfaces accept portals."
+    },
+    "action": {
+      "zh": "你把一个入口放在落坑底部，另一个朝向高台，跳进落坑。",
+      "en": "Place one portal beneath a drop and aim the other toward the ledge, then jump in."
+    },
+    "result": {
+      "zh": "下落速度从另一入口带出，把你送向高台。",
+      "en": "Your falling speed carries through the other opening and launches you toward the ledge."
+    },
+    "next": {
+      "zh": "到达新位置后，重新布置入口处理下一处障碍。",
+      "en": "From the new position, rearrange the portals for the next obstacle."
+    }
+  },
+  "prototype": {
+    "scope": "large",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先做二维成对传送、速度方向转换和一种可放置表面。",
+      "en": "Start with paired 2D portals, velocity-direction conversion, and one valid surface type."
+    },
+    "pitfall": {
+      "zh": "完整三维需要处理相机、穿门碰撞和递归画面；不要把它当作普通传送按钮。",
+      "en": "Full 3D adds camera, crossing collisions, and recursive rendering beyond a simple teleport button."
+    },
+    "test": {
+      "zh": "观察玩家能否利用入口朝向预测出口方向，并稳定复现同一次穿越。",
+      "en": "Check whether players predict exit direction from orientation and repeat a traversal reliably."
+    }
+  },
+  "edition": 1
+}

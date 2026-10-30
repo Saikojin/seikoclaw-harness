@@ -64,6 +64,7 @@ def export_skills(source_dir: str, target_dir: str, use_symlinks: bool = False, 
 def import_skills(source_dir: str, target_dir: str, namespace: Optional[str] = None, overwrite: bool = False) -> int:
     """
     Imports skills from an external repository or directory into target_dir.
+    Recursively discovers any directory containing SKILL.md (or skill.md).
     If namespace is provided, the imported skill directory is prefixed with '<namespace>-'
     and its frontmatter name is aligned to prevent collisions with canonical skills.
     """
@@ -77,40 +78,50 @@ def import_skills(source_dir: str, target_dir: str, namespace: Optional[str] = N
     target_path.mkdir(parents=True, exist_ok=True)
     imported_count = 0
 
-    # Scan both root and root/skills (common in agent packs)
-    candidate_roots = [source_path]
-    if (source_path / "skills").is_dir():
-        candidate_roots.append(source_path / "skills")
+    # Recursively find all directories containing SKILL.md or skill.md
+    skill_dirs = []
+    for p in source_path.rglob("*"):
+        if not p.is_dir():
+            continue
+        # Avoid traversing hidden / VCS directories relative to source
+        try:
+            rel_parts = p.relative_to(source_path).parts
+            if any(part.startswith(".") for part in rel_parts):
+                continue
+        except ValueError:
+            if any(part.startswith(".") for part in p.parts):
+                continue
+
+        has_skill_file = (p / "SKILL.md").is_file() or (p / "skill.md").is_file()
+        if has_skill_file:
+            skill_dirs.append(p)
 
     seen_skills = set()
 
-    for root in candidate_roots:
-        for item in root.iterdir():
-            if not item.is_dir() or item.name.startswith("."):
-                continue
-            skill_md = item / "SKILL.md"
-            if not skill_md.exists():
-                continue
+    for item in skill_dirs:
+        orig_name = item.name
+        dest_name = f"{namespace}-{orig_name}" if namespace else orig_name
 
-            orig_name = item.name
-            dest_name = f"{namespace}-{orig_name}" if namespace else orig_name
+        if dest_name in seen_skills:
+            continue
+        seen_skills.add(dest_name)
 
-            if dest_name in seen_skills:
+        dest_item = target_path / dest_name
+        if dest_item.exists() or dest_item.is_symlink():
+            if not overwrite:
+                print(f"[SKIP] Skill '{dest_name}' already exists in target directory.")
                 continue
-            seen_skills.add(dest_name)
-
-            dest_item = target_path / dest_name
-            if dest_item.exists():
-                if not overwrite:
-                    print(f"[SKIP] Skill '{dest_name}' already exists in target directory.")
-                    continue
+            if dest_item.is_dir() and not dest_item.is_symlink():
                 shutil.rmtree(dest_item)
+            else:
+                dest_item.unlink()
 
-            shutil.copytree(item, dest_item)
+        shutil.copytree(item, dest_item)
 
-            # If namespaced, update the frontmatter name inside dest_item / SKILL.md
-            if namespace:
-                dest_skill_md = dest_item / "SKILL.md"
+        # If namespaced, update the frontmatter name inside dest_item / SKILL.md
+        if namespace:
+            skill_files = [dest_item / "SKILL.md", dest_item / "skill.md"]
+            for dest_skill_md in skill_files:
                 if dest_skill_md.exists():
                     try:
                         content = dest_skill_md.read_text(encoding="utf-8-sig")
@@ -125,7 +136,7 @@ def import_skills(source_dir: str, target_dir: str, namespace: Optional[str] = N
                     except Exception as e:
                         print(f"[WARN] Failed to update frontmatter name for {dest_name}: {e}")
 
-            imported_count += 1
+        imported_count += 1
 
     return imported_count
 

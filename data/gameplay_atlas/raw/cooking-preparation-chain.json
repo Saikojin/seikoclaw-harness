@@ -1,0 +1,175 @@
+{
+  "id": "cooking-preparation-chain",
+  "system": "cooking",
+  "name": {
+    "zh": "分阶段备料组装",
+    "en": "Staged preparation and assembly"
+  },
+  "summary": {
+    "zh": "把一道菜拆成有先后关系、可并行准备的工序。",
+    "en": "Split a dish into ordered steps with parallel preparation opportunities."
+  },
+  "tags": [
+    "planning",
+    "optimization",
+    "cooperation"
+  ],
+  "rules": {
+    "zh": "玩家把原料依次变成中间状态，再将满足条件的组件合为成品。部分步骤必须先完成，部分可以并行；交付错误状态或漏配料不能完成订单。",
+    "en": "Players transform ingredients into intermediate states and assemble valid components. Some operations are sequential and others parallel; missing ingredients or wrong states fail the order."
+  },
+  "loop": [
+    {
+      "zh": "读配方依赖",
+      "en": "Read the dependency chain"
+    },
+    {
+      "zh": "并行处理原料",
+      "en": "Prepare ingredients in parallel"
+    },
+    {
+      "zh": "完成加热或加工",
+      "en": "Finish cooking or processing"
+    },
+    {
+      "zh": "组装装盘",
+      "en": "Assemble and plate"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "提前批量切菜，还是避免台面被半成品占满？",
+      "en": "Batch preparation or keep counters free of unfinished items?"
+    },
+    {
+      "zh": "把哪一步交给另一个人才能减少等待？",
+      "en": "Which step should be delegated to remove waiting?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "依赖层数",
+        "en": "Dependency depth"
+      },
+      "effect": {
+        "zh": "层数更多强化计划和记忆，但也增加新手犯错概率。",
+        "en": "Deeper chains reward planning and memory but increase novice mistakes."
+      }
+    },
+    {
+      "name": {
+        "zh": "共享中间料",
+        "en": "Shared intermediates"
+      },
+      "effect": {
+        "zh": "多道菜共用基础料方便批处理，也制造争抢。",
+        "en": "Shared ingredients enable batching but create contention."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Overcooked! 2",
+      "gameZh": "胡闹厨房 2",
+      "steamAppId": 728880,
+      "implementation": {
+        "zh": "披萨等料理需要切料、组合并烘烤，再送上餐盘；不同菜式要求不同处理顺序。",
+        "en": "Dishes such as pizza require chopping, combination and cooking before service; recipes impose different preparation sequences."
+      },
+      "source": "https://www.team17.com/news/the-a-z-of-overcooked-2",
+      "sourceLabel": "Developer documentation",
+      "image": "https://images.loopyhop.com/gameplayatlas/99b42b767dcd1921ab77fea2.jpg",
+      "imageSource": "https://store.steampowered.com/app/728880/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "近景可见厨师、台面和热狗等食材的组装场景。系统参考图，不是披萨步骤演示。",
+        "en": "The close view shows chefs, counters and hot-dog assembly context. System reference, not a pizza tutorial."
+      },
+      "rights": "Ghost Town Games / Team17",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_773917e64738bc879685cff49b8ac6eb4f15ab93.600x338.jpg?t=1789548883",
+      "imageIndex": 3,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_773917e64738bc879685cff49b8ac6eb4f15ab93.1920x1080.jpg?t=1789548883"
+    },
+    {
+      "game": "PlateUp!",
+      "gameZh": "PlateUp!",
+      "steamAppId": 1599600,
+      "implementation": {
+        "zh": "披萨需要处理面团并加入番茄和奶酪，烹饪后按份取用；一份加工可供应多次服务。",
+        "en": "Pizza requires dough preparation, tomato and cheese, then cooking and portioning; one batch supplies multiple servings."
+      },
+      "source": "https://wiki.plateupgame.com/recipes/Pizza",
+      "sourceLabel": "Official game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/4d32b1bb793d12e94bc90155.jpg",
+      "imageSource": "https://store.steampowered.com/app/1599600/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "多处工作台、烹饪设备与餐桌构成并行工作区域。系统参考图，未展开完整披萨配方。",
+        "en": "Counters, cooking equipment and tables form parallel work areas. System reference; the full pizza recipe is not shown."
+      },
+      "rights": "It's happening / Yogscast Games",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1599600/ss_833de2e09f19972bb9e7db021c793da6afdab8a0.600x338.jpg?t=1791790793",
+      "imageIndex": 2,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1599600/ss_833de2e09f19972bb9e7db021c793da6afdab8a0.1920x1080.jpg?t=1791790793"
+    }
+  ],
+  "contrast": {
+    "zh": "胡闹厨房强调关卡内搬运与配合；PlateUp 的多份成品让批次大小也进入计划。",
+    "en": "Overcooked emphasizes transport and coordination; PlateUp adds batch-size planning through multiple servings."
+  },
+  "combinesWith": [
+    "automation",
+    "inventory"
+  ],
+  "combination": {
+    "zh": "组合创意：面团可分支成面包或披萨，上午先做通用半成品，中午依据实际订单决定最后工序。",
+    "en": "Design proposal: shared dough branches into bread or pizza; prepare it early and commit only after orders arrive."
+  },
+  "related": [
+    "cooking-ingredient-substitution",
+    "cooking-meal-loadout",
+    "cooking-station-handoff",
+    "automation-aerial-logistics"
+  ],
+  "combinationIds": [
+    "commerce-timed-contracts"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "一个汉堡需要切好的菜和煎熟的肉，台面只能放两份半成品。",
+      "en": "A burger needs chopped vegetables and cooked meat, with space for only two intermediate items."
+    },
+    "action": {
+      "zh": "你先把肉放上煎锅，再利用等待时间切菜。",
+      "en": "Start cooking the meat, then chop vegetables during the wait."
+    },
+    "result": {
+      "zh": "两种材料状态都合格后才能装盘，漏掉一步就无法交付。",
+      "en": "Assembly succeeds only when both ingredients are ready; a missing step blocks delivery."
+    },
+    "next": {
+      "zh": "清出台面，按下一张单决定是否提前备料。",
+      "en": "Clear the counter and decide what to prepare ahead for the next order."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "用可点击的备料格和状态标签做两道菜，先验证依赖顺序与台面容量。",
+      "en": "Use clickable stations and state labels for two dishes to test process dependencies and counter capacity."
+    },
+    "pitfall": {
+      "zh": "过多中间材料会变成物品管理负担；先确保每一步确实产生顺序或并行选择。",
+      "en": "Too many intermediates become inventory overhead; ensure each step creates a real sequencing or parallel-work choice."
+    },
+    "test": {
+      "zh": "玩家是否利用加热等待切菜，并在台面满时改变备料顺序？",
+      "en": "Do players prepare vegetables during heating and change the sequence when counter space runs out?"
+    }
+  },
+  "edition": 1
+}

@@ -1,0 +1,168 @@
+{
+  "id": "movement-downward-slam",
+  "system": "movement",
+  "edition": 3,
+  "name": {
+    "zh": "主动下砸，改变落地结果",
+    "en": "Commit to a downward slam"
+  },
+  "summary": {
+    "zh": "不等自然下落，主动砸向地面或目标，换取一次强反馈。",
+    "en": "Do not wait to fall naturally: commit downward for a strong landing effect."
+  },
+  "rules": {
+    "zh": "角色在空中触发快速下落动作，将一次普通落地变成攻击或破坏地面的机会。玩家要先对准下方目标再发动，因为下砸期间的修正通常更少；落地后的敌人状态或通路变化决定下一步。",
+    "en": "Trigger a rapid downward move in midair to turn an ordinary landing into an attack or a way to break terrain. Align first because correction is usually more limited during the slam. The changed enemy or route state determines what follows."
+  },
+  "loop": [
+    {
+      "zh": "从空中观察下方",
+      "en": "Inspect below while airborne"
+    },
+    {
+      "zh": "对准可命中目标",
+      "en": "Align a valid target"
+    },
+    {
+      "zh": "主动发动下砸",
+      "en": "Commit to the slam"
+    },
+    {
+      "zh": "利用落地结果继续",
+      "en": "Continue from the landing result"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "下面有敌人也有危险地面，是下砸抢先命中，还是先落到旁边？",
+      "en": "An enemy stands on dangerous ground: slam first or land beside it?"
+    },
+    {
+      "zh": "砸开地板会进入未知下层，要现在开路还是先探索当前平台？",
+      "en": "Breaking the floor opens an unknown lower area: do it now or inspect the current platform first?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "下砸后的调整余地",
+        "en": "Correction during descent"
+      },
+      "effect": {
+        "zh": "调整越少越强调出手前对准，调整越多越便于临时应对移动目标。",
+        "en": "Less correction rewards alignment before committing; more allows reactions to moving targets."
+      }
+    },
+    {
+      "name": {
+        "zh": "可破坏目标的范围",
+        "en": "Breakable target rules"
+      },
+      "effect": {
+        "zh": "明确的材质或标记让玩家判断哪里可以开路，混乱的规则会变成到处乱试。",
+        "en": "Consistent materials or markings make routes readable; inconsistent rules encourage indiscriminate testing."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Dead Cells",
+      "gameZh": "死亡细胞",
+      "image": "https://images.loopyhop.com/gameplayatlas/5570ded11394e20d79d7ea31.jpg",
+      "imageSource": "https://store.steampowered.com/app/588650/",
+      "rights": "Motion Twin",
+      "implementation": {
+        "zh": "空中向下发动的俯冲攻击把下降与打击结合；取得牧羊符文后，还能砸穿特定地板，增加纵向通路。",
+        "en": "An airborne downward dive attack combines descent with impact. After obtaining the Ram Rune, it can also break designated floors to open vertical routes."
+      },
+      "source": "https://deadcells.wiki.gg/wiki/Upgrades",
+      "sourceLabel": "Community wiki — Ram Rune",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：横向战斗场景提供落点背景；不能凭此图确认下砸或可破坏地板。",
+        "en": "System reference: the side-view combat scene supplies landing context; it does not confirm a slam or breakable floor."
+      },
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_7bde51ea6c8f6289e85ea1d8c1c941e1f8bfee91.1920x1080.jpg?t=1779086887"
+    },
+    {
+      "game": "Ori and the Blind Forest",
+      "gameZh": "奥日与黑暗森林",
+      "image": "https://images.loopyhop.com/gameplayatlas/130cff176a4ca5684c097386.jpg",
+      "imageSource": "https://store.steampowered.com/app/261570/",
+      "rights": "Moon Studios / Xbox Game Studios",
+      "implementation": {
+        "zh": "践踏能力让空中的奥里快速向下冲击，能够攻击下方目标并打破指定脆弱地面，把下落转化为开路动作。",
+        "en": "Stomp sends airborne Ori rapidly downward, hitting targets below and breaking designated fragile ground to turn descent into a route-opening action."
+      },
+      "source": "https://oriandtheblindforest.fandom.com/wiki/Stomp",
+      "sourceLabel": "Community wiki — Stomp",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：平台和落差提供下砸的空间背景；单帧不展示践踏的完整动作。",
+        "en": "System reference: platforms and drops provide spatial context; one frame does not show the full Stomp action."
+      },
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/261570/ss_c617379b9d195eed0342f3ecf86898513e702b96.1920x1080.jpg?t=1667504148"
+    }
+  ],
+  "contrast": {
+    "zh": "《死亡细胞》让基础俯冲攻击在取得符文后扩展破地能力；《奥日与黑暗森林》把践踏作为同时服务攻击与环境互动的能力。",
+    "en": "Dead Cells extends its basic dive with floor-breaking through a rune; Ori and the Blind Forest uses Stomp as an ability for both attacks and environmental interaction."
+  },
+  "combinesWith": [
+    "exploration"
+  ],
+  "combinationIds": [
+    "exploration-ability-gates"
+  ],
+  "combination": {
+    "zh": "设计提案：早期路线展示清晰标记的薄地板，取得下砸后可打通返回旧区域的近路，玩家决定优先砸开哪一层。",
+    "en": "Design proposal: show clearly marked thin floors on early routes. After gaining the slam, let players choose which floor to break first to open shortcuts into earlier areas."
+  },
+  "related": [
+    "exploration-climbing-rest-route",
+    "exploration-grapple-swing",
+    "exploration-wall-jump",
+    "movement-ledge-catch"
+  ],
+  "tags": [
+    "spatial",
+    "timing",
+    "risk"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "教学示例：下方左侧是薄地板，右侧是尖刺，中间有一名移动敌人。",
+      "en": "Teaching example: a thin floor lies below-left, spikes below-right and a moving enemy between them."
+    },
+    "action": {
+      "zh": "你先在空中移到薄地板上方，再发动下砸。",
+      "en": "Move above the thin floor before triggering the slam."
+    },
+    "result": {
+      "zh": "地板被打破，角色进入下层安全区域，形成新的通路。",
+      "en": "The floor breaks and you enter a safe lower area, opening a new route."
+    },
+    "next": {
+      "zh": "下层敌人靠近，要决定再次借高处下砸，还是先保持距离。",
+      "en": "A lower enemy approaches: seek height for another slam or keep your distance."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "只做一个可跳的平台、两块不同材质地板和一个静止目标，明确区分普通落地与主动下砸的结果。",
+      "en": "Build one jumpable platform, two floor materials and one stationary target; clearly distinguish ordinary landing from deliberate slam impact."
+    },
+    "pitfall": {
+      "zh": "不要把所有地板都设为可破坏，否则一次下砸可能让关卡连通关系失控。",
+      "en": "Do not make every floor breakable; a single slam could undermine the intended route structure."
+    },
+    "test": {
+      "zh": "让玩家先预测两种地板受击后的结果，再实际尝试，检查材质提示是否足以支持判断。",
+      "en": "Ask players to predict what happens to each floor before trying the slam; check whether material cues support the prediction."
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "incremental-spend-time-advance",
+  "system": "incremental",
+  "edition": 3,
+  "name": {
+    "zh": "消耗道具，把未来收益提前结算",
+    "en": "Spend an item to bring future earnings forward"
+  },
+  "summary": {
+    "zh": "同一张时间券，配置更好时使用会得到不同结果。",
+    "en": "The same time token can produce different results after improving the setup."
+  },
+  "rules": {
+    "zh": "玩家拥有数量有限的时间推进道具，使用后按当前可生效的产出或进度规则立即结算一段时间。先升级再使用通常会改变收益，而等待升级也有机会成本。应明确它推进哪些系统，以及临时效果是否被计入。",
+    "en": "A limited time-advance item immediately settles a duration under eligible current production or progress rules. Upgrading first can change the reward, but waiting has an opportunity cost. The game must clarify which systems advance and whether temporary effects count."
+  },
+  "loop": [
+    {
+      "zh": "查看道具的预计结算",
+      "en": "Inspect the predicted settlement"
+    },
+    {
+      "zh": "判断是否先调整产出",
+      "en": "Decide whether to improve the setup first"
+    },
+    {
+      "zh": "使用道具推进允许的进度",
+      "en": "Spend it to advance eligible progress"
+    },
+    {
+      "zh": "用收益投入下一轮",
+      "en": "Invest the proceeds into the next loop"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "现在用道具跨过卡点，还是再等一个产量升级让它更值钱？",
+      "en": "Use the item to pass a bottleneck now or wait for an upgrade that makes it more valuable?"
+    },
+    {
+      "zh": "一次用完多个，还是每次结算后重新投资再用下一张？",
+      "en": "Spend several at once or reinvest between uses?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "结算依据",
+        "en": "Settlement basis"
+      },
+      "effect": {
+        "zh": "按当前速率结算易于预测；模拟过程则要解释中途停工与解锁。",
+        "en": "Using current rates is easy to predict; simulation must explain mid-period stoppages and unlocks."
+      }
+    },
+    {
+      "name": {
+        "zh": "作用范围",
+        "en": "Affected systems"
+      },
+      "effect": {
+        "zh": "只影响一个产线或地区会增加选择；全局推进则需要统一边界提示。",
+        "en": "A local effect creates a targeting choice; global advancement needs clear consistent boundaries."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "AdVenture Capitalist",
+      "gameZh": "冒险资本家",
+      "steamId": 346900,
+      "rights": "Hyper Hippo Games",
+      "image": "https://images.loopyhop.com/gameplayatlas/58a6cff5ba296cc36aad862d.jpg",
+      "imageSource": "https://store.steampowered.com/app/346900/",
+      "visualInspected": true,
+      "implementation": {
+        "zh": "Time Warp直接提供一段时间的利润，界面会预览收益；官方帮助说明它作用于购买时所在星球。",
+        "en": "Time Warps grant a duration’s profits immediately and display the amount in advance; official help specifies that they affect the planet where purchased."
+      },
+      "source": "https://screenzilla.helpshift.com/hc/en/5-adventure-capitalist/faq/34-what-s-the-deal-with-all-these-time-warps/",
+      "sourceLabel": "Official support documentation",
+      "imageKind": "system",
+      "verified": "2026-10-21",
+      "observation": {
+        "zh": "系统参考图：官方商店宣传合成图中可见产业购买与收益界面；不是完整操作截图。",
+        "en": "System reference: This official-store promotional composite includes business-purchase and income panels; it is not a complete gameplay screenshot. See the linked text source for the rules."
+      },
+      "visualInspectedAt": "2026-10-22",
+      "originalImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/346900/ss_24fbcd72d11e70c34a041ab3c6e4fe661f111ccd.1920x1080.jpg?t=1769198593"
+    },
+    {
+      "game": "Clicker Heroes",
+      "gameZh": "点击英雄",
+      "steamId": 363970,
+      "implementation": {
+        "zh": "Timelapse以红宝石换取时间推进和相应金币收益；它的结算有自身规则，不能假定所有手动点击收益都会被模拟。",
+        "en": "Timelapse exchanges rubies for time advancement and associated gold. It follows its own settlement rules, not a simulation of every possible manual click."
+      },
+      "source": "https://clickerheroes.fandom.com/wiki/Currencies",
+      "sourceLabel": "Community game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/6254a39c4fea29f6a4bf06ca.jpg",
+      "imageSource": "https://store.steampowered.com/app/363970/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：英雄升级、金币和敌人展示推进背景；本条所述的奖励结算与长期变化需结合规则来源阅读。",
+        "en": "System reference: upgrades, gold and an enemy provide progression context; read the rule source for reward settlement and changes over time."
+      },
+      "rights": "Playsaurus",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/363970/3c9142b888c07f6846293e555d9f0000e958cfc8/ss_3c9142b888c07f6846293e555d9f0000e958cfc8.1920x1080.jpg?t=1792369175"
+    }
+  ],
+  "contrast": {
+    "zh": "冒险资本家突出某个星球的即时利润预览；点击英雄还把时间推进放进英雄、技能和任务等进度语境。",
+    "en": "AdVenture Capitalist emphasizes a planet’s immediate profit preview; Clicker Heroes places time advancement within hero, skill and quest progression."
+  },
+  "combinesWith": [
+    "commerce"
+  ],
+  "combinationIds": [
+    "commerce-debt-pressure"
+  ],
+  "combination": {
+    "zh": "组合提案：用限量时间券提前结算工坊产出，但本轮到期的债务也随之结算，玩家必须先确认净收入。",
+    "en": "Design proposal: a limited time token advances workshop output and debt payments due in that interval, requiring a net-income check."
+  },
+  "related": [
+    "incremental-offline-window",
+    "commerce-timed-contracts",
+    "incremental-allocate-progress-capacity",
+    "incremental-escalating-copy-price"
+  ],
+  "tags": [
+    "time",
+    "economy",
+    "planning"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "每轮产5币，有一张推进10轮的券；花20币升级后每轮产8币。",
+      "en": "Output is five coins per round. A token advances ten rounds; a twenty-coin upgrade raises output to eight."
+    },
+    "action": {
+      "zh": "玩家先升级，再使用券。",
+      "en": "Buy the upgrade before using the token."
+    },
+    "result": {
+      "zh": "券结算80币而非50币，但升级已经花掉20币。",
+      "en": "The token yields eighty instead of fifty, while the upgrade has cost twenty."
+    },
+    "next": {
+      "zh": "拿到钱后重新比较下一张券的使用时机。",
+      "en": "Reevaluate when to use the next token with the new balance."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "只推进一种资源，使用前明确显示时间长度、预计收入和排除项。",
+      "en": "Advance one resource only, previewing duration, expected income and exclusions."
+    },
+    "pitfall": {
+      "zh": "不要把本机制的原型验证绑定真实付费；先用关卡奖励发券。",
+      "en": "Prototype with tokens earned through play rather than requiring real purchases."
+    },
+    "test": {
+      "zh": "玩家是否会先检查当前产出，再决定用券或保留？",
+      "en": "Do players inspect production before choosing to use or save a token?"
+    }
+  }
+}

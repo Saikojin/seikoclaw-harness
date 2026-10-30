@@ -1,0 +1,169 @@
+{
+  "id": "building-terrain-shaping",
+  "system": "building",
+  "name": {
+    "zh": "地形塑造",
+    "en": "Terrain shaping"
+  },
+  "summary": {
+    "zh": "直接改动高低与地面形状，为建筑和水流创造条件。",
+    "en": "Reshape elevation and ground for buildings and water."
+  },
+  "tags": [
+    "spatial",
+    "creativity",
+    "planning"
+  ],
+  "rules": {
+    "zh": "玩家抬高、削低或填补地形，取得可用空间和通路。工具与材料限制改造，结果改变可建造位置、坡度和水路。",
+    "en": "Players raise, lower or fill terrain to create space and routes. Tools and materials constrain changes to buildable land, slopes and waterways."
+  },
+  "loop": [
+    {
+      "zh": "识别地形问题",
+      "en": "Identify terrain issues"
+    },
+    {
+      "zh": "选择挖除或填筑",
+      "en": "Choose excavation or fill"
+    },
+    {
+      "zh": "局部施工",
+      "en": "Reshape locally"
+    },
+    {
+      "zh": "检查改造结果",
+      "en": "Inspect results"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "顺应地形省成本，平整后更便于布局。",
+      "en": "Following terrain saves cost; flattening simplifies layout."
+    },
+    {
+      "zh": "局部改造快，却可能把水路问题推到邻区。",
+      "en": "Local changes can displace water problems elsewhere."
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "改造成本",
+        "en": "Reshaping cost"
+      },
+      "effect": {
+        "zh": "高成本鼓励适应自然，低成本鼓励造型。",
+        "en": "High costs reward adaptation; low costs encourage expression."
+      }
+    },
+    {
+      "name": {
+        "zh": "可逆性",
+        "en": "Reversibility"
+      },
+      "effect": {
+        "zh": "容易恢复适合实验，不可逆改造需要更清楚的预览。",
+        "en": "Easy restoration encourages experiments; irreversible changes demand previews."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Valheim",
+      "gameZh": "英灵神殿",
+      "implementation": {
+        "zh": "锄头可整平或抬高地形，用于准备房屋地基和路径。",
+        "en": "The hoe levels or raises terrain to prepare foundations and paths."
+      },
+      "source": "https://valheim.fandom.com/wiki/Hoe",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/3fa93b55e976213858394eb5.jpg",
+      "imageSource": "https://store.steampowered.com/app/892970/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察建筑与自然地表交界；系统图不展示整平操作。",
+        "en": "Inspect where structures meet ground; leveling actions are not shown."
+      },
+      "rights": "Iron Gate AB",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/ss_f6cbfeea728d557fa9f483685fea3205f08f5d9e.1920x1080.jpg?t=1791544831"
+    },
+    {
+      "game": "Timberborn",
+      "gameZh": "海狸浮生记",
+      "implementation": {
+        "zh": "炸药移除地形块，可用于开挖渠道或改变聚落布局。",
+        "en": "Dynamite removes terrain blocks for channels or settlement reshaping."
+      },
+      "source": "https://timberborn.wiki.gg/wiki/Dynamite",
+      "sourceLabel": "Official wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/584c8986862c63b1bbfa68e3.jpg",
+      "imageSource": "https://store.steampowered.com/app/1062090/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察阶梯地形与水道；不能据此断言某处由爆破形成。",
+        "en": "Inspect stepped terrain and waterways; this does not prove a site was excavated."
+      },
+      "rights": "Mechanistry",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062090/562340b1f7bac6ba47527cad5a864c11a44811f7/ss_562340b1f7bac6ba47527cad5a864c11a44811f7.1920x1080.jpg?t=1788438437"
+    }
+  ],
+  "contrast": {
+    "zh": "Valheim从脚下局部整平入手；Timberborn将块状改造接入水利和聚落规划。",
+    "en": "Valheim emphasizes local preparation; Timberborn links block excavation to water and settlement planning."
+  },
+  "combinesWith": [
+    "farming",
+    "exploration"
+  ],
+  "combination": {
+    "zh": "给悬崖村落有限填土量，在耕地、道路和蓄水池之间分配工程额度。",
+    "en": "Give a cliff village limited earthworks to divide among farmland, roads and reservoirs."
+  },
+  "related": [
+    "building-access-network",
+    "building-modular-snapping",
+    "building-room-requirements",
+    "building-service-coverage"
+  ],
+  "combinationIds": [
+    "farming-substrate-match"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "房屋预览放不下，前半块地是斜坡，后半块被水沟隔开。",
+      "en": "A house cannot be placed: a slope occupies one side and a ditch cuts through the other."
+    },
+    "action": {
+      "zh": "你只平整房屋需要的范围，保留旁边水沟作为排水通道。",
+      "en": "Level only the required footprint, keeping a nearby channel for drainage."
+    },
+    "result": {
+      "zh": "可建造区域扩大，但填土消耗材料并改变原有地面。",
+      "en": "The buildable area expands, spending fill material and changing the terrain."
+    },
+    "next": {
+      "zh": "检查道路和排水是否仍通，再安排下一栋建筑。",
+      "en": "Check that access and drainage still work before planning the next building."
+    }
+  },
+  "prototype": {
+    "scope": "medium",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先做格子高度、填挖成本和建筑平整条件，暂不加入真实地形网格变形。",
+      "en": "Use tile heights, cut/fill costs and building-level requirements before adding deformable terrain meshes."
+    },
+    "pitfall": {
+      "zh": "若地形变化还联动水流、导航与植被，每次修改都会触发更多系统，需逐层扩展。",
+      "en": "Terrain linked to water, navigation and vegetation triggers many updates; expand those links gradually."
+    },
+    "test": {
+      "zh": "玩家是否愿意局部改造以节省材料，并能预见哪条通路会受到影响？",
+      "en": "Do players use limited earthworks to save materials and anticipate affected routes?"
+    }
+  },
+  "edition": 1
+}

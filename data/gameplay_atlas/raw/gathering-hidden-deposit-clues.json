@@ -1,0 +1,175 @@
+{
+  "id": "gathering-hidden-deposit-clues",
+  "system": "gathering",
+  "name": {
+    "zh": "埋藏资源线索",
+    "en": "Clues to buried deposits"
+  },
+  "summary": {
+    "zh": "读懂地表痕迹，再挖出藏在下面的收获。",
+    "en": "Read surface traces, then uncover what lies beneath."
+  },
+  "tags": [
+    "information",
+    "discovery",
+    "spatial"
+  ],
+  "rules": {
+    "zh": "埋藏物会在地面或岩壁留下可见痕迹，例如虫纹、碎晶或透出的光。玩家先识别线索，再用合适工具挖掘；线索可能精确指向一格，也可能只圈定一块需要试挖的区域，物品在出土后揭晓。",
+    "en": "Buried items leave visible surface traces such as worm-like marks, crystal fragments or light. Players recognize the clue and dig with an appropriate tool; it may pinpoint a tile or indicate a region requiring probing, with the item revealed on excavation."
+  },
+  "loop": [
+    {
+      "zh": "发现表面痕迹",
+      "en": "Notice a surface trace"
+    },
+    {
+      "zh": "判断位置与适用工具",
+      "en": "Identify the location and tool"
+    },
+    {
+      "zh": "挖开标记处或周围岩层",
+      "en": "Dig at the mark or through nearby rock"
+    },
+    {
+      "zh": "取出并确认收获",
+      "en": "Retrieve and identify the find"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "是否为这条线索偏离当前路线，尤其在时间或背包余量有限时？",
+      "en": "Is the clue worth leaving the current route when time or carrying space is limited?"
+    },
+    {
+      "zh": "线索指向精确一格，还是需要根据光和碎屑重新判断挖掘方向？",
+      "en": "Does the clue pinpoint a tile, or require re-reading glow and fragments to choose a digging direction?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "线索精度",
+        "en": "Clue precision"
+      },
+      "effect": {
+        "zh": "精确标记偏效率；散布线索要求玩家形成空间判断。",
+        "en": "Precise markers favor efficiency; distributed clues require spatial inference."
+      }
+    },
+    {
+      "name": {
+        "zh": "试挖成本",
+        "en": "Probe cost"
+      },
+      "effect": {
+        "zh": "低成本鼓励探索；高成本让每次定位更慎重。",
+        "en": "Cheap probes encourage exploration; costly ones reward careful localization."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Deep Rock Galactic",
+      "gameZh": "深岩银河",
+      "steamAppId": 548430,
+      "implementation": {
+        "zh": "点位萃取的水晶藏在岩壁内部，外部的蓝色碎晶与光线帮助定位；挖出后还要把大块矿物送回。",
+        "en": "Aquarqs in Point Extraction are buried inside rock, with blue fragments and glow helping locate them; exposed chunks must then be returned."
+      },
+      "source": "https://deeprockgalactic.wiki.gg/wiki/Point_Extraction",
+      "sourceLabel": "Official game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/e4a00a31581330fef2016e14.jpg",
+      "imageSource": "https://store.steampowered.com/app/548430/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "观察矿晶与岩壁的空间关系；本图是采集系统参考，不声称显示水晶埋藏线索。",
+        "en": "Inspect the relation between crystals and rock walls. System reference; this is not claimed to depict Aquarq clues."
+      },
+      "rights": "Ghost Ship Games / Coffee Stain Publishing",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.600x338.jpg?t=1792497307",
+      "imageIndex": 1,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/5ffa803484da48da16db9006d7f4313db8999c2a/ss_5ffa803484da48da16db9006d7f4313db8999c2a.1920x1080.jpg?t=1792497307"
+    },
+    {
+      "game": "Stardew Valley",
+      "gameZh": "星露谷物语",
+      "steamAppId": 413150,
+      "implementation": {
+        "zh": "远古斑点以像虫子、茎或细枝的地表痕迹出现，用锄头挖掘保证获得物品；可能产物取决于地点等条件，并非每次都是古物。",
+        "en": "Artifact Spots appear as worm-, stem- or twig-like surface marks. Digging with a hoe guarantees an item; possible finds depend on location and other conditions, and are not always artifacts."
+      },
+      "source": "https://stardewvalleywiki.com/Artifact_Spot",
+      "sourceLabel": "Official game wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/28a3e2464918160ce464222e.jpg",
+      "imageSource": "https://store.steampowered.com/app/413150/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "铁路区域的地面与路径提供巡视可挖点的户外场景。系统参考图，未标示或确认画面中的远古斑点。",
+        "en": "Ground and paths in the railroad area contextualize searching for dig spots. System reference; no Artifact Spot is identified or confirmed in this image."
+      },
+      "rights": "ConcernedApe",
+      "verified": "2026-10-21",
+      "imageThumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_f6f4c727570d753b2b5d8da6af4e0c38fe489059.600x338.jpg?t=1786554168",
+      "imageIndex": 15,
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_f6f4c727570d753b2b5d8da6af4e0c38fe489059.1920x1080.jpg?t=1786554168"
+    }
+  ],
+  "contrast": {
+    "zh": "深岩银河用一簇碎晶与光圈定埋藏区域，还要判断向内挖多深；星露谷的痕迹精确指向一格，主要悬念变成挖出什么。",
+    "en": "Deep Rock uses clustered fragments and glow to localize a buried region, leaving depth to infer; Stardew pinpoints one tile, shifting uncertainty toward what the dig will reveal."
+  },
+  "combinesWith": [
+    "puzzles",
+    "exploration"
+  ],
+  "combination": {
+    "zh": "组合创意：矿物会改变附近植物颜色，玩家先学习对应关系，再用植被分布反推地下矿脉。",
+    "en": "Design proposal: minerals change nearby plant colors, allowing learned ecological patterns to reveal underground veins."
+  },
+  "related": [
+    "gathering-resource-detection",
+    "exploration-ability-gates",
+    "exploration-earned-map",
+    "gathering-depth-targeting"
+  ],
+  "combinationIds": [
+    "puzzles-visual-rule-learning"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "岩壁有一片发亮碎晶，附近其他墙面没有类似痕迹。",
+      "en": "A patch of bright crystals appears on one wall but not on nearby rock."
+    },
+    "action": {
+      "zh": "你朝碎晶较密的位置试挖一层，再看线索如何变化。",
+      "en": "Dig a layer near the densest crystals, then inspect how the clue changes."
+    },
+    "result": {
+      "zh": "矿物出土或光线更明显，告诉你方向是否正确。",
+      "en": "Exposed ore or stronger light indicates whether you are moving in the right direction."
+    },
+    "next": {
+      "zh": "取出矿物后记住这类痕迹，继续识别下一个目标。",
+      "en": "After extraction, remember the visual pattern and look for the next deposit."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "先用二维格子做表面痕迹、埋藏目标与逐格挖开，让线索和距离有稳定关系。",
+      "en": "Use a two-dimensional grid with surface clues, buried targets and cell-by-cell digging; keep clues consistently related to distance."
+    },
+    "pitfall": {
+      "zh": "线索和奖励若没有稳定关系，玩家会退回全图乱挖。",
+      "en": "Without a consistent link between clues and rewards, players revert to digging everywhere."
+    },
+    "test": {
+      "zh": "看过一次示例后，玩家能否在新区域指出值得挖的位置并说明线索？",
+      "en": "After one example, can players identify a promising location in a new area and explain the clue?"
+    }
+  },
+  "edition": 1
+}

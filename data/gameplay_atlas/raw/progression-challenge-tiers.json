@@ -1,0 +1,172 @@
+{
+  "id": "progression-challenge-tiers",
+  "system": "progression",
+  "name": {
+    "zh": "通关后追加难度条件",
+    "en": "Escalating challenge conditions"
+  },
+  "summary": {
+    "zh": "熟悉规则后，给同一套挑战再加一道限制。",
+    "en": "Add another constraint after mastering the base challenge."
+  },
+  "tags": [
+    "progression",
+    "risk",
+    "planning"
+  ],
+  "rules": {
+    "zh": "玩家完成基础挑战后，解锁更难的层级或自行挑选限制条件，例如更少治疗或更强敌人。新一轮沿用熟悉内容，却要求调整策略；界面应明确本轮额外改变了什么。",
+    "en": "After completing the base challenge, unlock tougher tiers or choose added restrictions such as less healing or stronger enemies. Familiar content now demands a revised strategy, and the interface states exactly what changed."
+  },
+  "loop": [
+    {
+      "zh": "完成当前挑战",
+      "en": "Complete the current challenge"
+    },
+    {
+      "zh": "查看新增限制",
+      "en": "Read the added restriction"
+    },
+    {
+      "zh": "调整方案再次挑战",
+      "en": "Adapt and retry"
+    },
+    {
+      "zh": "记录完成条件并继续加难",
+      "en": "Record success and escalate"
+    }
+  ],
+  "decisions": [
+    {
+      "zh": "提升难度争取新目标，还是停留在熟悉层级练习薄弱环节？",
+      "en": "Raise difficulty for a new goal or practice a weakness at a familiar level?"
+    },
+    {
+      "zh": "如果能自选限制，削减补给和加强敌人，哪一种更能由当前能力承担？",
+      "en": "When restrictions are selectable, can the current setup handle fewer supplies or stronger enemies better?"
+    }
+  ],
+  "parameters": [
+    {
+      "name": {
+        "zh": "限制是否累积",
+        "en": "Cumulative restrictions"
+      },
+      "effect": {
+        "zh": "累积限制更考验整体熟练度；独立限制更便于练习单一问题。",
+        "en": "Stacked restrictions test overall mastery; independent ones isolate a skill."
+      }
+    },
+    {
+      "name": {
+        "zh": "新增条件的可见性",
+        "en": "Modifier visibility"
+      },
+      "effect": {
+        "zh": "开局列清改变，能让失败归因于具体限制，而不是感觉游戏突然不公平。",
+        "en": "A clear start-of-run list makes losses attributable to specific changes."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "game": "Slay the Spire",
+      "gameZh": "杀戮尖塔",
+      "steamId": 646570,
+      "screenshotIndex": 3,
+      "implementation": {
+        "zh": "进阶模式通过逐级增加限制让同一套爬塔规则更难，玩家需要适应累积的条件，而不是每次学习完全不同的游戏。",
+        "en": "Ascension increases difficulty through successive restrictions on the same climbing rules, requiring adaptation to accumulating conditions."
+      },
+      "source": "https://slaythespire.wiki.gg/wiki/Ascension",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/b7cbb9f8f9c2de804fa8137f.jpg",
+      "imageSource": "https://store.steampowered.com/app/646570/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：事件显示获得卡牌与失去生命上限的取舍；画面不是进阶层级列表。",
+        "en": "System reference: an event trades cards for maximum health; it is not the Ascension tier list."
+      },
+      "rights": "Mega Crit",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_1299d7fe55771cf564848c5046fbef7936178440.1920x1080.jpg?t=1774015376"
+    },
+    {
+      "game": "Hades",
+      "gameZh": "哈迪斯",
+      "steamId": 1145360,
+      "screenshotIndex": 0,
+      "implementation": {
+        "zh": "惩罚契约让玩家挑选额外困难条件并提高热度，例如改变敌人或资源条件；不同条件组合可以达到相近的总体难度。",
+        "en": "The Pact of Punishment lets players select added conditions and raise Heat, changing enemies or resource constraints through different combinations."
+      },
+      "source": "https://hades.fandom.com/wiki/Pact_of_Punishment",
+      "sourceLabel": "Community wiki",
+      "image": "https://images.loopyhop.com/gameplayatlas/e52c7a48405b5a280603ebeb.jpg",
+      "imageSource": "https://store.steampowered.com/app/1145360/",
+      "imageKind": "system",
+      "observation": {
+        "zh": "系统参考图：首领交战场景可见；截图不能确认使用了哪项契约条件。",
+        "en": "System reference: a boss encounter is visible; the selected Pact conditions cannot be established from this frame."
+      },
+      "rights": "Supergiant Games",
+      "verified": "2026-10-21",
+      "originalImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_c0fed447426b69981cf1721756acf75369801b31.1920x1080.jpg?t=1758127023"
+    }
+  ],
+  "contrast": {
+    "zh": "《杀戮尖塔》主要沿固定层级逐步累加；《哈迪斯》让玩家自己拼出难度条件，更强调选择哪种压力。",
+    "en": "Slay the Spire largely follows fixed cumulative tiers; Hades lets players compose conditions and choose the kind of pressure."
+  },
+  "combinesWith": [
+    "inventory"
+  ],
+  "combinationIds": [
+    "inventory-light-reserve"
+  ],
+  "combination": {
+    "zh": "设计提案：洞穴通关后开放“照明燃料减半”条件；路线仍相同，但玩家必须改带物资和折返时机。",
+    "en": "Design proposal: unlock a half-lighting-fuel challenge for a familiar cave, requiring different supplies and turnaround timing."
+  },
+  "related": [
+    "progression-death-loses-training",
+    "progression-evolution-recipes",
+    "progression-permanent-run-currency",
+    "progression-practice-based-growth"
+  ],
+  "walkthrough": {
+    "setup": {
+      "zh": "你已通过三间房；下一级新增“每次治疗只能恢复 1 点”，原本是 3 点。",
+      "en": "You cleared three rooms; the next tier reduces healing from 3 health to 1."
+    },
+    "action": {
+      "zh": "你放弃依赖治疗的道具，改选能挡一次伤害的护盾。",
+      "en": "Replace a healing-focused item with a shield that blocks one hit."
+    },
+    "result": {
+      "zh": "同一个敌人仍按旧节奏攻击，但失误更难补回。",
+      "en": "The enemy keeps its familiar rhythm, but mistakes are harder to repair."
+    },
+    "next": {
+      "zh": "通关后再决定接受下一个条件，或留在这里练稳定性。",
+      "en": "After winning, add another condition or practice consistency here."
+    }
+  },
+  "prototype": {
+    "scope": "small",
+    "interaction": "solo",
+    "firstStep": {
+      "zh": "做一个已经能通关的短挑战，再加两项可分别开关的明确限制。",
+      "en": "Build a beatable short challenge, then two clearly stated modifiers that can be toggled separately."
+    },
+    "pitfall": {
+      "zh": "别只无限加血量；优先让限制改变选择，而不是延长重复操作。",
+      "en": "Avoid only increasing health; modifiers should change decisions instead of prolonging repetition."
+    },
+    "test": {
+      "zh": "开启限制后，玩家是否改变了一项准备或行动，而非只是多打几次？",
+      "en": "Does enabling a modifier change a preparation or action instead of merely adding repetitions?"
+    }
+  },
+  "edition": 2
+}
