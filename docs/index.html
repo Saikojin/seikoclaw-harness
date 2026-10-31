@@ -56,6 +56,20 @@
     .tabular-nums {
       font-variant-numeric: tabular-nums;
     }
+    .book-jacket {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 158, 11, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    }
+    .gold-foil {
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .callout-creed {
+      background: rgba(245, 158, 11, 0.07);
+      border-left: 4px solid #f59e0b;
+    }
     @media (prefers-reduced-motion: reduce) {
       *, ::before, ::after {
         animation-duration: 0.01ms !important;
@@ -114,6 +128,14 @@
         >
           Engineering audit
         </button>
+        <button
+          type="button"
+          id="lens-story"
+          onclick="setAudienceLens('story')"
+          class="px-3.5 py-1.5 rounded-full text-amber-300 hover:text-white apple-press"
+        >
+          📖 Harness Odyssey
+        </button>
       </div>
 
       <div class="flex items-center gap-2 text-xs">
@@ -157,9 +179,10 @@
 
         <!-- Mobile Lens Switcher -->
         <div class="flex md:hidden flex-wrap items-center gap-2 pt-1 text-xs">
-          <button type="button" onclick="setAudienceLens('all')" class="px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold">Full story + charts</button>
-          <button type="button" onclick="setAudienceLens('executive')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700">Executive view</button>
-          <button type="button" onclick="setAudienceLens('engineering')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700">Engineering audit</button>
+          <button type="button" id="lens-all-mob" onclick="setAudienceLens('all')" class="px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold">Full story + charts</button>
+          <button type="button" id="lens-exec-mob" onclick="setAudienceLens('executive')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700">Executive view</button>
+          <button type="button" id="lens-eng-mob" onclick="setAudienceLens('engineering')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700">Engineering audit</button>
+          <button type="button" id="lens-story-mob" onclick="setAudienceLens('story')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-amber-300 font-semibold border border-amber-500/40">📖 Odyssey</button>
         </div>
 
         <!-- Repository & Live Demo Cards -->
@@ -175,7 +198,10 @@
               <a href="https://github.com/Saikojin/seikoclaw-harness" target="_blank" rel="noopener noreferrer" class="flex-1 text-center px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white border border-slate-700 apple-press">
                 Harness GitHub ↗
               </a>
-              <a href="EXECUTIVE_STORY.md" class="px-3 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-amber-300 border border-slate-800 apple-press">
+              <a href="story.html" class="px-3 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-amber-300 border border-amber-500/30 apple-press" title="Open complete Harness Story Odyssey & Book Jacket">
+                📖 Story ↗
+              </a>
+              <a href="EXECUTIVE_STORY.md" class="px-2.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-slate-400 border border-slate-800 apple-press">
                 1-Pager ↗
               </a>
             </div>
@@ -219,6 +245,211 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Harness Story Odyssey & Back of the Book Section -->
+    <section id="harness-story" data-audience="story" class="space-y-10">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-5">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">The Quality Frontier · Harness Odyssey</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              Third-Person Editorial
+            </span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-white mt-1">Beyond Prompt-and-Pray: The SeikoClaw Story</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            How deterministic first principles, persistent memory, and live runtime verification transform autonomous AI coding from shallow prototypes into production systems.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="story.html" target="_blank" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs apple-press shadow-sm">
+            Open Standalone Reader ↗
+          </a>
+          <a href="HARNESS_STORY.md" download class="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-semibold text-xs apple-press">
+            Download .md ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Hardcover Back of the Book Slipcase -->
+      <div class="book-jacket rounded-3xl p-6 sm:p-10 space-y-8 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-amber-500/20 pb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">📕</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Hardcover Slipcase · Back of the Book</span>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">ISBN: 978-SEIKOCLAW-2026</span>
+        </div>
+
+        <!-- Tagline -->
+        <div class="space-y-2">
+          <h3 class="text-xl sm:text-2xl font-bold text-white leading-snug">
+            Beyond prompt-and-pray: How deterministic first principles, persistent memory, and live runtime verification transform AI coding from shallow prototypes into production systems.
+          </h3>
+        </div>
+
+        <!-- 3-Paragraph Synopsis -->
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+          <p>
+            When standard AI coding assistants are asked to build software, they default to the lowest-common-denominator pattern on the internet. They spin up boilerplate templates, write unit tests against polite, synthetic data, and report green checkmarks without ever looking at a rendered screen. In a five-minute status demo, the resulting software appears finished. In the hands of a real customer spending two thousand dollars on heavy equipment, the illusion collapses under the weight of broken layouts, missing domain logic, and silent edge-case failures.
+          </p>
+          <p>
+            <strong class="text-white">SeikoClaw</strong> was engineered to end this era of conversational consensus. Instead of treating code generation as a single chat turn, SeikoClaw envelops autonomous agents in an uncompromising quality harness. Powered by <strong class="text-amber-300">24 inviolable first principles</strong>, an <strong class="text-amber-300">OpenBrain</strong> persistent sidecar database tracking task DAGs and decision trails, pre-execution security guardrails, and deterministic skill routing, the harness forces AI to work like a seasoned principal engineer.
+          </p>
+          <p>
+            The definitive proof of this methodology is recorded in the <strong class="text-white">ExerMart A/B Case Study</strong>. Given the exact same starting prompt—to build an online marketplace for commercial gym equipment—an unguided AI produced <strong class="text-slate-100">RawExerMart</strong>: three shallow screens that missed a catastrophic $129,999 pricing bug. Inside the SeikoClaw Harness, the same underlying model built <strong class="text-amber-400">ClawExerMart</strong>: six complete buyer and seller journeys, an 8-point physical inspection grading engine, an interactive basement ceiling clearance calculator, LTL freight logistics, and eight edge-case defects caught and resolved before launch through adversarial stress testing and windowed Chrome verification.
+          </p>
+        </div>
+
+        <!-- Core Creed Callout -->
+        <div class="callout-creed p-5 rounded-2xl space-y-2">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">The SeikoClaw Engineering Creed</span>
+          <blockquote class="text-sm sm:text-base italic text-slate-200 font-serif leading-relaxed">
+            "The unit test that passes on clean dummy data is the ultimate false summit. True software quality is an empirical discipline: it demands domain reality at the seams, worst-case stress at the boundaries, and photographic proof on the glass."
+          </blockquote>
+        </div>
+
+        <!-- Vital Metrics & System Specs -->
+        <div class="space-y-3 pt-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Vital Metrics & System Specs</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-[11px]">Foundational Directives</div>
+              <div class="text-base font-bold text-amber-400 mt-0.5">24 Principles</div>
+              <div class="text-[10px] text-slate-500">Inviolable rules</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-[11px]">Domain Workflows</div>
+              <div class="text-base font-bold text-emerald-400 mt-0.5">6 Journeys</div>
+              <div class="text-[10px] text-slate-500">vs. 3 in RawExerMart</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-[11px]">break-ui Stress Fixes</div>
+              <div class="text-base font-bold text-amber-400 mt-0.5">8 Defects</div>
+              <div class="text-[10px] text-slate-500">Caught pre-launch</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="text-slate-400 text-[11px]">Visual Proof Standard</div>
+              <div class="text-base font-bold text-emerald-400 mt-0.5">100% Non-Headless</div>
+              <div class="text-[10px] text-slate-500">7 Chrome captures</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-amber-500/20 text-[11px] text-slate-400 font-mono">
+          <div>CLASSIFICATION: Software Engineering · Autonomous AI Systems</div>
+          <div>PUBLISHER: Saikojin Open Source Engineering · Oct 2026</div>
+        </div>
+      </div>
+
+      <!-- Narrative Chapter Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Card 1: Prologue -->
+        <article class="apple-glass-card rounded-3xl p-6 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Prologue · The Problem Space</span>
+            <h3 class="text-lg font-bold text-white">The Hall of Mirrors</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Why standard AI evaluation produces fragile demos. The triple blind spot: the curse of polite unit tests in memory, the headless lie that elements render cleanly, and the prototype plateau avoiding hard domain logic.
+            </p>
+          </div>
+          <div class="pt-2 text-xs text-slate-400">
+            <span class="font-mono text-amber-300">Rule:</span> Conversational consensus ≠ runtime truth.
+          </div>
+        </article>
+
+        <!-- Card 2: Chapter 1 -->
+        <article class="apple-glass-card rounded-3xl p-6 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Chapter 01 · System Architecture</span>
+            <h3 class="text-lg font-bold text-white">The Architecture of Discipline</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Autonomy without structural constraints produces slop. How the 24 first principles, OpenBrain SQLite/vector sidecar, pre-execution POSIX/Windows safety hooks, and deterministic skill routing enforce principal engineering standards.
+            </p>
+          </div>
+          <div class="pt-2 text-xs text-slate-400">
+            <span class="font-mono text-amber-300">Core:</span> OpenBrain task DAGs & decision trails.
+          </div>
+        </article>
+
+        <!-- Card 3: Chapter 2 -->
+        <article class="apple-glass-card rounded-3xl p-6 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Chapter 02 · Empirical Benchmark</span>
+            <h3 class="text-lg font-bold text-white">The ExerMart Experiment</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              The head-to-head showdown: identical prompt given to unguided AI (RawExerMart) vs. the SeikoClaw Harness (ClawExerMart). Both passed their unit tests; only one built an application that closes sales.
+            </p>
+          </div>
+          <div class="pt-2 text-xs text-slate-400">
+            <span class="font-mono text-amber-300">Result:</span> 12-dimension rubric proof.
+          </div>
+        </article>
+
+        <!-- Card 4: Chapter 3 -->
+        <article class="apple-glass-card rounded-3xl p-6 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Chapter 03 · Domain Reality</span>
+            <h3 class="text-lg font-bold text-white">The Depths of Domain Modeling</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Transforming 3 basic screens into 6 complete customer journeys: an 8-point physical technician inspection sheet, 3D basement ceiling clearance calculator, brand depreciation curves, and LTL liftgate freight.
+            </p>
+          </div>
+          <div class="pt-2 text-xs text-slate-400">
+            <span class="font-mono text-amber-300">Mantra:</span> Unguided AI builds a brochure; guided AI builds the business.
+          </div>
+        </article>
+
+        <!-- Card 5: Chapter 4 -->
+        <article class="apple-glass-card rounded-3xl p-6 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Chapter 04 · Adversarial Stress</span>
+            <h3 class="text-lg font-bold text-white">The $129,999 Defect</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              How break-ui stress testing caught the silent revenue killer: the catalog price slider capping at $5,000, hiding all high-ticket commercial gym inventory from buyers despite 40 passing unit tests.
+            </p>
+          </div>
+          <div class="pt-2 text-xs text-slate-400">
+            <span class="font-mono text-amber-300">Defense:</span> 8 defects eliminated before launch.
+          </div>
+        </article>
+
+        <!-- Card 6: Chapter 5 -->
+        <article class="apple-glass-card rounded-3xl p-6 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Chapter 05 · Visual Truth</span>
+            <h3 class="text-lg font-bold text-white">The Glass & Non-Headless Proof</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Software runs on glass. Enforcing QA Constitution Rule #8 (Anti-Soft-Pass) with windowed Chrome Playwright verification, 7 photographic proofs, and Apple motion spring physics.
+            </p>
+          </div>
+          <div class="pt-2 text-xs text-slate-400">
+            <span class="font-mono text-amber-300">Artifact:</span> 7 non-headless captures in assets/exermart/.
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Full Odyssey Banner Link -->
+      <div class="apple-glass rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border border-amber-500/30">
+        <div>
+          <h4 class="text-sm font-bold text-white">Read the Complete 7-Chapter Narrative Odyssey</h4>
+          <p class="text-xs text-slate-400 mt-0.5">Explore the unabridged story covering the philosophy, game engine MCP bridges, and algorithmic generation.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="story.html" target="_blank" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs apple-press shadow">
+            Open Standalone Reader ↗
+          </a>
+          <a href="HARNESS_STORY.md" download class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-semibold apple-press">
+            Download .md ↗
+          </a>
+        </div>
+      </div>
+
     </section>
 
     <!-- Executive Narrative Section -->
@@ -879,7 +1110,9 @@
         <strong class="text-white">SeikoClaw Agentic Coding Harness</strong> · Built by Saikojin
       </div>
       <div class="flex flex-wrap items-center gap-4">
-        <a href="EXECUTIVE_STORY.md" class="text-amber-400 hover:underline font-semibold">Executive 1-Pager (Markdown) ↗</a>
+        <a href="story.html" class="text-amber-400 hover:underline font-semibold">📖 Harness Odyssey (Standalone Reader) ↗</a>
+        <a href="HARNESS_STORY.md" class="hover:text-amber-400">Story Markdown ↗</a>
+        <a href="EXECUTIVE_STORY.md" class="hover:text-amber-400">Executive 1-Pager (Markdown) ↗</a>
         <a href="EXERMART_CASE_STUDY.md" class="hover:text-amber-400">Technical Report (Markdown) ↗</a>
         <a href="https://github.com/Saikojin/seikoclaw-harness" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">seikoclaw-harness Repo ↗</a>
         <a href="https://github.com/Saikojin/ClawExerMart" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">ClawExerMart Repo ↗</a>
@@ -909,20 +1142,38 @@
     function setAudienceLens(lens) {
       var execSections = document.querySelectorAll('[data-audience="executive"]');
       var engSections = document.querySelectorAll('[data-audience="engineering"]');
-      execSections.forEach(function(el) {
-        el.style.display = (lens === 'engineering') ? 'none' : '';
-      });
-      engSections.forEach(function(el) {
-        el.style.display = (lens === 'executive') ? 'none' : '';
-      });
+      var storySections = document.querySelectorAll('[data-audience="story"]');
 
-      var buttons = {
+      if (lens === 'story') {
+        execSections.forEach(function(el) { el.style.display = 'none'; });
+        engSections.forEach(function(el) { el.style.display = 'none'; });
+        storySections.forEach(function(el) { el.style.display = ''; });
+        var storyEl = document.getElementById('harness-story');
+        if (storyEl) {
+          storyEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else if (lens === 'executive') {
+        execSections.forEach(function(el) { el.style.display = ''; });
+        engSections.forEach(function(el) { el.style.display = 'none'; });
+        storySections.forEach(function(el) { el.style.display = 'none'; });
+      } else if (lens === 'engineering') {
+        execSections.forEach(function(el) { el.style.display = 'none'; });
+        engSections.forEach(function(el) { el.style.display = ''; });
+        storySections.forEach(function(el) { el.style.display = 'none'; });
+      } else { // 'all'
+        execSections.forEach(function(el) { el.style.display = ''; });
+        engSections.forEach(function(el) { el.style.display = ''; });
+        storySections.forEach(function(el) { el.style.display = ''; });
+      }
+
+      var desktopButtons = {
         all: document.getElementById('lens-all'),
         executive: document.getElementById('lens-executive'),
-        engineering: document.getElementById('lens-engineering')
+        engineering: document.getElementById('lens-engineering'),
+        story: document.getElementById('lens-story')
       };
-      Object.keys(buttons).forEach(function(key) {
-        var btn = buttons[key];
+      Object.keys(desktopButtons).forEach(function(key) {
+        var btn = desktopButtons[key];
         if (!btn) return;
         if (key === lens) {
           btn.className = 'px-3.5 py-1.5 rounded-full bg-amber-500 text-slate-950 font-bold apple-press';
@@ -930,12 +1181,28 @@
           btn.className = 'px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white apple-press';
         }
       });
+
+      var mobileButtons = {
+        all: document.getElementById('lens-all-mob'),
+        executive: document.getElementById('lens-exec-mob'),
+        engineering: document.getElementById('lens-eng-mob'),
+        story: document.getElementById('lens-story-mob')
+      };
+      Object.keys(mobileButtons).forEach(function(key) {
+        var btn = mobileButtons[key];
+        if (!btn) return;
+        if (key === lens) {
+          btn.className = 'px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold';
+        } else {
+          btn.className = 'px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700';
+        }
+      });
     }
 
     (function initFromQuery() {
       var params = new URLSearchParams(window.location.search);
       var view = params.get('view');
-      if (view === 'executive' || view === 'engineering' || view === 'all') {
+      if (view === 'executive' || view === 'engineering' || view === 'all' || view === 'story') {
         setAudienceLens(view);
       }
     })();

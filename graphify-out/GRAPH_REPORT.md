@@ -1,17 +1,17 @@
-# Graph Report - SeikoClaw-Harness  (2026-10-30)
+# Graph Report - SeikoClaw-Harness  (2026-10-31)
 
 ## Corpus Check
-- 781 files · ~843,115 words
+- 1056 files · ~898,275 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 5, .css 2, .tsv 1)
 
 ## Summary
-- 5717 nodes · 8690 edges · 415 communities (381 shown, 34 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 420 edges (avg confidence: 0.88)
+- 7300 nodes · 10006 edges · 695 communities (503 shown, 192 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 421 edges (avg confidence: 0.88)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8df24721`
+- Built from commit: `694ab2c2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -29,10 +29,10 @@
 - Animation Recipes
 - Model Context Protocol for Unreal Engine
 - Book-to-Skill Converter
-- tempfile
+- extract_single_file
 - MAP.md
 - SeikoClaw
-- validate_blender_asset.py
+- fetch_asset_references.py
 - 🏛️ Core Principles
 - Process
 - Arena
@@ -42,12 +42,12 @@
 - Apple Design
 - The Fixes
 - scan_generated_skill.py
-- ConversationHistorySyncer
+- HealthPatrol
 - test_polyhaven.py
 - Glossary
 - Breaking UI
 - template.sh
-- HealthPatrol
+- argparse
 - os
 - template.ps1
 - Finding Animation Opportunities
@@ -76,15 +76,15 @@
 - Output
 - The list
 - Patterns to detect and fix
-- UsageMonitor
+- json
 - Supported Slash Commands & Syntaxes
 - 2. The 5-Stage Autonomous Pipeline
 - During the session
 - How
-- typing
+- tempfile
 - Filtering Principles
-- json
-- Show me your work
+- re
+- Blender Director
 - Game Systems Modeler
 - reviewer-prompt.md
 - pi-tools.md
@@ -134,15 +134,15 @@
 - epistemics.md
 - Confidence Tiers
 - Issue tracker: Local Markdown
-- pathlib
+- export_skills.py
 - Poly Haven Asset Pipeline & Cross-Engine Bridge
 - Agent Guardrails & Command Denylist
 - design-red-flags.md
-- Before Building (Instant Gut-Check)
+- Pe
 - t
 - Interviewer Skill
 - Learnings Skill
-- check_defold_project.py
+- Project
 - Maintain a verification skill
 - Playtest Feedback Loop
 - Research & Deep Investigation Skill
@@ -164,7 +164,7 @@
 - merge-safety.md
 - synthesizer.md
 - Persona: Seikojin QA Engineer (The Hands)
-- cmd_cache
+- ExtractionError
 - 5. Production Guardrails & Gameplay Architecture Patterns
 - SkillGater
 - PolyHavenCache
@@ -174,12 +174,12 @@
 - session-start.sh script
 - comment-sicko.md
 - NOTICE.md
-- polyhaven.py
+- sync_gameplay_atlas.py
 - divergent-reviewer.md
 - judgment-reviewer.md
 - pdf_inspector_integration.py
 - utils.py
-- argparse
+- Export Pipeline
 - JSON Canvas Skill
 - epub.py
 - y
@@ -206,22 +206,22 @@
 - manifest.py
 - Hr
 - Yl
-- replay.py
+- score.py
 - Do
 - TaskGraph
 - Worst-Case Catalog
-- BaseLLMProvider
+- Phase Details
 - Pe
 - Project
-- ms
-- check_godot_project.py
-- re
-- Sweep Loop Skill
+- BaseLLMProvider
+- The Quality Frontier: The SeikoClaw Harness Odyssey
+- dependencies.py
+- Reference Image Match Workflow
 - Reviewing Animations
-- TestTaskGraph
+- TestGameplayAtlasDB
 - 3. Poly Haven Asset Ingestion Pipeline & Resolution Gating
 - rtf.py
-- game-forge/SKILL.md
+- Camera systems
 - check_steam_build.py
 - Checker
 - Node
@@ -331,15 +331,15 @@
 - Roblox client/server model & communication (current engine)
 - Responsive Roblox UI
 - Unreal C++ Gameplay
-- validate_glb_file
+- The 5 Review Stages
 - TestGameplayAtlasCLI
 - Follow & framing — depth for `camera-systems`
 - Card effect resolution and structure (depth)
-- Create Game Assets
+- game-forge/SKILL.md
 - Defold file formats (1.14.0)
 - sound.go
 - Project setup and builds
-- package_macos_app.py
+- Environment Artist
 - FPS shooting model and feel (depth)
 - 2D controller recipes (Godot 4.7)
 - Replication & RPC reference (Godot 4.7)
@@ -353,7 +353,7 @@
 - Survival needs, crafting trees, and building (depth)
 - Tower defense balancing and pathing (depth)
 - Visual novel script model and flow (depth)
-- 🧠 One-Call Dispatch Algorithm
+- game-router/SKILL.md
 - Best practices & pitfalls — performance, memory, hybrid AI
 - Raster, sprite, tile, background, and UI pipeline
 - input.go
@@ -362,7 +362,7 @@
 - Behavior trees, FSMs, and the blackboard
 - Feedback recipes — depth for `game-feel`
 - 3D scene & environment reference (Godot 4.7)
-- .resolve
+- With vs. without SeikoClaw Harness: the ExerMart case study
 - Input buffering, game feel, devices, and accessibility
 - Phaser scene flow (Phaser 4.2; core lifecycle also applies to 3.90)
 - Dungeon and level generation
@@ -375,8 +375,8 @@
 - Shader effects and GLSL↔HLSL mapping
 - three.js materials, lights & IBL reference (r155+)
 - MonoBehaviour lifecycle & coroutines (Unity 6.3 LTS)
-- Gameplay Atlas
-- xu
+- 4. Non-headless visual verification captures (`seikojin-qa`)
+- 🚀 Core CLI Commands
 - Art direction and consistency
 - 3D concept-to-runtime pipeline
 - Build and run with Bob (Defold 1.14.0)
@@ -398,15 +398,15 @@
 - Blueprint communication: Cast vs Interface vs Event Dispatcher (UE 5.8)
 - Components, garbage collection & replication primer (UE 5.8 C++)
 - Enhanced Input — complete C++ Character (UE 5.8)
-- test_economy_math.luau
+- Gameplay Atlas
 - Utility AI system — curves, considerations, evaluator
 - Adaptive (dynamic) music
 - Art direction brief
 - Ink and Yarn Spinner — syntax cheat sheet
-- A custom dialogue runner
+- ol
 - drawCentered
 - Audio
-- .ext_target
+- Zoom Out Standard
 - Engine detection — full project fingerprint
 - Interactive rebinding & local multiplayer (Input System 1.x)
 - Event channels & runtime sets (Unity 6.3 LTS ScriptableObjects)
@@ -417,18 +417,297 @@
 - Asset rights and provenance
 - Working with custom and proprietary engines
 - book-to-skill/SKILL.md
-- Step 8 — Generate supporting files
+- Geometry Nodes
 - ebiten.Image
 - Assets that belong to one game
 - CI and release automation
-- read_text
+- Hard Surface Artist
+- From a passable demo to a store that closes sales
+- SeikoClaw: Agentic Coding Harness
+- Feature Specification Standard
+- Comprehension Standard
+- Implementation Readiness Standard
+- Genre & Competitor Analysis
+- Chapter 1: The Architecture of Discipline
+- 📕 Back of the Book
+- Skill Distribution & Sync Workflow
+- Asset Optimization
+- an
+- Horror Style Specialist
+- Rendering
+- Rigging
+- Stylized Style Specialist
+- UV Workflow
+- Blender Modeler
+- Low Poly Style Specialist
+- Procedural Modeling
+- Realistic Style Specialist
+- Sculpting
+- Texture Workflow
+- Architecture
+- Animation
+- Character Artist
+- Creature Artist
+- Lighting Artist
+- Retopology
+- BlenderMCP Tool Catalog
+- Materials
+- Godot Export
+- Unity Export
+- Unreal Export
+- Camera Cinematography
+- Collision Proxy
+- Hair Groom
+- LOD Pipeline
+- Physics Sim
+- Prop Artist
+- PSX Horror Style
+- Scene Assembly
+- Vehicle Artist
+- VFX / FX
+- Anime Style
+- Archviz
+- Cloth Sim
+- Compositing
+- QA Review
+- Set Dressing
+- Vegetation Artist
+- Voxel Style
+- Blender MCP Integration Rules
+- Asset Validation Checklist
+- Visual Match Checklist
+- Isometric Style
+- Lookdev
+- Polycount Budgets
+- Environment Composition
+- NPR Shader Setups
+- Naming Conventions
+- Flying Creatures
+- Procedural Material Patterns
+- Photogrammetry Scan Cleanup
+- Facial Retopology
+- detect_structure
+- cmd_cache
+- Combat Animation Timing
+- Modifier Stack Reference
+- Facial Topology
+- Quadruped Anatomy
+- Building Generators
+- Horror Lighting Setups
+- PS1 Aesthetic
+- NPR Rendering
+- Render Passes
+- Humanoid Rig
+- Bake Troubleshooting
+- Walk Cycle Breakdown
+- Skill Routing Reference
+- Scene Organization
+- Modular Kit Design
+- Boolean Workflow
+- Analog Props (Horror)
+- Cinematic Light Rigs
+- Surface Material Recipes
+- PBR Value Reference
+- Mechanical Rig
+- Palette Examples
+- ORM Packing
+- Trim Sheets
+- test_economy_math.luau
+- Cartoon Style
+- Engine Import
+- Scatter Systems
+- Horror Layouts
+- Kitbash Library Spec
+- Game vs Cinematic Topology
+- Brush Guide
+- Texel Density
+- Vehicle Proportion Blockout
+- 3. Core Tool Reference
+- Before Building (Instant Gut-Check)
+- LOD Strategies
+- Body Proportions
+- Pins & Collision
+- Hair Card Atlas
+- Greeble Patterns
+- Comic Book Style
+- Fantasy Worlds
+- Liminal Space / Backrooms
+- Manga Style
+- Painterly Style
+- Pixel Art Style
+- Prop Tiers & Budgets
+- Stop Motion / Craft Style
+- usage.md
+- Analog / Found Footage Horror
+- Apocalypse / Dystopia Worlds
+- Body Horror
+- Character Archetypes
+- Chibi Style
+- Cosmic / Eldritch Horror
+- Cozy / Wholesome Mood
+- Dream / Weirdcore Style
+- Folk Horror
+- Hand Painted Style
+- HD-2D Style
+- Historical Worlds
+- Indie Horror Aesthetics
+- Mascot / Puppet Horror
+- Minimalist Style
+- Noir Style
+- Retro 8-bit Style
+- Sci-Fi / Punk Worlds
+- Reference Analysis Template
+- found-footage-camera.md
+- vhs-comp.md
+- anime-proportion.md
+- cel-shader-setup.md
+- dystopia-utopia.md
+- wasteland.md
+- archviz-camera.md
+- archviz-lighting.md
+- biome-cheatsheet.md
+- bld-biome-worlds/SKILL.md
+- mutation-cues.md
+- brutalist-forms.md
+- bld-brutalist-mood/SKILL.md
+- camera-move-library.md
+- dof-guide.md
+- lens-and-composition.md
+- cartoon-shape-language.md
+- fantasy-ancestries.md
+- horror-bodies.md
+- role-kits.md
+- scifi-bodies.md
+- chibi-proportions.md
+- bake-targets.md
+- cloth-settings-presets.md
+- collider-recipes.md
+- engine-naming.md
+- ink-tone.md
+- delivery-outputs.md
+- grade-presets.md
+- pass-stack.md
+- eldritch-forms.md
+- cozy-palette.md
+- gritty-materials.md
+- bld-dark-gritty-mood/SKILL.md
+- surreal-devices.md
+- bld-dream-surreal-mood/SKILL.md
+- dreamcore-cues.md
+- dark-fantasy.md
+- high-fantasy.md
+- medieval.md
+- urban-fantasy.md
+- folk-motifs.md
+- aero-cues.md
+- bld-frutiger-aero-style/SKILL.md
+- combat-readability.md
+- bld-genre-action-combat/SKILL.md
+- table-stage.md
+- bld-genre-card-party-idle/SKILL.md
+- module-kits.md
+- bld-genre-metroidvania-roguelike/SKILL.md
+- vn-backgrounds.md
+- bld-genre-narrative-vn/SKILL.md
+- open-world-landmarks.md
+- bld-genre-open-world-sandbox/SKILL.md
+- platform-readability.md
+- bld-genre-puzzle-platformer/SKILL.md
+- speed-readability.md
+- bld-genre-racing-sports/SKILL.md
+- rpg-subtypes.md
+- bld-genre-rpg/SKILL.md
+- br-extraction.md
+- fps-tps.md
+- bld-genre-shooter/SKILL.md
+- souls-spaces.md
+- bld-genre-soulslike/SKILL.md
+- stealth-layout.md
+- bld-genre-stealth/SKILL.md
+- sim-props.md
+- strategy-cameras.md
+- bld-genre-strategy-sim/SKILL.md
+- survival-reads.md
+- bld-genre-survival/SKILL.md
+- godot-checklist.md
+- cinematic-vs-game.md
+- groom-flow-regions.md
+- paint-workflow.md
+- hd2d-stack.md
+- military-eras.md
+- period-materials.md
+- corporate-horror.md
+- fear-to-fathom.md
+- location-horror.md
+- puppet-combo.md
+- silent-hill.md
+- iso-camera.md
+- tile-footprints.md
+- backrooms.md
+- empty-public.md
+- lod-budgets.md
+- lod-validation.md
+- lookdev-checklist.md
+- lookdev-rig.md
+- manga-value-design.md
+- mascot-cues.md
+- reduction-rules.md
+- synthwave.md
+- vaporwave.md
+- bld-neon-retrofuturism/SKILL.md
+- noir-lighting.md
+- oil-painting.md
+- watercolor.md
+- destruction-pipeline.md
+- rigid-body-presets.md
+- sim-bake-checklist.md
+- texel-rules.md
+- everyday-prop-checklist.md
+- psx-horror-budgets.md
+- psx-horror-palette.md
+- qa-verdict-template.md
+- screenshot-angles.md
+- sixteen-bit-notes.md
+- bld-retro-16bit-style/SKILL.md
+- eight-bit-constraints.md
+- collection-template.md
+- linking-overrides.md
+- cyberpunk.md
+- diesel-atom.md
+- hard-space.md
+- solar-bio-clock.md
+- steampunk.md
+- density-map.md
+- story-clusters.md
+- claymation.md
+- paper-craft.md
+- unity-checklist.md
+- unity-materials.md
+- ucx-naming.md
+- unreal-checklist.md
+- vector-rules.md
+- bld-vector-style/SKILL.md
+- leaf-atlas.md
+- tree-lod.md
+- wind-vertex-colors.md
+- vehicle-lod-targets.md
+- vehicle-object-split.md
+- fx-timing-brief.md
+- game-fx-export.md
+- volume-domain-rules.md
+- crt-vhs-film.md
+- ps1-ps2.md
+- ps3-ps5.md
+- bld-visual-console-eras/SKILL.md
+- voxel-characters.md
+- voxel-grid.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `MemoryEngine` - 50 edges
 2. `w()` - 45 edges
 3. `y()` - 44 edges
-4. `ff()` - 38 edges
-5. `TaskGraph` - 38 edges
+4. `TaskGraph` - 39 edges
+5. `ff()` - 38 edges
 6. `SeikoClaw` - 36 edges
 7. `ef()` - 33 edges
 8. `t()` - 31 edges
@@ -450,31 +729,31 @@
 ## Import Cycles
 - None detected.
 
-## Communities (415 total, 34 thin omitted)
+## Communities (695 total, 192 thin omitted)
 
 ### Community 0 - "3. Core Tool Reference"
 Cohesion: 0.10
 Nodes (19): 1. System Architecture & Connection Protocol, 2. Project Setup & Quickstart, 3. Core Tool Reference, 4. Production Pipelines, 5. Execution Rules & Best Practices, 6. Troubleshooting & Health Checks, A. GameObject & Hierarchy Management, B. Component Authoring & Property Manipulation (+11 more)
 
 ### Community 1 - "MemoryEngine"
-Cohesion: 0.04
-Nodes (16): 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation, Consequences, Context, Decisions, 1. Autonomous Loop Architecture (`loop_until_goal`), 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation (+8 more)
+Cohesion: 0.03
+Nodes (17): 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation, Consequences, Context, Decisions, 1. Autonomous Loop Architecture (`loop_until_goal`), 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation (+9 more)
 
 ### Community 2 - "Glossary of Terms"
 Cohesion: 0.04
 Nodes (43): Bard Talents (2d6 Table), Bard Titles, Bardic Arts, Chapter 1: The Bard Class, Class Fundamentals, Core Features & Abilities, Magical Dabbler, Presence (+35 more)
 
 ### Community 3 - "Blender Developer & 3D Procedural MCP Orchestrator"
-Cohesion: 0.09
-Nodes (22): 1. Robust Shader Node Lookup (Never Use Localized Names), 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 2. Mesh Cleanup & Bounding Box Grounding, 3. Idiomatic BPY Scripting Rules, 3. Safe Dynamic Enums, 4. Game Asset Export Pipelines, 5. Mandatory Verification & Validation Protocol (BVVP) (+14 more)
+Cohesion: 0.10
+Nodes (20): 1. Robust Shader Node Lookup (Never Use Localized Names), 1. System Architecture & Connection Protocol, 2. Mesh Cleanup & Bounding Box Grounding, 2. Technical Art Skill Dispatcher & Decision Router (`bld-*` Suite), 3. Safe Dynamic Enums, 4. Idiomatic BPY Scripting Rules, 5. Game Asset Export Pipelines, 6. Mandatory Verification & Validation Protocol (BVVP) (+12 more)
 
 ### Community 4 - "3. Core Tool Reference"
-Cohesion: 0.11
-Nodes (17): 2. Project Setup & Quickstart, 3. Core Tool Reference, 4. Production Pipelines, 5. Execution Rules & Best Practices, 6. Troubleshooting & Health Checks, A. GameObject & Hierarchy Management, B. Component Authoring & Property Manipulation, C. Scene Management (+9 more)
+Cohesion: 0.10
+Nodes (19): 1. System Architecture & Connection Protocol, 2. Project Setup & Quickstart, 3. Core Tool Reference, 4. Production Pipelines, 5. Execution Rules & Best Practices, 6. Troubleshooting & Health Checks, A. GameObject & Hierarchy Management, B. Component Authoring & Property Manipulation (+11 more)
 
 ### Community 5 - "🎖️ Upstream Creators & Maintainers"
-Cohesion: 0.04
-Nodes (45): 1. Matt Pocock ([@mattpocockuk](https://github.com/mattpocock)), 2. David Andrej ([@davidandrej](https://github.com/davidandrej)), 3. Lauren Tan ([@poteto](https://github.com/poteto)) & Cursor Team, 4. Michael Denyer ([@michael-denyer](https://github.com/michael-denyer)), 5. Addy Osmani ([@addyosmani](https://github.com/addyosmani)), 6. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin)), 7. Poly Haven ([polyhaven.com](https://polyhaven.com/)), 8. Abhishek Barali & the `awesome-gamedev-agent-skills` Contributors ([gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)) (+37 more)
+Cohesion: 0.14
+Nodes (13): 10. Dave Rensin, Jim Quinn, Elise Ewing & The Google Elephant-Goldfish Model Contributors ([google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model)), 11. Arjun ([@arjun988](https://github.com/arjun988)) & the lender-skills Contributors ([arjun988/blender-skills](https://github.com/arjun988/blender-skills)), 1. Matt Pocock ([@mattpocockuk](https://github.com/mattpocock)), 2. David Andrej ([@davidandrej](https://github.com/davidandrej)), 3. Lauren Tan ([@poteto](https://github.com/poteto)) & Cursor Team, 4. Michael Denyer ([@michael-denyer](https://github.com/michael-denyer)), 5. Addy Osmani ([@addyosmani](https://github.com/addyosmani)), 6. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin)) (+5 more)
 
 ### Community 6 - "Game Tooling Catalog & Architectural Blueprints"
 Cohesion: 0.04
@@ -485,8 +764,8 @@ Cohesion: 0.04
 Nodes (36): Common pitfalls, How to search it, What good evidence looks like here, What this source contains, What to return, Common pitfalls, How to search it, Investigation patterns that tend to pay off (+28 more)
 
 ### Community 8 - "book-to-skill/README.md"
-Cohesion: 0.06
-Nodes (31): 404 — this page turned to a blank chapter, Architecture, Design principles, Extending, Key components, Security, ❓ FAQ, ⚙️ How it works (+23 more)
+Cohesion: 0.12
+Nodes (14): 404 — this page turned to a blank chapter, ❓ FAQ, ⚙️ How it works, 🏢 Beyond books, ⚖️ Copyright & fair use, ❓ FAQ, ⚙️ How it works, 📥 Install (+6 more)
 
 ### Community 9 - "8. Task specifications"
 Cohesion: 0.06
@@ -501,20 +780,24 @@ Cohesion: 0.08
 Nodes (22): Development, Setup, Testing Scripts, Troubleshooting, Unreal MCP, 🧩 Components, Configuring your MCP Client, 📂 Directory Structure (+14 more)
 
 ### Community 12 - "Book-to-Skill Converter"
-Cohesion: 0.12
-Nodes (16): reuse_is_safe(), Book-to-Skill Converter, Philosophy, Skill Locations, Step 0 — Out-of-scope check, Step 10 — Cleanup and report, Step 1.5 — Identify content type, Step 1 — Validate input (+8 more)
+Cohesion: 0.10
+Nodes (20): reuse_is_safe(), Book-to-Skill Converter, cheatsheet.md, glossary.md, patterns.md, Philosophy, Skill Locations, Step 0 — Out-of-scope check (+12 more)
 
-### Community 13 - "tempfile"
-Cohesion: 0.09
-Nodes (11): default_output_dir(), 3. Secrets Vault & SQLite Schema Alignment, OpenbrainEngine, Vault, build_sxs_composite(), TestReferenceAcquisitionAndSxS, test_record_and_ingest_decision_trail(), test_memory_engine_vault_table_creation() (+3 more)
+### Community 13 - "extract_single_file"
+Cohesion: 0.21
+Nodes (9): extract_with_ebook_convert(), clean_pdftotext(), count_pages(), extract_with_docling(), extract_with_pdfminer(), extract_with_pdftotext(), extract_with_pypdf(), looks_image_only() (+1 more)
 
 ### Community 14 - "MAP.md"
 Cohesion: 0.06
 Nodes (23): Game Design Critic — Game-Aware Grilling Persona, Key Architectural Decisions Made:, Question, Resolution, Key Architectural Decisions Made:, Key Architectural Decisions Made:, Question, Resolution (+15 more)
 
-### Community 16 - "validate_blender_asset.py"
-Cohesion: 0.13
-Nodes (4): validate_active_scene(), validate_bpy_mesh_object(), ValidationResult, TestValidationResult
+### Community 15 - "SeikoClaw"
+Cohesion: 0.05
+Nodes (9): AutoCapture, main(), UsageMonitor, get_session_context(), main(), print_progress_bar(), SeikoClaw, estimate_file() (+1 more)
+
+### Community 16 - "fetch_asset_references.py"
+Cohesion: 0.07
+Nodes (13): build_sxs_composite(), clean_query_keywords(), download_reference_images(), main(), search_wikimedia_references(), main(), validate_active_scene(), validate_bpy_mesh_object() (+5 more)
 
 ### Community 17 - "🏛️ Core Principles"
 Cohesion: 0.07
@@ -537,8 +820,8 @@ Cohesion: 0.08
 Nodes (22): 1. Purpose & frequency, 2. Easing & duration, 3. Physicality & origin, 4. Interruptibility, 5. Performance, 6. Accessibility, 7. Cohesion & tokens, 8. Missed opportunities (+14 more)
 
 ### Community 22 - "eval_skill_routing.py"
-Cohesion: 0.13
-Nodes (17): compute_token_frequencies(), detect_collisions(), load_all_skills(), main(), parse_skill_file(), route_query(), run_eval_cases(), score_skill_against_query() (+9 more)
+Cohesion: 0.12
+Nodes (18): compute_token_frequencies(), detect_collisions(), load_all_skills(), main(), parse_skill_file(), route_query(), run_eval_cases(), score_skill_against_query() (+10 more)
 
 ### Community 23 - "Apple Design"
 Cohesion: 0.10
@@ -552,13 +835,13 @@ Nodes (21): 10. Status bar color doesn't match, 11. Right in Chrome, wrong on ph
 Cohesion: 0.16
 Nodes (14): is_invisible_codepoint(), sanitize_extracted_text(), _collect_skill_files(), Finding, _frontmatter_line_numbers(), _is_invisible(), main(), _read_skill_files() (+6 more)
 
-### Community 26 - "ConversationHistorySyncer"
-Cohesion: 0.17
-Nodes (4): find_harness_root(), main(), ConversationHistorySyncer, test_extract_project_name()
+### Community 26 - "HealthPatrol"
+Cohesion: 0.07
+Nodes (11): find_harness_root(), main(), clean_user_content(), ConversationHistorySyncer, parse_iso_datetime(), HealthPatrol, test_clean_user_content(), test_conversation_sync_lifecycle() (+3 more)
 
 ### Community 27 - "test_polyhaven.py"
-Cohesion: 0.12
-Nodes (15): 1. System Architecture & Connection Protocol, Connection Requirements:, CLI Arguments & Options, Phase 1: Implement Core CLI Tool (`scripts/polyhaven.py`), build_parser(), cmd_fetch(), EngineAdapters, select_best_resolution() (+7 more)
+Cohesion: 0.13
+Nodes (13): CLI Arguments & Options, Phase 1: Implement Core CLI Tool (`scripts/polyhaven.py`), build_parser(), cmd_fetch(), EngineAdapters, select_best_resolution(), test_blender_adapter(), test_cli_default_resolution_is_2k() (+5 more)
 
 ### Community 28 - "Glossary"
 Cohesion: 0.11
@@ -572,9 +855,13 @@ Nodes (19): Breaking UI, Failure signatures, Hard Rules, Initial Response, Invoc
 Cohesion: 0.23
 Nodes (17): ask(), ask_secret(), banner(), _clear(), _existing(), finish(), pause(), set_secret() (+9 more)
 
-### Community 32 - "os"
+### Community 31 - "argparse"
 Cohesion: 0.09
-Nodes (10): ContextEngine, clean_user_content(), parse_iso_datetime(), get_llm_provider(), setup(), main(), validate_command_safety(), test_clean_user_content() (+2 more)
+Nodes (16): build_paper_flat(), _chunks(), main(), _metadata(), alpha_stats(), inspect(), main(), parse_size() (+8 more)
+
+### Community 32 - "os"
+Cohesion: 0.08
+Nodes (7): generate_bpy_append_snippet(), main(), ContextEngine, get_llm_provider(), HeuristicFallbackProvider, setup(), test_record_and_ingest_decision_trail()
 
 ### Community 33 - "template.ps1"
 Cohesion: 0.18
@@ -622,7 +909,7 @@ Nodes (15): Boundary validation, Branded types, Constructive modeling, Discrimin
 
 ### Community 44 - "seikoclaw-harness/SKILL.md"
 Cohesion: 0.06
-Nodes (24): ADR Skill, Goal, Steps, Codebase Design, Workflow, Coverage Loop Skill, Goal, Workflow (+16 more)
+Nodes (20): ADR Skill, Goal, Steps, Codebase Design, Workflow, Coverage Loop Skill, Goal, Workflow (+12 more)
 
 ### Community 45 - "codex-tools.md"
 Cohesion: 0.12
@@ -684,17 +971,17 @@ Nodes (10): Charts, Common mismatches to catch, How to use this, Initial Respons
 Cohesion: 0.18
 Nodes (10): Communication artifacts, Content, Filler, Jargon, Language, Patterns to detect and fix, Plain speech, Process (+2 more)
 
-### Community 60 - "UsageMonitor"
-Cohesion: 0.12
-Nodes (8): AutoCapture, main(), UsageMonitor, get_session_context(), main(), print_progress_bar(), estimate_file(), estimate_tokens()
+### Community 60 - "json"
+Cohesion: 0.15
+Nodes (17): handle_call_tool(), main(), send_response(), canonical_json(), load_fixture(), main(), replay(), cmd_cases() (+9 more)
 
 ### Community 61 - "Supported Slash Commands & Syntaxes"
 Cohesion: 0.20
 Nodes (9): 1. Seamless Ground Textures, 2. Modular Character Builder Layers (Hair, Headgear, Armor, Paperdoll Parts), 3. 2D Sprites, Tokens, and Props (Full Characters & Entities), 4. Backdrops, Map Views & Panoramas, 5. General / Custom Images, asset-generator, Quick Reference: Core Prompt Engineering Rules, Quota & Batch Protection Best Practices (+1 more)
 
 ### Community 62 - "2. The 5-Stage Autonomous Pipeline"
-Cohesion: 0.25
-Nodes (8): 1. Project Manifest & State Tracking, 2. The 5-Stage Autonomous Pipeline, 3. Invocation Triggers, Game Forge: Master Autonomous Game Creation Framework, Stage A: Brief, Locked References & Deep Plan (Autonomous $\rightarrow$ HITL Gate 1), Stage C: Staged Art Pipeline & Authoring Workbenches (Autonomous $\rightarrow$ HITL Gate 3), Stage D: Side-by-Side (SxS) Visual Bar Parity Loop (Autonomous $\rightarrow$ Critic WIN), Stage E: Autonomous Engine Build, Verification & Handoff
+Cohesion: 0.17
+Nodes (12): Phase 2: CLI Query Lever (`scripts/gameplay_atlas.py`), 1. Project Manifest & State Tracking, 2. The 5-Stage Autonomous Pipeline, 3. Invocation Triggers, Game Forge: Master Autonomous Game Creation Framework, Stage A: Brief, Locked References & Deep Plan (Autonomous $\rightarrow$ HITL Gate 1), Stage B: Scope Carving & Playable Foundation (Autonomous $\rightarrow$ Gate B), Stage C: Staged Art Pipeline & Authoring Workbenches (Autonomous $\rightarrow$ HITL Gate 3) (+4 more)
 
 ### Community 63 - "During the session"
 Cohesion: 0.20
@@ -704,21 +991,21 @@ Nodes (9): Challenge against the glossary, Cross-reference with code, Discuss co
 Cohesion: 0.20
 Nodes (9): How, Models, Output Format, Reasoning effort, Step 1. Assess Complexity, Step 2a. Explore (complex questions only), Step 2b. Direct Explain (simple questions), Step 3. Synthesize (complex questions only) (+1 more)
 
-### Community 65 - "typing"
-Cohesion: 0.08
-Nodes (7): GateEngine, get_playbook(), list_playbooks(), TestGates, test_adversarial_gate_lifecycle(), test_playbook_expansion_creates_sequential_dag(), test_playbooks_registry()
+### Community 65 - "tempfile"
+Cohesion: 0.05
+Nodes (15): default_output_dir(), 3. Secrets Vault & SQLite Schema Alignment, OpenbrainEngine, GateEngine, get_playbook(), list_playbooks(), Vault, test_adversarial_gate_lifecycle() (+7 more)
 
 ### Community 66 - "Filtering Principles"
 Cohesion: 0.20
 Nodes (9): Filtering Principles, Hypothetical vs. Actual, "I Would Have Done It Differently", Missing Context Signals, Nitpick Gravity, Premature Abstraction Warnings, Verdict Calibration, When Reviewers Are Right (+1 more)
 
-### Community 67 - "json"
-Cohesion: 0.16
-Nodes (15): generate_bpy_append_snippet(), main(), handle_call_tool(), main(), send_response(), cmd_cases(), cmd_combine(), cmd_get() (+7 more)
+### Community 67 - "re"
+Cohesion: 0.12
+Nodes (14): audit(), get_list_items(), get_scalar(), main(), parse_frontmatter(), tool_base(), top_level_keys(), imports() (+6 more)
 
-### Community 68 - "Show me your work"
-Cohesion: 0.22
-Nodes (8): Audit the log against the transcript, Composing this skill, Cross-model review of the trail, Reviewing the trail, Rules, Show me your work, The format, Where it lives
+### Community 68 - "Blender Director"
+Cohesion: 0.07
+Nodes (29): Analysis Framework, Blender Director, Cinematic Shot, Constraints, Core Philosophy, Decision Trees, Director Workflow, Engine Delivery (+21 more)
 
 ### Community 69 - "Game Systems Modeler"
 Cohesion: 0.22
@@ -754,7 +1041,7 @@ Nodes (22): 1. System Architecture & Connection Protocol, 2. Core Tool Reference
 
 ### Community 77 - "index-0jVwK8iL.js"
 Cohesion: 0.03
-Nodes (85): Validation pass, Rebirth pacing, Core workflow, yo(), _a(), Aa(), ac(), an() (+77 more)
+Nodes (80): Rebirth pacing, Core workflow, yo(), _a(), Aa(), ac(), Af(), ap (+72 more)
 
 ### Community 78 - "Core Engineering Reference: Accessibility (a11y) Checklist"
 Cohesion: 0.33
@@ -893,8 +1180,8 @@ Cohesion: 0.33
 Nodes (5): Core Capabilities, Mood Board Curator (Reference & Mood Board Skill), Output Specifications, `style_markers.json` Schema, Workflow
 
 ### Community 112 - "discovery_tax.py"
-Cohesion: 0.10
-Nodes (13): _chapter_number(), _cn_numeral_to_int(), _fa_chapter_number(), _int_to_roman(), _is_prose_period_tail(), _match_chapter_number(), _roman_to_int(), best_chapter() (+5 more)
+Cohesion: 0.21
+Nodes (7): _chapter_number(), best_chapter(), count_tokens(), extract_toc(), main(), split_chapters(), token_method()
 
 ### Community 113 - "Sections"
 Cohesion: 0.33
@@ -916,8 +1203,8 @@ Nodes (6): 1. Direct, 2. Supported, 3. Inferred, 4. Speculative, 5. Unknown, Con
 Cohesion: 0.33
 Nodes (5): Conventions, Issue tracker: Local Markdown, Wayfinding operations, When a skill says "fetch the relevant ticket", When a skill says "publish to the issue tracker"
 
-### Community 118 - "pathlib"
-Cohesion: 0.21
+### Community 118 - "export_skills.py"
+Cohesion: 0.22
 Nodes (7): export_skills(), import_skills(), main(), mock_skills_env(), test_export_skills(), test_import_skills_skip_existing_without_overwrite(), test_import_skills_with_namespace()
 
 ### Community 119 - "Poly Haven Asset Pipeline & Cross-Engine Bridge"
@@ -932,9 +1219,9 @@ Nodes (4): Agent Guardrails & Command Denylist, Files & Components, Goal, Usage 
 Cohesion: 0.40
 Nodes (4): Information leakage, Pass-through method, Shallow module, Temporal decomposition
 
-### Community 122 - "Before Building (Instant Gut-Check)"
-Cohesion: 0.40
-Nodes (4): Before Building (Instant Gut-Check), Goal, Output Format, Workflow
+### Community 122 - "Pe"
+Cohesion: 0.19
+Nodes (13): cl(), Cu(), Eu(), gu(), hu(), Pe(), pu(), Si() (+5 more)
 
 ### Community 123 - "t"
 Cohesion: 0.11
@@ -948,9 +1235,9 @@ Nodes (4): Checklists, Goal, Interviewer Skill, Workflow
 Cohesion: 0.40
 Nodes (4): Checklists, Goal, Learnings Skill, Workflow
 
-### Community 126 - "check_defold_project.py"
-Cohesion: 0.09
-Nodes (10): build_parser(), defignore_regex(), Issue, line_of(), main(), mask_lua(), parse_ini(), Project (+2 more)
+### Community 126 - "Project"
+Cohesion: 0.14
+Nodes (6): Issue, line_of(), parse_ini(), Project, read_text(), Ref
 
 ### Community 127 - "Maintain a verification skill"
 Cohesion: 0.40
@@ -1021,8 +1308,8 @@ Cohesion: 0.06
 Nodes (30): Basic Callout, Custom Callouts (CSS), Foldable Callouts, Nested Callouts, Supported Callout Types, Embed Audio, Embed Bases, Embed Images (+22 more)
 
 ### Community 144 - "n"
-Cohesion: 0.13
-Nodes (50): er(), gd(), gp(), gr(), hn(), ho(), Ji(), jo() (+42 more)
+Cohesion: 0.11
+Nodes (56): cp, _e(), er(), gd(), gf(), gp(), gr(), hn() (+48 more)
 
 ### Community 145 - "merge-safety.md"
 Cohesion: 0.50
@@ -1036,45 +1323,41 @@ Nodes (3): Accepted, Backlog, Rejected
 Cohesion: 0.50
 Nodes (3): Core Directives, Mission, Persona: Seikojin QA Engineer (The Hands)
 
-### Community 148 - "cmd_cache"
-Cohesion: 0.22
-Nodes (5): cmd_cache(), format_bytes(), parse_size_to_bytes(), test_format_bytes(), test_parse_size_to_bytes()
+### Community 148 - "ExtractionError"
+Cohesion: 0.33
+Nodes (7): ExtractionError, extract_docx(), extract_docx_with_python_docx(), extract_docx_with_zipfile(), emit_block(), inline_text(), validate_docx_xml_safety()
 
 ### Community 149 - "5. Production Guardrails & Gameplay Architecture Patterns"
 Cohesion: 0.09
 Nodes (22): 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 3. Production Pipelines, 4. Execution Rules & Best Practices, 5. Production Guardrails & Gameplay Architecture Patterns, 6. Troubleshooting & Common Failure Modes, A. Chaos Physics & Projectile Collision Discipline, A. Level Layout & Actor Management (+14 more)
 
-### Community 150 - "SkillGater"
-Cohesion: 0.07
-Nodes (4): HeuristicFallbackProvider, SkillGater, TestMemoryCompression, TestSkillGater
-
-### Community 159 - "polyhaven.py"
-Cohesion: 0.11
-Nodes (11): clean_query_keywords(), download_reference_images(), main(), search_wikimedia_references(), discover_asset_hash(), fetch_mechanic_detail(), fetch_url(), init_database() (+3 more)
+### Community 159 - "sync_gameplay_atlas.py"
+Cohesion: 0.19
+Nodes (7): discover_asset_hash(), fetch_mechanic_detail(), fetch_url(), init_database(), insert_mechanic_into_db(), main(), sync()
 
 ### Community 163 - "pdf_inspector_integration.py"
-Cohesion: 0.15
-Nodes (12): main(), enrich_pdf_inspector_metadata(), _fallback_reason(), inspect_pdf(), install_pdf_inspector_hook(), wrapped(), _looks_like_pdf(), _normalise_pdf_type() (+4 more)
+Cohesion: 0.12
+Nodes (15): main(), enrich_pdf_inspector_metadata(), _fallback_reason(), inspect_pdf(), install_pdf_inspector_hook(), wrapped(), _looks_like_pdf(), _normalise_pdf_type() (+7 more)
 
 ### Community 164 - "utils.py"
-Cohesion: 0.06
-Nodes (40): supported_formats_message(), install_python_packages(), isolated_install_hint(), missing_python_packages(), normalize_install_mode(), offer_dependency_install(), prepare_dependencies(), python_module_available() (+32 more)
+Cohesion: 0.09
+Nodes (14): supported_formats_message(), normalize_install_mode(), _cn_numeral_to_int(), _fa_chapter_number(), _fa_ordinal_map(), _int_to_roman(), _is_prose_period_tail(), _match_chapter_number() (+6 more)
 
-### Community 165 - "argparse"
-Cohesion: 0.11
-Nodes (12): build_paper_flat(), _chunks(), main(), _metadata(), alpha_stats(), inspect(), main(), parse_size() (+4 more)
+### Community 165 - "Export Pipeline"
+Cohesion: 0.09
+Nodes (21): Animation Export, Batch Export (Modular Kits), Collision Export, Constraints, Delivery Documentation Template, Engine-Specific Notes, Export Pipeline, Export Verification Matrix (+13 more)
 
 ### Community 166 - "JSON Canvas Skill"
 Cohesion: 0.15
 Nodes (13): 1. Create a New Canvas, 2. Add a Node to an Existing Canvas, 3. Connect Two Nodes, 4. Edit an Existing Canvas, Colors, Common Workflows, Complete Examples, Edges (+5 more)
 
 ### Community 169 - "epub.py"
-Cohesion: 0.15
-Nodes (6): count_epub_chapters(), extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href(), _HTMLTextExtractor
+Cohesion: 0.12
+Nodes (8): count_epub_chapters(), count_epub_images(), extract_with_ebooklib(), extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href(), _HTMLTextExtractor
 
 ### Community 173 - "y"
-Cohesion: 0.06
-Nodes (58): de(), ad(), ai(), As(), bf(), cf(), ci(), cl() (+50 more)
+Cohesion: 0.09
+Nodes (43): de(), ad(), ai(), As(), bf(), cf(), ci(), Ct() (+35 more)
 
 ### Community 176 - "Obsidian CLI"
 Cohesion: 0.20
@@ -1085,8 +1368,8 @@ Cohesion: 0.22
 Nodes (8): 1. Scene File Format (`.atlasmap`), 2. Universal VTT (`.uvtt` / `.dd2vtt`) Ingestion, 3. Pinned Markdown Notes & Inline Dice, 4. Fantasy Statblocks Integration, 5. Modular Campaign Bundles (`.atlas-collection.zip`), Key UVTT Geometry Fields:, Obsidian Atlas VTT Bridge & Scene Specification, UVTT Processing Constraints:
 
 ### Community 178 - "1. The 12 Configurable Foundation Pillars"
-Cohesion: 0.10
-Nodes (19): 1. The 12 Configurable Foundation Pillars, 2. Interactive Foundations Plan Template for `/game-forge`, Pillar 10: Multi-Modal Avatar & Vehicle Handover Protocol, Pillar 11: Spawn Equilibrium & Frame-Zero Physics Discipline, Pillar 12: In-Game Sensitivity & Input Ergonomics, Pillar 13: Projectile Safety & Weapon Aim Convergence (The "Don't Shoot Yourself" Rule), Pillar 14: Input Debouncing & Single-Frame Latch Protocol (The "Dead Key" Rule), Pillar 15: Multiplayer Discovery & 1-Click Dual-Instance Spawning (+11 more)
+Cohesion: 0.12
+Nodes (17): 1. The 12 Configurable Foundation Pillars, Pillar 10: Multi-Modal Avatar & Vehicle Handover Protocol, Pillar 11: Spawn Equilibrium & Frame-Zero Physics Discipline, Pillar 12: In-Game Sensitivity & Input Ergonomics, Pillar 13: Projectile Safety & Weapon Aim Convergence (The "Don't Shoot Yourself" Rule), Pillar 14: Input Debouncing & Single-Frame Latch Protocol (The "Dead Key" Rule), Pillar 15: Multiplayer Discovery & 1-Click Dual-Instance Spawning, Pillar 16: Package Footprint & Shipping Optimization (The "No PDBs in Shipping" Rule) (+9 more)
 
 ### Community 179 - "w"
 Cohesion: 0.06
@@ -1097,7 +1380,7 @@ Cohesion: 0.15
 Nodes (16): World, Parse(), settle(), TestBufferedJumpStartsAfterLanding(), TestCoinIsCollectedOnce(), TestCoyoteJumpHasLimitedWindow(), TestJumpLeavesGroundAndReturns(), TestPlayerLandsOnFloor() (+8 more)
 
 ### Community 181 - "he"
-Cohesion: 0.17
+Cohesion: 0.19
 Nodes (24): ae(), bu(), Df(), dt(), du(), Ge(), he(), hi() (+16 more)
 
 ### Community 182 - "2. Tablebuddy & Atlas VTT Interoperability Architecture"
@@ -1129,8 +1412,8 @@ Cohesion: 0.20
 Nodes (9): 🏛️ Architectural Decisions & Created Specs, 📌 Context & Objective, Phase 2: Author Skill Specification, Phase 3: Engine Adapters Implementation, Phase 4: Benchmark & Evaluation Suite, Phase 5: Global Antigravity Integration, 📋 Ready Frontier Execution Checklist (Completed Milestones), Session Handoff: Poly Haven Asset Pipeline Integration (+1 more)
 
 ### Community 192 - "zu"
-Cohesion: 0.10
-Nodes (28): Ao(), De(), Ds(), Fn(), fu(), ga(), gn(), Gs() (+20 more)
+Cohesion: 0.11
+Nodes (27): Ao(), De(), Ds(), Fn(), fu(), ga(), gn(), Gs() (+19 more)
 
 ### Community 193 - "Architect Skill & Hybrid DAG Planner"
 Cohesion: 0.33
@@ -1145,52 +1428,60 @@ Cohesion: 0.14
 Nodes (17): au(), Ds(), Fs(), ga(), Hf(), Hl(), Ie(), iu() (+9 more)
 
 ### Community 196 - "manifest.py"
-Cohesion: 0.26
-Nodes (11): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+3 more)
+Cohesion: 0.12
+Nodes (15): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+7 more)
 
 ### Community 197 - "Hr"
-Cohesion: 0.13
-Nodes (23): Af(), at(), au(), bi(), Br(), bs(), co(), Et() (+15 more)
+Cohesion: 0.16
+Nodes (20): at(), au(), Br(), bs(), Et(), Ft(), Hr(), je() (+12 more)
 
 ### Community 198 - "Yl"
 Cohesion: 0.15
 Nodes (22): Credits, be(), t(), Bu(), ct(), gc(), gi(), If() (+14 more)
 
-### Community 199 - "replay.py"
-Cohesion: 0.17
-Nodes (9): canonical_json(), load_fixture(), main(), replay(), aggregate(), _count(), score(), score_trajectory() (+1 more)
+### Community 199 - "score.py"
+Cohesion: 0.26
+Nodes (5): aggregate(), _count(), score(), score_trajectory(), _state()
 
 ### Community 200 - "Do"
-Cohesion: 0.17
-Nodes (18): Logging a row, Do(), Ee(), es(), Gc(), iu(), lu(), Mo() (+10 more)
+Cohesion: 0.07
+Nodes (31): Audit the log against the transcript, Composing this skill, Cross-model review of the trail, Logging a row, Reviewing the trail, Rules, Show me your work, The format (+23 more)
+
+### Community 201 - "TaskGraph"
+Cohesion: 0.06
+Nodes (3): TaskGraph, TestGates, TestTaskGraph
 
 ### Community 202 - "Worst-Case Catalog"
 Cohesion: 0.18
 Nodes (10): Collections, Emails, URLs, identifiers, Environment, Images and media, Labels, titles, and copy from data, Numbers and money, People and names, States (+2 more)
 
-### Community 203 - "BaseLLMProvider"
-Cohesion: 0.10
-Nodes (4): BaseLLMProvider, LocalMindProvider, OpenAICompatibleProvider, MockNeuralLLMProvider
+### Community 203 - "Phase Details"
+Cohesion: 0.09
+Nodes (21): Cleanup, Collision Planning, Export, Look Dev & Reference Compare, Materials, Modeling, Optimization, Phase Details (+13 more)
 
 ### Community 204 - "Pe"
 Cohesion: 0.14
 Nodes (17): bi(), Eu(), Fu(), hu(), id(), Kl(), kn(), ll() (+9 more)
 
-### Community 206 - "ms"
-Cohesion: 0.22
-Nodes (10): eo(), gl(), ko(), ms(), Nt(), Pa(), Sr(), Ua() (+2 more)
+### Community 205 - "Project"
+Cohesion: 0.06
+Nodes (18): build_parser(), Issue, main(), parse_header(), parse_text_resource(), ParsedResource, PathStatus, Project (+10 more)
 
-### Community 207 - "check_godot_project.py"
-Cohesion: 0.11
-Nodes (13): build_parser(), Issue, main(), parse_header(), parse_text_resource(), ParsedResource, read_binary_uid(), Ref (+5 more)
+### Community 206 - "BaseLLMProvider"
+Cohesion: 0.10
+Nodes (4): BaseLLMProvider, LocalMindProvider, OpenAICompatibleProvider, MockNeuralLLMProvider
 
-### Community 208 - "re"
+### Community 207 - "The Quality Frontier: The SeikoClaw Harness Odyssey"
 Cohesion: 0.17
-Nodes (12): audit(), get_list_items(), get_scalar(), main(), parse_frontmatter(), tool_base(), top_level_keys(), imports() (+4 more)
+Nodes (12): Chapter 2: The ExerMart Experiment, Chapter 3: The Depths of Domain Modeling, Chapter 4: The \$129,999 Defect, Chapter 5: The Glass and the Non-Headless Proof, Chapter 6: Beyond the Browser — Industrial Autonomy, Epilogue: The Quality Frontier, Prologue: The Hall of Mirrors, The Control Group (`RawExerMart`) (+4 more)
 
-### Community 209 - "Sweep Loop Skill"
-Cohesion: 0.50
-Nodes (3): Goal, Sweep Loop Skill, Workflow
+### Community 208 - "dependencies.py"
+Cohesion: 0.29
+Nodes (7): install_python_packages(), isolated_install_hint(), missing_python_packages(), offer_dependency_install(), prepare_dependencies(), python_module_available(), run_dependency_check()
+
+### Community 209 - "Reference Image Match Workflow"
+Cohesion: 0.10
+Nodes (19): Common Failures (Fix Immediately), Delivery, Gap categories (prioritize top-down), Golden Rules, Good User Prompts, MCP Execution Checklist, Phase 0 — Reference Analysis (Required), Phase 1 — Camera Match (+11 more)
 
 ### Community 210 - "Reviewing Animations"
 Cohesion: 0.20
@@ -1201,11 +1492,11 @@ Cohesion: 0.40
 Nodes (4): 3. Poly Haven Asset Ingestion Pipeline & Resolution Gating, Consequences, Context, Decisions
 
 ### Community 213 - "rtf.py"
-Cohesion: 0.17
-Nodes (10): extract_html_content(), extract_html_file(), _decode_hex_run(), extract_rtf(), _rtf_ansi_encoding(), _rtf_unicode_repl(), _strip_destination_groups(), strip_rtf_fallback() (+2 more)
+Cohesion: 0.23
+Nodes (9): extract_html_content(), extract_html_file(), _decode_hex_run(), extract_rtf(), _rtf_ansi_encoding(), _rtf_unicode_repl(), _strip_destination_groups(), strip_rtf_fallback() (+1 more)
 
-### Community 214 - "game-forge/SKILL.md"
-Cohesion: 0.12
+### Community 214 - "Camera systems"
+Cohesion: 0.15
 Nodes (12): 1. Godot 2D built-in follow: smoothing + bounds (don't hand-roll first), 2. Frame-rate-independent smooth follow (when you hand-roll it), 3. Deadzone + look-ahead (lead the player, ignore jitter), 4. 3D third-person orbit with collision push-in, 5. Screen shake hook (owned trigger lives in `game-feel`), Camera systems, Core workflow, Patterns (+4 more)
 
 ### Community 215 - "check_steam_build.py"
@@ -1277,7 +1568,7 @@ Cohesion: 0.14
 Nodes (13): Common failures, Layout that survives content and viewport changes, One activation path and explicit gamepad entry, Patterns, Primary references, Production structure, Related skills, Resources (+5 more)
 
 ### Community 232 - "Roguelike"
-Cohesion: 0.14
+Cohesion: 0.15
 Nodes (13): 1. Deterministic, seedable run RNG, 2. Energy-based turn scheduler (speeds differ), 3. Field of view + explored memory, Composition (build it from these skills), Core loop, Design knobs, Must-have systems, Patterns (+5 more)
 
 ### Community 233 - "Steam Publish (Steamworks + SteamPipe)"
@@ -1329,7 +1620,7 @@ Cohesion: 0.15
 Nodes (12): 1. Game config + boot (ES module), 2. A Scene with the full lifecycle, 3. Cross-scene data + events, 4. Scene transitions (pick the right verb), 5. A camera that follows the player, Core workflow, Patterns, Phaser 4 Core (+4 more)
 
 ### Community 246 - "Platformer"
-Cohesion: 0.15
+Cohesion: 0.17
 Nodes (12): 1. Solve jump physics from height + time (not magic numbers), 2. Coyote time + jump buffer + variable height (the feel core), 3. One-way platforms, Composition (build it from these skills), Core loop, Design knobs (make the jump feel right), Must-have systems, Patterns (+4 more)
 
 ### Community 247 - "Puzzle"
@@ -1353,7 +1644,7 @@ Cohesion: 0.15
 Nodes (12): 1. Derived stats from base attributes (recompute, never store as truth), 2. XP curve + level-up, 3. Quest objective update driven by game events, Composition (build it from these skills), Core loop, Design knobs, Must-have systems, Patterns (+4 more)
 
 ### Community 252 - "Survival Crafting"
-Cohesion: 0.15
+Cohesion: 0.17
 Nodes (12): 1. Needs decay with graded consequences, 2. Crafting: validate, then atomically consume inputs, 3. Gathering gated by tool tier, Composition (build it from these skills), Core loop, Design knobs, Must-have systems, Patterns (+4 more)
 
 ### Community 253 - "three.js glTF Loading"
@@ -1397,7 +1688,7 @@ Cohesion: 0.17
 Nodes (11): 1. Finite state machine (one state object, explicit transitions), 2. Behavior tree tick (composite nodes return a status), 3. Steering: seek and arrive (smooth, frame-rate independent), 4. A* heuristic must not overestimate (or paths stop being shortest), Core workflow, Game AI: decisions, steering, and pathfinding, Patterns, Pitfalls (+3 more)
 
 ### Community 263 - "Game feel (juice)"
-Cohesion: 0.17
+Cohesion: 0.15
 Nodes (12): 1. Screen shake by decaying "trauma" (smooth, not a random jitter), 2. Hit-stop / freeze frame (sell impact by briefly stopping time), 3. Squash & stretch + overshoot via an eased tween (the "pop"), 4. A feedback bundle scaled by importance (keep juice proportional), Core principle: feedback is layered and exaggerated, Core workflow, Game feel (juice), Patterns (+4 more)
 
 ### Community 264 - "Godot 2D Movement (4.x)"
@@ -1517,8 +1808,8 @@ Cohesion: 0.17
 Nodes (11): 1. Spawn a one-shot effect at a world location (C++), 2. Spawn attached to a socket (muzzle flash that follows the gun), 3. Drive an exposed User parameter at runtime, 4. Blueprint equivalent (node flow), Core workflow, Patterns, Pitfalls, References (+3 more)
 
 ### Community 293 - "three.js scene graph, cameras & cleanup (r150+)"
-Cohesion: 0.18
-Nodes (10): Camera3D, Core workflow, near(), Coordinates & conventions, Disposing of resources (avoiding leaks), PerspectiveCamera vs OrthographicCamera, Render-on-demand, Stopping and restarting the loop (+2 more)
+Cohesion: 0.29
+Nodes (6): Coordinates & conventions, Disposing of resources (avoiding leaks), Render-on-demand, Stopping and restarting the loop, The Object3D hierarchy, three.js scene graph, cameras & cleanup (r150+)
 
 ### Community 294 - "Godot 3D Essentials (4.x)"
 Cohesion: 0.18
@@ -1533,7 +1824,7 @@ Cohesion: 0.18
 Nodes (10): 1. Player metrics drive every dimension, 2. Encounter / pacing as data (a tension timeline), 3. Gating and the critical path (a small graph), Core workflow, Level design, Patterns, Pitfalls, References (+2 more)
 
 ### Community 297 - "Physics tuning"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (11): 1. Fixed timestep for simulation, render interpolation for smoothness, 2. Stop tunneling: CCD + a speed cap, 3. Body tuning: mass, drag, gravity scale, material, 4. Collision layers and masks (who collides with whom), Core workflow, Patterns, Physics tuning, Pitfalls (+3 more)
 
 ### Community 298 - "Platformer feel tuning (depth)"
@@ -1541,7 +1832,7 @@ Cohesion: 0.18
 Nodes (10): 1. Deriving jump physics, 2. Full feel knob reference, 3. Apex hang and fast-fall, 4. Corner correction (ceiling and ledge nudging), 5. One-way platforms and drop-through, 6. Moving platforms, 7. Camera follow, 8. Teaching and pacing (hand-off to `level-design`) (+2 more)
 
 ### Community 299 - "Procedural generation"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (11): 1. Seeded, deterministic RNG (the foundation), 2. Fractal (fBm) noise for heightmaps, 3. Weighted loot table (rarity-correct selection), 4. Rooms-and-corridors dungeon (sketch), Core workflow, Patterns, Pitfalls, Procedural generation (+3 more)
 
 ### Community 300 - "Roblox characters"
@@ -1640,6 +1931,10 @@ Nodes (9): Bundled Instance fixture, Choose structure before coordinates, Densit
 Cohesion: 0.20
 Nodes (9): 1. Minimal Actor class (header + source), 2. GameMode wiring its default classes, 3. Module dependency in Build.cs, Patterns, Pitfalls, References, Related skills, Unreal C++ Gameplay (+1 more)
 
+### Community 324 - "The 5 Review Stages"
+Cohesion: 0.18
+Nodes (10): Execution Workflow, Goal, Spec Review & 5-Stage Isolated Subagent Pipeline, Stage 1: Zoom Out Review (`references/standards/zoom-out-standard.md`), Stage 2: Comprehension Test (`references/standards/comprehension-standard.md`), Stage 3: Critic Review (`references/standards/feature-spec-standard.md`), Stage 4: Intermediate Zoom Out Review, Stage 5: Implementation Readiness Test (`references/standards/implementation-readiness-standard.md`) (+2 more)
+
 ### Community 326 - "Follow & framing — depth for `camera-systems`"
 Cohesion: 0.22
 Nodes (8): 1. Why `1 - exp(-rate*dt)` (frame-rate-independent smoothing), 2. Full 2D rig: deadzone + look-ahead + bounds, 3. 3D third-person orbit, 4. First-person look, 5. Multi-target / group framing, 6. Cinematic blends & transitions, 7. Per-engine rig summary, Follow & framing — depth for `camera-systems`
@@ -1648,9 +1943,9 @@ Nodes (8): 1. Why `1 - exp(-rate*dt)` (frame-rate-independent smoothing), 2. Ful
 Cohesion: 0.22
 Nodes (8): 1. Effects as data + an interpreter, 2. The resolution queue / stack, 3. Triggers and keywords, 4. Targeting, 5. Deckbuilder vs. constructed, 6. Shuffle fairness and consistency, 7. Mana / resource curves, Card effect resolution and structure (depth)
 
-### Community 328 - "Create Game Assets"
-Cohesion: 0.22
-Nodes (8): Choose the production path, Core workflow, Create Game Assets, Image-generation handoff, Quality gates, Raster QA recipes, References, Related skills
+### Community 328 - "game-forge/SKILL.md"
+Cohesion: 0.15
+Nodes (10): 2. Interactive Foundations Plan Template for `/game-forge`, Universal Baseline Game Requirements & User Options Matrix (`GAME_FOUNDATIONS_BASELINE.md`), Choose the production path, Core workflow, Create Game Assets, Image-generation handoff, Quality gates, Raster QA recipes (+2 more)
 
 ### Community 329 - "Defold file formats (1.14.0)"
 Cohesion: 0.22
@@ -1664,9 +1959,9 @@ Nodes (3): NewSound(), synth(), Sound
 Cohesion: 0.22
 Nodes (9): Assets, Browser (WebAssembly), Desktop builds, Mobile, New project, Project setup and builds, Release checklist, Requirements (+1 more)
 
-### Community 332 - "package_macos_app.py"
-Cohesion: 0.44
-Nodes (5): assemble(), check_macho(), fail(), find_lipo(), main()
+### Community 332 - "Environment Artist"
+Cohesion: 0.11
+Nodes (18): Architecture, Composition Guidelines, Constraints, Core Principles, Environment Artist, Game Optimization, Grid Standards, Kit Piece Categories (+10 more)
 
 ### Community 333 - "FPS shooting model and feel (depth)"
 Cohesion: 0.22
@@ -1720,8 +2015,8 @@ Nodes (8): 1. Representing the path, 2. Tower targeting modes, 3. DPS and "can t
 Cohesion: 0.22
 Nodes (8): 1. The script data model, 2. Route structures, 3. Flags and variables, 4. Save-anywhere data, 5. Backlog, skip, and auto, 6. Presentation conventions, 7. Localization, Visual novel script model and flow (depth)
 
-### Community 346 - "🧠 One-Call Dispatch Algorithm"
-Cohesion: 0.25
+### Community 346 - "game-router/SKILL.md"
+Cohesion: 0.18
 Nodes (8): 1. Engine Fingerprinting (Exclusive: 1 Engine), 2. Genre Classification (Additive: at most 1 primary genre), 3. Cross-Engine Disciplines (Additive: 1–3 skills), 4. Direct Handoff & Pipeline Execution, 🧠 One-Call Dispatch Algorithm, Unified Game Router — Game Dev Dispatcher & Intelligence Gateway, 🚀 When to Use, 💬 Worked Example Dispatches
 
 ### Community 347 - "Best practices & pitfalls — performance, memory, hybrid AI"
@@ -1755,6 +2050,10 @@ Nodes (7): 1. The trauma model (why shake feels good), 2. Easing cheat sheet —
 ### Community 354 - "3D scene & environment reference (Godot 4.7)"
 Cohesion: 0.25
 Nodes (7): 3D scene & environment reference (Godot 4.7), Baked lighting & probes, Environment & post-processing, GridMap & MeshLibrary, Lights, Materials, Transform3D
+
+### Community 355 - "With vs. without SeikoClaw Harness: the ExerMart case study"
+Cohesion: 0.25
+Nodes (5): 1. Experiment overview, 2. 12-dimension comparison chart, 3. Quantitative rubric chart (0 to 10 scale), 5. Adversarial `break-ui` defects uncovered and fixed, With vs. without SeikoClaw Harness: the ExerMart case study
 
 ### Community 356 - "Input buffering, game feel, devices, and accessibility"
 Cohesion: 0.25
@@ -1804,13 +2103,13 @@ Nodes (7): Common PBR intuition, IBL without an HDR file: PMREM + RoomEnvironmen
 Cohesion: 0.25
 Nodes (7): `Awaitable` (async/await) instead of a coroutine, Coroutine yield instructions, Custom yield instruction, Execution order (the parts that matter for gameplay), Gotchas, MonoBehaviour lifecycle & coroutines (Unity 6.3 LTS), Stopping coroutines deterministically
 
-### Community 368 - "Gameplay Atlas"
+### Community 368 - "4. Non-headless visual verification captures (`seikojin-qa`)"
 Cohesion: 0.25
-Nodes (8): 🚀 Game Forge Integration Protocols, Gameplay Atlas, 🔄 Refreshing / Synchronizing the Catalog, Stage A: Brief, GDD & Locked References, Stage B: Scope Carving & Playable Foundation (`scope-surgeon`), Stage C: Balance & Systems Modeling (`game-systems-modeler`), 🏗️ Structure of an Atlas Mechanic, 🎛️ The CLI Query Lever (`scripts/gameplay_atlas.py`)
+Nodes (8): 4. Non-headless visual verification captures (`seikojin-qa`), `R1_navbar.png`: Hero and frosted glass navigation, `R2_catalog.png`: Catalog grid with vertically stacked top-left badges, `R3_product_modal.png`: Certified 8-point physical inspection modal, `R4_sell_portal.png`: Algorithmic resale and instant cash buyout portal, `R5_space_matcher.png`: Interactive room and ceiling clearance matcher, `R6_cart_checkout.png`: LTL freight and liftgate checkout drawer, `R7_break_ui_stress.png`: Adversarial `break-ui` worst-case stress mode (`?data=worst`)
 
-### Community 369 - "xu"
+### Community 369 - "🚀 Core CLI Commands"
 Cohesion: 0.25
-Nodes (8): bo(), di(), ec(), Io(), ju(), Ro(), xr(), xu()
+Nodes (8): 1. Declarative Task Creation with Playbooks, 2. Task Execution & Sandboxing, 3. QA & Adversarial Gate Certification, 4. Cross-Harness Skill Export & Ingestion, 5. Deterministic Skill Routing & Collision Evaluation, 6. Memory & Decision Trail Querying, 7. Gameplay Atlas Mechanics Lookup & Prototyping Recipes, 🚀 Core CLI Commands
 
 ### Community 370 - "Art direction and consistency"
 Cohesion: 0.29
@@ -1896,9 +2195,9 @@ Nodes (6): Components, garbage collection & replication primer (UE 5.8 C++), Cre
 Cohesion: 0.29
 Nodes (6): Asset setup checklist (editor), Build.cs, Enhanced Input — complete C++ Character (UE 5.8), Header, Runtime rebinding note, Source
 
-### Community 391 - "test_economy_math.luau"
-Cohesion: 0.33
-Nodes (3): Phase 2: CLI Query Lever (`scripts/gameplay_atlas.py`), Stage B: Scope Carving & Playable Foundation (Autonomous $\rightarrow$ Gate B), test()
+### Community 391 - "Gameplay Atlas"
+Cohesion: 0.22
+Nodes (8): 🚀 Game Forge Integration Protocols, Gameplay Atlas, 🔄 Refreshing / Synchronizing the Catalog, Stage A: Brief, GDD & Locked References, Stage B: Scope Carving & Playable Foundation (`scope-surgeon`), Stage C: Balance & Systems Modeling (`game-systems-modeler`), 🏗️ Structure of an Atlas Mechanic, 🎛️ The CLI Query Lever (`scripts/gameplay_atlas.py`)
 
 ### Community 392 - "Utility AI system — curves, considerations, evaluator"
 Cohesion: 0.33
@@ -1916,13 +2215,17 @@ Nodes (5): Art direction brief, Game frame, Technical contract, Visual system, V
 Cohesion: 0.33
 Nodes (5): Ink and Yarn Spinner — syntax cheat sheet, Ink essentials, Integration notes, Side-by-side, Yarn Spinner essentials
 
-### Community 396 - "A custom dialogue runner"
-Cohesion: 0.33
-Nodes (5): A custom dialogue runner, Graph schema, Localization lookup, The runner state machine, Variable store and expression evaluation
+### Community 396 - "ol"
+Cohesion: 0.09
+Nodes (22): A custom dialogue runner, Graph schema, Localization lookup, The runner state machine, Validation pass, Variable store and expression evaluation, Ar(), Ba() (+14 more)
 
 ### Community 398 - "Audio"
 Cohesion: 0.33
 Nodes (6): Audio, Browsers and mobile, Designing the sounds, Effects and music, Machines without a sound device, Rules
+
+### Community 399 - "Zoom Out Standard"
+Cohesion: 0.25
+Nodes (7): 0. Context Sufficiency (Prerequisite Check), 1. Root Problem Focus, 2. Simplicity & Extensibility, 3. Anti-Weeds (Altitude Control), 4. Leverage Existing, Core Principle, Zoom Out Standard
 
 ### Community 400 - "Engine detection — full project fingerprint"
 Cohesion: 0.33
@@ -1964,9 +2267,9 @@ Nodes (4): Bind concepts to the project, Establish the engine contract, Failure 
 Cohesion: 0.50
 Nodes (3): --private is the default; substitute --public ONLY under the visibility rule above, (the visibility answer WAS the bare word "public" AND the copyright gate allows it), WORKDIR is the path this run reported; quote it in case of spaces.
 
-### Community 410 - "Step 8 — Generate supporting files"
-Cohesion: 0.50
-Nodes (4): cheatsheet.md, glossary.md, patterns.md, Step 8 — Generate supporting files
+### Community 410 - "Geometry Nodes"
+Cohesion: 0.11
+Nodes (18): Building Generator, Cable/Pipe Routing, Constraints, Core Patterns, Geometry Nodes, Integration with Export, MCP Integration, MUST DO (+10 more)
 
 ### Community 412 - "Assets that belong to one game"
 Cohesion: 0.50
@@ -1976,25 +2279,489 @@ Nodes (4): Assets that belong to one game, Connect art to rules deliberately, Es
 Cohesion: 0.50
 Nodes (4): CI and release automation, Version stamping and traceability, Visual regression, Workflow asset and its limits
 
+### Community 414 - "Hard Surface Artist"
+Cohesion: 0.11
+Nodes (18): Bevel Workflow, Boolean Workflow, Constraints, Design Principles, Greebles, Hard Edge Management, Hard Surface Artist, Manufacturing Reference (+10 more)
+
+### Community 415 - "From a passable demo to a store that closes sales"
+Cohesion: 0.29
+Nodes (7): 1. Unguided AI builds a brochure. Guided AI builds the business., 2. Catching the \$129,999 bug that unit tests missed, 3. Looking at the real screen before calling the job done, Executive scorecard, From a passable demo to a store that closes sales, The experiment, Try the 60-second walkthrough
+
+### Community 416 - "SeikoClaw: Agentic Coding Harness"
+Cohesion: 0.29
+Nodes (7): 🎖️ Attribution & Upstream Credits, 🎯 Highlights, 📜 License, Live Showcase & A/B Case Study (`RawExerMart` vs. `ClawExerMart`), 📂 Repository Structure, SeikoClaw: Agentic Coding Harness, 🩺 System Diagnostics (`seikoclaw doctor`)
+
+### Community 417 - "Feature Specification Standard"
+Cohesion: 0.29
+Nodes (6): 1. The Alternatives Rule (Mandatory Trade-Off Analysis), 2. Domain & State Modeling, 3. Risks, Limits & Failure Modes, 4. Goals & Non-Goals, Core Principle, Feature Specification Standard
+
+### Community 418 - "Comprehension Standard"
+Cohesion: 0.33
+Nodes (5): 1. Paraphrase Requirement, 2. Self-Containment & Zero Tribal Knowledge, 3. Clear Boundaries & User Journeys, Comprehension Standard, Core Principle
+
+### Community 419 - "Implementation Readiness Standard"
+Cohesion: 0.33
+Nodes (5): 1. The Zero-Decision Rule, 2. Concrete Scope & Target Files, 3. Phasing & Verifiable Units, Core Principle, Implementation Readiness Standard
+
+### Community 420 - "Genre & Competitor Analysis"
+Cohesion: 0.40
+Nodes (4): Genre & Competitor Analysis, Integration & Handoff, Persona & Execution Mode, Workflow
+
+### Community 421 - "Chapter 1: The Architecture of Discipline"
+Cohesion: 0.40
+Nodes (5): 1. The 24 First Principles, 2. The OpenBrain Persistent Sidecar, 3. Pre-Execution Security Guardrails, 4. Deterministic Skill Routing, Chapter 1: The Architecture of Discipline
+
+### Community 422 - "📕 Back of the Book"
+Cohesion: 0.40
+Nodes (5): 📕 Back of the Book, Synopsis, Tagline, The SeikoClaw Creed, Vital Metrics & System Specs
+
+### Community 423 - "Skill Distribution & Sync Workflow"
+Cohesion: 0.50
+Nodes (3): Goal, Skill Distribution & Sync Workflow, Workflow
+
+### Community 424 - "Asset Optimization"
+Cohesion: 0.11
+Nodes (17): Asset Optimization, Audit Checklist, Constraints, Geometry, LOD Generation, Materials, MCP Integration, Modifier Cleanup (+9 more)
+
+### Community 426 - "Horror Style Specialist"
+Cohesion: 0.11
+Nodes (17): Audio-Visual Sync Points, Constraints, Design Philosophy, Horror Style Specialist, Lighting (Horror), Material Palette, MCP Integration, Modeling Guidelines (+9 more)
+
+### Community 427 - "Rendering"
+Cohesion: 0.11
+Nodes (17): Asset Turntable Template, Camera Setup, Color Management, Constraints, Cycles Settings, Eevee Settings, Engine Selection, MCP Integration (+9 more)
+
+### Community 428 - "Rigging"
+Cohesion: 0.11
+Nodes (17): Armature Naming, Bone Hierarchy, Constraints, Constraints, Deformation Test Poses, Drivers, Facial Rigs, IK vs FK (+9 more)
+
+### Community 429 - "Stylized Style Specialist"
+Cohesion: 0.11
+Nodes (17): Character Stylization, Color Harmony, Constraints, Core Principles, Environment Stylization, Hand-Painted Texture Workflow, Material Approach, MCP Integration (+9 more)
+
+### Community 430 - "UV Workflow"
+Cohesion: 0.11
+Nodes (17): Constraints, Lightmap UVs, MCP Integration, Mirrored UVs, Modular UV Atlas, MUST DO, MUST NOT DO, Reference Guide (+9 more)
+
+### Community 431 - "Blender Modeler"
+Cohesion: 0.12
+Nodes (16): Blender Modeler, Cleanup Checklist, Constraints, Core Workflow, Custom Normals, Edit Mode Essentials, Handoff Points, Instancing Strategy (+8 more)
+
+### Community 432 - "Low Poly Style Specialist"
+Cohesion: 0.12
+Nodes (16): Constraints, Core Rules, Lethal Company Influence, Low Poly Style Specialist, Material Approach, MCP Integration, Modeling Approach, Mouthwashing Influence (+8 more)
+
+### Community 433 - "Procedural Modeling"
+Cohesion: 0.12
+Nodes (16): Building Generation, Constraints, Game Export Decision, MCP Integration, MUST DO, MUST NOT DO, Pipe/Cable Networks, Procedural Modeling (+8 more)
+
+### Community 434 - "Realistic Style Specialist"
+Cohesion: 0.12
+Nodes (16): AAA Asset Checklist, Cinematic vs Game Realism, Constraints, Core Standards, High-Poly Workflow, MCP Integration, Micro-Detail Strategy, MUST DO (+8 more)
+
+### Community 435 - "Sculpting"
+Cohesion: 0.12
+Nodes (16): Alpha Workflow, Brush Selection, Constraints, Damage & Wear, Detail Pass Order, Dyntopo vs Multiresolution, Handoff to Retopology, Hard Surface Sculpting (+8 more)
+
+### Community 436 - "Texture Workflow"
+Cohesion: 0.12
+Nodes (16): Bake Setup, Constraints, Decals, Maps to Bake, MCP Integration, Memory Optimization, MUST DO, MUST NOT DO (+8 more)
+
+### Community 437 - "Architecture"
+Cohesion: 0.12
+Nodes (14): Architecture, Design principles, Extending, Key components, Security, book-to-skill, Install, Learn more (+6 more)
+
+### Community 438 - "Animation"
+Cohesion: 0.12
+Nodes (15): Animation, Animation Principles (Applied), Camera Animation, Constraints, Game-Ready Requirements, Graph Editor Workflow, Locomotion Cycles, MCP Integration (+7 more)
+
+### Community 439 - "Character Artist"
+Cohesion: 0.12
+Nodes (15): Animation-Ready Requirements, Character Artist, Clothing Workflow, Constraints, Edge Loop Strategy, Facial Structure, Hair Approaches, MCP Integration (+7 more)
+
+### Community 440 - "Creature Artist"
+Cohesion: 0.12
+Nodes (15): Bone Structure Planning, Constraints, Creature Artist, Creature Types, Design Principles, Hybrid Creatures, MCP Integration, Muscle Flow (+7 more)
+
+### Community 441 - "Lighting Artist"
+Cohesion: 0.12
+Nodes (15): Color Temperature, Constraints, Game vs Cinematic, HDRI Workflow, Horror Lighting, Light Types, Lighting Artist, MCP Integration (+7 more)
+
+### Community 442 - "Retopology"
+Cohesion: 0.12
+Nodes (15): Constraints, Edge Loop Rules, MCP Integration, MUST DO, MUST NOT DO, Pole Management, Polycount Targets, Reference Guide (+7 more)
+
+### Community 443 - "BlenderMCP Tool Catalog"
+Cohesion: 0.12
+Nodes (15): Agent Protocol, Apply Transforms, BlenderMCP Tool Catalog, Common bpy Patterns (Fallback), Core Capabilities, Create Collection, Error Recovery, Export via Code (When No Export Tool) (+7 more)
+
+### Community 444 - "Materials"
+Cohesion: 0.13
+Nodes (14): Constraints, Master Material Library, Material Count Budget, Materials, MCP Integration, MUST DO, MUST NOT DO, PBR Value Ranges (+6 more)
+
+### Community 445 - "Godot Export"
+Cohesion: 0.14
+Nodes (13): Animation, Constraints, Format, Godot Export, Hierarchy, Materials, MUST DO, MUST NOT DO (+5 more)
+
+### Community 446 - "Unity Export"
+Cohesion: 0.14
+Nodes (13): Characters, Constraints, LODs & Collision, Materials, MUST DO, MUST NOT DO, Pre-Flight, Recommended Formats (+5 more)
+
+### Community 447 - "Unreal Export"
+Cohesion: 0.14
+Nodes (13): Collision, Constraints, FBX Defaults (Static), MUST DO, MUST NOT DO, Naming for UE, Pre-Flight, Reference Guide (+5 more)
+
+### Community 448 - "Camera Cinematography"
+Cohesion: 0.15
+Nodes (12): Camera Animation, Camera Cinematography, Composition Checklist, Constraints, DoF, Lens Guide, MUST DO, MUST NOT DO (+4 more)
+
+### Community 449 - "Collision Proxy"
+Cohesion: 0.15
+Nodes (12): Authoring Rules, Collider Types, Collision Proxy, Constraints, MUST DO, MUST NOT DO, Reference Guide, Unity Notes (+4 more)
+
+### Community 450 - "Hair Groom"
+Cohesion: 0.15
+Nodes (12): Card Guidelines, Constraints, Groom Principles, Hair Groom, MUST DO, MUST NOT DO, Naming, Path Decision (+4 more)
+
+### Community 451 - "LOD Pipeline"
+Cohesion: 0.15
+Nodes (12): Constraints, Generation Methods, LOD Pipeline, MUST DO, MUST NOT DO, Naming, Reference Guide, Screen Size Starters (+4 more)
+
+### Community 452 - "Physics Sim"
+Cohesion: 0.15
+Nodes (12): Bake / Export, Constraints, Constraints, Destruction Approach, MUST DO, MUST NOT DO, Physics Sim, Reference Guide (+4 more)
+
+### Community 453 - "Prop Artist"
+Cohesion: 0.15
+Nodes (12): Constraints, Design Principles, Handoff, Kitbash Rules, Material Guidance, MUST DO, MUST NOT DO, Prop Artist (+4 more)
+
+### Community 454 - "PSX Horror Style"
+Cohesion: 0.15
+Nodes (12): Compositing Extras, Constraints, Core Tenets, Lighting & Camera, Materials / Textures, Modeling, MUST DO, MUST NOT DO (+4 more)
+
+### Community 455 - "Scene Assembly"
+Cohesion: 0.15
+Nodes (12): Collection Structure, Constraints, Handoff, Layout Rules, Linking Strategy, MUST DO, MUST NOT DO, Performance Hygiene (+4 more)
+
+### Community 456 - "Vehicle Artist"
+Cohesion: 0.15
+Nodes (12): Blockout Checklist, Collision, Constraints, Design Principles, LOD Guidance, MUST DO, MUST NOT DO, Object Split (Game) (+4 more)
+
+### Community 457 - "VFX / FX"
+Cohesion: 0.15
+Nodes (12): Constraints, Domain Rules (Volume), Effect Types, Game Export Notes, MUST DO, MUST NOT DO, Naming, Path Decision (+4 more)
+
+### Community 458 - "Anime Style"
+Cohesion: 0.17
+Nodes (11): Anime Style, Constraints, Core Tenets, Lighting, Modeling Notes, MUST DO, MUST NOT DO, Reference Guide (+3 more)
+
+### Community 459 - "Archviz"
+Cohesion: 0.17
+Nodes (11): Archviz, Cameras, Constraints, Delivery, Lighting, MUST DO, MUST NOT DO, Reference Guide (+3 more)
+
+### Community 460 - "Cloth Sim"
+Cohesion: 0.17
+Nodes (11): Bake Targets, Cloth Sim, Constraints, Mesh Prep, MUST DO, MUST NOT DO, Reference Guide, Settings Starters (+3 more)
+
+### Community 461 - "Compositing"
+Cohesion: 0.17
+Nodes (11): Beauty Stack (Default), Compositing, Constraints, Grade Rules, MUST DO, MUST NOT DO, Outputs, Recommended Passes (+3 more)
+
+### Community 462 - "QA Review"
+Cohesion: 0.17
+Nodes (11): Checklists (load as needed), Constraints, Defect Severity, MUST DO, MUST NOT DO, QA Review, Reference Guide, Required Screenshots (+3 more)
+
+### Community 463 - "Set Dressing"
+Cohesion: 0.17
+Nodes (11): Cluster Method, Constraints, Density Rules, Horror / Sparse Styles, MUST DO, MUST NOT DO, Prop Sources, Reference Guide (+3 more)
+
+### Community 464 - "Vegetation Artist"
+Cohesion: 0.17
+Nodes (11): Atlas Rules, Constraints, Game Plant Structure, MUST DO, MUST NOT DO, Path Decision, Reference Guide, Vegetation Artist (+3 more)
+
+### Community 465 - "Voxel Style"
+Cohesion: 0.17
+Nodes (11): Constraints, Core Tenets, Materials, Modeling Tips, MUST DO, MUST NOT DO, Reference Guide, Voxel Style (+3 more)
+
+### Community 466 - "Blender MCP Integration Rules"
+Cohesion: 0.17
+Nodes (11): Anti-Patterns, Blender MCP Integration Rules, Error Handling, Execution Protocol, Fallback Mode, MCP-First Operations, Non-Destructive Defaults, Priority Order (+3 more)
+
+### Community 467 - "Asset Validation Checklist"
+Cohesion: 0.17
+Nodes (11): Asset Validation Checklist, Export Readiness, Game Ready, Materials & Textures, Organization, Performance, Scale & Transform, Topology (+3 more)
+
+### Community 468 - "Visual Match Checklist"
+Cohesion: 0.17
+Nodes (11): Auto-Fail Conditions, Camera & Composition, Comparison Method, Depth & Surface Breakup, Feature Checklist (customize per asset), Lighting, Materials & Color, Rendering & Grading (+3 more)
+
+### Community 469 - "Isometric Style"
+Cohesion: 0.18
+Nodes (10): Asset Rules, Camera Setup, Constraints, Isometric Style, Modeling, MUST DO, MUST NOT DO, Presentation (+2 more)
+
+### Community 470 - "Lookdev"
+Cohesion: 0.18
+Nodes (10): Checklist, Constraints, Iteration Rule, Lookdev, MUST DO, MUST NOT DO, Reference Guide, Standard Rigs (+2 more)
+
+### Community 471 - "Polycount Budgets"
+Cohesion: 0.18
+Nodes (10): Characters, Environment, LOD Guidelines, Polycount Budgets, Props, Style Modifiers, Texture Budgets, Validation (+2 more)
+
+### Community 472 - "Environment Composition"
+Cohesion: 0.20
+Nodes (9): Camera Path Validation, Environment Composition, Layer Structure, Leading Lines, Modular Scene Assembly, Negative Space, Rule of Thirds, Scale Cues (+1 more)
+
+### Community 473 - "NPR Shader Setups"
+Cohesion: 0.20
+Nodes (9): Cel Shader (Eevee/Cycles), Export to Game Engine, NPR Shader Setups, Outline Pass, Rim Light Node, Shadow Hardness, Specular Control, Stylized Skin (+1 more)
+
+### Community 474 - "Naming Conventions"
+Cohesion: 0.20
+Nodes (9): Collection Hierarchy, Collision Naming, LOD Naming, Material Naming Pattern, Mesh Naming Pattern, Naming Conventions, Prefix Standards, Rules (+1 more)
+
+### Community 475 - "Flying Creatures"
+Cohesion: 0.22
+Nodes (8): Attachment Point, Flight Pose Reference, Flying Creatures, Folded vs Extended, Membrane Topology, Rigging, Silhouette, Wing Anatomy
+
+### Community 476 - "Procedural Material Patterns"
+Cohesion: 0.22
+Nodes (8): Dirt Accumulation, Edge Wear, Master Graph Pattern, Moss/Growth, Panel Color Variation, Procedural Material Patterns, Rust Overlay, Water Staining
+
+### Community 477 - "Photogrammetry Scan Cleanup"
+Cohesion: 0.22
+Nodes (8): Albedo Extraction, Common Issues, Decimation for Bake Source, Import Checklist, LOD from Scan, Naming, Photogrammetry Scan Cleanup, Retopology Path
+
+### Community 478 - "Facial Retopology"
+Cohesion: 0.22
+Nodes (8): Edge Density, Eye Socket, Facial Retopology, Loop Targets, Mouth Corner, Nose, Pole Strategy, Validation Poses
+
+### Community 479 - "detect_structure"
+Cohesion: 0.25
+Nodes (4): _closed_fence_line_numbers(), detect_structure(), _numbered_titles_are_structural(), _structural_chapter_count()
+
+### Community 480 - "cmd_cache"
+Cohesion: 0.22
+Nodes (5): cmd_cache(), format_bytes(), parse_size_to_bytes(), test_format_bytes(), test_parse_size_to_bytes()
+
+### Community 481 - "Combat Animation Timing"
+Cohesion: 0.25
+Nodes (7): Attack Phases, Combat Animation Timing, Combo Timing, Game Export, Hit Reaction, Root Motion, Silhouette Readability
+
+### Community 482 - "Modifier Stack Reference"
+Cohesion: 0.25
+Nodes (7): Array Modifier, Bevel Settings, Boolean Workflow, Common Stack Examples, Mirror Modifier, Modifier Stack Reference, Subdivision Surface
+
+### Community 483 - "Facial Topology"
+Cohesion: 0.25
+Nodes (7): Ear, Expression Requirements, Eye Region, Facial Topology, Mouth Region, Nose, Pole Placement (Face)
+
+### Community 484 - "Quadruped Anatomy"
+Cohesion: 0.25
+Nodes (7): Mass Distribution, Polycount Zones, Proportions by Type, Quadruped Anatomy, Rigging Notes, Skeleton Landmarks, Surface Flow
+
+### Community 485 - "Building Generators"
+Cohesion: 0.25
+Nodes (7): Building Generators, Node Stack Pattern, Output Structure, Parametric Inputs, Performance, Roof Variants, Window Cut Pattern
+
+### Community 486 - "Horror Lighting Setups"
+Cohesion: 0.25
+Nodes (7): Emergency Exit, Flicker Animation, Fluorescent Corridor, Horror Lighting Setups, Moonlight Through Window, Single Bare Bulb Room, TV Glow (Analog Horror)
+
+### Community 487 - "PS1 Aesthetic"
+Cohesion: 0.25
+Nodes (7): Blender Viewport Approximation, Color, Geometry Rules, Modern PS1-Style (Lethal Company), PS1 Aesthetic, Texture Rules, Visual Characteristics
+
+### Community 488 - "NPR Rendering"
+Cohesion: 0.25
+Nodes (7): Eevee NPR Settings, Inverted Hull Setup, NPR Rendering, Outline Methods, Rim Light in Shader, Stylized Style Integration, Toon Shader (Shader to RGB)
+
+### Community 489 - "Render Passes"
+Cohesion: 0.25
+Nodes (7): Compositing Stack (Basic), Cryptomatte Workflow, Denoise, Essential Passes (Cycles), Game vs Portfolio, Multi-Layer EXR, Render Passes
+
+### Community 490 - "Humanoid Rig"
+Cohesion: 0.25
+Nodes (7): Export, Facial (Game Minimum), Humanoid Rig, IK Setup, Required Bones (Minimum Game), Twist Bones, Weight Paint Order
+
+### Community 491 - "Bake Troubleshooting"
+Cohesion: 0.25
+Nodes (7): AO Issues, Bake Troubleshooting, Cage Setup, Margin, Normal Map Artifacts, Ray Distance, Test Workflow
+
+### Community 492 - "Walk Cycle Breakdown"
+Cohesion: 0.29
+Nodes (6): Contact (Frame 0/12), Cycle Length, Down (Frame 3/15), Passing (Frame 6/18), Up (Frame 9/21), Walk Cycle Breakdown
+
+### Community 493 - "Skill Routing Reference"
+Cohesion: 0.29
+Nodes (6): By Engine Target, By Production Phase, Pack Routers (load references inside), Parallel vs Sequential, Skill Routing Reference, Style + Discipline Matrix (core)
+
+### Community 494 - "Scene Organization"
+Cohesion: 0.29
+Nodes (6): Asset Browser Integration, Large Scene Management, Parenting Strategy, Performance in Viewport, Scene Organization, View Layers
+
+### Community 495 - "Modular Kit Design"
+Cohesion: 0.29
+Nodes (6): Kit Validation, Minimum Viable Kit, Modular Kit Design, Snap Point Convention, Trim Sheet Layout, Variation Without Unique Geo
+
+### Community 496 - "Boolean Workflow"
+Cohesion: 0.29
+Nodes (6): Batch Boolean Strategy, Boolean Workflow, Common Artifacts & Fixes, Cutter Best Practices, Solver Selection, Stack Order
+
+### Community 497 - "Analog Props (Horror)"
+Cohesion: 0.29
+Nodes (6): Analog Props (Horror), Domestic Uncanny, Institutional, Modeling Rules, Placement, Technology (80s–90s)
+
+### Community 498 - "Cinematic Light Rigs"
+Cohesion: 0.29
+Nodes (6): Cinematic Light Rigs, Environment Golden Hour, Product Hero Shot, Render Settings Pairing, Three-Point Studio, Turntable Asset Preview
+
+### Community 499 - "Surface Material Recipes"
+Cohesion: 0.29
+Nodes (6): Concrete (Weathered), Fabric (Cotton), Glass (Standard), Painted Metal (Worn), Surface Material Recipes, Wood (Oiled)
+
+### Community 500 - "PBR Value Reference"
+Cohesion: 0.29
+Nodes (6): Dielectrics, Glass, Metals, PBR Value Reference, Rules, Subsurface (Skin)
+
+### Community 501 - "Mechanical Rig"
+Cohesion: 0.29
+Nodes (6): Constraint-First Approach, Empty Control Hierarchy, Export, Gear Ratio Driver, Mechanical Rig, Naming
+
+### Community 502 - "Palette Examples"
+Cohesion: 0.29
+Nodes (6): Cozy Stylized (Analogous), Heroic Fantasy (Triadic), Horror (Desaturated + Accent), Palette Examples, Sci-Fi (Complementary), Usage Rules
+
+### Community 503 - "ORM Packing"
+Cohesion: 0.29
+Nodes (6): Blender Compositing, Channel Assignment (Unreal Standard), Naming, Notes, ORM Packing, Unity HDRP/URP
+
+### Community 504 - "Trim Sheets"
+Cohesion: 0.29
+Nodes (6): Export Notes, Layout Strategy, Modeling Trim Geometry, Trim Sheets, UV Assignment, Variation
+
+### Community 505 - "test_economy_math.luau"
+Cohesion: 0.29
+Nodes (4): Camera3D, Core workflow, near(), PerspectiveCamera vs OrthographicCamera
+
+### Community 506 - "Cartoon Style"
+Cohesion: 0.33
+Nodes (5): Cartoon Style, Handoff, Reference Guide, Tenets, When to Use
+
+### Community 507 - "Engine Import"
+Cohesion: 0.33
+Nodes (5): Engine Import, First Import Test Checklist, Godot 4, Unity, Unreal Engine 5
+
+### Community 508 - "Scatter Systems"
+Cohesion: 0.33
+Nodes (5): Debris Scatter, Grass Scatter, Performance Cap, Rock Scatter, Scatter Systems
+
+### Community 509 - "Horror Layouts"
+Cohesion: 0.33
+Nodes (5): Blind Corners, Corridor Types, Horror Layouts, Room Flow, Vertical Compression
+
+### Community 510 - "Kitbash Library Spec"
+Cohesion: 0.33
+Nodes (5): Collections, Export, Grid, Kitbash Library Spec, Naming
+
+### Community 511 - "Game vs Cinematic Topology"
+Cohesion: 0.33
+Nodes (5): Cinematic Character, Decision Matrix, Game Character, Game vs Cinematic Topology, Optimization Without Quality Loss
+
+### Community 512 - "Brush Guide"
+Cohesion: 0.33
+Nodes (5): Alpha Stamps, Brush Guide, Multires Level Guide, Sculpt Brush Settings, Stroke Settings
+
+### Community 513 - "Texel Density"
+Cohesion: 0.33
+Nodes (5): Calculation, Hero vs Background, Matching Density, Texel Density, UDIM
+
+### Community 514 - "Vehicle Proportion Blockout"
+Cohesion: 0.33
+Nodes (5): Aircraft, Cars / Trucks, Mechs, Ships / Boats, Vehicle Proportion Blockout
+
+### Community 515 - "3. Core Tool Reference"
+Cohesion: 0.33
+Nodes (6): 3. Core Tool Reference, A. Connection & Introspection, B. Visual Self-Verification ("The Eyes"), C. Procedural Python Execution, D. Asset Catalog Search & Generation, E. BlendSwap Asset Acquisition & MCP Pipeline
+
+### Community 516 - "Before Building (Instant Gut-Check)"
+Cohesion: 0.40
+Nodes (4): Before Building (Instant Gut-Check), Goal, Output Format, Workflow
+
+### Community 517 - "LOD Strategies"
+Cohesion: 0.40
+Nodes (4): Decimate Settings, Impostor LOD3, LOD Strategies, Silhouette Preservation
+
+### Community 518 - "Body Proportions"
+Cohesion: 0.40
+Nodes (4): Body Proportions, Realistic (8 heads), Stylized (4–5 heads), Width
+
+### Community 519 - "Pins & Collision"
+Cohesion: 0.40
+Nodes (4): Bake Path, Colliders, Pins, Pins & Collision
+
+### Community 520 - "Hair Card Atlas"
+Cohesion: 0.40
+Nodes (4): Card Mesh, Channels, Hair Card Atlas, Layout
+
+### Community 521 - "Greeble Patterns"
+Cohesion: 0.40
+Nodes (4): Collection Structure, Greeble Patterns, Reusable Greeble Library, Scatter Rules
+
+### Community 522 - "Comic Book Style"
+Cohesion: 0.50
+Nodes (3): Comic Book Style, Reference Guide, Tenets
+
+### Community 523 - "Fantasy Worlds"
+Cohesion: 0.50
+Nodes (3): Fantasy Worlds, Subgenres, Tenets
+
+### Community 524 - "Liminal Space / Backrooms"
+Cohesion: 0.50
+Nodes (3): Liminal Space / Backrooms, Subplaces, Tenets
+
+### Community 525 - "Manga Style"
+Cohesion: 0.50
+Nodes (3): Manga Style, Tenets, Vs anime-style
+
+### Community 526 - "Painterly Style"
+Cohesion: 0.50
+Nodes (3): Painterly Style, Sublooks, Tenets
+
+### Community 527 - "Pixel Art Style"
+Cohesion: 0.50
+Nodes (3): Pixel Art Style, Reference Guide, Tenets
+
+### Community 528 - "Prop Tiers & Budgets"
+Cohesion: 0.50
+Nodes (3): Pivot Rules, Prop Tiers & Budgets, Wear Map Priority
+
+### Community 529 - "Stop Motion / Craft Style"
+Cohesion: 0.50
+Nodes (3): Stop Motion / Craft Style, Sublooks, Tenets
+
+### Community 530 - "usage.md"
+Cohesion: 0.50
+Nodes (3): 📤 Publish your generated skill (optional), 🚀 Usage, 💬 What people do with it
+
 ## Knowledge Gaps
-- **2717 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `qc`, `up` (+2712 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 3400 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **34 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **3827 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `qc`, `up` (+3822 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 4785 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **192 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Unreal C++ Gameplay` connect `Unreal C++ Gameplay` to `index-0jVwK8iL.js`?**
-  _High betweenness centrality (0.074) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Are the 9 inferred relationships involving `MemoryEngine` (e.g. with `AutoCapture` and `Decisions`) actually correct?**
   _`MemoryEngine` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill` to the rest of the system?**
-  _2717 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _3827 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `3. Core Tool Reference` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Why does `Core workflow` connect `index-0jVwK8iL.js` to `Unreal C++ Gameplay`?**
-  _High betweenness centrality (0.074) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Should `MemoryEngine` be split into smaller, more focused modules?**
-  _Cohesion score 0.0370872908186341 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.03442879499217527 - nodes in this community are weakly interconnected._
 - **Should `Glossary of Terms` be split into smaller, more focused modules?**
   _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._

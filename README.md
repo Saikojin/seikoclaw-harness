@@ -8,7 +8,8 @@
 
 Compare how an AI agent codes from the exact same prompt **without** vs. **with** the SeikoClaw Harness:
 
-- **Interactive GitHub Pages Showcase & Split-Screen Sandbox**: [`https://saikojin.github.io/seikoclaw-harness/`](https://saikojin.github.io/seikoclaw-harness/) ([open directly in Executive Story view](https://saikojin.github.io/seikoclaw-harness/?view=executive))
+- **Interactive GitHub Pages Showcase & Split-Screen Sandbox**: [`https://saikojin.github.io/seikoclaw-harness/`](https://saikojin.github.io/seikoclaw-harness/) ([open in Story view](https://saikojin.github.io/seikoclaw-harness/?view=story) | [Executive view](https://saikojin.github.io/seikoclaw-harness/?view=executive))
+- **The Harness Story Odyssey & Back of the Book**: [`docs/HARNESS_STORY.md`](docs/HARNESS_STORY.md) ([standalone reader](https://saikojin.github.io/seikoclaw-harness/story.html))
 - **Executive Story (3-Minute C-Suite One-Pager)**: [`docs/EXECUTIVE_STORY.md`](docs/EXECUTIVE_STORY.md)
 - **Play Live `ClawExerMart` (With SeikoClaw Harness)**: [`https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html`](https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html) ([launch in `break-ui` worst-case stress mode](https://saikojin.github.io/seikoclaw-harness/demos/clawexermart/index.html?data=worst))
 - **Play Live `RawExerMart` (Control Group Without Harness)**: [`https://saikojin.github.io/seikoclaw-harness/demos/rawexermart/index.html`](https://saikojin.github.io/seikoclaw-harness/demos/rawexermart/index.html)
@@ -21,9 +22,9 @@ Compare how an AI agent codes from the exact same prompt **without** vs. **with*
 
 - **24 First-Principle Engineering Directives**: Enforces zero-slop code hygiene, minimal diffs, boundary discipline, root-cause debugging, and empirical verification (`.agents/rules/principles.md`).
 - **Tier 2 Skill Routing & Collision Evals**: Automated frontmatter linting, pairwise vocabulary collision detection, and canonical utterance routing benchmark (`evals/routing/`, `python seikoclaw.py eval-skills`).
-- **Production Reference Checklists**: Industry-grade standards for Core Web Vitals (`performance-checklist`), WCAG 2.1 AA (`accessibility-checklist`), Definition of Done, and testing patterns (`references/`).
-- **Declarative Execution Playbooks**: Standard operating procedures (`bug-fix`, `feature`, `hillclimb`, `refactoring`, `visual-parity`, `shipping`) that auto-expand into sequential DAG wisps with blocking verification gates.
-- **Adversarial QA Gating**: Multi-model red-team review (`/interrogate`) paired with **Seikojin QA** Risk-Based Testing (100% stable pass mandate, zero visual punches).
+- **Production Reference Checklists & Spec Standards**: Industry-grade standards for Core Web Vitals (`performance-checklist`), WCAG 2.1 AA (`accessibility-checklist`), Definition of Done, testing patterns (`references/`), and 5-stage document evaluation rubrics (`references/standards/`).
+- **Declarative Execution Playbooks**: Standard operating procedures (`bug-fix`, `feature`, `spec-driven`, `hillclimb`, `refactoring`, `visual-parity`, `shipping`) that auto-expand into sequential DAG wisps with blocking verification gates.
+- **Spec-Driven Review & Adversarial QA Gating**: 5-stage isolated Goldfish spec review (`/spec-review`, `gate:spec_review`) and multi-model red-team review (`/interrogate`) paired with **Seikojin QA** Risk-Based Testing (100% stable pass mandate, zero visual punches).
 - **Persistent Decision Trails & Vector Memory**: Ingests and vector-indexes structured TSV decision trails (`/show-me-your-work`) into SQLite and ChromaDB alongside conversation turns.
 - **Cross-Harness Export & Namespace-Isolated Ingestion**: Export canonical skills to Claude, Codex, Pi, or Antigravity, or ingest external skill packs with namespace protection (`python seikoclaw.py import-skills`).
 - **P0 Safety Guarantees**: Non-destructive defaults. Skill evolution stages candidates to `.agents/skills/.candidates/` instead of overwriting production files.
@@ -41,7 +42,7 @@ Compare how an AI agent codes from the exact same prompt **without** vs. **with*
 ├── .agents/
 │   ├── hooks/             # Security pre-exec guards & session-start routing
 │   ├── rules/             # 24 First Principles & Graphify rules
-│   ├── skills/            # Modular capability definitions (80+ canonical skills)
+│   ├── skills/            # Modular capability definitions (260+ canonical, gamedev, and bld-* skills)
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
 ├── data/                  # Offline datasets & SQLite indexes (Gameplay Atlas DB & raw cache)
@@ -89,6 +90,9 @@ Create a task and auto-expand it into sequential DAG steps with blocking gates:
 # Create bug-fix task (expands to: repro -> root cause -> fix -> verify -> blast radius -> deslop)
 python seikoclaw.py task --title "Fix login session drift" --playbook bug-fix
 
+# Create spec-driven development task (expands to: concept brief -> draft spec -> 5-stage review gate -> triage -> architect -> tdd -> qa)
+python seikoclaw.py task --title "Multi-Tenant Storage Partitioning" --playbook spec-driven
+
 # Create metric hillclimb optimization task
 python seikoclaw.py task --title "Optimize vector query latency" --playbook hillclimb
 ```
@@ -108,6 +112,9 @@ Certify gates to unlock downstream ready frontier tasks:
 ```bash
 # Certify Seikojin QA gate (100% pass mandate on Rabbit Path)
 python seikoclaw.py gate --task "sc-101.5" --certify-qa --worker "Seikojin-QA"
+
+# Certify 5-stage isolated spec review gate (/spec-review)
+python seikoclaw.py gate --task "sc-101.3" --certify-spec-review --spec "docs/designs/storage.md" --worker "Goldfish-Synthesizer"
 
 # Certify Adversarial Interrogation gate (multi-model red team)
 python seikoclaw.py gate --task "sc-101.6" --certify-adversarial --worker "Adversarial-Reviewer"
