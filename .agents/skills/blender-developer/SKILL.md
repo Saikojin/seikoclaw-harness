@@ -1,7 +1,14 @@
 ---
 name: blender-developer
-description: Automate live Blender 3D modeling, procedural bpy scene generation, PBR materials, asset ingestion, and visual self-verification via Blender MCP.
+description: Automate live Blender 3D modeling, procedural bpy scene generation, PBR materials, 8-directional isometric sprite sheets from 3D models, asset ingestion, visual self-verification, and technical art routing across bld-* skills via Blender MCP.
 author: Saikojin (SeikoClaw - Game Forge)
+triggers:
+  - Blender
+  - live Blender
+  - bpy scene generation
+  - 8-directional isometric sprite sheets from 3D models in Blender
+  - isometric sprite sheets in Blender
+  - 3D models in Blender
 ---
 
 # Blender Developer & 3D Procedural MCP Orchestrator
@@ -49,7 +56,56 @@ flowchart TD
 
 ---
 
-## 2. Core Tool Reference
+
+## 2. Technical Art Skill Dispatcher & Decision Router (`bld-*` Suite)
+
+`blender-developer` operates as the Senior Technical Director for all 3D operations in SeikoClaw. Rather than improvising general-purpose BPY scripts from scratch, **always analyze the task signals first and dispatch to the matching specialized skill from the 94-skill `bld-*` library** (imported from `arjun988/blender-skills`). 
+
+### A. The 5-Axis Triage Framework
+Before writing or executing any BPY code, evaluate the user request against these 5 axes:
+
+| Axis | Guiding Question | Primary `bld-*` Routing Targets |
+| :--- | :--- | :--- |
+| **1. Discipline** | What kind of entity is being created? | `bld-hard-surface`, `bld-prop-artist`, `bld-vehicle-artist`, `bld-environment-artist`, `bld-vegetation-artist`, `bld-character-artist`, `bld-creature-artist`, `bld-character-archetypes`, `bld-archviz` |
+| **2. Production Stage** | Where in the DCC pipeline does this live? | `bld-sculpting` -> `bld-retopology` -> `bld-uv-workflow` -> `bld-materials` -> `bld-texture-workflow` -> `bld-hair-groom` / `bld-cloth-sim` -> `bld-rigging` -> `bld-animation` -> `bld-lookdev` |
+| **3. Technical System** | Does the asset require proceduralism, simulation, or visual FX? | `bld-geometry-nodes`, `bld-procedural-modeling`, `bld-vfx-fx`, `bld-physics-sim`, `bld-lighting`, `bld-camera-cinematography`, `bld-compositing`, `bld-rendering` |
+| **4. Art Style & Mood** | What visual aesthetic, console era, or mood must be maintained? | **Core/Extended**: `bld-lowpoly-style`, `bld-stylized-style`, `bld-realistic-style`, `bld-anime-style`, `bld-retro-16bit-style`, `bld-pixel-art-style`, `bld-hd-2d-style`, `bld-voxel-style`, `bld-frutiger-aero-style`<br>**Horror Packs**: `bld-horror-style`, `bld-psx-horror-style`, `bld-cosmic-eldritch-horror`, `bld-analog-found-footage-horror`, `bld-liminal-space-style`, `bld-body-horror-style`<br>**Worlds & Moods**: `bld-sci-fi-punk-worlds`, `bld-fantasy-worlds`, `bld-apocalypse-worlds`, `bld-dark-gritty-mood`, `bld-cozy-wholesome-mood`, `bld-brutalist-mood` |
+| **5. Engine Pipeline** | What destination runtime is the asset optimized for? | `bld-asset-optimization`, `bld-lod-pipeline`, `bld-collision-proxy`, `bld-export-pipeline`, `bld-godot-export`, `bld-unity-export`, `bld-unreal-export` |
+
+### B. Core Skill Dispatch Matrix
+
+| Task Signal / Goal | Recommended `bld-*` Skill | Supporting References & Standards |
+| :--- | :--- | :--- |
+| **Weapons, mechs, sci-fi guns, machinery** | `bld-hard-surface` | `references/polycount-budgets.md`, `references/naming-conventions.md` |
+| **Dungeon props, furniture, crates, loot** | `bld-prop-artist` | `bld-asset-optimization`, `references/polycount-budgets.md` |
+| **Modular dungeon tiles, buildings, terrain** | `bld-environment-artist` | `bld-scene-assembly`, `bld-set-dressing`, `bld-geometry-nodes` |
+| **Trees, foliage, grass, nature assets** | `bld-vegetation-artist` | `bld-lod-pipeline`, `references/polycount-budgets.md` |
+| **Humanoid base meshes, game characters** | `bld-character-artist` | `bld-character-archetypes`, `bld-retopology`, `bld-rigging` |
+| **Monsters, aliens, organic creatures** | `bld-creature-artist` | `bld-sculpting`, `bld-retopology`, `bld-materials` |
+| **Hair, fur cards, particle grooming** | `bld-hair-groom` | `bld-character-artist`, `bld-materials` |
+| **Capes, banners, cloth simulation & bakes** | `bld-cloth-sim` | `bld-physics-sim`, `references/asset-pipeline.md` |
+| **Bones, IK/FK constraints, weight painting** | `bld-rigging` | `bld-animation`, `references/naming-conventions.md` |
+| **Locomotion, walk cycles, attack anims** | `bld-animation` | `.agents/skills/bld-animation/references/walk-cycle.md` |
+| **Procedural scatter, rocks, cable paths** | `bld-geometry-nodes` | `bld-procedural-modeling` |
+| **PBR node trees, procedural shaders, glass** | `bld-materials` | `bld-lookdev`, `bld-texture-workflow` |
+| **PS1 / retro / crunch aesthetic** | `bld-psx-horror-style` | `bld-visual-console-eras`, `bld-lowpoly-style` |
+| **Liminal spaces, Backrooms, fluorescent halls** | `bld-liminal-space-style` | `bld-lighting`, `bld-horror-style` |
+| **Godot 4.7 collision & glTF export** | `bld-godot-export` | `bld-collision-proxy`, `bld-asset-optimization` |
+| **Unity 6.3 LTS humanoid & prefab export** | `bld-unity-export` | `bld-lod-pipeline`, `bld-collision-proxy` |
+| **Unreal Engine 5.8 Nanite & UCX collision** | `bld-unreal-export` | `bld-collision-proxy`, `bld-lod-pipeline` |
+| **Reference Image / Concept Art Matching** | `bld-blender-director` | `references/reference-image-match.md`, `references/reference-analysis-template.md` |
+
+### C. Multi-Skill Execution Pipeline
+When orchestrating a full asset lifecycle:
+1. **Route & Plan**: Consult `bld-blender-director` or the matrix above to establish polycount limits from `references/polycount-budgets.md`.
+2. **Execute via MCP**: Run procedural BPY scripts in Blender using the idiomatic patterns in Section 4 (`execute_blender_code`).
+3. **Inspect Visually**: Capture multi-angle renders using `look(mode="angles")` and compare against reference images.
+4. **Deterministic Validation (BVVP)**: Run `validate_blender_asset.py` (Section 6) to verify 0 unapplied transforms, 0 non-manifold edges, and watertight geometry.
+5. **Certify Visual Bar**: Attain 0 visual punches against `art/BAR.md` before final engine export.
+
+---
+
+## 3. Core Tool Reference
 
 All Blender tools are invoked via `call_mcp_tool` with `ServerName: "blender"`:
 
@@ -92,7 +148,7 @@ BlendSwap provides native community `.blend` files with complete rigs, collectio
 
 ---
 
-## 3. Idiomatic BPY Scripting Rules
+## 4. Idiomatic BPY Scripting Rules
 
 When writing Python code for `execute_blender_code`, follow these non-negotiable rules:
 
@@ -140,7 +196,7 @@ if "CYCLES" in valid_engines:
 
 ---
 
-## 4. Game Asset Export Pipelines
+## 5. Game Asset Export Pipelines
 
 ### A. Web / Godot / Unreal glTF Export
 ```python
@@ -173,7 +229,7 @@ for i, angle in enumerate(angles):
 
 ---
 
-## 5. Mandatory Verification & Validation Protocol (BVVP)
+## 6. Mandatory Verification & Validation Protocol (BVVP)
 
 Every action modifying or creating a visual asset in Blender MUST pass the **Blender Verification & Validation Protocol (BVVP)** before being exported to game engines (Godot/Unity/Unreal) or entered into `assets.base`.
 
@@ -259,7 +315,7 @@ Must return `{"status": "PASS"}` before task completion.
 
 ---
 
-## 6. External `.blend` Asset Ingestion Pipeline (BlendSwap)
+## 7. External `.blend` Asset Ingestion Pipeline (BlendSwap)
 
 When downloading community assets from BlendSwap, they arrive as native `.blend` files or zipped archives. Follow this autonomous execution pipeline:
 

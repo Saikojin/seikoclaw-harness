@@ -59,6 +59,7 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 ## 4. Engineering Spec Pipeline & Productivity (Matt Pocock / David Andrej)
 - [before-building](../before-building/SKILL.md) — Instant gut-check: surface 1–3 consequential choices hidden in an idea before coding.
 - [to-spec](../to-spec/SKILL.md) — Synthesize discussion context into a detailed technical specification *(aliases: `to-prd`)*.
+- [spec-review](../spec-review/SKILL.md) — 5-stage isolated Goldfish review pipeline for technical specifications (Zoom Out, Comprehension, Critic, Intermediate Zoom Out, Implementation Readiness) *(aliases: `egm-review`, `review-spec`, `sdd-review`)*.
 - [to-tickets](../to-tickets/SKILL.md) — Break plans or specs into tracer-bullet tickets with dependency edges *(aliases: `to-issues`)*.
 - [wayfinder](../wayfinder/SKILL.md) — Plan large, foggy efforts across multiple sessions using a shared decision map.
 - [prototype](../prototype/SKILL.md) — Build a throwaway prototype to answer a design or technical question.

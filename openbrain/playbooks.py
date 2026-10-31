@@ -209,6 +209,54 @@ PLAYBOOKS: Dict[str, Dict[str, Any]] = {
                 "gate_type": "human"
             }
         ]
+    },
+    "spec-driven": {
+        "name": "spec-driven",
+        "description": "Spec-Driven Development (SDD) pipeline: upstream concept ideation, technical spec authoring, 5-stage isolated Goldfish review, task decomposition, and verified runtime implementation.",
+        "steps": [
+            {
+                "title": "Concept Brief & Upstream Ideation (/before-building, /to-spec)",
+                "description": "Anchor problem statement, explore architectural alternatives, and draft concept brief with goals and non-goals.",
+                "task_type": "wisp",
+                "gate_type": None
+            },
+            {
+                "title": "Draft Technical Specification (docs/designs/<feature>.md)",
+                "description": "Draft complete technical specification including domain state models, boundary interfaces, and risks & mitigations.",
+                "task_type": "wisp",
+                "gate_type": None
+            },
+            {
+                "title": "5-Stage Isolated Spec Review (/spec-review)",
+                "description": "Spawn isolated subagents across 5 review stages (Zoom Out -> Comprehension -> Critic -> Intermediate Zoom Out -> Implementation Readiness).",
+                "task_type": "wisp",
+                "gate_type": "spec_review"
+            },
+            {
+                "title": "Resolve Review Findings & Triage (/grill-me)",
+                "description": "Address reviewer feedback, resolve discrepancies, update specification, and certify zero blocking issues.",
+                "task_type": "wisp",
+                "gate_type": None
+            },
+            {
+                "title": "Decompose into Verifiable Implementation Tasks (/architect)",
+                "description": "Break verified specification into dependency DAG tasks with exact test commands and non-headless E2E contracts.",
+                "task_type": "wisp",
+                "gate_type": None
+            },
+            {
+                "title": "Implement Domain Logic & Behavioral Tests (/tdd)",
+                "description": "Implement core domain data models and business logic in isolated sandbox with automated behavioral tests.",
+                "task_type": "wisp",
+                "gate_type": "test"
+            },
+            {
+                "title": "Clean Slate & Seikojin QA Certification (/seikojin-qa)",
+                "description": "Execute Clean Slate wipe, verify primary Rabbit Path, and certify 100% stable pass rate with zero visual defects.",
+                "task_type": "wisp",
+                "gate_type": "qa"
+            }
+        ]
     }
 }
 

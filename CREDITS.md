@@ -61,6 +61,20 @@ The definitive field guide to game mechanics created by Loopyhop:
 - **Integration in SeikoClaw**: Offline SQLite FTS5 database (`data/gameplay_atlas.db`), automated sync scraper (`scripts/sync_gameplay_atlas.py`), high-performance CLI query lever (`scripts/gameplay_atlas.py`), agent skill (`gameplay-atlas`), and deep integration into Game Forge (Stage A GDD loops, Stage B micro-slice specs & test criteria, Stage C parameter tuning) and `game-router`.
 - **Source & Attribution**: Content and source provenance available at [gameplayatlas.loopyhop.com/about/](https://gameplayatlas.loopyhop.com/about/).
 
+### 10. Dave Rensin, Jim Quinn, Elise Ewing & The Google Elephant-Goldfish Model Contributors ([google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model))
+Spec-Driven Development (SDD) principles, isolated zero-context reviewer subagents (Goldfish), and 5-stage document evaluation rubrics:
+- **Spec-Driven Architecture**: The Elephant (deep context) vs. Goldfish (zero context) model combating conversational bias, hallucination cascades, and premature implementation ("weeds syndrome").
+- **Review Rubrics & Standards**: Upstream standards adapted into `references/standards/`: `zoom-out-standard.md` (high-altitude YAGNI & simplicity), `comprehension-standard.md` (naive reader clarity & self-containment), `feature-spec-standard.md` (mandatory alternatives rule & domain state completeness), and `implementation-readiness-standard.md` (zero-decision rule & concrete task slicing).
+- **Integration in SeikoClaw**: Enforced via the `spec-review` skill, `spec-driven` declarative engineering playbook, and the blocking `spec_review` gate in OpenBrain.
+- **Licensing**: Open-source under the Apache License, Version 2.0.
+
+### 11. Arjun ([@arjun988](https://github.com/arjun988)) & the lender-skills Contributors ([arjun988/blender-skills](https://github.com/arjun988/blender-skills))
+The comprehensive 94-skill catalog and 175+ reference library for Blender 3D artists and technical directors:
+- **Discipline Coverage**: 94 specialized skills across modeling (hard surface, prop, vehicle, environment, vegetation, character, creature, archetypes), production workflows (sculpting, retopology, UV unwrapping, PBR materials, texturing, hair grooming, cloth simulation, lookdev), technical art (geometry nodes, cinematography, lighting, rendering, compositing, animation, rigging, VFX, physics), pipeline export (optimization, LODs, collision proxies, Godot/Unity/Unreal export), and 40+ artistic style packs (horror, retro 8/16-bit, anime, PSX, Brutalism, HD-2D, etc.).
+- **Reference Standards**: 175+ production references including asset pipelines, naming conventions, polycount budgets, reference photo matching, and validation checklists.
+- **Integration in SeikoClaw**: Ingested under the ld-* namespace with shared reference standards in .agents/skills/references/. Dispatched dynamically through lender-developer as the master orchestrator, pairing artistic instructions with SeikoClaw's live Blender MCP execution, BlendSwap ingestion, deterministic alidate_blender_asset.py topological gating, and Seikojin-QA visual bar certification.
+- **Licensing**: Open-source under the [MIT License](https://github.com/arjun988/blender-skills/blob/main/LICENSE).
+
 ---
 
 ## 📜 License & Usage

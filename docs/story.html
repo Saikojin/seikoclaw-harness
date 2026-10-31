@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Quality Frontier: The SeikoClaw Harness Odyssey</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+            mono: ['"JetBrains Mono"', '"SF Mono"', 'Consolas', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      letter-spacing: -0.01em;
+    }
+    body {
+      background-color: #020617;
+      color: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .apple-glass {
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    }
+    .apple-glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    }
+    .book-jacket {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 158, 11, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    }
+    .gold-foil {
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-press {
+      transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), opacity 120ms ease;
+      will-change: transform;
+    }
+    .apple-press:active {
+      transform: scale(0.97);
+    }
+    .reading-progress-bar {
+      height: 3px;
+      background: linear-gradient(90deg, #f59e0b, #10b981);
+      width: 0%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      transition: width 100ms ease;
+    }
+    .callout-creed {
+      background: rgba(245, 158, 11, 0.07);
+      border-left: 4px solid #f59e0b;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- Reading Progress Indicator -->
+  <div id="progress-bar" class="reading-progress-bar"></div>
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 text-slate-300 hover:text-white text-xs font-semibold apple-press">
+          <span class="text-amber-400">←</span> Back to A/B Showcase
+        </a>
+        <span class="text-slate-700">|</span>
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-sm text-white tracking-tight">The Quality Frontier</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 hidden sm:inline-block">
+            Reader Edition
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Nav Buttons -->
+      <div class="flex items-center gap-2 text-xs">
+        <a href="#back-of-the-book" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 border border-amber-500/30 font-semibold apple-press">
+          📕 Back of Book
+        </a>
+        <a href="#prologue" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold apple-press hidden md:inline-block">
+          📖 Chapters
+        </a>
+        <a href="HARNESS_STORY.md" download class="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold apple-press shadow-sm">
+          Download .md ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-10 space-y-16">
+
+    <!-- Hero Title -->
+    <section class="text-center space-y-4 pt-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-semibold">
+        <span>Third-Person Editorial Odyssey · Verified Production Architecture</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+        The Quality Frontier: <br class="hidden sm:inline" />
+        <span class="gold-foil">The SeikoClaw Harness Odyssey</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        How deterministic first principles, persistent memory, and live runtime verification transform autonomous AI coding from shallow prototypes into production systems.
+      </p>
+    </section>
+
+    <!-- SECTION 1: BACK OF THE BOOK (HARDCOVER SLIPCASE) -->
+    <section id="back-of-the-book" class="book-jacket rounded-3xl p-6 sm:p-10 space-y-8 relative overflow-hidden">
+      <!-- Watermark Badge -->
+      <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>
+
+      <div class="flex items-center justify-between border-b border-amber-500/20 pb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">📕</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Hardcover Slipcase · Back of the Book</span>
+        </div>
+        <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">ISBN: 978-SEIKOCLAW-2026</span>
+      </div>
+
+      <!-- Slipcase Tagline -->
+      <div class="space-y-2">
+        <h2 class="text-xl sm:text-2xl font-bold text-white leading-snug">
+          Beyond prompt-and-pray: How deterministic first principles, persistent memory, and live runtime verification transform AI coding from shallow prototypes into production systems.
+        </h2>
+      </div>
+
+      <!-- 3-Paragraph Synopsis -->
+      <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        <p>
+          When standard AI coding assistants are asked to build software, they default to the lowest-common-denominator pattern on the internet. They spin up boilerplate templates, write unit tests against polite, synthetic data, and report green checkmarks without ever looking at a rendered screen. In a five-minute status demo, the resulting software appears finished. In the hands of a real customer spending two thousand dollars on heavy equipment, the illusion collapses under the weight of broken layouts, missing domain logic, and silent edge-case failures.
+        </p>
+        <p>
+          <strong class="text-white">SeikoClaw</strong> was engineered to end this era of conversational consensus. Instead of treating code generation as a single chat turn, SeikoClaw envelops autonomous agents in an uncompromising quality harness. Powered by <strong class="text-amber-300">24 inviolable first principles</strong>, an <strong class="text-amber-300">OpenBrain</strong> persistent sidecar database tracking task DAGs and decision trails, pre-execution security guardrails, and deterministic skill routing, the harness forces AI to work like a seasoned principal engineer.
+        </p>
+        <p>
+          The definitive proof of this methodology is recorded in the <strong class="text-white">ExerMart A/B Case Study</strong>. Given the exact same starting prompt—to build an online marketplace for commercial gym equipment—an unguided AI produced <strong class="text-slate-100">RawExerMart</strong>: three shallow screens that missed a catastrophic $129,999 pricing bug. Inside the SeikoClaw Harness, the same underlying model built <strong class="text-amber-400">ClawExerMart</strong>: six complete buyer and seller journeys, an 8-point physical inspection grading engine, an interactive basement ceiling clearance calculator, LTL freight logistics, and eight edge-case defects caught and resolved before launch through adversarial stress testing and windowed Chrome verification.
+        </p>
+      </div>
+
+      <!-- Core Creed Callout -->
+      <div class="callout-creed p-5 rounded-2xl space-y-2">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">The SeikoClaw Engineering Creed</span>
+        <blockquote class="text-sm sm:text-base italic text-slate-200 font-serif leading-relaxed">
+          "The unit test that passes on clean dummy data is the ultimate false summit. True software quality is an empirical discipline: it demands domain reality at the seams, worst-case stress at the boundaries, and photographic proof on the glass."
+        </blockquote>
+      </div>
+
+      <!-- Vital Metrics & System Specs -->
+      <div class="space-y-3 pt-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Vital Metrics & System Specs</span>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-slate-400 text-[11px]">Foundational Directives</div>
+            <div class="text-base font-bold text-amber-400 mt-0.5">24 Principles</div>
+            <div class="text-[10px] text-slate-500">Inviolable rules</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-slate-400 text-[11px]">Domain Workflows</div>
+            <div class="text-base font-bold text-emerald-400 mt-0.5">6 Journeys</div>
+            <div class="text-[10px] text-slate-500">vs. 3 in RawExerMart</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-slate-400 text-[11px]">break-ui Stress Fixes</div>
+            <div class="text-base font-bold text-amber-400 mt-0.5">8 Defects</div>
+            <div class="text-[10px] text-slate-500">Caught pre-launch</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-slate-400 text-[11px]">Visual Proof Standard</div>
+            <div class="text-base font-bold text-emerald-400 mt-0.5">100% Non-Headless</div>
+            <div class="text-[10px] text-slate-500">7 Chrome captures</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edition Metadata -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-amber-500/20 text-[11px] text-slate-400 font-mono">
+        <div>CLASSIFICATION: Software Engineering · Autonomous AI Systems</div>
+        <div>PUBLISHER: Saikojin Open Source Engineering · Oct 2026</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE FULL NARRATIVE ODYSSEY -->
+    <div id="prologue" class="space-y-12 pt-6">
+
+      <!-- Prologue -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Prologue</span>
+          <span class="text-xs font-mono text-slate-500">The Problem Space</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">The Hall of Mirrors</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            For years, software engineering evaluated AI models by their ability to answer questions in a chat window. If an agent wrote code that compiled without syntax errors and generated unit tests that exited with return code zero, the engineering community declared victory.
+          </p>
+          <p class="font-semibold text-white">This was a hall of mirrors.</p>
+          <p>
+            In real development environments, the gap between a demo that compiles and a product that survives production is vast. Unguided AI models suffer from three structural blind spots:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-300 text-sm">
+            <li><strong class="text-white">The Curse of the Polite Test:</strong> When an agent writes both the feature and its unit test in the same context, it tailors the inputs to match its own assumptions. Product titles are four words long. Prices are clean integers. Images always load. The test passes 100% of the time, while the software remains brittle.</li>
+            <li><strong class="text-white">The Headless Lie:</strong> Continuous integration runs tests in simulated memory. An agent asserts that a button exists in the DOM tree, while in the actual browser window, that button is pushed forty pixels off the viewport or buried under a modal.</li>
+            <li><strong class="text-white">The Prototype Plateau:</strong> Asked to build a product, an LLM defaults to a generic brochure. It avoids the friction-filled domain logic—the inspection sheets, room clearance limits, freight rates, and depreciation curves—that actual customers need to trust a transaction.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Chapter 1 -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Chapter 01 · System Architecture</span>
+          <span class="text-xs font-mono text-slate-500">The Harness Core</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">The Architecture of Discipline</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            At the center of SeikoClaw is a fundamental thesis: <strong class="text-white">autonomy without structural constraints produces slop.</strong> To make an agent reliable, the development environment must impose the same checks, balances, and safety gates that govern elite human engineering teams.
+          </p>
+          <p>
+            The harness achieves this through four coupled subsystems:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-1">
+              <h3 class="text-sm font-bold text-amber-400">1. The 24 First Principles</h3>
+              <p class="text-xs text-slate-300">Directives enforcing minimal diffs (Laziness Protocol), typed domain structures (Model the Domain), and empirical execution (Prove It Works).</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-1">
+              <h3 class="text-sm font-bold text-amber-400">2. OpenBrain Sidecar</h3>
+              <p class="text-xs text-slate-300">Persistent SQLite & ChromaDB vector memory maintaining DAG task graphs and structured TSV decision trails across restarts.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-1">
+              <h3 class="text-sm font-bold text-amber-400">3. Pre-Execution Guardrails</h3>
+              <p class="text-xs text-slate-300">Cross-platform POSIX and PowerShell pre-exec hooks intercepting catastrophic commands (<code class="text-amber-300">rm -rf</code>, unvetted piped scripts) before execution.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-1">
+              <h3 class="text-sm font-bold text-amber-400">4. Deterministic Skill Routing</h3>
+              <p class="text-xs text-slate-300">80+ specialized skills with automated frontmatter linting and vocabulary collision benchmarks ensuring the right tool is invoked on every turn.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Chapter 2 -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Chapter 02 · The Empirical Benchmark</span>
+          <span class="text-xs font-mono text-slate-500">RawExerMart vs. ClawExerMart</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">The ExerMart Experiment</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            To test whether the harness makes a quantifiable difference, an empirical benchmark was established.
+          </p>
+          <p>
+            Two separate AI environments were given the exact same starting assignment: <em class="text-slate-200">"Build an online marketplace for buying and selling new and pre-owned commercial gym equipment modeled after Michael Leonard's Story Test Plan Template, with zero external server dependencies."</em>
+          </p>
+          <p>
+            The control group operated without guidance and produced <strong class="text-slate-100">RawExerMart</strong>. The treatment group operated inside the SeikoClaw Harness and produced <strong class="text-amber-400">ClawExerMart</strong>.
+          </p>
+          <p>
+            Both projects compiled cleanly and passed 100% of their unit tests. But when the two codebases were placed side-by-side, the difference in customer trust, mechanical depth, and adversarial resilience was night and day.
+          </p>
+        </div>
+      </article>
+
+      <!-- Chapter 3 -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Chapter 03 · Domain Reality</span>
+          <span class="text-xs font-mono text-slate-500">6 Customer Journeys</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">The Depths of Domain Modeling</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            Buying a $2,000 used commercial power rack over the internet requires solving three immense customer hesitations: <em class="text-white">Will it fit in my basement? Is the machine mechanically sound? And how do I move 300 pounds of steel?</em>
+          </p>
+          <p>
+            <strong class="text-slate-200">RawExerMart</strong> stopped at 3 basic screens: a catalog grid, a vendor MSRP table, and a blank text box asking sellers to guess their price. It had no spatial calculations, no condition grading, and no freight support.
+          </p>
+          <p>
+            <strong class="text-amber-400">ClawExerMart</strong>, guided by Principle 11 (<em class="text-amber-300">Model the Domain</em>), delivered 6 complete customer journeys:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-300 text-sm">
+            <li><strong class="text-white">8-Point Physical Inspection Engine:</strong> Grading weld integrity, bearing runout, cable tension, upholstery rebound, and motor hours.</li>
+            <li><strong class="text-white">3D Spatial Clearance Calculator:</strong> Categorizing machines into <code class="text-amber-300">FITS_PERFECTLY</code>, <code class="text-amber-300">TIGHT_CLEARANCE</code>, or <code class="text-amber-300">EXCEEDS_CEILING</code> based on basement ceiling height.</li>
+            <li><strong class="text-white">Algorithmic Resale & LTL Freight:</strong> Brand retention multipliers (1.25x Eleiko, 1.20x Concept2), instant 72% cash buyout offer, and residential liftgate delivery calculations.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Chapter 4 -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Chapter 04 · Adversarial Stress</span>
+          <span class="text-xs font-mono text-slate-500">The break-ui Gate</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">The $129,999 Defect</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            In <strong class="text-slate-100">RawExerMart</strong>, 40 automated tests ran and passed because every test used clean four-digit prices.
+          </p>
+          <p>
+            SeikoClaw mandates the <code class="text-amber-400">break-ui</code> skill, injecting 145-character titles, broken image links, unbreakable 52-character serial numbers, and high-ticket packages up to $129,999.
+          </p>
+          <p>
+            This stress test immediately uncovered a silent revenue killer: the catalog price slider capped at $5,000. When a seller listed a $24,995 Hammer Strength rig or a $129,999 Eleiko facility package, <strong class="text-rose-400">the store silently hid both items from every customer on the home page</strong>.
+          </p>
+          <p>
+            Under the harness, the agent refactored the slider to treat $5,000+ as an open-ended ceiling, added broken-image fallbacks, and applied <code class="text-emerald-400">min-w-0 break-all</code> to serial hashes—eliminating 8 distinct edge-case defects before shipping.
+          </p>
+        </div>
+      </article>
+
+      <!-- Chapter 5 -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Chapter 05 · Visual Truth</span>
+          <span class="text-xs font-mono text-slate-500">Non-Headless Gating</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">The Glass and the Non-Headless Proof</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            Software does not run in a terminal; it runs on glass.
+          </p>
+          <p>
+            SeikoClaw enforces <strong class="text-white">Rule #8 of the QA Constitution (Anti-Soft-Pass)</strong>: no agent may declare a task complete without launching a live, windowed Chrome browser, stepping through the Rabbit Path, asserting zero console errors, and capturing photographic evidence.
+          </p>
+          <p>
+            In <strong class="text-amber-400">ClawExerMart</strong>, seven non-headless verification screenshots were captured directly to <code class="text-slate-300">assets/exermart/</code>. Furthermore, the agent implemented Apple motion physics: sub-300ms GPU-accelerated transitions, tactile <code class="text-amber-400">.apple-press</code> spring buttons, and specular frosted glass headers.
+          </p>
+        </div>
+      </article>
+
+      <!-- Chapter 6 -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Chapter 06 · Multi-Engine Frontier</span>
+          <span class="text-xs font-mono text-slate-500">Universal Principles</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">Beyond the Browser: Industrial Autonomy</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            The principles of the SeikoClaw Harness are engine-agnostic. The exact same harness architecture governs complex multi-engine software development across the workspace:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-300 text-sm">
+            <li><strong class="text-white">Unreal Engine 5.7 C++ (WWPatrick):</strong> Driving C++20 authoring via UnrealMCP, solving custom Newtonian aero ($L = \frac{1}{2} \rho v^2 S C_L$), procedural rotary audio, and server-authoritative UDP 7777 netcode.</li>
+            <li><strong class="text-white">Unity 6 URP (WWUnity):</strong> Preventing magenta shaders with Roslyn validation, authoring standalone HTML5 balance simulators, and simulating 1914 rotary engine blip-switches.</li>
+            <li><strong class="text-white">Godot 4.3 & Blender MCP (WWGodot):</strong> Procedurally generating 3D biplanes in Blender via MCP, importing them to Godot, and wiring wing-walking and silk parachute bailout survival loops.</li>
+            <li><strong class="text-white">TalentScout Algorithmic NLG:</strong> Generating a 100% offline, zero-LLM deterministic story engine compiling 26+ years of software testing history across Nintendo, Xbox, and enterprise cloud into a hardcover biography.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Epilogue -->
+      <article class="apple-glass-card rounded-3xl p-6 sm:p-8 space-y-4 border-amber-500/30">
+        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Epilogue</span>
+          <span class="text-xs font-mono text-slate-500">The Quality Frontier</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">The Quality Frontier</h2>
+        <div class="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            The future of software engineering does not belong to agents that generate code the fastest. It belongs to systems that verify code the most rigorously.
+          </p>
+          <p>
+            When developers rely solely on raw language models, they spend their days trapped in the hall of mirrors: debugging shallow prototypes, fixing tests that passed with fake data, and polishing broken layouts.
+          </p>
+          <p>
+            The SeikoClaw Harness demonstrates a different path. By binding autonomous intelligence to deterministic first principles, persistent DAG execution, adversarial stress testing, and empirical visual proof, we step out of the hall of mirrors and onto the quality frontier—where AI doesn't just write code, but engineers products that endure.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Bottom Actions -->
+    <section class="apple-glass rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800">
+      <div>
+        <h3 class="text-base font-bold text-white">Experience the Demonstration Firsthand</h3>
+        <p class="text-xs text-slate-400 mt-0.5">Explore the interactive A/B split-screen comparison and live stress test.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs apple-press shadow">
+          Open Live A/B Sandbox ↗
+        </a>
+        <a href="https://github.com/Saikojin/seikoclaw-harness" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-semibold apple-press">
+          View Repository ↗
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 px-4 sm:px-6 text-xs text-slate-400">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <strong class="text-white">SeikoClaw Agentic Coding Harness</strong> · Built by Saikojin
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="index.html" class="hover:text-amber-400">A/B Case Study ↗</a>
+        <a href="EXECUTIVE_STORY.md" class="hover:text-amber-400">Executive 1-Pager ↗</a>
+        <a href="EXERMART_CASE_STUDY.md" class="hover:text-amber-400">Technical Report ↗</a>
+        <a href="HARNESS_STORY.md" class="text-amber-400 hover:underline">Story Markdown ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar calculation
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>

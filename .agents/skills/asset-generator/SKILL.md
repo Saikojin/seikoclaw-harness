@@ -2,6 +2,9 @@
 name: asset-generator
 description: On-demand fantasy RPG game asset generation with strict exclusion rules.
 author: Saikojin (SeikoClaw - Game Forge)
+triggers:
+  - fantasy RPG game assets
+  - strict exclusion rules
 ---
 
 # asset-generator

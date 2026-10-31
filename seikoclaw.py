@@ -1000,8 +1000,11 @@ def main():
     parser.add_argument("--edge-type", type=str, default="blocks", help="Dependency edge type (blocks, parent-child, waits-for, relates-to)")
     parser.add_argument("--certify-qa", action="store_true", help="Certify task QA gate as passed (Seikojin-QA)")
     parser.add_argument("--certify-adversarial", action="store_true", help="Certify task adversarial interrogation gate as passed (/interrogate)")
+    parser.add_argument("--certify-spec-review", action="store_true", help="Certify task spec review gate as passed (/spec-review)")
+    parser.add_argument("--spec", type=str, default="", help="Path to specification file being certified")
+    parser.add_argument("--blockers", type=int, default=0, help="Number of unaddressed blocking issues for spec review")
     parser.add_argument("--pass-rate", type=float, default=1.0, help="Test pass rate for Seikojin QA certification (1.0 = 100%%)")
-    parser.add_argument("--playbook", type=str, help="Declarative playbook name (bug-fix, feature, hillclimb, refactoring, visual-parity, shipping)")
+    parser.add_argument("--playbook", type=str, help="Declarative playbook name (bug-fix, feature, hillclimb, refactoring, visual-parity, shipping, spec-driven)")
     parser.add_argument("--approve", action="store_true", help="Approve human or verification gate")
     parser.add_argument("--purge", action="store_true", help="Purge completed ephemeral wisps")
     parser.add_argument("--notes", type=str, default="", help="Gate certification notes")
@@ -1086,6 +1089,17 @@ def main():
             ok, msg = claw.gates.certify_adversarial_gate(
                 args.task,
                 reviewer_model=args.worker,
+                notes=args.notes
+            )
+            print(f"[{'PASS' if ok else 'REJECT'}] {msg}")
+            if ok:
+                claw.graph.sync_to_file("task.md")
+        elif args.certify_spec_review:
+            ok, msg = claw.gates.certify_spec_review_gate(
+                args.task,
+                spec_path=args.spec,
+                reviewer=args.worker,
+                blocking_issues_count=args.blockers,
                 notes=args.notes
             )
             print(f"[{'PASS' if ok else 'REJECT'}] {msg}")

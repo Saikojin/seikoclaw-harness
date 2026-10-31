@@ -1,0 +1,4951 @@
+{
+  ".agents/hooks/deny-dangerous.ps1": {
+    "mtime": 1785736632.4519334,
+    "seen": 1791179887.9247167,
+    "ast_hash": "e05e23489d39c41f19d96857df629688",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/deny-dangerous.sh": {
+    "mtime": 1790804504.0204203,
+    "seen": 1791179887.92472,
+    "ast_hash": "de24cd2e16877260aa3199b72230d65b",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/test-guard.ps1": {
+    "mtime": 1790804504.0204203,
+    "seen": 1791179887.9247284,
+    "ast_hash": "3b686bb2bcb9fd2cd09cf9fb55ad28f2",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/test-guard.sh": {
+    "mtime": 1790804504.0209346,
+    "seen": 1791179887.924729,
+    "ast_hash": "399921405a18a0f70cc0c3a1f9bb3372",
+    "semantic_hash": ""
+  },
+  ".agents/skills/diagnosing-bugs/scripts/hitl-loop.ps1": {
+    "mtime": 1783716658.436097,
+    "seen": 1791179887.9247608,
+    "ast_hash": "67698daf6be571c671fe7573fcf473e2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/wizard/template.ps1": {
+    "mtime": 1789710289.2620237,
+    "seen": 1791179887.9247642,
+    "ast_hash": "44c995f4ed2f721be22166d884b5bf32",
+    "semantic_hash": ""
+  },
+  ".agents/skills/wizard/template.sh": {
+    "mtime": 1789710289.2626824,
+    "seen": 1791179887.924765,
+    "ast_hash": "a355842d1be697f4115d7075f372d6d1",
+    "semantic_hash": ""
+  },
+  "auto_capture.py": {
+    "mtime": 1790400389.256518,
+    "seen": 1791179887.9247663,
+    "ast_hash": "04bb430ac8e92f1228089f5cbcd1004d",
+    "semantic_hash": ""
+  },
+  "openbrain/context_engine.py": {
+    "mtime": 1790570268.3621871,
+    "seen": 1791179887.9247684,
+    "ast_hash": "4188e6bf557aeafb80a704fc9629680d",
+    "semantic_hash": ""
+  },
+  "openbrain/engine.py": {
+    "mtime": 1790400389.2919693,
+    "seen": 1791179887.9247692,
+    "ast_hash": "bea6e179d64f4238e055a1cea332db43",
+    "semantic_hash": ""
+  },
+  "openbrain/gates.py": {
+    "mtime": 1793469078.299651,
+    "seen": 1793469776.6793041,
+    "ast_hash": "a9cf1eeb42cb7b1d155b06e393826b01",
+    "semantic_hash": ""
+  },
+  "openbrain/llm_provider.py": {
+    "mtime": 1790570268.3627152,
+    "seen": 1791179887.9247723,
+    "ast_hash": "92481b27b6051ac04edc29c19862b3cd",
+    "semantic_hash": ""
+  },
+  "openbrain/memory_engine.py": {
+    "mtime": 1791047609.7522964,
+    "seen": 1791179887.9247735,
+    "ast_hash": "ce32d903238fdafb33b352930fdf4de1",
+    "semantic_hash": ""
+  },
+  "openbrain/schema.sql": {
+    "mtime": 1791047609.753301,
+    "ast_hash": "",
+    "semantic_hash": ""
+  },
+  "openbrain/skill_gating.py": {
+    "mtime": 1790570268.3632312,
+    "seen": 1791179887.9247754,
+    "ast_hash": "ffe674c5530c4ae8110ba7648fda9a00",
+    "semantic_hash": ""
+  },
+  "openbrain/task_graph.py": {
+    "mtime": 1791047609.753301,
+    "seen": 1791179887.924776,
+    "ast_hash": "662bd4e851aa2699be288ad44b6f54f4",
+    "semantic_hash": ""
+  },
+  "openbrain/usage_monitor.py": {
+    "mtime": 1779739535.074901,
+    "seen": 1791179887.9247775,
+    "ast_hash": "1c899a81f5b3ce22c41d3e94c50aa71a",
+    "semantic_hash": ""
+  },
+  "openbrain/vault.py": {
+    "mtime": 1790570268.3637478,
+    "seen": 1791179887.9247785,
+    "ast_hash": "528a0067d3592450bdd6e7ed984c3f17",
+    "semantic_hash": ""
+  },
+  "openbrain/watchdog.py": {
+    "mtime": 1790400389.293651,
+    "seen": 1791179887.9247794,
+    "ast_hash": "abde53384f62ab06d44b9ce2e6cf2d45",
+    "semantic_hash": ""
+  },
+  "scripts/setup_harness.py": {
+    "mtime": 1778385923.0342324,
+    "seen": 1791179887.9247825,
+    "ast_hash": "8c07130319e6f5747bbc9c2f8584fc74",
+    "semantic_hash": ""
+  },
+  "scripts/status.py": {
+    "mtime": 1779739535.075468,
+    "seen": 1791179887.9247837,
+    "ast_hash": "99af0f13497131be89b85976e7a59960",
+    "semantic_hash": ""
+  },
+  "seikoclaw.py": {
+    "mtime": 1793469251.136415,
+    "seen": 1793469776.6808925,
+    "ast_hash": "8c8ab8c85b3fb270e48e5a22cf0ca410",
+    "semantic_hash": ""
+  },
+  "tests/test_gates.py": {
+    "mtime": 1793469473.3893168,
+    "seen": 1793469776.6814914,
+    "ast_hash": "b3d7418081472708a6b7fc6d9db831b8",
+    "semantic_hash": ""
+  },
+  "tests/test_skill_gating.py": {
+    "mtime": 1790570268.3647835,
+    "seen": 1791179887.9247909,
+    "ast_hash": "ad51d4d2b878a6e30a8c866619026a25",
+    "semantic_hash": ""
+  },
+  "tests/test_task_graph.py": {
+    "mtime": 1789710289.2679236,
+    "seen": 1791179887.9247918,
+    "ast_hash": "0b32d5927684b23ca0f855b69a774a5d",
+    "semantic_hash": ""
+  },
+  "tests/test_vault.py": {
+    "mtime": 1790400389.2952223,
+    "seen": 1791179887.9247928,
+    "ast_hash": "8a253a405cf3294a2ac57d0a7bca9d03",
+    "semantic_hash": ""
+  },
+  "tests/test_watchdog.py": {
+    "mtime": 1789710289.2684455,
+    "seen": 1791179887.924794,
+    "ast_hash": "3b68b0fbad9e004337a03e5e6d82bee1",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/dangerous-patterns.txt": {
+    "mtime": 1790804504.0199003,
+    "seen": 1791179887.9247959,
+    "ast_hash": "04d3975cd53c68e4c9790fa18dcf443e",
+    "semantic_hash": ""
+  },
+  ".agents/plans/recap/plan.mdx": {
+    "mtime": 1790804504.0389366,
+    "seen": 1791179887.9247983,
+    "ast_hash": "1d6226c1e36dad3a7d6a45de81e2ec18",
+    "semantic_hash": ""
+  },
+  ".agents/skills/adr/ADR-FORMAT.md": {
+    "mtime": 1783716658.43455,
+    "seen": 1791179887.9248004,
+    "ast_hash": "3c49999a3715a7b65fe8521d4bf9e188",
+    "semantic_hash": ""
+  },
+  ".agents/skills/adr/SKILL.md": {
+    "mtime": 1791180175.540717,
+    "seen": 1791396083.6519682,
+    "ast_hash": "79be40750f229e265317a492f12b000b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/agent-guardrails/SKILL.md": {
+    "mtime": 1790570268.347018,
+    "seen": 1791179887.9248035,
+    "ast_hash": "c4e343ec49587c6d8f70c9403ad0ecca",
+    "semantic_hash": ""
+  },
+  ".agents/skills/agent-self-scheduling/SKILL.md": {
+    "mtime": 1790570268.347543,
+    "seen": 1791179887.9248044,
+    "ast_hash": "e0ed9ead000f34bdbda970df67076e1a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/architect/SKILL.md": {
+    "mtime": 1791780570.4140103,
+    "seen": 1792261558.6150053,
+    "ast_hash": "9e86b7d90f7183cbe4ce1c9690cd271a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/asset-generator/SKILL.md": {
+    "mtime": 1790570268.347543,
+    "seen": 1791179887.9248157,
+    "ast_hash": "44d0476c9211ae1ee35c92145532637b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/before-building/SKILL.md": {
+    "mtime": 1790885852.1754591,
+    "seen": 1791179887.9248166,
+    "ast_hash": "cbc24236764dbe74ad37d1eca5112294",
+    "semantic_hash": ""
+  },
+  ".agents/skills/code-review/SKILL.md": {
+    "mtime": 1791415610.8769593,
+    "seen": 1791515082.8430498,
+    "ast_hash": "60e4e771cf690bdd3e9a9dd9df129931",
+    "semantic_hash": ""
+  },
+  ".agents/skills/codebase-design/SKILL.md": {
+    "mtime": 1790570268.348548,
+    "seen": 1791179887.9248347,
+    "ast_hash": "41f39167c83fc51ceaecac9b816f745e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/diagnosing-bugs/SKILL.md": {
+    "mtime": 1791180175.5569654,
+    "seen": 1791396083.6538742,
+    "ast_hash": "b6b19276b5934fa84296847a1ca16a7f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/distribute-skills/SKILL.md": {
+    "mtime": 1790570268.3495786,
+    "seen": 1791179887.924843,
+    "ast_hash": "d08e3cc6cc417f37e84fd49d6f6c22cf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-design-critic/SKILL.md": {
+    "mtime": 1793401981.8797271,
+    "seen": 1793469776.6859865,
+    "ast_hash": "ae227084120a0f8ab212d84c2a9a19a4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-developer/SKILL.md": {
+    "mtime": 1790804504.0399742,
+    "seen": 1791179887.924847,
+    "ast_hash": "05f10795403ab54e71349802d7561cdc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-developer/references/second_layer_questions.md": {
+    "mtime": 1788464560.588845,
+    "seen": 1791179887.9248478,
+    "ast_hash": "9b7e25e6b69cd24154ed2a325e78b794",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-developer/references/tooling_catalog.md": {
+    "mtime": 1788464560.588845,
+    "seen": 1791179887.924849,
+    "ast_hash": "6ee2c56767789faa839526525f9da96e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-forge/SKILL.md": {
+    "mtime": 1793401981.880252,
+    "seen": 1793469776.6863897,
+    "ast_hash": "e574d08021ce8dd680953275442f4170",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-prototype-builder/SKILL.md": {
+    "mtime": 1790570268.3505526,
+    "seen": 1791179887.924851,
+    "ast_hash": "e0c629b68aa0f8654c54534f9d8209ab",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-systems-modeler/SKILL.md": {
+    "mtime": 1793401981.8807795,
+    "seen": 1793469776.686517,
+    "ast_hash": "f42c183c24cce10ad97c4e02ee6b6c19",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gdd-generator/SKILL.md": {
+    "mtime": 1791780570.4150403,
+    "seen": 1792261558.6206994,
+    "ast_hash": "32119cb117614a0f80ec2b9e93af6a3d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/genre-competitor-analysis/SKILL.md": {
+    "mtime": 1790570268.3515518,
+    "seen": 1791179887.924854,
+    "ast_hash": "ff4b588919134ced7d7f93e57dbb6397",
+    "semantic_hash": ""
+  },
+  ".agents/skills/grill-me/SKILL.md": {
+    "mtime": 1791180175.5579984,
+    "seen": 1791396083.6552067,
+    "ast_hash": "b42224919b0b47b97401c50734e06757",
+    "semantic_hash": ""
+  },
+  ".agents/skills/handoff/SKILL.md": {
+    "mtime": 1790570268.3521528,
+    "seen": 1791179887.9248557,
+    "ast_hash": "db1065574d2f81bc90e1c88c589c8be8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/implement/SKILL.md": {
+    "mtime": 1791180175.5585167,
+    "seen": 1791396083.6558478,
+    "ast_hash": "fae95eb22a5eaf6deed914415eaa1b4c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/interviewer/SKILL.md": {
+    "mtime": 1790570268.3526697,
+    "seen": 1791179887.9248705,
+    "ast_hash": "5ae702595b4fc476502c0aa4f4e2a79c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/interviewer/resources/personas.md": {
+    "mtime": 1778386288.8865712,
+    "seen": 1791179887.9248714,
+    "ast_hash": "4fa5ecf946e0a7633a5df7b9bbf4ed70",
+    "semantic_hash": ""
+  },
+  ".agents/skills/learnings/SKILL.md": {
+    "mtime": 1791180175.559553,
+    "seen": 1791396083.6565635,
+    "ast_hash": "ee70f90319d9c239c738ca80f0bcb93b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/modernize/SKILL.md": {
+    "mtime": 1790570268.3538933,
+    "seen": 1791179887.9248762,
+    "ast_hash": "14a1ef45b0ec0e3b6698e98188071a0e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/mood-board-curator/SKILL.md": {
+    "mtime": 1790570268.3538933,
+    "seen": 1791179887.9248772,
+    "ast_hash": "73f238488cec2ace614c573f1e0236c3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playtest-feedback-loop/SKILL.md": {
+    "mtime": 1790570268.3544147,
+    "seen": 1791179887.9248798,
+    "ast_hash": "50f1532d0a9ef8b53d9438e6699006a2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/pr/CREDITS.md": {
+    "mtime": 1789710289.2599423,
+    "seen": 1791179887.9248881,
+    "ast_hash": "fa8e0ab047fd6238ca006b2dbfb53d28",
+    "semantic_hash": ""
+  },
+  ".agents/skills/pr/SKILL.md": {
+    "mtime": 1791180175.5605967,
+    "seen": 1791396083.6583278,
+    "ast_hash": "a9b9e057de47c9730e5ecf9d85baf836",
+    "semantic_hash": ""
+  },
+  ".agents/skills/prototype/LOGIC.md": {
+    "mtime": 1784845325.7026782,
+    "seen": 1791179887.9248898,
+    "ast_hash": "feb7d005e41bb1e663b8096d8b034c78",
+    "semantic_hash": ""
+  },
+  ".agents/skills/prototype/SKILL.md": {
+    "mtime": 1790570268.3549318,
+    "seen": 1791179887.924891,
+    "ast_hash": "2d297a54e9d29d1c8c8e6c54afe4c98e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/prototype/UI.md": {
+    "mtime": 1784845325.7031863,
+    "seen": 1791179887.924892,
+    "ast_hash": "2e8dd26fc8e437f8f6aaa4b79b6de21c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/research/SKILL.md": {
+    "mtime": 1790570268.3549318,
+    "seen": 1791179887.9248967,
+    "ast_hash": "98a8753d2414ec38c46e153bf9d9a73c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/scope-surgeon/SKILL.md": {
+    "mtime": 1791180175.561639,
+    "seen": 1791396083.6590674,
+    "ast_hash": "c6d0b8faf12e7c658f781fba5aa701e8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-browser-qa-workflow/SKILL.md": {
+    "mtime": 1790570268.3559604,
+    "seen": 1791179887.9249017,
+    "ast_hash": "39bbfdec345ca940ec988b41d80d4be1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-frontend-taste/SKILL.md": {
+    "mtime": 1791415610.8806114,
+    "seen": 1791515082.8481712,
+    "ast_hash": "0085b5413bcaf48568f7108fbf65feee",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-goal-prompter/SKILL.md": {
+    "mtime": 1790885852.1764948,
+    "seen": 1791179887.9249036,
+    "ast_hash": "8bd24da5eb1261b6c935318e41489735",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-harness/SKILL.md": {
+    "mtime": 1793469385.7163556,
+    "seen": 1793469776.6910703,
+    "ast_hash": "44e92c58df158805077f4b7fe630bdec",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-ingestor/SKILL.md": {
+    "mtime": 1790570268.3564737,
+    "seen": 1791179887.9249055,
+    "ast_hash": "67091f5972f2629a5f0c5e88a6c5dde7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-operating-map/SKILL.md": {
+    "mtime": 1790570268.35698,
+    "seen": 1791179887.9249065,
+    "ast_hash": "8f75422222fba09b6652e5ad87805949",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-red-team/SKILL.md": {
+    "mtime": 1790570268.35698,
+    "seen": 1791179887.9249074,
+    "ast_hash": "3c8451337543abd0736556635c9b390a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-shipper/SKILL.md": {
+    "mtime": 1790570268.3575008,
+    "seen": 1791179887.9249086,
+    "ast_hash": "1545e8eea448d97c2a9a731949fc6c8a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-skill-extractor/SKILL.md": {
+    "mtime": 1790570268.3575008,
+    "seen": 1791179887.9249096,
+    "ast_hash": "66a244fb85e91c309f42575bc7afd199",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikoclaw-test-memory/SKILL.md": {
+    "mtime": 1790570268.3580155,
+    "seen": 1791179887.9249105,
+    "ast_hash": "0d14daa819ecab74d2d80f80a76a115e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikojin-qa/SKILL.md": {
+    "mtime": 1792893944.0006044,
+    "seen": 1793396524.080853,
+    "ast_hash": "bd2247be0d8e34dfadb75ab5b857cae3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikojin-qa/resources/personas/Engineer.md": {
+    "mtime": 1791780570.416603,
+    "seen": 1792261558.62766,
+    "ast_hash": "58ed14e705ce4b36ac084ae8632fd02e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikojin-qa/resources/personas/Strategist.md": {
+    "mtime": 1791780570.4171257,
+    "seen": 1792261558.6276612,
+    "ast_hash": "2976d72ed64f1714d296ce67b07b6dbd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/seikojin-qa/resources/rules.md": {
+    "mtime": 1791780570.4171257,
+    "seen": 1792261558.6276627,
+    "ast_hash": "8192e84f5622cab989e778f7553a9e26",
+    "semantic_hash": ""
+  },
+  ".agents/skills/status/SKILL.md": {
+    "mtime": 1790570268.358541,
+    "seen": 1791179887.9249237,
+    "ast_hash": "393250fafa29f48eb2c43ce4e1f6dfba",
+    "semantic_hash": ""
+  },
+  ".agents/skills/tdd/SKILL.md": {
+    "mtime": 1791180175.5648694,
+    "seen": 1791396083.662117,
+    "ast_hash": "48366d61bf10a2e95ad23a8e54dc2078",
+    "semantic_hash": ""
+  },
+  ".agents/skills/to-spec/SKILL.md": {
+    "mtime": 1790885852.177529,
+    "seen": 1791179887.9249287,
+    "ast_hash": "2451e7e2db8c0c27fd6fa317b62cdddf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/to-tickets/SKILL.md": {
+    "mtime": 1790885852.1780484,
+    "seen": 1791179887.9249299,
+    "ast_hash": "b2c47e1aaa2b9a07996841f457b7e7a5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/triage/AGENT-BRIEF.md": {
+    "mtime": 1783716658.4458053,
+    "seen": 1791179887.9249308,
+    "ast_hash": "3d208edb7680d83a932c3958b8479945",
+    "semantic_hash": ""
+  },
+  ".agents/skills/triage/OUT-OF-SCOPE.md": {
+    "mtime": 1783716658.4458053,
+    "seen": 1791179887.9249318,
+    "ast_hash": "5e7a214678bd24620d727467bbde0f33",
+    "semantic_hash": ""
+  },
+  ".agents/skills/triage/SKILL.md": {
+    "mtime": 1790570268.3595757,
+    "seen": 1791179887.924933,
+    "ast_hash": "711485da40a3a12b7ceef93b2e2798ab",
+    "semantic_hash": ""
+  },
+  ".agents/skills/wayfinder/SKILL.md": {
+    "mtime": 1790570268.360102,
+    "seen": 1791179887.9249358,
+    "ast_hash": "7f8cdb84df22cb16aaaedca42d5aeaa1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/wizard/SKILL.md": {
+    "mtime": 1790804504.0404859,
+    "seen": 1791179887.9249494,
+    "ast_hash": "315f4bcbe58630285779b3ea448bf6a3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/youtube-transcript/SKILL.md": {
+    "mtime": 1790570268.3606243,
+    "seen": 1791179887.9249508,
+    "ast_hash": "9b9f1a139a8736ade9978414afcd6a6a",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/architect.md": {
+    "mtime": 1788038291.8290815,
+    "seen": 1791179887.9249518,
+    "ast_hash": "021618d6e7fabd0e9891fc346dc12b71",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/executor.md": {
+    "mtime": 1781936122.4663506,
+    "seen": 1791179887.9249525,
+    "ast_hash": "9d83bedf50351ccc1e1fe41802d91eac",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/interviewer.md": {
+    "mtime": 1775871847.4293242,
+    "seen": 1791179887.9249537,
+    "ast_hash": "098f0aeca0c9d29af4b117de1822b6c5",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/sync_openbrain.md": {
+    "mtime": 1775584489.4056299,
+    "seen": 1791179887.9249547,
+    "ast_hash": "d6f47ffb2c8aeaa89986fe4012870575",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/MAP.md": {
+    "mtime": 1790804504.0409958,
+    "seen": 1791179887.9249556,
+    "ast_hash": "da8c895e3b8d04973687a0fd4626ee62",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/01-game-design-critic.md": {
+    "mtime": 1790804504.0415134,
+    "seen": 1791179887.9249566,
+    "ast_hash": "905d83dacd807edce0739a68c9dcb00c",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/02-gdd-generator.md": {
+    "mtime": 1790804504.0420303,
+    "seen": 1791179887.9249578,
+    "ast_hash": "c9bca0db982404428c6988d7e641cea1",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/03-scope-surgeon.md": {
+    "mtime": 1790804504.0420303,
+    "seen": 1791179887.9249587,
+    "ast_hash": "b965e18526327feb991f057683c8da28",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/04-game-prototype-builder.md": {
+    "mtime": 1790804504.0425453,
+    "seen": 1791179887.9249594,
+    "ast_hash": "4b0ff8c2dcce49737e5a0807490578ce",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/05-game-systems-modeler.md": {
+    "mtime": 1790804504.0425453,
+    "seen": 1791179887.9249606,
+    "ast_hash": "d1e6869f2043457eca3d5930c63355b3",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/06-playtest-feedback-loop.md": {
+    "mtime": 1790804504.0425453,
+    "seen": 1791179887.9249616,
+    "ast_hash": "20c30a2ee3a25a5c5fcd6137437a9e7f",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/07-genre-competitor-analysis.md": {
+    "mtime": 1790804504.043068,
+    "seen": 1791179887.9249625,
+    "ast_hash": "048e5680466aa48b49b02e0046f418ed",
+    "semantic_hash": ""
+  },
+  ".scratch/game-design-skills/issues/08-mood-board-curator.md": {
+    "mtime": 1790804504.043068,
+    "seen": 1791179887.9249635,
+    "ast_hash": "b68d6c192ee668fe5f38dc83ffe2002d",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793469664.5938241,
+    "seen": 1793469776.695559,
+    "ast_hash": "0c90a630a752c7baabb9c85707b0ac38",
+    "semantic_hash": ""
+  },
+  "docs/ARCHITECTURE_EVALUATION.md": {
+    "mtime": 1790400389.256518,
+    "seen": 1791179887.9249663,
+    "ast_hash": "1d37731817626bf61dd611336ac522ec",
+    "semantic_hash": ""
+  },
+  "docs/adr/0001-harness-evaluation-and-architectural-decisions.md": {
+    "mtime": 1790400389.257036,
+    "seen": 1791179887.9249675,
+    "ast_hash": "c179c6293a21c69fb30cdf5702191666",
+    "semantic_hash": ""
+  },
+  "docs/agents/issue-tracker.md": {
+    "mtime": 1785800188.7946966,
+    "seen": 1791179887.9249685,
+    "ast_hash": "9b4a2d1f035b8b51d95af203e5691694",
+    "semantic_hash": ""
+  },
+  "extracted_playbook.txt": {
+    "mtime": 1789710289.2652879,
+    "seen": 1791179887.9249692,
+    "ast_hash": "d487607946319377ec8bd0b747e760cd",
+    "semantic_hash": ""
+  },
+  "requirements.txt": {
+    "mtime": 1790400389.2941742,
+    "seen": 1791179887.9249701,
+    "ast_hash": "356ba76da02d11a119df9153d0fcdffb",
+    "semantic_hash": ""
+  },
+  "templates/task_template.md": {
+    "mtime": 1788038291.8323214,
+    "seen": 1791179887.9249713,
+    "ast_hash": "884d6f0b8fefe74a2cdbf6eafa509cc5",
+    "semantic_hash": ""
+  },
+  "agent_memory_5_layer_playbook.pdf": {
+    "mtime": 1789710289.2647638,
+    "seen": 1791179887.9249723,
+    "ast_hash": "476dc2878b48281bb3554f60f74b5623",
+    "semantic_hash": ""
+  },
+  "openbrain/__init__.py": {
+    "mtime": 1790400389.2896147,
+    "seen": 1791179887.9247675,
+    "ast_hash": "c612460c5763fab65a993f8399dc2acd",
+    "semantic_hash": ""
+  },
+  "openbrain/history_sync.py": {
+    "mtime": 1790570268.3621871,
+    "seen": 1791179887.9247713,
+    "ast_hash": "8d3bf7904d3cafec65de2045445127cb",
+    "semantic_hash": ""
+  },
+  "tests/test_history_sync.py": {
+    "mtime": 1790570268.3647835,
+    "seen": 1791179887.9247878,
+    "ast_hash": "0a2f1eb65c2198ff06355ef1a896570c",
+    "semantic_hash": ""
+  },
+  ".agents/hooks.json": {
+    "mtime": 1790804504.0193856,
+    "seen": 1791179887.9247086,
+    "ast_hash": "3dab900a15eafbd0a182ab9986590964",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/sync-history.ps1": {
+    "mtime": 1790400389.2370713,
+    "seen": 1791179887.9247258,
+    "ast_hash": "4f065b3a1473073a159a486af8f57666",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/sync-history.py": {
+    "mtime": 1790570268.3459067,
+    "seen": 1791179887.924727,
+    "ast_hash": "14565a5c31ed9752ec25631efb30ab55",
+    "semantic_hash": ""
+  },
+  "tests/test_memory_compression.py": {
+    "mtime": 1790570268.3647835,
+    "seen": 1791179887.9247887,
+    "ast_hash": "ecb3c825cab6f2c32338175c26bc147a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/agent-authoring/SKILL.md": {
+    "mtime": 1790570268.347018,
+    "seen": 1791179887.9248025,
+    "ast_hash": "3c33109f7802c04cf440ec67e8fa97c9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/coverage-loop/SKILL.md": {
+    "mtime": 1790570268.348548,
+    "seen": 1791179887.924836,
+    "ast_hash": "c123ec49a346b65cf12f5ad0163967fc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/sweep-loop/SKILL.md": {
+    "mtime": 1790570268.358541,
+    "seen": 1791179887.9249258,
+    "ast_hash": "bab70ce9c7af9adf165e8509efaea548",
+    "semantic_hash": ""
+  },
+  "CREDITS.md": {
+    "mtime": 1793469604.9338467,
+    "seen": 1793469776.6954985,
+    "ast_hash": "8955cebf30a391b9257bae579775b5e4",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/session-start.ps1": {
+    "mtime": 1791047609.7382677,
+    "seen": 1791179887.9247224,
+    "ast_hash": "f8e2b099f986af733f8fefad391a8508",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/session-start.sh": {
+    "mtime": 1791047609.7382677,
+    "seen": 1791179887.9247243,
+    "ast_hash": "9b64bce662947983f7d377ef1c199e35",
+    "semantic_hash": ""
+  },
+  ".agents/skills/diagnosing-bugs/scripts/hitl-loop.template.sh": {
+    "mtime": 1791180175.5569654,
+    "seen": 1791396083.64828,
+    "ast_hash": "b54aa551632655b34e2b114378ce7d84",
+    "semantic_hash": ""
+  },
+  "openbrain/playbooks.py": {
+    "mtime": 1793469145.8748047,
+    "seen": 1793469776.679504,
+    "ast_hash": "e890371282d011a302d7fb0e00d57a60",
+    "semantic_hash": ""
+  },
+  "scripts/export_skills.py": {
+    "mtime": 1793401982.0706596,
+    "seen": 1793469776.679919,
+    "ast_hash": "a256acb4da8c72bbd762b4fa5c99aa69",
+    "semantic_hash": ""
+  },
+  "tests/test_decision_trails.py": {
+    "mtime": 1791047609.754255,
+    "seen": 1791179887.9247856,
+    "ast_hash": "f3c7ee9847c169b0bb574d42873074a5",
+    "semantic_hash": ""
+  },
+  "tests/test_playbooks.py": {
+    "mtime": 1793469473.3903196,
+    "seen": 1793469776.6818275,
+    "ast_hash": "114c8caa4462c70944537efaaeb6a155",
+    "semantic_hash": ""
+  },
+  ".agents/hooks/session-start-context.md": {
+    "mtime": 1791047609.7382677,
+    "seen": 1791179887.9247968,
+    "ast_hash": "2a8779b5b0d2e0cbfb97e3bed6efaaac",
+    "semantic_hash": ""
+  },
+  ".agents/rules/principles.md": {
+    "mtime": 1791047609.738788,
+    "seen": 1791179887.9247994,
+    "ast_hash": "677d80493c64f1cbb1c02fbe0563220a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/architect/references/design-red-flags.md": {
+    "mtime": 1791047609.738788,
+    "seen": 1791179887.9248114,
+    "ast_hash": "c2ed1f92935317a0dd2993128e4eed86",
+    "semantic_hash": ""
+  },
+  ".agents/skills/architect/references/rationale-template.md": {
+    "mtime": 1791047609.738788,
+    "seen": 1791179887.9248123,
+    "ast_hash": "2ca882be7dbc72c6088d85f983389317",
+    "semantic_hash": ""
+  },
+  ".agents/skills/architect/references/runner-prompt.md": {
+    "mtime": 1791047609.7393131,
+    "seen": 1791179887.9248135,
+    "ast_hash": "8193ba6e90bb7f195a48b1620472081d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/arena/SKILL.md": {
+    "mtime": 1791047609.7393131,
+    "seen": 1791179887.9248147,
+    "ast_hash": "7b402af466dd1cdc59e4e24f6cdb3312",
+    "semantic_hash": ""
+  },
+  ".agents/skills/benchmark-checklist/SKILL.md": {
+    "mtime": 1791047609.7398305,
+    "seen": 1791179887.924818,
+    "ast_hash": "8a16ece42623de73bc1d6460081e12f2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blast-radius/SKILL.md": {
+    "mtime": 1791047609.7398305,
+    "seen": 1791179887.9248188,
+    "ast_hash": "c6446777752c17262aadd88081734b1c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/create-verification-skill/SKILL.md": {
+    "mtime": 1791047609.740369,
+    "seen": 1791179887.9248369,
+    "ast_hash": "9958a491f256ce3e4fdaa89f6110d8cd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/create-verification-skill/references/feature-map-example/README.md": {
+    "mtime": 1791047609.740369,
+    "seen": 1791179887.9248378,
+    "ast_hash": "26d0da6f36812a7ff1fe288e74e215c6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/create-verification-skill/references/feature-map-example/create-note.md": {
+    "mtime": 1791047609.7409115,
+    "seen": 1791179887.924839,
+    "ast_hash": "24a88fc65d4e86e4b9765dc12b2fd616",
+    "semantic_hash": ""
+  },
+  ".agents/skills/create-verification-skill/references/feature-map-example/search.md": {
+    "mtime": 1791047609.7409115,
+    "seen": 1791179887.92484,
+    "ast_hash": "b2f865b95d039a029faa78b1c08908c0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/deslop/SKILL.md": {
+    "mtime": 1791047609.7409115,
+    "seen": 1791179887.924841,
+    "ast_hash": "48e78c850c309bd3504e67b26ec75e22",
+    "semantic_hash": ""
+  },
+  ".agents/skills/figure-it-out/SKILL.md": {
+    "mtime": 1791047609.7414331,
+    "seen": 1791179887.9248438,
+    "ast_hash": "04f90163dbcd6a8d64ab031cbcfb9ff2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/how/SKILL.md": {
+    "mtime": 1791047609.7419548,
+    "seen": 1791179887.924857,
+    "ast_hash": "b141e59ac733463dd1a406c5d175c4a9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/how/references/explainer-prompt.md": {
+    "mtime": 1791047609.7419548,
+    "seen": 1791179887.9248579,
+    "ast_hash": "d9b27b1331b6713ab0c344553b3c5e71",
+    "semantic_hash": ""
+  },
+  ".agents/skills/how/references/explorer-prompt.md": {
+    "mtime": 1791047609.7419548,
+    "seen": 1791179887.9248588,
+    "ast_hash": "15a47a6400a6851058fb302d4da568f4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/implement-spec/SKILL.md": {
+    "mtime": 1791180175.5585167,
+    "seen": 1791396083.6558454,
+    "ast_hash": "e1b81ca6f89250a8c36689db8eb64cdf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/interrogate/SKILL.md": {
+    "mtime": 1791047609.7424796,
+    "seen": 1791179887.9248652,
+    "ast_hash": "3c767e211bffafd9608131fa2a03f760",
+    "semantic_hash": ""
+  },
+  ".agents/skills/interrogate/references/code-quality-review.md": {
+    "mtime": 1791047609.7424796,
+    "seen": 1791179887.9248662,
+    "ast_hash": "1dbc90a33bbe4da12ddcefd4f9f5e620",
+    "semantic_hash": ""
+  },
+  ".agents/skills/interrogate/references/lead-judgment.md": {
+    "mtime": 1791047609.7430017,
+    "seen": 1791179887.9248674,
+    "ast_hash": "3cca50b91d36a144cde7f5d654870e21",
+    "semantic_hash": ""
+  },
+  ".agents/skills/interrogate/references/reviewer-prompt.md": {
+    "mtime": 1791047609.7430017,
+    "seen": 1791179887.9248683,
+    "ast_hash": "e6ed64ed8c59b950582f63cb30e81154",
+    "semantic_hash": ""
+  },
+  ".agents/skills/interrogate/references/rubric.md": {
+    "mtime": 1791047609.7430017,
+    "seen": 1791179887.9248693,
+    "ast_hash": "599cd80275e920ee1656541177745399",
+    "semantic_hash": ""
+  },
+  ".agents/skills/loop-me/SKILL.md": {
+    "mtime": 1791180175.559553,
+    "seen": 1791396083.656565,
+    "ast_hash": "92f030c2b5714072b604cf450e1e6974",
+    "semantic_hash": ""
+  },
+  ".agents/skills/maintain-verification-skill/SKILL.md": {
+    "mtime": 1791047609.7435212,
+    "seen": 1791179887.9248743,
+    "ast_hash": "3df9537d68c92280b8a6e3928a574e66",
+    "semantic_hash": ""
+  },
+  ".agents/skills/no-comments/SKILL.md": {
+    "mtime": 1791047609.7435212,
+    "seen": 1791179887.9248781,
+    "ast_hash": "94e8ccb2e4e323d6d1ebf479daafa0f4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/poteto-mode/references/agents/comment-sicko.md": {
+    "mtime": 1791047609.7440372,
+    "seen": 1791179887.924881,
+    "ast_hash": "2bbc25b6af16e2e2bc2bb33a7f982173",
+    "semantic_hash": ""
+  },
+  ".agents/skills/poteto-mode/references/bugbot-triage.md": {
+    "mtime": 1791047609.7440372,
+    "seen": 1791179887.924882,
+    "ast_hash": "a2dba83ce7ce05350cf748702fe3572d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/poteto-mode/references/codex-tools.md": {
+    "mtime": 1791047609.7445545,
+    "seen": 1791179887.924883,
+    "ast_hash": "abcbee3a1405a3921cc7f4bed636308b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/poteto-mode/references/licenses/NOTICE.md": {
+    "mtime": 1791047609.7450728,
+    "seen": 1791179887.9248843,
+    "ast_hash": "85de559fc2fa9f63d1643496b6bc2f0c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/poteto-mode/references/merge-safety.md": {
+    "mtime": 1791047609.7450728,
+    "seen": 1791179887.924885,
+    "ast_hash": "6c76e83218ad42df7c93f4bea17a03d0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/poteto-mode/references/pi-tools.md": {
+    "mtime": 1791047609.7456048,
+    "seen": 1791179887.924886,
+    "ast_hash": "ba477396c1fc403ef8bd26f94f3ad166",
+    "semantic_hash": ""
+  },
+  ".agents/skills/poteto-mode/references/resume-storage.md": {
+    "mtime": 1791047609.7456048,
+    "seen": 1791179887.924887,
+    "ast_hash": "0c10154523d4a9374498de88024d774e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/reflect/references/divergent-reviewer.md": {
+    "mtime": 1791047609.7456048,
+    "seen": 1791179887.9248927,
+    "ast_hash": "74f26c8fb40d52fee53723b9cc0862ab",
+    "semantic_hash": ""
+  },
+  ".agents/skills/reflect/references/judgment-reviewer.md": {
+    "mtime": 1791047609.7456048,
+    "seen": 1791179887.9248936,
+    "ast_hash": "2f328f9db1312d6bb9fee3255a7708bc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/reflect/references/synthesizer.md": {
+    "mtime": 1791047609.74661,
+    "seen": 1791179887.9248948,
+    "ast_hash": "5943db0e96f8aaf7aa46b2e3e7ebcd76",
+    "semantic_hash": ""
+  },
+  ".agents/skills/reflect/references/tooling-reviewer.md": {
+    "mtime": 1791047609.74661,
+    "seen": 1791179887.9248958,
+    "ast_hash": "56ddf3a6ec88207b4d30515ee5f567b3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/retro/SKILL.md": {
+    "mtime": 1791180175.561122,
+    "seen": 1791396083.659062,
+    "ast_hash": "8acabbb387db2d6d73e20f6cd8ebfffd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/setup-ts-deep-modules/SKILL.md": {
+    "mtime": 1791180175.562683,
+    "seen": 1791396083.6614075,
+    "ast_hash": "468fca818b5c2aab515442bc46577ee5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/show-me-your-work/SKILL.md": {
+    "mtime": 1791047609.74661,
+    "seen": 1791179887.9249227,
+    "ast_hash": "13382b76b0d1ad017f4685ffe89d76e4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/swarm/SKILL.md": {
+    "mtime": 1791047609.74761,
+    "seen": 1791179887.9249246,
+    "ast_hash": "e8fcd8bae7972912f2f8daf19be92515",
+    "semantic_hash": ""
+  },
+  ".agents/skills/teach/SKILL.md": {
+    "mtime": 1791047609.74761,
+    "seen": 1791179887.9249277,
+    "ast_hash": "66f2ca97dd162636f675690657d2c666",
+    "semantic_hash": ""
+  },
+  ".agents/skills/typescript-best-practices/references/patterns.md": {
+    "mtime": 1791047609.74761,
+    "seen": 1791179887.924934,
+    "ast_hash": "92762d310ce0b80cfdf520bcca7a0369",
+    "semantic_hash": ""
+  },
+  ".agents/skills/unslop/SKILL.md": {
+    "mtime": 1793401981.9368434,
+    "seen": 1793469776.693419,
+    "ast_hash": "17570ffe4b95397b8e427d811889d7e5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/SKILL.md": {
+    "mtime": 1791047609.74761,
+    "seen": 1791179887.924937,
+    "ast_hash": "3916eb61148a457a7b5e41367d31cd23",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/epistemics.md": {
+    "mtime": 1791047609.7491145,
+    "seen": 1791179887.924938,
+    "ast_hash": "2bce2b55b4846972e417e4b2bde1132a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/investigator-prompt.md": {
+    "mtime": 1791047609.7491145,
+    "seen": 1791179887.924939,
+    "ast_hash": "229328799ce645c3639f6b54b7a0fab9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/source-playbook.md": {
+    "mtime": 1791047609.7491145,
+    "seen": 1791179887.92494,
+    "ast_hash": "3e7d69e80b9318580d2b667d551b8c83",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/code-archaeology.md": {
+    "mtime": 1791047609.7491145,
+    "seen": 1791179887.924941,
+    "ast_hash": "f55543534b8c66c5c7fb8e261f52d334",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/databricks.md": {
+    "mtime": 1791047609.7491145,
+    "seen": 1791179887.924942,
+    "ast_hash": "8ae5f0b57aab57d85b299883a6b96962",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/datadog.md": {
+    "mtime": 1791047609.7501194,
+    "seen": 1791179887.9249427,
+    "ast_hash": "fa60ea5d3ac7cded12fa422fe74433df",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/incident-postmortem.md": {
+    "mtime": 1791047609.7501194,
+    "seen": 1791179887.924944,
+    "ast_hash": "c8256791c3bce30dcc05646692ea5ca8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/linear.md": {
+    "mtime": 1791047609.7501194,
+    "seen": 1791179887.9249449,
+    "ast_hash": "a184e11487c19024c6a53b37087c9e79",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/notion.md": {
+    "mtime": 1791047609.7501194,
+    "seen": 1791179887.9249458,
+    "ast_hash": "6c920ef15f8940eed67c34e10f98cc94",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/sentry.md": {
+    "mtime": 1791047609.7501194,
+    "seen": 1791179887.9249468,
+    "ast_hash": "c1d002170bf5e31b2beec0b86eed093e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/sources/slack.md": {
+    "mtime": 1791047609.7511196,
+    "seen": 1791179887.9249477,
+    "ast_hash": "25cc330535f69dd023ee1c0fd16a3295",
+    "semantic_hash": ""
+  },
+  ".agents/skills/why/references/synthesizer-prompt.md": {
+    "mtime": 1791047609.7511196,
+    "seen": 1791179887.9249485,
+    "ast_hash": "065bb5a881784a29dc7b7be93e5dca8c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/__init__.py": {
+    "mtime": 1791180175.542809,
+    "seen": 1791396083.6481423,
+    "ast_hash": "b7656e1e9851be93f79f0b6ce17e02d1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/__main__.py": {
+    "mtime": 1791180175.543331,
+    "seen": 1791396083.6481452,
+    "ast_hash": "de74b4d5c81b88742dcdf6823475c1fa",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/cli.py": {
+    "mtime": 1791180175.543331,
+    "seen": 1791396083.6481466,
+    "ast_hash": "08ecd07d2dcd7dd2e1541d4ebfe84f40",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/config.py": {
+    "mtime": 1791180175.543331,
+    "seen": 1791396083.6481483,
+    "ast_hash": "02260f006af55cf1d5a5e21794971b05",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/dependencies.py": {
+    "mtime": 1791180175.5438564,
+    "seen": 1791396083.6481497,
+    "ast_hash": "c2cba5a55b2e27448abd60b5af99c594",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/exceptions.py": {
+    "mtime": 1791180175.5438564,
+    "seen": 1791396083.648151,
+    "ast_hash": "89685ffbcf694b8ee3ab6b5a916e7a74",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/__init__.py": {
+    "mtime": 1791180175.5438564,
+    "seen": 1791396083.6481524,
+    "ast_hash": "8b55664061d3cc00815c574d6f7d28ae",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/calibre.py": {
+    "mtime": 1791180175.5443835,
+    "seen": 1791396083.648154,
+    "ast_hash": "780c741e4edeb2b2c5265f33a524ba34",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/docx.py": {
+    "mtime": 1791180175.5443835,
+    "seen": 1791396083.6481557,
+    "ast_hash": "0c608c1008c5836fda231e55acf6a81d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/epub.py": {
+    "mtime": 1791180175.5443835,
+    "seen": 1791396083.6481566,
+    "ast_hash": "b193df87b400bc5d0e0fa7e6c0fdf904",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/html.py": {
+    "mtime": 1791180175.5443835,
+    "seen": 1791396083.6481578,
+    "ast_hash": "a8a2bd9032810023d8c514d2a892aae9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/pdf.py": {
+    "mtime": 1791180175.5443835,
+    "seen": 1791396083.6481593,
+    "ast_hash": "fc7d4a4bc32d727637c653e67e65a256",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/rtf.py": {
+    "mtime": 1791180175.5443835,
+    "seen": 1791396083.6481607,
+    "ast_hash": "ce05525fafdfc02087daf35217734b07",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/parsers/text.py": {
+    "mtime": 1791180175.5453882,
+    "seen": 1791396083.648162,
+    "ast_hash": "69f1df4f8cd9080a65b8e892f6915327",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/pdf_inspector_integration.py": {
+    "mtime": 1791180175.5453882,
+    "seen": 1791396083.6481633,
+    "ast_hash": "aedae8a536981a63d48e0cfbe38cbfc5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/sanitize.py": {
+    "mtime": 1791180175.5453882,
+    "seen": 1791396083.6481645,
+    "ast_hash": "93587a5795f6fe36a066434c9802e5f5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/book_to_skill/utils.py": {
+    "mtime": 1791180175.5453882,
+    "seen": 1791396083.648166,
+    "ast_hash": "92b99920f148346f91ab9f92297d47c8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/scripts/extract.py": {
+    "mtime": 1791180175.5548897,
+    "seen": 1791396083.648169,
+    "ast_hash": "75bd8cebc58e68f70703b2f56929a565",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/tools/discovery_tax.py": {
+    "mtime": 1791180175.5548897,
+    "seen": 1791396083.6481702,
+    "ast_hash": "7edbc802bac1982c53158075a658a8cd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/tools/evals/manifest.py": {
+    "mtime": 1791180175.5554035,
+    "seen": 1791396083.6481714,
+    "ast_hash": "e4edc91cf8c0e4770fbe2be1c399bff2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/tools/evals/paper_flat.py": {
+    "mtime": 1791180175.5554035,
+    "seen": 1791396083.6481729,
+    "ast_hash": "f60acd9c4feedfb5ed34e5f949841af2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/tools/evals/replay.py": {
+    "mtime": 1791180175.5554035,
+    "seen": 1791396083.648174,
+    "ast_hash": "75257b3e9513e967448fd80c5b0e018d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/tools/evals/score.py": {
+    "mtime": 1791180175.5554035,
+    "seen": 1791396083.6481757,
+    "ast_hash": "042aac3d52cf4b71b6c16d151b0d199c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/tools/scan_generated_skill.py": {
+    "mtime": 1791180175.555922,
+    "seen": 1791396083.6481767,
+    "ast_hash": "0a8e8049657c30ab2a01c66b81ae6177",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/tools/validate_skill.py": {
+    "mtime": 1791180175.555922,
+    "seen": 1791396083.6481776,
+    "ast_hash": "355937bc2c1f90495e05aaa36553d3c7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/README.md": {
+    "mtime": 1791180175.542286,
+    "seen": 1791396083.6530101,
+    "ast_hash": "3e4fe86fdbd6fd427d6fcb02b3b5578f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/SKILL.md": {
+    "mtime": 1791180175.542809,
+    "seen": 1791396083.6530116,
+    "ast_hash": "194fef3591b3b3601d9f8069b249a3b1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/404.md": {
+    "mtime": 1791180175.5463884,
+    "seen": 1791396083.653013,
+    "ast_hash": "f71e6136774bebd10eed0acc3580cf05",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/architecture.md": {
+    "mtime": 1791180175.5463884,
+    "seen": 1791396083.653014,
+    "ast_hash": "ed0fead9669d0d1c7b3380c278ad00bb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/faq.md": {
+    "mtime": 1791180175.552817,
+    "seen": 1791396083.6530323,
+    "ast_hash": "f2e6dc4ce74cfa94dbf634810a10b49c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/how-it-works.md": {
+    "mtime": 1791180175.552817,
+    "seen": 1791396083.6530337,
+    "ast_hash": "d87ab13ac337cda3dcf6ab39b74de350",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/index.md": {
+    "mtime": 1791180175.552817,
+    "seen": 1791396083.653035,
+    "ast_hash": "4cf48206128a5b3c29304b812efc990f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/install.md": {
+    "mtime": 1791180175.5533335,
+    "seen": 1791396083.653036,
+    "ast_hash": "60837913a12dbc1e230e4b70274903f5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/performance.md": {
+    "mtime": 1791180175.5533335,
+    "seen": 1791396083.6530373,
+    "ast_hash": "50d14741344e4ffb4b7537a2817cde84",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/research/progressive-disclosure-evals.md": {
+    "mtime": 1791180175.5538573,
+    "seen": 1791396083.6530385,
+    "ast_hash": "3b553eda4d4f9dee7847e2e024bc9305",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/robots.txt": {
+    "mtime": 1791180175.5538573,
+    "seen": 1791396083.6530397,
+    "ast_hash": "714b08d42f1d4482b7fa0830534b85a6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/usage.md": {
+    "mtime": 1791180175.554373,
+    "seen": 1791396083.6530406,
+    "ast_hash": "b55dec9997a91b70d008e7069609755a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/shadowdark-bard-ranger/SKILL.md": {
+    "mtime": 1791180175.5632057,
+    "seen": 1791396083.66141,
+    "ast_hash": "5f04db2f1ade588b712be1e877d2be02",
+    "semantic_hash": ""
+  },
+  ".agents/skills/shadowdark-bard-ranger/chapters/ch01-bard.md": {
+    "mtime": 1791180175.5632057,
+    "seen": 1791396083.6614118,
+    "ast_hash": "62acd112f803a8d3a5895ea70c92d346",
+    "semantic_hash": ""
+  },
+  ".agents/skills/shadowdark-bard-ranger/chapters/ch02-ranger.md": {
+    "mtime": 1791180175.563725,
+    "seen": 1791396083.6614137,
+    "ast_hash": "30c07a500f812a6b73d30b8695026734",
+    "semantic_hash": ""
+  },
+  ".agents/skills/shadowdark-bard-ranger/cheatsheet.md": {
+    "mtime": 1791180175.563725,
+    "seen": 1791396083.661415,
+    "ast_hash": "70604914b324b62605e914e9e18fdb1d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/shadowdark-bard-ranger/glossary.md": {
+    "mtime": 1791180175.5643468,
+    "seen": 1791396083.6614165,
+    "ast_hash": "d37aa3aee2feb522752aadfbd601b00e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/shadowdark-bard-ranger/patterns.md": {
+    "mtime": 1791180175.5643468,
+    "seen": 1791396083.661418,
+    "ast_hash": "2894d151cf76bc29129839119e830779",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/assets/banner.webp": {
+    "mtime": 1791180175.5463884,
+    "seen": 1791396083.6683824,
+    "ast_hash": "7ceaee40062d6741d6f803823bda5b36",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/assets/booklin-casting.png": {
+    "mtime": 1791180175.5473888,
+    "seen": 1791396083.668384,
+    "ast_hash": "e43cc6a314dae25b10305f4673f37459",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/assets/booklin-celebrating.png": {
+    "mtime": 1791180175.5487669,
+    "seen": 1791396083.668385,
+    "ast_hash": "692e58bfd448aa3aef96f7731018fe2c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/assets/booklin-confused.png": {
+    "mtime": 1791180175.5498104,
+    "seen": 1791396083.6683865,
+    "ast_hash": "1fc64447ba7797d50feb9f9de75a7f77",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/assets/booklin.png": {
+    "mtime": 1791180175.5502212,
+    "seen": 1791396083.668388,
+    "ast_hash": "44d7f714a33fc4e328a943d0989f83c9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/assets/logo.png": {
+    "mtime": 1791180175.55176,
+    "seen": 1791396083.66839,
+    "ast_hash": "5119f1cdaf2862d1eafba027dd4291f5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/docs/assets/og-card.jpg": {
+    "mtime": 1791180175.552279,
+    "seen": 1791396083.6683915,
+    "ast_hash": "af177400d8cd821c61806dd533371739",
+    "semantic_hash": ""
+  },
+  ".agents/skills/book-to-skill/pyproject.toml": {
+    "mtime": 1791180175.554373,
+    "seen": 1791396083.6481676,
+    "ast_hash": "b7171e32650170a8f17394de19a7b829",
+    "semantic_hash": ""
+  },
+  ".agents/skills/setup-ts-deep-modules/dependency-cruiser.config.cjs": {
+    "mtime": 1791180175.5632057,
+    "seen": 1791396083.648281,
+    "ast_hash": "881240911a714cd3ea3b131f5e3fd3b8",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1790400389.2941742,
+    "seen": 1791179887.9247806,
+    "ast_hash": "f1c9fcbb0ed371a6802b7ca2968d7ea7",
+    "semantic_hash": ""
+  },
+  "token_estimator.py": {
+    "mtime": 1779739535.076695,
+    "seen": 1791179887.924795,
+    "ast_hash": "93d486ed6d37eff4923708c982e56dda",
+    "semantic_hash": ""
+  },
+  ".agents/skills/animate/RECIPES.md": {
+    "mtime": 1791180175.541232,
+    "seen": 1791396083.6522481,
+    "ast_hash": "278b01cdc80a6ec30b97e35f2e046c28",
+    "semantic_hash": ""
+  },
+  ".agents/skills/animate/SKILL.md": {
+    "mtime": 1791180175.5417566,
+    "seen": 1791396083.6522496,
+    "ast_hash": "f9a8ba37921b62c111e7d0fd325a5ec7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/animation-vocabulary/SKILL.md": {
+    "mtime": 1791180175.5417566,
+    "seen": 1791396083.6522505,
+    "ast_hash": "d5a92df486a9768799515bc8d2f68ce3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/apple-design/SKILL.md": {
+    "mtime": 1791180175.542286,
+    "seen": 1791396083.652252,
+    "ast_hash": "b6e45240038f62aeeec9a39fdd6fcbbe",
+    "semantic_hash": ""
+  },
+  ".agents/skills/break-ui/CATALOG.md": {
+    "mtime": 1791180175.5564415,
+    "seen": 1791396083.653042,
+    "ast_hash": "9c139cdf967d077550e8695ac7d2229f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/break-ui/SKILL.md": {
+    "mtime": 1791180175.5564415,
+    "seen": 1791396083.6530437,
+    "ast_hash": "3704bbee3e3d51ec2ba0f357c12e9333",
+    "semantic_hash": ""
+  },
+  ".agents/skills/find-animation-opportunities/SKILL.md": {
+    "mtime": 1791180175.5574808,
+    "seen": 1791396083.6542134,
+    "ast_hash": "5626beadfd8903e4689b4fc66e6acd7b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/improve-animations/AUDIT.md": {
+    "mtime": 1791180175.5590308,
+    "seen": 1791396083.6558497,
+    "ast_hash": "feab993eb7a204985c7be06c1a2c5c87",
+    "semantic_hash": ""
+  },
+  ".agents/skills/improve-animations/PLAN-TEMPLATE.md": {
+    "mtime": 1791180175.5590308,
+    "seen": 1791396083.6558518,
+    "ast_hash": "bde30d8893f5140f914a25d847a92887",
+    "semantic_hash": ""
+  },
+  ".agents/skills/improve-animations/SKILL.md": {
+    "mtime": 1791180175.5590308,
+    "seen": 1791396083.6558533,
+    "ast_hash": "dbd851dc5a7f270a51923bb9f167bdfb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/mobile-native/SKILL.md": {
+    "mtime": 1791180175.5600708,
+    "seen": 1791396083.6566515,
+    "ast_hash": "d51fd8669185efa1e8502d1ad4563122",
+    "semantic_hash": ""
+  },
+  ".agents/skills/pick-ui-library/SKILL.md": {
+    "mtime": 1791180175.5605967,
+    "seen": 1791396083.6573238,
+    "ast_hash": "8d026a860017ea18e54022531d64a20d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/review-animations/SKILL.md": {
+    "mtime": 1791180175.561122,
+    "seen": 1791396083.6590638,
+    "ast_hash": "376ae64dc8f6a7fa0f48bc46c3389012",
+    "semantic_hash": ""
+  },
+  ".agents/skills/review-animations/STANDARDS.md": {
+    "mtime": 1791180175.561122,
+    "seen": 1791396083.6590652,
+    "ast_hash": "87d07efe01db0af87187e601f707198f",
+    "semantic_hash": ""
+  },
+  "evals/routing/routing_cases.json": {
+    "mtime": 1793401982.002186,
+    "seen": 1793469776.679122,
+    "ast_hash": "af21816560d77a2226f5813d19b49cb6",
+    "semantic_hash": ""
+  },
+  "scripts/eval_skill_routing.py": {
+    "mtime": 1791415610.904451,
+    "seen": 1791515082.8388088,
+    "ast_hash": "16c6b3fffc08cc75d120f646713537d9",
+    "semantic_hash": ""
+  },
+  "tests/test_export_skills.py": {
+    "mtime": 1791415610.9055007,
+    "seen": 1791515082.8393967,
+    "ast_hash": "60d6bb18daf159c734b50f7aac9e60fc",
+    "semantic_hash": ""
+  },
+  "tests/test_skill_evals.py": {
+    "mtime": 1792266291.5655766,
+    "seen": 1792275088.6574578,
+    "ast_hash": "0a8b7c6ad55fef1709229dafb242308a",
+    "semantic_hash": ""
+  },
+  "references/accessibility-checklist.md": {
+    "mtime": 1791415610.9039357,
+    "seen": 1791515082.8537092,
+    "ast_hash": "39129d7f56e8f64e8a8d6627e584e89c",
+    "semantic_hash": ""
+  },
+  "references/definition-of-done.md": {
+    "mtime": 1791415610.9039357,
+    "seen": 1791515082.853711,
+    "ast_hash": "07d1a72398f48d1326dd30bbc8d45735",
+    "semantic_hash": ""
+  },
+  "references/performance-checklist.md": {
+    "mtime": 1791415610.9039357,
+    "seen": 1791515082.8537118,
+    "ast_hash": "801b4e172ba391de0d1f3535fb6372fa",
+    "semantic_hash": ""
+  },
+  "references/testing-patterns.md": {
+    "mtime": 1791415610.904451,
+    "seen": 1791515082.8537128,
+    "ast_hash": "69bc8d0d7f2e74eb9f4b0e6e930ef8b2",
+    "semantic_hash": ""
+  },
+  "unreal-mcp-main/mcp.json": {
+    "mtime": 1791415610.9070199,
+    "seen": 1791515082.840654,
+    "ast_hash": "4fc18593a990e2fbeff13cd921c35454",
+    "semantic_hash": ""
+  },
+  ".agents/skills/unreal-engine-developer/SKILL.md": {
+    "mtime": 1791780570.4186728,
+    "seen": 1792261558.6293187,
+    "ast_hash": "d76fdcca0f6355d481d93bbcf9e92588",
+    "semantic_hash": ""
+  },
+  "unreal-mcp-main/Python/README.md": {
+    "mtime": 1791415610.906016,
+    "seen": 1791515082.853837,
+    "ast_hash": "d65e7c85faed74a8782aef8415802fe3",
+    "semantic_hash": ""
+  },
+  "unreal-mcp-main/README.md": {
+    "mtime": 1791415610.906016,
+    "seen": 1791515082.8538387,
+    "ast_hash": "a619983e8d15fe082ac50361b8f7489a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/SKILL.md": {
+    "mtime": 1792893943.998603,
+    "seen": 1793396524.0729876,
+    "ast_hash": "42719d05dbb16e5805526b6614e6824c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/references/bpy_recipes.md": {
+    "mtime": 1792893943.9996028,
+    "seen": 1793396524.072992,
+    "ast_hash": "bc4389db1867432cef8a136620961f3b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/json-canvas/SKILL.md": {
+    "mtime": 1791415610.878002,
+    "seen": 1791515082.8453574,
+    "ast_hash": "b5af6bd499bdeaf7da091ff3aa42554e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/json-canvas/references/EXAMPLES.md": {
+    "mtime": 1791415610.878525,
+    "seen": 1791515082.8453586,
+    "ast_hash": "30cf9538019189b540ed46bd382747a4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-atlas-vtt/SKILL.md": {
+    "mtime": 1791415610.878525,
+    "seen": 1791515082.8457985,
+    "ast_hash": "7b29b7fe9078f165916c5cd2bf19ff9b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-bases/SKILL.md": {
+    "mtime": 1791415610.8790536,
+    "seen": 1791515082.8457997,
+    "ast_hash": "7f57c4d34da46c3233fea4968a297e3b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-bases/references/FUNCTIONS_REFERENCE.md": {
+    "mtime": 1791415610.8790536,
+    "seen": 1791515082.8458006,
+    "ast_hash": "cd03620d223f9159d36d070e0922fb1b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-cli/SKILL.md": {
+    "mtime": 1791415610.8795733,
+    "seen": 1791515082.845802,
+    "ast_hash": "a4f7902c85400614562964cfe8b29edf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-markdown/SKILL.md": {
+    "mtime": 1791415610.8795733,
+    "seen": 1791515082.845803,
+    "ast_hash": "05c57f9933e5b4ec5aea4b61bfdc8314",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-markdown/references/CALLOUTS.md": {
+    "mtime": 1791415610.8800952,
+    "seen": 1791515082.8458042,
+    "ast_hash": "9452ff62d4696598d1a09a4a8e1482ce",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-markdown/references/EMBEDS.md": {
+    "mtime": 1791415610.8800952,
+    "seen": 1791515082.8458054,
+    "ast_hash": "d575053fb6ef5be8f65f26b0cc8b3a42",
+    "semantic_hash": ""
+  },
+  ".agents/skills/obsidian-markdown/references/PROPERTIES.md": {
+    "mtime": 1791415610.8806114,
+    "seen": 1791515082.8458066,
+    "ast_hash": "25f59faffc3a6152c93c8bbe0e47911a",
+    "semantic_hash": ""
+  },
+  "docs/adr/0002-tablebuddy-atlasvtt-interop.md": {
+    "mtime": 1791415610.8821614,
+    "seen": 1791515082.8535638,
+    "ast_hash": "5fe718742ab8a19fe1d4ff4c6e0717f6",
+    "semantic_hash": ""
+  },
+  "scripts/unity-harness.ps1": {
+    "mtime": 1791780570.4418845,
+    "seen": 1792261558.6132407,
+    "ast_hash": "8abd7ed7aeaf7217e38af3b112345a7d",
+    "semantic_hash": ""
+  },
+  "scripts/unity-mcp-server.js": {
+    "mtime": 1791519147.6117694,
+    "seen": 1791777797.4378526,
+    "ast_hash": "56cbcd1fc0be198b47f7b3db57057ffc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/unity-developer/SKILL.md": {
+    "mtime": 1791780570.4176414,
+    "seen": 1792261558.6293135,
+    "ast_hash": "38d1abd4251419e5712bc19cc4ef9679",
+    "semantic_hash": ""
+  },
+  ".agents/skills/unity-engine-developer/SKILL.md": {
+    "mtime": 1791780570.418161,
+    "seen": 1792261558.6293156,
+    "ast_hash": "2493160c0ce990642c50d7faffa6d569",
+    "semantic_hash": ""
+  },
+  "scripts/godot-harness.ps1": {
+    "mtime": 1791519147.6117694,
+    "seen": 1791777797.4377344,
+    "ast_hash": "5c8b87e9280783893311149f9edacfe2",
+    "semantic_hash": ""
+  },
+  "scripts/godot-mcp-server.js": {
+    "mtime": 1791519147.6117694,
+    "seen": 1791777797.4377363,
+    "ast_hash": "ab5c20a8c2198c825dd8a9b3b8b31eb0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/godot-developer/SKILL.md": {
+    "mtime": 1791780570.4150403,
+    "seen": 1792261558.6208198,
+    "ast_hash": "e8e9194ce1c3fd8bd1de6311c5d690f8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/godot-engine-developer/SKILL.md": {
+    "mtime": 1791780570.4155607,
+    "seen": 1792261558.6208217,
+    "ast_hash": "4969ca2856381617113581ef66303dc8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-forge/GAME_FOUNDATIONS_BASELINE.md": {
+    "mtime": 1791780570.414526,
+    "seen": 1792261558.6201725,
+    "ast_hash": "ba5ada2edeacee0a1d8bc040e2822569",
+    "semantic_hash": ""
+  },
+  ".agents/skills/unreal-developer/SKILL.md": {
+    "mtime": 1791780570.418161,
+    "seen": 1792261558.629317,
+    "ast_hash": "c213a0b6120fbc737042009cb8c6cc02",
+    "semantic_hash": ""
+  },
+  "scripts/polyhaven.py": {
+    "mtime": 1792266291.564547,
+    "seen": 1792275088.656836,
+    "ast_hash": "297ad9cc0638bce774f3e07a33e43c31",
+    "semantic_hash": ""
+  },
+  "tests/test_polyhaven.py": {
+    "mtime": 1792266291.5655766,
+    "seen": 1792275088.6574569,
+    "ast_hash": "78b2497ae9be65a66854eba9fe205845",
+    "semantic_hash": ""
+  },
+  ".agents/skills/polyhaven-assets/SKILL.md": {
+    "mtime": 1792266291.5375516,
+    "seen": 1792275088.667985,
+    "ast_hash": "e8a789887c1ddff9442618a8936220c8",
+    "semantic_hash": ""
+  },
+  "HANDOFF.md": {
+    "mtime": 1792266291.5385957,
+    "seen": 1792275088.6793375,
+    "ast_hash": "fcc892a2ad8af850c88f786f74b60ab6",
+    "semantic_hash": ""
+  },
+  "docs/POLYHAVEN_INTEGRATION_PLAN.md": {
+    "mtime": 1792266291.5391269,
+    "seen": 1792275088.6794107,
+    "ast_hash": "364c4b599ce6227a0ef3a5411b9338f2",
+    "semantic_hash": ""
+  },
+  "docs/adr/0003-polyhaven-asset-pipeline.md": {
+    "mtime": 1792266291.5396478,
+    "seen": 1792275088.6795483,
+    "ast_hash": "af0a002b945991a4623a108e88346d1b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/scripts/blendswap_client.py": {
+    "mtime": 1792893943.9996028,
+    "seen": 1793396524.0649712,
+    "ast_hash": "ba46e7235f6538268ba11b02fb9a5f4e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/scripts/blendswap_mcp_server.py": {
+    "mtime": 1792893943.9996028,
+    "seen": 1793396524.064975,
+    "ast_hash": "e56cc98d58980f0791b3f5428556046c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/blender-developer/references/blendswap_api_guide.md": {
+    "mtime": 1792893943.998603,
+    "seen": 1793396524.07299,
+    "ast_hash": "486e44a63152404d90725d3b72abb301",
+    "semantic_hash": ""
+  },
+  "scripts/fetch_asset_references.py": {
+    "mtime": 1792893944.04968,
+    "seen": 1793396524.0700579,
+    "ast_hash": "fa3effd095db21903fc12d28107d9682",
+    "semantic_hash": ""
+  },
+  "scripts/validate_blender_asset.py": {
+    "mtime": 1792893944.0501945,
+    "seen": 1793396524.0704713,
+    "ast_hash": "62d6e20b9da7bec1dd9b6a14de59f17d",
+    "semantic_hash": ""
+  },
+  "tests/test_blender_validator.py": {
+    "mtime": 1792893944.0507152,
+    "seen": 1793396524.0704737,
+    "ast_hash": "7dc6eb17931e788ce73f29b458db790f",
+    "semantic_hash": ""
+  },
+  ".agents/plans/plan/plan.mdx": {
+    "mtime": 1793401981.8792038,
+    "seen": 1793469776.6826868,
+    "ast_hash": "c4245aa4f287a7bea4eda0a9f6e75c0d",
+    "semantic_hash": ""
+  },
+  "docs/demos/clawexermart/assets/index-Bym1AQwo.js": {
+    "mtime": 1792892077.330994,
+    "seen": 1792893005.7865357,
+    "ast_hash": "6e62eba7247f8122312b4339c9762fc5",
+    "semantic_hash": ""
+  },
+  "docs/demos/rawexermart/assets/index-0jVwK8iL.js": {
+    "mtime": 1792892090.9094515,
+    "seen": 1792893005.7865376,
+    "ast_hash": "ea922679d15a71c29d471d41abf098dc",
+    "semantic_hash": ""
+  },
+  ".github/workflows/pages.yml": {
+    "mtime": 1792892429.4180086,
+    "seen": 1792893005.800801,
+    "ast_hash": "bd146adbde9df4a3dbc6bd1313c2cc05",
+    "semantic_hash": ""
+  },
+  "docs/EXERMART_CASE_STUDY.md": {
+    "mtime": 1792892427.6083877,
+    "seen": 1792893005.80155,
+    "ast_hash": "6c9d09f69d18a2d0d67a0a142c88c6f2",
+    "semantic_hash": ""
+  },
+  "docs/demos/clawexermart/index.html": {
+    "mtime": 1792892077.330994,
+    "seen": 1792893005.80189,
+    "ast_hash": "38b30e3d9e043d72fe1f79db8b0abcce",
+    "semantic_hash": ""
+  },
+  "docs/demos/rawexermart/index.html": {
+    "mtime": 1792892090.9094515,
+    "seen": 1792893005.8018913,
+    "ast_hash": "afdea579b371471d4a935854273f87f1",
+    "semantic_hash": ""
+  },
+  "docs/index.html": {
+    "mtime": 1793467225.3236883,
+    "seen": 1793469776.6961963,
+    "ast_hash": "20244bb3efad60c9f284b472d58a8d19",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R1_navbar.png": {
+    "mtime": 1792891243.4199326,
+    "seen": 1792893005.8029559,
+    "ast_hash": "63b188a27d93315ef16d90257f2c21ac",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R2_catalog.png": {
+    "mtime": 1792891244.0261726,
+    "seen": 1792893005.8029573,
+    "ast_hash": "011ab14c32d873b896271e98a0d9154b",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R3_product_modal.png": {
+    "mtime": 1792891244.778229,
+    "seen": 1792893005.8029583,
+    "ast_hash": "3bc9a02f5b02934a1a871b8745a7e665",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R4_sell_portal.png": {
+    "mtime": 1792891245.889613,
+    "seen": 1792893005.8029594,
+    "ast_hash": "14320b11d9cb56e13ee43d1a1da43ddb",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R5_space_matcher.png": {
+    "mtime": 1792891246.5725648,
+    "seen": 1792893005.8029604,
+    "ast_hash": "67ac24d48f835defa31162683c8db59c",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R6_cart_checkout.png": {
+    "mtime": 1792891247.737093,
+    "seen": 1792893005.8029613,
+    "ast_hash": "93885e5e96ec66097577c8b213c268c0",
+    "semantic_hash": ""
+  },
+  "docs/assets/exermart/R7_break_ui_stress.png": {
+    "mtime": 1792891249.3136816,
+    "seen": 1792893005.8029625,
+    "ast_hash": "cbc050bc7cfdfacbd67858e1a796560c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/assets/asset-manifest.json": {
+    "mtime": 1793401981.8856795,
+    "seen": 1793469776.677727,
+    "ast_hash": "6c70a51c6d9b203785f406e4b3c749ce",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/scripts/asset_report.py": {
+    "mtime": 1793401981.8867333,
+    "seen": 1793469776.6777313,
+    "ast_hash": "138d1473683c3e68b3696e3cdcfdfaea",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/scripts/build_preview_sheet.py": {
+    "mtime": 1793401981.8867333,
+    "seen": 1793469776.677734,
+    "ast_hash": "de6dda530e29eb73828b9b450a2fa517",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-defold-core/scripts/check_defold_project.py": {
+    "mtime": 1793401981.8877807,
+    "seen": 1793469776.677736,
+    "ast_hash": "9bd25e206c0346e1c1c23893a99f736e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/assets.go": {
+    "mtime": 1793401981.8897858,
+    "seen": 1793469776.6777377,
+    "ast_hash": "a284f264f171f9df2fe84315177c5aeb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/game.go": {
+    "mtime": 1793401981.8897858,
+    "seen": 1793469776.6777394,
+    "ast_hash": "ad541758c3096750688132b36894393d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/input.go": {
+    "mtime": 1793401981.8897858,
+    "seen": 1793469776.6777408,
+    "ast_hash": "a2a29c1da6a8b8c2e0c012597055404e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/main.go": {
+    "mtime": 1793401981.8907857,
+    "seen": 1793469776.677742,
+    "ast_hash": "9ddae19afb34f391a324ebe4feb30b87",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/scenes.go": {
+    "mtime": 1793401981.8907857,
+    "seen": 1793469776.677744,
+    "ast_hash": "dc0c9d7aa608f11c3dc2d1a8a1b68d52",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/sound.go": {
+    "mtime": 1793401981.8907857,
+    "seen": 1793469776.6777453,
+    "ast_hash": "04eb8e718a82ef859b044672b66e4ec7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/world/world.go": {
+    "mtime": 1793401981.8917854,
+    "seen": 1793469776.6777472,
+    "ast_hash": "10f63ac118b2423f2f7c3c93f5a4c2d6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/world/world_test.go": {
+    "mtime": 1793401981.8917854,
+    "seen": 1793469776.677749,
+    "ast_hash": "fb99baa807ed38b088aa70fa7f4ff1ea",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/scripts/check_ebitengine.py": {
+    "mtime": 1793401981.895701,
+    "seen": 1793469776.677751,
+    "ast_hash": "b42eedc83bdd97881b673f8f9b47aec7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/scripts/new_game.py": {
+    "mtime": 1793401981.895701,
+    "seen": 1793469776.677761,
+    "ast_hash": "963f897cea8c0262a55fbe71d78ab3b4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/scripts/package_macos_app.py": {
+    "mtime": 1793401981.895701,
+    "seen": 1793469776.6777647,
+    "ast_hash": "d467f7dfeed326078859fc97ccba9ae6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-nodes-scenes/scripts/check_godot_project.py": {
+    "mtime": 1793401981.9037304,
+    "seen": 1793469776.6777658,
+    "ast_hash": "1056c81e37b4dc7565b88e58e19a4337",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-simulator-economy/scripts/balance.luau": {
+    "mtime": 1793401981.9175196,
+    "seen": 1793469776.6777678,
+    "ast_hash": "5ee5292d7d9a22a821f8feae839df4af",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-simulator-economy/scripts/economy_math.luau": {
+    "mtime": 1793401981.9185193,
+    "seen": 1793469776.6777694,
+    "ast_hash": "6a401859e095fb51bfeeda90f72f807a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-simulator-economy/scripts/test_economy_math.luau": {
+    "mtime": 1793401981.9185193,
+    "seen": 1793469776.6777716,
+    "ast_hash": "74902d2c6c139501c7c43373a7570703",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-ui/assets/inventory-quality-test.model.json": {
+    "mtime": 1793401981.9195201,
+    "seen": 1793469776.677773,
+    "ast_hash": "bae28110133557e02529c8566ea7926e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-ui/assets/inventory-quality-test.project.json": {
+    "mtime": 1793401981.92052,
+    "seen": 1793469776.6777744,
+    "ast_hash": "e2072cce67d986be104abfb6e147054e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-steam-publish/scripts/check_steam_build.py": {
+    "mtime": 1793401981.925026,
+    "seen": 1793469776.6777763,
+    "ast_hash": "e2f08288bfdcb423be9e576641e1aba2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-csharp-scripting/scripts/check_unity_project.py": {
+    "mtime": 1793401981.9306319,
+    "seen": 1793469776.6777782,
+    "ast_hash": "816b099380e1e7a284c455e839e761c2",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-area-majority.json": {
+    "mtime": 1793401981.9379053,
+    "seen": 1793469776.6787522,
+    "ast_hash": "ec72a80609e6f46c6f6d09a9350a14a9",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-follow-phase.json": {
+    "mtime": 1793401981.9384232,
+    "seen": 1793469776.6787539,
+    "ast_hash": "83ac9e3198b9a5e596f9643e9390eb7b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-public-goal-race.json": {
+    "mtime": 1793401981.9384232,
+    "seen": 1793469776.6787553,
+    "ast_hash": "1d9ef47db67f23f032a80e26d78bb5d5",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-public-pick.json": {
+    "mtime": 1793401981.9389417,
+    "seen": 1793469776.678756,
+    "ast_hash": "207ecbd975efccea6101a093b7e9748b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-route-denial.json": {
+    "mtime": 1793401981.9389417,
+    "seen": 1793469776.6787572,
+    "ast_hash": "d9a025754fd2e7be04d93ed9fb9773e4",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-savings-interest.json": {
+    "mtime": 1793401981.9394562,
+    "seen": 1793469776.6787581,
+    "ast_hash": "ebd46aef09ea3ef4a9a32eb12b4384fa",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-shared-stock.json": {
+    "mtime": 1793401981.9394562,
+    "seen": 1793469776.6787593,
+    "ast_hash": "3814e624f94ed734ceae46e5b9ad2a49",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-shop-reservation.json": {
+    "mtime": 1793401981.9399815,
+    "seen": 1793469776.6787605,
+    "ast_hash": "6b8148d7c580c481345cac265d7a090f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-snake-order.json": {
+    "mtime": 1793401981.9399815,
+    "seen": 1793469776.6787615,
+    "ast_hash": "47240a194b32f50bc3becbb7bd73ab60",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/allocation-worker-placement.json": {
+    "mtime": 1793401981.9399815,
+    "seen": 1793469776.6787627,
+    "ast_hash": "4171bf66b24a0183aa2dd88a85de1f0c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-aerial-logistics.json": {
+    "mtime": 1793401981.9405067,
+    "seen": 1793469776.6787636,
+    "ast_hash": "75da27ac045e507fdf526b0686f009fe",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-belt-routing.json": {
+    "mtime": 1793401981.9405067,
+    "seen": 1793469776.6787643,
+    "ast_hash": "5908891f351a403754e459744e2411e9",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-blueprint-reuse.json": {
+    "mtime": 1793401981.9410276,
+    "seen": 1793469776.6787653,
+    "ast_hash": "757c0a5f0d49dc8bc98790ea7ae35913",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-byproduct-loop.json": {
+    "mtime": 1793401981.9410276,
+    "seen": 1793469776.6787663,
+    "ast_hash": "c11e011d8c03a335373d7ea2f1eaa491",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-conditional-control.json": {
+    "mtime": 1793401981.9410276,
+    "seen": 1793469776.6787672,
+    "ast_hash": "611534e57b4187952eea286d2567cd4c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-flow-splitting.json": {
+    "mtime": 1793401981.9410276,
+    "seen": 1793469776.678768,
+    "ast_hash": "645c08d640ec44eda37db60d51f5c190",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-fluid-routing.json": {
+    "mtime": 1793401981.9420319,
+    "seen": 1793469776.678769,
+    "ast_hash": "96ffa4f4ada8ca925ae5ec9773cc6e26",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-item-filtering.json": {
+    "mtime": 1793401981.9420319,
+    "seen": 1793469776.67877,
+    "ast_hash": "8d8510b82206651ded3baf5b75a88577",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-power-budget.json": {
+    "mtime": 1793401981.9420319,
+    "seen": 1793469776.678771,
+    "ast_hash": "6f9b047df8db3e260186c714e7ba819b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/automation-production-chain.json": {
+    "mtime": 1793401981.9430323,
+    "seen": 1793469776.6787717,
+    "ast_hash": "0d55d464a41b9d43b95347b57cc58214",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-access-network.json": {
+    "mtime": 1793401981.9430323,
+    "seen": 1793469776.6787724,
+    "ast_hash": "6a3c19bfd15e205d56bf4c5c52ca2d71",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-construction-sequencing.json": {
+    "mtime": 1793401981.9430323,
+    "seen": 1793469776.6787734,
+    "ast_hash": "0ce126e9125f60bd190203e22258426a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-modular-snapping.json": {
+    "mtime": 1793401981.9430323,
+    "seen": 1793469776.6787746,
+    "ast_hash": "405fc9fa7d87898e14e3e0c8a517ae44",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-room-requirements.json": {
+    "mtime": 1793401981.9430323,
+    "seen": 1793469776.6787753,
+    "ast_hash": "37c95243c37741ea36eb3a4cbeeb736c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-service-coverage.json": {
+    "mtime": 1793401981.9440327,
+    "seen": 1793469776.6787763,
+    "ast_hash": "5a92a2719eb30b15cd406e7094d82427",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-structural-support.json": {
+    "mtime": 1793401981.9440327,
+    "seen": 1793469776.678777,
+    "ast_hash": "cba8e3f730575eb12d0fab5f24c4577c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-terrain-shaping.json": {
+    "mtime": 1793401981.9447496,
+    "seen": 1793469776.6787777,
+    "ast_hash": "d2d54962324a65716e75bf9e9ae3f449",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-thermal-zoning.json": {
+    "mtime": 1793401981.9447496,
+    "seen": 1793469776.6787784,
+    "ast_hash": "6e6bdc96e983c251cda33df5025374e0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-vertical-stacking.json": {
+    "mtime": 1793401981.9447496,
+    "seen": 1793469776.6787791,
+    "ast_hash": "4bab1248f028b9f6d89dfe6dd584d8ec",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/building-water-engineering.json": {
+    "mtime": 1793401981.9457552,
+    "seen": 1793469776.6787798,
+    "ast_hash": "f072fafe42f383ccdb0c60bb59058d79",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-action-points.json": {
+    "mtime": 1793401981.9457552,
+    "seen": 1793469776.6787806,
+    "ast_hash": "94643a3d67ca5d5de616c24e768a101a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-combat-deck-cycle.json": {
+    "mtime": 1793401981.9457552,
+    "seen": 1793469776.6787813,
+    "ast_hash": "7a434e01e6ab7d37d16940ecc87a09d3",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-combo-variation.json": {
+    "mtime": 1793401981.9457552,
+    "seen": 1793469776.678782,
+    "ast_hash": "76a6a4afde997ca0e8b668f7f5257f1d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-cover-flanking.json": {
+    "mtime": 1793401981.9457552,
+    "seen": 1793469776.6787827,
+    "ast_hash": "aec6f8c6ff478798f212805a582991a9",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-destructible-cover.json": {
+    "mtime": 1793401981.9467552,
+    "seen": 1793469776.6787834,
+    "ast_hash": "e08d4c32139229b2c79f2cb51086d3fc",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-forced-movement.json": {
+    "mtime": 1793401981.9467552,
+    "seen": 1793469776.6787844,
+    "ast_hash": "40174e5f48aa0fdd208cdbf8dcdd184b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-friendly-fire.json": {
+    "mtime": 1793401981.9467552,
+    "seen": 1793469776.678785,
+    "ast_hash": "1f58cf4b2c60b5b91d3c0c3336d1e9ad",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-intent-preview.json": {
+    "mtime": 1793401981.9467552,
+    "seen": 1793469776.6787858,
+    "ast_hash": "14c33e37dc9c2cdbf79bb7cfe6fe2099",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-invulnerable-dodge.json": {
+    "mtime": 1793401981.9467552,
+    "seen": 1793469776.6787868,
+    "ast_hash": "afd1c385962e219803383ee0bdea84d0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-overwatch.json": {
+    "mtime": 1793401981.9477544,
+    "seen": 1793469776.6787875,
+    "ast_hash": "d75f49ddf5aa1c7a0c1099ec00c4d8b4",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-part-destruction.json": {
+    "mtime": 1793401981.9477544,
+    "seen": 1793469776.6787887,
+    "ast_hash": "0be5278bfe980b05a7f76b080fdace38",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-pause-orders.json": {
+    "mtime": 1793401981.9477544,
+    "seen": 1793469776.6787894,
+    "ast_hash": "c579546946d36d0a2a71b6c1f4dd5a96",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-posture-break.json": {
+    "mtime": 1793401981.9477544,
+    "seen": 1793469776.6787903,
+    "ast_hash": "c23085e293fd62c2645a7d37b7f0c5be",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-simultaneous-orders.json": {
+    "mtime": 1793401981.9487536,
+    "seen": 1793469776.6787913,
+    "ast_hash": "1a6524617efe5eb603b5563358e2eb50",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-stamina-budget.json": {
+    "mtime": 1793401981.9487536,
+    "seen": 1793469776.6787918,
+    "ast_hash": "dd87ba245014b920a75b6681e3d1ee2c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-surface-reactions.json": {
+    "mtime": 1793401981.9487536,
+    "seen": 1793469776.6787925,
+    "ast_hash": "974dd194971efef527efa03fcef44b0c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-timed-parry.json": {
+    "mtime": 1793401981.9487536,
+    "seen": 1793469776.6787932,
+    "ast_hash": "24dc3c9f56af237978a862bb5e4c710d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/combat-weakpoint-aim.json": {
+    "mtime": 1793401981.9487536,
+    "seen": 1793469776.6787937,
+    "ast_hash": "d43ce41b0752684dec7ebc1fe7673297",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-focus-fire.json": {
+    "mtime": 1793401981.9487536,
+    "seen": 1793469776.6787944,
+    "ast_hash": "749a7399d1a72cade1608be53515663d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-frontline-shielding.json": {
+    "mtime": 1793401981.9497538,
+    "seen": 1793469776.6787953,
+    "ast_hash": "09015bd0919185c90775ef686d434ad8",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-initiative-order.json": {
+    "mtime": 1793401981.9497538,
+    "seen": 1793469776.6787958,
+    "ast_hash": "2563bb8f8960e875d7e123668f302fa0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-interrupt-action.json": {
+    "mtime": 1793401981.9497538,
+    "seen": 1793469776.6787965,
+    "ast_hash": "f0d3d81b16d25c24a614ec3c5cacc0e2",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-prebattle-formation.json": {
+    "mtime": 1793401981.9497538,
+    "seen": 1793469776.6787972,
+    "ast_hash": "61acd77a79ff985a9c4dc4f9966ac63d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-scout-current-vision.json": {
+    "mtime": 1793401981.9497538,
+    "seen": 1793469776.6787982,
+    "ast_hash": "7e9e19f168f06c1417f056f98d26c9ff",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-split-objectives.json": {
+    "mtime": 1793401981.9507532,
+    "seen": 1793469776.6787992,
+    "ast_hash": "52a069ba9b80c9bf781f51cfdec9e1fc",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-threat-redirection.json": {
+    "mtime": 1793401981.9507532,
+    "seen": 1793469776.6788,
+    "ast_hash": "2c014217f029ddcae2e7dad9ee5da847",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-trait-thresholds.json": {
+    "mtime": 1793401981.9507532,
+    "seen": 1793469776.6788008,
+    "ast_hash": "cc7dd4a54ffd7c1f1cd29a8d92787464",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/command-workers-or-soldiers.json": {
+    "mtime": 1793401981.9507532,
+    "seen": 1793469776.6788013,
+    "ast_hash": "8a7a90cd8e6277c4cbc24ab1994c3df5",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-auction-bidding.json": {
+    "mtime": 1793401981.9507532,
+    "seen": 1793469776.6788023,
+    "ast_hash": "0627fb3e47f26461ee69c397c9139897",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-debt-pressure.json": {
+    "mtime": 1793401981.9517531,
+    "seen": 1793469776.6788027,
+    "ast_hash": "1e499eb76bf30e3d0c1e8015bf646cc7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-dynamic-market.json": {
+    "mtime": 1793401981.9517531,
+    "seen": 1793469776.6788034,
+    "ast_hash": "43e18bdc24b27a79f1ed6b6dbec52845",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-haggling.json": {
+    "mtime": 1793401981.9517531,
+    "seen": 1793469776.678804,
+    "ast_hash": "df96eb38714c0f537365db791f4af52c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-interpret-orders.json": {
+    "mtime": 1793401981.9517531,
+    "seen": 1793469776.6788046,
+    "ast_hash": "75ef5ec4a7b6ee070ebca92295b50d75",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-price-discovery.json": {
+    "mtime": 1793401981.9517531,
+    "seen": 1793469776.6788056,
+    "ast_hash": "f2ea7133a0cd189c8cb236baeee72b2b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-regional-arbitrage.json": {
+    "mtime": 1793401981.9517531,
+    "seen": 1793469776.678806,
+    "ast_hash": "c8224fdba4dd779db6f67031a4b0e3ce",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-shop-display.json": {
+    "mtime": 1793401981.9527538,
+    "seen": 1793469776.6788068,
+    "ast_hash": "88bdec89d6d181b648d972af9c834673",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-timed-contracts.json": {
+    "mtime": 1793401981.9527538,
+    "seen": 1793469776.6788073,
+    "ast_hash": "2645ee1b872e1c38298d5d586ae4f228",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/commerce-trade-route-programming.json": {
+    "mtime": 1793401981.9527538,
+    "seen": 1793469776.678808,
+    "ast_hash": "895b839edb1fce7b38aa17bac9df3cb0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-food-preservation.json": {
+    "mtime": 1793401981.9527538,
+    "seen": 1793469776.6788087,
+    "ast_hash": "59748a49cc00b36517b44dd431cc47fe",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-heat-window.json": {
+    "mtime": 1793401981.9527538,
+    "seen": 1793469776.6788094,
+    "ast_hash": "7052c89b653b932d80205488e818df6e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-ingredient-substitution.json": {
+    "mtime": 1793401981.9537544,
+    "seen": 1793469776.6788101,
+    "ast_hash": "10f4fe117a248a314e71f95a3f0364dd",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-judged-flavor.json": {
+    "mtime": 1793401981.9537544,
+    "seen": 1793469776.6788108,
+    "ast_hash": "a5b5311a70fbea11040db1d402ce78c9",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-meal-loadout.json": {
+    "mtime": 1793401981.9537544,
+    "seen": 1793469776.6788118,
+    "ast_hash": "f4d0c03cb252c44884f82791b27b7702",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-measurement-precision.json": {
+    "mtime": 1793401981.9537544,
+    "seen": 1793469776.6788125,
+    "ast_hash": "309619ae51c546550b7d3e85754dec47",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-order-triage.json": {
+    "mtime": 1793401981.9547553,
+    "seen": 1793469776.6788132,
+    "ast_hash": "e7c071a2310d6e5fe91b0a745bbe4770",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-preparation-chain.json": {
+    "mtime": 1793401981.9547553,
+    "seen": 1793469776.6788137,
+    "ast_hash": "6717f2ae962e2d0a49dcbbb8c92f48bd",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-recipe-learning.json": {
+    "mtime": 1793401981.9547553,
+    "seen": 1793469776.6788146,
+    "ast_hash": "dfed64830a78dd6efe7557b42039b390",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooking-station-handoff.json": {
+    "mtime": 1793401981.9547553,
+    "seen": 1793469776.6788156,
+    "ast_hash": "5ed62dbb5e058884602bd4b556670139",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-complementary-abilities.json": {
+    "mtime": 1793401981.9557548,
+    "seen": 1793469776.678816,
+    "ast_hash": "6c00d75b8f02cc8d6562701ea11cd2bf",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-discussion-vote.json": {
+    "mtime": 1793401981.9557548,
+    "seen": 1793469776.678817,
+    "ast_hash": "480939b495467f08f1be2c6d65b53a7d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-downed-revival.json": {
+    "mtime": 1793401981.9557548,
+    "seen": 1793469776.6788175,
+    "ast_hash": "4d8d88bb17750cd204b5b69c28e0ec63",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-hidden-role.json": {
+    "mtime": 1793401981.956754,
+    "seen": 1793469776.6788182,
+    "ast_hash": "60c9108f505d01fc11fb94dd12b95e02",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-physical-tether.json": {
+    "mtime": 1793401981.956754,
+    "seen": 1793469776.6788187,
+    "ast_hash": "89527acd827a36ba154c1dc87660300c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-shared-vehicle.json": {
+    "mtime": 1793401981.956754,
+    "seen": 1793469776.6788197,
+    "ast_hash": "bd1e1a0c32f30c14e36446f95a5e8d3e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-split-information.json": {
+    "mtime": 1793401981.956754,
+    "seen": 1793469776.6788204,
+    "ast_hash": "38d20dd6ee8ff29c2f1a48c7a8c9b875",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-synchronized-triggers.json": {
+    "mtime": 1793401981.9577541,
+    "seen": 1793469776.6788208,
+    "ast_hash": "15532f4e88372038727d0bf4a0bfba7e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/cooperation-temporary-alliance.json": {
+    "mtime": 1793401981.9577541,
+    "seen": 1793469776.6788216,
+    "ast_hash": "285e705f9e6ba872d8866df9a708c2de",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-card-upgrade.json": {
+    "mtime": 1793401981.9577541,
+    "seen": 1793469776.678822,
+    "ast_hash": "337173619d122e3af9ded8576ee91c28",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-dice-allocation.json": {
+    "mtime": 1793401981.9577541,
+    "seen": 1793469776.678823,
+    "ast_hash": "ce8da278c1ed7e953b1d5cd0fd55597e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-discard-redraw.json": {
+    "mtime": 1793401981.9587548,
+    "seen": 1793469776.6788237,
+    "ast_hash": "2ee270c32efa2e2ea703ba7d38e02f71",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-dual-use-cards.json": {
+    "mtime": 1793401981.9587548,
+    "seen": 1793469776.6788244,
+    "ast_hash": "5843b493b7dbdd6935bb2b4c958a6971",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-duplicate-investment.json": {
+    "mtime": 1793401981.9587548,
+    "seen": 1793469776.678825,
+    "ast_hash": "69fb0ab58c45221c8c8c1f2296d7c61f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-exhaust-for-burst.json": {
+    "mtime": 1793401981.9587548,
+    "seen": 1793469776.6788256,
+    "ast_hash": "e14ec2b427f79f1951e9125a3122171a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-opening-hand-control.json": {
+    "mtime": 1793401981.9587548,
+    "seen": 1793469776.6788266,
+    "ast_hash": "3b38145dfd3cf970e2022d496edd116d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-poker-hand-requirements.json": {
+    "mtime": 1793401981.959755,
+    "seen": 1793469776.678827,
+    "ast_hash": "b1c4a99e9c3d91f11c1c187de124df44",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-reward-choice.json": {
+    "mtime": 1793401981.959755,
+    "seen": 1793469776.6788278,
+    "ast_hash": "61db81b96dd81edad964181720506e3d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-rule-changing-passives.json": {
+    "mtime": 1793401981.959755,
+    "seen": 1793469776.6788287,
+    "ast_hash": "183afa99fc6927fbe526d1d5138abd0a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-temporary-generation.json": {
+    "mtime": 1793401981.959755,
+    "seen": 1793469776.6788297,
+    "ast_hash": "c18279da6b71a60e0131044a9968e866",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/deckbuilding-trigger-order.json": {
+    "mtime": 1793401981.960755,
+    "seen": 1793469776.6788304,
+    "ast_hash": "4c6f401469f882d64f2ef309b8696881",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-ammunition-supply.json": {
+    "mtime": 1793401981.960755,
+    "seen": 1793469776.678831,
+    "ast_hash": "6a3a3ca50bca77ca4df9ec9e15059fd2",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-day-night-investment.json": {
+    "mtime": 1793401981.961754,
+    "seen": 1793469776.6788318,
+    "ast_hash": "c514552faac452999dba42aba3e46eec",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-early-wave-call.json": {
+    "mtime": 1793401981.961754,
+    "seen": 1793469776.6788323,
+    "ast_hash": "d637e4cf7642d48fbc961b967db21a9a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-maze-routing.json": {
+    "mtime": 1793401981.961754,
+    "seen": 1793469776.6788332,
+    "ast_hash": "86dd8fa50a3431057c725d771e62fb17",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-mobile-defender.json": {
+    "mtime": 1793401981.961754,
+    "seen": 1793469776.678834,
+    "ast_hash": "608ba8c481d60920ae7f9aca41f26a2b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-resistance-counters.json": {
+    "mtime": 1793401981.961754,
+    "seen": 1793469776.6788347,
+    "ast_hash": "7d83652fee74eeacedcc0181011bd4d8",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-target-priority.json": {
+    "mtime": 1793401981.9627533,
+    "seen": 1793469776.6788354,
+    "ast_hash": "042a2b063f03b57b5c393726b9efae86",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-tower-upgrade-budget.json": {
+    "mtime": 1793401981.9627533,
+    "seen": 1793469776.6788359,
+    "ast_hash": "aea852f074c34ce175927a74ceda5218",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/defense-trap-sequence.json": {
+    "mtime": 1793401981.9627533,
+    "seen": 1793469776.6788368,
+    "ast_hash": "8e44824e3e501f10285d01c84e6d46fe",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/driving-air-balance.json": {
+    "mtime": 1793401981.9627533,
+    "seen": 1793469776.6788373,
+    "ast_hash": "472e2c4122fd22206289828fbe2d7253",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/driving-air-stunt.json": {
+    "mtime": 1793401981.963755,
+    "seen": 1793469776.6788383,
+    "ast_hash": "c705b9e6d31c60237dd9d55ac1d3b6ca",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/driving-drift-boost.json": {
+    "mtime": 1793401981.963755,
+    "seen": 1793469776.6788387,
+    "ast_hash": "c7c0ca4eb6d46383f5ec055c461267d3",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/driving-slipstream.json": {
+    "mtime": 1793401981.963755,
+    "seen": 1793469776.6788394,
+    "ast_hash": "fc3c27039f28f232e858f1080370b6bd",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/driving-start-charge.json": {
+    "mtime": 1793401981.963755,
+    "seen": 1793469776.6788402,
+    "ast_hash": "60212956ce7f601bb2a8860e52609ab7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-animal-taming.json": {
+    "mtime": 1793401981.9647555,
+    "seen": 1793469776.6788406,
+    "ast_hash": "a3953f7f8a6fb988982feb242ddd443f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-breeding-conditions.json": {
+    "mtime": 1793401981.9647555,
+    "seen": 1793469776.6788414,
+    "ast_hash": "48b595426622a90ee3e8ecab91be7d2e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-genetic-diversity.json": {
+    "mtime": 1793401981.9647555,
+    "seen": 1793469776.678842,
+    "ast_hash": "f3ff3f3b791c83396eba929edd6710d1",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-habitat-capacity.json": {
+    "mtime": 1793401981.9647555,
+    "seen": 1793469776.6788428,
+    "ast_hash": "5a887bc74af4d22b8fbeb2530cd47ba6",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-parent-trait-selection.json": {
+    "mtime": 1793401981.9647555,
+    "seen": 1793469776.678844,
+    "ast_hash": "f7a4b9d9cabe531da8a92800029ea322",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-plant-crossbreeding.json": {
+    "mtime": 1793401981.9657552,
+    "seen": 1793469776.6788447,
+    "ast_hash": "aeb5cf146dab54b89800a5a7aef2fd83",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-population-limits.json": {
+    "mtime": 1793401981.9657552,
+    "seen": 1793469776.6788452,
+    "ast_hash": "89139ba187c9e2c9de38c762e4a0a59a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/ecology-species-compatibility.json": {
+    "mtime": 1793401981.9657552,
+    "seen": 1793469776.678846,
+    "ast_hash": "a451bb27f72a32b604dc1872b64a4aa6",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-ability-gates.json": {
+    "mtime": 1793401981.9657552,
+    "seen": 1793469776.6788468,
+    "ast_hash": "66dfcd5cbc7612f98b3de519a9eccd0d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-air-action-refill.json": {
+    "mtime": 1793401981.9657552,
+    "seen": 1793469776.6788476,
+    "ast_hash": "ad3fb4ad9e403a8745eb2dbb81c9391e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-climbing-rest-route.json": {
+    "mtime": 1793401981.9657552,
+    "seen": 1793469776.678848,
+    "ast_hash": "c2e07a11674a09b1e1f17c0c1a4a2f0f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-earned-map.json": {
+    "mtime": 1793401981.966755,
+    "seen": 1793469776.6788485,
+    "ast_hash": "28929a63bede8793495d3178273347b7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-fast-travel-network.json": {
+    "mtime": 1793401981.966755,
+    "seen": 1793469776.6788492,
+    "ast_hash": "dc0c2715b3314fbd442e7ee68ca54f14",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-gliding-descent.json": {
+    "mtime": 1793401981.966755,
+    "seen": 1793469776.67885,
+    "ast_hash": "03264feb5aa8ea3c978e23f7c4e387e3",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-grapple-swing.json": {
+    "mtime": 1793401981.966755,
+    "seen": 1793469776.678851,
+    "ast_hash": "b63227b765c4399c8bc813e9b12f0a00",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-procedural-route-reading.json": {
+    "mtime": 1793401981.966755,
+    "seen": 1793469776.6788514,
+    "ast_hash": "88074f0fde2fa0e4342decd4f3affd5c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-stealth-awareness.json": {
+    "mtime": 1793401981.967755,
+    "seen": 1793469776.6788518,
+    "ast_hash": "93291483d5013bd4be2e9ff7cbd170ec",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/exploration-wall-jump.json": {
+    "mtime": 1793401981.967755,
+    "seen": 1793469776.6788526,
+    "ast_hash": "72637ece592aed2fd860460e955fad20",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-crop-protection.json": {
+    "mtime": 1793401981.967755,
+    "seen": 1793469776.6788533,
+    "ast_hash": "5350461efada3860fd1e7d96793830c0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-fertilizer-tradeoff.json": {
+    "mtime": 1793401981.967755,
+    "seen": 1793469776.678854,
+    "ast_hash": "f392afacccb1c1d63c7d22042e3c00c0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-growth-care.json": {
+    "mtime": 1793401981.967755,
+    "seen": 1793469776.6788547,
+    "ast_hash": "a8892a11909dc9a7532290f06711034e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-irrigation-layout.json": {
+    "mtime": 1793401981.967755,
+    "seen": 1793469776.6788554,
+    "ast_hash": "5c49bfc07778f132171885d8803da42e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-livestock-care.json": {
+    "mtime": 1793401981.968755,
+    "seen": 1793469776.678856,
+    "ast_hash": "27495ec5b96073c4074b2a2916801271",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-orchard-investment.json": {
+    "mtime": 1793401981.968755,
+    "seen": 1793469776.6788566,
+    "ast_hash": "167b67c2cafa414f3073841ad8eaee06",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-regrowth-crops.json": {
+    "mtime": 1793401981.968755,
+    "seen": 1793469776.6788576,
+    "ast_hash": "8db8eeb5829b3f5dce505fdd07f853b1",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-season-window.json": {
+    "mtime": 1793401981.968755,
+    "seen": 1793469776.678858,
+    "ast_hash": "f13b2b357ba42fba27c3ecaae4da823b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-seed-reinvestment.json": {
+    "mtime": 1793401981.968755,
+    "seen": 1793469776.6788588,
+    "ast_hash": "edc3aebf46a0cf272356cd33b5b8753a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/farming-substrate-match.json": {
+    "mtime": 1793401981.9697552,
+    "seen": 1793469776.6788592,
+    "ast_hash": "b2b25caf26282890f3fea3d30661c9a0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-bait-loadout.json": {
+    "mtime": 1793401981.9697552,
+    "seen": 1793469776.6788597,
+    "ast_hash": "5d3acf73423429fa3b3d5184ab3b560d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-bite-window.json": {
+    "mtime": 1793401981.9697552,
+    "seen": 1793469776.678861,
+    "ast_hash": "e77244ccce7213809271b52c6a0455f9",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-cast-placement.json": {
+    "mtime": 1793401981.9697552,
+    "seen": 1793469776.6788614,
+    "ast_hash": "7b5d421d805f79a7b98253118bdac6f3",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-equipment-access.json": {
+    "mtime": 1793401981.9697552,
+    "seen": 1793469776.6788619,
+    "ast_hash": "d916001d52ca94356ef19dbfa13ace3a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-habitat-search.json": {
+    "mtime": 1793401981.970755,
+    "seen": 1793469776.6788626,
+    "ast_hash": "b07939eff3d37b7e9b0348ef7ea700dd",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-line-tension.json": {
+    "mtime": 1793401981.970755,
+    "seen": 1793469776.678863,
+    "ast_hash": "79764c93e2324d56665a9c6d619da89e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-passive-traps.json": {
+    "mtime": 1793401981.970755,
+    "seen": 1793469776.6788638,
+    "ast_hash": "482e3fc94a80c4b05e7aab68bc0a236b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-pond-production.json": {
+    "mtime": 1793401981.970755,
+    "seen": 1793469776.678865,
+    "ast_hash": "fd054845540d5dbbfbafad3293948790",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-target-tracking.json": {
+    "mtime": 1793401981.970755,
+    "seen": 1793469776.6788654,
+    "ast_hash": "35181d45689913a56484b92e8f026ac5",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/fishing-timed-contest.json": {
+    "mtime": 1793401981.9717548,
+    "seen": 1793469776.678866,
+    "ast_hash": "92f7cbad6ce380d27bcd55d54e5baa8f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-depth-targeting.json": {
+    "mtime": 1793401981.9717548,
+    "seen": 1793469776.6788666,
+    "ast_hash": "07c60a3b27dff75734767908b99e629c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-gathering-quota.json": {
+    "mtime": 1793401981.9717548,
+    "seen": 1793469776.6788673,
+    "ast_hash": "ff9f0a0d58b4565d92014ebd0c74d367",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-hidden-deposit-clues.json": {
+    "mtime": 1793401981.9717548,
+    "seen": 1793469776.6788683,
+    "ast_hash": "b667a900b9bd5387cecf8121d9f6c9db",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-oxygen-gathering.json": {
+    "mtime": 1793401981.9727552,
+    "seen": 1793469776.6788692,
+    "ast_hash": "eea9f8bbf82c02c3aef5aa49f34e8cc5",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-renewable-forage-route.json": {
+    "mtime": 1793401981.9727552,
+    "seen": 1793469776.67887,
+    "ast_hash": "8c2277bed3c390d1e12ce61f619f4c50",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-resource-detection.json": {
+    "mtime": 1793401981.9727552,
+    "seen": 1793469776.6788704,
+    "ast_hash": "75c05dace7c26a89311bb64fa5acca36",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-salvage-dismantling.json": {
+    "mtime": 1793401981.9727552,
+    "seen": 1793469776.6788712,
+    "ast_hash": "133180cecbcaff4e86d41c37f4eb5ad2",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-supply-mining.json": {
+    "mtime": 1793401981.9727552,
+    "seen": 1793469776.6788719,
+    "ast_hash": "95e06ace73a1b3d208063927879c0f7b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-tool-hardness.json": {
+    "mtime": 1793401981.973755,
+    "seen": 1793469776.6788723,
+    "ast_hash": "687e5d1d664d10a7b189df61a17132e1",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/gathering-volumetric-excavation.json": {
+    "mtime": 1793401981.973755,
+    "seen": 1793469776.678873,
+    "ast_hash": "f995f837b9bdf38a2681b33621dfcc9d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-allocate-progress-capacity.json": {
+    "mtime": 1793401981.973755,
+    "seen": 1793469776.6788735,
+    "ast_hash": "cfded989217efde84cff015b90f8cbb3",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-escalating-copy-price.json": {
+    "mtime": 1793401981.973755,
+    "seen": 1793469776.6788743,
+    "ast_hash": "2219ffa4c167f61702901bb1778348e0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-farm-or-push.json": {
+    "mtime": 1793401981.973755,
+    "seen": 1793469776.6788752,
+    "ast_hash": "5879a36cf4bb503445606578d52a30e7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-limited-team-dispatch.json": {
+    "mtime": 1793401981.974755,
+    "seen": 1793469776.6788757,
+    "ast_hash": "080e854aa763ba40a79ee5f0b2f2282a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-manual-to-passive.json": {
+    "mtime": 1793401981.974755,
+    "seen": 1793469776.6788764,
+    "ast_hash": "9f8441c7ce369e72b3ac9755e62e4269",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-offline-window.json": {
+    "mtime": 1793401981.974755,
+    "seen": 1793469776.678877,
+    "ast_hash": "c8d9e7cbc499029b92b6a89dbb88a6b0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-overlap-income-bursts.json": {
+    "mtime": 1793401981.974755,
+    "seen": 1793469776.6788776,
+    "ast_hash": "42652d331b0a47239f23917a59fb3af7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-quantity-milestones.json": {
+    "mtime": 1793401981.9757552,
+    "seen": 1793469776.6788785,
+    "ast_hash": "afabe7f42ec1d81c0c7598beaf9f20bb",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-spend-held-bonus.json": {
+    "mtime": 1793401981.9757552,
+    "seen": 1793469776.678879,
+    "ast_hash": "b6ce137fffe700504f7007fe90bdc4f1",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/incremental-spend-time-advance.json": {
+    "mtime": 1793401981.9757552,
+    "seen": 1793469776.6788797,
+    "ast_hash": "3e73dd821b32ada2a71831e66b98871d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/index.json": {
+    "mtime": 1793401981.9787533,
+    "seen": 1793469776.6788805,
+    "ast_hash": "b2b2584fb23645547b425881b81509b5",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-adjacency.json": {
+    "mtime": 1793401981.9787533,
+    "seen": 1793469776.6788812,
+    "ast_hash": "f5693a3cb6b9dc60683695ceab0e3e00",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-death-retrieval.json": {
+    "mtime": 1793401981.9787533,
+    "seen": 1793469776.6788821,
+    "ast_hash": "8ff05d345b87a16cc723a61aefe1a5c0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-deck-thinning.json": {
+    "mtime": 1793401981.9787533,
+    "seen": 1793469776.6788828,
+    "ast_hash": "cfb1b4f29b601d1bbfaa3349ed3cbd24",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-durability.json": {
+    "mtime": 1793401981.9787533,
+    "seen": 1793469776.6788836,
+    "ast_hash": "23c79470e925563d0f23f7b44231fd37",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-equipment-budget.json": {
+    "mtime": 1793401981.9797573,
+    "seen": 1793469776.678884,
+    "ast_hash": "3390f3e90894ef4dc92a7c8750e5bccc",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-identification.json": {
+    "mtime": 1793401981.9797573,
+    "seen": 1793469776.678885,
+    "ast_hash": "57ab682ac13df5d96351cfd108a60443",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-light-reserve.json": {
+    "mtime": 1793401981.9797573,
+    "seen": 1793469776.6788855,
+    "ast_hash": "8ed4e2c7693f1e6e6b8cda4f14920e00",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-shape-packing.json": {
+    "mtime": 1793401981.9797573,
+    "seen": 1793469776.6788862,
+    "ast_hash": "0bde86248bc1e457c80bc43f5108b1dc",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-stack-limits.json": {
+    "mtime": 1793401981.9797573,
+    "seen": 1793469776.678887,
+    "ast_hash": "d119c47caa379398bb8ea1186461ca4c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/inventory-weight-budget.json": {
+    "mtime": 1793401981.9807565,
+    "seen": 1793469776.6788874,
+    "ast_hash": "408df85752794c6d9e3ccb4117799b51",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-clear-under-cargo.json": {
+    "mtime": 1793401981.9807565,
+    "seen": 1793469776.678888,
+    "ast_hash": "539e041f29ac7b37b6f66d36ed25e55f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-combine-power-pieces.json": {
+    "mtime": 1793401981.9807565,
+    "seen": 1793469776.6788893,
+    "ast_hash": "22a0384b330b1dc0ce56a4230c4d8b7c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-complete-lines.json": {
+    "mtime": 1793401981.9807565,
+    "seen": 1793469776.6788902,
+    "ast_hash": "e1b0783731eafdce36138dc43a9a1aa2",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-gravity-cascade.json": {
+    "mtime": 1793401981.9807565,
+    "seen": 1793469776.678891,
+    "ast_hash": "b4ad7b5595bbd742029930ed476e5d6e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-merge-three-upgrade.json": {
+    "mtime": 1793401981.9817576,
+    "seen": 1793469776.6788917,
+    "ast_hash": "6044d0649d78c6d2e3a2d569f7b263fb",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-pattern-creates-power.json": {
+    "mtime": 1793401981.9817576,
+    "seen": 1793469776.6788926,
+    "ast_hash": "9e115abaf00c5a3ababbd46ea7a3934b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-slide-board-merge.json": {
+    "mtime": 1793401981.982226,
+    "seen": 1793469776.6788933,
+    "ast_hash": "9c1189b228297d23b4b7970539d3b4f8",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-swap-to-align.json": {
+    "mtime": 1793401981.982226,
+    "seen": 1793469776.6788938,
+    "ast_hash": "72afa0f3112150705a9b0f531699e305",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-tap-connected-group.json": {
+    "mtime": 1793401981.982226,
+    "seen": 1793469776.6788945,
+    "ast_hash": "89bc2adad62a86b14f3842b957d93fbd",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/matching-trace-color-chain.json": {
+    "mtime": 1793401981.9827287,
+    "seen": 1793469776.6788955,
+    "ast_hash": "02a2502769d49038f73b71d5b94740a4",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-auto-forward.json": {
+    "mtime": 1793401981.9827287,
+    "seen": 1793469776.6788962,
+    "ast_hash": "e4d041b63752030b3a71a8c2a9b9895e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-carry-object.json": {
+    "mtime": 1793401981.9827287,
+    "seen": 1793469776.6788967,
+    "ast_hash": "d0dcd5ba553c6129779a0fb05fa33fa2",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-downward-slam.json": {
+    "mtime": 1793401981.9827287,
+    "seen": 1793469776.6788974,
+    "ast_hash": "43875591b704eff8a85f1b07ee10ee63",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-ledge-catch.json": {
+    "mtime": 1793401981.9827287,
+    "seen": 1793469776.6788979,
+    "ast_hash": "5f1ebd7bbf0ad0b60128f0ff1b9a68b7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-low-slide.json": {
+    "mtime": 1793401981.983732,
+    "seen": 1793469776.6788983,
+    "ast_hash": "60fbe0b3209c7f15ce264eb09c74106e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-moving-platform.json": {
+    "mtime": 1793401981.983732,
+    "seen": 1793469776.6788993,
+    "ast_hash": "404c548b65a48011f600bd010f87bfda",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-run-walk-control.json": {
+    "mtime": 1793401981.983732,
+    "seen": 1793469776.6788998,
+    "ast_hash": "c52fc8f67fecb5b3e80169dc4ac4c91a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-short-retry.json": {
+    "mtime": 1793401981.983732,
+    "seen": 1793469776.6789005,
+    "ast_hash": "541742aaf942baf460c568eda165c12c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-target-bounce.json": {
+    "mtime": 1793401981.984733,
+    "seen": 1793469776.678901,
+    "ast_hash": "87351c8afc8aab8e7b8871a277468c9c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/movement-variable-jump.json": {
+    "mtime": 1793401981.984733,
+    "seen": 1793469776.6789017,
+    "ast_hash": "508c3a35106c1b7ce97820e10c8c258b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-background-dialogue-access.json": {
+    "mtime": 1793401981.9853334,
+    "seen": 1793469776.6789029,
+    "ast_hash": "1e450ea2ce820cc37bffc3ea2a408dc8",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-conversation-intervention.json": {
+    "mtime": 1793401981.9853334,
+    "seen": 1793469776.6789033,
+    "ast_hash": "2cea33198fc06921cced3ab217aa851b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-delayed-choice-consequences.json": {
+    "mtime": 1793401981.9853334,
+    "seen": 1793469776.678904,
+    "ast_hash": "5a2f6380641eae4b404b7ec273794fe6",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-deliberate-silence.json": {
+    "mtime": 1793401981.985892,
+    "seen": 1793469776.6789048,
+    "ast_hash": "382d9924ff25a7f32eb17b49f0204ace",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-evidence-rebuttal.json": {
+    "mtime": 1793401981.985892,
+    "seen": 1793469776.6789055,
+    "ast_hash": "908c81ec30904dd3aa01bcfcf4f4e2fd",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-investigation-time-slots.json": {
+    "mtime": 1793401981.985892,
+    "seen": 1793469776.6789067,
+    "ast_hash": "4a1aba44f3a1e42e242efbe90c11bb6b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-loop-event-schedule.json": {
+    "mtime": 1793401981.9864144,
+    "seen": 1793469776.6789072,
+    "ast_hash": "60f72e007c4e02c11b44f7040663a00b",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-perspective-handoff.json": {
+    "mtime": 1793401981.9864144,
+    "seen": 1793469776.6789079,
+    "ast_hash": "20b791e358eeeb922eb284a3f6afd5d6",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-service-as-response.json": {
+    "mtime": 1793401981.9869306,
+    "seen": 1793469776.6789086,
+    "ast_hash": "c1558675299d709af0dc52c66d074268",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/narrative-timed-response.json": {
+    "mtime": 1793401981.9869306,
+    "seen": 1793469776.6789093,
+    "ast_hash": "ea0250bd92a4fc0d84855949db036f9c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-challenge-tiers.json": {
+    "mtime": 1793401981.9869306,
+    "seen": 1793469776.6789098,
+    "ast_hash": "b6821c4ee45d5eda49fd778d81e85a39",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-death-loses-training.json": {
+    "mtime": 1793401981.9874432,
+    "seen": 1793469776.6789107,
+    "ast_hash": "fe858911ae2e376ab6f6881d177c7ad0",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-evolution-recipes.json": {
+    "mtime": 1793401981.9874432,
+    "seen": 1793469776.6789112,
+    "ast_hash": "a551a7d03a0b54151188b7ac92f06563",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-knowledge-gates.json": {
+    "mtime": 1793401981.9874432,
+    "seen": 1793469776.6789117,
+    "ast_hash": "03a11a441cf2f35261d2813d0759e792",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-permanent-run-currency.json": {
+    "mtime": 1793401981.9879587,
+    "seen": 1793469776.6789124,
+    "ast_hash": "06cb9d8a217c74c8571ef9330fba4590",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-practice-based-growth.json": {
+    "mtime": 1793401981.9879587,
+    "seen": 1793469776.678913,
+    "ast_hash": "a15cf27c75b3bd61133a5a2dc205d94f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-prestige-reset.json": {
+    "mtime": 1793401981.9884715,
+    "seen": 1793469776.6789138,
+    "ast_hash": "9748abaeb725bc5a0475adf6f48844d6",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-random-level-choices.json": {
+    "mtime": 1793401981.9884715,
+    "seen": 1793469776.6789145,
+    "ast_hash": "004b1d2a9a9645fef88f8dbd5c3208ee",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-research-prerequisites.json": {
+    "mtime": 1793401981.9884715,
+    "seen": 1793469776.6789153,
+    "ast_hash": "95739eff7b42da3d02b3b8cdfdcebab1",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-respec-investment.json": {
+    "mtime": 1793401981.988981,
+    "seen": 1793469776.6789157,
+    "ast_hash": "db5d111dffef9c060119024315545dca",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-specialization-branches.json": {
+    "mtime": 1793401981.988981,
+    "seen": 1793469776.6789167,
+    "ast_hash": "b29fa1b49f2941d768252d1f96ae1504",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/progression-successor-selection.json": {
+    "mtime": 1793401981.9894962,
+    "seen": 1793469776.6789172,
+    "ast_hash": "55274b00f866ed6c46174b446ce14dcb",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-active-reload.json": {
+    "mtime": 1793401981.9894962,
+    "seen": 1793469776.678918,
+    "ast_hash": "30036f0cd21abfd18d3f1ff3080c462d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-ballistic-arc.json": {
+    "mtime": 1793401981.9900105,
+    "seen": 1793469776.6789186,
+    "ast_hash": "ae5a8440dbd3bd535ec56de4aec2c0db",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-charged-release.json": {
+    "mtime": 1793401981.9900105,
+    "seen": 1793469776.6789193,
+    "ast_hash": "e22e4309b1ace42590135840912f6811",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-graze-reward.json": {
+    "mtime": 1793401981.9906774,
+    "seen": 1793469776.67892,
+    "ast_hash": "6840112739beea7486bd592aecf7c370",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-heat-pacing.json": {
+    "mtime": 1793401981.9911988,
+    "seen": 1793469776.6789205,
+    "ast_hash": "f58788c79d5da05b6ea974bbce9b9761",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-independent-aim.json": {
+    "mtime": 1793401981.9911988,
+    "seen": 1793469776.6789212,
+    "ast_hash": "501b3211848b09bff9e25793e3b7246d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-maintain-lock.json": {
+    "mtime": 1793401981.9917202,
+    "seen": 1793469776.678922,
+    "ast_hash": "942d52b1845da37df3284d4f523c525f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-piercing-line.json": {
+    "mtime": 1793401981.9917202,
+    "seen": 1793469776.6789224,
+    "ast_hash": "119a64d5bd5955c164571e872ecb9e89",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-spread-recovery.json": {
+    "mtime": 1793401981.9917202,
+    "seen": 1793469776.678923,
+    "ast_hash": "7e1d5895442151326153faf7ac735e7f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/projectiles-wall-ricochet.json": {
+    "mtime": 1793401981.9922462,
+    "seen": 1793469776.6789238,
+    "ast_hash": "3756fba512ee6bc2c49a8860bdf122a8",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-beam-routing.json": {
+    "mtime": 1793401981.9922462,
+    "seen": 1793469776.6789243,
+    "ast_hash": "12c04bd1858beb97ac8951eae1611804",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-box-pushing.json": {
+    "mtime": 1793401981.9922462,
+    "seen": 1793469776.678925,
+    "ast_hash": "c03c1a471dc6f4f377f2314b21208162",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-gravity.json": {
+    "mtime": 1793401981.992771,
+    "seen": 1793469776.6789258,
+    "ast_hash": "4caaa62b9eb4aa944a2f5e3daf84b38a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-language-decoding.json": {
+    "mtime": 1793401981.992771,
+    "seen": 1793469776.6789262,
+    "ast_hash": "b62955587653eb4c261d0ef5693ff5ad",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-linked-portals.json": {
+    "mtime": 1793401981.9932902,
+    "seen": 1793469776.6789272,
+    "ast_hash": "95818998c55f29bfafec1ad58d33b1d4",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-paper-folding.json": {
+    "mtime": 1793401981.9932902,
+    "seen": 1793469776.6789277,
+    "ast_hash": "2efb713b11a3aa38bce6d9f56b947596",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-perspective-reality.json": {
+    "mtime": 1793401981.9932902,
+    "seen": 1793469776.6789284,
+    "ast_hash": "4cb1611f7dfde7a2c0cc5d21108a1392",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-scene-deduction.json": {
+    "mtime": 1793401981.9938145,
+    "seen": 1793469776.6789289,
+    "ast_hash": "2c3e43d17950aaf44513400a0c47120e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-time-scrubbing.json": {
+    "mtime": 1793401981.9938145,
+    "seen": 1793469776.6789296,
+    "ast_hash": "7d97f1542ef80f96e6f6db6c0b00bc57",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/puzzles-visual-rule-learning.json": {
+    "mtime": 1793401981.9943273,
+    "seen": 1793469776.6789303,
+    "ast_hash": "055f0ccac609ccd87b585ff3cfb9cce3",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-bond-scenes.json": {
+    "mtime": 1793401981.9943273,
+    "seen": 1793469776.678931,
+    "ast_hash": "00a0b91acd22f976c5cfaa293f7cee8e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-companion-approval.json": {
+    "mtime": 1793401981.9943273,
+    "seen": 1793469776.6789315,
+    "ast_hash": "ff00a9e9f97f7d1907fc9ac99db34e3e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-daily-contact.json": {
+    "mtime": 1793401981.9948452,
+    "seen": 1793469776.6789322,
+    "ast_hash": "a2168046ef7f03ac012e6186fbe06803",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-date-itinerary.json": {
+    "mtime": 1793401981.9948452,
+    "seen": 1793469776.6789327,
+    "ast_hash": "5272aba4dceed8f673683d5cf4b0a7b6",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-dynastic-marriage.json": {
+    "mtime": 1793401981.9954255,
+    "seen": 1793469776.6789336,
+    "ast_hash": "9ab78c9c15938ed8f78e661bbfeaa0c5",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-faction-reputation.json": {
+    "mtime": 1793401981.9954255,
+    "seen": 1793469776.678934,
+    "ast_hash": "ee7c4843d1096beb0d31c1da36d3160a",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-gift-allocation.json": {
+    "mtime": 1793401981.9959595,
+    "seen": 1793469776.6789346,
+    "ast_hash": "b282f897623b168ddb075e7a7fb9263d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-persuasion-checks.json": {
+    "mtime": 1793401981.9959595,
+    "seen": 1793469776.6789353,
+    "ast_hash": "eede33c764f86d585cd85773b0a0a6e7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-relationship-commitment.json": {
+    "mtime": 1793401981.9959595,
+    "seen": 1793469776.6789358,
+    "ast_hash": "719a443a5715ec5824f1a1d0d37fe9bd",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/relationships-secrets-leverage.json": {
+    "mtime": 1793401981.996485,
+    "seen": 1793469776.6789365,
+    "ast_hash": "90cfff310b0c242a1582b4b96dbc5968",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/rhythm-cue-response.json": {
+    "mtime": 1793401981.996485,
+    "seen": 1793469776.6789372,
+    "ast_hash": "84394cb55a3194d9e87fb2518e294e7f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/rhythm-hidden-beats.json": {
+    "mtime": 1793401981.997028,
+    "seen": 1793469776.678938,
+    "ast_hash": "b90c6e929c803a8cd5e4dc70d5319991",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/rhythm-onbeat-actions.json": {
+    "mtime": 1793401981.997028,
+    "seen": 1793469776.6789384,
+    "ast_hash": "3cccb67905a9872c523d436b4200e4b5",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/rhythm-streak-multiplier.json": {
+    "mtime": 1793401981.9975684,
+    "seen": 1793469776.6789389,
+    "ast_hash": "2e6e857fd4dd4e27e8c45caad22bc70d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/rhythm-sustain-notes.json": {
+    "mtime": 1793401981.9975684,
+    "seen": 1793469776.6789396,
+    "ast_hash": "a9c8ae8c0e2568878fbaf7b4ce3d3123",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-body-concealment.json": {
+    "mtime": 1793401981.9980955,
+    "seen": 1793469776.6789405,
+    "ast_hash": "3df40f402a365b66840511c4a7c5e73f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-disguise-access.json": {
+    "mtime": 1793401981.9980955,
+    "seen": 1793469776.678941,
+    "ast_hash": "f430c5aabef6eb6b0cd05cfa62be3c4f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-hiding-spots.json": {
+    "mtime": 1793401981.9986198,
+    "seen": 1793469776.6789417,
+    "ast_hash": "7d02fe71859c1a365fb075c7246631dc",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-knockout-window.json": {
+    "mtime": 1793401981.9986198,
+    "seen": 1793469776.6789422,
+    "ast_hash": "3d63d9e6041f7a2b70670033849cae7d",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-light-shadow.json": {
+    "mtime": 1793401981.9986198,
+    "seen": 1793469776.678943,
+    "ast_hash": "c581a38f203452fcca1fcb931edc9d56",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-peeking.json": {
+    "mtime": 1793401981.9991407,
+    "seen": 1793469776.6789434,
+    "ast_hash": "c95f5b60e7ca4c3113f9917a6480e759",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-security-network.json": {
+    "mtime": 1793401981.9991407,
+    "seen": 1793469776.6789443,
+    "ast_hash": "bce9b2f240e8e01107aae95d3cd1c00c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-sound-lures.json": {
+    "mtime": 1793401981.9996605,
+    "seen": 1793469776.6789448,
+    "ast_hash": "bda167548c8e84df1f69d3e2da849c47",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-staged-accidents.json": {
+    "mtime": 1793401981.9996605,
+    "seen": 1793469776.6789455,
+    "ast_hash": "11b2a30634eb4e3b88d87ce7a89bd0eb",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/stealth-synchronized-actions.json": {
+    "mtime": 1793401981.9996605,
+    "seen": 1793469776.6789463,
+    "ast_hash": "1607acf658847d2aa5a24bb0ed44fb04",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-balanced-nutrition.json": {
+    "mtime": 1793401982.000181,
+    "seen": 1793469776.6789467,
+    "ast_hash": "67c7eb1a941e2ffb931e6bd47c0b078e",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-bleeding-triage.json": {
+    "mtime": 1793401982.000181,
+    "seen": 1793469776.6789477,
+    "ast_hash": "5c22c35711b01a1d6085867c1068f1b6",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-body-inspection.json": {
+    "mtime": 1793401982.000181,
+    "seen": 1793469776.6789482,
+    "ast_hash": "b1595ce9d590f8d6fe2ca52cbda4ca2c",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-competing-needs.json": {
+    "mtime": 1793401982.000181,
+    "seen": 1793469776.6789486,
+    "ast_hash": "5cfc33e2d7ef4d04c0ae4108fbca8c17",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-contagion-control.json": {
+    "mtime": 1793401982.000181,
+    "seen": 1793469776.6789494,
+    "ast_hash": "3e1e083309f1c9e360e5e96c91b8344f",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-fatigue-rest.json": {
+    "mtime": 1793401982.001186,
+    "seen": 1793469776.6789498,
+    "ast_hash": "a2e91e11d0998fea85a0d0b5965a1a03",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-limb-impairment.json": {
+    "mtime": 1793401982.001186,
+    "seen": 1793469776.6789503,
+    "ast_hash": "6c180594dbcb65cd58cae9719fc61344",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-safe-water.json": {
+    "mtime": 1793401982.001186,
+    "seen": 1793469776.67896,
+    "ast_hash": "c2ecfc1a4e69518115da7214a80947b7",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-stress-crisis.json": {
+    "mtime": 1793401982.001186,
+    "seen": 1793469776.6789608,
+    "ast_hash": "c450a304aa089929450b21780cbd26c1",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-temporary-relief.json": {
+    "mtime": 1793401982.001186,
+    "seen": 1793469776.6789615,
+    "ast_hash": "9c5a63429a158299a1045f1d839ce2f8",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-weather-exposure.json": {
+    "mtime": 1793401982.002186,
+    "seen": 1793469776.678962,
+    "ast_hash": "753491edff0e48d336f7bf9936f96495",
+    "semantic_hash": ""
+  },
+  "data/gameplay_atlas/raw/survival-wound-cleanliness.json": {
+    "mtime": 1793401982.002186,
+    "seen": 1793469776.6789627,
+    "ast_hash": "dc3f03d6ab4d1741bcaa1fcf6943f003",
+    "semantic_hash": ""
+  },
+  "scripts/gameplay_atlas.py": {
+    "mtime": 1793401982.0711763,
+    "seen": 1793469776.6799812,
+    "ast_hash": "f5ac0d40ae6c0ab7058e517aee68b032",
+    "semantic_hash": ""
+  },
+  "scripts/sync_gameplay_atlas.py": {
+    "mtime": 1793401982.0711763,
+    "seen": 1793469776.6802793,
+    "ast_hash": "827fbe989e1c7d113144b4f873fd9af3",
+    "semantic_hash": ""
+  },
+  "tests/test_gameplay_atlas_cli.py": {
+    "mtime": 1793401982.0716894,
+    "seen": 1793469776.6814861,
+    "ast_hash": "75dc09101ef253efde6d4fe0f3fff0c8",
+    "semantic_hash": ""
+  },
+  "tests/test_gameplay_atlas_db.py": {
+    "mtime": 1793401982.0716894,
+    "seen": 1793469776.681489,
+    "ast_hash": "834e0d5a6298152aa41a1d2ce1d3fdb0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/game-router/SKILL.md": {
+    "mtime": 1793401981.880252,
+    "seen": 1793469776.6865156,
+    "ast_hash": "307905a30cc17ad8b9cc218e21b36f6d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ai-behavior-trees-utility-ai/SKILL.md": {
+    "mtime": 1793401981.8807795,
+    "seen": 1793469776.6865182,
+    "ast_hash": "64085f3e11b1e238fc4492e24bcf508b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ai-behavior-trees-utility-ai/references/behavior-tree-core.md": {
+    "mtime": 1793401981.8813052,
+    "seen": 1793469776.6865196,
+    "ast_hash": "c73f4534ffbc5ec236d27f6f584937b1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ai-behavior-trees-utility-ai/references/best-practices-and-pitfalls.md": {
+    "mtime": 1793401981.8818312,
+    "seen": 1793469776.686521,
+    "ast_hash": "9371fd9b56d7c68fce97c4f40ef7be43",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ai-behavior-trees-utility-ai/references/practical-examples.md": {
+    "mtime": 1793401981.8818312,
+    "seen": 1793469776.6865225,
+    "ast_hash": "492f81e029bc1b9630cd7fe28c039714",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ai-behavior-trees-utility-ai/references/utility-ai-system.md": {
+    "mtime": 1793401981.8818312,
+    "seen": 1793469776.6865232,
+    "ast_hash": "9e299634ec904f5acb1a3131fd895f61",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-audio-design/SKILL.md": {
+    "mtime": 1793401981.8823636,
+    "seen": 1793469776.6865249,
+    "ast_hash": "1a95a913e6953558a0c7de9a85e47ab0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-audio-design/references/adaptive-music.md": {
+    "mtime": 1793401981.8823636,
+    "seen": 1793469776.6865263,
+    "ast_hash": "8f044fdd6e666d57689c4546a1a2ee9d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-bevy-ecs/SKILL.md": {
+    "mtime": 1793401981.8828828,
+    "seen": 1793469776.6865273,
+    "ast_hash": "a414244af8bbef5dafba4c14d7094b97",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-bevy-ecs/references/queries-and-scheduling.md": {
+    "mtime": 1793401981.883579,
+    "seen": 1793469776.6865284,
+    "ast_hash": "aebd90ad817bef87bfb3f0288c36ca94",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-camera-systems/SKILL.md": {
+    "mtime": 1793401981.883579,
+    "seen": 1793469776.6865294,
+    "ast_hash": "89c03c2e4afb1e4f4c2f55e3eb04a155",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-camera-systems/references/follow-and-framing.md": {
+    "mtime": 1793401981.8841102,
+    "seen": 1793469776.6865304,
+    "ast_hash": "ae4464a4c03ee6efe10ee7aba344e072",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-card-game/SKILL.md": {
+    "mtime": 1793401981.8841102,
+    "seen": 1793469776.686531,
+    "ast_hash": "12d3f584e00790c7c07ae1707e3d9b82",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-card-game/references/effect-resolution.md": {
+    "mtime": 1793401981.8846369,
+    "seen": 1793469776.686532,
+    "ast_hash": "76bddf66d905bbb45b006d710c123239",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/SKILL.md": {
+    "mtime": 1793401981.885157,
+    "seen": 1793469776.6865332,
+    "ast_hash": "df350c5440afc4db455642225f4636f7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/agents/openai.yaml": {
+    "mtime": 1793401981.885157,
+    "seen": 1793469776.6865342,
+    "ast_hash": "0c15b346c8afd6b5664c365d6850c0da",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/assets/art-direction-brief.md": {
+    "mtime": 1793401981.885157,
+    "seen": 1793469776.686535,
+    "ast_hash": "5d168a84f4ea0e8868859950b96bfc58",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/references/art-direction.md": {
+    "mtime": 1793401981.8856795,
+    "seen": 1793469776.6865356,
+    "ast_hash": "dddb5016cf29bdc6a57f103be395ad97",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/references/provenance.md": {
+    "mtime": 1793401981.8856795,
+    "seen": 1793469776.6865366,
+    "ast_hash": "e5b00b05c1483356a68a98b250961b2a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/references/raster-pipeline.md": {
+    "mtime": 1793401981.8862076,
+    "seen": 1793469776.6865373,
+    "ast_hash": "1d5ae9a62ce98547fe75fa8047ff5f8d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/references/three-d-pipeline.md": {
+    "mtime": 1793401981.8862076,
+    "seen": 1793469776.6865385,
+    "ast_hash": "7d77df2524d56336b5c0cc63c0babb31",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-create-game-assets/scripts/requirements.txt": {
+    "mtime": 1793401981.8867333,
+    "seen": 1793469776.686539,
+    "ast_hash": "7873b1bf1a2adb1ee6d6211b11f14589",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-defold-core/SKILL.md": {
+    "mtime": 1793401981.887256,
+    "seen": 1793469776.68654,
+    "ast_hash": "8011a0c2f685fc42199a2320bc1aa8ec",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-defold-core/agents/openai.yaml": {
+    "mtime": 1793401981.887256,
+    "seen": 1793469776.6865408,
+    "ast_hash": "e0942ed1b36aec387e63018aa7fd01c0",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-defold-core/references/build-and-run.md": {
+    "mtime": 1793401981.8877807,
+    "seen": 1793469776.6865413,
+    "ast_hash": "c04b58fb795ab91c7f8fdf0caeaab63b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-defold-core/references/file-formats.md": {
+    "mtime": 1793401981.8877807,
+    "seen": 1793469776.686542,
+    "ast_hash": "ac370c062da27e85a46e7941f6e8099e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-dialogue-systems/SKILL.md": {
+    "mtime": 1793401981.8887856,
+    "seen": 1793469776.6865427,
+    "ast_hash": "95de45dace2edce5ae73587ce1e19f46",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-dialogue-systems/references/ink-and-yarn.md": {
+    "mtime": 1793401981.8887856,
+    "seen": 1793469776.6865437,
+    "ast_hash": "2662095fddda3fc53825de65d503b0cc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-dialogue-systems/references/runner.md": {
+    "mtime": 1793401981.8887856,
+    "seen": 1793469776.6865447,
+    "ast_hash": "cae4d98d966d8c03d9089d1c2912eeeb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/SKILL.md": {
+    "mtime": 1793401981.8887856,
+    "seen": 1793469776.6865456,
+    "ast_hash": "99abe07b4549b99a8e03eac139c140f2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/agents/openai.yaml": {
+    "mtime": 1793401981.8897858,
+    "seen": 1793469776.686546,
+    "ast_hash": "022f7adbb5ce076f819ff4258ab8d392",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/ci/github-actions.yml": {
+    "mtime": 1793401981.8897858,
+    "seen": 1793469776.6865473,
+    "ast_hash": "bbd8f53111746f1bfe3d0623b8418300",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/licenses/Go-Fonts.txt": {
+    "mtime": 1793401981.8907857,
+    "seen": 1793469776.686548,
+    "ast_hash": "272dd5550c56340f852add564d2b20e1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/assets/starter/web/index.html": {
+    "mtime": 1793401981.8917854,
+    "seen": 1793469776.6865487,
+    "ast_hash": "f74a595a9b210360795166309be826ee",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/architecture-and-testing.md": {
+    "mtime": 1793401981.8917854,
+    "seen": 1793469776.6865494,
+    "ast_hash": "e1ce095ba9205d2c4d3e1cb5474d57b1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/assets-and-animation.md": {
+    "mtime": 1793401981.8917854,
+    "seen": 1793469776.68655,
+    "ast_hash": "ad17ccfacc9aca4dcdc3585308546dbb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/audio.md": {
+    "mtime": 1793401981.8927846,
+    "seen": 1793469776.6865509,
+    "ast_hash": "ded31a8661f12a5261bf08477cb8abc5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/ci-and-release.md": {
+    "mtime": 1793401981.8927846,
+    "seen": 1793469776.6865516,
+    "ast_hash": "810ec5f717e8c5614f88635c071b5c02",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/design-and-quality.md": {
+    "mtime": 1793401981.8931253,
+    "seen": 1793469776.6865523,
+    "ast_hash": "389cace322ea79480d4d9827b6473c58",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/gameplay-systems.md": {
+    "mtime": 1793401981.8931253,
+    "seen": 1793469776.686554,
+    "ast_hash": "de55beec99e5247c0f939f60cb720374",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/input.md": {
+    "mtime": 1793401981.8936276,
+    "seen": 1793469776.6865547,
+    "ast_hash": "4806a0545cd7c7061ab514e474ef40d4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/monetization.md": {
+    "mtime": 1793401981.8936276,
+    "seen": 1793469776.6865554,
+    "ast_hash": "deacb5c9038b5d8374f8c36b899e1d02",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/networking.md": {
+    "mtime": 1793401981.8941362,
+    "seen": 1793469776.686556,
+    "ast_hash": "2bd936a4ad6a26a6894d7c66370cf498",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/playtest-diagnostics.md": {
+    "mtime": 1793401981.8941362,
+    "seen": 1793469776.6865573,
+    "ast_hash": "a92adb266a64b9fc1f7f3f5371ce0416",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/project-and-builds.md": {
+    "mtime": 1793401981.8941362,
+    "seen": 1793469776.6865582,
+    "ast_hash": "1108ce6d4ffb84f23aef391b64cb95d6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/publishing-and-platforms.md": {
+    "mtime": 1793401981.8946536,
+    "seen": 1793469776.686559,
+    "ast_hash": "66cfab3a12909d415bba8570274b057b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/rendering.md": {
+    "mtime": 1793401981.8946536,
+    "seen": 1793469776.6865606,
+    "ast_hash": "15c46ae3b5cdaa536f427df6db7f6986",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/text-and-ui.md": {
+    "mtime": 1793401981.8951774,
+    "seen": 1793469776.6865618,
+    "ast_hash": "6a553d43b957470d4c031f90083457df",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-ebitengine-game/references/tilemaps.md": {
+    "mtime": 1793401981.8951774,
+    "seen": 1793469776.6865625,
+    "ast_hash": "3dd5ee96a053c9ed0a43d32ab87ce40e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-fps-shooter/SKILL.md": {
+    "mtime": 1793401981.896289,
+    "seen": 1793469776.6865635,
+    "ast_hash": "7a16a6a8ac955aa470c4674ae37d441f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-fps-shooter/references/shooting-and-feel.md": {
+    "mtime": 1793401981.896289,
+    "seen": 1793469776.6865647,
+    "ast_hash": "be2f0d3035292c7f90212bcc0fb57fea",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-ai/SKILL.md": {
+    "mtime": 1793401981.8968115,
+    "seen": 1793469776.6865654,
+    "ast_hash": "f92041d1f6dbd2ff9d16cd180a9d2d1a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-ai/references/behavior-trees.md": {
+    "mtime": 1793401981.8968115,
+    "seen": 1793469776.6865659,
+    "ast_hash": "d6db7f1233ac912eadba36dad01c364e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-ai/references/pathfinding.md": {
+    "mtime": 1793401981.8968115,
+    "seen": 1793469776.6865668,
+    "ast_hash": "c6664981442341cb08c6623e5037e23a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-feel/SKILL.md": {
+    "mtime": 1793401981.8973317,
+    "seen": 1793469776.6865683,
+    "ast_hash": "d45a53dfa9c5253e67c4c1070beedd36",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-feel/references/feedback-recipes.md": {
+    "mtime": 1793401981.8973317,
+    "seen": 1793469776.686569,
+    "ast_hash": "b118eb7aec92c9cca6dfea0a7f35b016",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-jam/SKILL.md": {
+    "mtime": 1793401981.8978486,
+    "seen": 1793469776.6865697,
+    "ast_hash": "d81da4f19fc8828e35b98fa4abbe6cde",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-ui-ux/SKILL.md": {
+    "mtime": 1793401981.8978486,
+    "seen": 1793469776.6865706,
+    "ast_hash": "1963fe3e45342efe1944b70280bcb511",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-game-ui-ux/references/layout-and-flow.md": {
+    "mtime": 1793401981.898368,
+    "seen": 1793469776.6865716,
+    "ast_hash": "490910eef1722f6e34a4e34268901d59",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-2d-movement/SKILL.md": {
+    "mtime": 1793401981.898368,
+    "seen": 1793469776.6865728,
+    "ast_hash": "a3ac25115fbea58bdbca42e0956e5f3d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-2d-movement/references/controller-recipes.md": {
+    "mtime": 1793401981.89904,
+    "seen": 1793469776.6865737,
+    "ast_hash": "9e6daa8dc46b3dd2d23b56e0413e03a4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-3d-essentials/SKILL.md": {
+    "mtime": 1793401981.89904,
+    "seen": 1793469776.6865747,
+    "ast_hash": "2c7419f34e9e9d565cbd524bb501779a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-3d-essentials/references/scene-and-environment.md": {
+    "mtime": 1793401981.8995612,
+    "seen": 1793469776.6865754,
+    "ast_hash": "0a9167ae8ab53b9e3eb45d45d47309d9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-animation/SKILL.md": {
+    "mtime": 1793401981.8995612,
+    "seen": 1793469776.6865761,
+    "ast_hash": "52a6c0698fb5b486cafedf9c11b56ab6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-animation/references/animation-tree-and-tween.md": {
+    "mtime": 1793401981.900087,
+    "seen": 1793469776.6865768,
+    "ast_hash": "022ffc81c67d288b7e7eb4703e65e231",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-audio/SKILL.md": {
+    "mtime": 1793401981.900087,
+    "seen": 1793469776.6865776,
+    "ast_hash": "9cf34be7ba64df1fbfc5ced8f5e44b84",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-audio/references/buses-and-effects.md": {
+    "mtime": 1793401981.9006047,
+    "seen": 1793469776.6865788,
+    "ast_hash": "3c10f8fbf674d8a95480163964c62e5b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-csharp/SKILL.md": {
+    "mtime": 1793401981.9006047,
+    "seen": 1793469776.6865792,
+    "ast_hash": "447e6550bb8d39a5b025cacf046fab39",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-csharp/references/csharp-setup-and-interop.md": {
+    "mtime": 1793401981.9006047,
+    "seen": 1793469776.6865802,
+    "ast_hash": "a99c8a738ecc7ab4b9613b9b901bc7af",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-export/SKILL.md": {
+    "mtime": 1793401981.9011228,
+    "seen": 1793469776.6865816,
+    "ast_hash": "5ab8f7d96401c3def223cf978263cc6c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-export/references/presets-and-cli.md": {
+    "mtime": 1793401981.9011228,
+    "seen": 1793469776.6865823,
+    "ast_hash": "49d3b505bc54dc18b26694c84e844545",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-gdscript-headless-testing/SKILL.md": {
+    "mtime": 1793401981.9016404,
+    "seen": 1793469776.6865828,
+    "ast_hash": "4bd1e37a8a4a990e91c3c593c9e0298b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-gdscript/SKILL.md": {
+    "mtime": 1793401981.9016404,
+    "seen": 1793469776.6865838,
+    "ast_hash": "d9bb56ab8f13a00ec5167ef18ce579c7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-gdscript/references/annotations-and-typing.md": {
+    "mtime": 1793401981.902161,
+    "seen": 1793469776.6865845,
+    "ast_hash": "7d69ed2decaca5bfb831b22455de25a2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-multiplayer/SKILL.md": {
+    "mtime": 1793401981.9026794,
+    "seen": 1793469776.6865857,
+    "ast_hash": "b5e60eb0abf8f34aac94a188809df7e6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-multiplayer/references/replication-and-rpc.md": {
+    "mtime": 1793401981.9026794,
+    "seen": 1793469776.6865866,
+    "ast_hash": "94e40cd4025c8c753b389cd949c77201",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-nodes-scenes/SKILL.md": {
+    "mtime": 1793401981.9032085,
+    "seen": 1793469776.686587,
+    "ast_hash": "695c008f50b86aa54bc0aca7de1fa569",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-nodes-scenes/references/tree-and-instancing.md": {
+    "mtime": 1793401981.9032085,
+    "seen": 1793469776.6865878,
+    "ast_hash": "79cfdf7d449cf763a13344895c253709",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-physics/SKILL.md": {
+    "mtime": 1793401981.9042501,
+    "seen": 1793469776.686589,
+    "ast_hash": "c66bd95536056395a2574a148ca95a23",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-physics/references/bodies-and-queries.md": {
+    "mtime": 1793401981.9042501,
+    "seen": 1793469776.6865897,
+    "ast_hash": "ce23550a2b18a26dc7c0581e2a8d3ca8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-resources/SKILL.md": {
+    "mtime": 1793401981.9047747,
+    "seen": 1793469776.6865902,
+    "ast_hash": "15cdc2aebccb82f2d1508711e2334f43",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-resources/references/resource-patterns.md": {
+    "mtime": 1793401981.9047747,
+    "seen": 1793469776.686591,
+    "ast_hash": "60bbe8f8a24b60f44dc9a6f08b43cd96",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-shaders/SKILL.md": {
+    "mtime": 1793401981.9047747,
+    "seen": 1793469776.686592,
+    "ast_hash": "f70ae6f3f8034397306739667ed0bffe",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-shaders/references/shading-language.md": {
+    "mtime": 1793401981.905297,
+    "seen": 1793469776.6865926,
+    "ast_hash": "4526b71f9c77a8c5b2181b058edfebec",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-signals-groups/SKILL.md": {
+    "mtime": 1793401981.905297,
+    "seen": 1793469776.6865933,
+    "ast_hash": "dda5509783deea7b304001afa2b2777a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-signals-groups/references/signal-patterns.md": {
+    "mtime": 1793401981.9058125,
+    "seen": 1793469776.6865942,
+    "ast_hash": "ce8ef0b9bdf9d062f53a685bf1e6f41d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-tilemap/SKILL.md": {
+    "mtime": 1793401981.9058125,
+    "seen": 1793469776.686595,
+    "ast_hash": "3c0229e1400d83bf88567f90ab0273da",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-tilemap/references/tileset-and-terrains.md": {
+    "mtime": 1793401981.9063334,
+    "seen": 1793469776.6865962,
+    "ast_hash": "6f5582962a4e25a6b2a13eee64da399e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-ui-control/SKILL.md": {
+    "mtime": 1793401981.9063334,
+    "seen": 1793469776.686597,
+    "ast_hash": "e1be6f1889f367ad4ec3409c73bba352",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-godot-ui-control/references/layout-and-theming.md": {
+    "mtime": 1793401981.9068506,
+    "seen": 1793469776.6865978,
+    "ast_hash": "a49c70ba87fa8c6846ba6468d56c344f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-input-systems/SKILL.md": {
+    "mtime": 1793401981.9068506,
+    "seen": 1793469776.686599,
+    "ast_hash": "9e4ee60e28614da73565e163e37b8e4b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-input-systems/references/buffering-and-accessibility.md": {
+    "mtime": 1793401981.907366,
+    "seen": 1793469776.6866,
+    "ast_hash": "8f2d5baf042451e23f04ca5e77b9f7ca",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-itch-publish/SKILL.md": {
+    "mtime": 1793401981.907366,
+    "seen": 1793469776.6866012,
+    "ast_hash": "5c988771b254c008f837671c368c829b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-itch-publish/references/butler-ci.md": {
+    "mtime": 1793401981.9078813,
+    "seen": 1793469776.6866019,
+    "ast_hash": "beec62c80a7e02399cd386ef6482daaf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-level-design/SKILL.md": {
+    "mtime": 1793401981.9078813,
+    "seen": 1793469776.6866026,
+    "ast_hash": "45dae079d76ad902f76083e84c8f98f9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-level-design/references/pacing-and-flow.md": {
+    "mtime": 1793401981.908399,
+    "seen": 1793469776.6866035,
+    "ast_hash": "5b2e0fa360cc1d8a263ec47e66366101",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-love2d-core/SKILL.md": {
+    "mtime": 1793401981.908399,
+    "seen": 1793469776.686604,
+    "ast_hash": "6df41ddb43fe78909f9b8948ca4eec53",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-love2d-core/references/state-stack.md": {
+    "mtime": 1793401981.908399,
+    "seen": 1793469776.6866047,
+    "ast_hash": "97a3db249f70595313215d213ef64df3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-performance-optimization/SKILL.md": {
+    "mtime": 1793401981.9089153,
+    "seen": 1793469776.686606,
+    "ast_hash": "e5d445263b07cd15541a0efbbbf4a847",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-performance-optimization/references/profiling-and-budgets.md": {
+    "mtime": 1793401981.9089153,
+    "seen": 1793469776.6866066,
+    "ast_hash": "bae1af2616c21102a39ec5417a36f0d9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-phaser-arcade-physics/SKILL.md": {
+    "mtime": 1793401981.9094388,
+    "seen": 1793469776.6866074,
+    "ast_hash": "d924df2461f0a70747d6270cfa3733ad",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-phaser-arcade-physics/references/bodies-and-collision.md": {
+    "mtime": 1793401981.9094388,
+    "seen": 1793469776.6866083,
+    "ast_hash": "790106bada0dd67fcd63bc1458f55fe1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-phaser-core/SKILL.md": {
+    "mtime": 1793401981.909958,
+    "seen": 1793469776.6866095,
+    "ast_hash": "7d2f17115e6d8bbf6ec99bb4db06225f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-phaser-core/references/scene-flow.md": {
+    "mtime": 1793401981.909958,
+    "seen": 1793469776.6866102,
+    "ast_hash": "527fb56b2c07087e2c8dbb47bee8758a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-physics-tuning/SKILL.md": {
+    "mtime": 1793401981.9104772,
+    "seen": 1793469776.6866107,
+    "ast_hash": "b408ad1f617565fc4637ea232da015af",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-physics-tuning/references/timestep-and-ccd.md": {
+    "mtime": 1793401981.9104772,
+    "seen": 1793469776.6866117,
+    "ast_hash": "e1639e85b2b066ce67f512c9360e3a70",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-pixijs-rendering/SKILL.md": {
+    "mtime": 1793401981.9109964,
+    "seen": 1793469776.6866124,
+    "ast_hash": "06c37c5502643e4c98d1e015247c6678",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-pixijs-rendering/references/assets-and-display.md": {
+    "mtime": 1793401981.9109964,
+    "seen": 1793469776.686614,
+    "ast_hash": "6582cf979b37b2f23f8b7dc7b230be80",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-platformer/SKILL.md": {
+    "mtime": 1793401981.9115164,
+    "seen": 1793469776.6866148,
+    "ast_hash": "dc3eeb069fea001f801a9db4153adfd4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-platformer/references/feel-tuning.md": {
+    "mtime": 1793401981.9115164,
+    "seen": 1793469776.6866152,
+    "ast_hash": "92139d7c7667e74525124b6a007f004a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-procedural-gen/SKILL.md": {
+    "mtime": 1793401981.9115164,
+    "seen": 1793469776.6866164,
+    "ast_hash": "d0bd518a5afd28e677b080fff42c9f5b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-procedural-gen/references/dungeon-generation.md": {
+    "mtime": 1793401981.9115164,
+    "seen": 1793469776.686617,
+    "ast_hash": "7e8e216a5a434232cad2a1efb8797bcd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-procedural-gen/references/noise.md": {
+    "mtime": 1793401981.9115164,
+    "seen": 1793469776.6866179,
+    "ast_hash": "eacc6908e3928a68c38cafacf3393b43",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-prototype-fast/SKILL.md": {
+    "mtime": 1793401981.9125187,
+    "seen": 1793469776.6866186,
+    "ast_hash": "4df48a4817ceec06664cab6b8c2ed4a6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-puzzle/SKILL.md": {
+    "mtime": 1793401981.9125187,
+    "seen": 1793469776.68662,
+    "ast_hash": "40d71e955f3a6909fa5e9600704d7fb1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-puzzle/references/board-and-resolution.md": {
+    "mtime": 1793401981.9125187,
+    "seen": 1793469776.6866207,
+    "ast_hash": "538d148fbb4be8ae0514a2dfff7ffa6e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-pygame-core/SKILL.md": {
+    "mtime": 1793401981.9125187,
+    "seen": 1793469776.6866214,
+    "ast_hash": "73b2a44f261ae70bebb6af76c443e018",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-pygame-core/references/sprites-and-collision.md": {
+    "mtime": 1793401981.9135203,
+    "seen": 1793469776.6866224,
+    "ast_hash": "b4ac78b47a139a80dbcd6588877c5b10",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-characters/SKILL.md": {
+    "mtime": 1793401981.9135203,
+    "seen": 1793469776.6866229,
+    "ast_hash": "9396882c7a7e3a506b60d96a02ed9431",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-characters/agents/openai.yaml": {
+    "mtime": 1793401981.9135203,
+    "seen": 1793469776.6866238,
+    "ast_hash": "d3d161aeeb4a4908c279f5d16ccf6d3f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-characters/references/lifecycle-and-animation.md": {
+    "mtime": 1793401981.9145205,
+    "seen": 1793469776.6866248,
+    "ast_hash": "6b6c2002d6bf83436e7cad4d95874f3e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-datastores/SKILL.md": {
+    "mtime": 1793401981.9145205,
+    "seen": 1793469776.6866255,
+    "ast_hash": "5ae4679d07fd2d71ba57cfc34ccaad34",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-datastores/references/sessions-and-limits.md": {
+    "mtime": 1793401981.9145205,
+    "seen": 1793469776.6866262,
+    "ast_hash": "b64f7b08f116662d59e0ac8284156bf7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-luau/SKILL.md": {
+    "mtime": 1793401981.9145205,
+    "seen": 1793469776.686627,
+    "ast_hash": "dc727e0082538c6437ae5ff209aa15b7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-luau/references/client-server.md": {
+    "mtime": 1793401981.9155202,
+    "seen": 1793469776.6866276,
+    "ast_hash": "386d6fdbc697acd6deb669f08d64d79c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-networking/SKILL.md": {
+    "mtime": 1793401981.9155202,
+    "seen": 1793469776.6866286,
+    "ast_hash": "48f80b28b15a513e9c6ad0323b38ca7f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-networking/agents/openai.yaml": {
+    "mtime": 1793401981.9155202,
+    "seen": 1793469776.6866295,
+    "ast_hash": "2108098dc902309786c43e5c57322543",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-networking/references/validation-and-testing.md": {
+    "mtime": 1793401981.9155202,
+    "seen": 1793469776.6866305,
+    "ast_hash": "5333cedaf7018c4ec192b9423d1b374e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-physics/SKILL.md": {
+    "mtime": 1793401981.9165199,
+    "seen": 1793469776.686631,
+    "ast_hash": "2099282d4db795baa71ae0abb87b051e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-physics/agents/openai.yaml": {
+    "mtime": 1793401981.9165199,
+    "seen": 1793469776.686632,
+    "ast_hash": "bc61adff60384bf1c886b16c5ab84c7f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-physics/references/queries-and-ownership.md": {
+    "mtime": 1793401981.9165199,
+    "seen": 1793469776.6866326,
+    "ast_hash": "7b98cac57745774774e473ea396b75d4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-simulator-economy/SKILL.md": {
+    "mtime": 1793401981.9165199,
+    "seen": 1793469776.6866336,
+    "ast_hash": "1c71ee540e2d2ed46976d0b81db26bed",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-simulator-economy/agents/openai.yaml": {
+    "mtime": 1793401981.9175196,
+    "seen": 1793469776.6866345,
+    "ast_hash": "5a0190c2855d86fdf6695674256b4601",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-simulator-economy/references/formulas.md": {
+    "mtime": 1793401981.9175196,
+    "seen": 1793469776.6866355,
+    "ast_hash": "79e6fc4da752d7df6d371039349d150f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-simulator-economy/references/server-patterns.md": {
+    "mtime": 1793401981.9175196,
+    "seen": 1793469776.6866362,
+    "ast_hash": "c7236e3e1cd33c0a7897e89599c64ceb",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-studio-workflow/SKILL.md": {
+    "mtime": 1793401981.9185193,
+    "seen": 1793469776.6866372,
+    "ast_hash": "e420ec54789b61c0bbed32923a5230fe",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-studio-workflow/agents/openai.yaml": {
+    "mtime": 1793401981.9185193,
+    "seen": 1793469776.6866379,
+    "ast_hash": "e6b347c55c4f9d4ff643e15b234e3a54",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-studio-workflow/references/studio-verification.md": {
+    "mtime": 1793401981.9195201,
+    "seen": 1793469776.6866386,
+    "ast_hash": "50bf259e71698400014ac02ac43636b7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-ui/SKILL.md": {
+    "mtime": 1793401981.9195201,
+    "seen": 1793469776.6866395,
+    "ast_hash": "c9c0688d99581e4ed5d3df91a5b3409f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-ui/agents/openai.yaml": {
+    "mtime": 1793401981.9195201,
+    "seen": 1793469776.6866405,
+    "ast_hash": "def31120c12e783cb064514359db61f7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-ui/references/input-navigation.md": {
+    "mtime": 1793401981.92052,
+    "seen": 1793469776.686641,
+    "ast_hash": "fecc57d51b5857a383dbde1bd93c0a8b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roblox-ui/references/responsive-layout.md": {
+    "mtime": 1793401981.92052,
+    "seen": 1793469776.6866417,
+    "ast_hash": "a5b7f59951925f9e56e31ed4076922d4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roguelike/SKILL.md": {
+    "mtime": 1793401981.92052,
+    "seen": 1793469776.6866424,
+    "ast_hash": "5b9a02b7d4f4a482fbaa38c011519705",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-roguelike/references/generation-fov-loot.md": {
+    "mtime": 1793401981.9215202,
+    "seen": 1793469776.6866431,
+    "ast_hash": "32f62cc80af12af6bcfa012ea33974d5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-router/SKILL.md": {
+    "mtime": 1793401981.9215202,
+    "seen": 1793469776.6866443,
+    "ast_hash": "6878f9833e54ca2b32cb13ec3939145f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-router/agents/openai.yaml": {
+    "mtime": 1793401981.9215202,
+    "seen": 1793469776.686645,
+    "ast_hash": "5777d4f90e91718aa3b0827986617953",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-router/references/custom-engines.md": {
+    "mtime": 1793401981.9215202,
+    "seen": 1793469776.6866457,
+    "ast_hash": "b0926c5a1fc0899e1cff56b8471bebb2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-router/references/engine-detection.md": {
+    "mtime": 1793401981.92252,
+    "seen": 1793469776.6866462,
+    "ast_hash": "25640e68b54108e06a6e742eecbb2b55",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-router/references/routing-table.md": {
+    "mtime": 1793401981.92252,
+    "seen": 1793469776.6866474,
+    "ast_hash": "feac48b98ad8cad232d3807111bcfade",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-rpg/SKILL.md": {
+    "mtime": 1793401981.92252,
+    "seen": 1793469776.6866481,
+    "ast_hash": "12b25a38157188304588cd80da5c139d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-rpg/references/stats-combat-quests.md": {
+    "mtime": 1793401981.92252,
+    "seen": 1793469776.6866486,
+    "ast_hash": "2e1f327f967a549283550eae53e27da3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-save-systems/SKILL.md": {
+    "mtime": 1793401981.92252,
+    "seen": 1793469776.6866496,
+    "ast_hash": "50a3f06836cf8c74266475dc01738c53",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-save-systems/references/versioning-and-migration.md": {
+    "mtime": 1793401981.92252,
+    "seen": 1793469776.6866505,
+    "ast_hash": "a20fd44174197f67d6c43f46fb1ce686",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-shader-programming/SKILL.md": {
+    "mtime": 1793401981.9240227,
+    "seen": 1793469776.6866515,
+    "ast_hash": "12b1b989697e5589c87418bc3d8d3591",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-shader-programming/references/effects.md": {
+    "mtime": 1793401981.9240227,
+    "seen": 1793469776.6866522,
+    "ast_hash": "08ac9536265a7b1ad262a37cca2b9db3",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-steam-publish/SKILL.md": {
+    "mtime": 1793401981.9240227,
+    "seen": 1793469776.686653,
+    "ast_hash": "7129f4637267cb70c9a2a9df0a3369ce",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-steam-publish/references/steampipe-build-scripts.md": {
+    "mtime": 1793401981.925026,
+    "seen": 1793469776.6866536,
+    "ast_hash": "85df620501477b7af1fc7a0b229dd667",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-survival-crafting/SKILL.md": {
+    "mtime": 1793401981.92568,
+    "seen": 1793469776.6866546,
+    "ast_hash": "79b3e5da5694b62f0e90442ab092c6b6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-survival-crafting/references/needs-and-crafting.md": {
+    "mtime": 1793401981.92568,
+    "seen": 1793469776.6866553,
+    "ast_hash": "aca3f8a854e48a35c2f6ca99e92f4a68",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-threejs-gltf-loading/SKILL.md": {
+    "mtime": 1793401981.9262016,
+    "seen": 1793469776.6866562,
+    "ast_hash": "33a39cd300ccd7fb67a5861ea7d43432",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-threejs-gltf-loading/references/loaders-and-animation.md": {
+    "mtime": 1793401981.9262016,
+    "seen": 1793469776.686657,
+    "ast_hash": "7bf03c88ddb0ff60dcab29b1464876ae",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-threejs-materials-lighting/SKILL.md": {
+    "mtime": 1793401981.9267154,
+    "seen": 1793469776.686658,
+    "ast_hash": "58ff1c4f0621ba99bb009c8480cd3f3e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-threejs-materials-lighting/references/materials-lights-table.md": {
+    "mtime": 1793401981.9267154,
+    "seen": 1793469776.6866589,
+    "ast_hash": "e4acb51a929d634fcbc444bb83e33ac8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-threejs-scene-setup/SKILL.md": {
+    "mtime": 1793401981.927234,
+    "seen": 1793469776.6866596,
+    "ast_hash": "028afd878e871d39153ef2acc72242b6",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-threejs-scene-setup/references/scene-graph.md": {
+    "mtime": 1793401981.927234,
+    "seen": 1793469776.6866603,
+    "ast_hash": "963a04d2be3d5ce5165342c09dea1b7e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-tower-defense/SKILL.md": {
+    "mtime": 1793401981.9277453,
+    "seen": 1793469776.686661,
+    "ast_hash": "f5a25ea90934f6f95c2ce2e0f8fd948a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-tower-defense/references/balancing.md": {
+    "mtime": 1793401981.9277453,
+    "seen": 1793469776.6866617,
+    "ast_hash": "be7061cfddb94938611acc6e6e939355",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-animation/SKILL.md": {
+    "mtime": 1793401981.9282608,
+    "seen": 1793469776.6866627,
+    "ast_hash": "b8f9a37c968d639ef169c44079515768",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-animation/references/blend-trees-and-ik.md": {
+    "mtime": 1793401981.9282608,
+    "seen": 1793469776.6866634,
+    "ast_hash": "fc3453337c4f97cdfdc80a0cfc91ce6c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-build-pipeline/SKILL.md": {
+    "mtime": 1793401981.9287724,
+    "seen": 1793469776.6866639,
+    "ast_hash": "99445ed72874af546611fac41673e0b7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-build-pipeline/references/ci-build-script.md": {
+    "mtime": 1793401981.929605,
+    "seen": 1793469776.6866648,
+    "ast_hash": "da54818f33edf3e1fc8c1d21851f2c8f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-csharp-scripting/SKILL.md": {
+    "mtime": 1793401981.930109,
+    "seen": 1793469776.6866658,
+    "ast_hash": "6cd02a85baaf5e73f5bb45ea9c3955bf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-csharp-scripting/references/lifecycle-and-coroutines.md": {
+    "mtime": 1793401981.930109,
+    "seen": 1793469776.6866665,
+    "ast_hash": "d7566fd26624fde3c5884793c79fc6e7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-input-system/SKILL.md": {
+    "mtime": 1793401981.9306319,
+    "seen": 1793469776.6866672,
+    "ast_hash": "5b1854a2b473bea95b255ef311161f80",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-input-system/references/rebinding.md": {
+    "mtime": 1793401981.9311497,
+    "seen": 1793469776.686668,
+    "ast_hash": "0f3c37094bad7c9f9951ef3ee1fa1467",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-navmesh/SKILL.md": {
+    "mtime": 1793401981.9316645,
+    "seen": 1793469776.686669,
+    "ast_hash": "1ce9ef9261a13861f22c3ba89da88f6a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-physics/SKILL.md": {
+    "mtime": 1793401981.9316645,
+    "seen": 1793469776.6866698,
+    "ast_hash": "0ebadf3b94cc835f6ba03a9892ad8a7d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-physics/references/raycasting-and-joints.md": {
+    "mtime": 1793401981.932184,
+    "seen": 1793469776.6866705,
+    "ast_hash": "04aa7183a13cdc6e324d96e438e8a726",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-scriptableobjects/SKILL.md": {
+    "mtime": 1793401981.932184,
+    "seen": 1793469776.686671,
+    "ast_hash": "ebe529ca1c97d4020944eb05eea07889",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-scriptableobjects/references/event-channels.md": {
+    "mtime": 1793401981.932184,
+    "seen": 1793469776.686672,
+    "ast_hash": "b7310db3ae4be4f4fc9eebe10c22935f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unity-tilemap-2d/SKILL.md": {
+    "mtime": 1793401981.9327097,
+    "seen": 1793469776.686673,
+    "ast_hash": "baffda7a04d82bfde0f8e1c2c1c03ae9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-behavior-trees/SKILL.md": {
+    "mtime": 1793401981.9332366,
+    "seen": 1793469776.6866736,
+    "ast_hash": "8f8b54fe0e5abfdca8fa375b16ea0040",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-behavior-trees/references/custom-bttask.md": {
+    "mtime": 1793401981.9332366,
+    "seen": 1793469776.6866744,
+    "ast_hash": "e4092a87f42f62794a9f39054a621e9f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-blueprints/SKILL.md": {
+    "mtime": 1793401981.9337525,
+    "seen": 1793469776.6866753,
+    "ast_hash": "bf0fc4679aff7c8d75292c1ea017fab4",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-blueprints/references/communication.md": {
+    "mtime": 1793401981.9337525,
+    "seen": 1793469776.686676,
+    "ast_hash": "7e0c89b20a6cc4a64ee1f680cd9a0e51",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-cpp-gameplay/SKILL.md": {
+    "mtime": 1793401981.9342637,
+    "seen": 1793469776.6866767,
+    "ast_hash": "1ff8bb8c54ee571d787a2806e2f1ce10",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-cpp-gameplay/references/components-and-gc.md": {
+    "mtime": 1793401981.9342637,
+    "seen": 1793469776.6866775,
+    "ast_hash": "4817850eef030a66b9b01ae80eb5ed42",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-enhanced-input/SKILL.md": {
+    "mtime": 1793401981.9347823,
+    "seen": 1793469776.6866784,
+    "ast_hash": "639c50a2d8eefe40352364a3808cf2ba",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-enhanced-input/references/cpp-setup.md": {
+    "mtime": 1793401981.9347823,
+    "seen": 1793469776.6866791,
+    "ast_hash": "5cfc8c522289113dfa9e4eb692755776",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-niagara/SKILL.md": {
+    "mtime": 1793401981.9352953,
+    "seen": 1793469776.6866798,
+    "ast_hash": "d018383d5b0389d3ce74ef7e3dea7946",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-unreal-packaging/SKILL.md": {
+    "mtime": 1793401981.9352953,
+    "seen": 1793469776.6866806,
+    "ast_hash": "b860733a93575837a51fe0f42acdcc85",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-visual-novel/SKILL.md": {
+    "mtime": 1793401981.9358144,
+    "seen": 1793469776.6866813,
+    "ast_hash": "4adaac31b11a47b1e8f5ac09a9863adc",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gamedev-visual-novel/references/script-and-flow.md": {
+    "mtime": 1793401981.9363256,
+    "seen": 1793469776.6866822,
+    "ast_hash": "ad540f1105e58002d2184f0f2d2468a9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/gameplay-atlas/SKILL.md": {
+    "mtime": 1793401981.9363256,
+    "seen": 1793469776.6866827,
+    "ast_hash": "fa26ca49bae487271ce7ca22e3c86817",
+    "semantic_hash": ""
+  },
+  "docs/EXECUTIVE_STORY.md": {
+    "mtime": 1792993361.1394823,
+    "seen": 1793396524.0858636,
+    "ast_hash": "321f7138d59fb5d0114925dbf8b121b5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/spec-review/SKILL.md": {
+    "mtime": 1793469324.3889782,
+    "seen": 1793469776.6922174,
+    "ast_hash": "d2c64aece5c21c3673ac6c1679ec3378",
+    "semantic_hash": ""
+  },
+  "docs/HARNESS_STORY.md": {
+    "mtime": 1793466896.1932044,
+    "seen": 1793469776.695764,
+    "ast_hash": "57b9ce57037776fbfcab7beca4c47f5a",
+    "semantic_hash": ""
+  },
+  "docs/story.html": {
+    "mtime": 1793466960.047827,
+    "seen": 1793469776.6961982,
+    "ast_hash": "e0c9e003131e96d3ca326b39de0147eb",
+    "semantic_hash": ""
+  },
+  "references/standards/comprehension-standard.md": {
+    "mtime": 1793468893.527452,
+    "seen": 1793469776.6964328,
+    "ast_hash": "16a230adc7465ca9c28133845321cb47",
+    "semantic_hash": ""
+  },
+  "references/standards/feature-spec-standard.md": {
+    "mtime": 1793468909.0783978,
+    "seen": 1793469776.6964343,
+    "ast_hash": "3841c0ecab8bf308e6f623c99628baac",
+    "semantic_hash": ""
+  },
+  "references/standards/implementation-readiness-standard.md": {
+    "mtime": 1793468924.0206342,
+    "seen": 1793469776.6964352,
+    "ast_hash": "577a3318c12e2461a03ccbaf5cdf1dbf",
+    "semantic_hash": ""
+  },
+  "references/standards/zoom-out-standard.md": {
+    "mtime": 1793468877.2396574,
+    "seen": 1793469776.6964364,
+    "ast_hash": "db44d638b887775f30e5035a73537127",
+    "semantic_hash": ""
+  }
+}

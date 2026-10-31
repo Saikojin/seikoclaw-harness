@@ -88,5 +88,51 @@ class TestGates(unittest.TestCase):
         self.assertIsNotNone(claimed)
         self.assertEqual(claimed["id"], t_open)
 
+    def test_spec_review_gate_lifecycle(self):
+        t_spec = self.graph.create_task("Author Auth Spec", gate_type="spec_review")
+        t_impl = self.graph.create_task("Implement Auth Core")
+        self.graph.add_dependency(t_spec, t_impl, edge_type="blocks")
+
+        # Downstream blocked initially
+        frontier = self.graph.get_ready_frontier()
+        self.assertNotIn(t_impl, [t["id"] for t in frontier])
+
+        # Evaluate gate initially
+        sat, reason = self.gates.evaluate_gate(t_spec)
+        self.assertFalse(sat)
+        self.assertIn("isolated spec review", reason)
+
+        # Attempt certification with a blocking issue (Must fail)
+        rej_ok, rej_msg = self.gates.certify_spec_review_gate(
+            t_spec,
+            spec_path="docs/designs/auth.md",
+            reviewer="Goldfish-Synthesizer",
+            blocking_issues_count=1,
+            notes="Missing session eviction state model"
+        )
+        self.assertFalse(rej_ok)
+        self.assertIn("REJECTED", rej_msg)
+
+        # Clean certification across 5 stages with 0 blockers (Must pass)
+        pass_ok, pass_msg = self.gates.certify_spec_review_gate(
+            t_spec,
+            spec_path="docs/designs/auth.md",
+            reviewer="Goldfish-Synthesizer",
+            blocking_issues_count=0,
+            stages_completed=["zoom_out", "comprehension", "critic", "zoom_out_intermediate", "readiness"],
+            notes="Zero blocking issues across all 5 stages."
+        )
+        self.assertTrue(pass_ok)
+        self.assertIn("certified", pass_msg)
+
+        # Task closed, gate passed, downstream unblocked
+        task = self.graph.get_task(t_spec)
+        self.assertEqual(task["status"], "closed")
+        self.assertEqual(task["gate_status"], "passed")
+        self.assertEqual(task["gate_metadata"]["spec_path"], "docs/designs/auth.md")
+
+        frontier_after = self.graph.get_ready_frontier()
+        self.assertIn(t_impl, [t["id"] for t in frontier_after])
+
 if __name__ == "__main__":
     unittest.main()

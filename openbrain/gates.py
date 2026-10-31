@@ -65,6 +65,12 @@ class GateEngine:
                 self._set_gate_status(task_id, "passed")
                 return True, f"Adversarial interrogation passed by {meta.get('reviewer_model', 'reviewer')}."
             return False, "Awaiting multi-model adversarial interrogation review (/interrogate)."
+        elif gate_type == "spec_review":
+            meta = task.get("gate_metadata", {})
+            if meta.get("spec_review_passed") and meta.get("blocking_issues_count", 0) == 0:
+                self._set_gate_status(task_id, "passed")
+                return True, f"Spec review passed by {meta.get('reviewer', 'spec-reviewer')}."
+            return False, "Awaiting 5-stage isolated spec review (/spec-review)."
         elif gate_type == "human":
             return False, "Awaiting explicit human operator approval."
         elif gate_type == "test":
@@ -184,6 +190,62 @@ class GateEngine:
             conn.commit()
 
         return True, f"Task {task_id} cleared adversarial interrogation by {reviewer_model}. Downstream frontier unblocked."
+
+    def certify_spec_review_gate(
+        self,
+        task_id: str,
+        spec_path: str = "",
+        reviewer: str = "spec-review-synthesizer",
+        stages_completed: Optional[list] = None,
+        findings: Optional[list] = None,
+        blocking_issues_count: int = 0,
+        notes: str = ""
+    ) -> Tuple[bool, str]:
+        """
+        Certifies a Spec Review gate:
+        - Rejects if any blocking issues / correctness flaws are flagged (blocking_issues_count > 0)
+        - Records findings, reviewer, spec_path, completed stages, and timestamp in gate metadata
+        - Sets gate_status to passed and closes task upon successful certification, unblocking the downstream ready frontier
+        """
+        task = self.graph.get_task(task_id)
+        if not task:
+            return False, f"Task {task_id} not found."
+
+        findings = findings or []
+        detected_blockers = sum(1 for f in findings if isinstance(f, dict) and f.get("severity") in ("blocker", "critical", "p0"))
+        total_blockers = max(blocking_issues_count, detected_blockers)
+        if total_blockers > 0:
+            self._set_gate_status(task_id, "failed")
+            return False, f"Spec Review Certification REJECTED: {total_blockers} blocking issue(s) remaining for '{spec_path or 'spec'}'."
+
+        stages = stages_completed or ["zoom_out", "comprehension", "critic", "zoom_out_intermediate", "readiness"]
+
+        meta = task.get("gate_metadata", {})
+        meta["spec_review_passed"] = True
+        meta["spec_path"] = spec_path
+        meta["reviewer"] = reviewer
+        meta["stages_completed"] = stages
+        meta["findings"] = findings
+        meta["blocking_issues_count"] = 0
+        meta["spec_certified_at"] = datetime.now().isoformat()
+        meta["notes"] = notes
+
+        with self.graph._get_conn() as conn:
+            conn.execute(
+                """
+                UPDATE task_nodes
+                SET gate_status = 'passed',
+                    gate_metadata = ?,
+                    status = 'closed',
+                    closed_at = CURRENT_TIMESTAMP,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+                """,
+                (json.dumps(meta), task_id)
+            )
+            conn.commit()
+
+        return True, f"Spec for task {task_id} ('{spec_path}') certified by {reviewer} across {len(stages)} stages. Downstream frontier unblocked."
 
     def approve_human_gate(self, task_id: str, approver: str = "user", notes: str = "") -> bool:
         task = self.graph.get_task(task_id)
