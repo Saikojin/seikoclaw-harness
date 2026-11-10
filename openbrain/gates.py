@@ -71,6 +71,14 @@ class GateEngine:
                 self._set_gate_status(task_id, "passed")
                 return True, f"Spec review passed by {meta.get('reviewer', 'spec-reviewer')}."
             return False, "Awaiting 5-stage isolated spec review (/spec-review)."
+        elif gate_type == "disproof":
+            meta = task.get("gate_metadata", {})
+            if meta.get("is_falsified"):
+                return False, f"Candidate in task {task_id} was FALSIFIED by {meta.get('verifier', 'disproof-verifier')}."
+            if meta.get("disproof_passed") and meta.get("source_trace_verified"):
+                self._set_gate_status(task_id, "passed")
+                return True, f"Disproof gate passed by {meta.get('verifier', 'disproof-verifier')}."
+            return False, "Awaiting independent adversarial disproof verification (/gate:disproof)."
         elif gate_type == "human":
             return False, "Awaiting explicit human operator approval."
         elif gate_type == "test":
@@ -246,6 +254,94 @@ class GateEngine:
             conn.commit()
 
         return True, f"Spec for task {task_id} ('{spec_path}') certified by {reviewer} across {len(stages)} stages. Downstream frontier unblocked."
+
+    def certify_disproof_gate(
+        self,
+        task_id: str,
+        verifier: str = "adversarial-disproof-verifier",
+        candidate_falsified: bool = False,
+        source_trace_verified: bool = True,
+        disproof_attempts: list = None,
+        notes: str = ""
+    ) -> Tuple[bool, str]:
+        """
+        Certifies an Adversarial Disproof gate (derived from Cloudflare security-audit methodology):
+        - If candidate_falsified is True, the vulnerability/claim was successfully disproved. Gate is marked
+          failed/rejected, halting false positive progression.
+        - If source_trace_verified is False, candidate has missing links or unverified assumptions;
+          gate certification is rejected with needs_validation.
+        - If not candidate_falsified and source_trace_verified is True, candidate survived active
+          falsification and has complete source trace (confirmed). Gate passes and task closes.
+        """
+        task = self.graph.get_task(task_id)
+        if not task:
+            return False, f"Task {task_id} not found."
+
+        meta = task.get("gate_metadata", {})
+        meta["verifier"] = verifier
+        meta["disproof_certified_at"] = datetime.now().isoformat()
+        meta["disproof_attempts"] = disproof_attempts or []
+        meta["notes"] = notes
+
+        if candidate_falsified:
+            meta["disproof_passed"] = False
+            meta["is_falsified"] = True
+            meta["verdict"] = "rejected"
+            with self.graph._get_conn() as conn:
+                conn.execute(
+                    """
+                    UPDATE task_nodes
+                    SET gate_status = 'failed',
+                        gate_metadata = ?,
+                        updated_at = CURRENT_TIMESTAMP
+                    WHERE id = ?
+                    """,
+                    (json.dumps(meta), task_id)
+                )
+                conn.commit()
+            return False, f"Candidate in task {task_id} was successfully FALSIFIED by {verifier}. Marked rejected; downstream exploit progression halted."
+
+        if not source_trace_verified:
+            meta["disproof_passed"] = False
+            meta["source_trace_verified"] = False
+            meta["verdict"] = "needs_validation"
+            with self.graph._get_conn() as conn:
+                conn.execute(
+                    """
+                    UPDATE task_nodes
+                    SET gate_status = 'failed',
+                        gate_metadata = ?,
+                        updated_at = CURRENT_TIMESTAMP
+                    WHERE id = ?
+                    """,
+                    (json.dumps(meta), task_id)
+                )
+                conn.commit()
+            return False, f"Disproof Certification REJECTED: Candidate in task {task_id} lacks complete source trace (verdict: needs_validation)."
+
+        # Survived active disproof with full source trace
+        meta["disproof_passed"] = True
+        meta["is_falsified"] = False
+        meta["source_trace_verified"] = True
+        meta["verdict"] = "confirmed"
+
+        with self.graph._get_conn() as conn:
+            conn.execute(
+                """
+                UPDATE task_nodes
+                SET gate_status = 'passed',
+                    gate_metadata = ?,
+                    status = 'closed',
+                    closed_at = CURRENT_TIMESTAMP,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+                """,
+                (json.dumps(meta), task_id)
+            )
+            conn.commit()
+
+        attempts_count = len(disproof_attempts or [])
+        return True, f"Candidate in task {task_id} confirmed by {verifier} (survived {attempts_count} disproof attempts with verified source trace). Downstream frontier unblocked."
 
     def approve_human_gate(self, task_id: str, approver: str = "user", notes: str = "") -> bool:
         task = self.graph.get_task(task_id)

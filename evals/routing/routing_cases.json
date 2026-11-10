@@ -313,5 +313,15 @@
     "category": "gamedev_mechanics",
     "query": "Extract micro-slice prototyping recipe and player dilemmas for game mechanics",
     "expected": "gameplay-atlas"
+  },
+  {
+    "category": "security_audit",
+    "query": "Conduct a multi-phase security audit and vulnerability review for trust boundary violations",
+    "expected": "cloudflare-security-audit"
+  },
+  {
+    "category": "security_audit",
+    "query": "Perform codebase security audit with coverage ledger and candidate vulnerability disproof",
+    "expected": "cloudflare-security-audit"
   }
 ]

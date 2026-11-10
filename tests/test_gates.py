@@ -134,5 +134,70 @@ class TestGates(unittest.TestCase):
         frontier_after = self.graph.get_ready_frontier()
         self.assertIn(t_impl, [t["id"] for t in frontier_after])
 
+    def test_disproof_gate_lifecycle(self):
+        t_vuln = self.graph.create_task("Candidate SQL Injection in User Profile", gate_type="disproof")
+        t_remediate = self.graph.create_task("Apply Prepared Statement Fix")
+        self.graph.add_dependency(t_vuln, t_remediate, edge_type="blocks")
+
+        # 1. Initially pending and downstream blocked
+        sat, reason = self.gates.evaluate_gate(t_vuln)
+        self.assertFalse(sat)
+        self.assertIn("adversarial disproof verification", reason)
+        self.assertNotIn(t_remediate, [t["id"] for t in self.graph.get_ready_frontier()])
+
+        # 2. Candidate unproven without source trace (must fail with needs_validation)
+        nv_ok, nv_msg = self.gates.certify_disproof_gate(
+            t_vuln,
+            verifier="disproof-hunter",
+            candidate_falsified=False,
+            source_trace_verified=False,
+            notes="Missing trace from route handler to query execution."
+        )
+        self.assertFalse(nv_ok)
+        self.assertIn("needs_validation", nv_msg)
+        self.assertNotIn(t_remediate, [t["id"] for t in self.graph.get_ready_frontier()])
+
+        # 3. Candidate falsified (rejected)
+        falsified_ok, falsified_msg = self.gates.certify_disproof_gate(
+            t_vuln,
+            verifier="disproof-verifier-fresh",
+            candidate_falsified=True,
+            notes="ORM parameterization completely neutralizes injection."
+        )
+        self.assertFalse(falsified_ok)
+        self.assertIn("FALSIFIED", falsified_msg)
+        self.assertNotIn(t_remediate, [t["id"] for t in self.graph.get_ready_frontier()])
+        task_falsified = self.graph.get_task(t_vuln)
+        self.assertEqual(task_falsified["gate_status"], "failed")
+        self.assertEqual(task_falsified["gate_metadata"]["verdict"], "rejected")
+
+        # 4. Verified candidate surviving active disproof with full source trace
+        t_confirmed = self.graph.create_task("Confirmed Buffer Underflow in Packet Parser", gate_type="disproof")
+        t_patch = self.graph.create_task("Deploy Patch for Packet Parser")
+        self.graph.add_dependency(t_confirmed, t_patch, edge_type="blocks")
+
+        conf_ok, conf_msg = self.gates.certify_disproof_gate(
+            t_confirmed,
+            verifier="disproof-verifier-fresh",
+            candidate_falsified=False,
+            source_trace_verified=True,
+            disproof_attempts=[
+                {"attempt": 1, "technique": "check length boundary", "result": "underflow possible when len < 4"},
+                {"attempt": 2, "technique": "check sanitization wrapper", "result": "direct call without wrapper"}
+            ],
+            notes="Confirmed buffer underflow with concrete exploit trace."
+        )
+        self.assertTrue(conf_ok)
+        self.assertIn("confirmed", conf_msg)
+
+        task_confirmed = self.graph.get_task(t_confirmed)
+        self.assertEqual(task_confirmed["status"], "closed")
+        self.assertEqual(task_confirmed["gate_status"], "passed")
+        self.assertEqual(task_confirmed["gate_metadata"]["verdict"], "confirmed")
+        self.assertEqual(len(task_confirmed["gate_metadata"]["disproof_attempts"]), 2)
+
+        # Downstream patch task is now on ready frontier!
+        self.assertIn(t_patch, [t["id"] for t in self.graph.get_ready_frontier()])
+
 if __name__ == "__main__":
     unittest.main()

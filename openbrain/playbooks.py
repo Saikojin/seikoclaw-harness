@@ -257,6 +257,48 @@ PLAYBOOKS: Dict[str, Dict[str, Any]] = {
                 "gate_type": "qa"
             }
         ]
+    },
+    "security-audit": {
+        "name": "security-audit",
+        "description": "Multi-phase defensive security audit pipeline (Cloudflare methodology): reconnaissance, coverage-led hunting, adversarial disproof gating, schema-validated findings, record verification, and neutral reporting.",
+        "steps": [
+            {
+                "title": "Reconnaissance & Boundary Mapping (architecture.md, coverage-ledger.json)",
+                "description": "Map system architecture, trust boundaries, entry points, and initialize coverage-ledger.json validated via validate-coverage-ledger.cjs.",
+                "task_type": "wisp",
+                "gate_type": None
+            },
+            {
+                "title": "Coverage-Led Hunting Across Attack Classes (/cloudflare-security-audit)",
+                "description": "Dispatch isolated hunters across ledger units (AI/LLM, Binary, HTTP/Auth, Client) to identify candidate vulnerabilities.",
+                "task_type": "wisp",
+                "gate_type": None
+            },
+            {
+                "title": "Candidate Validation via Adversarial Disproof (/gate:disproof)",
+                "description": "Deploy fresh isolated verifiers whose explicit goal is to disprove each candidate finding. Confirm only candidates that survive disproof with full source traces.",
+                "task_type": "wisp",
+                "gate_type": "disproof"
+            },
+            {
+                "title": "Structured Output & Mechanical Schema Validation (validate-findings.cjs)",
+                "description": "Compile findings.json partitioned into confirmed, needs_validation, and rejected, validated strictly against report-schema.json.",
+                "task_type": "wisp",
+                "gate_type": "test"
+            },
+            {
+                "title": "Independent Record & Remediation Verification",
+                "description": "Fresh agent verifies final source claims and validates smallest effective remediation patches.",
+                "task_type": "wisp",
+                "gate_type": None
+            },
+            {
+                "title": "Target-Neutral Reporting (REPORT.md, FINDINGS-DETAIL.md)",
+                "description": "Generate final markdown reports derived directly from verified records and ledger: executive summary, full traces, and validation plans.",
+                "task_type": "wisp",
+                "gate_type": "qa"
+            }
+        ]
     }
 }
 

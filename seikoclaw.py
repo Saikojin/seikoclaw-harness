@@ -1001,6 +1001,8 @@ def main():
     parser.add_argument("--certify-qa", action="store_true", help="Certify task QA gate as passed (Seikojin-QA)")
     parser.add_argument("--certify-adversarial", action="store_true", help="Certify task adversarial interrogation gate as passed (/interrogate)")
     parser.add_argument("--certify-spec-review", action="store_true", help="Certify task spec review gate as passed (/spec-review)")
+    parser.add_argument("--certify-disproof", action="store_true", help="Certify task adversarial disproof gate (/gate:disproof)")
+    parser.add_argument("--falsified", action="store_true", help="Mark candidate hypothesis as falsified/disproved during disproof certification")
     parser.add_argument("--spec", type=str, default="", help="Path to specification file being certified")
     parser.add_argument("--blockers", type=int, default=0, help="Number of unaddressed blocking issues for spec review")
     parser.add_argument("--pass-rate", type=float, default=1.0, help="Test pass rate for Seikojin QA certification (1.0 = 100%%)")
@@ -1100,6 +1102,17 @@ def main():
                 spec_path=args.spec,
                 reviewer=args.worker,
                 blocking_issues_count=args.blockers,
+                notes=args.notes
+            )
+            print(f"[{'PASS' if ok else 'REJECT'}] {msg}")
+            if ok:
+                claw.graph.sync_to_file("task.md")
+        elif args.certify_disproof:
+            ok, msg = claw.gates.certify_disproof_gate(
+                args.task,
+                verifier=args.worker,
+                candidate_falsified=args.falsified,
+                source_trace_verified=True,
                 notes=args.notes
             )
             print(f"[{'PASS' if ok else 'REJECT'}] {msg}")
