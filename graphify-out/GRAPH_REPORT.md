@@ -1,17 +1,17 @@
-# Graph Report - SeikoClaw-Harness  (2026-10-31)
+# Graph Report - SeikoClaw-Harness  (2026-11-09)
 
 ## Corpus Check
-- 1056 files · ~898,275 words
+- 1080 files · ~938,237 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 10 file(s) not represented in the graph (top: (none) 5, .css 2, .tsv 1)
 
 ## Summary
-- 7300 nodes · 10006 edges · 695 communities (503 shown, 192 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 421 edges (avg confidence: 0.88)
+- 7622 nodes · 10546 edges · 727 communities (527 shown, 200 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 475 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `694ab2c2`
+- Built from commit: `641e3abf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -29,10 +29,10 @@
 - Animation Recipes
 - Model Context Protocol for Unreal Engine
 - Book-to-Skill Converter
-- extract_single_file
+- HeuristicFallbackProvider
 - MAP.md
 - SeikoClaw
-- fetch_asset_references.py
+- validate_blender_asset.py
 - 🏛️ Core Principles
 - Process
 - Arena
@@ -42,13 +42,13 @@
 - Apple Design
 - The Fixes
 - scan_generated_skill.py
-- HealthPatrol
+- ConversationHistorySyncer
 - test_polyhaven.py
 - Glossary
 - Breaking UI
 - template.sh
 - argparse
-- os
+- validate-findings.test.cjs
 - template.ps1
 - Finding Animation Opportunities
 - Animation Standards Reference
@@ -76,14 +76,14 @@
 - Output
 - The list
 - Patterns to detect and fix
-- json
+- sync_gameplay_atlas.py
 - Supported Slash Commands & Syntaxes
 - 2. The 5-Stage Autonomous Pipeline
 - During the session
 - How
-- tempfile
+- os
 - Filtering Principles
-- re
+- pathlib
 - Blender Director
 - Game Systems Modeler
 - reviewer-prompt.md
@@ -94,7 +94,7 @@
 - Output Format
 - 5. Production Guardrails & Gameplay Architecture Patterns
 - index-0jVwK8iL.js
-- Core Engineering Reference: Accessibility (a11y) Checklist
+- seikoclaw-frontend-taste/SKILL.md
 - Process
 - Figure it out
 - GDD Generator (Game Design Document Skill)
@@ -121,7 +121,7 @@
 - Seikoclaw Skill Extractor
 - Seikoclaw Test Memory
 - Task Checklist: [Feature / Task Goal]
-- Agent Authoring: Writing Skills, Workflows & Documents for Agents
+- validate-coverage-ledger.cjs
 - Benchmark checklist
 - Blast radius
 - Game Prototype Builder
@@ -130,23 +130,23 @@
 - Mood Board Curator (Reference & Mood Board Skill)
 - discovery_tax.py
 - Sections
-- Test-Driven Development
+- UsageMonitor
 - epistemics.md
 - Confidence Tiers
 - Issue tracker: Local Markdown
-- export_skills.py
+- confirmed
 - Poly Haven Asset Pipeline & Cross-Engine Bridge
-- Agent Guardrails & Command Denylist
+- ATTACK-CLASSES.md
 - design-red-flags.md
-- Pe
+- y
 - t
-- Interviewer Skill
+- Security Audit
 - Learnings Skill
-- Project
+- check_defold_project.py
 - Maintain a verification skill
-- Playtest Feedback Loop
-- Research & Deep Investigation Skill
-- retro/SKILL.md
+- BlendSwap 3D MCP & REST API Evaluation Guide
+- ku
+- validate-findings.cjs
 - SeikoClaw Harness Router
 - Persona: Seikojin QA Strategist (The Brain)
 - Phrasing Guide
@@ -156,7 +156,7 @@
 - SeikoClaw High-Rigor Operating Directive
 - SeikoClaw Task Recap
 - 📋 Execution Roadmap
-- Core Engineering Reference: Performance & Web Vitals Checklist
+- FUNCTIONS_REFERENCE.md
 - Remove AI code slop
 - hitl-loop.template.sh
 - Obsidian Flavored Markdown Skill
@@ -164,7 +164,7 @@
 - merge-safety.md
 - synthesizer.md
 - Persona: Seikojin QA Engineer (The Hands)
-- ExtractionError
+- blendswap_mcp_server.py
 - 5. Production Guardrails & Gameplay Architecture Patterns
 - SkillGater
 - PolyHavenCache
@@ -174,15 +174,15 @@
 - session-start.sh script
 - comment-sicko.md
 - NOTICE.md
-- sync_gameplay_atlas.py
+- seikoclaw.py
 - divergent-reviewer.md
 - judgment-reviewer.md
 - pdf_inspector_integration.py
 - utils.py
 - Export Pipeline
 - JSON Canvas Skill
-- epub.py
-- y
+- Workflow
+- Vault
 - book-to-skill
 - seikoclaw-harness
 - Obsidian CLI
@@ -194,34 +194,34 @@
 - 2. Tablebuddy & Atlas VTT Interoperability Architecture
 - unrealMCP
 - rationale-template.md
-- PolyHavenAPI
+- polyhaven.py
 - je
 - qf
 - Blender Python (bpy) Procedural Recipes for Game Development
 - 📋 Ready Frontier Execution Checklist (Completed Milestones)
-- zu
+- ef
 - Architect Skill & Hybrid DAG Planner
 - Roblox simulator economy
-- pf
+- ic
 - manifest.py
 - Hr
 - Yl
-- score.py
-- Do
+- replay.py
+- me
 - TaskGraph
 - Worst-Case Catalog
 - Phase Details
 - Pe
 - Project
-- BaseLLMProvider
+- Client-Side and Browser Hunting
 - The Quality Frontier: The SeikoClaw Harness Odyssey
-- dependencies.py
+- Feeling Native On Mobile
 - Reference Image Match Workflow
 - Reviewing Animations
-- TestGameplayAtlasDB
-- 3. Poly Haven Asset Ingestion Pipeline & Resolution Gating
-- rtf.py
-- Camera systems
+- EMBEDS.md
+- PolyHavenAPI
+- re
+- game-forge/SKILL.md
 - check_steam_build.py
 - Checker
 - Node
@@ -229,7 +229,7 @@
 - Master Router — Game-Development Skill Dispatcher
 - Bevy queries & scheduling detail (0.20)
 - Architecture and testing
-- match_local_path
+- .check_depot_files
 - Patterns
 - Bevy ECS
 - scenes.go
@@ -300,7 +300,7 @@
 - Unity Physics (Rigidbody / PhysX)
 - Unreal Blueprints (Visual Scripting)
 - Unreal Niagara VFX
-- three.js scene graph, cameras & cleanup (r150+)
+- .get_asset
 - Godot 3D Essentials (4.x)
 - Control layout & theming reference (Godot 4.7)
 - Level design
@@ -335,7 +335,7 @@
 - TestGameplayAtlasCLI
 - Follow & framing — depth for `camera-systems`
 - Card effect resolution and structure (depth)
-- game-forge/SKILL.md
+- preflightJsonText
 - Defold file formats (1.14.0)
 - sound.go
 - Project setup and builds
@@ -353,7 +353,7 @@
 - Survival needs, crafting trees, and building (depth)
 - Tower defense balancing and pathing (depth)
 - Visual novel script model and flow (depth)
-- game-router/SKILL.md
+- 🧠 One-Call Dispatch Algorithm
 - Best practices & pitfalls — performance, memory, hybrid AI
 - Raster, sprite, tile, background, and UI pipeline
 - input.go
@@ -362,7 +362,7 @@
 - Behavior trees, FSMs, and the blackboard
 - Feedback recipes — depth for `game-feel`
 - 3D scene & environment reference (Godot 4.7)
-- With vs. without SeikoClaw Harness: the ExerMart case study
+- AI, LLM, and Agent Hunting
 - Input buffering, game feel, devices, and accessibility
 - Phaser scene flow (Phaser 4.2; core lifecycle also applies to 3.90)
 - Dungeon and level generation
@@ -398,12 +398,12 @@
 - Blueprint communication: Cast vs Interface vs Event Dispatcher (UE 5.8)
 - Components, garbage collection & replication primer (UE 5.8 C++)
 - Enhanced Input — complete C++ Character (UE 5.8)
-- Gameplay Atlas
+- test
 - Utility AI system — curves, considerations, evaluator
 - Adaptive (dynamic) music
 - Art direction brief
 - Ink and Yarn Spinner — syntax cheat sheet
-- ol
+- HealthPatrol
 - drawCentered
 - Audio
 - Zoom Out Standard
@@ -416,23 +416,23 @@
 - Practical examples — guard AI, villager needs, hybrid agent
 - Asset rights and provenance
 - Working with custom and proprietary engines
-- book-to-skill/SKILL.md
+- test_economy_math.luau
 - Geometry Nodes
 - ebiten.Image
 - Assets that belong to one game
 - CI and release automation
 - Hard Surface Artist
 - From a passable demo to a store that closes sales
-- SeikoClaw: Agentic Coding Harness
+- three.js scene graph, cameras & cleanup (r150+)
 - Feature Specification Standard
 - Comprehension Standard
 - Implementation Readiness Standard
 - Genre & Competitor Analysis
-- Chapter 1: The Architecture of Discipline
-- 📕 Back of the Book
-- Skill Distribution & Sync Workflow
+- json
+- Create Game Assets
+- Cloud and Deployment Hunting
 - Asset Optimization
-- an
+- Un
 - Horror Style Specialist
 - Rendering
 - Rigging
@@ -486,8 +486,8 @@
 - Procedural Material Patterns
 - Photogrammetry Scan Cleanup
 - Facial Retopology
-- detect_structure
-- cmd_cache
+- README.md
+- TestTaskGraph
 - Combat Animation Timing
 - Modifier Stack Reference
 - Facial Topology
@@ -512,7 +512,7 @@
 - Palette Examples
 - ORM Packing
 - Trim Sheets
-- test_economy_math.luau
+- TestGates
 - Cartoon Style
 - Engine Import
 - Scatter Systems
@@ -522,7 +522,7 @@
 - Brush Guide
 - Texel Density
 - Vehicle Proportion Blockout
-- 3. Core Tool Reference
+- Data Isolation and Lifecycle Hunting
 - Before Building (Instant Gut-Check)
 - LOD Strategies
 - Body Proportions
@@ -537,7 +537,8 @@
 - Pixel Art Style
 - Prop Tiers & Budgets
 - Stop Motion / Craft Style
-- usage.md
+- SeikoClaw: Agentic Coding Harness
+- Desktop, Mobile, and Local IPC Hunting
 - Analog / Found Footage Horror
 - Apocalypse / Dystopia Worlds
 - Body Horror
@@ -701,18 +702,49 @@
 - bld-visual-console-eras/SKILL.md
 - voxel-characters.md
 - voxel-grid.md
+- Memory Safety, Binary, and Kernel Hunting
+- Protocols, RPC, and Messaging Hunting
+- Resource Exhaustion and Availability Hunting
+- HTTP-Protocol and Authentication Hunting
+- Show me your work
+- Vulnerability Hunting
+- Supply Chain and Release Hunting
+- xu
+- BlendSwapError
+- Patterns
+- Security Audit & Coverage Ledger Standard
+- parse_vdf
+- pr
+- A custom dialogue runner
+- loop-me/SKILL.md
+- Agent Authoring: Writing Skills, Workflows & Documents for Agents
+- Phase 6: Produce target-neutral reports from final records
+- Interviewer Skill
+- CALLOUTS.md
+- Knap
+- Test-Driven Development
+- Agent Guardrails & Command Denylist
+- Playtest Feedback Loop
+- Defuddle
+- retro/SKILL.md
+- Chapter 1: The Architecture of Discipline
+- ADR Skill
+- Step 8 — Generate supporting files
+- Coverage Loop Skill
+- Skill Distribution & Sync Workflow
+- an
 
 ## God Nodes (most connected - your core abstractions)
 1. `MemoryEngine` - 50 edges
 2. `w()` - 45 edges
 3. `y()` - 44 edges
-4. `TaskGraph` - 39 edges
+4. `TaskGraph` - 40 edges
 5. `ff()` - 38 edges
 6. `SeikoClaw` - 36 edges
 7. `ef()` - 33 edges
 8. `t()` - 31 edges
 9. `extract_single_file()` - 29 edges
-10. `Project` - 29 edges
+10. `confirmed()` - 29 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Yarn Spinner essentials` --references--> `or()`  [INFERRED]
@@ -729,31 +761,31 @@
 ## Import Cycles
 - None detected.
 
-## Communities (695 total, 192 thin omitted)
+## Communities (727 total, 200 thin omitted)
 
 ### Community 0 - "3. Core Tool Reference"
 Cohesion: 0.10
 Nodes (19): 1. System Architecture & Connection Protocol, 2. Project Setup & Quickstart, 3. Core Tool Reference, 4. Production Pipelines, 5. Execution Rules & Best Practices, 6. Troubleshooting & Health Checks, A. GameObject & Hierarchy Management, B. Component Authoring & Property Manipulation (+11 more)
 
 ### Community 1 - "MemoryEngine"
-Cohesion: 0.03
-Nodes (17): 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation, Consequences, Context, Decisions, 1. Autonomous Loop Architecture (`loop_until_goal`), 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation (+9 more)
+Cohesion: 0.04
+Nodes (15): 1. Harness Evaluation, Intentional Decisions, and Architectural Consolidation, Consequences, Context, Decisions, 1. Autonomous Loop Architecture (`loop_until_goal`), 2. Watchdog & Circuit-Breaker Integration (`HealthPatrol`), 4. Workspace Portability & Environment Configuration, 5. Persistence Layer Consolidation (+7 more)
 
 ### Community 2 - "Glossary of Terms"
 Cohesion: 0.04
 Nodes (43): Bard Talents (2d6 Table), Bard Titles, Bardic Arts, Chapter 1: The Bard Class, Class Fundamentals, Core Features & Abilities, Magical Dabbler, Presence (+35 more)
 
 ### Community 3 - "Blender Developer & 3D Procedural MCP Orchestrator"
-Cohesion: 0.10
-Nodes (20): 1. Robust Shader Node Lookup (Never Use Localized Names), 1. System Architecture & Connection Protocol, 2. Mesh Cleanup & Bounding Box Grounding, 2. Technical Art Skill Dispatcher & Decision Router (`bld-*` Suite), 3. Safe Dynamic Enums, 4. Idiomatic BPY Scripting Rules, 5. Game Asset Export Pipelines, 6. Mandatory Verification & Validation Protocol (BVVP) (+12 more)
+Cohesion: 0.08
+Nodes (26): 1. Robust Shader Node Lookup (Never Use Localized Names), 1. System Architecture & Connection Protocol, 2. Mesh Cleanup & Bounding Box Grounding, 2. Technical Art Skill Dispatcher & Decision Router (`bld-*` Suite), 3. Core Tool Reference, 3. Safe Dynamic Enums, 4. Idiomatic BPY Scripting Rules, 5. Game Asset Export Pipelines (+18 more)
 
 ### Community 4 - "3. Core Tool Reference"
 Cohesion: 0.10
 Nodes (19): 1. System Architecture & Connection Protocol, 2. Project Setup & Quickstart, 3. Core Tool Reference, 4. Production Pipelines, 5. Execution Rules & Best Practices, 6. Troubleshooting & Health Checks, A. GameObject & Hierarchy Management, B. Component Authoring & Property Manipulation (+11 more)
 
 ### Community 5 - "🎖️ Upstream Creators & Maintainers"
-Cohesion: 0.14
-Nodes (13): 10. Dave Rensin, Jim Quinn, Elise Ewing & The Google Elephant-Goldfish Model Contributors ([google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model)), 11. Arjun ([@arjun988](https://github.com/arjun988)) & the lender-skills Contributors ([arjun988/blender-skills](https://github.com/arjun988/blender-skills)), 1. Matt Pocock ([@mattpocockuk](https://github.com/mattpocock)), 2. David Andrej ([@davidandrej](https://github.com/davidandrej)), 3. Lauren Tan ([@poteto](https://github.com/poteto)) & Cursor Team, 4. Michael Denyer ([@michael-denyer](https://github.com/michael-denyer)), 5. Addy Osmani ([@addyosmani](https://github.com/addyosmani)), 6. Saikojin / SeikoClaw ([@Saikojin](https://github.com/Saikojin)) (+5 more)
+Cohesion: 0.17
+Nodes (12): 10. Dave Rensin, Jim Quinn, Elise Ewing & The Google Elephant-Goldfish Model Contributors ([google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model)), 11. Arjun ([@arjun988](https://github.com/arjun988)) & the blender-skills Contributors ([arjun988/blender-skills](https://github.com/arjun988/blender-skills)), 13. Steph Ango ([@kepano](https://github.com/kepano)) & the Obsidian Team ([kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)), 1. Matt Pocock ([@mattpocockuk](https://github.com/mattpocock)), 2. David Andrej ([@davidandrej](https://github.com/davidandrej)), 3. Lauren Tan ([@poteto](https://github.com/poteto)) & Cursor Team, 4. Michael Denyer ([@michael-denyer](https://github.com/michael-denyer)), 5. Addy Osmani ([@addyosmani](https://github.com/addyosmani)) (+4 more)
 
 ### Community 6 - "Game Tooling Catalog & Architectural Blueprints"
 Cohesion: 0.04
@@ -764,8 +796,8 @@ Cohesion: 0.04
 Nodes (36): Common pitfalls, How to search it, What good evidence looks like here, What this source contains, What to return, Common pitfalls, How to search it, Investigation patterns that tend to pay off (+28 more)
 
 ### Community 8 - "book-to-skill/README.md"
-Cohesion: 0.12
-Nodes (14): 404 — this page turned to a blank chapter, ❓ FAQ, ⚙️ How it works, 🏢 Beyond books, ⚖️ Copyright & fair use, ❓ FAQ, ⚙️ How it works, 📥 Install (+6 more)
+Cohesion: 0.09
+Nodes (17): 404 — this page turned to a blank chapter, ❓ FAQ, ⚙️ How it works, 📤 Publish your generated skill (optional), 🚀 Usage, 💬 What people do with it, 🏢 Beyond books, ⚖️ Copyright & fair use (+9 more)
 
 ### Community 9 - "8. Task specifications"
 Cohesion: 0.06
@@ -781,23 +813,19 @@ Nodes (22): Development, Setup, Testing Scripts, Troubleshooting, Unreal MCP, �
 
 ### Community 12 - "Book-to-Skill Converter"
 Cohesion: 0.10
-Nodes (20): reuse_is_safe(), Book-to-Skill Converter, cheatsheet.md, glossary.md, patterns.md, Philosophy, Skill Locations, Step 0 — Out-of-scope check (+12 more)
+Nodes (19): reuse_is_safe(), Book-to-Skill Converter, Philosophy, --private is the default; substitute --public ONLY under the visibility rule above, Skill Locations, Step 0 — Out-of-scope check, Step 10 — Cleanup and report, Step 1.5 — Identify content type (+11 more)
 
-### Community 13 - "extract_single_file"
-Cohesion: 0.21
-Nodes (9): extract_with_ebook_convert(), clean_pdftotext(), count_pages(), extract_with_docling(), extract_with_pdfminer(), extract_with_pdftotext(), extract_with_pypdf(), looks_image_only() (+1 more)
+### Community 13 - "HeuristicFallbackProvider"
+Cohesion: 0.08
+Nodes (4): HeuristicFallbackProvider, MockNeuralLLMProvider, TestMemoryCompression, TestSkillGater
 
 ### Community 14 - "MAP.md"
 Cohesion: 0.06
 Nodes (23): Game Design Critic — Game-Aware Grilling Persona, Key Architectural Decisions Made:, Question, Resolution, Key Architectural Decisions Made:, Key Architectural Decisions Made:, Question, Resolution (+15 more)
 
-### Community 15 - "SeikoClaw"
-Cohesion: 0.05
-Nodes (9): AutoCapture, main(), UsageMonitor, get_session_context(), main(), print_progress_bar(), SeikoClaw, estimate_file() (+1 more)
-
-### Community 16 - "fetch_asset_references.py"
-Cohesion: 0.07
-Nodes (13): build_sxs_composite(), clean_query_keywords(), download_reference_images(), main(), search_wikimedia_references(), main(), validate_active_scene(), validate_bpy_mesh_object() (+5 more)
+### Community 16 - "validate_blender_asset.py"
+Cohesion: 0.10
+Nodes (7): main(), validate_active_scene(), validate_bpy_mesh_object(), validate_glb_file(), ValidationResult, TestGLBValidator, TestValidationResult
 
 ### Community 17 - "🏛️ Core Principles"
 Cohesion: 0.07
@@ -820,48 +848,56 @@ Cohesion: 0.08
 Nodes (22): 1. Purpose & frequency, 2. Easing & duration, 3. Physicality & origin, 4. Interruptibility, 5. Performance, 6. Accessibility, 7. Cohesion & tokens, 8. Missed opportunities (+14 more)
 
 ### Community 22 - "eval_skill_routing.py"
-Cohesion: 0.12
-Nodes (18): compute_token_frequencies(), detect_collisions(), load_all_skills(), main(), parse_skill_file(), route_query(), run_eval_cases(), score_skill_against_query() (+10 more)
+Cohesion: 0.13
+Nodes (17): compute_token_frequencies(), detect_collisions(), load_all_skills(), main(), parse_skill_file(), route_query(), run_eval_cases(), score_skill_against_query() (+9 more)
 
 ### Community 23 - "Apple Design"
 Cohesion: 0.10
 Nodes (21): 10. Gesture design details (the "feel" checklist), 11. Frame-level smoothness, 12. Materials & depth — translucency conveys hierarchy, 13. Multimodal feedback — motion + sound + haptics, 14. Reduced motion & accessibility, 15. Typography — optical sizing, tracking, leading, 16. Design foundations — the eight principles, 17. Process (+13 more)
 
 ### Community 24 - "The Fixes"
-Cohesion: 0.10
-Nodes (21): 10. Status bar color doesn't match, 11. Right in Chrome, wrong on phone, 1. Hover state stuck after tap, 2. Gray/blue flash on tap, 3. Layout has the wrong height, 4. Page zooms into the input, 5. Tap feels laggy, 6. Pull-to-refresh hijacks scroll (+13 more)
+Cohesion: 0.17
+Nodes (12): 10. Status bar color doesn't match, 11. Right in Chrome, wrong on phone, 1. Hover state stuck after tap, 2. Gray/blue flash on tap, 3. Layout has the wrong height, 4. Page zooms into the input, 5. Tap feels laggy, 6. Pull-to-refresh hijacks scroll (+4 more)
 
 ### Community 25 - "scan_generated_skill.py"
 Cohesion: 0.16
 Nodes (14): is_invisible_codepoint(), sanitize_extracted_text(), _collect_skill_files(), Finding, _frontmatter_line_numbers(), _is_invisible(), main(), _read_skill_files() (+6 more)
 
-### Community 26 - "HealthPatrol"
-Cohesion: 0.07
-Nodes (11): find_harness_root(), main(), clean_user_content(), ConversationHistorySyncer, parse_iso_datetime(), HealthPatrol, test_clean_user_content(), test_conversation_sync_lifecycle() (+3 more)
+### Community 26 - "ConversationHistorySyncer"
+Cohesion: 0.11
+Nodes (8): find_harness_root(), main(), clean_user_content(), ConversationHistorySyncer, parse_iso_datetime(), test_clean_user_content(), test_extract_project_name(), test_parse_iso_datetime()
 
 ### Community 27 - "test_polyhaven.py"
-Cohesion: 0.13
-Nodes (13): CLI Arguments & Options, Phase 1: Implement Core CLI Tool (`scripts/polyhaven.py`), build_parser(), cmd_fetch(), EngineAdapters, select_best_resolution(), test_blender_adapter(), test_cli_default_resolution_is_2k() (+5 more)
+Cohesion: 0.18
+Nodes (8): CLI Arguments & Options, Phase 1: Implement Core CLI Tool (`scripts/polyhaven.py`), EngineAdapters, test_blender_adapter(), test_godot_hdri_adapter(), test_godot_material_adapter(), test_unity_material_adapter(), test_unreal_adapter()
 
 ### Community 28 - "Glossary"
 Cohesion: 0.11
 Nodes (18): Animation Vocabulary, Easing — how speed changes over an animation, Entrances & Exits — how elements appear and disappear, Examples, Feedback & Interaction — responding to the user's actions, Glossary, Initial Response, Instructions (+10 more)
 
 ### Community 29 - "Breaking UI"
-Cohesion: 0.11
-Nodes (19): Breaking UI, Failure signatures, Hard Rules, Initial Response, Invocation Variants, Operating Posture, Part 1 — What broke, Part 2 — Decisions for you (+11 more)
+Cohesion: 0.20
+Nodes (10): Breaking UI, Hard Rules, Initial Response, Invocation Variants, Operating Posture, Part 1 — What broke, Part 2 — Decisions for you, Part 3 — What held up (+2 more)
 
 ### Community 30 - "template.sh"
 Cohesion: 0.23
 Nodes (17): ask(), ask_secret(), banner(), _clear(), _existing(), finish(), pause(), set_secret() (+9 more)
 
 ### Community 31 - "argparse"
-Cohesion: 0.09
-Nodes (16): build_paper_flat(), _chunks(), main(), _metadata(), alpha_stats(), inspect(), main(), parse_size() (+8 more)
+Cohesion: 0.11
+Nodes (13): build_paper_flat(), _chunks(), main(), _metadata(), alpha_stats(), inspect(), main(), parse_size() (+5 more)
 
-### Community 32 - "os"
-Cohesion: 0.08
-Nodes (7): generate_bpy_append_snippet(), main(), ContextEngine, get_llm_provider(), HeuristicFallbackProvider, setup(), test_record_and_ingest_decision_trail()
+### Community 32 - "validate-findings.test.cjs"
+Cohesion: 0.06
+Nodes (27): LIMITS, archivedAttempt(), assert, errorsFor(), fs, {
+  LIMITS,
+  canonicalCoverageId,
+  encodeCanonicalRef,
+  isSafeAgentId,
+  isSafeRelativePath,
+  preflightJsonText,
+  validateDocument,
+}, localCheck(), os (+19 more)
 
 ### Community 33 - "template.ps1"
 Cohesion: 0.18
@@ -891,10 +927,6 @@ Nodes (16): 1. Surface & Component Craft, 2. Typography & Optical Discipline, 3.
 Cohesion: 0.08
 Nodes (18): args, child, crypto, defaultServerPath, fs, os, path, projectRoot (+10 more)
 
-### Community 40 - "BlendSwapClient"
-Cohesion: 0.05
-Nodes (23): 1. Catalog Search: `GET /api/v1/assets`, 1. Executive Summary & Architectural Evaluation, 2. API Endpoints & Transport Protocols, 2. Single Asset Details: `GET /api/v1/assets/:id`, 3. File Listing: `GET /api/v1/assets/:id/files`, 3. REST API Specification (`/api/v1`), 4. Download Request: `POST /api/v1/downloads`, 4. Model Context Protocol (MCP) Integration (+15 more)
-
 ### Community 41 - "Diagnosing Bugs"
 Cohesion: 0.13
 Nodes (14): Completion criterion: a tight loop that goes red, Diagnosing Bugs, Minimise, Non-deterministic bugs, Phase 1: Build a feedback loop, Phase 2: Reproduce + minimise, Phase 3: Hypothesise, Phase 4: Instrument (+6 more)
@@ -908,8 +940,8 @@ Cohesion: 0.15
 Nodes (15): Boundary validation, Branded types, Constructive modeling, Discriminated unions, Exhaustiveness, Narrowing hierarchy, No `as` casts, Object args (+7 more)
 
 ### Community 44 - "seikoclaw-harness/SKILL.md"
-Cohesion: 0.06
-Nodes (20): ADR Skill, Goal, Steps, Codebase Design, Workflow, Coverage Loop Skill, Goal, Workflow (+12 more)
+Cohesion: 0.07
+Nodes (17): Codebase Design, Workflow, Handoff, Steps, Default Properties, Property Types, Tags, Goal (+9 more)
 
 ### Community 45 - "codex-tools.md"
 Cohesion: 0.12
@@ -924,8 +956,8 @@ Cohesion: 0.15
 Nodes (12): 1. Gather context & restate intent, 2. Explore the codebase (optional), 3. Draft vertical slices, 4. Quiz the user, 5. Publish the tickets to the configured tracker, Acceptance criteria, Blocked by, <NN> — <Ticket title> (+4 more)
 
 ### Community 48 - "Steps"
-Cohesion: 0.18
-Nodes (10): 1. Detect the environment, 2. Install dependency-cruiser, 3. Write the config, 5. Scaffold the example package, 6. Prove the rules bite, 7. Document the convention, Notes, Setup TS Deep Modules (+2 more)
+Cohesion: 0.17
+Nodes (11): 1. Detect the environment, 2. Install dependency-cruiser, 3. Write the config, 4. Wire it into the checks, 5. Scaffold the example package, 6. Prove the rules bite, 7. Document the convention, Notes (+3 more)
 
 ### Community 49 - "wayfinder/SKILL.md"
 Cohesion: 0.17
@@ -945,7 +977,7 @@ Nodes (9): 🏗️ 1. The Test Pyramid (80 / 15 / 5), 📐 2. Essential Testing 
 
 ### Community 53 - "index-Bym1AQwo.js"
 Cohesion: 0.03
-Nodes (79): aa(), an(), Ao(), Bc(), $c(), cf(), ci(), cn (+71 more)
+Nodes (86): aa(), ad(), an(), Ao(), Bc(), bf(), bl(), $c() (+78 more)
 
 ### Community 54 - "3. Core Tool Reference"
 Cohesion: 0.10
@@ -971,17 +1003,17 @@ Nodes (10): Charts, Common mismatches to catch, How to use this, Initial Respons
 Cohesion: 0.18
 Nodes (10): Communication artifacts, Content, Filler, Jargon, Language, Patterns to detect and fix, Plain speech, Process (+2 more)
 
-### Community 60 - "json"
-Cohesion: 0.15
-Nodes (17): handle_call_tool(), main(), send_response(), canonical_json(), load_fixture(), main(), replay(), cmd_cases() (+9 more)
+### Community 60 - "sync_gameplay_atlas.py"
+Cohesion: 0.19
+Nodes (7): discover_asset_hash(), fetch_mechanic_detail(), fetch_url(), init_database(), insert_mechanic_into_db(), main(), sync()
 
 ### Community 61 - "Supported Slash Commands & Syntaxes"
 Cohesion: 0.20
 Nodes (9): 1. Seamless Ground Textures, 2. Modular Character Builder Layers (Hair, Headgear, Armor, Paperdoll Parts), 3. 2D Sprites, Tokens, and Props (Full Characters & Entities), 4. Backdrops, Map Views & Panoramas, 5. General / Custom Images, asset-generator, Quick Reference: Core Prompt Engineering Rules, Quota & Batch Protection Best Practices (+1 more)
 
 ### Community 62 - "2. The 5-Stage Autonomous Pipeline"
-Cohesion: 0.17
-Nodes (12): Phase 2: CLI Query Lever (`scripts/gameplay_atlas.py`), 1. Project Manifest & State Tracking, 2. The 5-Stage Autonomous Pipeline, 3. Invocation Triggers, Game Forge: Master Autonomous Game Creation Framework, Stage A: Brief, Locked References & Deep Plan (Autonomous $\rightarrow$ HITL Gate 1), Stage B: Scope Carving & Playable Foundation (Autonomous $\rightarrow$ Gate B), Stage C: Staged Art Pipeline & Authoring Workbenches (Autonomous $\rightarrow$ HITL Gate 3) (+4 more)
+Cohesion: 0.25
+Nodes (8): 1. Project Manifest & State Tracking, 2. The 5-Stage Autonomous Pipeline, 3. Invocation Triggers, Game Forge: Master Autonomous Game Creation Framework, Stage A: Brief, Locked References & Deep Plan (Autonomous $\rightarrow$ HITL Gate 1), Stage C: Staged Art Pipeline & Authoring Workbenches (Autonomous $\rightarrow$ HITL Gate 3), Stage D: Side-by-Side (SxS) Visual Bar Parity Loop (Autonomous $\rightarrow$ Critic WIN), Stage E: Autonomous Engine Build, Verification & Handoff
 
 ### Community 63 - "During the session"
 Cohesion: 0.20
@@ -991,17 +1023,17 @@ Nodes (9): Challenge against the glossary, Cross-reference with code, Discuss co
 Cohesion: 0.20
 Nodes (9): How, Models, Output Format, Reasoning effort, Step 1. Assess Complexity, Step 2a. Explore (complex questions only), Step 2b. Direct Explain (simple questions), Step 3. Synthesize (complex questions only) (+1 more)
 
-### Community 65 - "tempfile"
-Cohesion: 0.05
-Nodes (15): default_output_dir(), 3. Secrets Vault & SQLite Schema Alignment, OpenbrainEngine, GateEngine, get_playbook(), list_playbooks(), Vault, test_adversarial_gate_lifecycle() (+7 more)
+### Community 65 - "os"
+Cohesion: 0.08
+Nodes (12): default_output_dir(), GateEngine, get_playbook(), list_playbooks(), setup(), test_record_and_ingest_decision_trail(), test_conversation_sync_lifecycle(), test_adversarial_gate_lifecycle() (+4 more)
 
 ### Community 66 - "Filtering Principles"
 Cohesion: 0.20
 Nodes (9): Filtering Principles, Hypothetical vs. Actual, "I Would Have Done It Differently", Missing Context Signals, Nitpick Gravity, Premature Abstraction Warnings, Verdict Calibration, When Reviewers Are Right (+1 more)
 
-### Community 67 - "re"
-Cohesion: 0.12
-Nodes (14): audit(), get_list_items(), get_scalar(), main(), parse_frontmatter(), tool_base(), top_level_keys(), imports() (+6 more)
+### Community 67 - "pathlib"
+Cohesion: 0.10
+Nodes (8): export_skills(), import_skills(), main(), mock_skills_env(), test_export_skills(), test_import_skills_skip_existing_without_overwrite(), test_import_skills_with_namespace(), TestGameplayAtlasDB
 
 ### Community 68 - "Blender Director"
 Cohesion: 0.07
@@ -1041,11 +1073,11 @@ Nodes (22): 1. System Architecture & Connection Protocol, 2. Core Tool Reference
 
 ### Community 77 - "index-0jVwK8iL.js"
 Cohesion: 0.03
-Nodes (80): Rebirth pacing, Core workflow, yo(), _a(), Aa(), ac(), Af(), ap (+72 more)
+Nodes (83): Rebirth pacing, Core workflow, yo(), Aa(), ac(), ai(), ap, Ar() (+75 more)
 
-### Community 78 - "Core Engineering Reference: Accessibility (a11y) Checklist"
-Cohesion: 0.33
-Nodes (5): ⌨️ 1. Keyboard Navigability & Focus Management, 🎨 2. Color Contrast & Visual Design, 📢 3. Semantic HTML & Screen Reader Support, 🧪 4. Automated & Manual Audit Procedure, Core Engineering Reference: Accessibility (a11y) Checklist
+### Community 78 - "seikoclaw-frontend-taste/SKILL.md"
+Cohesion: 0.13
+Nodes (10): ⌨️ 1. Keyboard Navigability & Focus Management, 🎨 2. Color Contrast & Visual Design, 📢 3. Semantic HTML & Screen Reader Support, 🧪 4. Automated & Manual Audit Procedure, Core Engineering Reference: Accessibility (a11y) Checklist, 🎯 1. Core Web Vitals (CWV) Thresholds, ⚡ 2. Asset & Bundle Budgets, 🔄 3. Runtime & Execution Polish (+2 more)
 
 ### Community 79 - "Process"
 Cohesion: 0.12
@@ -1060,8 +1092,8 @@ Cohesion: 0.25
 Nodes (7): Adaptive Modules (Included Only When Relevant):, Core Required Modules:, GDD Generator (Game Design Document Skill), Inputs Ingested, Modular GDD Structure, Persona & Purpose, Workflow
 
 ### Community 82 - "Obsidian Bases Skill"
-Cohesion: 0.05
-Nodes (42): Any Type Functions, Date Arithmetic, Date Functions & Fields, Duration Type, File Functions, Global Functions, Link Functions, List Functions (+34 more)
+Cohesion: 0.07
+Nodes (30): Cards View, Common Formula Errors, Complete Examples, Daily Notes Index, Date Arithmetic, Default Summary Formulas, Duration Type, Embedding Bases (+22 more)
 
 ### Community 83 - "Interrogate"
 Cohesion: 0.25
@@ -1125,7 +1157,7 @@ Nodes (6): Boundaries, Goal, SeikoClaw Goal Prompter & Contract Enforcer, The 7-
 
 ### Community 98 - "Seikoclaw Ingestor (Heavy File Ingestion)"
 Cohesion: 0.29
-Nodes (6): Boundaries, Goal, Output Format, Required Inputs, Seikoclaw Ingestor (Heavy File Ingestion), Workflow
+Nodes (7): Boundaries, Goal, Output Format, Required Inputs, Seikoclaw Ingestor (Heavy File Ingestion), Web URLs vs. Heavy Local Files, Workflow
 
 ### Community 99 - "Seikoclaw Operating Map"
 Cohesion: 0.29
@@ -1151,9 +1183,9 @@ Nodes (6): Boundaries, Goal, Output Format, Required Inputs, Seikoclaw Test Memo
 Cohesion: 0.40
 Nodes (4): Execution Tasks, Post-Completion Learning Trigger, Prerequisites & Grounding, Task Checklist: [Feature / Task Goal]
 
-### Community 105 - "Agent Authoring: Writing Skills, Workflows & Documents for Agents"
-Cohesion: 0.33
-Nodes (5): 1. Context Pointers & Trigger Discipline, 2. Progressive Disclosure Ladder, 3. Leading Words & Completion Criteria, 4. Writing Modes (Explore vs. Exploit), Agent Authoring: Writing Skills, Workflows & Documents for Agents
+### Community 105 - "validate-coverage-ledger.cjs"
+Cohesion: 0.13
+Nodes (40): ATTEMPT_FIELDS, ATTEMPT_STATUSES, canonicalCoverageId(), collectUnitErrors(), createErrorList(), encodeCanonicalRef(), escapeUnsafeDiagnosticCharacters(), fs (+32 more)
 
 ### Community 106 - "Benchmark checklist"
 Cohesion: 0.33
@@ -1180,16 +1212,16 @@ Cohesion: 0.33
 Nodes (5): Core Capabilities, Mood Board Curator (Reference & Mood Board Skill), Output Specifications, `style_markers.json` Schema, Workflow
 
 ### Community 112 - "discovery_tax.py"
-Cohesion: 0.21
-Nodes (7): _chapter_number(), best_chapter(), count_tokens(), extract_toc(), main(), split_chapters(), token_method()
+Cohesion: 0.10
+Nodes (13): _chapter_number(), _cn_numeral_to_int(), _fa_chapter_number(), _int_to_roman(), _is_prose_period_tail(), _match_chapter_number(), _roman_to_int(), best_chapter() (+5 more)
 
 ### Community 113 - "Sections"
 Cohesion: 0.33
 Nodes (5): Evidence, Guidance, Merge Danger, Sections, Summary
 
-### Community 114 - "Test-Driven Development"
-Cohesion: 0.33
-Nodes (5): Anti-patterns, Rules of the loop, Seams — where tests go, Test-Driven Development, What a good test is
+### Community 114 - "UsageMonitor"
+Cohesion: 0.13
+Nodes (8): AutoCapture, main(), UsageMonitor, get_session_context(), main(), print_progress_bar(), estimate_file(), estimate_tokens()
 
 ### Community 115 - "epistemics.md"
 Cohesion: 0.33
@@ -1203,57 +1235,57 @@ Nodes (6): 1. Direct, 2. Supported, 3. Inferred, 4. Speculative, 5. Unknown, Con
 Cohesion: 0.33
 Nodes (5): Conventions, Issue tracker: Local Markdown, Wayfinding operations, When a skill says "fetch the relevant ticket", When a skill says "publish to the issue tracker"
 
-### Community 118 - "export_skills.py"
-Cohesion: 0.22
-Nodes (7): export_skills(), import_skills(), main(), mock_skills_env(), test_export_skills(), test_import_skills_skip_existing_without_overwrite(), test_import_skills_with_namespace()
+### Community 118 - "confirmed"
+Cohesion: 0.19
+Nodes (19): Structured hunter result, Cost budget, Coverage and prior runs, Full audit planning, Run profiles and scope, confirmed(), evidence(), needsValidation() (+11 more)
 
 ### Community 119 - "Poly Haven Asset Pipeline & Cross-Engine Bridge"
 Cohesion: 0.13
 Nodes (15): 1. Storage Discipline & 2K Resolution Policy, 2. CLI Command Workflows (`scripts/polyhaven.py`), 3. Multi-Engine Target Adapters, 4. Integration with Game Forge & Agent Workflows, 5. Credits & Upstream Attribution, A. Search Assets, B. Inspect Asset Metadata & File Sizes, 🎨 Blender DCC (`--target blender`) (+7 more)
 
-### Community 120 - "Agent Guardrails & Command Denylist"
-Cohesion: 0.40
-Nodes (4): Agent Guardrails & Command Denylist, Files & Components, Goal, Usage & Maintenance
+### Community 120 - "ATTACK-CLASSES.md"
+Cohesion: 0.14
+Nodes (7): Attack Classes, Attack classes — choose and split based on Phase 1, Architecture summary and companion selection, Deterministic coverage ledger, Phase 1: Map the source and plan coverage, Prior-run input, Reconnaissance
 
 ### Community 121 - "design-red-flags.md"
 Cohesion: 0.40
 Nodes (4): Information leakage, Pass-through method, Shallow module, Temporal decomposition
 
-### Community 122 - "Pe"
-Cohesion: 0.19
-Nodes (13): cl(), Cu(), Eu(), gu(), hu(), Pe(), pu(), Si() (+5 more)
+### Community 122 - "y"
+Cohesion: 0.10
+Nodes (29): _a(), cl(), Cu(), dr(), Eu(), fl(), gu(), hu() (+21 more)
 
 ### Community 123 - "t"
-Cohesion: 0.11
-Nodes (56): Ap(), ba(), bf(), bl(), bp, g(), gp, h() (+48 more)
+Cohesion: 0.13
+Nodes (52): Ap(), au(), ba(), bp, g(), gp, h(), hp (+44 more)
 
-### Community 124 - "Interviewer Skill"
-Cohesion: 0.40
-Nodes (4): Checklists, Goal, Interviewer Skill, Workflow
+### Community 124 - "Security Audit"
+Cohesion: 0.14
+Nodes (14): Anti-patterns, Core principles, Full audit setup, Full audit workflow, Operating modes, Platform terminology, Recommend the smallest effective source fix, Require a boundary and result (+6 more)
 
 ### Community 125 - "Learnings Skill"
 Cohesion: 0.40
 Nodes (4): Checklists, Goal, Learnings Skill, Workflow
 
-### Community 126 - "Project"
-Cohesion: 0.14
-Nodes (6): Issue, line_of(), parse_ini(), Project, read_text(), Ref
+### Community 126 - "check_defold_project.py"
+Cohesion: 0.09
+Nodes (10): build_parser(), defignore_regex(), Issue, line_of(), main(), mask_lua(), parse_ini(), Project (+2 more)
 
 ### Community 127 - "Maintain a verification skill"
 Cohesion: 0.40
 Nodes (4): Edit scope, Maintain a verification skill, Outcomes, Pass
 
-### Community 128 - "Playtest Feedback Loop"
-Cohesion: 0.40
-Nodes (4): Core Capabilities, Playtest Dictionary (Qualitative Heuristics), Playtest Feedback Loop, Workflow
+### Community 128 - "BlendSwap 3D MCP & REST API Evaluation Guide"
+Cohesion: 0.12
+Nodes (16): 1. Catalog Search: `GET /api/v1/assets`, 1. Executive Summary & Architectural Evaluation, 2. API Endpoints & Transport Protocols, 2. Single Asset Details: `GET /api/v1/assets/:id`, 3. File Listing: `GET /api/v1/assets/:id/files`, 3. REST API Specification (`/api/v1`), 4. Download Request: `POST /api/v1/downloads`, 5. Account Balances: `GET /api/v1/me` (+8 more)
 
-### Community 129 - "Research & Deep Investigation Skill"
-Cohesion: 0.40
-Nodes (4): Goal, Research & Deep Investigation Skill, Research Prompt Structure, Workflow
+### Community 129 - "ku"
+Cohesion: 0.21
+Nodes (14): de(), As(), bf(), Ff(), fs(), kt(), ku(), Lf() (+6 more)
 
-### Community 130 - "retro/SKILL.md"
-Cohesion: 0.40
-Nodes (4): Files, Implementation vs Review, Reference, Steps
+### Community 130 - "validate-findings.cjs"
+Cohesion: 0.11
+Nodes (39): canonicalKey(), append(), encode(), codePointLength(), collect(), collectDataLimitErrors(), collectFindingSemanticErrors(), collectSchemaErrors() (+31 more)
 
 ### Community 131 - "SeikoClaw Harness Router"
 Cohesion: 0.33
@@ -1288,12 +1320,12 @@ Cohesion: 0.50
 Nodes (3): Changed Files, Code Walkthrough, SeikoClaw Task Recap
 
 ### Community 139 - "📋 Execution Roadmap"
-Cohesion: 0.22
-Nodes (8): 📋 Execution Roadmap, 🎯 Goal, Master Task Checklist: Gameplay Atlas Integration & Offline Mechanic Intelligence, Phase 1: Ingestion Engine & Offline Database, Phase 3: Agent Skill & Routing Integration, Phase 4: Game Forge & Game Router Ecosystem Integration, SeikoClaw Task Plan, Task Description
+Cohesion: 0.20
+Nodes (9): 📋 Execution Roadmap, 🎯 Goal, Master Task Checklist: Gameplay Atlas Integration & Offline Mechanic Intelligence, Phase 1: Ingestion Engine & Offline Database, Phase 2: CLI Query Lever (`scripts/gameplay_atlas.py`), Phase 3: Agent Skill & Routing Integration, Phase 4: Game Forge & Game Router Ecosystem Integration, SeikoClaw Task Plan (+1 more)
 
-### Community 140 - "Core Engineering Reference: Performance & Web Vitals Checklist"
-Cohesion: 0.33
-Nodes (5): 🎯 1. Core Web Vitals (CWV) Thresholds, ⚡ 2. Asset & Bundle Budgets, 🔄 3. Runtime & Execution Polish, 🔬 4. Pre-Launch Performance Verification Protocol, Core Engineering Reference: Performance & Web Vitals Checklist
+### Community 140 - "FUNCTIONS_REFERENCE.md"
+Cohesion: 0.15
+Nodes (12): Any Type Functions, Date Arithmetic, Date Functions & Fields, Duration Type, File Functions, Global Functions, Link Functions, List Functions (+4 more)
 
 ### Community 141 - "Remove AI code slop"
 Cohesion: 0.50
@@ -1304,12 +1336,12 @@ Cohesion: 0.83
 Nodes (3): capture(), hitl-loop.template.sh script, step()
 
 ### Community 143 - "Obsidian Flavored Markdown Skill"
-Cohesion: 0.06
-Nodes (30): Basic Callout, Custom Callouts (CSS), Foldable Callouts, Nested Callouts, Supported Callout Types, Embed Audio, Embed Bases, Embed Images (+22 more)
+Cohesion: 0.13
+Nodes (15): Callouts, Comments, Companion Skills & Tooling, Complete Example, Diagrams (Mermaid), Embeds, Footnotes, Internal Links (Wikilinks) (+7 more)
 
 ### Community 144 - "n"
-Cohesion: 0.11
-Nodes (56): cp, _e(), er(), gd(), gf(), gp(), gr(), hn() (+48 more)
+Cohesion: 0.16
+Nodes (44): gd(), gp(), gr(), hn(), ho(), jo(), kl(), kp() (+36 more)
 
 ### Community 145 - "merge-safety.md"
 Cohesion: 0.50
@@ -1323,25 +1355,25 @@ Nodes (3): Accepted, Backlog, Rejected
 Cohesion: 0.50
 Nodes (3): Core Directives, Mission, Persona: Seikojin QA Engineer (The Hands)
 
-### Community 148 - "ExtractionError"
-Cohesion: 0.33
-Nodes (7): ExtractionError, extract_docx(), extract_docx_with_python_docx(), extract_docx_with_zipfile(), emit_block(), inline_text(), validate_docx_xml_safety()
+### Community 148 - "blendswap_mcp_server.py"
+Cohesion: 0.29
+Nodes (4): generate_bpy_append_snippet(), handle_call_tool(), main(), send_response()
 
 ### Community 149 - "5. Production Guardrails & Gameplay Architecture Patterns"
 Cohesion: 0.09
 Nodes (22): 1. System Architecture & Connection Protocol, 2. Core Tool Reference, 3. Production Pipelines, 4. Execution Rules & Best Practices, 5. Production Guardrails & Gameplay Architecture Patterns, 6. Troubleshooting & Common Failure Modes, A. Chaos Physics & Projectile Collision Discipline, A. Level Layout & Actor Management (+14 more)
 
-### Community 159 - "sync_gameplay_atlas.py"
-Cohesion: 0.19
-Nodes (7): discover_asset_hash(), fetch_mechanic_detail(), fetch_url(), init_database(), insert_mechanic_into_db(), main(), sync()
+### Community 159 - "seikoclaw.py"
+Cohesion: 0.07
+Nodes (8): ContextEngine, BaseLLMProvider, get_llm_provider(), LocalMindProvider, OpenAICompatibleProvider, IterationBudget, main(), validate_command_safety()
 
 ### Community 163 - "pdf_inspector_integration.py"
-Cohesion: 0.12
-Nodes (15): main(), enrich_pdf_inspector_metadata(), _fallback_reason(), inspect_pdf(), install_pdf_inspector_hook(), wrapped(), _looks_like_pdf(), _normalise_pdf_type() (+7 more)
+Cohesion: 0.17
+Nodes (11): main(), enrich_pdf_inspector_metadata(), _fallback_reason(), inspect_pdf(), install_pdf_inspector_hook(), wrapped(), _looks_like_pdf(), _normalise_pdf_type() (+3 more)
 
 ### Community 164 - "utils.py"
-Cohesion: 0.09
-Nodes (14): supported_formats_message(), normalize_install_mode(), _cn_numeral_to_int(), _fa_chapter_number(), _fa_ordinal_map(), _int_to_roman(), _is_prose_period_tail(), _match_chapter_number() (+6 more)
+Cohesion: 0.05
+Nodes (42): supported_formats_message(), install_python_packages(), isolated_install_hint(), missing_python_packages(), normalize_install_mode(), offer_dependency_install(), prepare_dependencies(), python_module_available() (+34 more)
 
 ### Community 165 - "Export Pipeline"
 Cohesion: 0.09
@@ -1351,29 +1383,29 @@ Nodes (21): Animation Export, Batch Export (Modular Kits), Collision Export, Con
 Cohesion: 0.15
 Nodes (13): 1. Create a New Canvas, 2. Add a Node to an Existing Canvas, 3. Connect Two Nodes, 4. Edit an Existing Canvas, Colors, Common Workflows, Complete Examples, Edges (+5 more)
 
-### Community 169 - "epub.py"
-Cohesion: 0.12
-Nodes (8): count_epub_chapters(), count_epub_images(), extract_with_ebooklib(), extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href(), _HTMLTextExtractor
+### Community 169 - "Workflow"
+Cohesion: 0.22
+Nodes (9): Failure signatures, Phase 1 — Map the surface, Phase 2 — Build the worst case, Phase 3 — Wire the toggle, Phase 4 — Break it, Phase 5 — Report and stop, Phase 6 — Fix on request, Truncate, wrap, or clamp (+1 more)
 
-### Community 173 - "y"
-Cohesion: 0.09
-Nodes (43): de(), ad(), ai(), As(), bf(), cf(), ci(), Ct() (+35 more)
+### Community 173 - "Vault"
+Cohesion: 0.10
+Nodes (7): 3. Secrets Vault & SQLite Schema Alignment, OpenbrainEngine, Vault, test_memory_engine_vault_table_creation(), test_openbrain_engine_compatibility(), test_vault_fresh_database(), test_vault_wrong_password()
 
 ### Community 176 - "Obsidian CLI"
-Cohesion: 0.20
+Cohesion: 0.22
 Nodes (9): Additional developer commands, Command reference, Common patterns, Develop/test cycle, File targeting, Obsidian CLI, Plugin development, Syntax (+1 more)
 
 ### Community 177 - "Obsidian Atlas VTT Bridge & Scene Specification"
-Cohesion: 0.22
+Cohesion: 0.25
 Nodes (8): 1. Scene File Format (`.atlasmap`), 2. Universal VTT (`.uvtt` / `.dd2vtt`) Ingestion, 3. Pinned Markdown Notes & Inline Dice, 4. Fantasy Statblocks Integration, 5. Modular Campaign Bundles (`.atlas-collection.zip`), Key UVTT Geometry Fields:, Obsidian Atlas VTT Bridge & Scene Specification, UVTT Processing Constraints:
 
 ### Community 178 - "1. The 12 Configurable Foundation Pillars"
-Cohesion: 0.12
-Nodes (17): 1. The 12 Configurable Foundation Pillars, Pillar 10: Multi-Modal Avatar & Vehicle Handover Protocol, Pillar 11: Spawn Equilibrium & Frame-Zero Physics Discipline, Pillar 12: In-Game Sensitivity & Input Ergonomics, Pillar 13: Projectile Safety & Weapon Aim Convergence (The "Don't Shoot Yourself" Rule), Pillar 14: Input Debouncing & Single-Frame Latch Protocol (The "Dead Key" Rule), Pillar 15: Multiplayer Discovery & 1-Click Dual-Instance Spawning, Pillar 16: Package Footprint & Shipping Optimization (The "No PDBs in Shipping" Rule) (+9 more)
+Cohesion: 0.10
+Nodes (19): 1. The 12 Configurable Foundation Pillars, 2. Interactive Foundations Plan Template for `/game-forge`, Pillar 10: Multi-Modal Avatar & Vehicle Handover Protocol, Pillar 11: Spawn Equilibrium & Frame-Zero Physics Discipline, Pillar 12: In-Game Sensitivity & Input Ergonomics, Pillar 13: Projectile Safety & Weapon Aim Convergence (The "Don't Shoot Yourself" Rule), Pillar 14: Input Debouncing & Single-Frame Latch Protocol (The "Dead Key" Rule), Pillar 15: Multiplayer Discovery & 1-Click Dual-Instance Spawning (+11 more)
 
 ### Community 179 - "w"
-Cohesion: 0.06
-Nodes (59): _a(), ad(), Ae(), af(), Br(), Ca(), cs(), df() (+51 more)
+Cohesion: 0.10
+Nodes (40): _a(), Br(), Ca(), df(), ea(), ff(), fi(), ft() (+32 more)
 
 ### Community 180 - "World"
 Cohesion: 0.15
@@ -1381,7 +1413,7 @@ Nodes (16): World, Parse(), settle(), TestBufferedJumpStartsAfterLanding(), Test
 
 ### Community 181 - "he"
 Cohesion: 0.19
-Nodes (24): ae(), bu(), Df(), dt(), du(), Ge(), he(), hi() (+16 more)
+Nodes (22): ae(), bu(), Df(), dt(), du(), Ge(), he(), hi() (+14 more)
 
 ### Community 182 - "2. Tablebuddy & Atlas VTT Interoperability Architecture"
 Cohesion: 0.40
@@ -1391,17 +1423,17 @@ Nodes (4): 2. Tablebuddy & Atlas VTT Interoperability Architecture, Consequences
 Cohesion: 0.18
 Nodes (9): Alternatives considered, Implementation reconciliation, Next implementation step, Open questions and risks, Problem, Shape, Synthesis decision, Tradeoffs accepted (+1 more)
 
-### Community 187 - "PolyHavenAPI"
-Cohesion: 0.20
-Nodes (4): cmd_info(), cmd_search(), main(), PolyHavenAPI
+### Community 187 - "polyhaven.py"
+Cohesion: 0.12
+Nodes (13): build_parser(), cmd_cache(), cmd_fetch(), cmd_info(), cmd_search(), format_bytes(), main(), parse_size_to_bytes() (+5 more)
 
 ### Community 188 - "je"
-Cohesion: 0.11
-Nodes (30): at(), bs(), di(), dt(), Ee(), en(), Es(), Gl() (+22 more)
+Cohesion: 0.09
+Nodes (32): at(), bs(), di(), dt(), Ee(), en(), Es(), Gl() (+24 more)
 
 ### Community 189 - "qf"
 Cohesion: 0.10
-Nodes (32): ac(), cc(), Cd(), Da(), dc(), Fa(), fc(), Gf() (+24 more)
+Nodes (31): ac(), cc(), Cd(), Da(), dc(), Fa(), fc(), Gf() (+23 more)
 
 ### Community 190 - "Blender Python (bpy) Procedural Recipes for Game Development"
 Cohesion: 0.15
@@ -1411,9 +1443,9 @@ Nodes (12): 1. Instant Transform & Grounding Fix, 1. Scene Initialization & Stud
 Cohesion: 0.20
 Nodes (9): 🏛️ Architectural Decisions & Created Specs, 📌 Context & Objective, Phase 2: Author Skill Specification, Phase 3: Engine Adapters Implementation, Phase 4: Benchmark & Evaluation Suite, Phase 5: Global Antigravity Integration, 📋 Ready Frontier Execution Checklist (Completed Milestones), Session Handoff: Poly Haven Asset Pipeline Integration (+1 more)
 
-### Community 192 - "zu"
-Cohesion: 0.11
-Nodes (27): Ao(), De(), Ds(), Fn(), fu(), ga(), gn(), Gs() (+19 more)
+### Community 192 - "ef"
+Cohesion: 0.10
+Nodes (33): cf(), ci(), Ct(), ef(), fu(), ga(), Gi(), Gs() (+25 more)
 
 ### Community 193 - "Architect Skill & Hybrid DAG Planner"
 Cohesion: 0.33
@@ -1423,36 +1455,32 @@ Nodes (5): Architect Skill & Hybrid DAG Planner, Checklists, Goal, Handoff, Quic
 Cohesion: 0.07
 Nodes (26): Economy formulas and a worked example, Geometric upgrade prices, Number precision, Odds for weighted random outcomes, Offline earnings, Worked example (the calculator's defaults), Buy one and buy max, Layout (+18 more)
 
-### Community 195 - "pf"
-Cohesion: 0.14
-Nodes (17): au(), Ds(), Fs(), ga(), Hf(), Hl(), Ie(), iu() (+9 more)
+### Community 195 - "ic"
+Cohesion: 0.11
+Nodes (23): Ae(), ci(), cs(), Ds(), Fs(), ga(), Hf(), Hl() (+15 more)
 
 ### Community 196 - "manifest.py"
-Cohesion: 0.12
-Nodes (15): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+7 more)
+Cohesion: 0.17
+Nodes (14): _budgets(), build_manifest(), canonical_json(), _commit(), _fail(), _hashes(), _identifier(), main() (+6 more)
 
 ### Community 197 - "Hr"
-Cohesion: 0.16
-Nodes (20): at(), au(), Br(), bs(), Et(), Ft(), Hr(), je() (+12 more)
+Cohesion: 0.13
+Nodes (24): Af(), at(), au(), bi(), Br(), bs(), co(), Et() (+16 more)
 
 ### Community 198 - "Yl"
-Cohesion: 0.15
-Nodes (22): Credits, be(), t(), Bu(), ct(), gc(), gi(), If() (+14 more)
+Cohesion: 0.18
+Nodes (21): af(), Bu(), ct(), gc(), gi(), _i(), If(), Jn() (+13 more)
 
-### Community 199 - "score.py"
-Cohesion: 0.26
-Nodes (5): aggregate(), _count(), score(), score_trajectory(), _state()
+### Community 199 - "replay.py"
+Cohesion: 0.17
+Nodes (9): canonical_json(), load_fixture(), main(), replay(), aggregate(), _count(), score(), score_trajectory() (+1 more)
 
-### Community 200 - "Do"
-Cohesion: 0.07
-Nodes (31): Audit the log against the transcript, Composing this skill, Cross-model review of the trail, Logging a row, Reviewing the trail, Rules, Show me your work, The format (+23 more)
-
-### Community 201 - "TaskGraph"
-Cohesion: 0.06
-Nodes (3): TaskGraph, TestGates, TestTaskGraph
+### Community 200 - "me"
+Cohesion: 0.18
+Nodes (19): Do(), Ee(), es(), Gc(), iu(), Lc(), lu(), me() (+11 more)
 
 ### Community 202 - "Worst-Case Catalog"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (10): Collections, Emails, URLs, identifiers, Environment, Images and media, Labels, titles, and copy from data, Numbers and money, People and names, States (+2 more)
 
 ### Community 203 - "Phase Details"
@@ -1460,56 +1488,60 @@ Cohesion: 0.09
 Nodes (21): Cleanup, Collision Planning, Export, Look Dev & Reference Compare, Materials, Modeling, Optimization, Phase Details (+13 more)
 
 ### Community 204 - "Pe"
-Cohesion: 0.14
-Nodes (17): bi(), Eu(), Fu(), hu(), id(), Kl(), kn(), ll() (+9 more)
+Cohesion: 0.15
+Nodes (16): bi(), Ei(), Eu(), Fu(), hu(), id(), kn(), np() (+8 more)
 
 ### Community 205 - "Project"
 Cohesion: 0.06
 Nodes (18): build_parser(), Issue, main(), parse_header(), parse_text_resource(), ParsedResource, PathStatus, Project (+10 more)
 
-### Community 206 - "BaseLLMProvider"
-Cohesion: 0.10
-Nodes (4): BaseLLMProvider, LocalMindProvider, OpenAICompatibleProvider, MockNeuralLLMProvider
+### Community 206 - "Client-Side and Browser Hunting"
+Cohesion: 0.20
+Nodes (10): Client-Side and Browser Hunting, Core discipline (include in every agent prompt for this domain), Cross-origin messaging and network attack classes (subagent_type: `general`), Cross-site information leak classes (subagent_type: `general`), DOM and object-state attack classes (subagent_type: `general`), Service-worker and browser-storage attack classes (subagent_type: `general`), UI-redress and navigation attack classes (subagent_type: `general`), Universal moves (apply across the above) (+2 more)
 
 ### Community 207 - "The Quality Frontier: The SeikoClaw Harness Odyssey"
-Cohesion: 0.17
-Nodes (12): Chapter 2: The ExerMart Experiment, Chapter 3: The Depths of Domain Modeling, Chapter 4: The \$129,999 Defect, Chapter 5: The Glass and the Non-Headless Proof, Chapter 6: Beyond the Browser — Industrial Autonomy, Epilogue: The Quality Frontier, Prologue: The Hall of Mirrors, The Control Group (`RawExerMart`) (+4 more)
+Cohesion: 0.12
+Nodes (17): 📕 Back of the Book, Chapter 2: The ExerMart Experiment, Chapter 3: The Depths of Domain Modeling, Chapter 4: The \$129,999 Defect, Chapter 5: The Glass and the Non-Headless Proof, Chapter 6: Beyond the Browser — Industrial Autonomy, Epilogue: The Quality Frontier, Prologue: The Hall of Mirrors (+9 more)
 
-### Community 208 - "dependencies.py"
-Cohesion: 0.29
-Nodes (7): install_python_packages(), isolated_install_hint(), missing_python_packages(), offer_dependency_install(), prepare_dependencies(), python_module_available(), run_dependency_check()
+### Community 208 - "Feeling Native On Mobile"
+Cohesion: 0.22
+Nodes (9): Baseline, Feeling Native On Mobile, Hard Rules, Initial Response, Never Ship, Operating Posture, Output, The Symptom Table (+1 more)
 
 ### Community 209 - "Reference Image Match Workflow"
 Cohesion: 0.10
 Nodes (19): Common Failures (Fix Immediately), Delivery, Gap categories (prioritize top-down), Golden Rules, Good User Prompts, MCP Execution Checklist, Phase 0 — Reference Analysis (Required), Phase 1 — Camera Match (+11 more)
 
 ### Community 210 - "Reviewing Animations"
-Cohesion: 0.20
+Cohesion: 0.17
 Nodes (10): Aggressive Escalation Triggers, Guidelines, Initial Response, Operating Posture, Part 1 — Findings table (REQUIRED), Part 2 — Verdict (REQUIRED), Remedial Preference Hierarchy, Required Output Format (+2 more)
 
-### Community 212 - "3. Poly Haven Asset Ingestion Pipeline & Resolution Gating"
-Cohesion: 0.40
-Nodes (4): 3. Poly Haven Asset Ingestion Pipeline & Resolution Gating, Consequences, Context, Decisions
+### Community 211 - "EMBEDS.md"
+Cohesion: 0.22
+Nodes (8): Embed Audio, Embed Bases, Embed Images, Embed Lists, Embed Notes, Embed PDF, Embed Search Results, External Images
 
-### Community 213 - "rtf.py"
-Cohesion: 0.23
-Nodes (9): extract_html_content(), extract_html_file(), _decode_hex_run(), extract_rtf(), _rtf_ansi_encoding(), _rtf_unicode_repl(), _strip_destination_groups(), strip_rtf_fallback() (+1 more)
+### Community 212 - "PolyHavenAPI"
+Cohesion: 0.19
+Nodes (5): 3. Poly Haven Asset Ingestion Pipeline & Resolution Gating, Consequences, Context, Decisions, PolyHavenAPI
 
-### Community 214 - "Camera systems"
-Cohesion: 0.15
-Nodes (12): 1. Godot 2D built-in follow: smoothing + bounds (don't hand-roll first), 2. Frame-rate-independent smooth follow (when you hand-roll it), 3. Deadzone + look-ahead (lead the player, ignore jitter), 4. 3D third-person orbit with collision push-in, 5. Screen shake hook (owned trigger lives in `game-feel`), Camera systems, Core workflow, Patterns (+4 more)
+### Community 213 - "re"
+Cohesion: 0.07
+Nodes (23): extract_with_zipfile(), _find_opf_path(), _opf_opening_tags(), _resolve_manifest_href(), extract_html_content(), extract_html_file(), _HTMLTextExtractor, _decode_hex_run() (+15 more)
+
+### Community 214 - "game-forge/SKILL.md"
+Cohesion: 0.13
+Nodes (10): Camera systems, Core workflow, Pitfalls, References, Related skills, When to use, Gameplay Atlas, 🔄 Refreshing / Synchronizing the Catalog (+2 more)
 
 ### Community 215 - "check_steam_build.py"
-Cohesion: 0.17
-Nodes (13): build_parser(), _condition_end(), human_size(), Issue, main(), ordered_issues(), render_json(), render_text() (+5 more)
+Cohesion: 0.18
+Nodes (12): build_parser(), _condition_end(), human_size(), Issue, main(), ordered_issues(), render_json(), render_text() (+4 more)
 
 ### Community 216 - "Checker"
-Cohesion: 0.31
-Nodes (3): Checker, is_inside(), read_vdf_text()
+Cohesion: 0.30
+Nodes (4): Checker, is_inside(), read_vdf_text(), UsageProblem
 
 ### Community 217 - "Node"
-Cohesion: 0.13
-Nodes (15): Architecture at a glance, Behavior Trees & Utility AI, Core workflow, Pitfalls, References, Related skills, Utility scoring in one snippet, When to use (+7 more)
+Cohesion: 0.18
+Nodes (9): Architecture at a glance, Behavior Trees & Utility AI, Core workflow, Pitfalls, References, Related skills, Utility scoring in one snippet, When to use (+1 more)
 
 ### Community 218 - "Defold Core"
 Cohesion: 0.12
@@ -1527,9 +1559,9 @@ Nodes (14): Avoiding conflicting access, Bevy queries & scheduling detail (0.20)
 Cohesion: 0.13
 Nodes (13): Architecture and testing, Debugging, Entities, Package layout, Randomness, Resource and callback lifetime, Saving, Scenes (+5 more)
 
-### Community 222 - "match_local_path"
-Cohesion: 0.17
-Nodes (11): _expand_folders(), has_wildcard(), is_foreign_windows_path(), join_depot_path(), MappingResult, Match, match_local_path(), resolve() (+3 more)
+### Community 222 - ".check_depot_files"
+Cohesion: 0.20
+Nodes (10): _expand_folders(), has_wildcard(), is_foreign_windows_path(), join_depot_path(), MappingResult, match_local_path(), resolve(), scandir() (+2 more)
 
 ### Community 223 - "Patterns"
 Cohesion: 0.13
@@ -1620,7 +1652,7 @@ Cohesion: 0.15
 Nodes (12): 1. Game config + boot (ES module), 2. A Scene with the full lifecycle, 3. Cross-scene data + events, 4. Scene transitions (pick the right verb), 5. A camera that follows the player, Core workflow, Patterns, Phaser 4 Core (+4 more)
 
 ### Community 246 - "Platformer"
-Cohesion: 0.17
+Cohesion: 0.15
 Nodes (12): 1. Solve jump physics from height + time (not magic numbers), 2. Coyote time + jump buffer + variable height (the feel core), 3. One-way platforms, Composition (build it from these skills), Core loop, Design knobs (make the jump feel right), Must-have systems, Patterns (+4 more)
 
 ### Community 247 - "Puzzle"
@@ -1640,11 +1672,11 @@ Cohesion: 0.15
 Nodes (12): Binding gaps (be honest; do not fabricate a skill), Disciplines (`skills/disciplines/`) — cross-engine concepts, load **with** the engine skill, Ebitengine (`skills/ebitengine/`, target v2.10.5 / Go 1.25+), Engine skills, Full routing table — every authored skill, Genres (`skills/genres/`) — whole-game templates, **compose** engine + disciplines, Godot (`skills/godot/`, target Godot 4.7) — read after `project.godot` is detected, Other engines (`skills/other-engines/`) (+4 more)
 
 ### Community 251 - "RPG"
-Cohesion: 0.15
+Cohesion: 0.17
 Nodes (12): 1. Derived stats from base attributes (recompute, never store as truth), 2. XP curve + level-up, 3. Quest objective update driven by game events, Composition (build it from these skills), Core loop, Design knobs, Must-have systems, Patterns (+4 more)
 
 ### Community 252 - "Survival Crafting"
-Cohesion: 0.17
+Cohesion: 0.15
 Nodes (12): 1. Needs decay with graded consequences, 2. Crafting: validate, then atomically consume inputs, 3. Gathering gated by tool tier, Composition (build it from these skills), Core loop, Design knobs, Must-have systems, Patterns (+4 more)
 
 ### Community 253 - "three.js glTF Loading"
@@ -1807,9 +1839,9 @@ Nodes (11): 1. Reactive Event Graph (no Tick), 2. Direct reference + Cast (tight
 Cohesion: 0.17
 Nodes (11): 1. Spawn a one-shot effect at a world location (C++), 2. Spawn attached to a socket (muzzle flash that follows the gun), 3. Drive an exposed User parameter at runtime, 4. Blueprint equivalent (node flow), Core workflow, Patterns, Pitfalls, References (+3 more)
 
-### Community 293 - "three.js scene graph, cameras & cleanup (r150+)"
+### Community 293 - ".get_asset"
 Cohesion: 0.29
-Nodes (6): Coordinates & conventions, Disposing of resources (avoiding leaks), Render-on-demand, Stopping and restarting the loop, The Object3D hierarchy, three.js scene graph, cameras & cleanup (r150+)
+Nodes (5): 4. Model Context Protocol (MCP) Integration, Connecting AI Clients, Core MCP Tools, Option A: Direct Remote MCP (`mcp_config.json` / Claude Desktop), Option B: SeikoClaw Local MCP Bridge Server (`blendswap_mcp_server.py`)
 
 ### Community 294 - "Godot 3D Essentials (4.x)"
 Cohesion: 0.18
@@ -1943,9 +1975,9 @@ Nodes (8): 1. Why `1 - exp(-rate*dt)` (frame-rate-independent smoothing), 2. Ful
 Cohesion: 0.22
 Nodes (8): 1. Effects as data + an interpreter, 2. The resolution queue / stack, 3. Triggers and keywords, 4. Targeting, 5. Deckbuilder vs. constructed, 6. Shuffle fairness and consistency, 7. Mana / resource curves, Card effect resolution and structure (depth)
 
-### Community 328 - "game-forge/SKILL.md"
-Cohesion: 0.15
-Nodes (10): 2. Interactive Foundations Plan Template for `/game-forge`, Universal Baseline Game Requirements & User Options Matrix (`GAME_FOUNDATIONS_BASELINE.md`), Choose the production path, Core workflow, Create Game Assets, Image-generation handoff, Quality gates, Raster QA recipes (+2 more)
+### Community 328 - "preflightJsonText"
+Cohesion: 0.40
+Nodes (11): JsonStructureError, preflightJsonText(), beginContainer(), beginString(), beginValue(), closeContainer(), countValue(), currentContainer() (+3 more)
 
 ### Community 329 - "Defold file formats (1.14.0)"
 Cohesion: 0.22
@@ -2015,8 +2047,8 @@ Nodes (8): 1. Representing the path, 2. Tower targeting modes, 3. DPS and "can t
 Cohesion: 0.22
 Nodes (8): 1. The script data model, 2. Route structures, 3. Flags and variables, 4. Save-anywhere data, 5. Backlog, skip, and auto, 6. Presentation conventions, 7. Localization, Visual novel script model and flow (depth)
 
-### Community 346 - "game-router/SKILL.md"
-Cohesion: 0.18
+### Community 346 - "🧠 One-Call Dispatch Algorithm"
+Cohesion: 0.25
 Nodes (8): 1. Engine Fingerprinting (Exclusive: 1 Engine), 2. Genre Classification (Additive: at most 1 primary genre), 3. Cross-Engine Disciplines (Additive: 1–3 skills), 4. Direct Handoff & Pipeline Execution, 🧠 One-Call Dispatch Algorithm, Unified Game Router — Game Dev Dispatcher & Intelligence Gateway, 🚀 When to Use, 💬 Worked Example Dispatches
 
 ### Community 347 - "Best practices & pitfalls — performance, memory, hybrid AI"
@@ -2051,9 +2083,9 @@ Nodes (7): 1. The trauma model (why shake feels good), 2. Easing cheat sheet —
 Cohesion: 0.25
 Nodes (7): 3D scene & environment reference (Godot 4.7), Baked lighting & probes, Environment & post-processing, GridMap & MeshLibrary, Lights, Materials, Transform3D
 
-### Community 355 - "With vs. without SeikoClaw Harness: the ExerMart case study"
-Cohesion: 0.25
-Nodes (5): 1. Experiment overview, 2. 12-dimension comparison chart, 3. Quantitative rubric chart (0 to 10 scale), 5. Adversarial `break-ui` defects uncovered and fixed, With vs. without SeikoClaw Harness: the ExerMart case study
+### Community 355 - "AI, LLM, and Agent Hunting"
+Cohesion: 0.20
+Nodes (9): AI, LLM, and Agent Hunting, Context, retrieval, and memory attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), MCP and sub-agent trust classes (subagent_type: `general`), Output and disclosure attack classes (subagent_type: `general`), Tool and action attack classes (subagent_type: `general`), Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here) (+1 more)
 
 ### Community 356 - "Input buffering, game feel, devices, and accessibility"
 Cohesion: 0.25
@@ -2074,10 +2106,6 @@ Nodes (7): Open Cloud (out-of-game access), Ordered stores: full pagination, Req
 ### Community 360 - "Roblox physics queries, collision policy, and ownership"
 Cohesion: 0.25
 Nodes (7): Assembly and ownership debugging, Modern motion migration, Primary references, Query selection, Roblox physics queries, collision policy, and ownership, Separate the three flags, Verification matrix
-
-### Community 361 - "balance.luau"
-Cohesion: 0.29
-Nodes (3): fail(), validate(), 4. Wire it into the checks
 
 ### Community 362 - "Roblox Studio verification evidence"
 Cohesion: 0.25
@@ -2104,8 +2132,8 @@ Cohesion: 0.25
 Nodes (7): `Awaitable` (async/await) instead of a coroutine, Coroutine yield instructions, Custom yield instruction, Execution order (the parts that matter for gameplay), Gotchas, MonoBehaviour lifecycle & coroutines (Unity 6.3 LTS), Stopping coroutines deterministically
 
 ### Community 368 - "4. Non-headless visual verification captures (`seikojin-qa`)"
-Cohesion: 0.25
-Nodes (8): 4. Non-headless visual verification captures (`seikojin-qa`), `R1_navbar.png`: Hero and frosted glass navigation, `R2_catalog.png`: Catalog grid with vertically stacked top-left badges, `R3_product_modal.png`: Certified 8-point physical inspection modal, `R4_sell_portal.png`: Algorithmic resale and instant cash buyout portal, `R5_space_matcher.png`: Interactive room and ceiling clearance matcher, `R6_cart_checkout.png`: LTL freight and liftgate checkout drawer, `R7_break_ui_stress.png`: Adversarial `break-ui` worst-case stress mode (`?data=worst`)
+Cohesion: 0.15
+Nodes (13): 1. Experiment overview, 2. 12-dimension comparison chart, 3. Quantitative rubric chart (0 to 10 scale), 4. Non-headless visual verification captures (`seikojin-qa`), 5. Adversarial `break-ui` defects uncovered and fixed, `R1_navbar.png`: Hero and frosted glass navigation, `R2_catalog.png`: Catalog grid with vertically stacked top-left badges, `R3_product_modal.png`: Certified 8-point physical inspection modal (+5 more)
 
 ### Community 369 - "🚀 Core CLI Commands"
 Cohesion: 0.25
@@ -2195,9 +2223,9 @@ Nodes (6): Components, garbage collection & replication primer (UE 5.8 C++), Cre
 Cohesion: 0.29
 Nodes (6): Asset setup checklist (editor), Build.cs, Enhanced Input — complete C++ Character (UE 5.8), Header, Runtime rebinding note, Source
 
-### Community 391 - "Gameplay Atlas"
-Cohesion: 0.22
-Nodes (8): 🚀 Game Forge Integration Protocols, Gameplay Atlas, 🔄 Refreshing / Synchronizing the Catalog, Stage A: Brief, GDD & Locked References, Stage B: Scope Carving & Playable Foundation (`scope-surgeon`), Stage C: Balance & Systems Modeling (`game-systems-modeler`), 🏗️ Structure of an Atlas Mechanic, 🎛️ The CLI Query Lever (`scripts/gameplay_atlas.py`)
+### Community 391 - "test"
+Cohesion: 0.29
+Nodes (7): Stage B: Scope Carving & Playable Foundation (Autonomous $\rightarrow$ Gate B), test(), 🚀 Game Forge Integration Protocols, Stage A: Brief, GDD & Locked References, Stage B: Scope Carving & Playable Foundation (`scope-surgeon`), Stage C: Balance & Systems Modeling (`game-systems-modeler`), 9. Gameplay Atlas by Loopyhop ([gameplayatlas.loopyhop.com](https://gameplayatlas.loopyhop.com/))
 
 ### Community 392 - "Utility AI system — curves, considerations, evaluator"
 Cohesion: 0.33
@@ -2214,10 +2242,6 @@ Nodes (5): Art direction brief, Game frame, Technical contract, Visual system, V
 ### Community 395 - "Ink and Yarn Spinner — syntax cheat sheet"
 Cohesion: 0.33
 Nodes (5): Ink and Yarn Spinner — syntax cheat sheet, Ink essentials, Integration notes, Side-by-side, Yarn Spinner essentials
-
-### Community 396 - "ol"
-Cohesion: 0.09
-Nodes (22): A custom dialogue runner, Graph schema, Localization lookup, The runner state machine, Validation pass, Variable store and expression evaluation, Ar(), Ba() (+14 more)
 
 ### Community 398 - "Audio"
 Cohesion: 0.33
@@ -2244,7 +2268,7 @@ Cohesion: 0.33
 Nodes (5): Custom BTTask in C++ (UE 5.8), Instant task (returns immediately), Latent task (finishes over time), Notes, Reading and writing typed Blackboard values
 
 ### Community 404 - "EXAMPLES.md"
-Cohesion: 0.33
+Cohesion: 0.40
 Nodes (4): Flowchart, Project Board with Groups, Research Canvas with Files and Links, Simple Canvas with Text and Connections
 
 ### Community 405 - "Modes of Operation"
@@ -2263,9 +2287,9 @@ Nodes (4): Asset rights and provenance, Decision rules, Record per shipped asset
 Cohesion: 0.40
 Nodes (4): Bind concepts to the project, Establish the engine contract, Failure modes, Working with custom and proprietary engines
 
-### Community 409 - "book-to-skill/SKILL.md"
-Cohesion: 0.50
-Nodes (3): --private is the default; substitute --public ONLY under the visibility rule above, (the visibility answer WAS the bare word "public" AND the copyright gate allows it), WORKDIR is the path this run reported; quote it in case of spaces.
+### Community 409 - "test_economy_math.luau"
+Cohesion: 0.29
+Nodes (4): Camera3D, Core workflow, near(), PerspectiveCamera vs OrthographicCamera
 
 ### Community 410 - "Geometry Nodes"
 Cohesion: 0.11
@@ -2287,9 +2311,9 @@ Nodes (18): Bevel Workflow, Boolean Workflow, Constraints, Design Principles, Gr
 Cohesion: 0.29
 Nodes (7): 1. Unguided AI builds a brochure. Guided AI builds the business., 2. Catching the \$129,999 bug that unit tests missed, 3. Looking at the real screen before calling the job done, Executive scorecard, From a passable demo to a store that closes sales, The experiment, Try the 60-second walkthrough
 
-### Community 416 - "SeikoClaw: Agentic Coding Harness"
+### Community 416 - "three.js scene graph, cameras & cleanup (r150+)"
 Cohesion: 0.29
-Nodes (7): 🎖️ Attribution & Upstream Credits, 🎯 Highlights, 📜 License, Live Showcase & A/B Case Study (`RawExerMart` vs. `ClawExerMart`), 📂 Repository Structure, SeikoClaw: Agentic Coding Harness, 🩺 System Diagnostics (`seikoclaw doctor`)
+Nodes (6): Coordinates & conventions, Disposing of resources (avoiding leaks), Render-on-demand, Stopping and restarting the loop, The Object3D hierarchy, three.js scene graph, cameras & cleanup (r150+)
 
 ### Community 417 - "Feature Specification Standard"
 Cohesion: 0.29
@@ -2307,21 +2331,25 @@ Nodes (5): 1. The Zero-Decision Rule, 2. Concrete Scope & Target Files, 3. Phasi
 Cohesion: 0.40
 Nodes (4): Genre & Competitor Analysis, Integration & Handoff, Persona & Execution Mode, Workflow
 
-### Community 421 - "Chapter 1: The Architecture of Discipline"
-Cohesion: 0.40
-Nodes (5): 1. The 24 First Principles, 2. The OpenBrain Persistent Sidecar, 3. Pre-Execution Security Guardrails, 4. Deterministic Skill Routing, Chapter 1: The Architecture of Discipline
+### Community 421 - "json"
+Cohesion: 0.08
+Nodes (22): main(), imports(), main(), method_bodies(), scan_file(), strip_go(), build_sxs_composite(), clean_query_keywords() (+14 more)
 
-### Community 422 - "📕 Back of the Book"
-Cohesion: 0.40
-Nodes (5): 📕 Back of the Book, Synopsis, Tagline, The SeikoClaw Creed, Vital Metrics & System Specs
+### Community 422 - "Create Game Assets"
+Cohesion: 0.22
+Nodes (8): Choose the production path, Core workflow, Create Game Assets, Image-generation handoff, Quality gates, Raster QA recipes, References, Related skills
 
-### Community 423 - "Skill Distribution & Sync Workflow"
-Cohesion: 0.50
-Nodes (3): Goal, Skill Distribution & Sync Workflow, Workflow
+### Community 423 - "Cloud and Deployment Hunting"
+Cohesion: 0.20
+Nodes (10): Cloud and Deployment Hunting, Configuration and secret lifecycle attack classes (subagent_type: `general`), Container and orchestration attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Ingress, network, and control-plane attack classes (subagent_type: `general`), Managed storage, events, and edge attack classes (subagent_type: `general`), Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here) (+2 more)
 
 ### Community 424 - "Asset Optimization"
 Cohesion: 0.11
 Nodes (17): Asset Optimization, Audit Checklist, Constraints, Geometry, LOD Generation, Materials, MCP Integration, Modifier Cleanup (+9 more)
+
+### Community 425 - "Un"
+Cohesion: 0.08
+Nodes (28): ll(), ad(), al(), Ao(), De(), dn(), Ds(), eo() (+20 more)
 
 ### Community 426 - "Horror Style Specialist"
 Cohesion: 0.11
@@ -2535,14 +2563,6 @@ Nodes (8): Albedo Extraction, Common Issues, Decimation for Bake Source, Import 
 Cohesion: 0.22
 Nodes (8): Edge Density, Eye Socket, Facial Retopology, Loop Targets, Mouth Corner, Nose, Pole Strategy, Validation Poses
 
-### Community 479 - "detect_structure"
-Cohesion: 0.25
-Nodes (4): _closed_fence_line_numbers(), detect_structure(), _numbered_titles_are_structural(), _structural_chapter_count()
-
-### Community 480 - "cmd_cache"
-Cohesion: 0.22
-Nodes (5): cmd_cache(), format_bytes(), parse_size_to_bytes(), test_format_bytes(), test_parse_size_to_bytes()
-
 ### Community 481 - "Combat Animation Timing"
 Cohesion: 0.25
 Nodes (7): Attack Phases, Combat Animation Timing, Combo Timing, Game Export, Hit Reaction, Root Motion, Silhouette Readability
@@ -2639,10 +2659,6 @@ Nodes (6): Blender Compositing, Channel Assignment (Unreal Standard), Naming, No
 Cohesion: 0.29
 Nodes (6): Export Notes, Layout Strategy, Modeling Trim Geometry, Trim Sheets, UV Assignment, Variation
 
-### Community 505 - "test_economy_math.luau"
-Cohesion: 0.29
-Nodes (4): Camera3D, Core workflow, near(), PerspectiveCamera vs OrthographicCamera
-
 ### Community 506 - "Cartoon Style"
 Cohesion: 0.33
 Nodes (5): Cartoon Style, Handoff, Reference Guide, Tenets, When to Use
@@ -2679,9 +2695,9 @@ Nodes (5): Calculation, Hero vs Background, Matching Density, Texel Density, UDI
 Cohesion: 0.33
 Nodes (5): Aircraft, Cars / Trucks, Mechs, Ships / Boats, Vehicle Proportion Blockout
 
-### Community 515 - "3. Core Tool Reference"
-Cohesion: 0.33
-Nodes (6): 3. Core Tool Reference, A. Connection & Introspection, B. Visual Self-Verification ("The Eyes"), C. Procedural Python Execution, D. Asset Catalog Search & Generation, E. BlendSwap Asset Acquisition & MCP Pipeline
+### Community 515 - "Data Isolation and Lifecycle Hunting"
+Cohesion: 0.20
+Nodes (9): Core discipline (include in every agent prompt for this domain), Data Isolation and Lifecycle Hunting, Deletion, revocation, and lifecycle attack classes (subagent_type: `general`), Derived-data and disclosure attack classes (subagent_type: `general`), Export, backup, restore, and migration attack classes (subagent_type: `general`), Tenant and object-isolation attack classes (subagent_type: `general`), Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here) (+1 more)
 
 ### Community 516 - "Before Building (Instant Gut-Check)"
 Cohesion: 0.40
@@ -2739,29 +2755,149 @@ Nodes (3): Pivot Rules, Prop Tiers & Budgets, Wear Map Priority
 Cohesion: 0.50
 Nodes (3): Stop Motion / Craft Style, Sublooks, Tenets
 
-### Community 530 - "usage.md"
+### Community 530 - "SeikoClaw: Agentic Coding Harness"
+Cohesion: 0.29
+Nodes (7): 🎖️ Attribution & Upstream Credits, 🎯 Highlights, 📜 License, Live Showcase & A/B Case Study (`RawExerMart` vs. `ClawExerMart`), 📂 Repository Structure, SeikoClaw: Agentic Coding Harness, 🩺 System Diagnostics (`seikoclaw doctor`)
+
+### Community 531 - "Desktop, Mobile, and Local IPC Hunting"
+Cohesion: 0.20
+Nodes (10): Application-state and device-lifecycle attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Deep-link, callback, and navigation attack classes (subagent_type: `general`), Desktop, Mobile, and Local IPC Hunting, Local IPC and exported-component attack classes (subagent_type: `general`), Privileged-helper and local-file attack classes (subagent_type: `general`), Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here) (+2 more)
+
+### Community 695 - "Memory Safety, Binary, and Kernel Hunting"
+Cohesion: 0.20
+Nodes (10): Binary loading and runtime attack classes (subagent_type: `general`), Bounds, integer, and representation attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), FFI and ABI attack classes (subagent_type: `general`), Kernel and privileged-interface attack classes (subagent_type: `general`), Lifetime, type, and concurrency attack classes (subagent_type: `general`), Memory Safety, Binary, and Kernel Hunting, Universal moves (apply across the above) (+2 more)
+
+### Community 696 - "Protocols, RPC, and Messaging Hunting"
+Cohesion: 0.20
+Nodes (9): Broker and queue isolation attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Framing, schema, and interpretation attack classes (subagent_type: `general`), Protocols, RPC, and Messaging Hunting, Replay, ordering, and transaction attack classes (subagent_type: `general`), RPC identity and authorization attack classes (subagent_type: `general`), Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here) (+1 more)
+
+### Community 697 - "Resource Exhaustion and Availability Hunting"
+Cohesion: 0.20
+Nodes (9): Computational amplification attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Failure and recovery attack classes (subagent_type: `general`), Quota and scheduling attack classes (subagent_type: `general`), Resource accumulation attack classes (subagent_type: `general`), Resource Exhaustion and Availability Hunting, Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here) (+1 more)
+
+### Community 698 - "HTTP-Protocol and Authentication Hunting"
+Cohesion: 0.18
+Nodes (10): API-key and mTLS attack classes (subagent_type: `general`), Browser-session attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Federated-identity attack classes (subagent_type: `general`), HTTP framing and cache attack classes (subagent_type: `general`), HTTP-Protocol and Authentication Hunting, MFA, passkey, and account-transition attack classes (subagent_type: `general`), Universal moves (apply across the above) (+2 more)
+
+### Community 699 - "Show me your work"
+Cohesion: 0.20
+Nodes (9): Audit the log against the transcript, Composing this skill, Cross-model review of the trail, Logging a row, Reviewing the trail, Rules, Show me your work, The format (+1 more)
+
+### Community 700 - "Vulnerability Hunting"
+Cohesion: 0.22
+Nodes (9): Core hunting method — include in every hunter prompt, Core validation rules — include in every hunter prompt, Coverage-critic waves, Local validation boundaries, Parent consolidation and ledger update, Phase 2: Run coverage-led hunting waves, Promotion procedure — copy this promotion procedure verbatim into every hunter prompt, Required hunter prompt (+1 more)
+
+### Community 701 - "Supply Chain and Release Hunting"
+Cohesion: 0.22
+Nodes (8): CI and automation attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Dependency and build-input attack classes (subagent_type: `general`), Release and update attack classes (subagent_type: `general`), Supply Chain and Release Hunting, Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here), When to use this file
+
+### Community 702 - "xu"
+Cohesion: 0.20
+Nodes (11): bo(), di(), ec(), Io(), ju(), Ro(), vu(), wu() (+3 more)
+
+### Community 704 - "Patterns"
+Cohesion: 0.33
+Nodes (6): 1. Godot 2D built-in follow: smoothing + bounds (don't hand-roll first), 2. Frame-rate-independent smooth follow (when you hand-roll it), 3. Deadzone + look-ahead (lead the player, ignore jitter), 4. 3D third-person orbit with collision push-in, 5. Screen shake hook (owned trigger lives in `game-feel`), Patterns
+
+### Community 705 - "Security Audit & Coverage Ledger Standard"
+Cohesion: 0.29
+Nodes (6): 1. Core Principles, 2. Coverage Ledger Specification (`coverage-ledger.json`), 4. Integration with SeikoClaw OpenBrain, Mechanical Validation, Required Unit Structure, Security Audit & Coverage Ledger Standard
+
+### Community 706 - "parse_vdf"
+Cohesion: 0.43
+Nodes (6): condition_holds(), Directive, parse_vdf(), block(), fail(), next_token()
+
+### Community 707 - "pr"
+Cohesion: 0.33
+Nodes (5): Credits, be(), t(), pr(), ri()
+
+### Community 708 - "A custom dialogue runner"
+Cohesion: 0.29
+Nodes (6): A custom dialogue runner, Graph schema, Localization lookup, The runner state machine, Validation pass, Variable store and expression evaluation
+
+### Community 709 - "loop-me/SKILL.md"
+Cohesion: 0.40
+Nodes (4): Definition of done, The loop lens, The workspace, Vocabulary
+
+### Community 710 - "Agent Authoring: Writing Skills, Workflows & Documents for Agents"
+Cohesion: 0.33
+Nodes (5): 1. Context Pointers & Trigger Discipline, 2. Progressive Disclosure Ladder, 3. Leading Words & Completion Criteria, 4. Writing Modes (Explore vs. Exploit), Agent Authoring: Writing Skills, Workflows & Documents for Agents
+
+### Community 712 - "Phase 6: Produce target-neutral reports from final records"
 Cohesion: 0.50
-Nodes (3): 📤 Publish your generated skill (optional), 🚀 Usage, 💬 What people do with it
+Nodes (4): `FINDINGS-DETAIL.md`, `NEEDS-VALIDATION.md`, Phase 6: Produce target-neutral reports from final records, `REPORT.md`
+
+### Community 713 - "Interviewer Skill"
+Cohesion: 0.40
+Nodes (4): Checklists, Goal, Interviewer Skill, Workflow
+
+### Community 714 - "CALLOUTS.md"
+Cohesion: 0.40
+Nodes (4): Basic Callout, Custom Callouts (CSS), Foldable Callouts, Nested Callouts
+
+### Community 715 - "Knap"
+Cohesion: 0.40
+Nodes (5): Batch Rendering, Defuddle Pipeline, Knap, Templates, Usage
+
+### Community 716 - "Test-Driven Development"
+Cohesion: 0.33
+Nodes (5): Anti-patterns, Rules of the loop, Seams — where tests go, Test-Driven Development, What a good test is
+
+### Community 717 - "Agent Guardrails & Command Denylist"
+Cohesion: 0.40
+Nodes (4): Agent Guardrails & Command Denylist, Files & Components, Goal, Usage & Maintenance
+
+### Community 718 - "Playtest Feedback Loop"
+Cohesion: 0.40
+Nodes (4): Core Capabilities, Playtest Dictionary (Qualitative Heuristics), Playtest Feedback Loop, Workflow
+
+### Community 719 - "Defuddle"
+Cohesion: 0.50
+Nodes (4): Defuddle, Output formats, SeikoClaw Integration Patterns, Usage
+
+### Community 720 - "retro/SKILL.md"
+Cohesion: 0.40
+Nodes (4): Files, Implementation vs Review, Reference, Steps
+
+### Community 721 - "Chapter 1: The Architecture of Discipline"
+Cohesion: 0.40
+Nodes (5): 1. The 24 First Principles, 2. The OpenBrain Persistent Sidecar, 3. Pre-Execution Security Guardrails, 4. Deterministic Skill Routing, Chapter 1: The Architecture of Discipline
+
+### Community 722 - "ADR Skill"
+Cohesion: 0.50
+Nodes (3): ADR Skill, Goal, Steps
+
+### Community 723 - "Step 8 — Generate supporting files"
+Cohesion: 0.50
+Nodes (4): cheatsheet.md, glossary.md, patterns.md, Step 8 — Generate supporting files
+
+### Community 724 - "Coverage Loop Skill"
+Cohesion: 0.50
+Nodes (3): Coverage Loop Skill, Goal, Workflow
+
+### Community 725 - "Skill Distribution & Sync Workflow"
+Cohesion: 0.50
+Nodes (3): Goal, Skill Distribution & Sync Workflow, Workflow
 
 ## Knowledge Gaps
-- **3827 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `qc`, `up` (+3822 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 4785 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **192 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **3972 isolated node(s):** `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill`, `fs`, `path` (+3967 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 4942 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **200 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Unreal C++ Gameplay` connect `Unreal C++ Gameplay` to `index-0jVwK8iL.js`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Why does `🎖️ Upstream Creators & Maintainers` connect `🎖️ Upstream Creators & Maintainers` to `test`, `confirmed`, `README.md`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Are the 9 inferred relationships involving `MemoryEngine` (e.g. with `AutoCapture` and `Decisions`) actually correct?**
   _`MemoryEngine` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `deny-dangerous.sh script`, `session-start.sh script`, `book-to-skill` to the rest of the system?**
-  _3827 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _3972 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `3. Core Tool Reference` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Why does `Core workflow` connect `index-0jVwK8iL.js` to `Unreal C++ Gameplay`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Why does `Unreal C++ Gameplay` connect `Unreal C++ Gameplay` to `index-0jVwK8iL.js`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Should `MemoryEngine` be split into smaller, more focused modules?**
-  _Cohesion score 0.03442879499217527 - nodes in this community are weakly interconnected._
-- **Should `Glossary of Terms` be split into smaller, more focused modules?**
-  _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.040719196192490745 - nodes in this community are weakly interconnected._
+- **Why does `Node` connect `Node` to `parse_vdf`, `.text`, `Godot Multiplayer (4.x high-level)`, `check_steam_build.py`, `Checker`, `Godot GDScript headless testing (4.x)`, `.check_depot_files`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._

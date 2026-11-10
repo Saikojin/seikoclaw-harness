@@ -22,6 +22,7 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [asset-generator](../asset-generator/SKILL.md) — On-demand 2D game asset creation (textures, sprites, layers, backdrops) via Gemini image generation.
 - [polyhaven-assets](../polyhaven-assets/SKILL.md) — Zero-dependency Poly Haven CC0 asset pipeline with strict 2K resolution default gating and multi-engine material adapters for Godot, Unity, Unreal, and Blender.
 - [blender-developer](../blender-developer/SKILL.md) — Autonomous live Blender 3D procedural modeling, PBR material creation, Poly Haven / Poly Pizza asset ingestion, 8-directional isometric sprite rendering, and visual self-verification via Blender MCP.
+- [effigy-asset-pipeline](../effigy-asset-pipeline/SKILL.md) — Offline local neural 2D/3D game asset foundry: automated TRELLIS.2 / Pixal3D mesh synthesis, topology healing, PBR texture baking, 52-joint humanoid and creature rigging, skinning, CC0 / Kimodo motion retargeting, and 2D pixel-art sprite sheet projection via Effigy MCP.
 - [unreal-engine-developer](../unreal-engine-developer/SKILL.md) / [unreal-developer](../unreal-developer/SKILL.md) — Live Unreal Engine editor automation, Blueprint authoring, and MCP bridge orchestration via UnrealMCP, enforcing Chaos physics raycast discipline, frame-latch input debouncing, and shipping footprint hygiene.
 - [unity-developer](../unity-developer/SKILL.md) / [unity-engine-developer](../unity-engine-developer/SKILL.md) — Live Unity Engine editor automation, C# Roslyn scripting, GameObject/Prefab authoring, and MCP bridge orchestration via Unity-MCP, enforcing URP anti-magenta shaders, new Input System ergonomics, and headless build packaging.
 - [godot-developer](../godot-developer/SKILL.md) / [godot-engine-developer](../godot-engine-developer/SKILL.md) — Live Godot Engine editor automation, GDScript and C# scripting, Scene and Node authoring, and MCP bridge orchestration via Godot-MCP, enforcing -Z character heading discipline, input map isolation, and headless Windows export.
@@ -36,6 +37,7 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [code-review](../code-review/SKILL.md) — Two-axis parallel review (Standards + Spec) with Fowler smell baseline.
 - [diagnosing-bugs](../diagnosing-bugs/SKILL.md) — Disciplined diagnosis loop for hard bugs: tight feedback loop → minimize → hypothesize → instrument → fix → regression test → retro.
 - [retro](../retro/SKILL.md) — Session retrospective optimizing the agent environment: pushes mechanical errors to deterministic checks (linters, hooks, CI) and judgment calls to coding standards.
+- [cloudflare-security-audit](../cloudflare-security-audit/SKILL.md) — Multi-phase defensive security audit engine (Cloudflare methodology): reconnaissance, coverage-led hunting, fresh-agent adversarial disproof gating (gate:disproof), deterministic coverage ledgers (validate-coverage-ledger.cjs), and schema-validated findings.
 
 ## 3. Architecture & Task Orchestration
 - [architect](../architect/SKILL.md) / [seikoclaw-architect](../seikoclaw-architect/SKILL.md) — Decomposes high-level goals into granular DAG tasks and `task.md` checklists with `[GATE: QA]` and `[GATE: VISUAL_CRITIC]` verification contracts, auditing game foundation baselines against user overrides.
@@ -92,3 +94,5 @@ Index of canonical developer, game-dev, and autonomous harness skills available 
 - [obsidian-markdown](../obsidian-markdown/SKILL.md) — Authoring valid Obsidian Flavored Markdown with wikilinks `[[Note]]`, block transclusions, callouts, and frontmatter properties.
 - [json-canvas](../json-canvas/SKILL.md) — Interactive visual mind-maps, decision trees, and quest webs in `.canvas` (JSON Canvas 1.0) format.
 - [obsidian-bases](../obsidian-bases/SKILL.md) — Dynamic database views (`.base`) with calculated formulas, sorting, and aggregations for game balance curves and asset ledgers.
+- [defuddle](../defuddle/SKILL.md) — Fast, clean Markdown extraction from web pages via Defuddle CLI, eliminating ads and layout noise to guard the model context window.
+- [knap](../knap/SKILL.md) — Structured Markdown template compilation and batch note generation from JSON/CSV data via Knap CLI, supporting Unix pipe chaining with Defuddle.

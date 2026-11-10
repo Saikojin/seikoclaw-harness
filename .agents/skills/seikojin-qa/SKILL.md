@@ -31,6 +31,7 @@ Before generating or running tests, the QA Strategist detects the target applica
 | **Low-Level Android / Embedded Hardware** | **Pure ADB (Python)** | UIAutomator | Direct shell commands, logcat polling, and OS-level package state manipulation. |
 | **Blender 3D DCC & Visual Assets** | **`validate_blender_asset.py`** (BPY live assertion + GLB binary check) + **`fetch_asset_references.py`** | `game-design-critic` SxS (`look(mode="angles")` vs web refs) | Enforces 100% applied transforms, watertight geometry, 0 missing textures, and web-grounded visual parity before engine export. |
 | **Pre-existing Repository Suites** | **Existing Framework** (e.g. Cypress, Jest) | `e2e` Wrapper | Respect established codebase conventions without introducing competing runtimes. |
+| **Security, APIs & Trust Boundaries** | **Coverage Ledger & Disproof Engine** (`cloudflare-security-audit` / `validate-coverage-ledger.cjs`) | `gate:disproof` (`openbrain/gates.py`) / `validate-findings.cjs` | Maps trust boundaries, tracks 100% surface coverage in `coverage-ledger.json`, and subjects candidate vulnerabilities to adversarial disproof. |
 
 ---
 
@@ -43,6 +44,7 @@ Before generating or running tests, the QA Strategist detects the target applica
 - **Actions**:
   - Performs **Risk-Based Testing (RBT)** analysis (`Risk = Likelihood x Impact`).
   - Maps out the core **"Rabbit Path"** (the critical user journey that must never break).
+  - **Deterministic Coverage Accounting**: For security audits and high-risk API services, initializes a canonical `coverage-ledger.json` (`references/coverage-ledger-template.json`) to track all trust boundaries, routes, and attack classes with zero blind spots.
   - Authors **Mandatory `[E2E_CONTRACT] (Non-Headless)`**: For every user-facing feature, function, or mechanic in `task.md`, specifies the exact windowed/headed launch command, numbered user journey steps, and observable done-when criteria.
   - Authors **Goal-Driven Rabbit Paths**: Uses `agent.act(...)` to specify user intents resilient to minor UI drift.
   - Launches **Exploratory Bug Charters (`e2e explore`)**:

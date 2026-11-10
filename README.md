@@ -31,7 +31,10 @@ Compare how an AI agent codes from the exact same prompt **without** vs. **with*
 - **Pre-Execution Guardrails**: Cross-platform POSIX and PowerShell pre-exec safety hooks that intercept catastrophic shell commands (`rm -rf /`, `curl | bash`, forced git pushes) before execution.
 - **Game Forge**: An autonomous end-to-end game creation pipeline from Socratic design critiques and GDDs to zero-install HTML5 Canvas playable prototypes.
 - **Poly Haven CC0 Asset Pipeline**: Automated search, metadata inspection, and downloading of CC0 textures, HDRIs, and models with strict 2K resolution default gating and multi-engine adapters for Godot, Unity, Unreal, and Blender (`scripts/polyhaven.py`, `polyhaven-assets`).
+- **Effigy Offline Neural Asset Foundry**: Local GPU 2D/3D asset creation pipeline bridging TRELLIS.2 / Pixal3D neural mesh synthesis, automated topology repair, PBR texture baking, 52-joint humanoid and creature rigging, neural skinning, motion retargeting (CC0 / Kimodo), and 2D pixel-art sprite sheet projection via Effigy MCP and LLMWorkbench prompt expansion.
 - **Gameplay Atlas Offline Intelligence**: High-performance local SQLite FTS5 database and CLI query lever (`scripts/gameplay_atlas.py`, `gameplay-atlas`) indexing 280 structured game mechanics across 28 systems, complete with 4-stage core loops, player dilemmas, tunable parameters, shipped game cases, and Stage B micro-slice prototyping recipes.
+- **Cloudflare Security Audit & Adversarial Disproof Engine**: Ingested defensive vulnerability hunting pipeline (`.agents/skills/cloudflare-security-audit/`), multi-phase declarative playbook (`security-audit`), deterministic coverage ledgers (`coverage-ledger.json`), and isolated falsification gating (`gate:disproof` in `openbrain/gates.py`) to mathematically eradicate hallucinated security alerts.
+- **Obsidian & Knowledge Vault Tooling**: Complete suite for local-first knowledge management and open standards (`.md`, `.canvas`, `.base`), desktop IPC (`obsidian-cli`), virtual tabletop (`obsidian-atlas-vtt`), and token-efficient web-to-note pipelines (`defuddle`, `knap`).
 
 ---
 
@@ -42,7 +45,7 @@ Compare how an AI agent codes from the exact same prompt **without** vs. **with*
 ├── .agents/
 │   ├── hooks/             # Security pre-exec guards & session-start routing
 │   ├── rules/             # 24 First Principles & Graphify rules
-│   ├── skills/            # Modular capability definitions (260+ canonical, gamedev, and bld-* skills)
+│   ├── skills/            # Modular capability definitions (275+ canonical, gamedev, and bld-* skills)
 │   │   └── .candidates/   # Staged evolutionary skill candidates
 │   └── workflows/         # Procedural guides (Architect, Shipper, etc.)
 ├── data/                  # Offline datasets & SQLite indexes (Gameplay Atlas DB & raw cache)
@@ -95,6 +98,9 @@ python seikoclaw.py task --title "Multi-Tenant Storage Partitioning" --playbook 
 
 # Create metric hillclimb optimization task
 python seikoclaw.py task --title "Optimize vector query latency" --playbook hillclimb
+
+# Create defensive security audit task (expands to: recon -> hunt -> disproof gate -> output validation -> record verification -> report)
+python seikoclaw.py task --title "Audit Authentication & MCP Bridges" --playbook security-audit
 ```
 
 ### 2. Task Execution & Sandboxing
@@ -118,6 +124,9 @@ python seikoclaw.py gate --task "sc-101.3" --certify-spec-review --spec "docs/de
 
 # Certify Adversarial Interrogation gate (multi-model red team)
 python seikoclaw.py gate --task "sc-101.6" --certify-adversarial --worker "Adversarial-Reviewer"
+
+# Certify Adversarial Disproof gate (confirm candidate surviving active falsification)
+python seikoclaw.py gate --task "sc-101.3" --certify-disproof --worker "Adversarial-Disproof-Verifier"
 ```
 
 ### 4. Cross-Harness Skill Export & Ingestion
@@ -176,6 +185,8 @@ SeikoClaw builds upon foundational work from:
 - **Poly Haven ([polyhaven.com](https://polyhaven.com/))**: Greg Zaal, Rob Tuytel, and the Poly Haven community for the 100% free CC0 PBR textures, HDRIs, and 3D models integrated into our game development tooling and visual parity pipelines.
 - **Abhishek Barali & Contributors ([`awesome-gamedev-agent-skills`](https://github.com/gamedev-skills/awesome-gamedev-agent-skills))**: The 77-skill gamedev catalog across 12 game engines, disciplines, genres, and publishing workflows integrated under the `gamedev-*` namespace and dispatched via `game-router`.
 - **Gameplay Atlas ([`gameplayatlas.loopyhop.com`](https://gameplayatlas.loopyhop.com/)) by Loopyhop**: The curated field guide of 280 game mechanics across 28 systems, loops, player dilemmas, parameters, shipped game cases, and prototyping recipes powering `gameplay-atlas` and Game Forge.
+- **Cloudflare ([@cloudflare](https://github.com/cloudflare)) & Contributors ([`security-audit-skill`](https://github.com/cloudflare/security-audit-skill))**: Defensive security audit methodology, deterministic coverage ledger accounting (`coverage-ledger.json`), and the fresh-agent adversarial disproof verification protocol.
+- **Steph Ango ([@kepano](https://github.com/kepano)) & the Obsidian Team ([`kepano/obsidian-skills`](https://github.com/kepano/obsidian-skills))**: Reference-grade Agent Skills for local-first knowledge management (`obsidian-markdown`, `obsidian-bases`, `json-canvas`, `obsidian-cli`), token-efficient web extraction (`defuddle`), and Markdown template batch rendering (`knap`).
 - **Saikojin (SeikoClaw)**: OpenBrain sidecar, QA test automation (`seikojin-qa`), execution security guardrails, and the **Game Forge** creation suite.
 
 See [`CREDITS.md`](CREDITS.md) for full details.

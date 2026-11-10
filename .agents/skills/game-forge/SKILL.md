@@ -118,8 +118,9 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
    - `C0 - Palettes & Shading`: Generate color ramps and lighting models using [`gamedev-shader-programming`](../gamedev-shader-programming/SKILL.md).
    - `C1 - Environment & Terrain`: Modular tilesets / backdrops into `assets/`. For 3D or isometric environments, use `blender-developer` to query [`polyhaven-assets`](../polyhaven-assets/SKILL.md) for CC0 textures/HDRIs or generate procedural blockouts and props (protected by `[GATE: BLENDER_VALIDATION]`).
    - `C2 - Hero & Enemy Sprites/Models`: Character layers, animations, or meshes via [`gamedev-create-game-assets`](../gamedev-create-game-assets/SKILL.md).
+      - *Local Neural Foundry Option (GPU-Ready)*: For workstation hosts with NVIDIA GPUs, execute [`effigy-asset-pipeline`](../effigy-asset-pipeline/SKILL.md) paired with `llmworkbench` prompt expansion (`expand_game_prompt_local` mode `3d_character_rigging`). Effigy synthesizes textured 3D meshes (TRELLIS.2 / Pixal3D), heals topology, bakes PBR maps, auto-fits 52-joint or creature skeletons, applies skinning, and retargets CC0 or Kimodo motion clips. For 2D titles, Effigy projects animated 3D meshes into pixel-art sprite sheets (`sprites` ➔ `pixelize` ➔ Godot `SpriteFrames` / Unreal `Paper2D`).
      - *For 3D Games*: Use `blender-developer` for procedural mesh modeling, Poly Pizza low-poly imports, armature rigging, and `.glb` exports. Every asset prompt/description is stored in `assets/metadata/<asset>.json`, and the asset must pass `[GATE: BLENDER_VALIDATION]`.
-     - *For 2D Games*: Use `blender-developer` to render 8-directional isometric sprite sheets from 3D models at locked pixel resolutions and palette specs.
+      - *For 2D Games*: Use `blender-developer` to render 8-directional isometric sprite sheets from 3D models at locked pixel resolutions and palette specs, or [`asset-generator`](../asset-generator/SKILL.md) for 2D paperdoll layers.
    - `C3 - VFX & Particles`: Impact sparks, hit trails, screen shake shaders via [`gamedev-game-feel`](../gamedev-game-feel/SKILL.md) and [`gamedev-camera-systems`](../gamedev-camera-systems/SKILL.md).
    - `C4 - Audio & UI HUD`: Procedural SFX, theme music, tactile HUD styling via [`gamedev-audio-design`](../gamedev-audio-design/SKILL.md) and [`gamedev-game-ui-ux`](../gamedev-game-ui-ux/SKILL.md).
    - `C5 - Asset Ledger`: Verify all assets match `art/BAR.md` resolution and palette specs, tracking deliverables in `docs/design/assets.base`. No asset may be entered without certified validation report.
@@ -135,7 +136,7 @@ Game Forge maintains a single canonical manifest at `docs/design/game_manifest.j
 
 1. **The Parity Cycle (`Capture -> Critic -> Punch List -> Builder -> Re-capture`)**:
    - **Capture**: Automated headless browser / screen capture generates in-game stills (`captures/R<n>_frame.png`).
-     - *For 3D in Blender*: invoke `look(mode="angles")` to generate 4-view contact sheets and `scripts/fetch_asset_references.py` to acquire web ground-truth reference images matching the asset description.
+      - *For 3D in Blender / Effigy*: invoke `look(mode="angles")` or Effigy's `look()` tool to generate 4-view contact sheets and `scripts/fetch_asset_references.py` to acquire web ground-truth reference images matching the asset description.
      - *For Obsidian / Atlas VTT*: invoke `obsidian dev:screenshot path=captures/R<n>_frame.png` for automated headless capture of the active vault canvas.
    - **SxS Composite**: Pair capture side-by-side with matched reference using `scripts/fetch_asset_references.py composite`.
    - **Execute `game-design-critic` (Phase 2: Visual Parity)**: Run critique against `art/BAR.md`.

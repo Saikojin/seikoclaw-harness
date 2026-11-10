@@ -8,7 +8,7 @@ from openbrain.gates import GateEngine
 
 def test_playbooks_registry():
     pbs = list_playbooks()
-    assert len(pbs) >= 7
+    assert len(pbs) >= 8
     names = [p["name"] for p in pbs]
     assert "bug-fix" in names
     assert "feature" in names
@@ -17,6 +17,7 @@ def test_playbooks_registry():
     assert "visual-parity" in names
     assert "shipping" in names
     assert "spec-driven" in names
+    assert "security-audit" in names
 
 
 def test_playbook_expansion_creates_sequential_dag():
@@ -146,6 +147,63 @@ def test_spec_driven_playbook_expansion():
         frontier4 = tg.get_ready_frontier()
         assert len(frontier4) == 1
         assert frontier4[0]["id"] == wisps[3]["id"]
+    finally:
+        if os.path.exists(db_path):
+            os.remove(db_path)
+
+
+def test_security_audit_playbook_dag_and_disproof_gate():
+    with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as f:
+        db_path = f.name
+
+    try:
+        tg = TaskGraph(db_path)
+        gates = GateEngine(tg)
+        task_id = tg.create_task("Audit MCP Server Boundaries", playbook="security-audit")
+
+        # Verify parent status
+        parent = tg.get_task(task_id)
+        assert parent["status"] == "in_progress"
+        assert parent["playbook"] == "security-audit"
+
+        # Verify 6 child steps
+        tasks = tg.list_tasks()
+        child_wisps = [t for t in tasks if t.get("is_ephemeral")]
+        assert len(child_wisps) == 6
+        assert "[security-audit] Reconnaissance & Boundary Mapping" in child_wisps[0]["title"]
+        assert "[security-audit] Candidate Validation via Adversarial Disproof" in child_wisps[2]["title"]
+        assert child_wisps[2]["gate_type"] == "disproof"
+
+        # First step is on ready frontier
+        frontier = tg.get_ready_frontier()
+        assert len(frontier) == 1
+        assert frontier[0]["id"] == child_wisps[0]["id"]
+
+        # Step through 1 and 2
+        tg.close_task(child_wisps[0]["id"])
+        tg.close_task(child_wisps[1]["id"])
+
+        # Step 3 (Disproof Gate) is on frontier
+        frontier_step3 = tg.get_ready_frontier()
+        assert len(frontier_step3) == 1
+        assert frontier_step3[0]["id"] == child_wisps[2]["id"]
+
+        # Step 4 is blocked
+        assert child_wisps[3]["id"] not in [t["id"] for t in frontier_step3]
+
+        # Certify disproof gate
+        ok, msg = gates.certify_disproof_gate(
+            child_wisps[2]["id"],
+            verifier="disproof-verifier-1",
+            candidate_falsified=False,
+            source_trace_verified=True,
+            notes="Confirmed trust boundary violation in MCP server tool dispatcher."
+        )
+        assert ok is True
+
+        # Now step 4 is unblocked on ready frontier!
+        frontier_step4 = tg.get_ready_frontier()
+        assert child_wisps[3]["id"] in [t["id"] for t in frontier_step4]
     finally:
         if os.path.exists(db_path):
             os.remove(db_path)

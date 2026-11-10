@@ -24,3 +24,7 @@ To convert dense, heavy files into lean Markdown or CSV artifacts so the Archite
 
 ## Boundaries
 - Do not attempt to analyze the meaning of the files here. Only convert and structure them. Analysis is the job of the Architect.
+
+## Web URLs vs. Heavy Local Files
+- For web pages and online documentation, prefer [defuddle](../defuddle/SKILL.md) (`npm install -g defuddle` / `npx defuddle`) to strip ads, navigation, and script noise before feeding into context.
+- Use **seikoclaw-ingestor** for heavy offline files: PDFs, large CSVs, meeting transcripts, and raw binaries.

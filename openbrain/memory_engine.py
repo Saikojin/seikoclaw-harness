@@ -37,6 +37,39 @@ class MemoryEngine:
                 cur.execute("ALTER TABLE memories ADD COLUMN archived_at TIMESTAMP")
             except Exception:
                 pass
+
+        # Self-heal CHECK constraint to allow 'Archived' tier for ContextEngine compression
+        cur.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='memories'")
+        table_row = cur.fetchone()
+        if table_row and "Archived" not in table_row[0]:
+            try:
+                cur.execute("PRAGMA foreign_keys=OFF;")
+                cur.execute("""
+                CREATE TABLE IF NOT EXISTS memories_migrated (
+                    id TEXT PRIMARY KEY,
+                    content TEXT NOT NULL,
+                    tier TEXT CHECK(tier IN ('Core', 'Longterm', 'Midterm', 'Shortterm', 'Archived')) DEFAULT 'Shortterm',
+                    source TEXT,
+                    tags TEXT,
+                    weight REAL DEFAULT 1.0,
+                    compressed_into TEXT,
+                    archived_at TIMESTAMP,
+                    last_accessed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+                """)
+                cur.execute("""
+                INSERT INTO memories_migrated (id, content, tier, source, tags, weight, compressed_into, archived_at, last_accessed, created_at)
+                SELECT id, content, tier, source, tags, weight, compressed_into, archived_at, last_accessed, created_at
+                FROM memories;
+                """)
+                cur.execute("DROP TABLE memories;")
+                cur.execute("ALTER TABLE memories_migrated RENAME TO memories;")
+                cur.execute("CREATE INDEX IF NOT EXISTS idx_memories_tier ON memories(tier);")
+                cur.execute("CREATE INDEX IF NOT EXISTS idx_memories_tags ON memories(tags);")
+                cur.execute("PRAGMA foreign_keys=ON;")
+            except Exception as e:
+                logger.error(f"Failed to auto-migrate memories CHECK constraint: {e}")
         conn.commit()
         conn.close()
 
