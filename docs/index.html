@@ -136,6 +136,14 @@
         >
           📖 Harness Odyssey
         </button>
+        <button
+          type="button"
+          id="lens-localoffice"
+          onclick="setAudienceLens('localoffice')"
+          class="px-3.5 py-1.5 rounded-full text-blue-300 hover:text-white apple-press"
+        >
+          📘 LocalOffice Retro
+        </button>
       </div>
 
       <div class="flex items-center gap-2 text-xs">
@@ -153,6 +161,13 @@
           class="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold apple-press shadow-sm"
         >
           Play ClawExerMart ↗
+        </a>
+        <a
+          href="demos/localoffice/index.html"
+          target="_blank"
+          class="px-3.5 py-1.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold apple-press shadow-sm"
+        >
+          Play LocalOffice ↗
         </a>
       </div>
     </div>
@@ -183,10 +198,11 @@
           <button type="button" id="lens-exec-mob" onclick="setAudienceLens('executive')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700">Executive view</button>
           <button type="button" id="lens-eng-mob" onclick="setAudienceLens('engineering')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700">Engineering audit</button>
           <button type="button" id="lens-story-mob" onclick="setAudienceLens('story')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-amber-300 font-semibold border border-amber-500/40">📖 Odyssey</button>
+          <button type="button" id="lens-localoffice-mob" onclick="setAudienceLens('localoffice')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-blue-300 font-semibold border border-blue-500/40">📘 LocalOffice</button>
         </div>
 
         <!-- Repository & Live Demo Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-3">
           <!-- Card 1: SeikoClaw Harness -->
           <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between gap-3">
             <div>
@@ -236,9 +252,29 @@
                 Live demo ↗
               </a>
               <a href="demos/clawexermart/index.html?data=worst" target="_blank" class="px-2.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-amber-400 border border-amber-500/40 whitespace-nowrap apple-press" title="Launch with break-ui worst-case dataset active">
-                Stress test ↗
+                Stress ↗
               </a>
               <a href="https://github.com/Saikojin/ClawExerMart" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-slate-300 border border-slate-800 whitespace-nowrap apple-press">
+                Repo ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: LocalOffice -->
+          <div class="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400">Post-Retro Hardened Suite</span>
+              <h3 class="text-sm font-bold text-white mt-0.5">Saikojin / LocalOffice</h3>
+              <p class="text-xs text-slate-300 mt-1">100% private, zero-cloud desktop & web office suite. Multi-tab Writer, Sheets, and PDF Studio with Tauri 2.0 native packaging.</p>
+            </div>
+            <div class="flex items-center gap-2 pt-2">
+              <a href="demos/localoffice/index.html" target="_blank" class="flex-1 text-center px-3 py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-xs font-bold text-slate-950 whitespace-nowrap apple-press shadow">
+                Live demo ↗
+              </a>
+              <a href="localoffice-story.html" class="px-2.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-blue-300 border border-blue-500/40 whitespace-nowrap apple-press" title="Open complete LocalOffice Retrospective Case Study">
+                📘 Story ↗
+              </a>
+              <a href="https://github.com/Saikojin/LocalOffice" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 text-xs font-medium text-slate-300 border border-slate-800 whitespace-nowrap apple-press">
                 Repo ↗
               </a>
             </div>
@@ -602,15 +638,28 @@
 
     <!-- Interactive Split-Screen Live Sandbox + 60-Second Guided Tour -->
     <section id="live-sandbox" class="space-y-6">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Interactive comparison · 60-second walkthrough</span>
-          <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Try 3 clicks in the live split-screen demo</h2>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">
-            Both applications run live below. Follow the three steps below to experience the difference in under a minute.
-          </p>
+      <!-- Interactive Showcase Switcher: ExerMart vs LocalOffice -->
+      <div class="flex items-center justify-between flex-wrap gap-4 border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-2 p-1.5 bg-slate-900/90 rounded-2xl border border-slate-800">
+          <button
+            type="button"
+            id="tab-btn-exermart"
+            onclick="switchSandboxTab('exermart')"
+            class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 apple-press shadow"
+          >
+            🛒 ExerMart (E-Commerce A/B)
+          </button>
+          <button
+            type="button"
+            id="tab-btn-localoffice"
+            onclick="switchSandboxTab('localoffice')"
+            class="px-4 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-white apple-press"
+          >
+            📘 LocalOffice (100% Private Suite)
+          </button>
         </div>
-        <div class="flex flex-wrap items-center gap-2 text-xs">
+
+        <div id="exermart-quick-actions" class="flex flex-wrap items-center gap-2 text-xs">
           <button
             type="button"
             onclick="setClawDemoMode('demos/clawexermart/index.html')"
@@ -626,86 +675,382 @@
             Claw: Trigger $129,999 stress test (?data=worst)
           </button>
         </div>
-      </div>
 
-      <!-- 3-Step Guided Tour Bar -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between gap-3">
-          <div>
-            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Click 01 · Basement ceiling check</span>
-            <h3 class="text-sm font-bold text-white mt-1">Click "Gym Space Matcher" on the right</h3>
-            <p class="text-xs text-slate-400 mt-1">
-              Watch <strong class="text-slate-200">ClawExerMart</strong> flag which racks will hit an 8-foot basement ceiling. Notice that <strong class="text-slate-200">RawExerMart</strong> on the left has no way to check if a machine fits your room.
-            </p>
-          </div>
-          <a href="#gallery" class="text-xs font-semibold text-amber-400 hover:underline">See screenshot proof R5 ↓</a>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between gap-3">
-          <div>
-            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Click 02 · Instant trade-in valuation</span>
-            <h3 class="text-sm font-bold text-white mt-1">Click "Sell / Trade-In" in both windows</h3>
-            <p class="text-xs text-slate-400 mt-1">
-              The left window gives you a blank box asking you to guess a price. The right window calculates market resale value and offers an instant cash buyout on the spot.
-            </p>
-          </div>
-          <a href="#gallery" class="text-xs font-semibold text-amber-400 hover:underline">See screenshot proof R4 ↓</a>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col justify-between gap-3">
-          <div>
-            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Click 03 · Worst-case inventory test</span>
-            <h3 class="text-sm font-bold text-white mt-1">Load the $129,999 stress dataset</h3>
-            <p class="text-xs text-slate-300 mt-1">
-              Feeds a 145-character title, a broken photo URL, and a $129,999 commercial package into <strong class="text-white">ClawExerMart</strong> with zero overlapping buttons.
-            </p>
-          </div>
-          <button
-            type="button"
-            onclick="setClawDemoMode('demos/clawexermart/index.html?data=worst')"
-            class="w-full text-center px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs apple-press"
+        <div id="localoffice-quick-actions" class="hidden flex flex-wrap items-center gap-2 text-xs">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> 100% Client-Side & Zero-Cloud
+          </span>
+          <a
+            href="demos/localoffice/index.html"
+            target="_blank"
+            class="px-3 py-1.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold apple-press"
           >
-            Activate worst-case stress mode now
-          </button>
+            Open in Full Tab ↗
+          </a>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Left Iframe: RawExerMart -->
-        <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
-          <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
-              <strong class="text-white">RawExerMart</strong>
-              <span class="text-slate-400">(Unguided AI control group)</span>
+      <!-- ExerMart Sandbox View -->
+      <div id="sandbox-exermart-view" class="space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Interactive comparison · 60-second walkthrough</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Try 3 clicks in the live split-screen demo</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Both applications run live below. Follow the three steps below to experience the difference in under a minute.
+          </p>
+        </div>
+
+        <!-- 3-Step Guided Tour Bar -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Click 01 · Basement ceiling check</span>
+              <h3 class="text-sm font-bold text-white mt-1">Click "Gym Space Matcher" on the right</h3>
+              <p class="text-xs text-slate-400 mt-1">
+                Watch <strong class="text-slate-200">ClawExerMart</strong> flag which racks will hit an 8-foot basement ceiling. Notice that <strong class="text-slate-200">RawExerMart</strong> on the left has no way to check if a machine fits your room.
+              </p>
             </div>
-            <a href="demos/rawexermart/index.html" target="_blank" class="text-amber-400 hover:underline font-medium">Open full tab ↗</a>
+            <a href="#gallery" class="text-xs font-semibold text-amber-400 hover:underline">See screenshot proof R5 ↓</a>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Click 02 · Instant trade-in valuation</span>
+              <h3 class="text-sm font-bold text-white mt-1">Click "Sell / Trade-In" in both windows</h3>
+              <p class="text-xs text-slate-400 mt-1">
+                The left window gives you a blank box asking you to guess a price. The right window calculates market resale value and offers an instant cash buyout on the spot.
+              </p>
+            </div>
+            <a href="#gallery" class="text-xs font-semibold text-amber-400 hover:underline">See screenshot proof R4 ↓</a>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Click 03 · Worst-case inventory test</span>
+              <h3 class="text-sm font-bold text-white mt-1">Load the $129,999 stress dataset</h3>
+              <p class="text-xs text-slate-300 mt-1">
+                Feeds a 145-character title, a broken photo URL, and a $129,999 commercial package into <strong class="text-white">ClawExerMart</strong> with zero overlapping buttons.
+              </p>
+            </div>
+            <button
+              type="button"
+              onclick="setClawDemoMode('demos/clawexermart/index.html?data=worst')"
+              class="w-full text-center px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs apple-press"
+            >
+              Activate worst-case stress mode now
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Left Iframe: RawExerMart -->
+          <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+            <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
+                <strong class="text-white">RawExerMart</strong>
+                <span class="text-slate-400">(Unguided AI control group)</span>
+              </div>
+              <a href="demos/rawexermart/index.html" target="_blank" class="text-amber-400 hover:underline font-medium">Open full tab ↗</a>
+            </div>
+            <iframe
+              src="demos/rawexermart/index.html"
+              title="RawExerMart Live Demo"
+              class="w-full h-[620px] bg-slate-950 border-0"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <!-- Right Iframe: ClawExerMart -->
+          <div class="rounded-3xl apple-glass-card overflow-hidden border border-amber-500/30 flex flex-col">
+            <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                <strong class="text-white">ClawExerMart</strong>
+                <span id="claw-mode-label" class="text-amber-400 font-medium">(With SeikoClaw Harness)</span>
+              </div>
+              <a id="claw-open-tab" href="demos/clawexermart/index.html" target="_blank" class="text-amber-400 hover:underline font-medium">Open full tab ↗</a>
+            </div>
+            <iframe
+              id="claw-iframe"
+              src="demos/clawexermart/index.html"
+              title="ClawExerMart Live Demo"
+              class="w-full h-[620px] bg-slate-950 border-0"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- LocalOffice Sandbox View -->
+      <div id="sandbox-localoffice-view" class="hidden space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Live Browser Suite · Post-Retro Hardened</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">LocalOffice: Modern, Minimalist, Local-First Office Suite</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            Test the live React 18 + TypeScript web build below. It features LocalWriter (prose + OpenXML DOCX), LocalSheets (formula grid + XLSX), and LocalPdfStudio (Mozilla PDF.js vector canvas + whiteout text overlay). Operates entirely inside client-side memory with zero telemetry or network calls.
+          </p>
+        </div>
+
+        <!-- 3-Step Guided Tour for LocalOffice -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold text-blue-400 uppercase tracking-wider">Step 01 · LocalWriter</span>
+              <h3 class="text-sm font-bold text-white mt-1">Try Slash Commands & DOCX Export</h3>
+              <p class="text-xs text-slate-400 mt-1">
+                Type <code class="text-blue-300 bg-slate-950 px-1 py-0.5 rounded">/table</code> or <code class="text-blue-300 bg-slate-950 px-1 py-0.5 rounded">/code</code> to build rich tables or format code blocks. Click "Export DOCX" to verify clean OpenXML generation with preserved horizontal rules.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-blue-400">Clean OpenXML roundtrip ✓</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Step 02 · LocalSheets</span>
+              <h3 class="text-sm font-bold text-white mt-1">Reactive Formulas & Multi-Sheet Tabs</h3>
+              <p class="text-xs text-slate-400 mt-1">
+                Click "+ New Tab" and pick <strong class="text-emerald-400">LocalSheets</strong>. Enter numbers into A1:A4, type <code class="text-emerald-300 bg-slate-950 px-1 py-0.5 rounded">=SUM(A1:A4)</code>, and watch reactively computed totals. Export native <code class="text-emerald-300 bg-slate-950 px-1 py-0.5 rounded">.xlsx</code> or <code class="text-emerald-300 bg-slate-950 px-1 py-0.5 rounded">.csv</code>.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-emerald-400">SheetJS XLSX engine ✓</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex flex-col justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold text-blue-400 uppercase tracking-wider">Step 03 · LocalPdfStudio</span>
+              <h3 class="text-sm font-bold text-white mt-1">Vector PDF Rendering & Whiteout Stamping</h3>
+              <p class="text-xs text-slate-300 mt-1">
+                Switch to PDF view to see Mozilla PDF.js canvas rendering with multi-page navigation. Annotate or stamp text with dynamic <code class="text-blue-300 bg-slate-950 px-1 py-0.5 rounded">#ffffff</code> whiteout masking instead of superficial stubs.
+              </p>
+            </div>
+            <a href="localoffice-story.html" class="text-xs font-semibold text-blue-400 hover:underline">Read the retro case study ↗</a>
+          </div>
+        </div>
+
+        <!-- Full-Width Live LocalOffice Iframe -->
+        <div class="rounded-3xl apple-glass-card overflow-hidden border border-blue-500/30 flex flex-col shadow-2xl">
+          <div class="px-5 py-3.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+              <strong class="text-white text-sm">LocalOffice Web Suite</strong>
+              <span class="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-bold uppercase">React 18 + TypeScript + Tauri 2.0 Web Build</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-slate-400 hidden sm:inline">Use <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300 font-mono text-[10px]">Ctrl+K</kbd> for Command Palette</span>
+              <a href="demos/localoffice/index.html" target="_blank" class="px-3 py-1 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold apple-press">
+                Open in Full Window ↗
+              </a>
+            </div>
           </div>
           <iframe
-            src="demos/rawexermart/index.html"
-            title="RawExerMart Live Demo"
-            class="w-full h-[620px] bg-slate-950 border-0"
+            id="localoffice-iframe"
+            src="demos/localoffice/index.html"
+            title="LocalOffice Live Web Suite Demo"
+            class="w-full h-[660px] bg-stone-900 border-0"
             loading="lazy"
           ></iframe>
         </div>
+      </div>
+    </section>
 
-        <!-- Right Iframe: ClawExerMart -->
-        <div class="rounded-3xl apple-glass-card overflow-hidden border border-amber-500/30 flex flex-col">
-          <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-              <strong class="text-white">ClawExerMart</strong>
-              <span id="claw-mode-label" class="text-amber-400 font-medium">(With SeikoClaw Harness)</span>
-            </div>
-            <a id="claw-open-tab" href="demos/clawexermart/index.html" target="_blank" class="text-amber-400 hover:underline font-medium">Open full tab ↗</a>
+    <!-- SECTION: THE LOCALOFFICE CASE STUDY & RETROSPECTIVE -->
+    <section id="localoffice-retro" data-audience="localoffice" class="space-y-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-5">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">The Quality Frontier · Case Study & Retrospective</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+              Session 2c06243e-3946-4e5b-8d49-b50803b19829
+            </span>
           </div>
-          <iframe
-            id="claw-iframe"
-            src="demos/clawexermart/index.html"
-            title="ClawExerMart Live Demo"
-            class="w-full h-[620px] bg-slate-950 border-0"
-            loading="lazy"
-          ></iframe>
+          <h2 class="text-2xl sm:text-4xl font-black text-white mt-1">The LocalOffice Retrospective: Escaping the "Facade vs. Engine" Trap</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            How a search for modern DOCX and PDF editing in a 2001 Office XP DVD dump sparked a 100% private office suite—and how an unsparing <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">/retro</code> saved it from superficial AI complacency.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="localoffice-story.html" target="_blank" class="px-3.5 py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold text-xs apple-press shadow-sm">
+            Open Standalone Reader ↗
+          </a>
+          <a href="LOCALOFFICE_STORY.md" download class="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-semibold text-xs apple-press">
+            Download .md ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- The Retrospective Core Dilemma Callout -->
+      <div class="p-6 sm:p-8 rounded-3xl apple-glass-card border border-blue-500/30 space-y-4">
+        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-400">
+          <span>The Core Diagnosis</span>
+          <span class="text-slate-600">·</span>
+          <span>Delivered in Step 769</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-white">The "Facade vs. Engine" Trap</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+          <em>"Building a full Office suite requires hundreds of developer-years of file-format fidelity. In rapid agent sprints, it is easy to assemble browser libraries (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">tiptap</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">sheetjs</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">pdfjs-dist</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">pdf-lib</code>) that create the <strong>visual illusion</strong> of an Office suite, while the actual underlying file-format roundtrips remain inherently lossy or superficial."</em>
+        </p>
+      </div>
+
+      <!-- 4 Critical Shortcomings Exposed in Field Testing -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold text-white">Four Real-World Shortcomings Exposed During Human Testing</h3>
+          <span class="text-xs text-rose-400 font-semibold">Cracks in the Initial Pass</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-2xl bg-slate-900/80 border border-rose-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400">01 · DOCX Roundtrip</span>
+            <h4 class="text-sm font-bold text-white">Vanishing Horizontal Rules</h4>
+            <p class="text-xs text-slate-400">
+              Dividing lines (<code class="text-blue-300 bg-slate-950 px-1 py-0.5 rounded">&lt;hr&gt;</code>) authored in LocalWriter were stripped on DOCX save and reload. Mammoth dropped paragraph borders; export lacked mapping.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/80 border border-rose-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400">02 · PDF Studio</span>
+            <h4 class="text-sm font-bold text-white">Web Worker Collisions</h4>
+            <p class="text-xs text-slate-400">
+              Multi-page PDF thumbnails in the left sidebar locked up on page 2+. Concurrent worker calls collided on canvas context allocation, freezing the view.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/80 border border-rose-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400">03 · Text Stamping</span>
+            <h4 class="text-sm font-bold text-white">The Red Box Mock Stub</h4>
+            <p class="text-xs text-slate-400">
+              Clicking "Add Text" to edit PDF copy stamped a hardcoded red rectangle reading <em>"Approved by LocalOffice"</em> instead of real editable text entry.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/80 border border-rose-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400">04 · OS Shell</span>
+            <h4 class="text-sm font-bold text-white">Right-Click Blank Window</h4>
+            <p class="text-xs text-slate-400">
+              Choosing "Open with LocalOffice" in Windows Explorer launched the app to a blank "Document 1" tab. Neither Rust nor React ingested CLI file arguments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real Photographic Evidence from the Session -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold text-white">Photographic Proof from Conversation 2c06243e</h3>
+          <span class="text-xs text-amber-400 font-semibold">User-Captured Screenshots</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+            <div class="p-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
+              <span class="font-bold text-rose-400">Step 332: PDF Canvas Rendering Lockup</span>
+              <span class="text-slate-400">media_1794341438229</span>
+            </div>
+            <img src="assets/localoffice/retro_defect1_pdf_blank.png" alt="PDF viewer blank canvas failure" class="w-full h-64 object-cover object-top bg-slate-950" />
+            <div class="p-4 text-xs text-slate-300">
+              The user opens a PDF; the canvas fails to load page data and locks up on a blank screen. Exposed the lack of robust worker transport error handling.
+            </div>
+          </div>
+
+          <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800 flex flex-col">
+            <div class="p-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
+              <span class="font-bold text-rose-400">Step 428: The Infamous "Approved" Red Box Mock</span>
+              <span class="text-slate-400">media_1794342726119</span>
+            </div>
+            <img src="assets/localoffice/retro_defect2_pdf_approved_stub.jpg" alt="PDF Approved by LocalOffice red stamp defect" class="w-full h-64 object-cover object-top bg-slate-950" />
+            <div class="p-4 text-xs text-slate-300">
+              User comment: <em>"Trying to edit text doesn't work... trying to add text just puts the red box of approved by localoffice."</em> A development placeholder masquerading as a feature.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Swarm Hardening (Phase 2 Solutions) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold text-white">Phase 2: The Multi-Agent Swarm Hardening</h3>
+          <span class="text-xs text-emerald-400 font-semibold">Flash 3.8 Swarm Orchestration</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Rust + React IPC</span>
+            <h4 class="text-sm font-bold text-white">Single-Instance Argv Ingestion</h4>
+            <p class="text-xs text-slate-300">
+              Integrated <code class="text-blue-300 bg-slate-950 px-1 py-0.5 rounded">tauri-plugin-single-instance</code>. Captures cold-boot CLI args and warm-boot IPC payloads, auto-opening clicked files in dedicated tabs.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">GitHub Actions</span>
+            <h4 class="text-sm font-bold text-white">Dual-OS Continuous Integration</h4>
+            <p class="text-xs text-slate-300">
+              Authored <code class="text-blue-300 bg-slate-950 px-1 py-0.5 rounded">ci.yml</code> across Windows and Ubuntu: typecheck, ESLint, Vitest, and Tauri Rust check running on all PRs and pushes to main.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Static Analysis</span>
+            <h4 class="text-sm font-bold text-white">ESLint 9 Zero-Warning Gate</h4>
+            <p class="text-xs text-slate-300">
+              Configured ESLint 9 flat configuration, purged unused variables and unhandled hooks, and established unified <code class="text-blue-300 bg-slate-950 px-1 py-0.5 rounded">npm run check</code> command.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Documentation</span>
+            <h4 class="text-sm font-bold text-white">Capabilities Honesty Matrix</h4>
+            <p class="text-xs text-slate-300">
+              Published an unvarnished boundaries table in README.md honestly defining what LocalWriter, LocalSheets, and LocalPdfStudio support vs corporate macro limits.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Scorecard Table -->
+      <div class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800">
+        <div class="px-6 py-4 bg-slate-900/90 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <h4 class="text-sm font-bold text-white">Scorecard: First Pass vs. Post-Retro Release</h4>
+          <span class="text-xs text-blue-400 font-semibold">Engineering Transformation</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-slate-800 bg-slate-900/50 text-slate-300 uppercase tracking-wider text-[11px]">
+                <th class="py-3.5 px-5">Engineering Dimension</th>
+                <th class="py-3.5 px-5">First Pass (The Illusion)</th>
+                <th class="py-3.5 px-5">Post-Retro Hardened Release</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-slate-300">
+              <tr>
+                <td class="py-3.5 px-5 font-bold text-white">OS Shell Launch Integration</td>
+                <td class="py-3.5 px-5 text-rose-300">Opened blank window; ignored file clicked in Explorer</td>
+                <td class="py-3.5 px-5 font-bold text-emerald-400">Full cold-boot argv capture & single-instance IPC forwarding</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-5 font-bold text-white">PDF Text Manipulation</td>
+                <td class="py-3.5 px-5 text-rose-300">Hardcoded red rectangle stub stamped on canvas</td>
+                <td class="py-3.5 px-5 font-bold text-emerald-400">Mozilla PDF.js vector canvas + #ffffff whiteout text masking</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-5 font-bold text-white">DOCX Roundtrip Persistence</td>
+                <td class="py-3.5 px-5 text-rose-300">Horizontal dividers dropped on save/reload</td>
+                <td class="py-3.5 px-5 font-bold text-emerald-400">Complete OpenXML paragraph bottom-border mapping</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-5 font-bold text-white">Automated CI Gates on PRs</td>
+                <td class="py-3.5 px-5 text-rose-300">Zero; broken commits merged undetected</td>
+                <td class="py-3.5 px-5 font-bold text-emerald-400">Dual-OS (Windows + Ubuntu) matrix with 4 mandatory checks</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-5 font-bold text-white">Static Analysis & Linter</td>
+                <td class="py-3.5 px-5 text-rose-300">None; unused imports broke build during refactor</td>
+                <td class="py-3.5 px-5 font-bold text-emerald-400">ESLint 9 flat config; unified npm run check; 0 warnings</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -1110,11 +1455,14 @@
         <strong class="text-white">SeikoClaw Agentic Coding Harness</strong> · Built by Saikojin
       </div>
       <div class="flex flex-wrap items-center gap-4">
-        <a href="story.html" class="text-amber-400 hover:underline font-semibold">📖 Harness Odyssey (Standalone Reader) ↗</a>
+        <a href="story.html" class="text-amber-400 hover:underline font-semibold">📖 Harness Odyssey ↗</a>
+        <a href="localoffice-story.html" class="text-blue-400 hover:underline font-semibold">📘 LocalOffice Retro Case Study ↗</a>
+        <a href="LOCALOFFICE_STORY.md" class="hover:text-blue-400">LocalOffice Story (.md) ↗</a>
         <a href="HARNESS_STORY.md" class="hover:text-amber-400">Story Markdown ↗</a>
-        <a href="EXECUTIVE_STORY.md" class="hover:text-amber-400">Executive 1-Pager (Markdown) ↗</a>
-        <a href="EXERMART_CASE_STUDY.md" class="hover:text-amber-400">Technical Report (Markdown) ↗</a>
-        <a href="https://github.com/Saikojin/seikoclaw-harness" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">seikoclaw-harness Repo ↗</a>
+        <a href="EXECUTIVE_STORY.md" class="hover:text-amber-400">Executive 1-Pager ↗</a>
+        <a href="EXERMART_CASE_STUDY.md" class="hover:text-amber-400">Technical Report ↗</a>
+        <a href="https://github.com/Saikojin/seikoclaw-harness" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">Harness Repo ↗</a>
+        <a href="https://github.com/Saikojin/LocalOffice" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">LocalOffice Repo ↗</a>
         <a href="https://github.com/Saikojin/ClawExerMart" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">ClawExerMart Repo ↗</a>
         <a href="https://github.com/Saikojin/RawExerMart" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">RawExerMart Repo ↗</a>
       </div>
@@ -1122,6 +1470,39 @@
   </footer>
 
   <script>
+    function switchSandboxTab(tab) {
+      var exerView = document.getElementById('sandbox-exermart-view');
+      var officeView = document.getElementById('sandbox-localoffice-view');
+      var exerActions = document.getElementById('exermart-quick-actions');
+      var officeActions = document.getElementById('localoffice-quick-actions');
+      var btnExer = document.getElementById('tab-btn-exermart');
+      var btnOffice = document.getElementById('tab-btn-localoffice');
+
+      if (tab === 'localoffice') {
+        if (exerView) exerView.classList.add('hidden');
+        if (officeView) officeView.classList.remove('hidden');
+        if (exerActions) exerActions.classList.add('hidden');
+        if (officeActions) officeActions.classList.remove('hidden');
+        if (btnExer) {
+          btnExer.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-white apple-press';
+        }
+        if (btnOffice) {
+          btnOffice.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-blue-500 text-slate-950 apple-press shadow';
+        }
+      } else {
+        if (exerView) exerView.classList.remove('hidden');
+        if (officeView) officeView.classList.add('hidden');
+        if (exerActions) exerActions.classList.remove('hidden');
+        if (officeActions) officeActions.classList.add('hidden');
+        if (btnExer) {
+          btnExer.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 apple-press shadow';
+        }
+        if (btnOffice) {
+          btnOffice.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-white apple-press';
+        }
+      }
+    }
+
     function setClawDemoMode(url) {
       var iframe = document.getElementById('claw-iframe');
       var label = document.getElementById('claw-mode-label');
@@ -1143,42 +1524,68 @@
       var execSections = document.querySelectorAll('[data-audience="executive"]');
       var engSections = document.querySelectorAll('[data-audience="engineering"]');
       var storySections = document.querySelectorAll('[data-audience="story"]');
+      var officeSections = document.querySelectorAll('[data-audience="localoffice"]');
 
       if (lens === 'story') {
         execSections.forEach(function(el) { el.style.display = 'none'; });
         engSections.forEach(function(el) { el.style.display = 'none'; });
         storySections.forEach(function(el) { el.style.display = ''; });
+        officeSections.forEach(function(el) { el.style.display = 'none'; });
         var storyEl = document.getElementById('harness-story');
         if (storyEl) {
           storyEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else if (lens === 'localoffice') {
+        execSections.forEach(function(el) { el.style.display = 'none'; });
+        engSections.forEach(function(el) { el.style.display = 'none'; });
+        storySections.forEach(function(el) { el.style.display = 'none'; });
+        officeSections.forEach(function(el) { el.style.display = ''; });
+        switchSandboxTab('localoffice');
+        var officeEl = document.getElementById('localoffice-retro');
+        if (officeEl) {
+          officeEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       } else if (lens === 'executive') {
         execSections.forEach(function(el) { el.style.display = ''; });
         engSections.forEach(function(el) { el.style.display = 'none'; });
         storySections.forEach(function(el) { el.style.display = 'none'; });
+        officeSections.forEach(function(el) { el.style.display = 'none'; });
       } else if (lens === 'engineering') {
         execSections.forEach(function(el) { el.style.display = 'none'; });
         engSections.forEach(function(el) { el.style.display = ''; });
         storySections.forEach(function(el) { el.style.display = 'none'; });
+        officeSections.forEach(function(el) { el.style.display = ''; });
       } else { // 'all'
         execSections.forEach(function(el) { el.style.display = ''; });
         engSections.forEach(function(el) { el.style.display = ''; });
         storySections.forEach(function(el) { el.style.display = ''; });
+        officeSections.forEach(function(el) { el.style.display = ''; });
       }
 
       var desktopButtons = {
         all: document.getElementById('lens-all'),
         executive: document.getElementById('lens-executive'),
         engineering: document.getElementById('lens-engineering'),
-        story: document.getElementById('lens-story')
+        story: document.getElementById('lens-story'),
+        localoffice: document.getElementById('lens-localoffice')
       };
       Object.keys(desktopButtons).forEach(function(key) {
         var btn = desktopButtons[key];
         if (!btn) return;
         if (key === lens) {
-          btn.className = 'px-3.5 py-1.5 rounded-full bg-amber-500 text-slate-950 font-bold apple-press';
+          if (key === 'localoffice') {
+            btn.className = 'px-3.5 py-1.5 rounded-full bg-blue-500 text-slate-950 font-bold apple-press';
+          } else {
+            btn.className = 'px-3.5 py-1.5 rounded-full bg-amber-500 text-slate-950 font-bold apple-press';
+          }
         } else {
-          btn.className = 'px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white apple-press';
+          if (key === 'localoffice') {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-blue-300 hover:text-white apple-press';
+          } else if (key === 'story') {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-amber-300 hover:text-white apple-press';
+          } else {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-slate-300 hover:text-white apple-press';
+          }
         }
       });
 
@@ -1186,15 +1593,26 @@
         all: document.getElementById('lens-all-mob'),
         executive: document.getElementById('lens-exec-mob'),
         engineering: document.getElementById('lens-eng-mob'),
-        story: document.getElementById('lens-story-mob')
+        story: document.getElementById('lens-story-mob'),
+        localoffice: document.getElementById('lens-localoffice-mob')
       };
       Object.keys(mobileButtons).forEach(function(key) {
         var btn = mobileButtons[key];
         if (!btn) return;
         if (key === lens) {
-          btn.className = 'px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold';
+          if (key === 'localoffice') {
+            btn.className = 'px-3 py-1.5 rounded-xl bg-blue-500 text-slate-950 font-bold';
+          } else {
+            btn.className = 'px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold';
+          }
         } else {
-          btn.className = 'px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700';
+          if (key === 'localoffice') {
+            btn.className = 'px-3 py-1.5 rounded-xl bg-slate-800 text-blue-300 font-semibold border border-blue-500/40';
+          } else if (key === 'story') {
+            btn.className = 'px-3 py-1.5 rounded-xl bg-slate-800 text-amber-300 font-semibold border border-amber-500/40';
+          } else {
+            btn.className = 'px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 font-semibold border border-slate-700';
+          }
         }
       });
     }
@@ -1202,8 +1620,12 @@
     (function initFromQuery() {
       var params = new URLSearchParams(window.location.search);
       var view = params.get('view');
-      if (view === 'executive' || view === 'engineering' || view === 'all' || view === 'story') {
+      if (view === 'executive' || view === 'engineering' || view === 'all' || view === 'story' || view === 'localoffice') {
         setAudienceLens(view);
+      }
+      var demo = params.get('demo');
+      if (demo === 'localoffice') {
+        switchSandboxTab('localoffice');
       }
     })();
   </script>
