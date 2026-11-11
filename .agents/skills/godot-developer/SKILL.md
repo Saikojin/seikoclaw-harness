@@ -328,6 +328,23 @@ To ship a standalone game build with a zero-friction Windows installer:
     - When authoring `.cs` scripts in Godot, C# must be built out-of-band via `dotnet build` or `godot-cli build`.
     - Call `godot-cli build <project>` before attaching new C# scripts to nodes.
 
+11. **Parametric 2D/HD-2D Architectural Prefab Generation (`topdown-pixel-architecture`)**:
+    - For 2D top-down, isometric, and HD-2D titles requiring modular buildings, inns, pagodas, castles, or industrial structures, generate assets via [`topdown-pixel-architecture`](../topdown-pixel-architecture/SKILL.md) using `scripts/topdown_architecture.py`:
+      ```bash
+      python scripts/topdown_architecture.py render forest inn \
+        --godot-project D:/DevWorkspace/MyGodotGame \
+        --godot-texture res://prefabs/buildings/inn.png \
+        --godot-prefab res://prefabs/buildings/inn.tscn
+      ```
+    - **Prefab Alignment Contract**:
+      - Generates a root `StaticBody2D` containing `CollisionPolygon2D` (exact foundation footprint calculated from 3D camera projection) and an upper-story `Area2D` occlusion polygon.
+      - The accompanying cropped PNG is automatically aligned with the Sprite2D origin offset; always store both in matching `res://` directories.
+    - **Live Instantiation via MCP**:
+      - Instantiate into active scenes under a 2D YSort container via `node-create`:
+        ```json
+        {"name": "VillageInn", "parentNodeRef": {"name": "World/YSort"}, "subScenePath": "res://prefabs/buildings/inn.tscn"}
+        ```
+
 ---
 
 ## 6. Troubleshooting & Health Checks

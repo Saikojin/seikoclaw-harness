@@ -7,80 +7,66 @@ localOnly: true
 # SeikoClaw Task Plan
 
 ## Task Description
-# Master Task Checklist: Gameplay Atlas Integration & Offline Mechanic Intelligence
+# SeikoClaw Task Board & DAG Frontier
 
-## 🎯 Goal
-Scrape, index, and integrate the 280 gameplay mechanics from [Gameplay Atlas](https://gameplayatlas.loopyhop.com/) into an offline SQLite FTS5 database (`data/gameplay_atlas.db`), build a high-performance CLI query lever (`scripts/gameplay_atlas.py`), author a dedicated agent skill (`gameplay-atlas`), and integrate mechanic retrieval directly into `game-forge` (Stages A, B, and C) and `game-router`.
-
----
-
-## 📋 Execution Roadmap
-
-### Phase 1: Ingestion Engine & Offline Database
-- [ ] **Task 1.1: Author Idempotent Sync Scraper (`scripts/sync_gameplay_atlas.py`)**
-  - **Objective**: Build an automated scraper that fetches the live site root, dynamically extracts the content-hashed asset directory (e.g. `/assets/<hash>/`), downloads `index.json`, uses a concurrent worker pool to fetch all 280 mechanic JSON files, populates normalized SQLite tables with an FTS5 full-text index in `data/gameplay_atlas.db`, and saves the raw JSON files into `data/gameplay_atlas/raw/`.
-  - **Validate**: `python scripts/sync_gameplay_atlas.py`
-  - **[GATE: QA]**: SQLite database contains exactly 280 mechanics across 28 systems, with full FTS5 search index and 0 HTTP errors.
-
-- [ ] **Task 1.2: Database Integrity & FTS5 Verification Suite**
-  - **Objective**: Author and run a test script (`tests/test_gameplay_atlas_db.py`) verifying that the SQLite schema, tag associations, loop steps, parameter definitions, shipped game cases, and FTS5 search queries return complete and accurate records.
-  - **Validate**: `python -m unittest tests/test_gameplay_atlas_db.py`
-  - **[GATE: QA]**: 100% test pass asserting all 280 records, table relationships, and FTS5 search operators.
+## 🚀 Ready Frontier (Claimable Work)
+- **`sc-31ec`**: Test Payment Flow (P2) `[QA_GATE]`
+- **`sc-8b36.1`**: [security-audit] Reconnaissance & Boundary Mapping (architecture.md, coverage-ledger.json) (P2)
 
 ---
 
-### Phase 2: CLI Query Lever (`scripts/gameplay_atlas.py`)
-- [ ] **Task 2.1: Implement High-Performance CLI Tool (`scripts/gameplay_atlas.py`)**
-  - **Objective**: Create a zero-dependency CLI interface with subcommands:
-    - `search <query>` (FTS5 search with `--system`, `--tag`, `--scope`, `--json` flags)
-    - `get <id>` (detailed formatted mechanic card or raw json)
-    - `systems` (list all 28 systems with counts)
-    - `tags` (list all 16 tags with counts)
-    - `combine <system1> <system2>` (cross-system mechanic synergy ideas)
-    - `prototype-recipe <id>` (extracts `firstStep`, `pitfall`, and `test` playtest criteria)
-    - `cases <game_name>` (find all mechanics implemented by a shipped game, e.g. Factorio, Celeste)
-    - `random` (serendipitous mechanic generator with optional `--system` filter)
-  - **Validate**: `python scripts/gameplay_atlas.py search "stamina" && python scripts/gameplay_atlas.py get combat-stamina-budget`
-  - **[GATE: QA]**: All 8 subcommands execute in <10ms and return expected structured outputs.
+## 📋 All Tasks
 
----
+- [x] **`sc-effigy`**: Ingest & Integrate SifuInTheShell/Effigy Offline Neural Asset Foundry into SeikoClaw (P1)
+  - [x] **`sc-effigy.1`**: Author .agents/skills/effigy-asset-pipeline/SKILL.md (P1)
+    - Verify: python scripts/eval_skill_routing.py --check-lint
+  - [x] **`sc-effigy.2`**: Wire Effigy into Game Forge Stage C (Staged Art) & Stage D (SxS Visual Bar) (P1)
+    - Verify: Test markdown cross-references in game-forge/SKILL.md
+  - [x] **`sc-effigy.3`**: Register effigy-asset-pipeline in seikoclaw-harness router index (Section 1) (P2)
+    - Verify: Test markdown links in seikoclaw-harness/SKILL.md
+  - [x] **`sc-effigy.4`**: Add SifuInTheShell & Effigy attribution to CREDITS.md (Section 14) (P2)
+    - Verify: Inspect CREDITS.md Section 14
+  - [x] **`sc-effigy.5`**: Update README.md with Effigy Local Neural Asset Foundry in Highlights & Architecture (P2)
+    - Verify: Inspect README.md
+  - [x] **`sc-effigy.6`**: Tier 2 Skill Routing, Collision Detection & System Diagnostics (P1) `[GATE: QA]`
+    - Verify: python scripts/eval_skill_routing.py --check-lint && python scripts/eval_skill_routing.py --detect-collisions && python seikoclaw.py doctor
 
-### Phase 3: Agent Skill & Routing Integration
-- [ ] **Task 3.1: Author `gameplay-atlas` Skill (`.agents/skills/gameplay-atlas/SKILL.md`)**
-  - **Objective**: Create `.agents/skills/gameplay-atlas/SKILL.md` with standard frontmatter, providing agents with actionable recipes for mechanic ideation, game loop design, player dilemma analysis, and prototyping test plans using `scripts/gameplay_atlas.py`.
-  - **Validate**: `python -c "from pathlib import Path; assert Path('.agents/skills/gameplay-atlas/SKILL.md').exists()"`
-  - **[GATE: QA]**: Valid frontmatter, clean Markdown formatting, and explicit command contracts.
-
-- [ ] **Task 3.2: Expand Routing Benchmark Dataset with Gameplay Atlas Queries**
-  - **Objective**: Add canonical mechanic lookup and prototyping queries to `evals/routing/routing_cases.json`, then execute the routing evaluation harness to prove accurate routing and zero skill collisions.
-  - **Validate**: `python scripts/eval_skill_routing.py --cases evals/routing/routing_cases.json`
-  - **[GATE: QA]**: Routing benchmark achieves 100% accuracy with zero overlap collisions.
-
----
-
-### Phase 4: Game Forge & Game Router Ecosystem Integration
-- [ ] **Task 4.1: Integrate Gameplay Atlas into `game-router` and `game-forge`**
-  - **Objective**: Update `.agents/skills/game-router/SKILL.md` and `.agents/skills/game-forge/SKILL.md` so that:
-    - `game-router` dispatches `gameplay-atlas` for mechanic lookup and loop formulations.
-    - `game-forge` Stage A automatically cross-references Gameplay Atlas for 10s/30s/5m loops and locked game cases.
-    - `game-forge` Stage B (`scope-surgeon`) utilizes `prototype-recipe` to extract `firstStep` and `pitfall`.
-    - `game-forge` Stage C (`game-systems-modeler`) imports `parameters` into `docs/design/balance.json`.
-  - **Validate**: `python -c "text = open('.agents/skills/game-forge/SKILL.md', encoding='utf-8').read(); assert 'gameplay-atlas' in text"`
-  - **[GATE: QA]**: Game Forge and Game Router workflows explicitly bind Gameplay Atlas.
-
-- [ ] **Task 4.2: End-to-End System Diagnostics & Health Verification**
-  - **Objective**: Run `seikoclaw doctor` to certify all databases, skills, and routing benchmarks pass with green status.
-  - **Validate**: `python seikoclaw.py doctor`
-  - **[GATE: QA]**: All diagnostic checks pass.
+- [x] **`sc-obs`**: Ingest & Integrate kepano/obsidian-skills into SeikoClaw (P2)
+  - [x] **`sc-obs.1`**: Ingest defuddle skill into .agents/skills/defuddle/SKILL.md (P2)
+    - Verify: python scripts/eval_skill_routing.py --check-lint
+  - [x] **`sc-obs.2`**: Ingest knap skill into .agents/skills/knap/SKILL.md (P2)
+    - Verify: python scripts/eval_skill_routing.py --check-lint
+  - [x] **`sc-obs.3`**: Update seikoclaw-harness router with defuddle and knap in Section 5 (P2)
+    - Verify: Test markdown links in seikoclaw-harness/SKILL.md
+  - [x] **`sc-obs.4`**: Add Steph Ango (@kepano) & Obsidian team attribution to CREDITS.md (P2)
+    - Verify: Inspect CREDITS.md section
+  - [x] **`sc-obs.5`**: Tier 2 Skill Routing & Frontmatter Validation (P1) `[GATE: QA]`
+    - Verify: python scripts/eval_skill_routing.py --check-lint && python scripts/eval_skill_routing.py --detect-collisions
+- [x] **`sc-353a`**: Verify Hybrid Engine (P1) `[GATE: QA]`
+- [x] **`sc-e5ee`**: Test Feature A (P2)
+- [ ] **`sc-31ec`**: Test Payment Flow (P2) `[GATE: QA]`
+- [~] **`sc-8b36`**: Audit MCP Bridges & Trust Boundaries (P2) `(IN_PROGRESS)`
+  - [ ] **`sc-8b36.1`**: [security-audit] Reconnaissance & Boundary Mapping (architecture.md, coverage-ledger.json) (P2) `[WISP]`
+    - Map system architecture, trust boundaries, entry points, and initialize coverage-ledger.json validated via validate-coverage-ledger.cjs.
+  - [ ] **`sc-8b36.2`**: [security-audit] Coverage-Led Hunting Across Attack Classes (/cloudflare-security-audit) (P2) `[WISP]`
+    - Dispatch isolated hunters across ledger units (AI/LLM, Binary, HTTP/Auth, Client) to identify candidate vulnerabilities.
+  - [ ] **`sc-8b36.3`**: [security-audit] Candidate Validation via Adversarial Disproof (/gate:disproof) (P2) `[GATE: DISPROOF]` `[WISP]`
+    - Deploy fresh isolated verifiers whose explicit goal is to disprove each candidate finding. Confirm only candidates that survive disproof with full source traces.
+  - [ ] **`sc-8b36.4`**: [security-audit] Structured Output & Mechanical Schema Validation (validate-findings.cjs) (P2) `[GATE: TEST]` `[WISP]`
+    - Compile findings.json partitioned into confirmed, needs_validation, and rejected, validated strictly against report-schema.json.
+  - [ ] **`sc-8b36.5`**: [security-audit] Independent Record & Remediation Verification (P2) `[WISP]`
+    - Fresh agent verifies final source claims and validates smallest effective remediation patches.
+  - [ ] **`sc-8b36.6`**: [security-audit] Target-Neutral Reporting (REPORT.md, FINDINGS-DETAIL.md) (P2) `[GATE: QA]` `[WISP]`
+    - Generate final markdown reports derived directly from verified records and ledger: executive summary, full traces, and validation plans.
 
 
 <Checklist id="seikoclaw-checklist" items={[
-  { id: "task-1", label: "**Task 1.1: Author Idempotent Sync Scraper (`scripts/sync_gameplay_atlas.py`)**" },
-  { id: "task-2", label: "**Task 1.2: Database Integrity & FTS5 Verification Suite**" },
-  { id: "task-3", label: "**Task 2.1: Implement High-Performance CLI Tool (`scripts/gameplay_atlas.py`)**" },
-  { id: "task-4", label: "**Task 3.1: Author `gameplay-atlas` Skill (`.agents/skills/gameplay-atlas/SKILL.md`)**" },
-  { id: "task-5", label: "**Task 3.2: Expand Routing Benchmark Dataset with Gameplay Atlas Queries**" },
-  { id: "task-6", label: "**Task 4.1: Integrate Gameplay Atlas into `game-router` and `game-forge`**" },
-  { id: "task-7", label: "**Task 4.2: End-to-End System Diagnostics & Health Verification**" },
+  { id: "task-1", label: "**`sc-31ec`**: Test Payment Flow (P2) `[GATE: QA]`" },
+  { id: "task-2", label: "**`sc-8b36.1`**: [security-audit] Reconnaissance & Boundary Mapping (architecture.md, coverage-ledger.json) (P2) `[WISP]`" },
+  { id: "task-3", label: "**`sc-8b36.2`**: [security-audit] Coverage-Led Hunting Across Attack Classes (/cloudflare-security-audit) (P2) `[WISP]`" },
+  { id: "task-4", label: "**`sc-8b36.3`**: [security-audit] Candidate Validation via Adversarial Disproof (/gate:disproof) (P2) `[GATE: DISPROOF]` `[WISP]`" },
+  { id: "task-5", label: "**`sc-8b36.4`**: [security-audit] Structured Output & Mechanical Schema Validation (validate-findings.cjs) (P2) `[GATE: TEST]` `[WISP]`" },
+  { id: "task-6", label: "**`sc-8b36.5`**: [security-audit] Independent Record & Remediation Verification (P2) `[WISP]`" },
+  { id: "task-7", label: "**`sc-8b36.6`**: [security-audit] Target-Neutral Reporting (REPORT.md, FINDINGS-DETAIL.md) (P2) `[GATE: QA]` `[WISP]`" },
 ]}
 />
