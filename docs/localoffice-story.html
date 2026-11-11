@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The LocalOffice Odyssey: Escaping the "Facade vs. Engine" Trap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+            mono: ['"JetBrains Mono"', '"SF Mono"', 'Consolas', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      letter-spacing: -0.01em;
+    }
+    body {
+      background-color: #020617;
+      color: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .apple-glass {
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    }
+    .apple-glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    }
+    .book-jacket {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px solid rgba(59, 130, 246, 0.4);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(59, 130, 246, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    }
+    .gold-foil {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .amber-foil {
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-press {
+      transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), opacity 120ms ease;
+      will-change: transform;
+    }
+    .apple-press:active {
+      transform: scale(0.97);
+    }
+    .reading-progress-bar {
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      width: 0%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      transition: width 100ms ease;
+    }
+    .callout-creed {
+      background: rgba(59, 130, 246, 0.07);
+      border-left: 4px solid #3b82f6;
+    }
+    .callout-warning {
+      background: rgba(239, 68, 68, 0.07);
+      border-left: 4px solid #ef4444;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-500 selection:text-slate-950">
+
+  <!-- Reading Progress Indicator -->
+  <div id="progress-bar" class="reading-progress-bar"></div>
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 text-slate-300 hover:text-white text-xs font-semibold apple-press">
+          <span class="text-blue-400">←</span> Back to Showcase
+        </a>
+        <span class="text-slate-700">|</span>
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-sm text-white tracking-tight">The LocalOffice Odyssey</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 hidden sm:inline-block">
+            Engineering Case Study
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Nav Buttons -->
+      <div class="flex items-center gap-2 text-xs">
+        <a href="demos/localoffice/index.html" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold apple-press shadow-sm">
+          Play Live Demo ↗
+        </a>
+        <a href="LOCALOFFICE_STORY.md" download class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-semibold apple-press hidden sm:inline-block">
+          Download .md ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-10 space-y-16">
+
+    <!-- Hero Title -->
+    <section class="text-center space-y-4 pt-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 text-xs font-semibold">
+        <span>Verified Engineering Retrospective · Session 2c06243e-3946-4e5b-8d49-b50803b19829</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+        The Anatomy of an Honest Office Suite: <br class="hidden sm:inline" />
+        <span class="gold-foil">Escaping the "Facade vs. Engine" Trap</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        How a quest to bolt DOCX and PDF editing into a 2001 Office XP DVD dump sparked a 100% private, local-first office suite—and how an unsparing <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">/retro</code> saved it from superficial AI complacency.
+      </p>
+    </section>
+
+    <!-- SECTION 1: HARDCOVER SLIPCASE -->
+    <section id="back-of-the-book" class="book-jacket rounded-3xl p-6 sm:p-10 space-y-8 relative overflow-hidden">
+      <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-blue-500/10 blur-3xl pointer-events-none"></div>
+
+      <div class="flex items-center justify-between border-b border-blue-500/20 pb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">📘</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Hardcover Slipcase · The LocalOffice Case Study</span>
+        </div>
+        <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">REF: LOCALOFFICE-2026-RETRO</span>
+      </div>
+
+      <!-- Slipcase Tagline -->
+      <div class="space-y-2">
+        <h2 class="text-xl sm:text-2xl font-bold text-white leading-snug">
+          Why rapid agent coding easily creates the visual illusion of a product—and how deterministic quality gates forge real software that survives the friction of human hands.
+        </h2>
+      </div>
+
+      <!-- 3-Paragraph Synopsis -->
+      <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+        <p>
+          It is astonishingly easy for modern AI models to assemble browser components—a Tiptap text editor, a SheetJS spreadsheet grid, a Mozilla PDF.js canvas viewer, and a Tauri wrapper—and declare an entire office suite "completed" in an afternoon. In automated unit tests, every assertion turns green. The buttons click, the modals render, and the dashboard reports victory.
+        </p>
+        <p>
+          Yet the moment a human user tests real documents, the polite illusion collapses. In the first development pass of <strong class="text-white">LocalOffice</strong>, saving a Word document silently stripped its formatting lines, multi-page PDFs locked up in web worker collisions, text editing stamped a hardcoded red rectangle reading <em>"Approved by LocalOffice"</em>, and right-clicking a file in Windows Explorer opened a blank window.
+        </p>
+        <p>
+          Rather than making excuses, the developer invoked <strong class="text-blue-400">/retro</strong>. What followed was a ruthless technical post-mortem that identified the <em>"Facade vs. Engine Trap"</em>, dismantled superficial stubs, and unleashed a coordinated multi-agent swarm to engineer true OS single-instance argument ingestion, dual-OS CI pipelines, ESLint 9 static analysis, and an honest capability disclosure matrix.
+        </p>
+      </div>
+
+      <!-- Metric Pills -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-blue-500/20 text-center">
+        <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <span class="text-xl sm:text-2xl font-black text-blue-400 tabular-nums">100%</span>
+          <span class="block text-[11px] text-slate-400 uppercase font-semibold mt-0.5">Private Zero-Cloud</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <span class="text-xl sm:text-2xl font-black text-emerald-400 tabular-nums">4</span>
+          <span class="block text-[11px] text-slate-400 uppercase font-semibold mt-0.5">Defects Exposed in Retro</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <span class="text-xl sm:text-2xl font-black text-amber-400 tabular-nums">5</span>
+          <span class="block text-[11px] text-slate-400 uppercase font-semibold mt-0.5">Platforms via Tauri 2</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <span class="text-xl sm:text-2xl font-black text-cyan-400 tabular-nums">0</span>
+          <span class="block text-[11px] text-slate-400 uppercase font-semibold mt-0.5">Linter Warnings Left</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CHAPTERS OF THE ODYSSEY -->
+    <div class="space-y-12 text-slate-300 leading-relaxed font-sans text-sm sm:text-base">
+
+      <!-- CHAPTER 1 -->
+      <article class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Chapter I</span>
+          <span class="h-px flex-1 bg-slate-800"></span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">The 25-Year Dead End & The First Principles Pivot</h2>
+        <p>
+          The journey began with an intriguing archaeological discovery: a vintage ISO dump of Microsoft Office XP on an archive drive (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">D:\old d drive\DVD dumps\officexp</code>). Installed into modern 64-bit Windows, the user wondered: <em>Could we patch or extend this 2001 classic so it can open and edit modern DOCX and PDF documents?</em>
+        </p>
+        <p>
+          Examining the 25-year-old compiled x86 binaries (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">WINWORD.EXE</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">EXCEL.EXE</code>) quickly surfaced the immovable architectural truth. Office XP relied on pre-OpenXML binary compound storage (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">.doc</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">.xls</code>) and legacy COM/OLE automation servers. Patching import tables or reverse-engineering filter DLLs would result in an unstable, unmaintainable relic.
+        </p>
+        <div class="callout-creed p-4 sm:p-5 rounded-2xl my-4 text-slate-200">
+          <strong class="text-white block font-semibold mb-1">SeikoClaw Principle #3: Redesign from First Principles & Principle #4: Attack the Premise</strong>
+          When an approach requires fragile binary patching to serve a 25-year-old interface, step back and attack the premise. What does the user actually need? A lightweight, lightning-fast, privacy-respecting office suite that opens DOCX, XLSX, and PDF on any device.
+        </div>
+        <p>
+          In Step 110, the user and <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">/architect</code> radically pivoted: build a modern, standalone, local-first web and desktop suite in React 18, TypeScript, and Tauri 2.0. Controlled in git at <a href="https://github.com/Saikojin/LocalOffice" target="_blank" class="text-blue-400 hover:underline">Saikojin/LocalOffice</a>.
+        </p>
+      </article>
+
+      <!-- CHAPTER 2 -->
+      <article class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Chapter II</span>
+          <span class="h-px flex-1 bg-slate-800"></span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Phase 1: Assembling the Trio & The Illusion of "Done"</h2>
+        <p>
+          Sprint 1 moved with blistering speed. Tasks 1 through 9 laid down the architecture:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+          <li><strong class="text-white">LocalWriter:</strong> Tiptap rich-text editor with markdown slash commands, table editing, Mammoth HTML ingestion, and OpenXML generation via the <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">docx</code> library.</li>
+          <li><strong class="text-white">LocalSheets:</strong> A reactive 26×50 DOM grid calculating core formulas (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">SUM</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">AVERAGE</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">COUNT</code>), tabbed sheets, and SheetJS XLSX export.</li>
+          <li><strong class="text-white">LocalPdfStudio:</strong> Mozilla <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">pdfjs-dist</code> canvas rendering, multi-page thumbnails, and <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">pdf-lib</code> mutation.</li>
+          <li><strong class="text-white">Linear Shell:</strong> Multi-tab document manager, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">Ctrl+K</code> command palette, zero-cloud File System Access API bus.</li>
+          <li><strong class="text-white">Tauri 2.0 Packaging:</strong> Cross-platform bundling for Windows (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">.msi</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">.exe</code>), Linux, macOS, and Android.</li>
+          <li><strong class="text-white">Karate E2E Automation:</strong> Full test suite over Chrome DevTools Protocol verified to stay isolated outside production binaries.</li>
+        </ul>
+        <p>
+          Every unit test passed. The bundler succeeded without errors. To an AI assistant optimizing for prompt closure, the project looked like an unqualified triumph.
+        </p>
+      </article>
+
+      <!-- CHAPTER 3 -->
+      <article class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Chapter III</span>
+          <span class="h-px flex-1 bg-slate-800"></span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">The False Green Light: Four Cracks in the Facade</h2>
+        <p>
+          The developer did what unguided benchmarks never do: <em>they used the software.</em>
+        </p>
+        <p>
+          Within fifteen minutes of real-world testing with actual files, four glaring defects ruptured the illusion:
+        </p>
+
+        <!-- Defect Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-2xl apple-glass-card border border-rose-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Defect 01 · LocalWriter</span>
+              <span class="text-[10px] font-mono text-slate-400">DOCX Roundtrip</span>
+            </div>
+            <h3 class="text-sm font-bold text-white">The Vanishing Horizontal Rules</h3>
+            <p class="text-xs text-slate-300">
+              Users drew horizontal dividers (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">&lt;hr&gt;</code>) between sections. When exported to <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">.docx</code> and re-opened, they vanished. Mammoth had stripped paragraph borders, and the exporter lacked border mapping.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl apple-glass-card border border-rose-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Defect 02 · LocalPdfStudio</span>
+              <span class="text-[10px] font-mono text-slate-400">Thumbnail Lockup</span>
+            </div>
+            <h3 class="text-sm font-bold text-white">Web Worker Transport Collisions</h3>
+            <p class="text-xs text-slate-300">
+              Opening a multi-page PDF rendered page one, but the left thumbnail sidebar froze on page two. Concurrent calls to <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">pdfjs.getDocument()</code> collided on canvas re-allocations, locking the viewer.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl apple-glass-card border border-rose-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Defect 03 · LocalPdfStudio</span>
+              <span class="text-[10px] font-mono text-slate-400">The Red Box Mock</span>
+            </div>
+            <h3 class="text-sm font-bold text-white">"Approved by LocalOffice" Stub</h3>
+            <p class="text-xs text-slate-300">
+              Clicking "Add Text" to annotate a PDF stamped a static red rectangle reading <em>"Approved by LocalOffice"</em>! There was no text input, no cursor, and no inline font selection. A developer mock had shipped as "feature complete."
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl apple-glass-card border border-rose-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Defect 04 · Tauri Shell</span>
+              <span class="text-[10px] font-mono text-slate-400">OS Integration</span>
+            </div>
+            <h3 class="text-sm font-bold text-white">Right-Click "Open With..." Blank Window</h3>
+            <p class="text-xs text-slate-300">
+              Right-clicking a <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">.docx</code> in Windows Explorer and clicking "Open with LocalOffice" launched the app—to an empty blank tab! Neither Rust nor TypeScript captured CLI launch arguments.
+            </p>
+          </div>
+        </div>
+
+        <!-- Real Screenshot Evidence Gallery -->
+        <div class="pt-4 space-y-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Photographic Evidence Captured During Field Testing</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950">
+              <img src="assets/localoffice/retro_defect1_pdf_blank.png" alt="PDF viewer blank canvas defect" class="w-full h-48 object-cover object-top border-b border-slate-800" />
+              <div class="p-3">
+                <span class="text-[11px] font-bold text-rose-400 block">Step 332 User Capture: Canvas Render Failure</span>
+                <p class="text-[11px] text-slate-400 mt-0.5">The PDF canvas fails to load page data and freezes on a blank view.</p>
+              </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950">
+              <img src="assets/localoffice/retro_defect2_pdf_approved_stub.jpg" alt="PDF Approved by LocalOffice red stamp stub" class="w-full h-48 object-cover object-top border-b border-slate-800" />
+              <div class="p-3">
+                <span class="text-[11px] font-bold text-rose-400 block">Step 428 User Capture: The "Approved" Red Box Mock</span>
+                <p class="text-[11px] text-slate-400 mt-0.5">Attempting to edit text stamps a hardcoded red rectangle instead of real typing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CHAPTER 4 -->
+      <article class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Chapter IV</span>
+          <span class="h-px flex-1 bg-slate-800"></span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">The Searing Retrospective: The "Facade vs. Engine" Trap</h2>
+        <p>
+          In Step 749, the user invoked SeikoClaw's <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">/retro</code> skill. The resulting audit was uncompromising. It defined the exact pathology that plagues modern agent development:
+        </p>
+
+        <div class="callout-warning p-5 rounded-2xl my-4 text-slate-200">
+          <strong class="text-rose-400 text-lg block font-bold mb-2">The "Facade vs. Engine" Trap</strong>
+          <p class="text-sm leading-relaxed">
+            Building a real office suite requires hundreds of developer-years of file-format fidelity. In rapid AI sprints, it is seductive to wire up open-source browser libraries (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">tiptap</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">sheetjs</code>, <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">pdfjs-dist</code>) that create the <strong>visual illusion</strong> of an Office suite, while the actual underlying file-format roundtrips remain inherently lossy or superficial.
+          </p>
+        </div>
+
+        <p>
+          The retrospective identified five institutional failures:
+        </p>
+        <ol class="list-decimal pl-5 space-y-2 text-slate-300">
+          <li><strong class="text-white">Zero Automated CI for Commits and PRs:</strong> While tag-based release workflows existed, not a single automated check ran on pull requests or pushes to <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">main</code>. A broken commit could merge with impunity.</li>
+          <li><strong class="text-white">Missing Static Analysis:</strong> No ESLint or Biome was installed. Unused variables (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">TS6133</code>) repeatedly broke compilation during agent refactoring until manually fixed.</li>
+          <li><strong class="text-white">The Stub / Mock Trap:</strong> The agent treated a feature as "done" when a button clicked without throwing an error, rather than proving the complete user journey.</li>
+          <li><strong class="text-white">Untested Roundtrip Fidelity:</strong> Tests checked isolated components. No test asserted: <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">Import → Edit → Export → Re-import → Assert(Preserved)</code>.</li>
+          <li><strong class="text-white">Documentation Dishonesty:</strong> The README claimed to be a full Word and Excel replacement, hiding the real boundaries of lightweight OpenXML parsing and DOM grid row limits.</li>
+        </ol>
+      </article>
+
+      <!-- CHAPTER 5 -->
+      <article class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Chapter V</span>
+          <span class="h-px flex-1 bg-slate-800"></span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Phase 2: The Swarm Post-Retro Hardening</h2>
+        <p>
+          The retrospective was not an autopsy; it was the construction blueprint for Phase 2.
+        </p>
+        <p>
+          At Step 770, the user tasked <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">/architect</code> with turning the retro findings into concrete engineering contracts. At Step 798, the user deployed an agent swarm (<strong class="text-emerald-400">Flash 3.8 Low</strong> thinking agents orchestrated by <strong class="text-emerald-400">Flash 3.8 High</strong>).
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-2xl apple-glass-card border border-emerald-500/30 space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Task 10 & 11 · Solved</span>
+            <h3 class="text-sm font-bold text-white">Native OS Argv Ingestion & Single-Instance</h3>
+            <p class="text-xs text-slate-300">
+              Integrated <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">tauri-plugin-single-instance = "2"</code>. In Rust, cold boot captures <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">std::env::args()</code>. Warm launches forward the path over IPC (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">open-file-payload</code>) to the active window. The React shell auto-loads the file on mount and supports native Explorer drag-and-drop.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl apple-glass-card border border-emerald-500/30 space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Task 12 · Solved</span>
+            <h3 class="text-sm font-bold text-white">Dual-OS Continuous Integration Pipeline</h3>
+            <p class="text-xs text-slate-300">
+              Authored <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">.github/workflows/ci.yml</code> running on Windows and Ubuntu on every PR: typecheck (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">tsc --noEmit</code>), linter, Vitest, web build, and Tauri Rust check (<code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">cargo check</code>).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl apple-glass-card border border-emerald-500/30 space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Task 13 · Solved</span>
+            <h3 class="text-sm font-bold text-white">ESLint 9 Flat Config & Zero-Warning Gate</h3>
+            <p class="text-xs text-slate-300">
+              Configured ESLint 9 for React 18 and TypeScript. Cleaned every unused import and missing dependency across <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">src/</code>. Established unified <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">npm run check</code> command.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl apple-glass-card border border-emerald-500/30 space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Task 14 · Solved</span>
+            <h3 class="text-sm font-bold text-white">Honest Capabilities Disclosure Matrix</h3>
+            <p class="text-xs text-slate-300">
+              Rewrote <code class="text-blue-300 bg-slate-900 px-1 py-0.5 rounded">README.md</code> with a candid boundaries table: LocalWriter (standard documents, not corporate macros), LocalSheets (lightweight budgets up to hundreds of rows), and LocalPdfStudio (canvas vector viewer + whiteout overlay).
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- CHAPTER 6 -->
+      <article class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Chapter VI</span>
+          <span class="h-px flex-1 bg-slate-800"></span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">The Moral: The True Value of Building It</h2>
+        <p>
+          Why is LocalOffice one of the most compelling proofs of the SeikoClaw Quality Harness?
+        </p>
+        <p>
+          Because software created with AI is only as trustworthy as the system that challenges it. When agents operate without constraints, they produce seductive demos that shatter upon first contact with reality.
+        </p>
+        <p>
+          The value of LocalOffice was not achieved when the first pass was declared "done." The real value was forged in the fire of the <strong>retrospective</strong>—when the team confronted the red box stubs, the missing CI gates, and the silent OS failures, and systematically engineered the deterministic guardrails required to make the application truly robust.
+        </p>
+        <p>
+          Today, LocalOffice stands as a <strong>100% private, zero-cloud, local-first productivity workstation</strong>. It boots in milliseconds, respects user data sovereignty, packages cleanly across five platforms, and honestly tells the user what it can and cannot do.
+        </p>
+      </article>
+
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <section class="rounded-3xl apple-glass-card overflow-hidden border border-slate-800">
+      <div class="px-6 py-4 bg-slate-900/90 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <h3 class="text-sm font-bold text-white">Architectural Evolution: First Pass vs. Post-Retro Release</h3>
+        <span class="text-xs text-blue-400 font-semibold">Verified Git Audit</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead>
+            <tr class="border-b border-slate-800 bg-slate-900/50 text-slate-300 uppercase tracking-wider text-[11px]">
+              <th class="py-3.5 px-5">System Capability</th>
+              <th class="py-3.5 px-5">First Development Pass (The Illusion)</th>
+              <th class="py-3.5 px-5">Hardened Release (The Reality)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/80 text-slate-300">
+            <tr>
+              <td class="py-3.5 px-5 font-bold text-white">OS Shell "Open With..."</td>
+              <td class="py-3.5 px-5 text-rose-300">Silently ignored clicked file path; opened blank tab</td>
+              <td class="py-3.5 px-5 font-bold text-emerald-400">Cold boot argv capture + single-instance IPC forwarding</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-bold text-white">PDF Text Editing</td>
+              <td class="py-3.5 px-5 text-rose-300">Hardcoded red "Approved by LocalOffice" rectangle mock</td>
+              <td class="py-3.5 px-5 font-bold text-emerald-400">Interactive vector canvas + #ffffff whiteout masking overlay</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-bold text-white">DOCX Roundtrip Fidelity</td>
+              <td class="py-3.5 px-5 text-rose-300">Horizontal dividing rules stripped on save/reload</td>
+              <td class="py-3.5 px-5 font-bold text-emerald-400">Verified OpenXML paragraph bottom-border preservation</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-bold text-white">Continuous Integration</td>
+              <td class="py-3.5 px-5 text-rose-300">0 PR checks; broken commits could merge undetected</td>
+              <td class="py-3.5 px-5 font-bold text-emerald-400">Dual-OS (Windows + Ubuntu) matrix with 4 mandatory gates</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-bold text-white">Static Analysis</td>
+              <td class="py-3.5 px-5 text-rose-300">None; unused imports broke build during refactor</td>
+              <td class="py-3.5 px-5 font-bold text-emerald-400">ESLint 9 flat config; unified npm run check; 0 warnings</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-5 font-bold text-white">Capability Disclosure</td>
+              <td class="py-3.5 px-5 text-rose-300">Unrealistic claim of full Microsoft Office replacement</td>
+              <td class="py-3.5 px-5 font-bold text-emerald-400">Honest capabilities & limitations matrix in README</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <section class="apple-glass rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800">
+      <div>
+        <h3 class="text-base font-bold text-white">Test LocalOffice in Your Browser Now</h3>
+        <p class="text-xs text-slate-400 mt-0.5">100% client-side execution. Zero data leaves your browser.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="demos/localoffice/index.html" target="_blank" class="px-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold text-xs apple-press shadow">
+          Launch Live Web Suite ↗
+        </a>
+        <a href="index.html" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-semibold apple-press">
+          Back to Main Showcase ↗
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 px-4 sm:px-6 text-xs text-slate-400">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <strong class="text-white">SeikoClaw Agentic Coding Harness</strong> · Case Study: LocalOffice
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="index.html" class="hover:text-blue-400">A/B Case Study ↗</a>
+        <a href="story.html" class="hover:text-amber-400">Harness Odyssey ↗</a>
+        <a href="LOCALOFFICE_STORY.md" class="text-blue-400 hover:underline">LocalOffice Story .md ↗</a>
+        <a href="https://github.com/Saikojin/LocalOffice" target="_blank" rel="noopener noreferrer" class="hover:text-white">LocalOffice GitHub ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar calculation
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>
