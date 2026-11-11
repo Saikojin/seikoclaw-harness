@@ -27,6 +27,7 @@ Thumbs.db
 # Test & Staging
 .pytest_cache/
 .scratch/
+tests/out/
 .agents/skills/.candidates/
 
 # Local Config
